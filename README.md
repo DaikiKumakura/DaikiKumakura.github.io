@@ -1,1 +1,0 @@
-# DaikiKumakura.github.io
