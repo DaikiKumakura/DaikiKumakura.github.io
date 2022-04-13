@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ja" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width",initial-scale=1.0>
+    <link rel="stylesheet" href="css/reset.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+JP:400,700&display=swap" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.9.0/css/all.css" rel="stylesheet">
+    <title>Daiki Kumakura Homepage</title>
+  </head>
+  <body>
+
+    <div class="wrapper">
+
+      <!-- 左側 -->
+      <div class="left">
+        <header>
+          <h1>Daiki Kumakura</h1><!-- サイト名を入れてください -->
+        </header>
+        <nav>
+          <ul class="globalNav"><!-- メニュー項目を編集してください -->
+            <li><a href="index.html#top">TOP</a></li>
+            <li><a href="cv.html#cv">CV</a></li>
+            <li><a href="research.html#research">RESEARCH</a></li>
+            <li><a href="education.html#education">EDUCATION</a></li>
+            <li><a href="publication.html#publication">PUBLICATION</a></li>
+            <li><a href="gallery.html#gallery">GALLERY</a></li>
+            <li><a href="link.html#link">LINK & CONTACT</a></li>
+          </ul>
+        </nav>
+        <small>© 2022 Daiki Kumakura.<br><!-- サイト制作年、サイト名を入れてください -->
+          Design by <a href="https://utsusemi.hiroec.com" target="_blank" >Utsusemi.</a></small>
+      </div><!-- 左側ここまで -->
+
+      <!-- 右側 -->
+      <div class="right">
+
+        <article id="education" class="kagi">
+          <h2>EDUCATIONAL ACTIVITIES</h2>
+
+          <section>
+            <h3 class="ja">2020</h3>
+            <ul>
+              <li>[1] Exercise on Bioinformatics, SCI_BIOMOL 3422</li>
+              <li>&nbsp; &nbsp; &nbsp; 生命情報科学演習, SCI_BIOMOL 3422</li>
+            </ul>
+            <h3 class="ja">2021</h3>
+            <ul>
+              <li>[2] Sustainable Development Goals (SDGs) and Life Science, GEN_LIB 1000</li>
+              <li>&nbsp; &nbsp; &nbsp; 持続可能な開発目標(SDGs)と生命科学, GEN_LIB 1000 </li>
+            </ul>
+
+          </section>
+
+        </article>
+
+      </div><!-- 右側ここまで -->
+    </div>
+
+    <div class="toTop">
+      <a href="#"></a>
+      MENU<i class="fas fa-arrow-circle-up"></i>
+    </div>
+
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+    <!-- スマホメニュー用 -->
+    <script type="text/javascript">
+      $(function() {
+        var navBtn = $('.toTop');
+        navBtn.hide();
+        //スクロールが100に達したらボタン表示
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 200) {
+            //ボタンの表示方法
+                navBtn.fadeIn();
+            } else {
+            //ボタンの非表示方法
+                navBtn.fadeOut();
+            }
+        });
+      });
+    </script><!-- スマホメニュー用ここまで -->
+
+    <!-- スムーススクロール -->
+    <script type="text/javascript">
+      $(function() {
+        var width = $(window).width();
+        $('a[href*="#"]').click(function() {
+          var speed = 400;
+          var href = $(this).attr("href");
+          var target = $(href == "#" || href == "" ? 'html' : href);
+          var position = target.offset().top;
+          $('body,html').animate({
+            scrollTop: position
+          }, speed, 'swing');
+          return false;
+        });
+      });
+    </script><!-- スムーススクロールここまで -->
+
+  </body>
+</html>

@@ -1,0 +1,586 @@
+/*---------------------------全ページ共通---------------------------*/
+*,
+*::before,
+*::after {
+    box-sizing: border-box
+}
+
+html {
+    font-size: 62.5%
+}
+
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: #262d40;
+    letter-spacing: 1.2px
+}
+
+p {
+    line-height: 1.6;
+    margin: 32px 0
+}
+
+a {
+    color: #262d40;
+    text-decoration: none
+}
+
+img {
+    max-width: 100%
+}
+
+h1 {
+    font-size: 6rem;
+    font-weight: 700
+}
+
+h2 {
+    font-size: 3rem
+}
+
+h3 {
+    position: relative;
+    display: inline-block;
+    font-size: 2.4rem;
+    padding-bottom: 8px;
+    margin-bottom: 32px
+}
+
+h3::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    border-bottom: 4px solid #262d40;
+    width: 100%
+}
+
+h3::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    border-bottom: 4px solid rgba(38, 45, 64, 0.4);
+    width: calc(79vw - 256px)
+}
+@media screen and (max-width: 959px) {
+    h3::after {
+        width: 100vw
+    }
+}
+
+h4 {
+    margin-bottom: 32px
+}
+
+ul,
+dl {
+    list-style: none
+}
+
+dl {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    margin: 32px 0
+}
+
+dl dt,
+dl dd {
+    padding: 8px 0
+}
+
+dl dt {
+    width: 20%;
+    font-weight: 700
+}
+
+ol {
+    list-style-position: inside
+}
+
+.button {
+    display: inline-block;
+    color: #d2d9e1;
+    padding: 8px 16px;
+    margin: 32px 0;
+    background-color: #262d40
+}
+
+.button:hover {
+    background-color: rgba(38, 45, 64, 0.4)
+}
+
+.wrapper {
+    display: flex
+}
+
+@media screen and (max-width: 959px) {
+    .wrapper {
+        display: block
+    }
+}
+
+/*---------------------------左側---------------------------*/
+.left {
+    position: relative;
+    width: 46.63vh;
+    height: 100vh;
+    background-color: #d2d9e1;/*メニューの背景色*/
+    background-image: radial-gradient(#52556e 20%, transparent 20%), radial-gradient(#52556e 20%, transparent 20%);/*ドットの色*/
+    background-size: 14px 14px;
+    background-position: 0 0, 7px 7px;
+    overflow-y: hidden
+}
+
+@media screen and (max-width: 959px) {
+    .left {
+        width: 100%
+    }
+}
+
+/*---------------------------/
+サイト名
+/---------------------------*/
+.left header::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100vh;
+    background-color: #262d40;/*サイト名部分の背景色*/
+    transform: skewY(-65deg) translateY(-50vh)
+}
+
+@media screen and (max-width: 959px) {
+    .left header::before {
+        position: absolute;
+        bottom: 10vh;
+        left: 0;
+        height: 120vh
+    }
+}
+
+.left header h1 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #d2d9e1;
+    -webkit-writing-mode: vertical-rl;
+    -ms-writing-mode: tb-rl;
+    -o-writing-mode: vertical-rl;
+    writing-mode: vertical-rl
+}
+
+/*---------------------------/
+メニュー
+/---------------------------*/
+.left nav {
+    width: 100%;
+    height: 50vh
+}
+
+.left nav ul.globalNav {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    right: 0;
+    bottom: 64px
+}
+
+.left nav ul.globalNav li {
+    text-align: right
+}
+
+.left nav ul.globalNav li a {
+    position: relative;
+    display: inline-block;
+    font-weight: 700;
+    font-size: 2rem;
+    text-shadow: 0 0 5px #d2d9e1, 0 0 5px #d2d9e1, 0 0 5px #d2d9e1, 0 0 5px #d2d9e1, 0 0 5px #d2d9e1;
+    padding: 8px 0;
+    margin: 8px 0;
+    overflow: hidden
+}
+
+.left nav ul.globalNav li a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    border-bottom: 4px solid #262d40;
+    width: 100%;
+    transform: translateX(-100%);
+    transition: 0.3s
+}
+
+.left nav ul.globalNav li a:hover::after {
+    transform: none;
+    transition: 0.3s
+}
+
+/*---------------------------/
+クレジット
+/---------------------------*/
+.left small {
+    position: absolute;
+    right: 0;
+    bottom: 8px;
+    font-size: 1.4rem;
+    text-shadow: 0 0 5px #d2d9e1, 0 0 5px #d2d9e1, 0 0 5px #d2d9e1, 0 0 5px #d2d9e1, 0 0 5px #d2d9e1;
+    text-align: right
+}
+
+.left small a {
+    transition: 0.3s
+}
+
+.left small a:hover {
+    color: #d2d9e1;
+    background-color: #262d40;
+    text-shadow: none;
+    transition: 0.3s
+}
+
+/*---------------------------右側---------------------------*/
+.right {
+    width: 79vw;
+    height: 100vh;
+    padding: 64px;
+    padding-top: 0;
+    overflow-y: auto
+}
+
+@media screen and (max-width: 959px) {
+    .right {
+        width: 100%;
+        padding: 8px
+    }
+}
+
+.right a {
+    transition: 0.3s
+}
+
+.right a:hover {
+    transition: 0.3s
+}
+
+/*---------------------------/
+コンテンツ
+/---------------------------*/
+.right article{
+  padding-top: 64px;
+}
+.right article section {
+    margin: 64px;
+    padding-bottom: 64px;
+    overflow: hidden
+}
+
+@media screen and (max-width: 959px) {
+    .right article section {
+        margin: 8px
+    }
+}
+
+.right article section h2 {
+    margin-bottom: 32px
+}
+
+.right article section>h3 {
+    margin-top: 32px
+}
+
+/*---------------------------/
+ＮＥＷＳ
+/---------------------------*/
+.right article section.news ul li {
+    padding: 32px 0;
+    border-bottom: 1px solid rgba(38, 45, 64, 0.4)
+}
+
+.right article section.news ul li:first-child {
+    padding-top: 0
+}
+
+.right article section.news ul li:last-child {
+    border-bottom-width: 4px
+}
+
+.right article section.news ul li time {
+    margin-right: 32px
+}
+@media screen and (max-width: 959px){
+  .right article section.news ul li time{
+    display: block;
+    margin-bottom: 8px;
+  }
+}
+
+/*---------------------------/
+ＡＢＯＵＴ
+/---------------------------*/
+.right article.about dl {
+    margin-top: 0
+}
+
+.right article.about .sns {
+    display: flex;
+    align-items: flex-end
+}
+
+.right article.about .sns li {
+    margin-right: 16px
+}
+
+.right article.about .sns li i,
+.right article.about .sns li img {
+    font-size: 3.2rem;
+    transition: 0.3s
+}
+
+.right article.about .sns li i:hover,
+.right article.about .sns li img:hover {
+    transform: scale(1.2);
+    transition: 0.3s
+}
+
+.right article.about .sns li.twitter i {
+    color: #55acee
+}
+
+.right article.about .sns li.facebook i {
+    color: #315096
+}
+
+.right article.about .sns li.instagram i {
+    color: #e1306c
+}
+
+.right article.about .sns li.pixiv img {
+    width: 30px;
+    height: auto
+}
+
+.right article.about .sns li.clap img {
+    width: 50px
+}
+
+/*---------------------------/
+ＬＩＮＫ
+/---------------------------*/
+.right article section.link ul {
+    display: flex;
+    flex-wrap: wrap
+}
+
+.right article section.link ul li {
+    margin-left: 8px;
+    margin-bottom: 8px
+}
+
+/*---------------------------/
+ＴＥＸＴ
+/---------------------------*/
+.right article section.textList ul {
+    margin-top: 16px
+}
+
+.right article section.textList ul li {
+    display: flex;
+    align-items: center;
+}
+@media screen and (max-width: 959px){
+  .right article section.textList ul li {
+    display: block;
+  }
+  .right article section.textList ul li span{
+      display: inline-block;
+      margin: 0 8px 8px 8px;
+  }
+}
+.right article section.textList ul li .title {
+    display: inline-block;
+    position: relative;
+    padding: 12px 8px;
+    margin: 8px;
+    margin-right: 64px;
+}
+
+.right article section.textList ul li .title::before,
+.right article section.textList ul li .title::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border: 1px solid #262d40
+}
+
+.right article section.textList ul li .title::before {
+    top: 0;
+    left: 0;
+    border-right: none;
+    border-bottom: none
+}
+
+.right article section.textList ul li .title::after {
+    right: 0;
+    bottom: 0;
+    border-left: none;
+    border-top: none;
+}
+
+.right article section.textList ul li a {
+    padding: 4px 8px
+}
+
+.right article section.textList ul li a:hover {
+    background-color: rgba(38, 45, 64, 0.2);
+    border: 0
+}
+
+/*---------------------------/
+ＴＥＸＴ　個別ページ
+/---------------------------*/
+.right article#textIndivi {
+    padding: 64px 64px 0 64px
+}
+
+@media screen and (max-width: 959px) {
+    .right article#textIndivi {
+        padding: 0;
+        margin-bottom: 64px
+    }
+}
+
+.right article#textIndivi section {
+    padding: 0;
+    margin: 0 0 64px
+}
+
+/*---------------------------/
+ＧＡＬＬＥＲＹ
+/---------------------------*/
+.right article section.galleryList ul {
+    display: flex;
+    flex-wrap: wrap
+}
+
+.right article section.galleryList ul li {
+    width: calc((100% - 20px)/5);
+    height: 80px;
+    margin: 0 5px 5px 0;
+    overflow: hidden
+}
+
+.right article section.galleryList ul li:nth-child(5n) {
+    margin-right: 0
+}
+
+.right article section.galleryList ul li img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: 0.3s
+}
+
+.right article section.galleryList ul li img:hover {
+    transform: scale(1.1);
+    transition: 0.3s
+}
+
+/*---------------------------/
+ＧＡＬＬＥＲＹ個別ページ
+/---------------------------*/
+.right article#galleryIndivi {
+    padding: 64px 64px 0 64px
+}
+
+@media screen and (max-width: 959px) {
+    .right article#galleryIndivi {
+        padding: 0;
+        margin-bottom: 64px
+    }
+}
+
+.right article#galleryIndivi section {
+    padding: 0;
+    margin: 0 0 64px
+}
+
+.right article#galleryIndivi section img {
+    margin-bottom: 64px
+}
+
+.right article#galleryIndivi section .wrapper {
+    justify-content: space-between
+}
+
+/*---------------------------/
+かぎかっこ
+/---------------------------*/
+.kagi {
+    position: relative
+}
+
+.kagi::before,
+.kagi::after {
+    content: '';
+    position: absolute;
+    display: block;
+    width: 80px;
+    height: 80px;
+    border: 1px solid #262d40
+}
+
+.kagi::before {
+    top: 102px;
+    border-right: none;
+    border-bottom: none
+}
+
+.kagi::after {
+    right: 0;
+    bottom: -64px;
+    border-left: none;
+    border-top: none;
+    margin-bottom: 64px
+}
+
+/*---------------------------/
+スマホ用メニュー
+/---------------------------*/
+.toTop {
+    position: relative;
+    display: none
+}
+
+@media screen and (max-width: 959px) {
+    .toTop {
+        display: flex;
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: #262d40;
+        font-size: 2rem;
+        color: #fff;
+        padding: 8px;
+        justify-content: flex-end;
+        align-items: center
+    }
+
+    .toTop a {
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 100%
+    }
+
+    .toTop i {
+        font-size: 4rem;
+        margin-left: 8px
+    }
+}
