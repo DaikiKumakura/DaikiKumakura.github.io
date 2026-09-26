@@ -1,0 +1,20 @@
+{
+  "source_language": "ja",
+  "category": "tutorial",
+  "date": "2026-09-26",
+  "draft": true,
+  "math": true,
+  "locales": {
+    "ja": {
+      "title": "Rでロジスティック増殖を描く（見本）",
+      "summary": "コードを共通管理する日英チュートリアルの見本。"
+    },
+    "en": {
+      "title": "Plotting logistic growth in R (sample)",
+      "summary": "A bilingual tutorial sample with a shared code source."
+    }
+  },
+  "reviewed": {
+    "en": "89badb921d463fb626ea99c3749eb22c0868f0fa934ca0148f158991ef4468c2"
+  }
+}

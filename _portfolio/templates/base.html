@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="{{ lang }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="{{ description }}">
+  {% if preview %}<meta name="robots" content="noindex,nofollow">{% endif %}
+  <title>{{ title }}{% if title != site.name %} | {{ site.name }}{% endif %}</title>
+  <link rel="stylesheet" href="{{ root }}assets/style.css">
+  {% for code, href in alternatives.items() %}<link rel="alternate" hreflang="{{ code }}" href="{{ href }}">{% endfor %}
+  {% if math %}
+  <script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]}};</script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-chtml.js"></script>
+  {% endif %}
+</head>
+<body>
+<a class="skip" href="#main">{{ ui.skip }}</a>
+<div class="shell">
+{% if preview %}<p class="notice">{{ ui.preview }}</p>{% endif %}
+<header>
+  <div class="top"><a class="brand" href="{{ root }}{{ lang }}/index.html">{{ site.name }}</a>
+    <nav aria-label="Language" class="languages">
+      {% for code, label in [('ja','日本語'),('en','English')] %}
+      {% if code in alternatives %}<a lang="{{ code }}" hreflang="{{ code }}" href="{{ alternatives[code] }}" {% if code == lang %}aria-current="page"{% endif %}>{{ label }}</a>
+      {% else %}<span lang="{{ code }}">{{ label }} — {{ ui.unavailable }}</span>{% endif %}
+      {% endfor %}
+    </nav>
+  </div>
+  <nav aria-label="{{ ui.navigation }}" class="navigation">{% for key,label in ui.nav.items() %}<a href="{{ root }}{{ lang }}/{{ key }}.html" {% if active == key %}aria-current="page"{% endif %}>{{ label }}</a>{% endfor %}</nav>
+</header>
+<main id="main" tabindex="-1">
+{% block content %}{% endblock %}
+</main>
+<footer><span>© {{ site.name }}</span><a href="{{ site.github }}">GitHub</a></footer>
+</div>
+</body>
+</html>
