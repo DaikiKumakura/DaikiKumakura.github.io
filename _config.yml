@@ -1,0 +1,5 @@
+# Generated static HTML is committed; maintenance sources are not served by Pages.
+exclude:
+  - _portfolio
+  - README.md
+  - requirements.txt

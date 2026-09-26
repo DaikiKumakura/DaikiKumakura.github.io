@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<article class="prose">
+<p><a href="{{ root }}{{ lang }}/writing.html">{{ ui.back }}</a></p>
+<h1>{{ title }}</h1>
+<p class="meta">{{ author }} · {{ date }} · {{ ui.categories[category] }}{% if version %} · {{ version }}{% endif %}</p>
+{% if draft %}<p class="notice">{{ ui.draft_notice }}</p>{% endif %}
+{% if category == 'paper' %}<p class="notice">{{ ui.unreviewed }}</p>{% endif %}
+{% if stale %}<p class="notice">{{ ui.stale }}</p>{% endif %}
+{% if toc %}<details><summary>{{ ui.toc }}</summary>{{ toc|safe }}</details>{% endif %}
+{{ body|safe }}
+</article>
+{% endblock %}

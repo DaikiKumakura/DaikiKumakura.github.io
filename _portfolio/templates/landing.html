@@ -3,15 +3,14 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-
-  <title>Daiki Kumakura</title>
+  {% if preview %}<meta name="robots" content="noindex,nofollow">{% endif %}
+  <title>{{ site.name }}</title>
   <link rel="stylesheet" href="assets/style.css">
-<link rel="canonical" href="https://daikikumakura.github.io/">
 </head>
 <body><div class="shell">
 <main id="main">
-
-  <h1>Daiki Kumakura</h1>
+  {% if preview %}<p class="notice">Prototype preview / <span lang="ja">試作・プレビュー</span></p>{% endif %}
+  <h1>{{ site.name }}</h1>
   <nav class="languages" aria-label="Language"><a href="ja/index.html" lang="ja" hreflang="ja">日本語</a><a href="en/index.html" lang="en" hreflang="en">English</a></nav>
 </main>
 </div></body>
