@@ -2,3 +2,7 @@ _portfolio/.deps/
 _portfolio/.venv/
 _portfolio/__pycache__/
 _portfolio/dist/
+site/dist/
+site/.deps/
+site/.venv/
+**/__pycache__/
