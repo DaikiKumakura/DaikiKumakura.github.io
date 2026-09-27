@@ -1,4 +1,4 @@
-"""Build a small, bilingual static site. Python 3.11+; no server runtime."""
+"""Build an English static site with articles in their original language. Python 3.11+; no server runtime."""
 from pathlib import Path
 import argparse
 import hashlib
@@ -10,7 +10,13 @@ from datetime import date
 from urllib.parse import urljoin
 
 SITE_URL = 'https://daikikumakura.github.io/'
-LEGACY_REDIRECTS = {'publication.html':'en/publications.html', 'publication_jpn.html':'ja/publications.html', 'cv.html':'ja/about.html', 'research.html':'ja/about.html', 'education.html':'ja/activities.html#teaching', 'gallery.html':'ja/writing.html', 'link.html':'article/article_00.html'}
+NAV = dict(home='Home', profile='Profile', writing='Writing', software='Software', publication='Publication', activity='Activity')
+OLD_PAGES = {'index':'home', 'about':'profile', 'publications':'publication', 'activities':'activity', 'writing':'writing', 'software':'software'}
+LEGACY_REDIRECTS = {'publication_jpn.html':'publication.html', 'cv.html':'profile.html', 'research.html':'profile.html', 'education.html':'activity.html#teaching', 'gallery.html':'writing.html', 'link.html':'article/article_00.html', 'about.html':'profile.html', 'publications.html':'publication.html', 'activities.html':'activity.html'}
+for language in ('ja','en'):
+    for old,new in OLD_PAGES.items():
+        LEGACY_REDIRECTS[f'{language}/{old}.html'] = 'index.html' if new == 'home' else new+'.html'
+
 
 BASE = Path(__file__).resolve().parent
 sys.path.insert(0, str(BASE / '.deps'))
@@ -37,42 +43,20 @@ def safe_relative(name):
         raise ValueError(f'Unsafe relative path: {name}')
     return p
 
-def bilingual(value, label):
-    if not isinstance(value, dict) or any(not value.get(k) for k in LANGS):
-        raise ValueError(f'Missing ja/en value: {label}')
-
 def validate_site(site):
-    for key in ('profile', 'expertise', 'display_name'):
-        bilingual(site[key], key)
-    for row in site['career']:
-        bilingual(row, 'career')
-    for collection in ('education', 'awards'):
-        for row in site[collection]:
-            bilingual(row, collection)
-    bilingual(site['thesis']['title'], 'thesis')
-    for row in site['research_background']:
-        bilingual(row['title'], 'research title')
-        bilingual(row['body'], 'research body')
+    for key in ('name','profile','expertise'):
+        if not isinstance(site.get(key),str) or not site[key]:raise ValueError('Missing text: '+key)
+    for collection in ('software','publications','activities'):
+        ids=[row['id'] for row in site[collection]]
+        if len(ids)!=len(set(ids)):raise ValueError('Duplicate ID: '+collection)
     for row in site['software']:
-        for key in ('status', 'description', 'note'):
-            bilingual(row[key], key)
-        if not isinstance(row.get('featured'), bool):
-            raise ValueError('Software featured must be true or false')
-        for link in row['links']:
-            bilingual(link['label'], 'software link')
+        for key in ('status','description','note'):
+            if not isinstance(row.get(key),str) or not row[key]:raise ValueError('Missing software text')
     for row in site['activities']:
-        for key in ('role', 'title'):
-            bilingual(row[key], key)
-    for row in site['activities']:
-        if row['category'] not in UI['en']['activity_types']:
-            raise ValueError('Unknown activity category')
+        if row['category'] not in UI['en']['activity_types']:raise ValueError('Unknown activity category')
     for row in site['publications']:
-        if row['kind'] not in UI['en']['publication_types']:
-            raise ValueError('Unknown publication kind')
-    for collection in ('software', 'publications', 'activities'):
-        ids = [p['id'] for p in site[collection]]
-        if len(ids) != len(set(ids)):
-            raise ValueError(f'Duplicate ID: {collection}')
+        if row['kind'] not in UI['en']['publication_types']:raise ValueError('Unknown publication kind')
+
 
 def fingerprint(folder, meta):
     """Original title, summary, body, and all shared assets form one revision."""
@@ -144,44 +128,37 @@ def build(project=BASE, preview=False, strict_translations=False):
     for asset in (project / 'assets').rglob('*'):
         if asset.is_file():
             outputs['assets/' + asset.relative_to(project / 'assets').as_posix()] = asset.read_bytes()
-    for lang in LANGS:
-        listings = []
-        for a in entries:
-            m = a['meta']
-            actual = lang if lang in m['locales'] else m['source_language']
-            labels = ' / '.join('日本語' if k == 'ja' else 'English' for k in m['locales'])
-            listings.append(dict(**m['locales'][actual], category=m['category'], date=m['date'], draft=m['draft'], lang=actual, available=labels, href=f"../{actual}/writing/{a['slug']}.html"))
-        for key, title in UI[lang]['nav'].items():
-            alternatives = {code: f'../{code}/{key}.html' for code in LANGS}
-            page = env.get_template('page.html').render(site=site, lang=lang, ui=UI[lang], preview=preview, active=key, root='../', alternatives=alternatives, title=site['name'] if key == 'index' else title, description=site['profile'][lang], math=False, articles=listings, working_papers=[a for a in listings if a['category'] == 'paper'])
-            outputs[f'{lang}/{key}.html'] = page.encode('utf-8')
-        for a in entries:
-            m = a['meta']
-            if lang not in m['locales']:
-                continue
-            body, toc = render_body(a, lang)
-            alternatives = {code: f"../../{code}/writing/{a['slug']}.html" for code in m['locales']}
-            page = env.get_template('article.html').render(site=site, lang=lang, ui=UI[lang], preview=preview, active='writing', root='../../', alternatives=alternatives, title=m['locales'][lang]['title'], description=m['locales'][lang]['summary'], math=m.get('math', False), author=m.get('author', site['name']), date=m['date'], category=m['category'], version=m.get('version', ''), draft=m['draft'], stale=a['stale'][lang], body=body, toc=toc)
-            outputs[f"{lang}/writing/{a['slug']}.html"] = page.encode('utf-8')
-            for asset in (a['folder'] / 'shared').rglob('*'):
-                if asset.is_file():
-                    outputs[f"{lang}/writing/shared/{a['slug']}/{asset.relative_to(a['folder'] / 'shared').as_posix()}"] = asset.read_bytes()
-    outputs['index.html'] = env.get_template('landing.html').render(site=site, preview=preview).encode('utf-8')
-    # Canonical URLs and alternate-language URLs are absolute on published pages.
-    canonical_pages = [name for name in outputs if name.endswith('.html')]
-    for name in canonical_pages:
-        page = outputs[name].decode('utf-8')
-        from seo import enrich
-        page = enrich(page, name, site, SITE_URL)
-        canonical = SITE_URL if name == 'index.html' else SITE_URL + name
-        page = page.replace('</head>', f'<link rel="canonical" href="{canonical}">\n</head>')
-        page = re.sub(r'(<link rel="alternate" hreflang="[^"]+" href=")([^"]+)', lambda m:m[1]+urljoin(SITE_URL+name,m[2]), page)
-        outputs[name] = page.encode('utf-8')
-    for old, new in LEGACY_REDIRECTS.items():
-        outputs[old] = env.get_template('redirect.html').render(target=SITE_URL+new).encode('utf-8')
-    outputs['404.html'] = env.get_template('not-found.html').render().encode('utf-8')
-    outputs['sitemap.xml'] = ('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+''.join('<url><loc>'+html.escape(SITE_URL if p=='index.html' else SITE_URL+p)+'</loc></url>' for p in canonical_pages if not preview or '/writing/' not in p)+'</urlset>').encode('utf-8')
-    outputs['robots.txt'] = ('User-agent: *\n'+('Disallow: /\n' if preview else 'Allow: /\nSitemap: '+SITE_URL+'sitemap.xml\n')).encode('utf-8')
+    from seo import enrich
+    ui=dict(UI['en'],nav=NAV)
+    listings=[]
+    for a in entries:
+        m=a['meta']; language=m['source_language']
+        listings.append(dict(**m['locales'][language],category=m['category'],date=m['date'],draft=m['draft'],lang=language,available='Japanese' if language=='ja' else 'English',href=f"writing/{a['slug']}.html"))
+    def output(name,page,lang='en'):
+        canonical=SITE_URL if name in ('index.html','home.html') else SITE_URL+name
+        page=enrich(page,name,site,SITE_URL)
+        page=page.replace('</head>',f'<link rel="canonical" href="{canonical}">\n</head>')
+        outputs[name]=page.encode('utf-8')
+    for key,title in NAV.items():
+        page=env.get_template('page.html').render(site=site,lang='en',ui=ui,preview=preview,active=key,root='',alternatives={},title=site['name'] if key=='home' else title,description=site['profile'],math=False,articles=listings,working_papers=[a for a in listings if a['category']=='paper'])
+        output(key+'.html',page)
+        if key=='home':outputs['index.html']=outputs['home.html']
+    for a in entries:
+        m=a['meta']; original=m['source_language']
+        alternatives={code:(a['slug']+'.html' if code==original else a['slug']+'-'+code+'.html') for code in m['locales']}
+        for language in m['locales']:
+            body,toc=render_body(a,language)
+            page=env.get_template('article.html').render(site=site,lang=language,ui=ui,preview=preview,active='writing',root='../',alternatives=alternatives,title=m['locales'][language]['title'],description=m['locales'][language]['summary'],math=m.get('math',False),author=m.get('author',site['name']),date=m['date'],category=m['category'],version=m.get('version',''),draft=m['draft'],stale=a['stale'][language],body=body,toc=toc)
+            output('writing/'+alternatives[language],page,language)
+            outputs[f"{language}/writing/{a['slug']}.html"]=env.get_template('redirect.html').render(target=SITE_URL+'writing/'+alternatives[language]).encode('utf-8')
+        for asset in (a['folder']/'shared').rglob('*'):
+            if asset.is_file():outputs[f"writing/shared/{a['slug']}/{asset.relative_to(a['folder']/'shared').as_posix()}"]=asset.read_bytes()
+    canonical_pages=['index.html']+[key+'.html' for key in NAV if key!='home']+[name for name in outputs if name.startswith('writing/') and name.endswith('.html')]
+    for old,new in LEGACY_REDIRECTS.items():
+        outputs[old]=env.get_template('redirect.html').render(target=SITE_URL+new).encode('utf-8')
+    outputs['404.html']=env.get_template('not-found.html').render().encode('utf-8')
+    outputs['sitemap.xml']=('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+''.join('<url><loc>'+html.escape(SITE_URL if p=='index.html' else SITE_URL+p)+'</loc></url>' for p in canonical_pages if not preview or not p.startswith('writing/'))+'</urlset>').encode('utf-8')
+    outputs['robots.txt']=('User-agent: *\n'+('Disallow: /\n' if preview else 'Allow: /\nSitemap: '+SITE_URL+'sitemap.xml\n')).encode('utf-8')
     outputs['.nojekyll'] = b''
     # Only remove obsolete files that this builder previously generated.
     # Do not recursively delete directories or touch unrelated files.
