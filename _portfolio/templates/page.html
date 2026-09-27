@@ -1,29 +1,24 @@
 {% extends 'base.html' %}
-{% macro paper(p) %}<article class="record" id="{{ p.id }}"><p class="meta">{{ p.year }}</p><h3><a href="https://doi.org/{{ p.doi }}">{{ p.title_translation[lang] if p.title_translation is defined else p.title }}</a></h3><p>{% for a in p.author_list %}{% if a.self %}<strong>{{ a.name }}</strong>{% else %}{{ a.name }}{% endif %}{{ ', ' if not loop.last }}{% endfor %}</p><p class="meta">{{ p.venue }}{% if p.online_date is defined %} · {{ ui.online }}: {{ p.online_date }}{% endif %}</p>{% for link in p.links %}<a class="meta" href="{{ link.url }}">{{ link.label[lang] }}</a>{{ ' · ' if not loop.last }}{% endfor %}</article>{% endmacro %}
-{% macro software(s, full=false) %}{% set heading = 'h2' if full else 'h3' %}<article class="record" id="software-{{ s.id }}"><{{ heading }} class="record-title"><a href="{{ s.url }}">{{ s.id }}</a></{{ heading }}><p class="meta">{{ s.tech }} · {{ s.status[lang] }}</p><p>{{ s.description[lang] }}</p>{% if full %}<p class="meta">{{ s.note[lang] }}</p><p><a href="{{ s.url }}">GitHub</a>{% for link in s.links %} · <a href="{{ link.url }}">{{ link.label[lang] }}</a>{% endfor %}</p>{% endif %}</article>{% endmacro %}
+{% macro paper(p) %}<article class="record" id="{{ p.id }}"><p class="meta">{{ p.year }}</p><h3><a href="https://doi.org/{{ p.doi }}">{{ p.title_translation if p.title_translation is defined else p.title }}</a></h3><p>{% for a in p.author_list %}{% if a.self %}<strong>{{ a.name }}</strong>{% else %}{{ a.name }}{% endif %}{{ ', ' if not loop.last }}{% endfor %}</p><p class="meta">{{ p.venue }}{% if p.online_date is defined %} · {{ ui.online }}: {{ p.online_date }}{% endif %}</p>{% for link in p.links %}<a class="meta" href="{{ link.url }}">{{ link.label }}</a>{{ ' · ' if not loop.last }}{% endfor %}</article>{% endmacro %}
+{% macro software(s, full=false) %}{% set heading = 'h2' if full else 'h3' %}<article class="record" id="software-{{ s.id }}"><{{ heading }} class="record-title"><a href="{{ s.url }}">{{ s.id }}</a></{{ heading }}><p class="meta">{{ s.tech }} · {{ s.status }}</p><p>{{ s.description }}</p>{% if full %}<p class="meta">{{ s.note }}</p><p><a href="{{ s.url }}">GitHub</a>{% for link in s.links %} · <a href="{{ link.url }}">{{ link.label }}</a>{% endfor %}</p>{% endif %}</article>{% endmacro %}
 {% block content %}
-<h1>{% if active in ['index','about'] %}{{ site.display_name[lang] }}{% else %}{{ title }}{% endif %}</h1>
-{% if active == 'index' %}
-<p>{{ site.profile[lang] }}</p><p>{{ site.expertise[lang] }}</p>
-<h2>{{ ui.selected }}</h2>{% for p in site.publications if p.selected %}{{ paper(p) }}{% endfor %}
-<h2><a href="software.html">{{ ui.nav.software }}</a></h2>{% for s in site.software if s.featured %}{{ software(s) }}{% endfor %}
-<p><a href="writing.html">{{ ui.nav.writing }}</a></p>
-{% elif active == 'about' %}
+<h1>{% if active in ['home'] %}{{ site.display_name }}{% else %}{{ title }}{% endif %}</h1>
+{% if active == 'home' %}
+<div class="home-intro"><div><p class="meta" lang="ja">{{ site.alternate_name }}</p><p>{{ site.profile }}</p><p>I study biological dynamics using mathematical models and data analysis, with an interest in pharmacometrics and systems biology.</p></div><img class="home-illustration" src="assets/model-isometric.svg" width="260" height="220" alt="" aria-hidden="true"></div>
+{% elif active == 'profile' %}
 <p><a href="{{ site.orcid }}">ORCID: 0000-0001-9859-0720</a></p>
-<p>{{ site.profile[lang] }}</p><h2>{{ ui.expertise }}</h2><p>{{ site.expertise[lang] }}</p>
-{% for r in site.research_background %}<section class="record"><h3>{{ r.title[lang] }}</h3><p>{{ r.body[lang] }}</p></section>{% endfor %}
+<p>{{ site.profile }}</p><h2>{{ ui.expertise }}</h2><p>{{ site.expertise }}</p>
+{% for r in site.research_background %}<section class="record"><h3>{{ r.title }}</h3><p>{{ r.body }}</p></section>{% endfor %}
 <h2>{{ ui.background }}</h2>
-{% for c in site.career %}<div class="record timeline"><span class="meta">{{ c.date }}</span><span>{{ c[lang] }}</span></div>{% endfor %}
+{% for c in site.career %}<div class="record timeline"><span class="meta">{{ c.date }}</span><span>{{ c.text }}</span></div>{% endfor %}
 <h2>{{ ui.education }}</h2>
-{% for e in site.education %}<div class="record {% if e.date %}timeline{% endif %}">{% if e.date %}<span class="meta">{{ e.date }}</span>{% endif %}<span>{{ e[lang] }}</span></div>{% endfor %}
-<h2>{{ ui.thesis }}</h2><p><a href="{{ site.thesis.url }}">{{ site.thesis.title[lang] }}</a></p>
-<h2>{{ ui.awards }}</h2>{% for a in site.awards %}<div class="record timeline"><span class="meta">{{ a.date }}</span><span>{{ a[lang] }}</span></div>{% endfor %}
-{% elif active == 'publications' %}
+{% for e in site.education %}<div class="record {% if e.date %}timeline{% endif %}">{% if e.date %}<span class="meta">{{ e.date }}</span>{% endif %}<span>{{ e.text }}</span></div>{% endfor %}
+{% elif active == 'publication' %}
 <nav class="section-links" aria-label="{{ ui.toc }}">{% for kind,label in ui.publication_types.items() %}<a href="#{{ kind }}">{{ label }}</a>{% endfor %}</nav>
 {% for kind,label in ui.publication_types.items() %}<section id="{{ kind }}"><h2>{{ label }}</h2>{% for p in site.publications|sort(attribute='year',reverse=true) if p.kind == kind %}{{ paper(p) }}{% endfor %}</section>{% endfor %}
 {% if working_papers %}<h2>{{ ui.working_papers }}</h2>{% for a in working_papers %}<article class="record"><h3><a href="{{ a.href }}" lang="{{ a.lang }}">{{ a.title }}</a></h3><p class="meta">{{ ui.unreviewed }} · {{ a.available }}</p></article>{% endfor %}{% endif %}
 {% elif active == 'software' %}{% for s in site.software %}{{ software(s,true) }}{% endfor %}<p><a href="https://github.com/DaikiKumakura">GitHub · DaikiKumakura</a></p>
-{% elif active == 'activities' %}
+{% elif active == 'activity' %}
 <p class="meta">{{ ui.activity_note }}</p>
 <nav class="section-links" aria-label="{{ ui.toc }}">{% for category,label in ui.activity_types.items() %}<a href="#{{ category }}">{{ label }}</a>{% endfor %}</nav>
 {% for category,label in ui.activity_types.items() %}<section id="{{ category }}"><h2>{{ label }}</h2>
@@ -31,12 +26,11 @@
 {% for year in rows|map(attribute='date')|map('truncate',4,true,'',0)|unique|sort(reverse=true) %}
 {% set year_rows = [] %}{% for a in rows if a.date.startswith(year) %}{% set _ = year_rows.append(a) %}{% endfor %}
 <details class="activity-year"{% if loop.first %} open{% endif %}><summary>{{ year }} <span class="meta">({{ year_rows|length }} {{ 'record' if lang == 'en' and year_rows|length == 1 else ui.records }})</span></summary>
-{% for a in year_rows %}<article class="record" id="activity-{{ a.id }}"><p class="meta">{{ a.date }} · {{ a.role[lang] }}{% if a.format[lang] %} · {{ a.format[lang] }}{% endif %}</p><h3>{{ a.title[lang] }}</h3>{% if a.description is defined and a.description[lang] %}<p class="meta">{{ a.description[lang] }}</p>{% endif %}{% if a.authors[lang] %}<p>{{ a.authors[lang] }}</p>{% endif %}{% if a.participants is defined %}<p>{{ a.participants[lang] }}</p>{% endif %}{% if a.event[lang] %}<p class="meta">{{ a.event[lang] }}</p>{% endif %}{% for link in a.links %}<a class="meta" href="{{ link.url }}">{{ link.label[lang] }}</a>{{ ' · ' if not loop.last }}{% endfor %}</article>{% endfor %}</details>
+{% for a in year_rows %}<article class="record" id="activity-{{ a.id }}"><p class="meta">{{ a.date }} · {{ a.role }}{% if a.format %} · {{ a.format }}{% endif %}</p><h3>{{ a.title }}</h3>{% if a.description is defined and a.description %}<p class="meta">{{ a.description }}</p>{% endif %}{% if a.authors %}<p>{{ a.authors }}</p>{% endif %}{% if a.participants is defined %}<p>{{ a.participants }}</p>{% endif %}{% if a.event %}<p class="meta">{{ a.event }}</p>{% endif %}{% for link in a.links %}<a class="meta" href="{{ link.url }}">{{ link.label }}</a>{{ ' · ' if not loop.last }}{% endfor %}</article>{% endfor %}</details>
 {% endfor %}</section>{% endfor %}
 {% elif active == 'writing' %}
 {% if not articles %}<p>{{ ui.empty }}</p>{% endif %}
 <p><a href="https://daikikumakura.github.io/article/article_00.html">{{ '以前の記事：リンク集（日本語）' if lang == 'ja' else 'Earlier article: resource links (Japanese)' }}</a></p>
 {% for a in articles %}<article class="record"><p class="meta">{{ ui.categories[a.category] }} · {{ a.date }} · {{ a.available }}{% if a.draft %} · {{ ui.draft }}{% endif %}</p><h2><a href="{{ a.href }}" lang="{{ a.lang }}">{{ a.title }}</a></h2><p lang="{{ a.lang }}">{{ a.summary }}</p></article>{% endfor %}
 {% endif %}
-{% if preview and active in ['publications','activities'] and not site.migration_complete.get(active) %}<p class="meta">{{ ui.partial }}</p>{% endif %}
 {% endblock %}

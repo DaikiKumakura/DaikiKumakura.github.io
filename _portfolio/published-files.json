@@ -1,5 +1,10 @@
 [
   "404.html",
+  "about.html",
+  "activities.html",
+  "activity.html",
+  "assets/favicon.svg",
+  "assets/model-isometric.svg",
   "assets/style.css",
   "cv.html",
   "education.html",
@@ -10,6 +15,7 @@
   "en/software.html",
   "en/writing.html",
   "gallery.html",
+  "home.html",
   "index.html",
   "ja/about.html",
   "ja/activities.html",
@@ -18,9 +24,13 @@
   "ja/software.html",
   "ja/writing.html",
   "link.html",
+  "profile.html",
   "publication.html",
   "publication_jpn.html",
+  "publications.html",
   "research.html",
   "robots.txt",
-  "sitemap.xml"
+  "sitemap.xml",
+  "software.html",
+  "writing.html"
 ]

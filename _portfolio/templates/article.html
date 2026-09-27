@@ -1,7 +1,8 @@
 {% extends 'base.html' %}
 {% block content %}
-<article class="prose">
-<p><a href="{{ root }}{{ lang }}/writing.html">{{ ui.back }}</a></p>
+<article class="prose" lang="{{ lang }}">
+{% if alternatives|length > 1 %}<nav class="languages" aria-label="Article language">{% for code,href in alternatives.items() %}<a href="{{ href }}" lang="{{ code }}">{{ "日本語" if code == "ja" else "English" }}</a>{% endfor %}</nav>{% endif %}
+<p><a href="{{ root }}writing.html">{{ ui.back }}</a></p>
 <h1>{{ title }}</h1>
 <p class="meta">{{ author }} · {{ date }} · {{ ui.categories[category] }}{% if version %} · {{ version }}{% endif %}</p>
 {% if draft %}<p class="notice">{{ ui.draft_notice }}</p>{% endif %}
