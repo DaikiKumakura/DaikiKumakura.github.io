@@ -108,4 +108,3 @@ class BuildTests(unittest.TestCase):
   with self.assertRaises(ValueError):build.build(self.root,preview=True)
 
 if __name__=='__main__':unittest.main()
-
