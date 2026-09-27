@@ -1,5 +1,4 @@
 # Keep shared article fingerprints stable across Windows and Unix checkouts.
-_portfolio/** text=auto eol=lf
 site/** text=auto eol=lf
 *.py text eol=lf
 *.json text eol=lf
