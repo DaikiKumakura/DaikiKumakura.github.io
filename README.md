@@ -66,4 +66,3 @@ The favicon and page illustrations are downloaded, self-hosted assets with comme
 ## Restore an earlier version
 
 Revert the relevant commit and let Actions rebuild. Do not rewrite shared history. The source-only migration follows commit `c100985bb567f79c161826ae3a29341ad5d08d8e`; returning to that older branch-published version also requires restoring the Pages source setting. Verify the deployment and live URLs after a rollback.
-
