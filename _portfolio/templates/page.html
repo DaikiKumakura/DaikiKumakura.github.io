@@ -9,6 +9,7 @@
 <h2><a href="software.html">{{ ui.nav.software }}</a></h2>{% for s in site.software if s.featured %}{{ software(s) }}{% endfor %}
 <p><a href="writing.html">{{ ui.nav.writing }}</a></p>
 {% elif active == 'about' %}
+<p><a href="{{ site.orcid }}">ORCID: 0000-0001-9859-0720</a></p>
 <p>{{ site.profile[lang] }}</p><h2>{{ ui.expertise }}</h2><p>{{ site.expertise[lang] }}</p>
 {% for r in site.research_background %}<section class="record"><h3>{{ r.title[lang] }}</h3><p>{{ r.body[lang] }}</p></section>{% endfor %}
 <h2>{{ ui.background }}</h2>

@@ -5,6 +5,7 @@
     "en": "Daiki Kumakura"
   },
   "github": "https://github.com/DaikiKumakura",
+  "orcid": "https://orcid.org/0000-0001-9859-0720",
   "profile": {
     "ja": "博士（生命科学）。専門は数理生物学。2025年4月から、製薬企業でバイオインフォマティクス研究者として勤務しています。",
     "en": "I am a mathematical biologist with a Ph.D. in Life Science. Since April 2025, I have worked as a bioinformatics researcher in the pharmaceutical industry."
@@ -682,8 +683,8 @@
       "featured": true,
       "links": [],
       "note": {
-        "ja": "スクリプトとして公開。Rパッケージ形式ではありません。",
-        "en": "Published as scripts rather than an R package."
+        "ja": "Rスクリプト6本の構文を確認済み（2026年9月）。Rパッケージ形式ではなく、解析全体の再実行は未確認です。",
+        "en": "Syntax checked for all six R scripts (September 2026). These are scripts, not an R package; the complete analyses have not been rerun."
       }
     },
     {
@@ -709,8 +710,8 @@
         }
       ],
       "note": {
-        "ja": "READMEで試作版と明記。導入手順はリポジトリを参照してください。",
-        "en": "The README identifies this as a prototype. See the repository for setup instructions."
+        "ja": "試作版。公開版の起動方法とエラー処理に修正が必要な箇所があります。外部解析ツールを含む全工程は未検証です。",
+        "en": "Prototype. The published version needs fixes to invocation and error handling. The complete workflow, including external analysis tools, has not been validated."
       }
     },
     {
@@ -736,8 +737,8 @@
         }
       ],
       "note": {
-        "ja": "手順の更新が必要な箇所があります。現環境での一連の動作は未検証です。",
-        "en": "Some instructions need updating; the complete workflow has not been revalidated in a current environment."
+        "ja": "Shellスクリプト4本の構文を確認済み（2026年9月）。公開版の導入手順には修正が必要で、Docker・実データでの全工程は未検証です。",
+        "en": "Syntax checked for all four Shell scripts (September 2026). The published setup instructions need corrections; the complete Docker workflow with real data has not been validated."
       }
     },
     {
