@@ -171,6 +171,8 @@ def build(project=BASE, preview=False, strict_translations=False):
     canonical_pages = [name for name in outputs if name.endswith('.html')]
     for name in canonical_pages:
         page = outputs[name].decode('utf-8')
+        from seo import enrich
+        page = enrich(page, name, site, SITE_URL)
         canonical = SITE_URL if name == 'index.html' else SITE_URL + name
         page = page.replace('</head>', f'<link rel="canonical" href="{canonical}">\n</head>')
         page = re.sub(r'(<link rel="alternate" hreflang="[^"]+" href=")([^"]+)', lambda m:m[1]+urljoin(SITE_URL+name,m[2]), page)
