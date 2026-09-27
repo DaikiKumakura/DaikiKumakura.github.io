@@ -1,0 +1,82 @@
+/* 全体の基本設定 */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background: #f9f9f9;
+    color: #333;
+}
+
+/* ヘッダーとナビゲーション */
+header {
+    background: #333;
+    color: #fff;
+    padding: 10px 20px;
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 10px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+/* フッター */
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background: #333;
+    color: #fff;
+    position: relative; /* positionをrelativeに変更 */
+    width: 100%;
+}
+
+html, body {
+    min-height: 100%; /* 最小の高さを100%に設定 */
+    position: relative;
+}
+
+/* セクションのスタイリング */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+ul li {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.indent {
+    display: block;
+    text-indent: 24px; /* 英文の開始位置に合わせるためのインデント */
+}
+
+main {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+}
+
+section {
+    margin-bottom: 20px;
+}
+
+dl dt {
+    font-weight: bold;
+}
+
+dl dd {
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
