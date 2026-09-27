@@ -38,6 +38,8 @@ class BuildTests(unittest.TestCase):
   self.assertIn('favicon.svg',home);self.assertIn('msvalidate.01',home)
   profile=self.text('profile.html')
   self.assertNotIn('Best Award',profile);self.assertNotIn('Functional Specialization',profile)
+  self.assertIn('Bachelor’s degree in Fisheries Science, Department of Aquaculture Life Science, School of Fisheries Sciences, Hokkaido University',profile)
+  self.assertNotIn('Aquaculture and Life Science',profile);self.assertNotIn('Faculty of Fisheries Sciences',profile)
   positions=[home.index('>'+label+'</a>') for label in build.NAV.values()]
   self.assertEqual(positions,sorted(positions))
  def test_legacy_redirects_and_canonical(self):
