@@ -2,6 +2,7 @@ import json
 import shutil
 import tempfile
 import unittest
+import xml.etree.ElementTree as ET
 from pathlib import Path
 from html.parser import HTMLParser
 from urllib.parse import unquote, urlsplit
@@ -86,6 +87,19 @@ class BuildTests(unittest.TestCase):
     self.assertTrue(output.is_file())
     if path.suffix in ('.pdf','.png','.ipynb'):self.assertEqual(path.read_bytes(),output.read_bytes())
   self.assertNotIn('site/',self.text('sitemap.xml'))
+ def test_svg_assets_are_safe_and_well_formed(self):
+  expected={'favicon.svg','model-isometric.svg','profile-isometric.svg','writing-isometric.svg','software-isometric.svg','publication-isometric.svg','activity-isometric.svg'}
+  self.assertEqual(expected,{p.name for p in (self.root/'assets').glob('*.svg')})
+  forbidden=('script','foreignobject')
+  external=('http://','https://','//','data:','javascript:')
+  for path in (self.root/'assets').glob('*.svg'):
+   tree=ET.parse(path)
+   for element in tree.iter():
+    self.assertNotIn(element.tag.rsplit('}',1)[-1].lower(),forbidden,path.name)
+    for key,value in element.attrib.items():
+     name=key.rsplit('}',1)[-1].lower()
+     self.assertFalse(name.startswith('on'),f'{path.name}: event handler {name}')
+     if name=='href':self.assertFalse(value.lower().startswith(external),f'{path.name}: external reference')
  def test_shared_code_traversal(self):
   p=self.root/'content/articles/japanese-note/ja.md';p.write_text('{{code:r:../meta.json}}',encoding='utf-8')
   with self.assertRaises(ValueError):build.build(self.root,preview=True)
@@ -94,3 +108,4 @@ class BuildTests(unittest.TestCase):
   with self.assertRaises(ValueError):build.build(self.root,preview=True)
 
 if __name__=='__main__':unittest.main()
+

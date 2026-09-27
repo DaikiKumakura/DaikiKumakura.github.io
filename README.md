@@ -8,7 +8,7 @@
 site/
   content/site.json    Profile, software, publications and activities
   content/articles/   Your Markdown articles (created when needed)
-  assets/             Shared CSS, favicon and small SVG illustrations
+  assets/             Shared CSS, favicon and licensed SVG illustrations
   templates/          Shared page layouts
   static/             Legacy resources and Google verification file
   fixtures/           Article samples used only by tests
@@ -59,6 +59,11 @@ Redirects use meta refresh, a visible fallback link and canonical metadata; they
 
 The sitemap contains canonical content pages only. Keep the Bing verification tag in `site/templates/base.html` and the Google file in `site/static/`. Structured identity/publication metadata comes from the same source as visible content. Search rankings and AI citations are not guaranteed.
 
+## Third-party artwork
+
+The favicon and page illustrations are downloaded, self-hosted assets with commercial-use permissions. Their exact sources, file mapping, and license terms are recorded in [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md). Keep that file with the assets when replacing or redistributing them.
+
 ## Restore an earlier version
 
 Revert the relevant commit and let Actions rebuild. Do not rewrite shared history. The source-only migration follows commit `c100985bb567f79c161826ae3a29341ad5d08d8e`; returning to that older branch-published version also requires restoring the Pages source setting. Verify the deployment and live URLs after a rollback.
+
