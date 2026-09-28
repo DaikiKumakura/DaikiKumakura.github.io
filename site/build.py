@@ -20,7 +20,7 @@ ILLUSTRATION_ALT = {
     'activity': 'Scientific conference illustration',
 }
 OLD_PAGES = {'index':'home', 'about':'profile', 'publications':'publication', 'activities':'activity', 'writing':'writing', 'software':'software'}
-LEGACY_REDIRECTS = {'publication_jpn.html':'publication.html', 'cv.html':'profile.html', 'research.html':'profile.html', 'education.html':'activity.html#teaching', 'gallery.html':'writing.html', 'link.html':'article/article_00.html', 'about.html':'profile.html', 'publications.html':'publication.html', 'activities.html':'activity.html'}
+LEGACY_REDIRECTS = {'japanese.html':'index.html', 'publication_jpn.html':'publication.html', 'cv.html':'profile.html', 'research.html':'profile.html', 'education.html':'activity.html#teaching', 'gallery.html':'writing.html', 'link.html':'article/article_00.html', 'about.html':'profile.html', 'publications.html':'publication.html', 'activities.html':'activity.html'}
 for language in ('ja','en'):
     for old,new in OLD_PAGES.items():
         LEGACY_REDIRECTS[f'{language}/{old}.html'] = 'index.html' if new == 'home' else new+'.html'
