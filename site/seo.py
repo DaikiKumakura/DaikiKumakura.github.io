@@ -6,7 +6,7 @@ from urllib.parse import urljoin
 
 DESCRIPTIONS = {
  'home': 'Daiki Kumakura (熊倉大騎), mathematical biologist and bioinformatics researcher. Mathematical modeling, biological dynamics, pharmacometrics and systems biology.',
- 'profile': 'Profile of Daiki Kumakura: mathematical modeling, statistical inference, uncertainty and causal reasoning; interests in pharmacometrics and model-informed drug development; appointments and education.',
+ 'profile': 'Profile of Daiki Kumakura: mathematical modeling, statistical inference and dynamic systems; pharmacometrics and model-informed drug development.',
  'writing': 'Analysis tutorials, technical notes, blog posts and working papers by Daiki Kumakura. Each article is available in its original language.',
  'software': 'Research software by Daiki Kumakura: RLR_transform for CCM (Convergent Cross Mapping), CRiSM, shotgun metagenomics tutorials and Docker environments.',
  'publication': 'Research publications by Daiki Kumakura: mathematical models, biological dynamics, antibiotic response, compositional time series and bioinformatics.',
@@ -43,4 +43,5 @@ def enrich(page, name, site, site_url):
   schema={'@context':'https://schema.org','@type':'CollectionPage','url':canonical,'name':title,'about':person}
  if schema:metadata.append('<script type="application/ld+json">'+json.dumps(schema,ensure_ascii=False).replace('<','\\u003c')+'</script>')
  return page.replace('</head>','\n'.join(metadata)+'\n</head>')
+
 

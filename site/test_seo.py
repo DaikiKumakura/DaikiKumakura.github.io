@@ -2,9 +2,14 @@ import json
 import re
 import unittest
 from pathlib import Path
-from seo import enrich
+from seo import DESCRIPTIONS, enrich
 
 class MetadataTests(unittest.TestCase):
+    def test_page_descriptions_have_search_friendly_lengths(self):
+        for key, description in DESCRIPTIONS.items():
+            self.assertGreaterEqual(len(description), 80, key)
+            self.assertLessEqual(len(description), 160, key)
+
     def test_profile_identity_and_safe_json(self):
         site = json.loads((Path(__file__).parent/'content/site.json').read_text(encoding='utf-8'))
         page = '<head><title>About | Daiki Kumakura</title><meta name="description" content="old"></head>'
@@ -34,5 +39,6 @@ class MetadataTests(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+
 
 
