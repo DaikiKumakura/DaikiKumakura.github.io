@@ -21,6 +21,18 @@ class MetadataTests(unittest.TestCase):
         self.assertIn('<title>A &amp; B</title>', result)
         self.assertNotIn('&amp;amp;', result)
 
+    def test_software_schema_describes_visible_projects(self):
+        site = json.loads((Path(__file__).parent/'content/site.json').read_text(encoding='utf-8'))
+        page = '<head><title>Software | Daiki Kumakura</title><meta name="description" content="old"></head>'
+        result = enrich(page, 'software.html', site, 'https://daikikumakura.github.io/')
+        data = json.loads(re.search(r'application/ld\+json">(.*?)</script>', result)[1])
+        self.assertEqual(data['@type'], 'CollectionPage')
+        items = data['mainEntity']['itemListElement']
+        self.assertEqual([x['item']['name'] for x in items], [x['id'] for x in site['software']])
+        self.assertTrue(all(x['item']['@type'] == 'SoftwareSourceCode' for x in items))
+        self.assertNotIn('worksFor', data['about'])
+
 if __name__ == '__main__':
     unittest.main()
+
 

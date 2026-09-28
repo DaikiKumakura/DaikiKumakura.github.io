@@ -27,7 +27,7 @@ def enrich(page, name, site, site_url):
  for prop,value in {'og:type':'article' if name.startswith('writing/') else 'website','og:title':title,'og:description':description,'og:url':canonical,'og:site_name':site['name'],'og:locale':'ja_JP' if lang=='ja' else 'en_US'}.items():
   metadata.append(f'<meta property="{prop}" content="{html.escape(value,quote=True)}">')
  metadata.append('<meta name="twitter:card" content="summary">')
- person={'@type':'Person','@id':site_url+'#person','name':site['name'],'alternateName':site['alternate_name'],'url':site_url+'profile.html','description':site['profile'],'sameAs':[site['github'],site['orcid'],site['linkedin']]}
+ person={'@type':'Person','@id':site_url+'#person','name':site['name'],'alternateName':site['alternate_name'],'url':site_url+'profile.html','description':site['profile'],'jobTitle':'Bioinformatics Researcher','knowsAbout':['Mathematical biology','Mathematical modeling','Bioinformatics','Pharmacometrics','Model-informed drug development','Systems biology','Statistical inference','Time-series analysis'],'alumniOf':{'@type':'CollegeOrUniversity','name':'Hokkaido University','sameAs':'https://www.global.hokudai.ac.jp/'},'sameAs':[site['github'],site['orcid'],site['linkedin']]}
  schema=None
  if home:
   schema={'@context':'https://schema.org','@type':'WebSite','@id':site_url+'#website','url':site_url,'name':site['name'],'alternateName':site['alternate_name'],'inLanguage':'en','about':person}
@@ -36,5 +36,11 @@ def enrich(page, name, site, site_url):
  elif key=='publication':
   works=[{'@type':'ListItem','position':i+1,'item':{'@type':'CreativeWork','name':p.get('title_translation',p['title']),'url':'https://doi.org/'+p['doi'],'author':[{'@type':'Person','name':a['name']} for a in p['author_list']]}} for i,p in enumerate(sorted(site['publications'],key=lambda p:p['year'],reverse=True))]
   schema={'@context':'https://schema.org','@type':'CollectionPage','url':canonical,'name':'Publication | '+site['name'],'mainEntity':{'@type':'ItemList','itemListElement':works}}
+ elif key=='software':
+  works=[{'@type':'ListItem','position':i+1,'item':{'@type':'SoftwareSourceCode','name':s['id'],'description':s['description'],'codeRepository':s['url'],'programmingLanguage':s['tech'],'author':{'@id':site_url+'#person'}}} for i,s in enumerate(site['software'])]
+  schema={'@context':'https://schema.org','@type':'CollectionPage','url':canonical,'name':'Software | '+site['name'],'about':person,'mainEntity':{'@type':'ItemList','itemListElement':works}}
+ elif key in ('writing','activity'):
+  schema={'@context':'https://schema.org','@type':'CollectionPage','url':canonical,'name':title,'about':person}
  if schema:metadata.append('<script type="application/ld+json">'+json.dumps(schema,ensure_ascii=False).replace('<','\\u003c')+'</script>')
  return page.replace('</head>','\n'.join(metadata)+'\n</head>')
+
