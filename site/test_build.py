@@ -36,6 +36,8 @@ class BuildTests(unittest.TestCase):
   self.assertEqual(home,self.text('home.html'))
   self.assertNotIn('id="growth-2023"',home);self.assertNotIn('software-RLR',home)
   self.assertIn('favicon.svg',home);self.assertIn('msvalidate.01',home)
+  self.assertIn('alt="Data processing and quantitative modeling illustration"',home)
+  self.assertNotIn('aria-hidden="true"',home)
   profile=self.text('profile.html')
   self.assertNotIn('Best Award',profile);self.assertNotIn('Functional Specialization',profile)
   self.assertIn('Bachelor’s degree in Fisheries Science, Department of Aquaculture Life Science, School of Fisheries Sciences, Hokkaido University',profile)
@@ -50,6 +52,7 @@ class BuildTests(unittest.TestCase):
   self.assertIn('rel="canonical" href="'+build.SITE_URL+'"',self.text('index.html'))
   for key in build.NAV:
    self.assertNotIn('noindex',self.text(key+'.html'))
+   self.assertIn('alt="'+build.ILLUSTRATION_ALT[key]+'"',self.text(key+'.html'))
  def test_drafts_and_stale_files(self):
   build.build(self.root,preview=True);keep=self.root/'dist/manual.txt';keep.write_text('keep')
   self.assertTrue((self.root/'dist/writing/japanese-note.html').exists())
@@ -110,3 +113,4 @@ class BuildTests(unittest.TestCase):
   with self.assertRaises(ValueError):build.build(self.root,preview=True)
 
 if __name__=='__main__':unittest.main()
+

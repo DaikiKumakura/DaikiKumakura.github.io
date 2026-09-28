@@ -11,6 +11,14 @@ from urllib.parse import urljoin
 
 SITE_URL = 'https://daikikumakura.github.io/'
 NAV = dict(home='Home', profile='Profile', writing='Writing', software='Software', publication='Publication', activity='Activity')
+ILLUSTRATION_ALT = {
+    'home': 'Data processing and quantitative modeling illustration',
+    'profile': 'Professional research discussion illustration',
+    'writing': 'Report analysis and technical writing illustration',
+    'software': 'Scientific software development illustration',
+    'publication': 'Research presentation illustration',
+    'activity': 'Scientific conference illustration',
+}
 OLD_PAGES = {'index':'home', 'about':'profile', 'publications':'publication', 'activities':'activity', 'writing':'writing', 'software':'software'}
 LEGACY_REDIRECTS = {'publication_jpn.html':'publication.html', 'cv.html':'profile.html', 'research.html':'profile.html', 'education.html':'activity.html#teaching', 'gallery.html':'writing.html', 'link.html':'article/article_00.html', 'about.html':'profile.html', 'publications.html':'publication.html', 'activities.html':'activity.html'}
 for language in ('ja','en'):
@@ -144,7 +152,7 @@ def build(project=BASE, preview=False, strict_translations=False):
         page=page.replace('</head>',f'<link rel="canonical" href="{canonical}">\n</head>')
         outputs[name]=page.encode('utf-8')
     for key,title in NAV.items():
-        page=env.get_template('page.html').render(site=site,lang='en',ui=ui,preview=preview,active=key,root='',alternatives={},title=site['name'] if key=='home' else title,description=site['profile'],math=False,articles=listings,working_papers=[a for a in listings if a['category']=='paper'])
+        page=env.get_template('page.html').render(site=site,lang='en',ui=ui,preview=preview,active=key,root='',alternatives={},title=site['name'] if key=='home' else title,description=site['profile'],math=False,articles=listings,working_papers=[a for a in listings if a['category']=='paper'],illustration_alt=ILLUSTRATION_ALT[key])
         output(key+'.html',page)
         if key=='home':outputs['index.html']=outputs['home.html']
     for a in entries:
@@ -223,3 +231,4 @@ if __name__ == '__main__':
         review_translation(args.slug, args.lang)
     else:
         print(json.dumps(build(preview=args.preview, strict_translations=args.strict_translations), ensure_ascii=False, indent=2))
+
