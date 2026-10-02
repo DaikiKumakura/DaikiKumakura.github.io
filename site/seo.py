@@ -29,7 +29,15 @@ def enrich(page, name, site, site_url):
  metadata.append('<meta name="twitter:card" content="summary">')
  person={'@type':'Person','@id':site_url+'#person','name':site['name'],'alternateName':site['alternate_name'],'url':site_url+'profile.html','description':site['profile'],'jobTitle':'Bioinformatics Researcher','knowsAbout':['Mathematical biology','Mathematical modeling','Bioinformatics','Pharmacometrics','Model-informed drug development','Systems biology','Statistical inference','Time-series analysis'],'alumniOf':{'@type':'CollegeOrUniversity','name':'Hokkaido University','sameAs':'https://www.global.hokudai.ac.jp/'},'sameAs':[site['github'],site['qiita'],site['docker'],site['orcid'],site['linkedin']]}
  schema=None
- if home:
+ if name.startswith('writing/') and name.endswith('.html'):
+  schema={'@context':'https://schema.org','@type':'Article','@id':canonical+'#article','url':canonical,'headline':title.removesuffix(' | '+site['name']),'description':description,'inLanguage':lang,'author':person,'mainEntityOfPage':canonical}
+  published=re.search(r'<p class="meta">[^<]*?(\d{4}-\d{2}-\d{2})',page)
+  if published:schema['datePublished']=published[1]
+  citations=list(dict.fromkeys(html.unescape(url) for url in re.findall(r'href="(https://doi\.org/[^"]+)"',page)))
+  if citations:schema['citation']=citations
+  images=re.findall(r'<img[^>]+src="([^"]+)"',page)
+  if images:schema['image']=[urljoin(canonical,html.unescape(url)) for url in images]
+ elif home:
   schema={'@context':'https://schema.org','@type':'WebSite','@id':site_url+'#website','url':site_url,'name':site['name'],'alternateName':site['alternate_name'],'inLanguage':'en','about':person}
  elif key=='profile':
   schema={'@context':'https://schema.org','@type':'ProfilePage','url':canonical,'inLanguage':'en','mainEntity':person}

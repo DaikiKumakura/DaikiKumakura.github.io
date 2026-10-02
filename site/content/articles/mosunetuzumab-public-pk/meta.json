@@ -1,0 +1,15 @@
+{
+  "source_language": "ja",
+  "category": "tutorial",
+  "date": "2026-10-02",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "モスネツズマブの公開PopPKモデルを再実装する：段階的増量の曝露比較とRO–CRS外挿の限界",
+      "summary": "公開論文と補足資料からmosunetuzumabのPKを再計算。仮想患者2,000例のpaired解析で投与量・間隔の影響を調べ、CD20占有率とCRSに翻訳できる範囲を検討する。図表・Pythonコード・CSV付き。"
+    }
+  }
+}
