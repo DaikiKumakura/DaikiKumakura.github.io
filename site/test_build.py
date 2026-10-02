@@ -20,8 +20,10 @@ class Links(HTMLParser):
 class BuildTests(unittest.TestCase):
  def setUp(self):
   self.temp=tempfile.TemporaryDirectory();self.root=Path(self.temp.name)
-  for n in ('content','templates','assets','static'):shutil.copytree(build.BASE/n,self.root/n)
-  shutil.copytree(build.BASE/'fixtures/articles',self.root/'content/articles')
+  # Test fixtures must not collide with or depend on real articles and drafts.
+  for n in ('content','templates','assets','static'):
+   shutil.copytree(build.BASE/n,self.root/n,ignore=shutil.ignore_patterns('articles') if n=='content' else None)
+  shutil.copytree(build.BASE/'fixtures/articles',self.root/'content/articles',dirs_exist_ok=True)
  def tearDown(self):self.temp.cleanup()
  def text(self,name):return (self.root/'dist'/name).read_text(encoding='utf-8')
  def meta(self,slug):
@@ -113,4 +115,5 @@ class BuildTests(unittest.TestCase):
   with self.assertRaises(ValueError):build.build(self.root,preview=True)
 
 if __name__=='__main__':unittest.main()
+
 
