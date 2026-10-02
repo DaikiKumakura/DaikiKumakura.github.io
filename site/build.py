@@ -120,8 +120,22 @@ def render_body(article, lang):
             raise ValueError(f'Missing shared code: {filename}')
         return '\n<pre><code class="language-' + html.escape(language) + '">' + html.escape(path.read_text(encoding='utf-8')) + '</code></pre>\n'
     body = re.sub(r'^\{\{code:([a-zA-Z0-9_-]+):([^}\n]+)\}\}\s*$', include, body, flags=re.M)
+    # Protect TeX from Markdown escaping and emphasis outside literal code.
+    math_fragments = []
+    if article['meta'].get('math', False):
+        def protect_math(match):
+            token = f'MATHPLACEHOLDER{len(math_fragments)}END'
+            math_fragments.append(html.escape(match.group(0)))
+            return token
+        parts = re.split(r'(```[\s\S]*?```|`[^`\n]*`|<pre>[\s\S]*?</pre>)', body)
+        for i in range(0, len(parts), 2):
+            parts[i] = re.sub(r'\\\([\s\S]*?\\\)|\\\[[\s\S]*?\\\]', protect_math, parts[i])
+        body = ''.join(parts)
     parser = markdown.Markdown(extensions=['fenced_code', 'tables', 'toc', 'attr_list'])
-    return parser.convert(body), parser.toc
+    rendered = parser.convert(body)
+    for i, fragment in enumerate(math_fragments):
+        rendered = rendered.replace(f'MATHPLACEHOLDER{i}END', '<span class="math">' + fragment + '</span>')
+    return rendered, parser.toc
 
 def build(project=BASE, preview=False, strict_translations=False):
     project = Path(project)

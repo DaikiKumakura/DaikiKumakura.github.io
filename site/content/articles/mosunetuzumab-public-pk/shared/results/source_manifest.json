@@ -1,0 +1,26 @@
+[
+  {
+    "source": "pk.xml",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11134317/fullTextXML",
+    "retrieved": "2026-10-02",
+    "sha256": "25d05cde4f373055c3d24c521c492989ecc285e16a6c5785d6150d84e5e21e17"
+  },
+  {
+    "source": "pk-supp.zip",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11134317/supplementaryFiles",
+    "retrieved": "2026-10-02",
+    "sha256": "c00a92a7592660d8dadf438ec9313344a4780b7a3bf5ccba628b8165bccf7986"
+  },
+  {
+    "source": "er.xml",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11739751/fullTextXML",
+    "retrieved": "2026-10-02",
+    "sha256": "41bb8142c688d95bc288015a2652d809c59160e48bedc6efbccc90bd2ccc3446"
+  },
+  {
+    "source": "er-supp.zip",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC11739751/supplementaryFiles",
+    "retrieved": "2026-10-02",
+    "sha256": "55cec247a19c76ccfd148158ecdac012f4e834a5534e444af1e80d61c895e711"
+  }
+]
