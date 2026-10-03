@@ -272,6 +272,6 @@ python run_analysis.py
 2. Li CC, et al. A Novel Step-Up Dosage Regimen for Enhancing the Benefit-to-Risk Ratio of Mosunetuzumab in Relapsed or Refractory Follicular Lymphoma. *Clinical Pharmacology & Therapeutics*. 2025;117:465–474（オンライン公開2024年）. [DOI: 10.1002/cpt.3445](https://doi.org/10.1002/cpt.3445). [補足資料](https://ascpt.onlinelibrary.wiley.com/doi/suppl/10.1002/cpt.3445).
 3. LUNSUMIO (mosunetuzumab-axgb), intravenous prescribing information. [DailyMed](https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=2ef0cf38-101c-4681-98fe-c05dc9ead443); [FDA 2025 label](https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/761263s006lbl.pdf).
 
-資料確認日：2026年10月2日。解析・執筆：Daiki Kumakura。所属先の非公開データは使用していない。
+資料確認日：2026年10月2日。解析・執筆：Daiki Kumakura。
 
 
