@@ -2233,5 +2233,17 @@
     "publications": true,
     "activities": true
   },
-  "alternate_name": "熊倉大騎"
+  "alternate_name": "熊倉大騎",
+  "oss_contributions": [
+    {
+      "project": "mrgsolve",
+      "title": "Identify conflicting mixed-case NMTRAN column names",
+      "url": "https://github.com/metrumresearchgroup/mrgsolve/pull/1405",
+      "status": "Submitted · review pending",
+      "checked": "2026-10-03",
+      "description": "Improves warnings for conflicting upper- and lower-case NMTRAN column names without changing data conversion behavior. Adds regression tests for the warning and preservation of input values.",
+      "validation": "Source build and 224 expectations across four relevant test files passed locally on Windows. Upstream review and CI are pending; this change has not been merged."
+    }
+  ]
 }
+
