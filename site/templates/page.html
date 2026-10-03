@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% macro paper(p) %}<article class="record" id="{{ p.id }}"><p class="meta">{{ p.year }}</p><h3><a href="https://doi.org/{{ p.doi }}">{{ p.title_translation if p.title_translation is defined else p.title }}</a></h3><p>{% for a in p.author_list %}{% if a.self %}<strong>{{ a.name }}</strong>{% else %}{{ a.name }}{% endif %}{{ ', ' if not loop.last }}{% endfor %}</p><p class="meta">{{ p.venue }}{% if p.online_date is defined %} · {{ ui.online }}: {{ p.online_date }}{% endif %}</p>{% for link in p.links %}<a class="meta" href="{{ link.url }}">{{ link.label }}</a>{{ ' · ' if not loop.last }}{% endfor %}</article>{% endmacro %}
-{% macro software(s, full=false) %}{% set heading = 'h2' if full else 'h3' %}<article class="record" id="software-{{ s.id }}"><{{ heading }} class="record-title"><a href="{{ s.url }}">{{ s.id }}</a></{{ heading }}><p class="meta">{{ s.tech }} · {{ s.status }}</p><p>{{ s.description }}</p>{% if full %}<p class="meta">{{ s.note }}</p><p><a href="{{ s.url }}">GitHub</a>{% for link in s.links %} · <a href="{{ link.url }}">{{ link.label }}</a>{% endfor %}</p>{% endif %}</article>{% endmacro %}
+{% macro software(s, full=false) %}{% set heading = 'h3' %}<article class="record" id="software-{{ s.id }}"><{{ heading }} class="record-title"><a href="{{ s.url }}">{{ s.id }}</a></{{ heading }}><p class="meta">{{ s.tech }} · {{ s.status }}</p><p>{{ s.description }}</p>{% if full %}<p class="meta">{{ s.note }}</p><p><a href="{{ s.url }}">GitHub</a>{% for link in s.links %} · <a href="{{ link.url }}">{{ link.label }}</a>{% endfor %}</p>{% endif %}</article>{% endmacro %}
 {% block content %}
 <div class="page-heading"><h1>{% if active in ['home'] %}{{ site.display_name }}{% else %}{{ title }}{% endif %}</h1>{% if active != 'home' %}<img class="page-illustration" src="assets/{{ active }}-isometric.svg" width="112" height="88" alt="{{ illustration_alt }}">{% endif %}</div>
 {% if active == 'home' %}
@@ -16,7 +16,9 @@
 <nav class="section-links" aria-label="{{ ui.toc }}">{% for kind,label in ui.publication_types.items() %}<a href="#{{ kind }}">{{ label }}</a>{% endfor %}</nav>
 {% for kind,label in ui.publication_types.items() %}<section id="{{ kind }}"><h2>{{ label }}</h2>{% for p in site.publications|sort(attribute='year',reverse=true) if p.kind == kind %}{{ paper(p) }}{% endfor %}</section>{% endfor %}
 {% if working_papers %}<h2>{{ ui.working_papers }}</h2>{% for a in working_papers %}<article class="record"><h3><a href="{{ a.href }}" lang="{{ a.lang }}">{{ a.title }}</a></h3><p class="meta">{{ ui.unreviewed }} · {{ a.available }}</p></article>{% endfor %}{% endif %}
-{% elif active == 'software' %}{% for s in site.software %}{{ software(s,true) }}{% endfor %}<p><a href="https://github.com/DaikiKumakura">GitHub · DaikiKumakura</a></p>
+{% elif active == 'software' %}
+<section aria-labelledby="own-software"><h2 id="own-software">Own software</h2>{% for s in site.software %}{{ software(s,true) }}{% endfor %}</section>
+{% if site.oss_contributions %}<section aria-labelledby="oss-contributions"><h2 id="oss-contributions">Open-source contributions</h2>{% for c in site.oss_contributions %}<article class="record"><h3 class="record-title"><a href="{{ c.url }}">{{ c.project }} — {{ c.title }}</a></h3><p class="meta">{{ c.status }} · Status checked {{ c.checked }}</p><p>{{ c.description }}</p><p class="meta">{{ c.validation }}</p><p><a href="{{ c.url }}">Pull request</a></p></article>{% endfor %}</section>{% endif %}<p><a href="https://github.com/DaikiKumakura">GitHub · DaikiKumakura</a></p>
 {% elif active == 'activity' %}
 <p class="meta">{{ ui.activity_note }}</p>
 <nav class="section-links" aria-label="{{ ui.toc }}">{% for category,label in ui.activity_types.items() %}<a href="#{{ category }}">{{ label }}</a>{% endfor %}</nav>
@@ -32,3 +34,4 @@
 {% for a in articles %}<article class="record"><p class="meta">{{ ui.categories[a.category] }} · {{ a.date }} · {{ a.available }}{% if a.draft %} · {{ ui.draft }}{% endif %}</p><h2 class="record-title"><a href="{{ a.href }}" lang="{{ a.lang }}">{{ a.title }}</a></h2><p lang="{{ a.lang }}">{{ a.summary }}</p></article>{% endfor %}
 {% endif %}
 {% endblock %}
+
