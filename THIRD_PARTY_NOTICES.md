@@ -23,7 +23,7 @@ Downloaded on 2026-09-28 from the official ManyPixels CDN:
 
 ## Tabler icon
 
-The favicon is the Tabler Icons `chart-arcs-3` outline icon, downloaded from commit [`0239805680a36bab4e1070529b6744924402d804`](https://github.com/tabler/tabler-icons/commit/0239805680a36bab4e1070529b6744924402d804). Its stroke color was changed to match the website palette.
+The favicon is the Tabler Icons `chart-arcs-3` outline icon, downloaded from commit [`0239805680a36bab4e1070529b6744924402d804`](https://github.com/tabler/tabler-icons/commit/0239805680a36bab4e1070529b6744924402d804). It is adapted with white strokes on a navy rounded-square background. The SVG and its PNG/ICO raster adaptations are self-hosted at `assets/favicon.svg`, `favicon.png`, and `favicon.ico`.
 
 Source: <https://github.com/tabler/tabler-icons/blob/0239805680a36bab4e1070529b6744924402d804/icons/outline/chart-arcs-3.svg>
 

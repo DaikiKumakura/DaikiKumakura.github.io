@@ -1,21 +1,9 @@
-<!--
-tags: [statistics, diagram, graph, rhythm, data, analysis, chart, arcs, visualization, analytics]
-category: Charts
-version: "1.39"
-unicode: "ee27"
--->
-<svg
-  xmlns="http://www.w3.org/2000/svg"
-  width="24"
-  height="24"
-  viewBox="0 0 24 24"
-  fill="none"
-  stroke="#255c7a"
-  stroke-width="2"
-  stroke-linecap="round"
-  stroke-linejoin="round"
->
-  <path d="M11 12a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
-  <path d="M7 12a5 5 0 1 0 5 -5" />
-  <path d="M6.29 18.957a9 9 0 1 0 5.71 -15.957" />
+<!-- Adapted from MIT-licensed Tabler Icons chart-arcs-3; see THIRD_PARTY_NOTICES.md. -->
+<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96">
+  <rect width="96" height="96" rx="20" fill="#163e53"/>
+  <g transform="translate(12 12) scale(3)" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M11 12a1 1 0 1 0 2 0a1 1 0 1 0 -2 0"/>
+    <path d="M7 12a5 5 0 1 0 5 -5"/>
+    <path d="M6.29 18.957a9 9 0 1 0 5.71 -15.957"/>
+  </g>
 </svg>
