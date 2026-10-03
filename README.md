@@ -32,6 +32,12 @@ Use `--lang ja` for Japanese. Edit the generated Markdown and `meta.json` in `si
 
 An original in one language is enough. Optional translations share code and figures in `shared/`; after reviewing one, run `python site/build.py review-translation article-slug --lang en` (or `ja`). Tests use their own fixtures, never your draft directory.
 
+## Scheduled articles
+
+Set `publish_at` in `meta.json` to a timezone-aware timestamp, for example `2026-10-04T09:00:00+09:00`, and set `date` to its local calendar date. Set `draft` to `false` only after review. Production builds omit the article, its shared files, and sitemap entry until that time. Preview builds include it and remain noindex.
+
+GitHub Actions rebuilds daily at 00:00 UTC (09:00 JST). Scheduled runs can be delayed or skipped by GitHub; this is not an exact-time publishing guarantee. Use the existing manual workflow dispatch if a scheduled run is missed. Source files in this public repository are visible before the website publication time; scheduling does not make them confidential.
+
 ## Preview and check
 
 Python 3.11 or newer:

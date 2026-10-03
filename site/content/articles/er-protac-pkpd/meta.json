@@ -1,0 +1,16 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2026-10-04",
+  "publish_at": "2026-10-04T09:00:00+09:00",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "標的タンパク質分解薬の投与間隔を、最大分解率だけで決められるか",
+      "summary": "ER-PROTACの公開データを点検し、作用部位曝露と標的回復の仮定が投与頻度・PD指標の比較をどう変えるかを最小モデルで調べる。実薬へのfitと臨床用量提案は行わない。"
+    }
+  }
+}
