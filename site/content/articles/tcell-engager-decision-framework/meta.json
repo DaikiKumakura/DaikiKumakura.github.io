@@ -1,0 +1,22 @@
+{
+  "source_language": "en",
+  "category": "note",
+  "date": "2026-10-06",
+  "publish_at": "2026-10-06T09:00:00+09:00",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "en": {
+      "title": "From public T-cell engager evidence to the next experiment",
+      "summary": "Public PopPK and efficacy reconstruction, Bayesian CRS sensitivity, and hypothetical measurement value and sampling design.",
+      "tags": [
+        "Pharmacometrics",
+        "T-cell engager",
+        "Bayesian modeling",
+        "Experimental design"
+      ]
+    }
+  }
+}
