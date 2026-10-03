@@ -1,0 +1,15 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2026-10-03",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "タルラタマブの公開PKデータから、投与間隔の変更をどこまで評価できるか",
+      "summary": "公開PK集約値から2コンパートメントモデルを推定し、識別性と不確実性を踏まえてQ2W・Q3W・Q4Wの曝露を比較する。"
+    }
+  }
+}
