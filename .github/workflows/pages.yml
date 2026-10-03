@@ -3,6 +3,9 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  schedule:
+    # Scheduled articles become eligible at their timezone-aware publish_at.
+    - cron: '0 0 * * *' # 09:00 JST; Actions may start later.
 permissions:
   contents: read
 concurrency:

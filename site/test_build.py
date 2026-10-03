@@ -28,6 +28,17 @@ class BuildTests(unittest.TestCase):
  def text(self,name):return (self.root/'dist'/name).read_text(encoding='utf-8')
  def meta(self,slug):
   p=self.root/'content/articles'/slug/'meta.json';return p,build.read_json(p)
+ def test_scheduled_article_boundary(self):
+  from datetime import datetime
+  p,m=self.meta('japanese-note');m.update(draft=False,date='2026-10-04',publish_at='2026-10-04T09:00:00+09:00');p.write_text(json.dumps(m),encoding='utf-8')
+  before=datetime.fromisoformat('2026-10-03T23:59:59+00:00')
+  after=datetime.fromisoformat('2026-10-04T00:00:00+00:00')
+  self.assertNotIn('japanese-note',[a['slug'] for a in build.load_articles(self.root/'content',now=before)])
+  self.assertIn('japanese-note',[a['slug'] for a in build.load_articles(self.root/'content',now=after)])
+  self.assertIn('japanese-note',[a['slug'] for a in build.load_articles(self.root/'content',preview=True,now=before)])
+ def test_scheduled_article_requires_timezone(self):
+  p,m=self.meta('japanese-note');m['publish_at']='2026-10-04T09:00:00';p.write_text(json.dumps(m),encoding='utf-8')
+  with self.assertRaisesRegex(ValueError,'timezone'):build.load_articles(self.root/'content')
  def test_preserves_records(self):
   site=build.read_json(self.root/'content/site.json');build.build(self.root)
   self.assertEqual(len(site['publications']),10);self.assertEqual(len(site['activities']),70)

@@ -6,7 +6,7 @@ import html
 import json
 import re
 import sys
-from datetime import date
+from datetime import date, datetime, timezone
 from urllib.parse import urljoin
 
 SITE_URL = 'https://daikikumakura.github.io/'
@@ -71,7 +71,10 @@ def fingerprint(folder, meta):
             digest.update(path.read_bytes())
     return digest.hexdigest()
 
-def load_articles(content, preview=False):
+def load_articles(content, preview=False, now=None):
+    now = now or datetime.now(timezone.utc)
+    if now.tzinfo is None:
+        raise ValueError("Article publication time must include a timezone")
     entries = []
     for folder in sorted((content / 'articles').glob('*')):
         if not folder.is_dir():
@@ -94,7 +97,14 @@ def load_articles(content, preview=False):
         for path in folder.rglob('*'):
             if path.is_symlink():
                 raise ValueError('Symlinks are not supported in article content')
-        if meta['draft'] and not preview:
+        publish_at = None
+        if meta.get('publish_at'):
+            publish_at = datetime.fromisoformat(meta['publish_at'])
+            if publish_at.tzinfo is None:
+                raise ValueError('publish_at must include a timezone')
+            if publish_at.date().isoformat() != meta['date']:
+                raise ValueError('Publication date must match publish_at local date')
+        if not preview and (meta['draft'] or (publish_at and now < publish_at)):
             continue
         revision = fingerprint(folder, meta)
         stale = {lang: lang != meta['source_language'] and meta.get('reviewed', {}).get(lang) != revision for lang in meta['locales']}
