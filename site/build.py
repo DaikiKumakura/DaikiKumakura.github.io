@@ -19,13 +19,6 @@ ILLUSTRATION_ALT = {
     'publication': 'Research presentation illustration',
     'activity': 'Scientific conference illustration',
 }
-OLD_PAGES = {'index':'home', 'about':'profile', 'publications':'publication', 'activities':'activity', 'writing':'writing', 'software':'software'}
-LEGACY_REDIRECTS = {'japanese.html':'index.html', 'publication_jpn.html':'publication.html', 'cv.html':'profile.html', 'research.html':'profile.html', 'education.html':'activity.html#teaching', 'gallery.html':'writing.html', 'link.html':'article/article_00.html', 'about.html':'profile.html', 'publications.html':'publication.html', 'activities.html':'activity.html'}
-for language in ('ja','en'):
-    for old,new in OLD_PAGES.items():
-        LEGACY_REDIRECTS[f'{language}/{old}.html'] = 'index.html' if new == 'home' else new+'.html'
-
-
 BASE = Path(__file__).resolve().parent
 sys.path.insert(0, str(BASE / '.deps'))
 import markdown
@@ -176,12 +169,9 @@ def build(project=BASE, preview=False, strict_translations=False):
             body,toc=render_body(a,language)
             page=env.get_template('article.html').render(site=site,lang=language,ui=ui,preview=preview,active='writing',root='../',alternatives=alternatives,title=m['locales'][language]['title'],description=m['locales'][language]['summary'],math=m.get('math',False),author=m.get('author',site['name']),date=m['date'],category=m['category'],version=m.get('version',''),draft=m['draft'],stale=a['stale'][language],body=body,toc=toc)
             output('writing/'+alternatives[language],page,language)
-            outputs[f"{language}/writing/{a['slug']}.html"]=env.get_template('redirect.html').render(target=SITE_URL+'writing/'+alternatives[language]).encode('utf-8')
         for asset in (a['folder']/'shared').rglob('*'):
             if asset.is_file():outputs[f"writing/shared/{a['slug']}/{asset.relative_to(a['folder']/'shared').as_posix()}"]=asset.read_bytes()
     canonical_pages=['index.html']+[key+'.html' for key in NAV if key!='home']+[name for name in outputs if name.startswith('writing/') and name.endswith('.html')]
-    for old,new in LEGACY_REDIRECTS.items():
-        outputs[old]=env.get_template('redirect.html').render(target=SITE_URL+new).encode('utf-8')
     outputs['404.html']=env.get_template('not-found.html').render().encode('utf-8')
     outputs['sitemap.xml']=('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+''.join('<url><loc>'+html.escape(SITE_URL if p=='index.html' else SITE_URL+p)+'</loc></url>' for p in canonical_pages if not preview or not p.startswith('writing/'))+'</urlset>').encode('utf-8')
     outputs['robots.txt']=('User-agent: *\n'+('Disallow: /\n' if preview else 'Allow: /\nSitemap: '+SITE_URL+'sitemap.xml\n')).encode('utf-8')

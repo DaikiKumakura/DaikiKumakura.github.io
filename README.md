@@ -45,17 +45,9 @@ python -m http.server 8000 --directory site/dist
 
 Open `http://localhost:8000/`. To include drafts locally, use `python site/build.py --preview`; preview pages are marked noindex. Production deployment always rebuilds without drafts. No build tools run in the visitor's browser.
 
-## Preserved URLs
+## Retired legacy pages
 
-- `ja/` and `en/` section pages → corresponding English pages
-- `about.html`, `cv.html`, `research.html` → `profile.html`
-- `publications.html`, `publication_jpn.html` → `publication.html`
-- `activities.html` → `activity.html`
-- `education.html` → `activity.html#teaching`
-- `gallery.html` → `writing.html`
-- `link.html` → `article/article_00.html`
-
-Redirects use meta refresh, a visible fallback link and canonical metadata; they are not HTTP 301 responses. Files in `site/static/` are published at their original paths, including `/article/article_00.html` and `/etc_files/`. Older unused templates remain available in Git history.
+Legacy HTML pages and their redirects, including `/article/article_00.html`, are no longer published. Their source remains recoverable in Git history. Current pages and articles retain their canonical URLs. Non-HTML resources in `site/static/etc_files/` remain available at their original paths.
 
 The sitemap contains canonical content pages only. Keep the Bing verification tag in `site/templates/base.html` and the Google file in `site/static/`. Structured identity/publication metadata comes from the same source as visible content. Search rankings and AI citations are not guaranteed.
 

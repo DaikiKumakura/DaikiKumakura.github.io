@@ -29,7 +29,6 @@
 {% endfor %}</section>{% endfor %}
 {% elif active == 'writing' %}
 {% if not articles %}<p>{{ ui.empty }}</p>{% endif %}
-<p><a href="https://daikikumakura.github.io/article/article_00.html">{{ '以前の記事：リンク集（日本語）' if lang == 'ja' else 'Earlier article: resource links (Japanese)' }}</a></p>
 {% for a in articles %}<article class="record"><p class="meta">{{ ui.categories[a.category] }} · {{ a.date }} · {{ a.available }}{% if a.draft %} · {{ ui.draft }}{% endif %}</p><h2><a href="{{ a.href }}" lang="{{ a.lang }}">{{ a.title }}</a></h2><p lang="{{ a.lang }}">{{ a.summary }}</p></article>{% endfor %}
 {% endif %}
 {% endblock %}
