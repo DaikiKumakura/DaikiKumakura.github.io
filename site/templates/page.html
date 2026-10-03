@@ -29,7 +29,6 @@
 {% endfor %}</section>{% endfor %}
 {% elif active == 'writing' %}
 {% if not articles %}<p>{{ ui.empty }}</p>{% endif %}
-{% for a in articles %}<article class="record"><p class="meta">{{ ui.categories[a.category] }} · {{ a.date }} · {{ a.available }}{% if a.draft %} · {{ ui.draft }}{% endif %}</p><h2><a href="{{ a.href }}" lang="{{ a.lang }}">{{ a.title }}</a></h2><p lang="{{ a.lang }}">{{ a.summary }}</p></article>{% endfor %}
+{% for a in articles %}<article class="record"><p class="meta">{{ ui.categories[a.category] }} · {{ a.date }} · {{ a.available }}{% if a.draft %} · {{ ui.draft }}{% endif %}</p><h2 class="record-title"><a href="{{ a.href }}" lang="{{ a.lang }}">{{ a.title }}</a></h2><p lang="{{ a.lang }}">{{ a.summary }}</p></article>{% endfor %}
 {% endif %}
 {% endblock %}
-
