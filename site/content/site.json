@@ -607,7 +607,7 @@
       "description": "R scripts exploring transformations of compositional time series and dynamic interaction inference using CCM (Convergent Cross Mapping), including simulations and figure-generation code.",
       "featured": true,
       "links": [],
-      "note": "All six R scripts passed syntax checks on October 3, 2026; composition and RLR transformation functions also passed a small input check. CCM and the complete figure analyses have not been rerun."
+      "note": "All six figure scripts parsed, and a small CCM example using original functions ran with legacy rEDM 0.7.3 on October 3, 2026. A reproduction README and automated smoke check are provided. Complete figure analyses have not been rerun."
     },
     {
       "id": "CRiSM",
@@ -622,7 +622,7 @@
           "label": "Usage"
         }
       ],
-      "note": "Invocation and failure-handling fixes are published. Three smoke tests and an isolated wheel installation passed on October 3, 2026, including CLI help, FASTA reformatting and bundled HMM resources. The complete workflow with external analysis tools has not been validated."
+      "note": "Invocation, failure handling and marker-alignment validation are implemented. Nine smoke tests passed locally and in Linux CI on October 3, 2026. Installed CLI execution was checked; the complete phylogenetic workflow with external tools remains unvalidated."
     },
     {
       "id": "ShotgunMetagenomics",
@@ -637,7 +637,7 @@
           "label": "Tutorial (Japanese)"
         }
       ],
-      "note": "Setup instructions and script guidance have been corrected. All four Shell scripts passed syntax checks on October 3, 2026; the complete Docker workflow with real data has not been validated."
+      "note": "Scripts now check inputs, references and existing outputs, stop on tool failures, and retain diagnostic files. Eight local control-flow tests passed on October 3, 2026; automated Linux checks are configured. Full real-data Docker analysis remains unvalidated."
     },
     {
       "id": "Dockerfiles",
@@ -646,7 +646,7 @@
       "featured": false,
       "status": "Analysis environments",
       "description": "Dockerfiles for running existing bioinformatics tools in containers, including genome and metagenome analysis environments.",
-      "note": "Environment definitions for existing tools. Selected definitions were inspected; container builds and execution have not been verified.",
+      "note": "MAFFT and SeqKit environments were refreshed and passed Docker builds plus small FASTA execution checks in Linux CI on October 3, 2026. Other environment definitions remain historical and unverified.",
       "links": []
     }
   ],
