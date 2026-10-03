@@ -46,9 +46,12 @@ class BuildTests(unittest.TestCase):
   self.assertNotIn('Aquaculture and Life Science',profile);self.assertNotIn('Faculty of Fisheries Sciences',profile)
   positions=[home.index('>'+label+'</a>') for label in build.NAV.values()]
   self.assertEqual(positions,sorted(positions))
- def test_legacy_redirects_and_canonical(self):
+ def test_retired_legacy_pages_and_canonical(self):
   build.build(self.root)
-  for old,new in build.LEGACY_REDIRECTS.items():self.assertIn(build.SITE_URL+new,self.text(old))
+  for old in ('article/article_00.html','about.html','japanese.html','link.html','ja/index.html','en/index.html'):
+   self.assertFalse((self.root/'dist'/old).exists())
+  self.assertNotIn('article/article_00.html',self.text('writing.html'))
+  self.assertTrue((self.root/'dist/google1f49d64928618d22.html').is_file())
   sitemap=self.text('sitemap.xml')
   self.assertNotIn('/ja/',sitemap);self.assertNotIn('/en/',sitemap);self.assertNotIn('home.html',sitemap)
   self.assertIn('rel="canonical" href="'+build.SITE_URL+'"',self.text('index.html'))
