@@ -607,7 +607,7 @@
       "description": "R scripts exploring transformations of compositional time series and dynamic interaction inference using CCM (Convergent Cross Mapping), including simulations and figure-generation code.",
       "featured": true,
       "links": [],
-      "note": "Syntax checked for all six R scripts (September 2026). These are scripts, not an R package; the complete analyses have not been rerun."
+      "note": "All six R scripts passed syntax checks on October 3, 2026; composition and RLR transformation functions also passed a small input check. CCM and the complete figure analyses have not been rerun."
     },
     {
       "id": "CRiSM",
@@ -622,7 +622,7 @@
           "label": "Usage"
         }
       ],
-      "note": "Prototype. The published version needs fixes to invocation and error handling. The complete workflow, including external analysis tools, has not been validated."
+      "note": "Invocation and failure-handling fixes are published. Three smoke tests and an isolated wheel installation passed on October 3, 2026, including CLI help, FASTA reformatting and bundled HMM resources. The complete workflow with external analysis tools has not been validated."
     },
     {
       "id": "ShotgunMetagenomics",
@@ -637,7 +637,7 @@
           "label": "Tutorial (Japanese)"
         }
       ],
-      "note": "Syntax checked for all four Shell scripts (September 2026). The published setup instructions need corrections; the complete Docker workflow with real data has not been validated."
+      "note": "Setup instructions and script guidance have been corrected. All four Shell scripts passed syntax checks on October 3, 2026; the complete Docker workflow with real data has not been validated."
     },
     {
       "id": "Dockerfiles",
@@ -646,7 +646,7 @@
       "featured": false,
       "status": "Analysis environments",
       "description": "Dockerfiles for running existing bioinformatics tools in containers, including genome and metagenome analysis environments.",
-      "note": "Provides environment definitions for existing tools.",
+      "note": "Environment definitions for existing tools. Selected definitions were inspected; container builds and execution have not been verified.",
       "links": []
     }
   ],
