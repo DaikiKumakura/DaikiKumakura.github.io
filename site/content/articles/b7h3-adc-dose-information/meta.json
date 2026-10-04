@@ -1,0 +1,16 @@
+{
+  "source_language": "en",
+  "category": "note",
+  "date": "2026-10-09",
+  "publish_at": "2026-10-09T09:00:00+09:00",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "en": {
+      "title": "Is another dose comparison informative? A benefit–risk analysis of ifinatamab deruxtecan",
+      "summary": "Public randomized B7-H3 ADC dose-cohort counts used to quantify conditional information value, decision uncertainty and sensitivity to unreported joint outcomes and follow-up."
+    }
+  }
+}

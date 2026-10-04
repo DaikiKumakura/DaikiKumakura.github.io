@@ -1,0 +1,16 @@
+{
+  "source_language": "en",
+  "category": "note",
+  "date": "2026-10-10",
+  "publish_at": "2026-10-10T09:00:00+09:00",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "en": {
+      "title": "Does separating PSA decline and regrowth improve early prediction?",
+      "summary": "A public clinical PSA dataset used to compare landmark prediction, uncertainty calibration and decline/regrowth identifiability against simple benchmarks."
+    }
+  }
+}

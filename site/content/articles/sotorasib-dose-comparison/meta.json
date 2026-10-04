@@ -1,0 +1,16 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2026-10-08",
+  "publish_at": "2026-10-08T09:00:00+09:00",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "用量比較試験は用量選択をどこまで支持するか：sotorasib 960 mgと240 mgの群別データから",
+      "summary": "無作為化用量比較の公開群別データから、便益と害の重みを変えたときの判定領域を示す。重症毒性の差は頑健だが、奏効率とOSの差は不確かで、結論は害の定義に依存する。臨床用量の推奨は行わない。"
+    }
+  }
+}
