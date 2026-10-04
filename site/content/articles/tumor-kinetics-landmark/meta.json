@@ -1,0 +1,16 @@
+{
+  "source_language": "en",
+  "category": "note",
+  "date": "2026-10-11",
+  "publish_at": "2026-10-11T09:00:00+09:00",
+  "draft": false,
+  "math": false,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "en": {
+      "title": "Does a tumor-kinetic model add anything to a single early tumor change?",
+      "summary": "At 16, 24 and 32 weeks, a mixed-effects tumor-kinetic estimate added no held-out survival discrimination beyond the observed one-point change, and carrying the last value forward predicted the next measurement best."
+    }
+  }
+}
