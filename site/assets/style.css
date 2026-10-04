@@ -7,3 +7,5 @@
 
 .page-heading{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:88px;margin-bottom:16px}.page-heading h1{margin:0}.page-illustration{width:112px;height:88px;object-fit:contain;flex:none}@media(max-width:600px){.page-heading{min-height:68px;margin-bottom:12px}.page-illustration{width:86px;height:68px}}
 .prose mjx-container[display="true"]{max-width:100%;overflow-x:auto;overflow-y:hidden;padding:.25rem 0}
+.prose table{overflow-wrap:normal;word-break:normal}.prose td,.prose th{min-width:7.5em}
+
