@@ -1,0 +1,15 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2026-10-04",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "Nimotuzumabの実測PKから考える、曝露比較に必要なモデルの複雑さ",
+      "summary": "個人別PKから3つのPopPK構造を推定し、内部検証・収束・投与条件の曝露差からモデル採用の限界を検討する。"
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "source_language": "en",
+  "category": "note",
+  "date": "2026-10-04",
+  "draft": false,
+  "math": false,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "en": {
+      "title": "What changes in paired tumor immune-expression measurements during nivolumab?",
+      "summary": "Fixed immune scores in 43 public RNA pairs, with paired change, normalization sensitivity and patient-separated response-association diagnostics."
+    }
+  }
+}

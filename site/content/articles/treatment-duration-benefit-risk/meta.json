@@ -1,0 +1,15 @@
+{
+  "source_language": "en",
+  "category": "note",
+  "date": "2026-10-04",
+  "draft": false,
+  "math": false,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "en": {
+      "title": "What can aggregate randomized data establish about treatment duration and benefit–risk?",
+      "summary": "SCOT trial efficacy and neuropathy compared with endpoint-specific denominators, uncertainty, missingness bounds and limits of joint benefit–risk inference."
+    }
+  }
+}
