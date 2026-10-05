@@ -11,6 +11,7 @@
   <link rel="icon" type="image/svg+xml" sizes="any" href="{{ root }}assets/favicon.svg">
   <link rel="shortcut icon" href="{{ root }}favicon.ico">
   <link rel="stylesheet" href="{{ root }}assets/style.css">
+  {% if not preview %}<link rel="alternate" type="application/atom+xml" title="Writing | {{ site.name }}" href="{{ root }}feed.xml">{% endif %}
   {% for code, href in alternatives.items() %}<link rel="alternate" hreflang="{{ code }}" href="{{ href }}">{% endfor %}
   {% if math %}
   <script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]}};</script>

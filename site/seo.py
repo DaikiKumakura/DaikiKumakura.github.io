@@ -5,12 +5,14 @@ import re
 from urllib.parse import urljoin
 
 DESCRIPTIONS = {
- 'home': 'Daiki Kumakura (熊倉大騎), mathematical biologist and bioinformatics researcher. Mathematical modeling, biological dynamics, pharmacometrics and systems biology.',
+ 'home': 'Daiki Kumakura (熊倉大騎), mathematical biologist and bioinformatics researcher. PK/PD and dosing analyses of public data, research software and publications.',
  'profile': 'Profile of Daiki Kumakura: mathematical modeling, statistical inference and dynamic systems; pharmacometrics and model-informed drug development.',
  'writing': 'Analysis tutorials, technical notes, blog posts and working papers by Daiki Kumakura. Each article is available in its original language.',
  'software': 'Research software by Daiki Kumakura: RLR_transform for CCM (Convergent Cross Mapping), CRiSM, shotgun metagenomics tutorials and Docker environments.',
  'publication': 'Research publications by Daiki Kumakura: mathematical models, biological dynamics, antibiotic response, compositional time series and bioinformatics.',
  'activity': 'Conference presentations, teaching, event organization, outreach and media activities by Daiki Kumakura, grouped by year and category.'}
+
+HOME_TITLE='Daiki Kumakura / 熊倉大騎 — Mathematical Biology and PK/PD Modeling'
 
 def enrich(page, name, site, site_url):
  key=name.removesuffix('.html'); home=key in ('index','home')
@@ -19,7 +21,7 @@ def enrich(page, name, site, site_url):
  title=html.unescape(re.search(r'<title>(.*?)</title>',page)[1])
  description=DESCRIPTIONS.get('home' if home else key)
  if description is None:description=html.unescape(re.search(r'<meta name="description" content="([^"]*)">',page)[1])
- if home:title='Daiki Kumakura / 熊倉大騎 — Mathematical Biology'
+ if home:title=HOME_TITLE
  page=re.sub(r'<title>.*?</title>',lambda _: '<title>'+html.escape(title)+'</title>',page)
  page=re.sub(r'\s*<meta name="description" content="[^"]*">','',page)
  page=re.sub(r'(<link rel="alternate" hreflang="[^"]+" href=")([^"]+)',lambda m:m[1]+urljoin(canonical,m[2]),page)

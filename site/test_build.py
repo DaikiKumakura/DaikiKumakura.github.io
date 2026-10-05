@@ -121,6 +121,30 @@ class BuildTests(unittest.TestCase):
      name=key.rsplit('}',1)[-1].lower()
      self.assertFalse(name.startswith('on'),f'{path.name}: event handler {name}')
      if name=='href':self.assertFalse(value.lower().startswith(external),f'{path.name}: external reference')
+ def test_sitemap_lastmod_feed_and_home_recent(self):
+  p,m=self.meta('japanese-note');m.update(draft=False,date='2026-10-04',updated='2026-10-06');p.write_text(json.dumps(m),encoding='utf-8')
+  build.build(self.root)
+  ns={'s':'http://www.sitemaps.org/schemas/sitemap/0.9','a':'http://www.w3.org/2005/Atom'}
+  rows={u.find('s:loc',ns).text:u.find('s:lastmod',ns) for u in ET.fromstring(self.text('sitemap.xml')).findall('s:url',ns)}
+  article=build.SITE_URL+'writing/japanese-note.html'
+  self.assertEqual(rows[article].text,'2026-10-06')
+  self.assertEqual(rows[build.SITE_URL+'writing.html'].text,'2026-10-06')
+  self.assertIsNone(rows[build.SITE_URL+'profile.html'])
+  feed=ET.fromstring(self.text('feed.xml'))
+  ids=[e.find('a:id',ns).text for e in feed.findall('a:entry',ns)]
+  self.assertIn(article,ids)
+  self.assertEqual(len(ids),len(set(ids)))
+  self.assertIn('Sitemap: '+build.SITE_URL+'feed.xml',self.text('robots.txt'))
+  home=self.text('index.html')
+  self.assertIn('application/atom+xml',home)
+  self.assertIn('Recent writing',home);self.assertIn('writing/japanese-note.html',home)
+  self.assertIn('Mathematical Biology and PK/PD Modeling',home)
+  p,m=self.meta('japanese-note');m['updated']='2026-10-01';p.write_text(json.dumps(m),encoding='utf-8')
+  with self.assertRaisesRegex(ValueError,'updated is before date'):build.build(self.root)
+ def test_preview_has_no_feed(self):
+  build.build(self.root,preview=True)
+  self.assertFalse((self.root/'dist/feed.xml').exists())
+  self.assertNotIn('application/atom+xml',self.text('index.html'))
  def test_shared_code_traversal(self):
   p=self.root/'content/articles/japanese-note/ja.md';p.write_text('{{code:r:../meta.json}}',encoding='utf-8')
   with self.assertRaises(ValueError):build.build(self.root,preview=True)

@@ -19,6 +19,8 @@ ILLUSTRATION_ALT = {
     'publication': 'Research presentation illustration',
     'activity': 'Scientific conference illustration',
 }
+RECENT_ON_HOME = 3
+FEED_SIZE = 50
 BASE = Path(__file__).resolve().parent
 sys.path.insert(0, str(BASE / '.deps'))
 import markdown
@@ -87,6 +89,8 @@ def load_articles(content, preview=False, now=None):
         if not isinstance(meta.get('draft'), bool):
             raise ValueError(f'draft must be true or false: {folder.name}')
         date.fromisoformat(meta['date'])
+        if meta.get('updated') is not None and date.fromisoformat(meta['updated']) < date.fromisoformat(meta['date']):
+            raise ValueError(f'updated is before date: {folder.name}')
         if meta['source_language'] not in meta['locales']:
             raise ValueError('Original language is missing')
         for lang, data in meta['locales'].items():
@@ -169,7 +173,7 @@ def build(project=BASE, preview=False, strict_translations=False):
         page=page.replace('</head>',f'<link rel="canonical" href="{canonical}">\n</head>')
         outputs[name]=page.encode('utf-8')
     for key,title in NAV.items():
-        page=env.get_template('page.html').render(site=site,lang='en',ui=ui,preview=preview,active=key,root='',alternatives={},title=site['name'] if key=='home' else title,description=site['profile'],math=False,articles=listings,working_papers=[a for a in listings if a['category']=='paper'],illustration_alt=ILLUSTRATION_ALT[key])
+        page=env.get_template('page.html').render(site=site,lang='en',ui=ui,preview=preview,active=key,root='',alternatives={},title=site['name'] if key=='home' else title,description=site['profile'],math=False,articles=listings,recent=listings[:RECENT_ON_HOME],working_papers=[a for a in listings if a['category']=='paper'],illustration_alt=ILLUSTRATION_ALT[key])
         output(key+'.html',page)
         if key=='home':outputs['index.html']=outputs['home.html']
     for a in entries:
@@ -183,8 +187,25 @@ def build(project=BASE, preview=False, strict_translations=False):
             if asset.is_file():outputs[f"writing/shared/{a['slug']}/{asset.relative_to(a['folder']/'shared').as_posix()}"]=asset.read_bytes()
     canonical_pages=['index.html']+[key+'.html' for key in NAV if key!='home']+[name for name in outputs if name.startswith('writing/') and name.endswith('.html')]
     outputs['404.html']=env.get_template('not-found.html').render().encode('utf-8')
-    outputs['sitemap.xml']=('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+''.join('<url><loc>'+html.escape(SITE_URL if p=='index.html' else SITE_URL+p)+'</loc></url>' for p in canonical_pages if not preview or not p.startswith('writing/'))+'</urlset>').encode('utf-8')
-    outputs['robots.txt']=('User-agent: *\n'+('Disallow: /\n' if preview else 'Allow: /\nSitemap: '+SITE_URL+'sitemap.xml\n')).encode('utf-8')
+    # lastmod only where the date is known: articles (publication or update
+    # date) and the pages that list them (newest article). Other pages carry
+    # no lastmod rather than an inaccurate one.
+    lastmod={}
+    for a in entries:
+        m=a['meta']; changed=m.get('updated') or m['date']
+        for code in m['locales']:
+            lastmod['writing/'+(a['slug']+'.html' if code==m['source_language'] else a['slug']+'-'+code+'.html')]=changed
+    if entries:
+        newest=max(a['meta'].get('updated') or a['meta']['date'] for a in entries)
+        lastmod['index.html']=lastmod['writing.html']=newest
+    def sitemap_url(p):
+        tag='<url><loc>'+html.escape(SITE_URL if p=='index.html' else SITE_URL+p)+'</loc>'
+        if p in lastmod:tag+='<lastmod>'+lastmod[p]+'</lastmod>'
+        return tag+'</url>'
+    outputs['sitemap.xml']=('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+''.join(sitemap_url(p) for p in canonical_pages if not preview or not p.startswith('writing/'))+'</urlset>').encode('utf-8')
+    if not preview:
+        outputs['feed.xml']=atom_feed(site,entries)
+    outputs['robots.txt']=('User-agent: *\n'+('Disallow: /\n' if preview else 'Allow: /\nSitemap: '+SITE_URL+'sitemap.xml\nSitemap: '+SITE_URL+'feed.xml\n')).encode('utf-8')
     outputs['.nojekyll'] = b''
     # Only remove obsolete files that this builder previously generated.
     # Do not recursively delete directories or touch unrelated files.
@@ -207,6 +228,28 @@ def build(project=BASE, preview=False, strict_translations=False):
         target.write_bytes(data)
     manifest.write_text(json.dumps(sorted(outputs), indent=2), encoding='utf-8')
     return dict(files=len(outputs), articles=len(entries), warnings=warnings)
+
+def atom_time(meta):
+    if meta.get('updated'):
+        return meta['updated']+'T00:00:00+09:00'
+    if meta.get('publish_at'):
+        return datetime.fromisoformat(meta['publish_at']).isoformat()
+    return meta['date']+'T00:00:00+09:00'
+
+def atom_feed(site, entries):
+    """Atom feed of published articles (also accepted by search engines as a sitemap)."""
+    items=[]
+    for a in entries[:FEED_SIZE]:
+        m=a['meta']; lang=m['source_language']; loc=m['locales'][lang]
+        url=SITE_URL+'writing/'+a['slug']+'.html'
+        published=datetime.fromisoformat(m['publish_at']).isoformat() if m.get('publish_at') else m['date']+'T00:00:00+09:00'
+        items.append('<entry><title>'+html.escape(loc['title'])+'</title><link rel="alternate" type="text/html" href="'+url+'"/><id>'+url+'</id>'
+                     '<published>'+published+'</published><updated>'+atom_time(m)+'</updated><summary xml:lang="'+lang+'">'+html.escape(loc['summary'])+'</summary></entry>')
+    updated=max((atom_time(a['meta']) for a in entries),default='2026-01-01T00:00:00+09:00')
+    head=('<?xml version="1.0" encoding="UTF-8"?>\n<feed xmlns="http://www.w3.org/2005/Atom"><title>Writing | '+html.escape(site['name'])+'</title>'
+          '<link rel="self" type="application/atom+xml" href="'+SITE_URL+'feed.xml"/><link rel="alternate" type="text/html" href="'+SITE_URL+'writing.html"/>'
+          '<id>'+SITE_URL+'feed.xml</id><updated>'+updated+'</updated><author><name>'+html.escape(site['name'])+'</name><uri>'+SITE_URL+'</uri></author>')
+    return (head+''.join(items)+'</feed>').encode('utf-8')
 
 def new_article(slug, language, title):
     if not re.fullmatch(r'[a-z0-9]+(?:-[a-z0-9]+)*', slug):
