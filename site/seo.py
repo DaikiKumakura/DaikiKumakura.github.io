@@ -8,7 +8,7 @@ DESCRIPTIONS = {
  'home': 'Daiki Kumakura (熊倉大騎), mathematical biologist and bioinformatics researcher. PK/PD and dosing analyses of public data, research software and publications.',
  'profile': 'Profile of Daiki Kumakura: mathematical modeling, statistical inference and dynamic systems; pharmacometrics and model-informed drug development.',
  'writing': 'Analysis tutorials, technical notes, blog posts and working papers by Daiki Kumakura. Each article is available in its original language.',
- 'software': 'Research software by Daiki Kumakura: RLR_transform for CCM (Convergent Cross Mapping), CRiSM, shotgun metagenomics tutorials and Docker environments.',
+ 'software': 'Research software by Daiki Kumakura: pkident for PK/PD identifiability, retiaudit for reticulate, RLR_transform for CCM, CRiSM and Docker environments.',
  'publication': 'Research publications by Daiki Kumakura: mathematical models, biological dynamics, antibiotic response, compositional time series and bioinformatics.',
  'activity': 'Conference presentations, teaching, event organization, outreach and media activities by Daiki Kumakura, grouped by year and category.'}
 
