@@ -1,0 +1,16 @@
+{
+  "source_language": "en",
+  "category": "note",
+  "date": "2026-10-12",
+  "publish_at": "2026-10-12T09:00:00+09:00",
+  "draft": false,
+  "math": false,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "en": {
+      "title": "When patients stop being measured: how much does dropout change a tumor-shrinkage estimate?",
+      "summary": "Most tumor-scan dropout was death. A mixed model removed most of the survivor bias in 48-week shrinkage; a joint model and delta adjustment showed the 24-week arm difference was robust but the 48-week difference was fragile."
+    }
+  }
+}
