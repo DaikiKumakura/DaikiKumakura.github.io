@@ -641,6 +641,10 @@
         {
           "url": "https://daikikumakura.github.io/rsemflow/articles/tutorial.html",
           "label": "Tutorial"
+        },
+        {
+          "url": "https://github.com/DaikiKumakura/rsemflow/releases/tag/v0.1.0",
+          "label": "Release 0.1.0"
         }
       ],
       "note": "Human and mouse data. Mismatched samples, inconsistent gene tables, missing model values and confounded designs stop the run instead of producing results. Simple effects from interaction models are tested against the reparameterized model. R CMD check passes on Linux, macOS and Windows in CI (October 5, 2026). Not on CRAN or Bioconductor; no figures are produced."
