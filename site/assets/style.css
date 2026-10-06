@@ -9,3 +9,4 @@
 .prose mjx-container[display="true"]{max-width:100%;overflow-x:auto;overflow-y:hidden;padding:.25rem 0}
 .prose table{overflow-wrap:normal;word-break:normal}.prose td,.prose th{min-width:7.5em}
 
+.abstract{border-left:2px solid #ccc;padding-left:12px;margin:16px 0}.abstract h2{font-size:16px;margin:0 0 4px}.abstract p{margin:4px 0}

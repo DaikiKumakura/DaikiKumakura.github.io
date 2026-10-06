@@ -19,6 +19,11 @@ ILLUSTRATION_ALT = {
     'publication': 'Research presentation illustration',
     'activity': 'Scientific conference illustration',
 }
+# Retired URLs that still receive search traffic. GitHub Pages cannot send
+# HTTP 301, so each becomes an instant meta refresh with a canonical link.
+LEGACY_PAGES = {'index':'index.html', 'about':'profile.html', 'publications':'publication.html', 'activities':'activity.html', 'writing':'writing.html', 'software':'software.html'}
+LEGACY_REDIRECTS = {'japanese.html':'index.html', 'publication_jpn.html':'publication.html', 'cv.html':'profile.html', 'research.html':'profile.html', 'education.html':'activity.html#teaching', 'gallery.html':'writing.html', 'link.html':'writing.html', 'about.html':'profile.html', 'publications.html':'publication.html', 'activities.html':'activity.html'}
+LEGACY_REDIRECTS.update({f'{language}/{old}.html':new for language in ('ja','en') for old,new in LEGACY_PAGES.items()})
 RECENT_ON_HOME = 3
 FEED_SIZE = 50
 BASE = Path(__file__).resolve().parent
@@ -59,6 +64,8 @@ def validate_site(site):
         if row['category'] not in UI['en']['activity_types']:raise ValueError('Unknown activity category')
     for row in site['publications']:
         if row['kind'] not in UI['en']['publication_types']:raise ValueError('Unknown publication kind')
+    for topic in site.get('analysis_topics',[]):
+        if not topic.get('label') or not topic.get('articles'):raise ValueError('Invalid analysis topic')
 
 
 def fingerprint(folder, meta):
@@ -93,6 +100,8 @@ def load_articles(content, preview=False, now=None):
             raise ValueError(f'updated is before date: {folder.name}')
         if meta['source_language'] not in meta['locales']:
             raise ValueError('Original language is missing')
+        if meta.get('english') is not None and (meta['source_language'] == 'en' or not meta['english'].get('title') or not meta['english'].get('summary')):
+            raise ValueError(f'english needs a title and summary for a non-English original: {folder.name}')
         for lang, data in meta['locales'].items():
             if lang not in LANGS or not data.get('title') or not data.get('summary'):
                 raise ValueError(f'Invalid article locale: {folder.name}/{lang}')
@@ -167,13 +176,22 @@ def build(project=BASE, preview=False, strict_translations=False):
     for a in entries:
         m=a['meta']; language=m['source_language']
         listings.append(dict(**m['locales'][language],category=m['category'],date=m['date'],draft=m['draft'],lang=language,available='Japanese' if language=='ja' else 'English',href=f"writing/{a['slug']}.html"))
-    def output(name,page,lang='en'):
+    # The profile is English: Japanese originals show their English title when one exists.
+    def profile_link(a):
+        m=a['meta']; english=m.get('english')
+        if english:return dict(title=english['title'],lang='en',note='in Japanese',href=f"writing/{a['slug']}.html")
+        return dict(title=m['locales'][m['source_language']]['title'],lang=m['source_language'],note='in Japanese' if m['source_language']=='ja' else '',href=f"writing/{a['slug']}.html")
+    published={a['slug']:profile_link(a) for a in entries}
+    # Unpublished or scheduled articles are left out until they are live.
+    analyses=[dict(label=t['label'],articles=[published[s] for s in t['articles'] if s in published]) for t in site.get('analysis_topics',[])]
+    analyses=[t for t in analyses if t['articles']]
+    def output(name,page,lang='en',article=None):
         canonical=SITE_URL if name in ('index.html','home.html') else SITE_URL+name
-        page=enrich(page,name,site,SITE_URL)
+        page=enrich(page,name,site,SITE_URL,article)
         page=page.replace('</head>',f'<link rel="canonical" href="{canonical}">\n</head>')
         outputs[name]=page.encode('utf-8')
     for key,title in NAV.items():
-        page=env.get_template('page.html').render(site=site,lang='en',ui=ui,preview=preview,active=key,root='',alternatives={},title=site['name'] if key=='home' else title,description=site['profile'],math=False,articles=listings,recent=listings[:RECENT_ON_HOME],working_papers=[a for a in listings if a['category']=='paper'],illustration_alt=ILLUSTRATION_ALT[key])
+        page=env.get_template('page.html').render(site=site,lang='en',ui=ui,preview=preview,active=key,root='',alternatives={},title=site['name'] if key=='home' else title,description=site['profile'],math=False,articles=listings,recent=listings[:RECENT_ON_HOME],working_papers=[a for a in listings if a['category']=='paper'],analyses=analyses,illustration_alt=ILLUSTRATION_ALT[key])
         output(key+'.html',page)
         if key=='home':outputs['index.html']=outputs['home.html']
     for a in entries:
@@ -181,11 +199,15 @@ def build(project=BASE, preview=False, strict_translations=False):
         alternatives={code:(a['slug']+'.html' if code==original else a['slug']+'-'+code+'.html') for code in m['locales']}
         for language in m['locales']:
             body,toc=render_body(a,language)
-            page=env.get_template('article.html').render(site=site,lang=language,ui=ui,preview=preview,active='writing',root='../',alternatives=alternatives,title=m['locales'][language]['title'],description=m['locales'][language]['summary'],math=m.get('math',False),author=m.get('author',site['name']),date=m['date'],category=m['category'],version=m.get('version',''),draft=m['draft'],stale=a['stale'][language],body=body,toc=toc)
-            output('writing/'+alternatives[language],page,language)
+            page=env.get_template('article.html').render(site=site,lang=language,ui=ui,preview=preview,active='writing',root='../',alternatives=alternatives,title=m['locales'][language]['title'],description=m['locales'][language]['summary'],math=m.get('math',False),author=m.get('author',site['name']),date=m['date'],category=m['category'],version=m.get('version',''),draft=m['draft'],stale=a['stale'][language],body=body,toc=toc,english=m.get('english') if language!='en' and 'en' not in m['locales'] else None)
+            output('writing/'+alternatives[language],page,language,m)
         for asset in (a['folder']/'shared').rglob('*'):
             if asset.is_file():outputs[f"writing/shared/{a['slug']}/{asset.relative_to(a['folder']/'shared').as_posix()}"]=asset.read_bytes()
     canonical_pages=['index.html']+[key+'.html' for key in NAV if key!='home']+[name for name in outputs if name.startswith('writing/') and name.endswith('.html')]
+    if not preview:
+        for old,new in LEGACY_REDIRECTS.items():
+            if old in outputs:raise ValueError('Redirect would replace a page: '+old)
+            outputs[old]=env.get_template('redirect.html').render(target=SITE_URL+new).encode('utf-8')
     outputs['404.html']=env.get_template('not-found.html').render().encode('utf-8')
     # lastmod only where the date is known: articles (publication or update
     # date) and the pages that list them (newest article). Other pages carry

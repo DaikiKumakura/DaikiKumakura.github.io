@@ -7,7 +7,7 @@
   "linkedin": "https://www.linkedin.com/in/daiki-kumakura-6b68a743a/",
   "orcid": "https://orcid.org/0000-0001-9859-0720",
   "profile": "I am a mathematical biologist and a bioinformatics researcher in the pharmaceutical industry. I received my Ph.D. in Life Science from Hokkaido University in March 2025.",
-  "expertise": "My expertise is in mathematical modeling and quantitative data analysis. I work on how dynamic systems can be represented, what can be learned from observations, and how assumptions affect the conclusions. My current interests include pharmacometrics and model-informed drug development.",
+  "expertise": "My expertise is in mathematical modeling and quantitative data analysis. I work on how dynamic systems can be represented, what can be learned from observations, and how assumptions affect the conclusions. My current interests include pharmacometrics and model-informed drug development. In personal technical notes, I apply population PK, PK/PD, exposure–response and tumor-dynamics models to public data and simulations to examine dose and regimen questions.",
   "career": [
     {
       "date": "2025-04–",
@@ -44,6 +44,51 @@
     {
       "title": "Interactions and causal reasoning",
       "body": "Analysis of interactions in dynamic systems, including CCM (Convergent Cross Mapping). I am interested in distinguishing predictive relationships from causal interpretations and making the assumptions behind each analysis explicit."
+    }
+  ],
+  "analysis_note": "Personal technical notes based only on published data, public datasets and simulation. They are worked examples of model choice, estimation, diagnostics and uncertainty, not reports of clinical or regulatory work.",
+  "analysis_topics": [
+    {
+      "label": "Population PK and dosing-interval comparison",
+      "articles": [
+        "mosunetuzumab-public-pk",
+        "nimotuzumab-poppk",
+        "tarlatamab-summary-pk",
+        "tcell-engager-regimen-design",
+        "tcell-engager-decision-framework"
+      ]
+    },
+    {
+      "label": "PK/PD and target engagement",
+      "articles": [
+        "warfarin-pkpd",
+        "er-protac-pkpd",
+        "ras-inhibitor-target-coverage"
+      ]
+    },
+    {
+      "label": "Dose selection and benefit–risk",
+      "articles": [
+        "sotorasib-dose-comparison",
+        "b7h3-adc-dose-information",
+        "treatment-duration-benefit-risk"
+      ]
+    },
+    {
+      "label": "Tumor dynamics and survival",
+      "articles": [
+        "tumor-dynamics-survival",
+        "tumor-kinetics-landmark",
+        "tumor-dropout-sensitivity",
+        "psa-early-observation"
+      ]
+    },
+    {
+      "label": "Immune biomarkers and treatment response",
+      "articles": [
+        "on-treatment-immune-change",
+        "immune-outcome-validation"
+      ]
     }
   ],
   "thesis": {

@@ -11,5 +11,9 @@
       "title": "Nimotuzumabの実測PKから考える、曝露比較に必要なモデルの複雑さ",
       "summary": "個人別PKから3つのPopPK構造を推定し、内部検証・収束・投与条件の曝露差からモデル採用の限界を検討する。"
     }
+  },
+  "english": {
+    "title": "How complex does a population PK model need to be for exposure comparison? Measured nimotuzumab PK",
+    "summary": "Three population PK structures estimated from individual PK data, with internal validation, convergence and exposure differences across dosing conditions used to examine the limits of model selection."
   }
 }

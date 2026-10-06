@@ -9,6 +9,8 @@
 {% elif active == 'profile' %}
 <p>{{ site.profile }}</p><h2>{{ ui.expertise }}</h2><p>{{ site.expertise }}</p>
 {% for r in site.research_background %}<section class="record"><h3>{{ r.title }}</h3><p>{{ r.body }}</p></section>{% endfor %}
+{% if analyses %}<h2 id="selected-analyses">Selected analyses</h2><p>{{ site.analysis_note }}</p>
+{% for t in analyses %}<section class="record"><h3>{{ t.label }}</h3><ul>{% for a in t.articles %}<li><a href="{{ a.href }}" lang="{{ a.lang }}">{{ a.title }}</a>{% if a.note %} <span class="meta">({{ a.note }})</span>{% endif %}</li>{% endfor %}</ul></section>{% endfor %}{% endif %}
 <h2>{{ ui.background }}</h2>
 {% for c in site.career %}<div class="record timeline"><span class="meta">{{ c.date }}</span><span>{{ c.text }}</span></div>{% endfor %}
 <h2>{{ ui.education }}</h2>

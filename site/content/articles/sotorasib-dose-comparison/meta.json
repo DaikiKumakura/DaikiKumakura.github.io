@@ -12,5 +12,9 @@
       "title": "用量比較試験は用量選択をどこまで支持するか：sotorasib 960 mgと240 mgの群別データから",
       "summary": "無作為化用量比較の公開群別データから、便益と害の重みを変えたときの判定領域を示す。重症毒性の差は頑健だが、奏効率とOSの差は不確かで、結論は害の定義に依存する。臨床用量の推奨は行わない。"
     }
+  },
+  "english": {
+    "title": "How far does a dose-comparison trial support dose selection? Arm-level data for sotorasib 960 mg and 240 mg",
+    "summary": "Published arm-level data from a randomized dose comparison are used to show the decision regions as the weights on benefit and harm change. The difference in severe toxicity is robust, but differences in response rate and OS are uncertain, and the conclusion depends on how harm is defined. No clinical dose is recommended."
   }
 }

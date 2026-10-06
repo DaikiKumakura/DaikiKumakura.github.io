@@ -1,4 +1,5 @@
 import json
+import re
 import shutil
 import tempfile
 import unittest
@@ -57,18 +58,49 @@ class BuildTests(unittest.TestCase):
   self.assertNotIn('Aquaculture and Life Science',profile);self.assertNotIn('Faculty of Fisheries Sciences',profile)
   positions=[home.index('>'+label+'</a>') for label in build.NAV.values()]
   self.assertEqual(positions,sorted(positions))
- def test_retired_legacy_pages_and_canonical(self):
+ def test_legacy_redirects_and_canonical(self):
   build.build(self.root)
-  for old in ('article/article_00.html','about.html','japanese.html','link.html','ja/index.html','en/index.html'):
-   self.assertFalse((self.root/'dist'/old).exists())
+  for old,new in build.LEGACY_REDIRECTS.items():
+   page=self.text(old)
+   self.assertIn('http-equiv="refresh" content="0;url='+build.SITE_URL+new+'"',page)
+   self.assertIn('rel="canonical" href="'+build.SITE_URL+new+'"',page)
+   self.assertNotIn('noindex',page)
+  self.assertEqual(build.LEGACY_REDIRECTS['ja/about.html'],'profile.html')
+  self.assertFalse((self.root/'dist/article/article_00.html').exists())
   self.assertNotIn('article/article_00.html',self.text('writing.html'))
   self.assertTrue((self.root/'dist/google1f49d64928618d22.html').is_file())
   sitemap=self.text('sitemap.xml')
   self.assertNotIn('/ja/',sitemap);self.assertNotIn('/en/',sitemap);self.assertNotIn('home.html',sitemap)
+  for old in build.LEGACY_REDIRECTS:self.assertNotIn(build.SITE_URL+old+'<',sitemap)
   self.assertIn('rel="canonical" href="'+build.SITE_URL+'"',self.text('index.html'))
   for key in build.NAV:
    self.assertNotIn('noindex',self.text(key+'.html'))
    self.assertIn('alt="'+build.ILLUSTRATION_ALT[key]+'"',self.text(key+'.html'))
+ def test_profile_lists_only_published_analyses(self):
+  p=self.root/'content/site.json';site=build.read_json(p)
+  site['analysis_topics']=[{'label':'Example topic','articles':['logistic-example','japanese-note','missing-article']}]
+  p.write_text(json.dumps(site),encoding='utf-8')
+  mp,m=self.meta('logistic-example');m['draft']=False;mp.write_text(json.dumps(m),encoding='utf-8')
+  build.build(self.root)
+  profile=self.text('profile.html')
+  self.assertIn('Selected analyses',profile);self.assertIn('Example topic',profile)
+  self.assertIn('href="writing/logistic-example.html"',profile)
+  self.assertNotIn('japanese-note',profile)
+ def test_real_analysis_topics_name_existing_articles(self):
+  site=build.read_json(build.BASE/'content/site.json')
+  for topic in site['analysis_topics']:
+   for slug in topic['articles']:self.assertTrue((build.BASE/'content/articles'/slug/'meta.json').is_file(),slug)
+ def test_english_summary_and_social_metadata(self):
+  p,m=self.meta('japanese-note');m.update(draft=False,updated='2026-09-30',english={'title':'English title','summary':'English summary.'});p.write_text(json.dumps(m),encoding='utf-8')
+  build.build(self.root)
+  page=self.text('writing/japanese-note.html')
+  self.assertIn('<section class="abstract" lang="en"',page);self.assertIn('English summary.',page)
+  data=json.loads(re.search(r'application/ld\+json">(.*?)</script>',page)[1])
+  self.assertEqual(data['dateModified'],'2026-09-30');self.assertEqual(data['datePublished'],'2026-09-26')
+  self.assertEqual(data['alternativeHeadline'],'English title')
+  self.assertIn('article:modified_time" content="2026-09-30"',page)
+  p,m=self.meta('japanese-note');m['english']={'title':'x'};p.write_text(json.dumps(m),encoding='utf-8')
+  with self.assertRaisesRegex(ValueError,'english'):build.load_articles(self.root/'content')
  def test_drafts_and_stale_files(self):
   build.build(self.root,preview=True);keep=self.root/'dist/manual.txt';keep.write_text('keep')
   self.assertTrue((self.root/'dist/writing/japanese-note.html').exists())

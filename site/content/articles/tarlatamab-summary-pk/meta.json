@@ -11,5 +11,9 @@
       "title": "タルラタマブの公開PKデータから、投与間隔の変更をどこまで評価できるか",
       "summary": "公開PK集約値から2コンパートメントモデルを推定し、識別性と不確実性を踏まえてQ2W・Q3W・Q4Wの曝露を比較する。"
     }
+  },
+  "english": {
+    "title": "How far can public summary PK data evaluate a change in the tarlatamab dosing interval?",
+    "summary": "A two-compartment model estimated from published aggregate PK values, comparing Q2W, Q3W and Q4W exposure in light of identifiability and uncertainty."
   }
 }

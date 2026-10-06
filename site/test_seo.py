@@ -37,6 +37,18 @@ class MetadataTests(unittest.TestCase):
         self.assertTrue(all(x['item']['@type'] == 'SoftwareSourceCode' for x in items))
         self.assertNotIn('worksFor', data['about'])
 
+    def test_article_social_image_uses_first_raster_figure(self):
+        site = json.loads((Path(__file__).parent/'content/site.json').read_text(encoding='utf-8'))
+        page = '<head><title>T</title><meta name="description" content="d"></head><body><img src="shared/x/a.svg" alt="a"><img src="shared/x/b.png" alt="b"></body>'
+        result = enrich(page, 'writing/x.html', site, 'https://daikikumakura.github.io/', {'date': '2026-10-01'})
+        self.assertIn('<meta property="og:image" content="https://daikikumakura.github.io/writing/shared/x/b.png">', result)
+        self.assertIn('summary_large_image', result)
+        data = json.loads(re.search(r'application/ld\+json">(.*?)</script>', result)[1])
+        self.assertEqual(data['dateModified'], '2026-10-01')
+        plain = enrich('<head><title>T</title><meta name="description" content="d"></head><body><img src="a.svg" alt="a"></body>', 'writing/y.html', site, 'https://daikikumakura.github.io/')
+        self.assertNotIn('og:image', plain)
+        self.assertIn('content="summary"', plain)
+
 if __name__ == '__main__':
     unittest.main()
 

@@ -12,5 +12,9 @@
       "title": "標的タンパク質分解薬の投与間隔を、最大分解率だけで決められるか",
       "summary": "ER-PROTACの公開データを点検し、作用部位曝露と標的回復の仮定が投与頻度・PD指標の比較をどう変えるかを最小モデルで調べる。実薬へのfitと臨床用量提案は行わない。"
     }
+  },
+  "english": {
+    "title": "Can maximal degradation alone set the dosing interval of a targeted protein degrader?",
+    "summary": "A review of public ER-PROTAC data and a minimal model of how assumptions about site-of-action exposure and target recovery change comparisons of dosing frequency and PD metrics. The model is not fitted to the actual drug, and no clinical dose is proposed."
   }
 }
