@@ -1,7 +1,8 @@
 {
   "source_language": "ja",
   "category": "note",
-  "date": "2026-10-14",
+  "date": "2026-10-17",
+  "publish_at": "2026-10-17T09:00:00+09:00",
   "draft": false,
   "math": false,
   "version": "1.0",
@@ -17,7 +18,6 @@
       ]
     }
   },
-  "publish_at": "2026-10-14T09:00:00+09:00",
   "english": {
     "title": "How much of an existing drug's dose comparison can a new drug borrow?",
     "summary": "Borrowing public dose-comparison data from an existing drug through a robust mixture prior helped a new drug's dose selection only slightly when the drugs behaved alike, and cut correct selection sharply when the new drug favored the other dose. With 40 patients per arm the prior-data conflict was hardly detected; a borrowing weight of 0.25 to 0.5 kept the loss within one point."

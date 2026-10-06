@@ -1,7 +1,8 @@
 {
   "source_language": "ja",
   "category": "note",
-  "date": "2026-10-13",
+  "date": "2026-10-20",
+  "publish_at": "2026-10-20T09:00:00+09:00",
   "draft": false,
   "math": false,
   "version": "1.0",
@@ -17,7 +18,6 @@
       ]
     }
   },
-  "publish_at": "2026-10-13T09:00:00+09:00",
   "english": {
     "title": "Do fixed doses of anti-PD-1 antibodies keep exposure in range at extreme body weights?",
     "summary": "Re-implemented population PK models for pembrolizumab and nivolumab were applied to a public adult weight distribution. Fixed doses let trough exposure fall below the trial-tested range most often in heavy patients, weight-based doses in the first interval of light patients; the verdict on extended intervals depends on how the range is defined. No dose is recommended."
