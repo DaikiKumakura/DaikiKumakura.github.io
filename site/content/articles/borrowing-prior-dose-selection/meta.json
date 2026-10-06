@@ -1,0 +1,25 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2026-10-14",
+  "draft": false,
+  "math": false,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "既存薬の用量比較を、新薬の用量選択にどこまで借りてよいか",
+      "summary": "既存薬の用量比較を頑健な混合事前分布として新薬の用量選択に借りると、同等なら得は小さく、逆向きなら正選択率が大きく下がった。1群40例では事前分布との食い違いをほぼ検出できない。借用の重みは0.25〜0.5が目安。",
+      "key_findings": [
+        "新薬が既存薬と同等なら、既存薬の用量比較を全量借りても期待後悔の改善は約1ポイントで、正しい用量を選ぶ割合は6〜10ポイント上がるにとどまった。",
+        "新薬が既存薬と逆の用量を有利にする場合、全量の借用で正しい用量を選ぶ割合は28〜42%まで下がり、期待後悔は3.5〜4.3ポイント悪化した。",
+        "1群40例では頑健な混合事前分布も食い違いをほぼ検出できず、どの条件でも損を1ポイント以内に抑えられた借用の重みは0.25までだった（主解析では0.5まで）。"
+      ]
+    }
+  },
+  "publish_at": "2026-10-14T09:00:00+09:00",
+  "english": {
+    "title": "How much of an existing drug's dose comparison can a new drug borrow?",
+    "summary": "Borrowing public dose-comparison data from an existing drug through a robust mixture prior helped a new drug's dose selection only slightly when the drugs behaved alike, and cut correct selection sharply when the new drug favored the other dose. With 40 patients per arm the prior-data conflict was hardly detected; a borrowing weight of 0.25 to 0.5 kept the loss within one point."
+  }
+}

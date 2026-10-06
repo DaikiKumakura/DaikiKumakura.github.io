@@ -1,0 +1,25 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2026-10-13",
+  "draft": false,
+  "math": false,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "抗PD-1抗体の固定用量は、極端な体重の患者でも曝露を保てるか",
+      "summary": "公表PopPKモデルと一般成人の体重分布で、pembrolizumab・nivolumabの固定用量と体重換算を比べた。固定用量は重い側で、体重換算は軽い側の初回投与でトラフが試験の範囲を下回りやすい。曝露の比較であり、用量は推奨しない。",
+      "key_findings": [
+        "固定用量では体重の重い側でトラフが試験の範囲の下限を下回りやすく、下回る患者が10%を超えたのはpembrolizumab 200 mgで150 kg以上（13.3%）、nivolumab 240 mgで100 kg以上（10.7〜18.5%）だった。",
+        "体重換算（2 mg/kg、3 mg/kg）は逆に軽い側で不利で、体重40 kgでは初回投与間隔のトラフが26〜31%の患者で下限を下回った。",
+        "400 mg Q6W・480 mg Q4Wの評価は「範囲」の定義で変わり、下限を5パーセンタイルにすると14〜15%、最小値にすると0.06%（pembrolizumab）が下回った。曝露の比較であり、用量は推奨しない。"
+      ]
+    }
+  },
+  "publish_at": "2026-10-13T09:00:00+09:00",
+  "english": {
+    "title": "Do fixed doses of anti-PD-1 antibodies keep exposure in range at extreme body weights?",
+    "summary": "Re-implemented population PK models for pembrolizumab and nivolumab were applied to a public adult weight distribution. Fixed doses let trough exposure fall below the trial-tested range most often in heavy patients, weight-based doses in the first interval of light patients; the verdict on extended intervals depends on how the range is defined. No dose is recommended."
+  }
+}
