@@ -69,15 +69,17 @@ def validate_site(site):
 
 
 def fingerprint(folder, meta):
-    """Original title, summary, body, and all shared assets form one revision."""
+    """Original title, summary, body, and all shared assets form one revision.
+
+    CRLF is normalized so a review recorded on Windows matches the LF checkout in CI."""
     source = meta['source_language']
     digest = hashlib.sha256()
     digest.update(json.dumps(meta['locales'][source], sort_keys=True, ensure_ascii=False).encode())
-    digest.update((folder / f'{source}.md').read_bytes())
+    digest.update((folder / f'{source}.md').read_bytes().replace(b'\r\n', b'\n'))
     for path in sorted((folder / 'shared').rglob('*')):
         if path.is_file():
             digest.update(path.relative_to(folder).as_posix().encode())
-            digest.update(path.read_bytes())
+            digest.update(path.read_bytes().replace(b'\r\n', b'\n'))
     return digest.hexdigest()
 
 def load_articles(content, preview=False, now=None):
