@@ -16,7 +16,7 @@ class MetadataTests(unittest.TestCase):
         result = enrich(page, 'profile.html', site, 'https://daikikumakura.github.io/')
         data = json.loads(re.search(r'application/ld\+json">(.*?)</script>', result)[1])
         self.assertEqual(data['@type'], 'ProfilePage')
-        self.assertEqual(data['mainEntity']['sameAs'], [site['github'], site['qiita'], site['docker'], site['orcid'], site['linkedin']])
+        self.assertEqual(data['mainEntity']['sameAs'], [site['github'], site['qiita'], site['docker'], site['orcid'], site['scholar'], site['linkedin']])
         self.assertNotIn('worksFor', data['mainEntity'])
         self.assertEqual(result.count('name="description"'), 1)
 

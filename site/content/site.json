@@ -6,6 +6,7 @@
   "docker": "https://hub.docker.com/u/kumalpha",
   "linkedin": "https://www.linkedin.com/in/daiki-kumakura-6b68a743a/",
   "orcid": "https://orcid.org/0000-0001-9859-0720",
+  "scholar": "https://scholar.google.com/citations?user=K9cxOc4AAAAJ",
   "profile": "I am a mathematical biologist and a bioinformatics researcher in the pharmaceutical industry. I received my Ph.D. in Life Science from Hokkaido University in March 2025.",
   "expertise": "My expertise is in mathematical modeling and quantitative data analysis. I work on how dynamic systems can be represented, what can be learned from observations, and how assumptions affect the conclusions. My current interests include pharmacometrics and model-informed drug development. In personal technical notes, I apply population PK, PK/PD, exposure–response and tumor-dynamics models to public data and simulations to examine dose and regimen questions.",
   "career": [
