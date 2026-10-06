@@ -1,5 +1,3 @@
-*Research reanalysis. Not peer reviewed.*
-
 A shorter treatment schedule can reduce toxicity while leaving uncertainty about efficacy. These are separate dimensions of evidence. Combining them into one attractive number can hide different analysis populations, missing outcomes, and unmeasured patient preferences.
 
 This article uses public SCOT trial results to reconstruct a duration comparison, quantify its uncertainty, and identify what the available data cannot estimate. It is an aggregate-data evidence analysis, not a patient-level reanalysis or a clinical treatment recommendation.

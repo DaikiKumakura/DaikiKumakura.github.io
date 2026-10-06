@@ -9,7 +9,12 @@
   "locales": {
     "en": {
       "title": "What can aggregate randomized data establish about treatment duration and benefit–risk?",
-      "summary": "SCOT trial efficacy and neuropathy compared with endpoint-specific denominators, uncertainty, missingness bounds and limits of joint benefit–risk inference."
+      "summary": "SCOT trial efficacy and neuropathy compared with endpoint-specific denominators, uncertainty, missingness bounds and limits of joint benefit–risk inference.",
+      "key_findings": [
+        "From published SCOT results, 3 vs 6 months of adjuvant chemotherapy changed 3-year DFS by −0.4 points (−2.6 to +1.8), while grade ≥2 neuropathy fell by 33.4 points (26.9 to 39.5).",
+        "Bounds that assign every missing neuropathy grade adversely still give a 27.6–36.6-point reduction within the safety cohort, so the toxicity benefit is robust to missing grades.",
+        "Efficacy and toxicity come from different populations, so a joint 'disease-free without neuropathy' probability is not identified; non-inferiority is not the same as identical efficacy."
+      ]
     }
   }
 }

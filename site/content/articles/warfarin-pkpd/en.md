@@ -1,5 +1,3 @@
-*Research reanalysis. Not peer reviewed.*
-
 ## A warfarin reanalysis of the value of limited PK measurements
 
 Additional concentration measurements did not consistently improve prediction of subsequent prothrombin complex activity (PCA) in this reanalysis. A turnover model described the delay between concentration and response better than direct inhibition, but more PK information was not enough to recover individual PD sensitivity. This is an exploratory assessment of publicly distributed observations, not a dosing recommendation.

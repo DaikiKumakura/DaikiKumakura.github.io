@@ -1,5 +1,3 @@
-*A retrospective modeling and validation study using a publicly downloadable dataset. Not peer reviewed.*
-
 ## Summary
 
 A curve can fit PSA measurements without identifying a distinct regrowth rate. It can also outperform an overly rigid decay model while adding little to the latest observed PSA. Those are different claims and require different checks.

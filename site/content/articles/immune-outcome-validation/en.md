@@ -1,5 +1,3 @@
-*Research reanalysis. Not peer reviewed.*
-
 A small immune-feature model improved discrimination relative to a weak clinical comparator, but it did not become a reliable response predictor in the external-source cohort. Its external AUC was **0.554 (95% interval 0.367–0.725)**, and calibration was poor. The useful result is a boundary on the hypothesis: two interpretable RNA scores can carry information in development, while transport of their probability predictions remains unresolved.
 
 **日本語要約：** 個人別の公開RNA・臨床データから、ECOGと性別のモデルにTeff・間質の2指標を加えた。開発データの交差検証では識別性能が改善したが、外部データではAUC 0.554、応答11例に留まり、確率予測の校正も不十分だった。相対的な改善だけで実用性や治療効果予測を主張しない。

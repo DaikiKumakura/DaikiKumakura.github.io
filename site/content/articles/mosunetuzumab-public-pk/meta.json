@@ -9,11 +9,28 @@
   "locales": {
     "ja": {
       "title": "モスネツズマブの公開PopPKモデルを再実装する：段階的増量の曝露比較とRO–CRS外挿の限界",
-      "summary": "公開論文と補足資料からmosunetuzumabのPKを再計算。仮想患者2,000例のpaired解析で投与量・間隔の影響を調べ、CD20占有率とCRSに翻訳できる範囲を検討する。図表・Pythonコード・CSV付き。"
+      "summary": "公開論文と補足資料からmosunetuzumabのPKを再計算。仮想患者2,000例のpaired解析で投与量・間隔の影響を調べ、CD20占有率とCRSに翻訳できる範囲を検討する。図表・Pythonコード・CSV付き。",
+      "key_findings": [
+        "公開PopPK（時間依存CLを持つ2区画）をPythonで再実装し、Cycle 1 AUC、42日AUC、Cycle 4 AUCを公表値の約1%以内で再計算した（Cycle 1 Cmaxは−4.0%）。これは実装の整合性の確認で、外部検証ではない。",
+        "同じ2,000人の仮想患者で比べると、2回目量を2→4 mgにすると初回60 mg直前濃度が+77.9%、step-up間隔を7→14日にすると42日AUCが−30.8%変わった。初回・2回目量だけの変更では42日AUCは±2%以内だった。",
+        "公表RO–CRS回帰式は42日間の最大ROを入力とし、ROが0に近くても約6.7%を出力する。変更レジメンのCRS発現率や個人リスクの予測には使えない。"
+      ]
+    },
+    "en": {
+      "title": "Reimplementing a published mosunetuzumab population PK model: step-up dosing exposure and the limits of extrapolating to receptor occupancy and CRS",
+      "summary": "Mosunetuzumab PK recalculated from the published paper and its supplement. A paired analysis of 2,000 virtual patients examines the effects of dose and interval and how far exposure can be translated to CD20 occupancy and CRS. Figures, Python code and CSV files included.",
+      "key_findings": [
+        "The published PopPK model (two compartments with time-varying CL) was reimplemented in Python, recalculating Cycle 1, 42-day and Cycle 4 AUC within about 1% of published values (Cycle 1 Cmax −4.0%); this confirms the implementation, not external validity.",
+        "In the same 2,000 virtual patients, raising the second dose from 2 to 4 mg increased the concentration before the first 60 mg dose by 77.9%, and lengthening step-up intervals from 7 to 14 days lowered 42-day AUC by 30.8%; changing only the first or second dose moved 42-day AUC by less than 2%.",
+        "The published RO–CRS regression takes the maximum RO over 42 days and outputs about 6.7% even when RO is near 0; it cannot predict CRS incidence or individual risk for modified regimens."
+      ]
     }
   },
   "english": {
     "title": "Reimplementing a published mosunetuzumab population PK model: step-up dosing exposure and the limits of extrapolating to receptor occupancy and CRS",
     "summary": "Mosunetuzumab PK recalculated from the published paper and its supplement. A paired analysis of 2,000 virtual patients examines the effects of dose and interval and how far exposure can be translated to CD20 occupancy and CRS. Figures, Python code and CSV files included."
+  },
+  "reviewed": {
+    "en": "765439f7b7b9b366daf1945b048122d2fa4985984650d94f1384bfe4c198277f"
   }
 }

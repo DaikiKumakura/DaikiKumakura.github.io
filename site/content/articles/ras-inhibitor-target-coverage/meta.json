@@ -7,9 +7,22 @@
   "math": true,
   "version": "1.0",
   "author": "Daiki Kumakura",
-  "locales": {"en": {
-    "title": "RAS inhibitor dosing: from public PK/PD data to target-coverage scenarios",
-    "summary": "Public blood–tumor–DUSP6 reconstruction and hypothetical QD/BID comparisons with target turnover, variability and exposure costs.",
-    "tags": ["Pharmacometrics", "RAS inhibitor", "PK/PD", "Target engagement", "Regimen design"]
-  }}
+  "locales": {
+    "en": {
+      "title": "RAS inhibitor dosing: from public PK/PD data to target-coverage scenarios",
+      "summary": "Public blood–tumor–DUSP6 reconstruction and hypothetical QD/BID comparisons with target turnover, variability and exposure costs.",
+      "tags": [
+        "Pharmacometrics",
+        "RAS inhibitor",
+        "PK/PD",
+        "Target engagement",
+        "Regimen design"
+      ],
+      "key_findings": [
+        "A public mouse blood–tumor–DUSP6 model was reconstructed and used to compare explicitly hypothetical QD, BID and TID regimens at the same normalized daily amount.",
+        "In a reference virtual population, splitting the same daily amount raised the proportion keeping a concentration threshold for at least 90% of the interval from 20.6% to 61.5%; these are simulations, not response rates.",
+        "Plasma half-life alone does not set dosing frequency: distribution, potency, target turnover and the lower tail of exposure decide where splitting matters, and these must be measured for a new RAS inhibitor."
+      ]
+    }
+  }
 }

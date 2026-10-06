@@ -1,5 +1,3 @@
-*Research reanalysis. Not peer reviewed.*
-
 In a public subset of a colorectal-cancer trial, adding early tumor change modestly improved held-out discrimination. The uncertainty interval included no improvement, and calibration remained weak. The data therefore support a candidate for further study rather than a survival surrogate or treatment decision rule.
 
 日本語要約：早期腫瘍変化と、その後の生存との関連を、情報を利用できる時点をそろえて検証した。128人の16週landmark集団では検証時のC-indexが0.532から0.581へ上がったが、改善幅の区間はゼロを含んだ。腫瘍変化と生存が関連することと、臨床判断に使えることを区別する必要がある。

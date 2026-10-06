@@ -1,5 +1,3 @@
-*Research analysis. Not peer reviewed.*
-
 ## Summary
 
 A dose-comparison study can leave uncertainty without making another study worthwhile. The relevant question is whether new observations are likely to change a decision, and how costly the remaining mistakes would be under a stated decision criterion.

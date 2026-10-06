@@ -84,7 +84,8 @@ class BuildTests(unittest.TestCase):
   build.build(self.root)
   profile=self.text('profile.html')
   self.assertIn('Selected analyses',profile);self.assertIn('Example topic',profile)
-  self.assertIn('href="writing/logistic-example.html"',profile)
+  # A Japanese original with an English translation is listed by its translation.
+  self.assertIn('href="writing/logistic-example-en.html"',profile)
   self.assertNotIn('japanese-note',profile)
  def test_real_analysis_topics_name_existing_articles(self):
   site=build.read_json(build.BASE/'content/site.json')

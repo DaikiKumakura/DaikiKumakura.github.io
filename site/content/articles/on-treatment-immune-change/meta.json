@@ -9,7 +9,12 @@
   "locales": {
     "en": {
       "title": "What changes in paired tumor immune-expression measurements during nivolumab?",
-      "summary": "Fixed immune scores in 43 public RNA pairs, with paired change, normalization sensitivity and patient-separated response-association diagnostics."
+      "summary": "Fixed immune scores in 43 public RNA pairs, with paired change, normalization sensitivity and patient-separated response-association diagnostics.",
+      "key_findings": [
+        "In 43 public pre/on-nivolumab RNA pairs, a fixed cytolytic score rose in 33 of 43 participants (median +0.346, 95% interval +0.154 to +1.108), stable across FPKM and CPM (Spearman 0.996).",
+        "Adding the change to baseline expression raised held-out response AUC from 0.599 to 0.673, but the interval (−0.084 to +0.269) included no improvement, with only nine responders.",
+        "An observed on-treatment change is pharmacodynamic evidence, not a qualified predictive biomarker; biopsy dates, selection into a second biopsy and a validation cohort are needed next."
+      ]
     }
   }
 }

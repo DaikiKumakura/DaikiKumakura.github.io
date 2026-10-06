@@ -10,7 +10,12 @@
   "locales": {
     "en": {
       "title": "Does a tumor-kinetic model add anything to a single early tumor change?",
-      "summary": "At 16, 24 and 32 weeks, a mixed-effects tumor-kinetic estimate added no held-out survival discrimination beyond the observed one-point change, and carrying the last value forward predicted the next measurement best."
+      "summary": "At 16, 24 and 32 weeks, a mixed-effects tumor-kinetic estimate added no held-out survival discrimination beyond the observed one-point change, and carrying the last value forward predicted the next measurement best.",
+      "key_findings": [
+        "At 16, 24 and 32 weeks, a mixed-effects tumor-kinetic estimate changed held-out survival C-index by only +0.002 to +0.016 over the observed one-point change, and every interval included zero.",
+        "For the next tumor measurement, carrying the last value forward was the most accurate rule at every landmark (MAE 0.42–0.61), beating both linear and quadratic mixed models.",
+        "Kinetic terms correlated about 0.97 with the one-point change, so with this measurement density a simple change suffices; this is not an evaluation of mechanistic TGI models in general."
+      ]
     }
   }
 }

@@ -9,11 +9,28 @@
   "locales": {
     "ja": {
       "title": "Nimotuzumabの実測PKから考える、曝露比較に必要なモデルの複雑さ",
-      "summary": "個人別PKから3つのPopPK構造を推定し、内部検証・収束・投与条件の曝露差からモデル採用の限界を検討する。"
+      "summary": "個人別PKから3つのPopPK構造を推定し、内部検証・収束・投与条件の曝露差からモデル採用の限界を検討する。",
+      "key_findings": [
+        "公開データ（12人、321濃度）で線形1区画・線形2区画・非線形消失付き2区画のPopPKを推定した。AICは790.42、751.25、747.47と複雑なモデルほど低かったが、被験者除外の予測RMSEの改善は約4.2%・約3.3%で、事前基準の10%に届かなかった。",
+        "400 mg対200 mgのAUC比は線形モデルで2、非線形モデルで約2.35と10%以上異なった。投与条件の順位は一致しても、絶対曝露と用量比はモデルに依存する。",
+        "bootstrapの収束通過率は4.5〜22%で、95%信頼区間は報告しなかった。非線形モデルの採用も線形モデルで十分とする判断も保留し、点滴・採血時刻の原記録と独立した検証データが次に必要である。"
+      ]
+    },
+    "en": {
+      "title": "How complex does a population PK model need to be for exposure comparison? Measured nimotuzumab PK",
+      "summary": "Three population PK structures estimated from individual PK data, with internal validation, convergence and exposure differences across dosing conditions used to examine the limits of model selection.",
+      "key_findings": [
+        "Linear one-compartment, linear two-compartment and nonlinear-elimination PopPK models were fitted to public data (12 subjects, 321 concentrations). AIC fell with complexity (790.42, 751.25, 747.47), but leave-one-subject-out RMSE improved by only about 4.2% and 3.3%, short of the prespecified 10%.",
+        "The 400 to 200 mg AUC ratio was 2 in the linear models and about 2.35 in the nonlinear model, a difference above 10%: the models ranked dosing conditions alike, but absolute exposure and dose ratios depended on the model.",
+        "Only 4.5–22% of bootstrap runs passed the convergence screen, so no 95% CIs were reported. Adopting the nonlinear model and declaring the linear model sufficient are both deferred; original infusion and sampling records and independent validation data are needed next."
+      ]
     }
   },
   "english": {
     "title": "How complex does a population PK model need to be for exposure comparison? Measured nimotuzumab PK",
     "summary": "Three population PK structures estimated from individual PK data, with internal validation, convergence and exposure differences across dosing conditions used to examine the limits of model selection."
+  },
+  "reviewed": {
+    "en": "99227f284cfd977e3133df6095c29b8c90da0442658d6facf9c65f9fce6653a6"
   }
 }

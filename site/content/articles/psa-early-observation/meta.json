@@ -10,7 +10,12 @@
   "locales": {
     "en": {
       "title": "Does separating PSA decline and regrowth improve early prediction?",
-      "summary": "A public clinical PSA dataset used to compare landmark prediction, uncertainty calibration and decline/regrowth identifiability against simple benchmarks."
+      "summary": "A public clinical PSA dataset used to compare landmark prediction, uncertainty calibration and decline/regrowth identifiability against simple benchmarks.",
+      "key_findings": [
+        "In 400 patients from a public PSA dataset, a decline–regrowth hierarchical model predicted the next 12 weeks of PSA better than linear or single-decay models at every landmark (MAE 0.429 vs 0.543–0.565 at 6 weeks).",
+        "Its advantage over simply carrying the last PSA value forward was uncertain at 6 and 12 weeks, and at 24 weeks the last value was more accurate (MAE 0.249 vs 0.327).",
+        "The regrowth rate was weakly identified, with its population mean at the lower bound at every landmark, so no minimum observation period for a regrowth-based decision can be set from these data."
+      ]
     }
   }
 }

@@ -10,11 +10,28 @@
   "locales": {
     "ja": {
       "title": "標的タンパク質分解薬の投与間隔を、最大分解率だけで決められるか",
-      "summary": "ER-PROTACの公開データを点検し、作用部位曝露と標的回復の仮定が投与頻度・PD指標の比較をどう変えるかを最小モデルで調べる。実薬へのfitと臨床用量提案は行わない。"
+      "summary": "ER-PROTACの公開データを点検し、作用部位曝露と標的回復の仮定が投与頻度・PD指標の比較をどう変えるかを最小モデルで調べる。実薬へのfitと臨床用量提案は行わない。",
+      "key_findings": [
+        "公開データでは、vepdegestrantの終了時ER分解は全用量で94%以上だったがTGIは85〜120%と異なり、ERD-1233の24時間後の腫瘍／血漿濃度比は9.81だった。終了時PDや血漿濃度だけでは薬効や腫瘍曝露を代表できない。",
+        "仮定を置いた最小モデルでは、標的半減期6 hのときQ2Dの最大分解率（81.1%）はQD（73.7%）より高い一方、最低値は14.3%対48.4%、平均値は52.2%対63.8%と低かった。",
+        "回復速度・必要分解率・実薬の投与間隔は公開データからは決められない。最大分解率を1点増やすより、次回投与までの作用部位曝露と標的回復を測る方が判断に効く可能性がある。"
+      ]
+    },
+    "en": {
+      "title": "Can maximal degradation alone set the dosing interval of a targeted protein degrader?",
+      "summary": "A review of public ER-PROTAC data and a minimal model of how assumptions about site-of-action exposure and target recovery change comparisons of dosing frequency and PD metrics. The model is not fitted to the actual drug, and no clinical dose is proposed.",
+      "key_findings": [
+        "In public data, end-of-study ER degradation with vepdegestrant was at least 94% at every dose while TGI ranged from 85% to 120%, and the 24-hour tumor/plasma ratio for ERD-1233 was 9.81; end-of-study PD and plasma concentration do not stand in for efficacy or tumor exposure.",
+        "In an assumption-based minimal model with a 6 h target half-life, Q2D gave higher maximal degradation than QD (81.1% vs 73.7%) but a lower minimum (14.3% vs 48.4%) and mean (52.2% vs 63.8%).",
+        "Recovery rate, required degradation and the interval for an actual drug cannot be set from public data; measuring effect-site exposure and target recovery up to the next dose may inform the decision more than another maximal-degradation point."
+      ]
     }
   },
   "english": {
     "title": "Can maximal degradation alone set the dosing interval of a targeted protein degrader?",
     "summary": "A review of public ER-PROTAC data and a minimal model of how assumptions about site-of-action exposure and target recovery change comparisons of dosing frequency and PD metrics. The model is not fitted to the actual drug, and no clinical dose is proposed."
+  },
+  "reviewed": {
+    "en": "9185e986094b2689aa83aaf0dec8fd75bf607710911a241ed38211ebed92b6f2"
   }
 }

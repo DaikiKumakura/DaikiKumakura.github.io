@@ -16,6 +16,11 @@
         "T-cell engager",
         "Bayesian modeling",
         "Experimental design"
+      ],
+      "key_findings": [
+        "Using the published tarlatamab PopPK and Emax models in 5,000 virtual subjects, initial exposure matched label summaries, but steady-state troughs did not fully agree.",
+        "Bayesian models of three aggregate CRS windows fitted the data, but the exposure-history timescale depended on the prior, so no optimal step-up among 14 schedules could be chosen.",
+        "Matching dose intensity preserved average exposure but changed peaks and troughs, and early-only sampling did not stabilize CL; the framework specifies which measurements could change a decision, not a validated regimen."
       ]
     }
   }

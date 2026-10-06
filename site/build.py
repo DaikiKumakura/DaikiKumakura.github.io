@@ -105,6 +105,9 @@ def load_articles(content, preview=False, now=None):
         for lang, data in meta['locales'].items():
             if lang not in LANGS or not data.get('title') or not data.get('summary'):
                 raise ValueError(f'Invalid article locale: {folder.name}/{lang}')
+            findings = data.get('key_findings', [])
+            if not isinstance(findings, list) or len(findings) > 5 or not all(isinstance(x, str) and x.strip() for x in findings):
+                raise ValueError(f'key_findings must be up to five non-empty strings: {folder.name}/{lang}')
             if not (folder / f'{lang}.md').is_file():
                 raise ValueError(f'Missing article body: {folder.name}/{lang}.md')
         for path in folder.rglob('*'):
@@ -218,6 +221,8 @@ def build(project=BASE, preview=False, strict_translations=False):
     # The profile is English: Japanese originals show their English title when one exists.
     def profile_link(a):
         m=a['meta']; english=m.get('english')
+        if m['source_language']!='en' and 'en' in m['locales']:
+            return dict(title=m['locales']['en']['title'],lang='en',note='',href=f"writing/{a['slug']}-en.html")
         if english:return dict(title=english['title'],lang='en',note='in Japanese',href=f"writing/{a['slug']}.html")
         return dict(title=m['locales'][m['source_language']]['title'],lang=m['source_language'],note='in Japanese' if m['source_language']=='ja' else '',href=f"writing/{a['slug']}.html")
     published={a['slug']:profile_link(a) for a in entries}
@@ -230,7 +235,9 @@ def build(project=BASE, preview=False, strict_translations=False):
         for t in site.get('analysis_topics',[]):
             if slug in t['articles']:
                 seen+=[s for s in t['articles'] if s!=slug and s in published and s not in seen]
-        return [dict(published[s],href=published[s]['href'].removeprefix('writing/'),title=next(a['meta']['locales'][a['meta']['source_language']]['title'] for a in entries if a['slug']==s),lang=next(a['meta']['source_language'] for a in entries if a['slug']==s)) for s in seen[:limit]]
+        # Related links point to each original article, titled in its own language.
+        source={a['slug']:a['meta'] for a in entries}
+        return [dict(href=f"{s}.html",title=source[s]['locales'][source[s]['source_language']]['title'],lang=source[s]['source_language']) for s in seen[:limit]]
     def output(name,page,lang='en',article=None):
         canonical=SITE_URL if name in ('index.html','home.html') else SITE_URL+name
         page=enrich(page,name,site,SITE_URL,article)
@@ -246,7 +253,7 @@ def build(project=BASE, preview=False, strict_translations=False):
         for language in m['locales']:
             body,toc=render_body(a,language)
             body=add_image_attributes(body,a)
-            page=env.get_template('article.html').render(site=site,lang=language,ui=ui,preview=preview,active='writing',root='../',alternatives=alternatives,title=m['locales'][language]['title'],description=m['locales'][language]['summary'],math=m.get('math',False),author=m.get('author',site['name']),date=m['date'],category=m['category'],version=m.get('version',''),draft=m['draft'],stale=a['stale'][language],body=body,toc=toc,english=m.get('english') if language!='en' and 'en' not in m['locales'] else None,related=related(a['slug']))
+            page=env.get_template('article.html').render(site=site,lang=language,ui=ui,preview=preview,active='writing',root='../',alternatives=alternatives,title=m['locales'][language]['title'],description=m['locales'][language]['summary'],math=m.get('math',False),author=m.get('author',site['name']),date=m['date'],category=m['category'],version=m.get('version',''),draft=m['draft'],stale=a['stale'][language],body=body,toc=toc,key_findings=m['locales'][language].get('key_findings',[]),english=m.get('english') if language!='en' and 'en' not in m['locales'] else None,related=related(a['slug']))
             output('writing/'+alternatives[language],page,language,m)
         for asset in (a['folder']/'shared').rglob('*'):
             if asset.is_file():outputs[f"writing/shared/{a['slug']}/{asset.relative_to(a['folder']/'shared').as_posix()}"]=asset.read_bytes()
@@ -309,6 +316,10 @@ def llms_txt(site, entries):
     lines+=['','## Writing','']
     for a in entries:
         m=a['meta']; loc=m['locales'][m['source_language']]; english=m.get('english')
+        if m['source_language']!='en' and 'en' in m['locales']:
+            en=m['locales']['en']
+            lines.append(f"- [{en['title']}]({SITE_URL}writing/{a['slug']}-en.html) (English translation; original in Japanese: {SITE_URL}writing/{a['slug']}.html): {en['summary']}")
+            continue
         title=english['title'] if english else loc['title']; summary=english['summary'] if english else loc['summary']
         note=' (article in Japanese)' if m['source_language']=='ja' else ''
         lines.append(f"- [{title}]({SITE_URL}writing/{a['slug']}.html){note}: {summary}")

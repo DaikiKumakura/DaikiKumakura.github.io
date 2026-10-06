@@ -9,11 +9,28 @@
   "locales": {
     "ja": {
       "title": "タルラタマブの公開PKデータから、投与間隔の変更をどこまで評価できるか",
-      "summary": "公開PK集約値から2コンパートメントモデルを推定し、識別性と不確実性を踏まえてQ2W・Q3W・Q4Wの曝露を比較する。"
+      "summary": "公開PK集約値から2コンパートメントモデルを推定し、識別性と不確実性を踏まえてQ2W・Q3W・Q4Wの曝露を比較する。",
+      "key_findings": [
+        "添付文書のCycle 2 PK集約値6個に2コンパートメントモデルを当てはめ、最大誤差10.0%で説明できた。ただしprofile解析ではCL・Q・Vpが十分に識別されず、終末半減期は約19.0日でNCA中央値6.21日と一致しなかった。",
+        "同じ10 mgで間隔を延ばすと、平均濃度比はQ3Wで2/3、Q4Wで1/2（線形PKの物質収支で固定）。トラフ比はQ4Wで0.371（条件付き範囲0.171〜0.498）と幅が大きかった。",
+        "有効性のEmax関係は初回サイクルの平均濃度に基づくため、維持期のトラフへ閾値として転用できない。CRSの投与回別の低下も、現在の曝露だけでは説明できない。"
+      ]
+    },
+    "en": {
+      "title": "How far can public summary PK data evaluate a change in the tarlatamab dosing interval?",
+      "summary": "A two-compartment model estimated from published aggregate PK values, comparing Q2W, Q3W and Q4W exposure in light of identifiability and uncertainty.",
+      "key_findings": [
+        "A two-compartment model fitted to six Cycle 2 PK summary values from the label explained them with a maximum error of 10.0%, but profiles showed CL, Q and Vp were poorly identified, and the terminal half-life (about 19.0 days) did not match the NCA median of 6.21 days.",
+        "Extending the interval at the same 10 mg gives average-concentration ratios of 2/3 for Q3W and 1/2 for Q4W (fixed by mass balance under linear PK); the Q4W trough ratio was 0.371 with a wide conditional range of 0.171–0.498.",
+        "The efficacy Emax relationship is based on first-cycle average concentration and cannot be reused as a threshold for maintenance troughs, and the per-dose fall in CRS cannot be explained by current exposure alone."
+      ]
     }
   },
   "english": {
     "title": "How far can public summary PK data evaluate a change in the tarlatamab dosing interval?",
     "summary": "A two-compartment model estimated from published aggregate PK values, comparing Q2W, Q3W and Q4W exposure in light of identifiability and uncertainty."
+  },
+  "reviewed": {
+    "en": "fef3d552d1c4fb79f39de7f217fca358a8c3106f66d87287dfc78107fc8a34c0"
   }
 }

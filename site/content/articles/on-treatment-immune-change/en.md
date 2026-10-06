@@ -1,5 +1,3 @@
-*Research reanalysis. Not peer reviewed.*
-
 In 43 publicly available pretreatment/on-treatment RNA pairs, a fixed cytolytic-expression summary usually increased. However, its change added only uncertain information about recorded best response beyond baseline expression. The useful distinction is between observing a pharmacodynamic change and qualifying it as a predictive biomarker.
 
 日本語要約：43人の治療前後RNAを対応付けると、免疫関連指標の上昇が見られた。一方、反応が分かる42人で変化量を加えたモデルの改善は不確実だった。治療後に観測できる変化を、治療前の予測や治療選択の根拠へ読み替えない。

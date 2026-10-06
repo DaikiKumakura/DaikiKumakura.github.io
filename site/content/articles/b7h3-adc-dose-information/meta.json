@@ -10,7 +10,12 @@
   "locales": {
     "en": {
       "title": "Is another dose comparison informative? A benefit–risk analysis of ifinatamab deruxtecan",
-      "summary": "Public randomized B7-H3 ADC dose-cohort counts used to quantify conditional information value, decision uncertainty and sensitivity to unreported joint outcomes and follow-up."
+      "summary": "Public randomized B7-H3 ADC dose-cohort counts used to quantify conditional information value, decision uncertainty and sensitivity to unreported joint outcomes and follow-up.",
+      "key_findings": [
+        "From public randomized-cohort counts in IDeate-Lung01, 12 vs 8 mg/kg raised response by 27.4 points (95% credible interval +7.9 to +46.0), while the severe-adverse-event difference (+6.2, −14.0 to +26.3) remained uncertain.",
+        "Another 50 participants per arm had an expected information value of 0.074 response-equivalent units per 100 future decision subjects at harm weight 1, rising to 1.62 and 11.02 at weights 2 and 4.",
+        "Unreported joint response–harm outcomes and follow-up assumptions changed the value materially; patient-linked outcomes and an explicit preference definition may matter more than a larger repeat comparison."
+      ]
     }
   }
 }

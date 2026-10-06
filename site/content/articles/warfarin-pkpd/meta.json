@@ -9,7 +9,12 @@
   "locales": {
     "en": {
       "title": "When does individual information improve PK/PD prediction?",
-      "summary": "A reanalysis of measured warfarin PK/PCA data: effect delay, subject-separated prediction, and the limits of using additional PK measurements."
+      "summary": "A reanalysis of measured warfarin PK/PCA data: effect delay, subject-separated prediction, and the limits of using additional PK measurements.",
+      "key_findings": [
+        "In 32 subjects with public single-dose warfarin PK and PCA data, a turnover model described the delay between concentration and response better than direct inhibition (held-out RMSE 0.0799 vs 0.1061 at the 24 h cutoff).",
+        "Adding each subject's PK measurements up to 24 or 48 h did not improve later PCA prediction: paired MSE differences were +0.0015 (−0.0012 to 0.0043) and +0.0021 (−0.0026 to 0.0064).",
+        "Concentration information does not recover individual PD sensitivity; the next informative experiment measures PD sensitivity or tests a repeat occasion, and nothing here supports a dose, INR target or bleeding-risk claim."
+      ]
     }
   }
 }

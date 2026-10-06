@@ -10,11 +10,28 @@
   "locales": {
     "ja": {
       "title": "用量比較試験は用量選択をどこまで支持するか：sotorasib 960 mgと240 mgの群別データから",
-      "summary": "無作為化用量比較の公開群別データから、便益と害の重みを変えたときの判定領域を示す。重症毒性の差は頑健だが、奏効率とOSの差は不確かで、結論は害の定義に依存する。臨床用量の推奨は行わない。"
+      "summary": "無作為化用量比較の公開群別データから、便益と害の重みを変えたときの判定領域を示す。重症毒性の差は頑健だが、奏効率とOSの差は不確かで、結論は害の定義に依存する。臨床用量の推奨は行わない。",
+      "key_findings": [
+        "Grade 3以上の治療関連有害事象は960 mgで+16.0ポイント（95%区間 +4.2〜+27.8）多く、事前分布・時点・相関を変えても頑健だった。",
+        "奏効率の差は+7.8ポイント（−4.3〜+19.8）で不確か。奏効1件と重症毒性1件をほぼ同じ重さで見る（w ≥ 0.95）と240 mg寄りになる。",
+        "判定を最も動かすのは害の定義で、OSのHR 0.75（0.53〜1.07）は960 mg寄りの信号を残す。群別の公開データだけでは用量を決められない。"
+      ]
+    },
+    "en": {
+      "title": "How far does a dose-comparison trial support dose selection? Arm-level data for sotorasib 960 mg and 240 mg",
+      "summary": "Published arm-level data from a randomized dose comparison are used to show the decision regions as the weights on benefit and harm change. The difference in severe toxicity is robust, but differences in response rate and OS are uncertain, and the conclusion depends on how harm is defined. No clinical dose is recommended.",
+      "key_findings": [
+        "Grade≥3 treatment-related adverse events were 16.0 points more frequent at 960 mg (95% interval +4.2 to +27.8), robust to the prior, data cutoff and correlation.",
+        "The response-rate difference was +7.8 points (−4.3 to +19.8). Weighting one response and one severe toxicity about equally (w ≥ 0.95) favors 240 mg.",
+        "The definition of harm moves the decision most, and the OS HR of 0.75 (0.53 to 1.07) leaves a signal favoring 960 mg. Arm-level public data alone cannot settle the dose."
+      ]
     }
   },
   "english": {
     "title": "How far does a dose-comparison trial support dose selection? Arm-level data for sotorasib 960 mg and 240 mg",
     "summary": "Published arm-level data from a randomized dose comparison are used to show the decision regions as the weights on benefit and harm change. The difference in severe toxicity is robust, but differences in response rate and OS are uncertain, and the conclusion depends on how harm is defined. No clinical dose is recommended."
+  },
+  "reviewed": {
+    "en": "3f85adb3a8a35e9271a1bcbe9c255a2159267619ac3188d9421d4b55dbacba5d"
   }
 }

@@ -9,7 +9,12 @@
   "locales": {
     "en": {
       "title": "Do two immune-biology scores improve response prediction across urothelial cancer cohorts?",
-      "summary": "Fixed Teff and stromal features evaluated across public urothelial cancer cohorts, with discrimination, calibration, missingness and transport limits."
+      "summary": "Fixed Teff and stromal features evaluated across public urothelial cancer cohorts, with discrimination, calibration, missingness and transport limits.",
+      "key_findings": [
+        "Adding fixed T-effector and stromal RNA scores to a minimal clinical model raised cross-validated response AUC from 0.509 to 0.645 in the development cohort (298 patients, 68 responders).",
+        "In the external-source cohort (72 patients, 11 responders), the fixed model reached AUC 0.554 (95% interval 0.367–0.725) and probability calibration was poor.",
+        "The two scores support a biological hypothesis worth further study, not a clinically useful biomarker, an individual response probability or a prediction of who benefits from checkpoint inhibition."
+      ]
     }
   }
 }

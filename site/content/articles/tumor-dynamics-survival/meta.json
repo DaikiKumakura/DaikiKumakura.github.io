@@ -9,7 +9,12 @@
   "locales": {
     "en": {
       "title": "Do early tumor measurements improve prediction of subsequent survival?",
-      "summary": "A patient-separated landmark analysis of public colorectal cancer data, including calibration, censoring, uncertainty and temporal-integrity sensitivity."
+      "summary": "A patient-separated landmark analysis of public colorectal cancer data, including calibration, censoring, uncertainty and temporal-integrity sensitivity.",
+      "key_findings": [
+        "In a public 150-patient colorectal-cancer subset, a week-16 landmark analysis (128 patients) used only tumor measurements available before the prediction time.",
+        "Adding early tumor change raised held-out concordance from 0.532 to 0.581 (difference +0.049, 95% interval −0.005 to +0.106), and calibration stayed weak (slope 0.464).",
+        "Early tumor change is a candidate for further study, not a survival surrogate or decision rule; a separate validation cohort and denser longitudinal data are needed."
+      ]
     }
   }
 }
