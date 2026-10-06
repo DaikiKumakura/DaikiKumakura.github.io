@@ -668,7 +668,7 @@
       "id": "rsemflow",
       "tech": "R",
       "url": "https://github.com/DaikiKumakura/rsemflow",
-      "status": "R package and CLI (v0.1.0)",
+      "status": "R package and CLI (v0.1.1)",
       "description": "An R package and command-line tool that turns RSEM *.genes.results files and an ordinary sample metadata table into standard bulk RNA-seq results as TSV tables: expression summaries, normalization, PCA, sample correlation, DESeq2 differential expression for an explicitly stated design, preranked GSEA, GSVA/ssGSEA scores and gene annotation.",
       "featured": true,
       "links": [
@@ -689,11 +689,11 @@
           "label": "Tutorial"
         },
         {
-          "url": "https://github.com/DaikiKumakura/rsemflow/releases/tag/v0.1.0",
-          "label": "Release 0.1.0"
+          "url": "https://github.com/DaikiKumakura/rsemflow/releases/tag/v0.1.1",
+          "label": "Release 0.1.1"
         }
       ],
-      "note": "Human and mouse data. Mismatched samples, inconsistent gene tables, missing model values and confounded designs stop the run instead of producing results. Simple effects from interaction models are tested against the reparameterized model. R CMD check passes on Linux, macOS and Windows in CI (October 5, 2026). Not on CRAN or Bioconductor; no figures are produced."
+      "note": "Human and mouse data. Mismatched samples, inconsistent gene tables, missing model values and confounded designs stop the run instead of producing results. Simple effects from interaction models are tested against the reparameterized model. On ENCODE K562 knockdown data, each target gene is among the most significant decreases in its own knockdown. R CMD check passes on Linux, macOS and Windows in CI (October 6, 2026). Not on CRAN or Bioconductor; no figures are produced."
     },
     {
       "id": "retiaudit",
