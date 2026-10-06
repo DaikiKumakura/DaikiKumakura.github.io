@@ -183,6 +183,36 @@ class BuildTests(unittest.TestCase):
  def test_missing_article_body(self):
   p,m=self.meta('japanese-note');m['locales']['en']={'title':'English','summary':'Summary'};p.write_text(json.dumps(m),encoding='utf-8')
   with self.assertRaises(ValueError):build.build(self.root,preview=True)
+ def test_figures_get_size_and_lazy_loading(self):
+  import struct,zlib
+  folder=self.root/'content/articles/logistic-example';(folder/'shared/figures').mkdir(parents=True,exist_ok=True)
+  png=b'\x89PNG\r\n\x1a\n'+struct.pack('>I',13)+b'IHDR'+struct.pack('>IIBBBBB',640,480,8,2,0,0,0);png+=struct.pack('>I',zlib.crc32(png[12:29]))
+  (folder/'shared/figures/a.png').write_bytes(png)
+  (folder/'shared/figures/b.svg').write_text('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200"></svg>',encoding='utf-8')
+  self.assertEqual(build.image_size(folder/'shared/figures/a.png'),(640,480))
+  self.assertEqual(build.image_size(folder/'shared/figures/b.svg'),(300,200))
+  article=dict(folder=folder,slug='logistic-example')
+  body=build.add_image_attributes('<img alt="a" src="shared/logistic-example/figures/a.png" /><img alt="b" src="shared/logistic-example/figures/b.svg" />',article)
+  first,second=re.findall(r'<img[^>]*>',body)
+  self.assertIn('width="640" height="480"',first);self.assertNotIn('lazy',first)
+  self.assertIn('width="300" height="200"',second);self.assertIn('loading="lazy"',second)
+ def test_article_lead_related_breadcrumb_and_llms(self):
+  p=self.root/'content/site.json';site=build.read_json(p)
+  site['analysis_topics']=[{'label':'Example','articles':['logistic-example','japanese-note']}]
+  p.write_text(json.dumps(site),encoding='utf-8')
+  for slug in ('logistic-example','japanese-note'):
+   mp,m=self.meta(slug);m['draft']=False;mp.write_text(json.dumps(m),encoding='utf-8')
+  build.build(self.root)
+  page=self.text('writing/japanese-note.html')
+  _,m=self.meta('japanese-note')
+  self.assertIn('<p class="lead">'+m['locales']['ja']['summary']+'</p>',page)
+  self.assertIn('関連する解析',page);self.assertIn('href="logistic-example.html"',page)
+  self.assertIn('"BreadcrumbList"',page)
+  data=json.loads(re.search(r'application/ld\+json">(.*?)</script>',page)[1]);self.assertEqual(data['@type'],'Article')
+  llms=self.text('llms.txt')
+  self.assertIn('writing/japanese-note.html',llms);self.assertIn('(article in Japanese)',llms)
+  build.build(self.root,preview=True)
+  self.assertFalse((self.root/'dist/llms.txt').exists())
 
 if __name__=='__main__':unittest.main()
 

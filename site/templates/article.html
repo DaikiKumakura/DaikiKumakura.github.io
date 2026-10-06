@@ -2,14 +2,16 @@
 {% block content %}
 <article class="prose" lang="{{ lang }}">
 {% if alternatives|length > 1 %}<nav class="languages" aria-label="Article language">{% for code,href in alternatives.items() %}<a href="{{ href }}" lang="{{ code }}">{{ "日本語" if code == "ja" else "English" }}</a>{% endfor %}</nav>{% endif %}
-<p><a href="{{ root }}writing.html">{{ ui.back }}</a></p>
+<nav class="crumbs meta" aria-label="Breadcrumb" lang="en"><a href="{{ root }}index.html">Home</a> › <a href="{{ root }}writing.html">Writing</a></nav>
 <h1>{{ title }}</h1>
 <p class="meta">{{ author }} · {{ date }} · {{ ui.categories[category] }}{% if version %} · {{ version }}{% endif %}</p>
+<p class="lead">{{ description }}</p>
 {% if english %}<section class="abstract" lang="en" aria-labelledby="english-summary"><h2 id="english-summary">Summary in English</h2><p><strong>{{ english.title }}</strong></p><p>{{ english.summary }}</p><p class="meta">The full article is in Japanese.</p></section>{% endif %}
 {% if draft %}<p class="notice">{{ ui.draft_notice }}</p>{% endif %}
 {% if category == 'paper' %}<p class="notice">{{ ui.unreviewed }}</p>{% endif %}
 {% if stale %}<p class="notice">{{ ui.stale }}</p>{% endif %}
 {% if toc %}<details><summary>{{ ui.toc }}</summary>{{ toc|safe }}</details>{% endif %}
 {{ body|safe }}
+{% if related %}<section class="related" aria-labelledby="related-analyses"><h2 id="related-analyses">{{ '関連する解析' if lang == 'ja' else 'Related analyses' }}</h2><ul>{% for r in related %}<li><a href="{{ r.href }}" lang="{{ r.lang }}">{{ r.title }}</a></li>{% endfor %}</ul><p><a href="{{ root }}writing.html">{{ ui.back }}</a> · <a href="{{ root }}profile.html#selected-analyses">Selected analyses by topic</a></p></section>{% endif %}
 </article>
 {% endblock %}

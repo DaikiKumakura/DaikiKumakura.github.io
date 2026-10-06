@@ -64,6 +64,9 @@ def enrich(page, name, site, site_url, article=None):
  elif key in ('writing','activity'):
   schema={'@context':'https://schema.org','@type':'CollectionPage','url':canonical,'name':title,'about':person}
  if schema:metadata.append('<script type="application/ld+json">'+json.dumps(schema,ensure_ascii=False).replace('<','\\u003c')+'</script>')
+ if name.startswith('writing/') and name.endswith('.html'):
+  crumbs={'@context':'https://schema.org','@type':'BreadcrumbList','itemListElement':[{'@type':'ListItem','position':1,'name':'Home','item':site_url},{'@type':'ListItem','position':2,'name':'Writing','item':site_url+'writing.html'},{'@type':'ListItem','position':3,'name':schema['headline'],'item':canonical}]}
+  metadata.append('<script type="application/ld+json">'+json.dumps(crumbs,ensure_ascii=False).replace('<','\\u003c')+'</script>')
  return page.replace('</head>','\n'.join(metadata)+'\n</head>')
 
 

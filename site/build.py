@@ -153,6 +153,45 @@ def render_body(article, lang):
         rendered = rendered.replace(f'MATHPLACEHOLDER{i}END', '<span class="math">' + fragment + '</span>')
     return rendered, parser.toc
 
+def image_size(path):
+    """Intrinsic size of a PNG or SVG figure, or None."""
+    data = path.read_bytes()
+    if data[:8] == b'\x89PNG\r\n\x1a\n':
+        return int.from_bytes(data[16:20], 'big'), int.from_bytes(data[20:24], 'big')
+    if path.suffix.lower() == '.svg':
+        head = data[:4000].decode('utf-8', 'ignore')
+        root = re.search(r'<svg\b[^>]*>', head)
+        if root:
+            w = re.search(r'\swidth="([\d.]+)(?:px|pt)?"', root[0]); h = re.search(r'\sheight="([\d.]+)(?:px|pt)?"', root[0])
+            if w and h:
+                return round(float(w[1])), round(float(h[1]))
+            box = re.search(r'viewBox="[\d.\-]+[ ,]+[\d.\-]+[ ,]+([\d.]+)[ ,]+([\d.]+)"', root[0])
+            if box:
+                return round(float(box[1])), round(float(box[2]))
+    return None
+
+def add_image_attributes(body, article):
+    """Reserve figure space (no layout shift) and lazy-load all but the first figure."""
+    shared = article['folder'] / 'shared'
+    count = 0
+    def attributes(match):
+        nonlocal count
+        tag, src = match[0], html.unescape(match[1])
+        prefix = 'shared/' + article['slug'] + '/'
+        extra = ''
+        if src.startswith(prefix) and 'width=' not in tag:
+            path = shared / safe_relative(src[len(prefix):])
+            size = image_size(path) if path.is_file() else None
+            if size:
+                extra += f' width="{size[0]}" height="{size[1]}"'
+        if 'loading=' not in tag and count:
+            extra += ' loading="lazy"'
+        if 'decoding=' not in tag:
+            extra += ' decoding="async"'
+        count += 1
+        return re.sub(r'\s*/?>$', extra + ' />', tag, count=1)
+    return re.sub(r'<img\b[^>]*\bsrc="([^"]+)"[^>]*>', attributes, body)
+
 def build(project=BASE, preview=False, strict_translations=False):
     project = Path(project)
     site = read_json(project / 'content/site.json')
@@ -185,6 +224,13 @@ def build(project=BASE, preview=False, strict_translations=False):
     # Unpublished or scheduled articles are left out until they are live.
     analyses=[dict(label=t['label'],articles=[published[s] for s in t['articles'] if s in published]) for t in site.get('analysis_topics',[])]
     analyses=[t for t in analyses if t['articles']]
+    def related(slug, limit=5):
+        # Other live articles that share an analysis topic, in topic order.
+        seen=[]
+        for t in site.get('analysis_topics',[]):
+            if slug in t['articles']:
+                seen+=[s for s in t['articles'] if s!=slug and s in published and s not in seen]
+        return [dict(published[s],href=published[s]['href'].removeprefix('writing/'),title=next(a['meta']['locales'][a['meta']['source_language']]['title'] for a in entries if a['slug']==s),lang=next(a['meta']['source_language'] for a in entries if a['slug']==s)) for s in seen[:limit]]
     def output(name,page,lang='en',article=None):
         canonical=SITE_URL if name in ('index.html','home.html') else SITE_URL+name
         page=enrich(page,name,site,SITE_URL,article)
@@ -199,7 +245,8 @@ def build(project=BASE, preview=False, strict_translations=False):
         alternatives={code:(a['slug']+'.html' if code==original else a['slug']+'-'+code+'.html') for code in m['locales']}
         for language in m['locales']:
             body,toc=render_body(a,language)
-            page=env.get_template('article.html').render(site=site,lang=language,ui=ui,preview=preview,active='writing',root='../',alternatives=alternatives,title=m['locales'][language]['title'],description=m['locales'][language]['summary'],math=m.get('math',False),author=m.get('author',site['name']),date=m['date'],category=m['category'],version=m.get('version',''),draft=m['draft'],stale=a['stale'][language],body=body,toc=toc,english=m.get('english') if language!='en' and 'en' not in m['locales'] else None)
+            body=add_image_attributes(body,a)
+            page=env.get_template('article.html').render(site=site,lang=language,ui=ui,preview=preview,active='writing',root='../',alternatives=alternatives,title=m['locales'][language]['title'],description=m['locales'][language]['summary'],math=m.get('math',False),author=m.get('author',site['name']),date=m['date'],category=m['category'],version=m.get('version',''),draft=m['draft'],stale=a['stale'][language],body=body,toc=toc,english=m.get('english') if language!='en' and 'en' not in m['locales'] else None,related=related(a['slug']))
             output('writing/'+alternatives[language],page,language,m)
         for asset in (a['folder']/'shared').rglob('*'):
             if asset.is_file():outputs[f"writing/shared/{a['slug']}/{asset.relative_to(a['folder']/'shared').as_posix()}"]=asset.read_bytes()
@@ -228,6 +275,8 @@ def build(project=BASE, preview=False, strict_translations=False):
     if not preview:
         outputs['feed.xml']=atom_feed(site,entries)
     outputs['robots.txt']=('User-agent: *\n'+('Disallow: /\n' if preview else 'Allow: /\nSitemap: '+SITE_URL+'sitemap.xml\nSitemap: '+SITE_URL+'feed.xml\n')).encode('utf-8')
+    if not preview:
+        outputs['llms.txt']=llms_txt(site,entries)
     outputs['.nojekyll'] = b''
     # Only remove obsolete files that this builder previously generated.
     # Do not recursively delete directories or touch unrelated files.
@@ -250,6 +299,20 @@ def build(project=BASE, preview=False, strict_translations=False):
         target.write_bytes(data)
     manifest.write_text(json.dumps(sorted(outputs), indent=2), encoding='utf-8')
     return dict(files=len(outputs), articles=len(entries), warnings=warnings)
+
+def llms_txt(site, entries):
+    """Plain-text site guide (llmstxt.org format) listing pages and live articles."""
+    lines=['# '+site['name']+' ('+site['alternate_name']+')','','> '+site['profile'],'',site['expertise'],'','## Pages','']
+    for key,label in NAV.items():
+        page=SITE_URL if key=='home' else SITE_URL+key+'.html'
+        lines.append(f'- [{label}]({page})')
+    lines+=['','## Writing','']
+    for a in entries:
+        m=a['meta']; loc=m['locales'][m['source_language']]; english=m.get('english')
+        title=english['title'] if english else loc['title']; summary=english['summary'] if english else loc['summary']
+        note=' (article in Japanese)' if m['source_language']=='ja' else ''
+        lines.append(f"- [{title}]({SITE_URL}writing/{a['slug']}.html){note}: {summary}")
+    return ('\n'.join(lines)+'\n').encode('utf-8')
 
 def atom_time(meta):
     if meta.get('updated'):
