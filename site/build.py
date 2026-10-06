@@ -76,7 +76,8 @@ def fingerprint(folder, meta):
     digest = hashlib.sha256()
     digest.update(json.dumps(meta['locales'][source], sort_keys=True, ensure_ascii=False).encode())
     digest.update((folder / f'{source}.md').read_bytes().replace(b'\r\n', b'\n'))
-    for path in sorted((folder / 'shared').rglob('*')):
+    # Sort by POSIX string: Windows paths compare case-insensitively, Linux paths do not.
+    for path in sorted((folder / 'shared').rglob('*'), key=lambda p: p.relative_to(folder).as_posix()):
         if path.is_file():
             digest.update(path.relative_to(folder).as_posix().encode())
             digest.update(path.read_bytes().replace(b'\r\n', b'\n'))
