@@ -1,0 +1,24 @@
+{
+  "source_language": "ja",
+  "category": "essay",
+  "date": "2026-10-06",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "Virtual Cellは何を予測できたのか――標的遺伝子と評価指標の落とし穴",
+      "summary": "標的遺伝子の直接効果と摂動応答の予測を分け、最新研究と合成例からVirtual Cellの評価指標を点検する。",
+      "key_findings": [
+        "標的名という正当な入力、予測時に利用できない実測情報、評価指標の近道は別の問題である。",
+        "3摂動の合成例では、下流応答を予測しない標的spikeがrow-maskで1.00、panel-maskとpairwise-maskでは0.50となった。",
+        "pairwise方式の実データでの優越性やscFM全体の有用性は、この計算例だけでは判断できない。"
+      ]
+    }
+  },
+  "english": {
+    "title": "What did the Virtual Cell predict? Target genes and evaluation shortcuts",
+    "summary": "A Japanese review of perturbation forecasting, target-gene masking and recent benchmarks, with a reproducible synthetic example distinguishing evaluation shortcuts from downstream prediction. The example does not establish real-data performance or the superiority of pairwise masking."
+  }
+}
