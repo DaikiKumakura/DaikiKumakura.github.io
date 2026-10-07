@@ -1,0 +1,25 @@
+{
+  "source_language": "ja",
+  "category": "essay",
+  "date": "2026-10-24",
+  "publish_at": "2026-10-24T09:00:00+09:00",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "よく当たるモデルは、機序を理解しているのか――予測と機序推論を分けて評価する",
+      "summary": "予測と機序推論を分けて評価する。最新のVirtual Cell研究と規制文書を読み、合成データの計算例で、データに当てはまるパラメータが問いによって違う答えを出すことを示す。",
+      "key_findings": [
+        "観察のもとでの予測、介入のもとでの予測、機序の主張は別の問いであり、それぞれに別の試験が要る。",
+        "計算例では、turnoverを含むモデルと含まない直接効果モデルが同じ尤度でデータに当てはまり、k_outは下限（約0.77/日）しか決まらなかった。",
+        "k_outの違いは週1回投与の予測をほとんど変えなかったが、投与6時間後の応答は約41〜77と大きく変えた。投与3・6時間後の採血を加えると、k_outは約1.5〜4.1/日に決まった。"
+      ]
+    }
+  },
+  "english": {
+    "title": "Does a model that predicts well understand the mechanism? Separating prediction from mechanistic inference",
+    "summary": "A Japanese essay distinguishing observational prediction, prediction under intervention and mechanistic claims, drawing on recent perturbation-prediction benchmarks and ICH M15. A reproducible synthetic indirect-response example shows that parameter sets compatible with the same data agree on a slowly varying regimen but diverge in the unobserved early hours, and that early sampling resolves the practical non-identifiability. It makes no claim about any real drug."
+  }
+}

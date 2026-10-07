@@ -1,0 +1,81 @@
+{
+  "seed": 20261024,
+  "true_kout": 2.0,
+  "true_S": 0.075,
+  "true_k_drug": 0.15,
+  "log_sd": 0.1,
+  "obs_times_day": [
+    1.0,
+    2.0,
+    4.0,
+    7.0,
+    14.0,
+    21.0,
+    28.0
+  ],
+  "observed": [
+    42.872,
+    42.376,
+    54.883,
+    59.295,
+    71.427,
+    86.846,
+    89.881
+  ],
+  "grid": {
+    "kout": [
+      0.1,
+      1000.0,
+      81
+    ],
+    "S": [
+      0.03,
+      0.15,
+      121
+    ]
+  },
+  "best_nll_turnover_grid": 0.7203351162162499,
+  "best_nll_direct_effect": 0.7203323061613758,
+  "direct_effect_S": 0.07285594923778588,
+  "kout_at_profile_min": 1000.0,
+  "kout_lower_95": 0.7710997028817512,
+  "kout_upper_95": null,
+  "n_grid_points_in_set": 1619,
+  "S_range_95": [
+    0.059,
+    0.086
+  ],
+  "new_trough_day84_range_95": [
+    69.15214610198846,
+    77.1344118417049
+  ],
+  "new_min_range_95": [
+    53.950712699942606,
+    65.2216783985818
+  ],
+  "r_at_6h_range_95": [
+    37.290655665828126,
+    77.31991366617719
+  ],
+  "early_design_kout_lower_95": 1.521285152956421,
+  "early_design_kout_upper_95": 4.1000342569262305,
+  "s_fixed": 0.07300000000000001,
+  "kout_only_spans_at_s_fixed": {
+    "new_trough_day84": [
+      71.70770156260608,
+      73.52895364900112
+    ],
+    "new_min": [
+      57.98738916114699,
+      61.859049392425455
+    ],
+    "r_at_6h": [
+      41.19497059155524,
+      77.31991366617719
+    ]
+  },
+  "noise_free_two_delta_nll_at_kout_max": 0.017093611289232556,
+  "noise_free_kout_lower_95": 0.6879581109231352,
+  "noise_free_upper_95": null,
+  "note": "Ranges are min/max over 2D grid points with 2*dNLL <= 3.841 (grid approximation of profile-likelihood intervals for each quantity)."
+}
