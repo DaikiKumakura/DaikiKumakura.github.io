@@ -1,0 +1,20 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2026-10-28",
+  "publish_at": "2026-10-28T09:00:00+09:00",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "TROP2 ADCの曝露を比較する前に：同じ薬のAUCが変わった理由を読む",
+      "summary": "SGとDato-DXdの一次PK・E–R資料を監査。2026年のSGの派生濃度定義とモデル変更を踏まえ、曝露を借りる前に測定量・時間窓・転帰を照合する。共通payload目標や効力順位は支持できない。"
+    }
+  },
+  "english": {
+    "title": "Before comparing TROP2 ADC exposure: why a reported AUC changed",
+    "summary": "An audit of sacituzumab govitecan and datopotamab deruxtecan distinguishes measured and derived analytes, label versions, exposure windows and response endpoints. The public summaries do not establish a shared payload target."
+  }
+}

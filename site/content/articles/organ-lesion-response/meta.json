@@ -1,0 +1,20 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2026-10-26",
+  "publish_at": "2026-10-26T09:00:00+09:00",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "腫瘍の合計が減っていても、増えている病変はある：公開CTデータで集約の限界を調べる",
+      "summary": "公開CTデータの276患者・2,425病変で、患者内の病変変化と集約の限界を調べた。合計体積の減少と一部病変の増加が併存する頻度、除外条件と臓器差の不確実性を示す。薬剤別の因果薬効は評価しない。"
+    }
+  },
+  "english": {
+    "title": "When shrinking totals hide growing lesions: an audit of public CT data",
+    "summary": "Two-timepoint lesion volumes from 276 patients reveal heterogeneous changes hidden by aggregation. This analysis examines measurement selection and within-patient organ contrasts, not causal drug effects or RECIST progression."
+  }
+}

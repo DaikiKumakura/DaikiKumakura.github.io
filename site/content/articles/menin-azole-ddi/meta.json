@@ -1,0 +1,20 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2026-10-29",
+  "publish_at": "2026-10-29T09:00:00+09:00",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "Menin阻害剤のazole併用：公表PK/DDI情報から何を借りられるか",
+      "summary": "Revumenib・ziftomenibの公表PK/DDIとPBPKの用途を監査し、共同endpointの許容幅、倍率借用の不一致、AUCの機序的非識別性を調べた。クラス共通のazole倍率は正当化できない。"
+    }
+  },
+  "english": {
+    "title": "Menin inhibitors with azoles: what can be borrowed from public PK and DDI evidence?",
+    "summary": "A source-typed audit of revumenib and ziftomenib separates calibration, prediction and clinical evidence. Reduced-model calculations examine joint endpoint tolerances, cross-drug borrowing and mechanistic ambiguity without claiming independent clinical validation."
+  }
+}

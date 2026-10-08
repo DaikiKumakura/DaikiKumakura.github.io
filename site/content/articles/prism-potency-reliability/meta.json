@@ -1,0 +1,20 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2026-10-27",
+  "publish_at": "2026-10-27T09:00:00+09:00",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "PRISMのEC50を、そのまま次の実験濃度に使ってよいか",
+      "summary": "PRISMの公式実測データから3薬・6細胞株の濃度反応を再解析。点推定、profile、技術的redoを照合し、遷移付近への追測と独立再実験が必要な曲線を分ける。"
+    }
+  },
+  "english": {
+    "title": "Can a public PRISM EC50 choose the next experimental concentration?",
+    "summary": "Hill fits, conditional profiles and technical redo comparisons distinguish usable transitions from unidentified EC50 values in a selected three-drug, six-cell-line dataset. Technical precision is not biological reproducibility."
+  }
+}
