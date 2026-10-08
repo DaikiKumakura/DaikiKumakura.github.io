@@ -1,0 +1,20 @@
+{
+  "source_language": "ja",
+  "category": "essay",
+  "date": "2026-10-31",
+  "publish_at": "2026-10-31T09:00:00+09:00",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "PK/PD・PBPK・QSPは何が違うのか",
+      "summary": "PK/PD、PBPK、QSPの定義と重なりを、問い・モデル構造・個人差の三つの観点から整理する。模式図と架空のPK/PD計算例を使い、用途に応じた使い分けと評価を考える。"
+    }
+  },
+  "english": {
+    "title": "How do PK/PD, PBPK and QSP differ?",
+    "summary": "A Japanese introduction comparing PK/PD, PBPK and QSP without treating them as a complexity ladder. Original diagrams and a hypothetical PK/PD simulation illustrate connected modelling approaches, population variability and evaluation for a defined purpose. No real-drug prediction is claimed."
+  }
+}
