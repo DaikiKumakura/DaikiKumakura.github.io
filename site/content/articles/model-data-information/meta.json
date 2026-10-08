@@ -1,0 +1,20 @@
+{
+  "source_language": "ja",
+  "category": "essay",
+  "date": "2026-10-30",
+  "publish_at": "2026-10-30T09:00:00+09:00",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "モデルが勝てないとき、次に何を測るか",
+      "summary": "摂動予測とVirtual Cellの最新研究を読み、情報の不足、モデルの未活用、評価の低感度を切り分ける。観測時点と信号の希釈の数式例から、次に測るものを考える。"
+    }
+  },
+  "english": {
+    "title": "When a model fails to beat the baseline, what should we measure next?",
+    "summary": "A Japanese essay on separating limitations of data, models and evaluation in perturbation prediction. Original analytical examples illustrate sampling-time identifiability and signal dilution; recent studies inform a practical measurement audit. This is not a reanalysis of empirical cell data."
+  }
+}
