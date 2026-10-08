@@ -1,0 +1,88 @@
+{
+  "fast": {
+    "lam": 10.0,
+    "gam": 0.5,
+    "direct": {
+      "k": 0.09429495565636833,
+      "g": 0.4670941786207369,
+      "r2": 0.9946128107474527,
+      "starts_reaching_best": "9/9",
+      "gain_k_over_g": 0.20187568154843638,
+      "gain_true_ab_over_lam_gam": 0.2,
+      "k_qss_ab_over_lam": 0.1
+    },
+    "two_step": {
+      "c_ab": 0.86783735529243,
+      "rates": [
+        0.4979465339470653,
+        8.68433514032906
+      ],
+      "r2": 0.9980179432941229,
+      "starts_reaching_best": "1/8",
+      "swap_max_abs_diff": 1.8365330783920442e-10
+    },
+    "lag_days_peak": 1.0,
+    "double_x": {
+      "true_mean_ratio": 1.9999999999527798,
+      "direct_mean_ratio": 1.9999999994416338
+    },
+    "mediator_removal_x5": {
+      "true": {
+        "mean_ratio": 0.19997030677175082,
+        "amplitude_ratio": 0.19992435036711131
+      },
+      "two_step_correct_label": {
+        "mean_ratio": 0.19996529222892284,
+        "amplitude_ratio": 0.2002151291875135
+      },
+      "two_step_swapped_label": {
+        "mean_ratio": 0.1992554439741175,
+        "amplitude_ratio": 0.2821635642079261
+      },
+      "direct_model": "no parameter represents mediator removal; the fitted direct model alone cannot express this intervention"
+    }
+  },
+  "slow": {
+    "lam": 0.3,
+    "gam": 0.5,
+    "direct": {
+      "k": 0.8285786404125514,
+      "g": 0.12102860672263897,
+      "r2": 0.6812636698901537,
+      "starts_reaching_best": "9/9",
+      "gain_k_over_g": 6.846138800154938,
+      "gain_true_ab_over_lam_gam": 6.666666666666667,
+      "k_qss_ab_over_lam": 3.3333333333333335
+    },
+    "two_step": {
+      "c_ab": 1.0405339278387702,
+      "rates": [
+        0.2864529466320675,
+        0.5425699270465616
+      ],
+      "r2": 0.9927127067713352,
+      "starts_reaching_best": "8/8",
+      "swap_max_abs_diff": 1.5242601403286926e-08
+    },
+    "lag_days_peak": 3.0,
+    "double_x": {
+      "true_mean_ratio": 2.0000000023453928,
+      "direct_mean_ratio": 2.0000000033168157
+    },
+    "mediator_removal_x5": {
+      "true": {
+        "mean_ratio": 0.1975342555206109,
+        "amplitude_ratio": 0.43892042861744374
+      },
+      "two_step_correct_label": {
+        "mean_ratio": 0.19742724050401753,
+        "amplitude_ratio": 0.4493634975201732
+      },
+      "two_step_swapped_label": {
+        "mean_ratio": 0.19869292970754823,
+        "amplitude_ratio": 0.31640856150646046
+      },
+      "direct_model": "no parameter represents mediator removal; the fitted direct model alone cannot express this intervention"
+    }
+  }
+}

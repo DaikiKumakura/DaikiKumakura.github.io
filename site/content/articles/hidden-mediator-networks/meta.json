@@ -1,0 +1,25 @@
+{
+  "source_language": "ja",
+  "category": "essay",
+  "date": "2026-10-25",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "観測されない媒介変数は、ネットワークから消えてくれない",
+      "summary": "観測データから推定したネットワークのエッジと、実際の分子の作用を区別する。媒介変数を消去した数理と合成データの計算例で、当てはまっても媒介物のパラメータが決まらないことを示し、微生物の化学媒介相互作用、single-cellの遺伝子調節ネットワーク、創薬の機序評価へつなげる。",
+      "key_findings": [
+        "観測されない媒介変数を消去しても、その作用は過去の入力の「記憶」として残り、推定したエッジの係数は産生・作用・消失をまとめた有効係数になる。",
+        "計算例では、媒介物を観測しない直接モデルも総ゲインは正しく取り出したが、媒介が遅いと、その遅れを応答自身の消失速度の誤った値（真値の約4分の1）として吸収した。",
+        "正しい2段の構造を当てはめても、二つの速度のどちらが媒介物のものかはデータから決まらず、媒介物の除去を速める介入の予測は、平均では一致しても振れ幅で0.45倍と0.32倍（真値0.44倍）に分かれた。"
+      ]
+    }
+  },
+  "english": {
+    "title": "Unobserved mediators do not disappear from a network",
+    "summary": "A Japanese essay on the difference between edges inferred from observed variables and the molecular interactions behind them. It links the mathematics of eliminating a mediator, a reproducible synthetic example, chemical-mediated microbial interactions, single-cell gene regulatory networks and mechanism assessment in drug discovery. It makes no claim about any real organism or drug."
+  },
+  "publish_at": "2026-10-25T09:00:00+09:00"
+}
