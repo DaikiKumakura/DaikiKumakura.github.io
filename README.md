@@ -36,7 +36,9 @@ An original in one language is enough. A Japanese original may add `"english": {
 
 Set `publish_at` in `meta.json` to a timezone-aware timestamp, for example `2026-10-04T09:00:00+09:00`, and set `date` to its local calendar date. Set `draft` to `false` only after review. Production builds omit the article, its shared files, and sitemap entry until that time. Preview builds include it and remain noindex.
 
-GitHub Actions rebuilds daily at 00:00 UTC (09:00 JST). Scheduled runs can be delayed or skipped by GitHub; this is not an exact-time publishing guarantee. Use the existing manual workflow dispatch if a scheduled run is missed. Source files in this public repository are visible before the website publication time; scheduling does not make them confidential.
+GitHub-hosted Actions rebuilds at 09:07 and 09:37 JST, with an hourly catch-up at minute 17. Source, figures and downloads must already be pushed to `main`; no local computer, browser or Codex session needs to remain running. Every successful build includes all eligible articles, so a missed run is recovered by the next successful run. After deployment, a separate job checks the live article URLs and sitemap against the exact uploaded artifact, retrying for CDN propagation; failures are visible in Actions. IndexNow notification follows that check.
+
+GitHub can delay or drop scheduled runs; neither exact-time publication nor availability during a GitHub outage is guaranteed. Manual workflow dispatch remains available. Public repositories with 60 days of no repository activity can have scheduled workflows disabled by GitHub; check/re-enable Actions before a new long-term schedule. Source files in this public repository are visible before the website publication time; scheduling does not make them confidential.
 
 ## Preview and check
 

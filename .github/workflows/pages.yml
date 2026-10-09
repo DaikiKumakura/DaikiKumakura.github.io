@@ -5,7 +5,8 @@ on:
   workflow_dispatch:
   schedule:
     # Scheduled articles become eligible at their timezone-aware publish_at.
-    - cron: '0 0 * * *' # 09:00 JST; Actions may start later.
+    - cron: '7,37 0 * * *' # 09:07 and 09:37 JST; avoid the top-of-hour peak.
+    - cron: '17 * * * *' # Hourly catch-up if an earlier run is delayed or dropped.
 permissions:
   contents: read
 concurrency:
@@ -41,8 +42,24 @@ jobs:
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
-  notify-indexnow:
+  verify-publication:
     needs: deploy
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v4
+        with:
+          name: github-pages
+          path: deployed-artifact
+      - run: mkdir -p deployed-site && tar -xf deployed-artifact/artifact.tar -C deployed-site
+      - name: Verify published articles and sitemap
+        run: python site/verify_deployment.py --dist deployed-site
+  notify-indexnow:
+    needs: verify-publication
     runs-on: ubuntu-latest
     continue-on-error: true
     steps:
