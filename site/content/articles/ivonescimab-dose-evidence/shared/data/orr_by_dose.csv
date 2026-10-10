@@ -1,0 +1,14 @@
+trial_id,setting,dose_mgkg,interval_d,n,responders,n_provenance,source
+P2_chemo_c1,NSCLC 1L no-driver + chemo,10,21,19,10,reported,EClinicalMedicine 2023 Table 2 (PMC10430160)
+P2_chemo_c1,NSCLC 1L no-driver + chemo,20,21,24,13,reported,EClinicalMedicine 2023 Table 2 (PMC10430160)
+P2_chemo_c2,NSCLC EGFR-TKI failure + chemo,10,21,10,8,reported,EClinicalMedicine 2023 Table 2 (PMC10430160)
+P2_chemo_c2,NSCLC EGFR-TKI failure + chemo,20,21,9,5,reported,EClinicalMedicine 2023 Table 2 (PMC10430160)
+P2_chemo_c3,NSCLC post-systemic failure + chemo,10,21,10,4,reported,EClinicalMedicine 2023 Table 2 (PMC10430160)
+P2_chemo_c3,NSCLC post-systemic failure + chemo,20,21,10,4,reported,EClinicalMedicine 2023 Table 2 (PMC10430160)
+P1b_mono,NSCLC 1L PD-L1+ monotherapy,10,21,21,7,derived,JTO 2024 abstract percentages (33.3/52.6/60.0/75.0; 67 pts) + JTO CRR 2026 commentary Table 1 (n=21/15/31)
+P1b_mono,NSCLC 1L PD-L1+ monotherapy,20,14,19,10,derived,same
+P1b_mono,NSCLC 1L PD-L1+ monotherapy,20,21,15,9,derived,same
+P1b_mono,NSCLC 1L PD-L1+ monotherapy,30,21,12,9,derived,same
+P1b_sclc,ES-SCLC 1L + etoposide/carboplatin,3,21,3,2,derived,JTO 2025 abstract (35 pts; ORR 66.7/90.9/76.2%; total 80%)
+P1b_sclc,ES-SCLC 1L + etoposide/carboplatin,10,21,11,10,derived,same
+P1b_sclc,ES-SCLC 1L + etoposide/carboplatin,20,21,21,16,derived,same

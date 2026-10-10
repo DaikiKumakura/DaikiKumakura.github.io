@@ -1,0 +1,25 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2026-11-01",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "公開データで、ivonescimabの20 mg/kg Q3Wは10 mg/kg Q3Wより良いと言えるか",
+      "summary": "ivonescimab（PD-1×VEGF二重特異性抗体）の公開された第1〜2相のPK・PD-1占有率・用量別奏効率が、20 mg/kg Q3Wと10 mg/kg Q3Wの差についてどこまで言えるかを、解析計画を先に固定して監査する。結論は「どちらとも言えない」。",
+      "key_findings": [
+        "用量別の奏効率の差は、新しい設定で95%信用区間が−25〜+25ポイントに広がり、傾きが正である確率は0.71で、事前に決めた基準（0.90以上）に届かなかった。",
+        "PD-1占有率は、トラフ濃度が17.8倍違う7コホートで86〜96%と飽和に近く、試験された範囲では用量を区別しない。事前に決めたPKの検算基準は満たさず、投与間隔の外挿は出していない。",
+        "無作為化の10対20 mg/kg比較は1群約400例が要るが、真の差が分かっていないため、400例でも期待される成功確率は約0.45で、上限も約0.7にとどまる。"
+      ]
+    }
+  },
+  "english": {
+    "title": "Can public data show that ivonescimab 20 mg/kg Q3W beats 10 mg/kg Q3W?",
+    "summary": "A Japanese research note auditing what published phase 1-2 pharmacokinetics, PD-1 receptor occupancy and dose-level response rates can say about 20 versus 10 mg/kg Q3W of ivonescimab, with the analysis plan fixed before computing. The answer is inconclusive. It makes no claim about efficacy ranking, recommended dose or any regulatory decision."
+  },
+  "publish_at": "2026-11-01T09:00:00+09:00"
+}

@@ -1,0 +1,14 @@
+trial_id,dose_mgkg,interval_d,n,responders,orr_pct,cp_lo,cp_hi,n_provenance
+P2_chemo_c1,10,21,19,10,52.6,28.9,75.6,reported
+P2_chemo_c1,20,21,24,13,54.2,32.8,74.4,reported
+P2_chemo_c2,10,21,10,8,80.0,44.4,97.5,reported
+P2_chemo_c2,20,21,9,5,55.6,21.2,86.3,reported
+P2_chemo_c3,10,21,10,4,40.0,12.2,73.8,reported
+P2_chemo_c3,20,21,10,4,40.0,12.2,73.8,reported
+P1b_mono,10,21,21,7,33.3,14.6,57.0,derived
+P1b_mono,20,14,19,10,52.6,28.9,75.6,derived
+P1b_mono,20,21,15,9,60.0,32.3,83.7,derived
+P1b_mono,30,21,12,9,75.0,42.8,94.5,derived
+P1b_sclc,3,21,3,2,66.7,9.4,99.2,derived
+P1b_sclc,10,21,11,10,90.9,58.7,99.8,derived
+P1b_sclc,20,21,21,16,76.2,52.8,91.8,derived
