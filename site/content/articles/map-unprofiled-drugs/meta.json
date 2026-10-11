@@ -1,0 +1,20 @@
+{
+  "source_language": "ja",
+  "category": "essay",
+  "date": "2026-11-07",
+  "publish_at": "2026-11-07T09:00:00+09:00",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "一度も測っていない薬の細胞応答を、AIはどう予測するのか",
+      "summary": "MAPの未測定薬剤予測を、残した知識と未知にした情報から読む。公開された16薬剤の評価値を再集計し、平均相関の改善、候補ごとのばらつき、知識学習の段階差と次の検証条件を整理する。"
+    }
+  },
+  "english": {
+    "title": "How can AI predict cellular responses to drugs that have not been profiled?",
+    "summary": "A descriptive audit of published MAP scores for 16 held-out drugs and four knowledge-pretraining stages, distinguishing unprofiled compounds from unseen structural or mechanistic groups. No model training or inference was performed."
+  }
+}
