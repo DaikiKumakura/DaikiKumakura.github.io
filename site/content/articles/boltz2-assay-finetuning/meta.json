@@ -1,0 +1,20 @@
+{
+  "source_language": "ja",
+  "category": "essay",
+  "date": "2026-11-03",
+  "publish_at": "2026-11-03T09:00:00+09:00",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "Boltz-2に100件の実験結果を足すと、候補選択はどう変わるか",
+      "summary": "8標的の公開予測値を再集計し、少数の活性ラベルを使うBoltz-2の調整を候補選択の観点から検討する。次の100件で拾う活性化合物、追加の再採点費用、類似度検索と未知骨格の回収を比較する。"
+    }
+  },
+  "english": {
+    "title": "What changes when 100 assay labels are added to Boltz-2 candidate selection?",
+    "summary": "An independent aggregation of released predictions for eight MF-PCBA targets examines affinity-head adaptation, top-100 hit recovery, rescoring budgets and a nearest-active comparison. No model inference, retraining or prospective experiments were performed; scaffold annotations are author supplied."
+  }
+}
