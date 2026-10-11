@@ -1,0 +1,20 @@
+{
+  "source_language": "ja",
+  "category": "essay",
+  "date": "2026-11-04",
+  "publish_at": "2026-11-04T09:00:00+09:00",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "AlphaProtein Novoは酵素の活性をどう見抜くか――構造予測から実験候補を選ぶ",
+      "summary": "反応機構を設計入力にするAlphaProtein Novoを読み解く。構造指標と活性の違い、複数配列による足場評価、ヒット率の分母を整理し、公開された件数から参考区間を再計算する。"
+    }
+  },
+  "english": {
+    "title": "How does AlphaProtein Novo select enzymes for experimental testing?",
+    "summary": "A source-based examination of catalytic motifs, structural metrics, sequence ensembles and denominators in enzyme design. Reported counts are recalculated; no model inference or enzyme experiments were performed."
+  }
+}
