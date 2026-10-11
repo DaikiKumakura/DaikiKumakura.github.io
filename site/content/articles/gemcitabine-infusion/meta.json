@@ -1,0 +1,20 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2026-11-10",
+  "publish_at": "2026-11-10T09:00:00+09:00",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "ゲムシタビンの点滴時間を変える：血中AUCと細胞内曝露は同じ判断につながるか",
+      "summary": "同量の点滴を公開PopPKモデルの固定効果で比較し、血漿ピーク、PBMC内dFdCTP、形成CLの仮定、観測後の尾部を点検する。臨床的な点滴条件の推奨や腫瘍内曝露の予測は行わない。"
+    }
+  },
+  "english": {
+    "title": "Gemcitabine infusion duration: plasma AUC and intracellular exposure",
+    "summary": "A fixed-effect plasma/PBMC subsystem from a published clinical model is implemented independently. Equal doses give equal plasma AUC, while PBMC AUC differences are determined by a categorical formation-clearance assumption. Constant-formation and tail scenarios clarify limits; no tumor, clinical benefit, safety or regimen recommendation is inferred."
+  }
+}
