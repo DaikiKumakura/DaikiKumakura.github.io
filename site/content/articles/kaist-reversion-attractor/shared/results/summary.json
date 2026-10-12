@@ -1,0 +1,654 @@
+{
+  "seed": 20261012,
+  "nperm": 10000,
+  "e1_targets": {
+    "HCT116": {
+      "MYB": {
+        "ctrl_cpm": 11.26,
+        "kd_cpm": 0.87,
+        "expressed": true,
+        "knockdown_pct": 92.2,
+        "kd_pct_by_replicate": [
+          93.2,
+          91.3
+        ]
+      },
+      "HDAC2": {
+        "ctrl_cpm": 221.13,
+        "kd_cpm": 12.26,
+        "expressed": true,
+        "knockdown_pct": 94.5,
+        "kd_pct_by_replicate": [
+          93.9,
+          95.0
+        ]
+      },
+      "FOXA2": {
+        "ctrl_cpm": 0.02,
+        "kd_cpm": 0.02,
+        "expressed": false,
+        "knockdown_pct": -5.1,
+        "kd_pct_by_replicate": [
+          -5.1,
+          null
+        ]
+      }
+    },
+    "CACO2": {
+      "MYB": {
+        "ctrl_cpm": 13.71,
+        "kd_cpm": 11.55,
+        "expressed": true,
+        "knockdown_pct": 15.8,
+        "kd_pct_by_replicate": [
+          22.9,
+          8.7
+        ]
+      },
+      "HDAC2": {
+        "ctrl_cpm": 217.85,
+        "kd_cpm": 51.8,
+        "expressed": true,
+        "knockdown_pct": 76.2,
+        "kd_pct_by_replicate": [
+          81.6,
+          70.6
+        ]
+      },
+      "FOXA2": {
+        "ctrl_cpm": 34.94,
+        "kd_cpm": 34.36,
+        "expressed": true,
+        "knockdown_pct": 1.7,
+        "kd_pct_by_replicate": [
+          3.3,
+          0.1
+        ]
+      }
+    },
+    "HT29": {
+      "MYB": {
+        "ctrl_cpm": 6.58,
+        "kd_cpm": 2.1,
+        "expressed": true,
+        "knockdown_pct": 68.0,
+        "kd_pct_by_replicate": [
+          45.9,
+          92.1
+        ]
+      },
+      "HDAC2": {
+        "ctrl_cpm": 128.19,
+        "kd_cpm": 10.08,
+        "expressed": true,
+        "knockdown_pct": 92.1,
+        "kd_pct_by_replicate": [
+          92.7,
+          91.4
+        ]
+      },
+      "FOXA2": {
+        "ctrl_cpm": 0.43,
+        "kd_cpm": 0.47,
+        "expressed": false,
+        "knockdown_pct": -10.5,
+        "kd_pct_by_replicate": [
+          12.0,
+          -43.3
+        ]
+      }
+    }
+  },
+  "e2": {
+    "HCT116": {
+      "HALLMARK_E2F_TARGETS": {
+        "n": 195,
+        "score": -0.7008192074323227,
+        "z": -18.299369175608035,
+        "p": 9.999000099990002e-05
+      },
+      "HALLMARK_G2M_CHECKPOINT": {
+        "n": 187,
+        "score": -0.6652607180235962,
+        "z": -16.97805352086767,
+        "p": 9.999000099990002e-05
+      },
+      "HALLMARK_MYC_TARGETS_V1": {
+        "n": 192,
+        "score": -0.4320222105895848,
+        "z": -9.629912080171806,
+        "p": 9.999000099990002e-05
+      },
+      "HALLMARK_MYC_TARGETS_V2": {
+        "n": 57,
+        "score": -0.17274293650815756,
+        "z": -2.305355430550765,
+        "p": 0.0211978802119788
+      },
+      "HALLMARK_WNT_BETA_CATENIN_SIGNALING": {
+        "n": 36,
+        "score": 0.09898290367258375,
+        "z": 0.42413909998153126,
+        "p": 0.6713328667133287
+      },
+      "Large Intestine-immature Enterocyte": {
+        "n": 82,
+        "score": -0.22329179704992308,
+        "z": -1.852285925620593,
+        "p": 0.06259374062593741
+      },
+      "Large Intestine-mature Enterocyte": {
+        "n": 60,
+        "score": 0.10305599424595543,
+        "z": 2.1223153804675365,
+        "p": 0.036096390360963904
+      },
+      "Panglao:Enterocytes": {
+        "n": 74,
+        "score": 0.2962896076449405,
+        "z": 1.8277503760601197,
+        "p": 0.06429357064293571
+      }
+    },
+    "CACO2": {
+      "HALLMARK_E2F_TARGETS": {
+        "n": 195,
+        "score": 0.12483113140353029,
+        "z": 7.284814215712669,
+        "p": 9.999000099990002e-05
+      },
+      "HALLMARK_G2M_CHECKPOINT": {
+        "n": 189,
+        "score": 0.07339314695616157,
+        "z": 4.521836762260932,
+        "p": 9.999000099990002e-05
+      },
+      "HALLMARK_MYC_TARGETS_V1": {
+        "n": 192,
+        "score": 0.10653398829554184,
+        "z": 7.624105960209657,
+        "p": 9.999000099990002e-05
+      },
+      "HALLMARK_MYC_TARGETS_V2": {
+        "n": 57,
+        "score": 0.1993479551685565,
+        "z": 5.893110178018784,
+        "p": 9.999000099990002e-05
+      },
+      "HALLMARK_WNT_BETA_CATENIN_SIGNALING": {
+        "n": 38,
+        "score": 0.05373309453940043,
+        "z": 0.48475912247467856,
+        "p": 0.6281371862813718
+      },
+      "Large Intestine-immature Enterocyte": {
+        "n": 87,
+        "score": 0.08479989323379142,
+        "z": 4.627014638778401,
+        "p": 9.999000099990002e-05
+      },
+      "Large Intestine-mature Enterocyte": {
+        "n": 74,
+        "score": 0.058908616960276945,
+        "z": 2.14081990460242,
+        "p": 0.034896510348965105
+      },
+      "Panglao:Enterocytes": {
+        "n": 151,
+        "score": -0.01689996058125244,
+        "z": -1.9970943661799714,
+        "p": 0.04409559044095591
+      }
+    },
+    "HT29": {
+      "HALLMARK_E2F_TARGETS": {
+        "n": 195,
+        "score": -0.1888884944743237,
+        "z": -3.104010279470024,
+        "p": 0.001999800019998
+      },
+      "HALLMARK_G2M_CHECKPOINT": {
+        "n": 187,
+        "score": -0.15858166305494542,
+        "z": -2.265384756721099,
+        "p": 0.024197580241975804
+      },
+      "HALLMARK_MYC_TARGETS_V1": {
+        "n": 192,
+        "score": -0.21190773071349234,
+        "z": -2.447784427316518,
+        "p": 0.0150984901509849
+      },
+      "HALLMARK_MYC_TARGETS_V2": {
+        "n": 57,
+        "score": 0.012777551745947607,
+        "z": 0.21509790118880742,
+        "p": 0.8212178782121787
+      },
+      "HALLMARK_WNT_BETA_CATENIN_SIGNALING": {
+        "n": 32,
+        "score": 0.22455591749516318,
+        "z": 1.1616341259725926,
+        "p": 0.2425757424257574
+      },
+      "Large Intestine-immature Enterocyte": {
+        "n": 85,
+        "score": -0.6791118394467174,
+        "z": -6.945265376989127,
+        "p": 9.999000099990002e-05
+      },
+      "Large Intestine-mature Enterocyte": {
+        "n": 70,
+        "score": 0.3898094612391678,
+        "z": 5.805680789666734,
+        "p": 9.999000099990002e-05
+      },
+      "Panglao:Enterocytes": {
+        "n": 104,
+        "score": 0.21071193742461813,
+        "z": 0.5999839773140017,
+        "p": 0.5505449455054494
+      }
+    }
+  },
+  "e3_rank": {
+    "HCT116": {
+      "n_sets": 469,
+      "Large Intestine-mature Enterocyte": {
+        "z": 2.16,
+        "rank": 13,
+        "top_pct": 2.8
+      },
+      "Large Intestine-immature Enterocyte": {
+        "z": -1.88,
+        "rank": 403,
+        "top_pct": 85.9
+      },
+      "Large Intestine-intestinal Crypt Stem Cell": {
+        "z": -2.26,
+        "rank": 440,
+        "top_pct": 93.8
+      },
+      "Large Intestine-goblet Cell": {
+        "z": -2.2,
+        "rank": 437,
+        "top_pct": 93.2
+      },
+      "Large Intestine-transit Amplifying Cell Of Large Intestine": {
+        "z": -2.33,
+        "rank": 447,
+        "top_pct": 95.3
+      },
+      "Large Intestine-paneth Cell Of Epithelium Of Large Intestine": {
+        "z": 0.43,
+        "rank": 44,
+        "top_pct": 9.4
+      },
+      "Large Intestine-intestinal Enteroendocrine Cell": {
+        "z": -1.92,
+        "rank": 408,
+        "top_pct": 87.0
+      },
+      "top5": [
+        [
+          "Lung-neutrophil",
+          3.51
+        ],
+        [
+          "Spleen-neutrophil",
+          3.46
+        ],
+        [
+          "Lymph Node-neutrophil",
+          3.24
+        ],
+        [
+          "Fat-neutrophil",
+          2.98
+        ],
+        [
+          "Trachea-neutrophil",
+          2.96
+        ]
+      ],
+      "bottom5": [
+        [
+          "Liver-nk Cell",
+          -2.7
+        ],
+        [
+          "Thymus-dn4 Thymocyte",
+          -2.74
+        ],
+        [
+          "Bladder-smooth Muscle Cell",
+          -2.78
+        ],
+        [
+          "Blood-basophil",
+          -2.93
+        ],
+        [
+          "Fat-myofibroblast Cell",
+          -3.03
+        ]
+      ]
+    },
+    "CACO2": {
+      "n_sets": 469,
+      "Large Intestine-mature Enterocyte": {
+        "z": 2.15,
+        "rank": 400,
+        "top_pct": 85.3
+      },
+      "Large Intestine-immature Enterocyte": {
+        "z": 4.62,
+        "rank": 32,
+        "top_pct": 6.8
+      },
+      "Large Intestine-intestinal Crypt Stem Cell": {
+        "z": 4.19,
+        "rank": 60,
+        "top_pct": 12.8
+      },
+      "Large Intestine-goblet Cell": {
+        "z": 2.61,
+        "rank": 353,
+        "top_pct": 75.3
+      },
+      "Large Intestine-transit Amplifying Cell Of Large Intestine": {
+        "z": 4.41,
+        "rank": 42,
+        "top_pct": 9.0
+      },
+      "Large Intestine-paneth Cell Of Epithelium Of Large Intestine": {
+        "z": 3.19,
+        "rank": 232,
+        "top_pct": 49.5
+      },
+      "Large Intestine-intestinal Enteroendocrine Cell": {
+        "z": 2.18,
+        "rank": 394,
+        "top_pct": 84.0
+      },
+      "top5": [
+        [
+          "Trachea-mucus Secreting Cell",
+          6.92
+        ],
+        [
+          "Trachea-tracheal Goblet Cell",
+          6.91
+        ],
+        [
+          "Liver-hepatocyte",
+          6.84
+        ],
+        [
+          "Liver-intrahepatic Cholangiocyte",
+          6.82
+        ],
+        [
+          "Trachea-secretory Cell",
+          6.25
+        ]
+      ],
+      "bottom5": [
+        [
+          "Blood-erythrocyte",
+          -0.29
+        ],
+        [
+          "Thymus-erythrocyte",
+          -0.29
+        ],
+        [
+          "Small Intestine-mature Enterocyte",
+          -0.36
+        ],
+        [
+          "Eye-erythroid Lineage Cell",
+          -0.52
+        ],
+        [
+          "Bone Marrow-erythrocyte",
+          -0.53
+        ]
+      ]
+    },
+    "HT29": {
+      "n_sets": 469,
+      "Large Intestine-mature Enterocyte": {
+        "z": 5.78,
+        "rank": 1,
+        "top_pct": 0.2
+      },
+      "Large Intestine-immature Enterocyte": {
+        "z": -6.94,
+        "rank": 302,
+        "top_pct": 64.4
+      },
+      "Large Intestine-intestinal Crypt Stem Cell": {
+        "z": -7.05,
+        "rank": 312,
+        "top_pct": 66.5
+      },
+      "Large Intestine-goblet Cell": {
+        "z": -4.55,
+        "rank": 125,
+        "top_pct": 26.7
+      },
+      "Large Intestine-transit Amplifying Cell Of Large Intestine": {
+        "z": -7.3,
+        "rank": 345,
+        "top_pct": 73.6
+      },
+      "Large Intestine-paneth Cell Of Epithelium Of Large Intestine": {
+        "z": -4.5,
+        "rank": 121,
+        "top_pct": 25.8
+      },
+      "Large Intestine-intestinal Enteroendocrine Cell": {
+        "z": -3.08,
+        "rank": 75,
+        "top_pct": 16.0
+      },
+      "top5": [
+        [
+          "Large Intestine-mature Enterocyte",
+          5.78
+        ],
+        [
+          "Trachea-neutrophil",
+          5.32
+        ],
+        [
+          "Large Intestine-monocyte",
+          4.87
+        ],
+        [
+          "Bone Marrow-nampt Neutrophil",
+          4.67
+        ],
+        [
+          "Bone Marrow-neutrophil",
+          4.67
+        ]
+      ],
+      "bottom5": [
+        [
+          "Spleen-memory B Cell",
+          -9.0
+        ],
+        [
+          "Salivary Gland-cd4-positive Helper T Cell",
+          -9.15
+        ],
+        [
+          "Blood-cd141-positive Myeloid Dendritic Cell",
+          -9.16
+        ],
+        [
+          "Blood-hematopoietic Stem Cell",
+          -9.26
+        ],
+        [
+          "Blood-naive Thymus-Derived Cd4-Positive, Alpha-Beta T Cell",
+          -10.15
+        ]
+      ]
+    }
+  },
+  "r4_pairs": {
+    "HCT116": {
+      "HALLMARK_E2F_TARGETS": [
+        -0.7552526155431545,
+        -0.6451046997424387
+      ],
+      "HALLMARK_G2M_CHECKPOINT": [
+        -0.7251880070908293,
+        -0.6049702455246253
+      ],
+      "HALLMARK_MYC_TARGETS_V1": [
+        -0.4436148206172383,
+        -0.4198918306333585
+      ],
+      "HALLMARK_MYC_TARGETS_V2": [
+        -0.22915452024842772,
+        -0.11570600168768282
+      ],
+      "HALLMARK_WNT_BETA_CATENIN_SIGNALING": [
+        0.10199125846755945,
+        0.1093858157932879
+      ],
+      "Large Intestine-immature Enterocyte": [
+        -0.28055331846034165,
+        -0.1682915670706166
+      ],
+      "Large Intestine-mature Enterocyte": [
+        0.05505342840988901,
+        0.15676585735884002
+      ],
+      "Panglao:Enterocytes": [
+        0.29537635164092824,
+        0.30371445891786714
+      ]
+    },
+    "CACO2": {
+      "HALLMARK_E2F_TARGETS": [
+        0.13737980483217344,
+        0.11152488910188706
+      ],
+      "HALLMARK_G2M_CHECKPOINT": [
+        0.08534501583841533,
+        0.057545976191567524
+      ],
+      "HALLMARK_MYC_TARGETS_V1": [
+        0.13014100323486968,
+        0.08053994622240734
+      ],
+      "HALLMARK_MYC_TARGETS_V2": [
+        0.243958641721442,
+        0.14966671948612176
+      ],
+      "HALLMARK_WNT_BETA_CATENIN_SIGNALING": [
+        0.038683373863115406,
+        0.04993483336464946
+      ],
+      "Large Intestine-immature Enterocyte": [
+        0.14588788757986226,
+        0.021866012765323864
+      ],
+      "Large Intestine-mature Enterocyte": [
+        0.15052133981000887,
+        -0.0565281992718339
+      ],
+      "Panglao:Enterocytes": [
+        -0.09031589897543793,
+        0.029976159476537118
+      ]
+    },
+    "HT29": {
+      "HALLMARK_E2F_TARGETS": [
+        0.17081004170068628,
+        -0.7793267905053738
+      ],
+      "HALLMARK_G2M_CHECKPOINT": [
+        0.12175482980823554,
+        -0.6470358013891976
+      ],
+      "HALLMARK_MYC_TARGETS_V1": [
+        0.01611115171328791,
+        -0.5449884549474425
+      ],
+      "HALLMARK_MYC_TARGETS_V2": [
+        0.3496944391090645,
+        -0.4562176136679489
+      ],
+      "HALLMARK_WNT_BETA_CATENIN_SIGNALING": [
+        0.28027292937970616,
+        0.09865042507357108
+      ],
+      "Large Intestine-immature Enterocyte": [
+        -0.46164886852619275,
+        -0.9416643413987232
+      ],
+      "Large Intestine-mature Enterocyte": [
+        0.48607723392929897,
+        0.23085313812448816
+      ],
+      "Panglao:Enterocytes": [
+        0.17506013986893348,
+        0.1261306582834258
+      ]
+    }
+  },
+  "r5_spearman": {
+    "HCT116_CACO2": {
+      "n_genes": 12527,
+      "rho": 0.054
+    },
+    "HCT116_HT29": {
+      "n_genes": 12157,
+      "rho": 0.276
+    },
+    "CACO2_HT29": {
+      "n_genes": 12414,
+      "rho": 0.011
+    }
+  },
+  "e2_n_analysed_genes": {
+    "HCT116": 13894,
+    "CACO2": 13934,
+    "HT29": 13225
+  },
+  "rules": {
+    "R1_enterocyte_up_all_lines": true,
+    "R2_specific_top10pct_in_ge2_lines": true,
+    "R3_proliferation_down_by_line": {
+      "HCT116": true,
+      "CACO2": false,
+      "HT29": true
+    },
+    "R4_pair_sign_agree": {
+      "HCT116": {
+        "Large Intestine-mature Enterocyte": true,
+        "HALLMARK_MYC_TARGETS_V1": true,
+        "HALLMARK_MYC_TARGETS_V2": true,
+        "HALLMARK_E2F_TARGETS": true
+      },
+      "CACO2": {
+        "Large Intestine-mature Enterocyte": false,
+        "HALLMARK_MYC_TARGETS_V1": true,
+        "HALLMARK_MYC_TARGETS_V2": true,
+        "HALLMARK_E2F_TARGETS": true
+      },
+      "HT29": {
+        "Large Intestine-mature Enterocyte": true,
+        "HALLMARK_MYC_TARGETS_V1": false,
+        "HALLMARK_MYC_TARGETS_V2": false,
+        "HALLMARK_E2F_TARGETS": false
+      }
+    }
+  }
+}

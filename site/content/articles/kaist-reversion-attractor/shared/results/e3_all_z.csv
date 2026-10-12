@@ -1,0 +1,470 @@
+set,HCT116,CACO2,HT29
+Bladder-bladder Urothelial Cell,-0.834,4.477,-7.572
+Bladder-capillary Endothelial Cell,-1.139,2.364,-4.325
+Bladder-endothelial Cell Of Lymphatic Vessel,-1.417,2.204,-4.068
+Bladder-fibroblast,-0.058,2.159,-4.119
+Bladder-macrophage,-0.011,4.234,-2.345
+Bladder-mast Cell,-1.117,2.906,-5.809
+Bladder-myofibroblast Cell,-0.966,3.721,-2.905
+Bladder-nk Cell,-2.102,3.676,-6.470
+Bladder-pericyte Cell,-1.844,1.423,-6.097
+Bladder-plasma Cell,-1.080,3.340,-5.391
+Bladder-plasmacytoid Dendritic Cell,-0.175,3.159,-7.263
+Bladder-smooth Muscle Cell,-2.780,0.946,-6.104
+Bladder-t Cell,-0.847,3.460,-6.200
+Bladder-vein Endothelial Cell,-1.450,2.878,-5.051
+Blood-cd24 Neutrophil,-0.747,4.428,-3.056
+"Blood-cd4-positive, Alpha-Beta T Cell",-0.880,2.979,-7.924
+"Blood-cd8-positive, Alpha-Beta T Cell",0.228,3.372,-7.189
+Blood-erythrocyte,2.356,-0.288,-0.725
+Blood-hematopoietic Stem Cell,-2.123,4.346,-9.256
+Blood-memory B Cell,-0.688,3.810,-8.031
+Blood-monocyte,-0.130,3.673,-7.127
+Blood-myeloid Progenitor,-2.527,4.055,-8.556
+Blood-naive B Cell,-0.720,2.999,-7.662
+Blood-nampt Neutrophil,2.580,1.113,3.616
+Blood-nk Cell,0.221,3.437,-5.955
+Blood-plasmablast,-1.092,4.188,-8.370
+Lung-adventitial Cell,-1.083,2.121,-4.367
+Lung-alveolar Fibroblast,-1.009,3.420,-3.308
+Lung-b Cell,-0.474,3.179,-7.160
+Lung-basal Cell,-1.594,4.255,-8.046
+Lung-basophil,-0.820,3.071,-6.713
+Lung-bronchial Smooth Muscle Cell,-1.622,1.360,-5.029
+Lung-capillary Aerocyte,2.111,0.169,3.100
+Lung-capillary Endothelial Cell,1.482,2.292,0.081
+"Lung-cd4-positive, Alpha-Beta T Cell",-0.472,3.656,-7.756
+"Lung-cd8-positive, Alpha-Beta T Cell",-0.725,3.474,-6.827
+Lung-classical Monocyte,-0.555,3.826,-6.489
+Lung-club Cell,-1.490,3.984,-8.413
+Lung-dendritic Cell,0.700,3.391,-6.012
+Lung-endothelial Cell Of Artery,0.702,2.180,-2.208
+Lung-endothelial Cell Of Lymphatic Vessel,-0.604,2.702,-5.703
+Lung-lung Ciliated Cell,-0.745,5.725,-3.130
+Lung-lung Microvascular Endothelial Cell,-1.916,2.690,-6.761
+Lung-macrophage,0.652,2.514,-2.629
+Lung-mesothelial Cell,-0.190,3.042,-5.761
+Lung-myofibroblast Cell,-0.124,3.265,-5.296
+Lung-nk Cell,0.389,3.748,-6.080
+Lung-non-classical Monocyte,0.255,3.334,-6.221
+Lung-pericyte Cell,-0.481,1.815,-3.147
+Lung-plasma Cell,-0.644,3.641,-6.882
+Lung-plasmacytoid Dendritic Cell,-0.394,2.810,-6.755
+Lung-respiratory Goblet Cell,-1.608,5.792,-6.633
+Lung-serous Cell Of Epithelium Of Bronchus,0.240,5.884,-6.670
+Lung-type I Pneumocyte,-0.652,2.304,-2.846
+Lung-type Ii Pneumocyte,-1.953,3.750,-6.720
+Lung-vascular Associated Smooth Muscle Cell,-1.295,2.077,-3.225
+Lung-vein Endothelial Cell,-0.997,1.411,-5.744
+Muscle-capillary Endothelial Cell,0.453,1.870,2.507
+"Muscle-cd4-positive, Alpha-Beta T Cell",-1.135,2.989,-7.481
+"Muscle-cd8-positive, Alpha-Beta T Cell",-0.502,3.924,-6.610
+Muscle-endothelial Cell Of Artery,-1.427,3.297,-2.770
+Muscle-endothelial Cell Of Lymphatic Vessel,-1.219,2.465,-3.153
+Muscle-endothelial Cell Of Vascular Tree,-0.414,3.549,-3.617
+Muscle-erythrocyte,0.346,2.267,-3.534
+Muscle-fast Muscle Cell,-1.666,1.313,-7.215
+Muscle-macrophage,-1.096,4.757,0.195
+Muscle-mast Cell,-2.461,1.983,-5.281
+Muscle-mature Nk T Cell,0.003,3.374,-5.553
+Muscle-mesenchymal Stem Cell,-1.693,2.929,-5.655
+Muscle-pericyte Cell,-1.558,0.750,-1.819
+Muscle-skeletal Muscle Satellite Stem Cell,-2.553,3.390,-7.272
+Muscle-slow Muscle Cell,-0.604,1.651,-5.243
+Muscle-t Cell,-0.621,3.434,-7.149
+Muscle-tendon Cell,-0.432,2.175,-5.079
+Pancreas-b Cell,-0.535,3.876,-8.875
+Pancreas-endothelial Cell,-0.379,2.407,-3.204
+Pancreas-mast Cell,-1.114,3.168,-7.544
+Pancreas-myeloid Cell,0.380,3.517,-5.756
+Pancreas-pancreatic Acinar Cell,-0.966,1.894,-7.678
+Pancreas-pancreatic Alpha Cell,0.172,3.133,-5.636
+Pancreas-pancreatic Beta Cell,-0.963,2.954,-7.364
+Pancreas-pancreatic Delta Cell,-0.896,3.035,-6.911
+Pancreas-pancreatic Ductal Cell,-2.156,2.196,-5.020
+Pancreas-pancreatic Pp Cell,-0.698,3.082,-3.773
+Pancreas-pancreatic Stellate Cell,-2.095,2.592,-7.103
+Pancreas-t Cell,-0.527,3.138,-8.283
+Bladder-b Cell,-1.114,3.613,-7.215
+Blood-granulocyte,-0.514,3.943,-7.874
+Blood-macrophage,0.073,3.306,-5.644
+Blood-plasma Cell,-2.297,4.502,-7.780
+Bone Marrow-cd24 Neutrophil,-0.810,2.925,1.513
+"Bone Marrow-cd4-positive, Alpha-Beta T Cell",-0.956,3.528,-8.695
+"Bone Marrow-cd8-positive, Alpha-Beta T Cell",-0.018,2.761,-6.422
+Bone Marrow-erythroid Progenitor,-2.645,4.367,-8.958
+Bone Marrow-granulocyte,-2.581,4.190,-7.837
+Bone Marrow-hematopoietic Stem Cell,-2.114,3.746,-8.508
+Bone Marrow-macrophage,0.191,2.719,-5.043
+Bone Marrow-memory B Cell,-0.536,3.523,-8.384
+Bone Marrow-monocyte,-1.004,3.163,-4.540
+Bone Marrow-myeloid Progenitor,-2.628,4.416,-8.551
+Bone Marrow-naive B Cell,0.059,3.412,-7.006
+Bone Marrow-nk Cell,0.274,3.054,-6.046
+Bone Marrow-plasma Cell,0.115,4.157,-6.921
+Kidney-b Cell,-0.318,3.881,-7.951
+Kidney-cd4-positive Helper T Cell,-0.413,3.413,-8.217
+"Kidney-cd8-positive, Alpha-Beta T Cell",0.022,3.274,-6.243
+Kidney-endothelial Cell,1.925,1.082,1.247
+Kidney-kidney Epithelial Cell,-1.529,3.281,-7.569
+Kidney-macrophage,-0.457,2.978,-7.404
+Kidney-nk Cell,0.282,2.797,-3.826
+Large Intestine-b Cell,-0.989,2.739,-8.340
+"Large Intestine-cd8-positive, Alpha-Beta T Cell",-0.936,3.055,-7.158
+Large Intestine-fibroblast,-0.473,2.221,-4.430
+Large Intestine-goblet Cell,-2.195,2.614,-4.547
+Large Intestine-gut Endothelial Cell,-1.620,2.490,-4.246
+Large Intestine-immature Enterocyte,-1.876,4.621,-6.944
+Large Intestine-intestinal Crypt Stem Cell,-2.260,4.192,-7.049
+Large Intestine-intestinal Enteroendocrine Cell,-1.919,2.179,-3.081
+Large Intestine-mature Enterocyte,2.162,2.146,5.779
+Large Intestine-paneth Cell Of Epithelium Of Large Intestine,0.426,3.185,-4.499
+Large Intestine-transit Amplifying Cell Of Large Intestine,-2.332,4.409,-7.297
+Lung-fibroblast,0.577,2.807,-0.110
+Lung-intermediate Monocyte,0.053,3.634,-6.777
+Lung-neutrophil,3.510,1.115,3.773
+Lung-pulmonary Ionocyte,0.167,3.204,-2.185
+Lymph Node-cd141-positive Myeloid Dendritic Cell,0.281,3.206,-6.956
+Lymph Node-cd1c-positive Myeloid Dendritic Cell,0.823,3.871,-2.965
+"Lymph Node-cd4-positive, Alpha-Beta Memory T Cell",-1.120,3.918,-7.891
+"Lymph Node-cd8-positive, Alpha-Beta Memory T Cell",-0.299,3.453,-7.679
+Lymph Node-classical Monocyte,0.813,3.646,-1.145
+Lymph Node-endothelial Cell,-1.501,2.665,-3.755
+Lymph Node-innate Lymphoid Cell,-1.005,3.715,-7.587
+Lymph Node-intermediate Monocyte,-0.405,3.491,-6.068
+Lymph Node-macrophage,0.781,2.671,-1.363
+Lymph Node-mast Cell,-1.450,2.545,-5.819
+Lymph Node-mature Nk T Cell,0.337,3.272,-6.345
+Lymph Node-memory B Cell,-0.942,3.923,-7.332
+Lymph Node-naive B Cell,-1.083,3.857,-7.816
+"Lymph Node-naive Thymus-Derived Cd4-Positive, Alpha-Beta T Cell",-1.032,3.782,-8.177
+Lymph Node-nk Cell,-0.151,3.126,-6.182
+Lymph Node-plasma Cell,-1.203,4.788,-6.789
+Lymph Node-regulatory T Cell,-1.182,3.338,-6.916
+Small Intestine-b Cell,-0.631,2.869,-8.005
+"Small Intestine-cd8-positive, Alpha-Beta T Cell",-0.919,2.718,-6.823
+Small Intestine-duodenum Glandular Cell,-1.042,3.112,-5.298
+Small Intestine-fibroblast,-1.226,2.316,-5.587
+Small Intestine-goblet Cell,-1.426,3.271,-2.486
+Small Intestine-gut Endothelial Cell,-1.462,1.706,-5.119
+Small Intestine-immature Enterocyte,-1.562,5.135,-6.668
+Small Intestine-intestinal Crypt Stem Cell,-2.362,3.271,-6.879
+Small Intestine-intestinal Enteroendocrine Cell,-0.875,3.356,-2.719
+Small Intestine-intestinal Tuft Cell,-0.603,2.754,-5.553
+Small Intestine-mature Enterocyte,0.442,-0.356,2.294
+Small Intestine-paneth Cell Of Epithelium Of Small Intestine,-1.279,3.778,-6.455
+Small Intestine-transit Amplifying Cell Of Small Intestine,-2.425,4.625,-7.579
+Spleen-cd141-positive Myeloid Dendritic Cell,0.534,3.169,-8.204
+Spleen-cd1c-positive Myeloid Dendritic Cell,-0.677,4.075,-7.252
+"Spleen-cd4-positive, Alpha-Beta Memory T Cell",-1.014,3.084,-7.616
+"Spleen-cd8-positive, Alpha-Beta Memory T Cell",-0.258,3.011,-6.065
+"Spleen-cd8-positive, Alpha-Beta T Cell",-1.768,3.682,-6.328
+Spleen-classical Monocyte,-0.401,3.207,-5.116
+Spleen-endothelial Cell,1.768,3.075,1.087
+Spleen-erythrocyte,-2.636,3.620,-8.465
+Spleen-innate Lymphoid Cell,-0.399,3.385,-7.112
+Spleen-macrophage,0.690,3.341,-5.000
+Spleen-mature Nk T Cell,0.228,3.893,-8.082
+Spleen-memory B Cell,-0.550,3.522,-9.002
+Spleen-naive B Cell,-0.730,3.194,-8.023
+"Spleen-naive Thymus-Derived Cd4-Positive, Alpha-Beta T Cell",-0.239,4.243,-8.771
+"Spleen-naive Thymus-Derived Cd8-Positive, Alpha-Beta T Cell",0.347,3.337,-6.781
+Spleen-neutrophil,3.460,1.375,3.874
+Spleen-nk Cell,-0.067,2.365,-3.992
+Spleen-plasma Cell,-1.467,4.733,-7.728
+Spleen-plasmacytoid Dendritic Cell,-0.734,4.153,-8.201
+Spleen-regulatory T Cell,-0.983,2.954,-6.653
+Thymus-capillary Endothelial Cell,0.761,2.279,-2.129
+Thymus-cd4-positive Helper T Cell,-0.790,3.331,-7.946
+"Thymus-cd8-positive, Alpha-Beta T Cell",0.049,3.113,-7.622
+Thymus-dendritic Cell,-0.325,3.545,-7.261
+Thymus-endothelial Cell Of Artery,-0.756,2.990,-2.777
+Thymus-endothelial Cell Of Lymphatic Vessel,-0.830,2.931,-5.223
+Thymus-erythrocyte,2.518,-0.293,0.351
+Thymus-fast Muscle Cell,-2.183,2.537,-7.343
+Thymus-fibroblast,-1.146,2.520,-4.747
+Thymus-immature Natural Killer Cell,0.006,3.030,-6.462
+Thymus-macrophage,-0.243,3.392,-2.487
+Thymus-mast Cell,-1.870,2.738,-7.040
+Thymus-mature Nk T Cell,0.494,3.188,-7.683
+Thymus-medullary Thymic Epithelial Cell,-1.106,3.605,-7.104
+Thymus-memory B Cell,-0.332,3.972,-7.696
+Thymus-mesothelial Cell,0.413,3.723,-5.926
+Thymus-monocyte,-0.242,3.630,-6.789
+Thymus-naive B Cell,-0.302,3.480,-7.426
+Thymus-nk Cell,0.162,2.977,-5.759
+Thymus-plasma Cell,-0.711,4.197,-7.524
+Thymus-thymocyte,-1.718,3.731,-8.000
+Thymus-vascular Associated Smooth Muscle Cell,-2.029,0.151,-3.950
+Thymus-vein Endothelial Cell,-2.419,2.432,-6.754
+Trachea-basal Cell,-2.194,3.753,-6.930
+Trachea-ciliated Cell,-0.071,4.319,1.281
+Trachea-connective Tissue Cell,-1.539,3.628,-4.060
+Trachea-endothelial Cell,-1.129,2.290,-4.919
+Trachea-goblet Cell,-0.691,5.368,-6.390
+Trachea-macrophage,0.940,2.558,-1.624
+Trachea-plasma Cell,-0.005,3.534,-6.772
+Trachea-secretory Cell,-1.158,6.255,-3.654
+Vasculature-b Cell,-0.516,3.812,-6.987
+Vasculature-endothelial Cell,-1.412,2.811,-6.610
+Vasculature-epithelial Cell,-0.940,3.635,-8.404
+Vasculature-erythrocyte,-1.455,3.593,-7.605
+Vasculature-fibroblast,-1.922,3.394,-5.639
+Vasculature-macrophage,-0.467,2.413,-1.262
+Vasculature-mast Cell,-1.872,2.291,-6.825
+Vasculature-nk Cell,-0.654,3.342,-6.644
+Vasculature-pericyte Cell,-1.542,1.933,-5.662
+Vasculature-plasma Cell,-0.848,3.340,-6.777
+Vasculature-smooth Muscle Cell,-0.379,1.251,-3.836
+Vasculature-t Cell,-1.148,3.090,-7.121
+"Eye-cd4-positive, Alpha-Beta T Cell",-0.768,3.180,-5.798
+Eye-conjunctival Epithelial Cell,-0.218,4.943,-2.250
+Eye-corneal Keratocyte,-1.422,2.359,-5.426
+Eye-limbal Stem Cell,-1.100,2.919,-3.264
+Eye-limbal Stromal Cell,-1.643,2.718,-4.970
+Eye-monocyte,-0.665,4.306,-6.440
+Eye-retinal Blood Vessel Endothelial Cell,-0.906,2.763,-5.022
+Mammary-b Cell,-0.001,3.654,-8.410
+Mammary-basal Cell,-1.132,2.913,-6.958
+Mammary-endothelial Cell Of Artery,-2.004,2.923,-7.225
+Mammary-endothelial Cell Of Lymphatic Vessel,-0.529,2.972,-4.934
+Mammary-fibroblast Of Breast,-1.099,3.660,-6.713
+Mammary-luminal Epithelial Cell Of Mammary Gland,-1.912,3.378,-6.880
+Mammary-macrophage,0.942,2.641,-3.925
+Mammary-mast Cell,-1.081,2.736,-7.928
+Mammary-nk Cell,1.243,3.680,-6.730
+Mammary-pericyte Cell,-0.851,2.737,-7.169
+Mammary-plasma Cell,-0.836,2.288,-8.675
+Mammary-t Cell,0.065,4.276,-8.282
+Mammary-vascular Associated Smooth Muscle Cell,-0.804,1.955,-6.747
+Mammary-vein Endothelial Cell,-2.590,2.845,-7.076
+Uterus-b Cell,-0.777,2.822,-6.918
+Uterus-ciliated Epithelial Cell,-2.092,3.959,-4.456
+Uterus-endothelial Cell,-1.720,2.697,-5.319
+Uterus-endothelial Cell Of Lymphatic Vessel,-1.371,3.306,-3.194
+Uterus-epithelial Cell,-2.341,5.078,-5.460
+Uterus-epithelial Cell Of Uterus,-1.861,5.039,-4.444
+Uterus-fibroblast,-0.947,3.649,-4.756
+Uterus-immune Cell,-0.998,3.147,-5.550
+Uterus-macrophage,1.055,2.394,0.373
+Uterus-myometrial Cell,-2.327,0.952,-6.904
+Uterus-nk Cell,-0.372,2.754,-5.948
+Uterus-pericyte Cell,-1.149,1.758,-5.367
+Uterus-t Cell,-0.819,3.469,-7.083
+Uterus-vascular Associated Smooth Muscle Cell,-2.037,0.316,-6.034
+Eye-b Cell,-0.808,3.462,-7.914
+"Eye-cd8-positive, Alpha-Beta T Cell",-1.936,2.487,-6.415
+Eye-ciliary Body,-1.146,2.165,-0.197
+Eye-corneal Epithelial Cell,-0.134,4.068,-1.587
+Eye-dendritic Cell,-0.475,3.746,-8.218
+Eye-endothelial Cell,-2.185,-0.103,-5.683
+Eye-epithelial Cell Of Lacrimal Sac,-1.499,4.358,-4.798
+Eye-erythroid Lineage Cell,1.664,-0.518,-1.702
+Eye-eye Photoreceptor Cell,-1.719,2.725,-6.576
+Eye-fibroblast,0.161,4.252,0.022
+Eye-lacrimal Gland Functional Unit Cell,-0.637,4.421,-8.345
+Eye-macrophage,-1.016,0.938,-0.595
+Eye-mast Cell,-1.740,2.398,-4.994
+Eye-melanocyte,-1.157,2.016,-7.089
+Eye-microglial Cell,0.299,3.502,-5.420
+Eye-muller Cell,-0.843,2.353,-5.565
+Eye-ocular Surface Cell,-1.792,1.846,-4.373
+Eye-plasma Cell,-1.215,3.131,-7.403
+Eye-radial Glial Cell,-2.205,3.964,-4.731
+Eye-retina Horizontal Cell,-2.525,2.101,-6.490
+Eye-retinal Bipolar Neuron,-0.475,1.744,-2.289
+Eye-retinal Pigment Epithelial Cell,-0.792,2.191,-3.237
+Eye-t Cell,-0.542,3.601,-8.194
+Liver-endothelial Cell Of Hepatic Sinusoid,-0.144,2.277,-1.275
+Liver-fibroblast,-1.339,1.266,-5.260
+Liver-hepatocyte,0.632,6.845,-2.774
+Liver-intrahepatic Cholangiocyte,-0.909,6.822,-4.017
+Liver-liver Dendritic Cell,0.033,3.508,-6.761
+Liver-macrophage,0.265,3.206,-0.977
+Liver-monocyte,0.576,4.291,-2.876
+Liver-neutrophil,-2.034,5.134,-8.097
+Liver-nk Cell,-2.703,4.005,-4.095
+Liver-plasma Cell,-0.371,4.987,-8.130
+Liver-t Cell,-0.064,4.799,-6.578
+Trachea-b Cell,-0.108,3.789,-7.372
+"Trachea-cd4-positive, Alpha-Beta T Cell",-0.851,3.046,-6.881
+"Trachea-cd8-positive, Alpha-Beta T Cell",-0.404,3.166,-6.778
+"Trachea-double-positive, Alpha-Beta Thymocyte",-0.452,3.016,-6.855
+Trachea-fibroblast,-0.552,2.548,-5.101
+Trachea-ionocyte,-0.338,2.877,-1.340
+Trachea-mast Cell,-0.102,2.980,-6.368
+Trachea-mucus Secreting Cell,-0.281,6.921,-2.509
+Trachea-neutrophil,2.962,2.170,5.319
+Trachea-serous Cell Of Epithelium Of Trachea,-0.184,5.778,-6.424
+Trachea-smooth Muscle Cell,-0.659,2.031,-5.847
+Trachea-t Cell,-0.257,3.302,-7.072
+Trachea-tracheal Goblet Cell,0.471,6.915,-1.304
+Blood-basophil,-2.932,4.775,-8.468
+Blood-cd141-positive Myeloid Dendritic Cell,-2.097,3.873,-9.163
+"Blood-cd4-positive, Alpha-Beta Memory T Cell",-0.694,4.132,-8.778
+"Blood-cd8-positive, Alpha-Beta Cytokine Secreting Effector T Cell",-0.523,3.953,-7.504
+Blood-classical Monocyte,-0.188,3.656,-6.056
+"Blood-naive Thymus-Derived Cd4-Positive, Alpha-Beta T Cell",-1.046,3.980,-10.150
+Blood-neutrophil,2.240,0.557,2.152
+Blood-non-classical Monocyte,-0.645,3.592,-7.232
+Blood-plasmacytoid Dendritic Cell,-2.112,4.129,-8.667
+Blood-platelet,-0.367,4.790,-2.095
+Blood-t Cell,-0.576,3.712,-7.386
+Blood-type I Nk T Cell,-0.293,4.237,-7.146
+Lymph Node-b Cell,-0.730,3.601,-7.685
+Lymph Node-cd4-positive Alpha-Beta T Cell,-1.048,3.755,-7.996
+Lymph Node-cd8-positive Alpha-Beta T Cell,-0.882,3.726,-7.132
+Lymph Node-erythrocyte,-0.448,2.116,-5.488
+Lymph Node-hematopoietic Stem Cell,-0.852,3.861,-7.219
+Lymph Node-mature Conventional Dendritic Cell,-0.706,2.814,-4.647
+Lymph Node-neutrophil,3.244,1.165,3.485
+Lymph Node-non-classical Monocyte,-0.913,2.675,0.125
+Lymph Node-plasmacytoid Dendritic Cell,-0.493,3.896,-8.051
+Lymph Node-stromal Cell,-0.983,3.137,-5.323
+Lymph Node-t Cell,-1.213,3.424,-7.693
+Lymph Node-type I Nk T Cell,-1.031,3.361,-7.257
+Salivary Gland-acinar Cell Of Salivary Gland,-1.830,5.634,-7.574
+Salivary Gland-adventitial Cell,-2.651,2.860,-5.220
+Salivary Gland-b Cell,-2.085,4.257,-7.875
+Salivary Gland-basal Cell,-2.225,5.397,-6.879
+Salivary Gland-cd4-positive Helper T Cell,-0.779,4.313,-9.145
+"Salivary Gland-cd8-positive, Alpha-Beta T Cell",-1.009,3.141,-7.417
+Salivary Gland-duct Epithelial Cell,-1.389,5.538,-5.574
+Salivary Gland-endothelial Cell,-0.115,3.117,-2.067
+Salivary Gland-endothelial Cell Of Lymphatic Vessel,-1.812,2.853,-5.974
+Salivary Gland-fibroblast,-2.277,3.421,-5.830
+Salivary Gland-memory B Cell,-0.553,3.973,-8.673
+Salivary Gland-monocyte,-0.482,2.815,-4.469
+Salivary Gland-myoepithelial Cell,-2.120,1.743,-6.564
+Salivary Gland-naive B Cell,-0.841,3.074,-7.732
+Salivary Gland-neutrophil,-1.120,4.313,-8.019
+Salivary Gland-nk Cell,0.130,3.933,-8.262
+Salivary Gland-pericyte Cell,-1.915,1.246,-4.567
+Salivary Gland-plasma Cell,-1.641,2.782,-6.331
+Salivary Gland-t Cell,-0.835,2.649,-6.788
+Spleen-hematopoietic Stem Cell,-2.402,4.664,-8.920
+Spleen-intermediate Monocyte,-1.264,4.483,-1.926
+Spleen-platelet,-0.662,3.846,-4.093
+Spleen-type I Nk T Cell,0.232,3.942,-7.144
+Tongue-basal Cell,-1.973,3.426,-4.418
+Tongue-capillary Endothelial Cell,-0.787,2.456,-2.281
+Tongue-endothelial Cell Of Artery,-0.089,2.971,-2.423
+Tongue-endothelial Cell Of Lymphatic Vessel,-1.106,2.159,-5.991
+Tongue-epithelial Cell,-1.648,4.449,-7.288
+Tongue-fibroblast,-0.264,2.837,-5.729
+Tongue-immune Cell,0.181,3.247,-5.562
+Tongue-keratinocyte,-0.599,4.108,-3.855
+Tongue-pericyte Cell,-0.446,0.171,-4.532
+Tongue-tongue Muscle Cell,-1.907,3.443,-7.372
+Tongue-vein Endothelial Cell,-1.318,2.398,-5.622
+Prostate-basal Cell Of Prostate Epithelium,-1.610,2.861,-5.015
+"Prostate-cd8-positive, Alpha-Beta T Cell",-0.265,3.746,-6.725
+Prostate-cd8b-positive Nk T Cell,-0.383,4.007,-7.886
+Prostate-endothelial Cell,-0.753,2.005,-4.590
+Prostate-epithelial Cell,-1.303,2.673,-7.569
+Prostate-erythroid Progenitor,0.749,-0.155,-2.349
+Prostate-fibroblast,-1.999,3.106,-6.282
+Prostate-hillock-club Cell Of Prostate Epithelium,-1.114,3.802,-6.994
+Prostate-luminal Cell Of Prostate Epithelium,-0.336,2.905,-8.440
+Prostate-macrophage,0.115,3.503,-6.296
+Prostate-nkt Cell,-0.662,4.162,-5.805
+Prostate-smooth Muscle Cell,-1.946,1.402,-4.874
+Pancreas-fibroblast,-1.324,1.321,4.395
+Pancreas-nk Cell,0.386,3.548,-6.793
+Pancreas-plasma Cell,-0.599,4.265,-8.849
+Fat-endothelial Cell,-0.672,2.138,-3.309
+Fat-fibroblast,-0.703,2.662,-6.239
+Fat-leucocyte,-1.061,3.464,-7.600
+Fat-macrophage,-2.086,3.002,-2.513
+Fat-mast Cell,-1.364,2.565,-4.544
+Fat-mesenchymal Stem Cell,-1.324,2.989,-6.832
+Fat-myofibroblast Cell,-3.033,1.936,-6.950
+Fat-neutrophil,2.981,-0.269,3.519
+Fat-nk Cell,0.140,3.799,-6.084
+Fat-plasma Cell,-0.546,2.853,-5.544
+Fat-smooth Muscle Cell,-2.325,0.404,-6.485
+Fat-t Cell,-0.154,3.518,-6.917
+Skin-cd141-positive Myeloid Dendritic Cell,0.497,3.556,-1.008
+Skin-cd1c-positive Myeloid Dendritic Cell,0.771,3.945,-1.196
+Skin-cd4-positive Helper T Cell,-0.358,3.157,-7.877
+"Skin-cd4-positive, Alpha-Beta Memory T Cell",-0.170,3.159,-8.067
+"Skin-cd8-positive, Alpha-Beta Cytotoxic T Cell",-0.221,3.072,-7.933
+"Skin-cd8-positive, Alpha-Beta Memory T Cell",-0.368,3.074,-8.249
+Skin-endothelial Cell,-1.803,2.881,-5.951
+Skin-epithelial Cell,-1.621,4.548,-6.015
+Skin-langerhans Cell,-0.320,1.871,-2.513
+Skin-macrophage,2.271,5.079,-0.081
+Skin-mast Cell,-1.400,2.951,-6.747
+Skin-melanocyte,-1.243,3.145,-7.931
+Skin-memory B Cell,-0.274,2.750,-8.065
+Skin-muscle Cell,-0.688,2.083,-7.156
+Skin-naive B Cell,-0.468,4.024,-8.061
+"Skin-naive Thymus-Derived Cd4-Positive, Alpha-Beta T Cell",-0.493,3.339,-8.832
+"Skin-naive Thymus-Derived Cd8-Positive, Alpha-Beta T Cell",-0.453,2.684,-7.402
+Skin-nk Cell,-0.315,3.271,-8.280
+Skin-nkt Cell,-0.529,3.202,-8.360
+Skin-plasma Cell,-0.311,2.678,-8.651
+Skin-regulatory T Cell,-0.597,2.042,-6.554
+Skin-stromal Cell,-0.558,3.570,-5.119
+Skin-t Cell,-0.464,3.357,-7.886
+Bone Marrow-nampt Neutrophil,1.954,1.977,4.673
+Heart-cardiac Endothelial Cell,0.297,1.365,-3.301
+Heart-cardiac Muscle Cell,-2.052,1.026,-7.202
+Heart-fibroblast Of Cardiac Tissue,-1.129,3.021,-5.097
+Heart-hepatocyte,-2.007,3.271,-6.660
+Heart-macrophage,-1.983,2.424,-7.785
+Heart-smooth Muscle Cell,0.352,0.173,-4.689
+Bone Marrow-erythrocyte,2.347,-0.534,0.177
+Bone Marrow-neutrophil,1.250,1.836,4.668
+"Large Intestine-cd4-positive, Alpha-Beta T Cell",-0.979,3.316,-8.025
+Large Intestine-enterocyte Of Epithelium Of Large Intestine,-1.182,3.555,-5.594
+Large Intestine-intestinal Crypt Stem Cell Of Large Intestine,-2.280,2.994,-3.436
+Large Intestine-intestinal Tuft Cell,-0.319,3.052,-3.258
+Large Intestine-large Intestine Goblet Cell,-1.777,3.539,-3.451
+Large Intestine-mast Cell,-1.697,3.328,-7.273
+Large Intestine-monocyte,-0.531,0.588,4.865
+Large Intestine-neutrophil,-1.365,3.333,-5.182
+Large Intestine-plasma Cell,-1.728,2.742,-8.708
+Liver-endothelial Cell,-0.570,3.506,-4.029
+Liver-erythrocyte,-1.225,4.439,-5.586
+Lung-bronchial Vessel Endothelial Cell,-2.437,3.294,-6.312
+Lung-cd4-positive Alpha-Beta T Cell,-0.593,2.929,-6.850
+Lung-cd8-positive Alpha-Beta T Cell,-0.488,2.757,-6.758
+Lung-respiratory Mucous Cell,-1.153,4.874,-5.406
+Lung-smooth Muscle Cell,-0.925,2.726,-5.591
+Muscle-mesothelial Cell,-1.334,3.732,-7.313
+Muscle-smooth Muscle Cell,-1.415,-0.040,-2.868
+Prostate-club Cell Of Prostate Epithelium,-1.227,3.859,-7.976
+Prostate-hillock Cell Of Prostate Epithelium,-0.661,2.814,-8.610
+Prostate-mast Cell,-1.127,3.578,-8.209
+Prostate-myeloid Cell,0.043,2.705,-6.687
+Prostate-neutrophil,2.299,0.830,3.029
+Prostate-sperm,-1.726,2.742,-8.145
+Prostate-t Cell,-0.362,3.679,-8.704
+Salivary Gland-ionocyte,-0.559,3.562,-3.933
+Salivary Gland-macrophage,-0.230,2.422,-3.334
+Salivary Gland-salivary Gland Cell,-2.386,5.926,-5.196
+Skin-cell Of Skeletal Muscle,-2.025,1.112,-6.823
+Skin-smooth Muscle Cell,-1.155,1.725,-7.362
+"Small Intestine-cd4-positive, Alpha-Beta T Cell",-1.011,3.073,-7.611
+Small Intestine-enterocyte Of Epithelium Of Small Intestine,-1.567,3.125,-6.495
+Small Intestine-intestinal Crypt Stem Cell Of Small Intestine,-0.936,5.277,-6.242
+Small Intestine-mast Cell,-1.656,3.093,-7.780
+Small Intestine-monocyte,-1.046,1.631,2.860
+Small Intestine-neutrophil,-0.355,3.236,-6.421
+Small Intestine-plasma Cell,-0.499,2.375,-8.437
+Small Intestine-small Intestine Goblet Cell,-0.182,3.767,-5.397
+Thymus-b Cell,-0.025,2.956,-6.685
+"Thymus-cd8-positive, Alpha-Beta Cytotoxic T Cell",-0.607,2.547,-5.298
+Thymus-dn1 Thymic Pro-T Cell,-0.269,3.447,-7.832
+Thymus-dn3 Thymocyte,-0.237,4.108,-8.910
+Thymus-dn4 Thymocyte,-2.735,3.817,-5.905
+Thymus-innate Lymphoid Cell,-0.056,3.760,-8.412
+Thymus-myeloid Dendritic Cell,0.319,3.767,-7.030
+Thymus-naive Regulatory T Cell,-1.395,2.882,-6.974
+Thymus-t Follicular Helper Cell,-0.635,3.038,-6.546
+Tongue-schwann Cell,-1.089,1.530,-3.685
+Vasculature-artery Endothelial Cell,-0.350,3.748,-3.718
+Vasculature-lymphatic Endothelial Cell,-1.473,2.778,-6.892
+Eye-adipocyte,-1.575,2.907,-8.347
+Eye-retinal Ganglion Cell,-2.268,1.795,-7.187
