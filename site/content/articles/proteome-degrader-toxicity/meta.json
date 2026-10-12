@@ -1,0 +1,20 @@
+{
+  "source_language": "ja",
+  "category": "essay",
+  "date": "2026-11-13",
+  "publish_at": "2026-11-13T09:00:00+09:00",
+  "draft": false,
+  "math": false,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "標的は消せても毒性は残る――プロテオームで分解薬の設計を変える",
+      "summary": "AR分解薬の公開データを再集計し、プロテオーム由来スコア、呼吸鎖活性、標的分解を比較する。設計変更で改善した測定と残る作用を分け、校正データの再使用と化学系列の重複が評価に与える制約を確認する。"
+    }
+  },
+  "english": {
+    "title": "Proteome-guided degrader design: separating target degradation from mitochondrial effects",
+    "summary": "Published AR-degrader data connect protein signatures, respiratory-chain assays and target degradation. A descriptive recalculation distinguishes retained activity from equivalence and audits test-set calibration and shared chemical series."
+  }
+}
