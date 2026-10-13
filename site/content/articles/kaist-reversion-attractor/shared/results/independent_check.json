@@ -1,0 +1,62 @@
+{
+  "HCT116|Large Intestine-mature Enterocyte": {
+    "z_independent": 2.1,
+    "z_analysis_py": 2.12,
+    "n": 60
+  },
+  "HCT116|HALLMARK_E2F_TARGETS": {
+    "z_independent": -18.4,
+    "z_analysis_py": -18.3,
+    "n": 195
+  },
+  "HCT116|HALLMARK_MYC_TARGETS_V1": {
+    "z_independent": -9.65,
+    "z_analysis_py": -9.63,
+    "n": 192
+  },
+  "HCT116|HALLMARK_G2M_CHECKPOINT": {
+    "z_independent": -16.8,
+    "z_analysis_py": -16.98,
+    "n": 187
+  },
+  "CACO2|Large Intestine-mature Enterocyte": {
+    "z_independent": 2.16,
+    "z_analysis_py": 2.14,
+    "n": 74
+  },
+  "CACO2|HALLMARK_E2F_TARGETS": {
+    "z_independent": 7.37,
+    "z_analysis_py": 7.28,
+    "n": 195
+  },
+  "CACO2|HALLMARK_MYC_TARGETS_V1": {
+    "z_independent": 7.78,
+    "z_analysis_py": 7.62,
+    "n": 192
+  },
+  "CACO2|HALLMARK_G2M_CHECKPOINT": {
+    "z_independent": 4.53,
+    "z_analysis_py": 4.52,
+    "n": 189
+  },
+  "HT29|Large Intestine-mature Enterocyte": {
+    "z_independent": 5.77,
+    "z_analysis_py": 5.81,
+    "n": 70
+  },
+  "HT29|HALLMARK_E2F_TARGETS": {
+    "z_independent": -3.09,
+    "z_analysis_py": -3.1,
+    "n": 195
+  },
+  "HT29|HALLMARK_MYC_TARGETS_V1": {
+    "z_independent": -2.44,
+    "z_analysis_py": -2.45,
+    "n": 192
+  },
+  "HT29|HALLMARK_G2M_CHECKPOINT": {
+    "z_independent": -2.23,
+    "z_analysis_py": -2.27,
+    "n": 187
+  }
+}

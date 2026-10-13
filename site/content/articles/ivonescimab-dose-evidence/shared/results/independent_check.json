@@ -1,0 +1,40 @@
+{
+  "mu_b": [
+    -0.48,
+    0.182,
+    0.747
+  ],
+  "tau": [
+    0.01,
+    0.279,
+    0.889
+  ],
+  "p_mu_b_gt0": 0.728,
+  "delta_orr_points_new_setting": [
+    -22.77,
+    5.06,
+    24.63
+  ],
+  "p_delta_ge_10": 0.292,
+  "p_delta_le_minus10": 0.102,
+  "mcmc_in_analysis_py": {
+    "mu_b": [
+      -0.493,
+      0.172,
+      0.772
+    ],
+    "tau": [
+      0.019,
+      0.314,
+      0.928
+    ],
+    "p_mu_b_gt0": 0.707,
+    "delta_orr_points_new_setting": [
+      -24.565,
+      4.635,
+      24.46
+    ],
+    "p_delta_ge_10": 0.287,
+    "p_delta_le_minus10": 0.117
+  }
+}
