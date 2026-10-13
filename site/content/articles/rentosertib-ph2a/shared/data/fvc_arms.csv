@@ -1,0 +1,5 @@
+arm,total_daily_mg,schedule,n_randomized,n_observed_w12,n_missing_w12,n_completed_12wk,n_discontinued,n_ae_discontinuation,obs_mean_ml,obs_ci_lo,obs_ci_hi,mi_mean_ml,mi_ci_lo,mi_ci_hi,baseline_fvc_mean_ml,baseline_fvc_sd_ml,n_on_nintedanib,n_on_pirfenidone,source
+placebo,0,none,17,14,3,15,2,2,-20.3,-116.1,75.6,-8.2,-98.1,81.7,2246,473.6,3,4,"Nat Med 2025 (PMC12353801): Fig 2a/2b (values and n read from the figure image), text, Table 1, Table 2"
+r30qd,30,QD,18,13,5,16,2,1,-27.0,-88.8,34.8,-24.2,-105.0,56.6,2696,444.2,6,5,same
+r30bid,60,BID,18,12,6,12,6,5,19.7,-60.5,99.9,19.4,-68.7,107.4,2617,667.4,4,4,same
+r60qd,60,QD,18,10,8,12,6,4,98.4,10.9,185.9,89.2,-8.7,187.2,2762,684.2,9,2,same

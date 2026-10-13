@@ -1,0 +1,459 @@
+{
+  "seed": 20261013,
+  "arms": {
+    "placebo": {
+      "nr": 17,
+      "no": 14,
+      "nm": 3,
+      "mo": -20.3,
+      "mmi": -8.2,
+      "se_obs_norm": 48.9,
+      "se_obs_t": 44.37,
+      "sd_obs": 166.01,
+      "se_mi": 45.87,
+      "m_missing_implied": 48.27
+    },
+    "r30qd": {
+      "nr": 18,
+      "no": 13,
+      "nm": 5,
+      "mo": -27.0,
+      "mmi": -24.2,
+      "se_obs_norm": 31.53,
+      "se_obs_t": 28.36,
+      "sd_obs": 102.27,
+      "se_mi": 41.23,
+      "m_missing_implied": -16.92
+    },
+    "r30bid": {
+      "nr": 18,
+      "no": 12,
+      "nm": 6,
+      "mo": 19.7,
+      "mmi": 19.4,
+      "se_obs_norm": 40.92,
+      "se_obs_t": 36.44,
+      "sd_obs": 126.23,
+      "se_mi": 44.92,
+      "m_missing_implied": 18.8
+    },
+    "r60qd": {
+      "nr": 18,
+      "no": 10,
+      "nm": 8,
+      "mo": 98.4,
+      "mmi": 89.2,
+      "se_obs_norm": 44.64,
+      "se_obs_t": 38.68,
+      "sd_obs": 122.32,
+      "se_mi": 49.98,
+      "m_missing_implied": 77.7
+    }
+  },
+  "E1_observed_vs_placebo": {
+    "r30qd": {
+      "diff": -6.7,
+      "se": 58.2,
+      "ci": [
+        -120.7,
+        107.3
+      ],
+      "p_gt0": 0.454
+    },
+    "r30bid": {
+      "diff": 40.0,
+      "se": 63.8,
+      "ci": [
+        -85.0,
+        165.0
+      ],
+      "p_gt0": 0.735
+    },
+    "r60qd": {
+      "diff": 118.7,
+      "se": 66.2,
+      "ci": [
+        -11.1,
+        248.5
+      ],
+      "p_gt0": 0.963
+    }
+  },
+  "E2_mar_mi_vs_placebo": {
+    "r30qd": {
+      "diff": -16.0,
+      "se": 61.7,
+      "ci": [
+        -136.9,
+        104.9
+      ],
+      "p_gt0": 0.398
+    },
+    "r30bid": {
+      "diff": 27.6,
+      "se": 64.2,
+      "ci": [
+        -98.2,
+        153.4
+      ],
+      "p_gt0": 0.666
+    },
+    "r60qd": {
+      "diff": 97.4,
+      "se": 67.8,
+      "ci": [
+        -35.6,
+        230.4
+      ],
+      "p_gt0": 0.924
+    }
+  },
+  "E1_welch_t_vs_placebo": {
+    "r30qd": {
+      "diff": -6.7,
+      "se": 52.7,
+      "df": 21.8,
+      "ci": [
+        -116.0,
+        102.6
+      ],
+      "p_two_sided": 0.9
+    },
+    "r30bid": {
+      "diff": 40.0,
+      "se": 57.4,
+      "df": 23.7,
+      "ci": [
+        -78.6,
+        158.6
+      ],
+      "p_two_sided": 0.493
+    },
+    "r60qd": {
+      "diff": 118.7,
+      "se": 58.9,
+      "df": 22.0,
+      "ci": [
+        -3.4,
+        240.8
+      ],
+      "p_two_sided": 0.056
+    }
+  },
+  "E7_60qd_vs_30bid_observed": {
+    "diff": 78.7,
+    "se": 60.6,
+    "ci": [
+      -40.0,
+      197.4
+    ],
+    "p_gt0": 0.903
+  },
+  "E3_implied_missing_mean": {
+    "placebo": 48.3,
+    "r30qd": -16.9,
+    "r30bid": 18.8,
+    "r60qd": 77.7
+  },
+  "E4_tipping": {
+    "grid": [
+      {
+        "delta_ml": 0,
+        "diff": 97.4,
+        "ci": [
+          -35.6,
+          230.4
+        ],
+        "p_gt0": 0.924
+      },
+      {
+        "delta_ml": 25,
+        "diff": 86.3,
+        "ci": [
+          -46.7,
+          219.2
+        ],
+        "p_gt0": 0.898
+      },
+      {
+        "delta_ml": 50,
+        "diff": 75.2,
+        "ci": [
+          -57.8,
+          208.1
+        ],
+        "p_gt0": 0.866
+      },
+      {
+        "delta_ml": 75,
+        "diff": 64.1,
+        "ci": [
+          -68.9,
+          197.0
+        ],
+        "p_gt0": 0.828
+      },
+      {
+        "delta_ml": 100,
+        "diff": 53.0,
+        "ci": [
+          -80.0,
+          185.9
+        ],
+        "p_gt0": 0.783
+      },
+      {
+        "delta_ml": 125,
+        "diff": 41.8,
+        "ci": [
+          -91.1,
+          174.8
+        ],
+        "p_gt0": 0.731
+      },
+      {
+        "delta_ml": 150,
+        "diff": 30.7,
+        "ci": [
+          -102.2,
+          163.7
+        ],
+        "p_gt0": 0.675
+      },
+      {
+        "delta_ml": 175,
+        "diff": 19.6,
+        "ci": [
+          -113.3,
+          152.6
+        ],
+        "p_gt0": 0.614
+      },
+      {
+        "delta_ml": 200,
+        "diff": 8.5,
+        "ci": [
+          -124.4,
+          141.5
+        ],
+        "p_gt0": 0.55
+      },
+      {
+        "delta_ml": 225,
+        "diff": -2.6,
+        "ci": [
+          -135.6,
+          130.4
+        ],
+        "p_gt0": 0.485
+      },
+      {
+        "delta_ml": 250,
+        "diff": -13.7,
+        "ci": [
+          -146.7,
+          119.2
+        ],
+        "p_gt0": 0.42
+      },
+      {
+        "delta_ml": 275,
+        "diff": -24.8,
+        "ci": [
+          -157.8,
+          108.1
+        ],
+        "p_gt0": 0.357
+      },
+      {
+        "delta_ml": 300,
+        "diff": -35.9,
+        "ci": [
+          -168.9,
+          97.0
+        ],
+        "p_gt0": 0.298
+      }
+    ],
+    "delta_point_estimate_zero": 219.2,
+    "delta_p_gt0_0p80": 90.8,
+    "delta_p_gt0_0p50": 219.2,
+    "note": "delta is subtracted from the MAR-imputed values of the active arms' missing participants; SE kept as published"
+  },
+  "E5_jump_to_placebo_reference": {
+    "placebo_arm_mean": -20.3,
+    "arms": {
+      "r30qd": {
+        "mean_diff": -4.9,
+        "ci": [
+          -95.8,
+          86.4
+        ],
+        "p_gt0": 0.459,
+        "arm_mean": -25.1
+      },
+      "r30bid": {
+        "mean_diff": 26.4,
+        "ci": [
+          -67.1,
+          119.9
+        ],
+        "p_gt0": 0.711,
+        "arm_mean": 6.1
+      },
+      "r60qd": {
+        "mean_diff": 65.9,
+        "ci": [
+          -22.9,
+          154.3
+        ],
+        "p_gt0": 0.927,
+        "arm_mean": 45.6
+      }
+    }
+  },
+  "E6_missingness": {
+    "placebo": {
+      "missing": 3,
+      "n": 17,
+      "rate": 0.176,
+      "ci": [
+        0.038,
+        0.434
+      ],
+      "ae_discontinuation": 2
+    },
+    "r30qd": {
+      "missing": 5,
+      "n": 18,
+      "rate": 0.278,
+      "ci": [
+        0.097,
+        0.535
+      ],
+      "ae_discontinuation": 1
+    },
+    "r30bid": {
+      "missing": 6,
+      "n": 18,
+      "rate": 0.333,
+      "ci": [
+        0.133,
+        0.59
+      ],
+      "ae_discontinuation": 5
+    },
+    "r60qd": {
+      "missing": 8,
+      "n": 18,
+      "rate": 0.444,
+      "ci": [
+        0.215,
+        0.692
+      ],
+      "ae_discontinuation": 4
+    }
+  },
+  "E6_fisher_60qd_vs_placebo": {
+    "odds_ratio": 3.73,
+    "p": 0.146,
+    "risk_diff": 0.268,
+    "rd_ci_wald": [
+      -0.024,
+      0.56
+    ]
+  },
+  "E8_required_n": {
+    "sd100": {
+      "delta50": {
+        "n_observed_per_arm": 63,
+        "n_enrolled_per_arm_at_30pct_missing": 90
+      },
+      "delta100": {
+        "n_observed_per_arm": 16,
+        "n_enrolled_per_arm_at_30pct_missing": 23
+      },
+      "delta150": {
+        "n_observed_per_arm": 7,
+        "n_enrolled_per_arm_at_30pct_missing": 10
+      }
+    },
+    "sd150": {
+      "delta50": {
+        "n_observed_per_arm": 142,
+        "n_enrolled_per_arm_at_30pct_missing": 202
+      },
+      "delta100": {
+        "n_observed_per_arm": 36,
+        "n_enrolled_per_arm_at_30pct_missing": 51
+      },
+      "delta150": {
+        "n_observed_per_arm": 16,
+        "n_enrolled_per_arm_at_30pct_missing": 23
+      }
+    },
+    "sd200": {
+      "delta50": {
+        "n_observed_per_arm": 252,
+        "n_enrolled_per_arm_at_30pct_missing": 359
+      },
+      "delta100": {
+        "n_observed_per_arm": 63,
+        "n_enrolled_per_arm_at_30pct_missing": 90
+      },
+      "delta150": {
+        "n_observed_per_arm": 28,
+        "n_enrolled_per_arm_at_30pct_missing": 40
+      }
+    }
+  },
+  "E8_assurance_sd150_prior_sd150": {
+    "MAR_mi": {
+      "posterior_mean": 80.9,
+      "posterior_sd": 61.8,
+      "p_delta_gt0": 0.905,
+      "assurance": {
+        "30": 0.449,
+        "51": 0.563,
+        "60": 0.595,
+        "100": 0.68,
+        "200": 0.761,
+        "400": 0.813
+      }
+    },
+    "delta100": {
+      "posterior_mean": 44.0,
+      "posterior_sd": 61.8,
+      "p_delta_gt0": 0.762,
+      "assurance": {
+        "30": 0.273,
+        "51": 0.36,
+        "60": 0.387,
+        "100": 0.466,
+        "200": 0.555,
+        "400": 0.619
+      }
+    },
+    "jump_to_placebo": {
+      "posterior_mean": 60.4,
+      "posterior_sd": 43.3,
+      "p_delta_gt0": 0.919,
+      "assurance": {
+        "30": 0.316,
+        "51": 0.435,
+        "60": 0.473,
+        "100": 0.585,
+        "200": 0.705,
+        "400": 0.785
+      }
+    }
+  },
+  "rules": {
+    "R1_observed_ci_excludes0": false,
+    "R2_mar_ci_excludes0": false,
+    "R4_jump_ci_excludes0": false,
+    "R3_implied_missing_mean_60qd": 77.7,
+    "R3_observed_mean_60qd": 98.4,
+    "robust": false
+  }
+}
