@@ -1,0 +1,20 @@
+{
+  "source_language": "ja",
+  "category": "essay",
+  "date": "2026-11-17",
+  "publish_at": "2026-11-17T09:00:00+09:00",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "PIEのDEG予測を候補選びに使う前に――平均AUPRCと追試件数の間",
+      "summary": "公開評価10,335行をDEGラベルと照合し、背景別の陽性率とAUPRCを再集計する。平均性能、同じ摂動の背景差、限られた追試件数での精度を区別し、候補選びに必要な追加評価を示す。"
+    }
+  },
+  "english": {
+    "title": "Before choosing DEG candidates with PIE: average precision versus a follow-up budget",
+    "summary": "An audit of 10,335 released evaluation rows joins processed DEG labels to average-precision scores. Context-dependent prevalence and paired perturbations clarify what aggregate performance can establish about a limited follow-up budget."
+  }
+}
