@@ -1,0 +1,75 @@
+{
+  "se_log_hr_240_from_ci": 0.15756402488098323,
+  "se_log_hr_240_from_p": 0.15613562329185124,
+  "implied_events_240_vs_control": 161.11866664473845,
+  "implied_events_160_vs_control": 158.04273539405298,
+  "implied_events_240_rounding_range": [
+    154.04461790800184,
+    168.65866721882065
+  ],
+  "significance_boundary_hr": {
+    "0.05": 0.73431307102251,
+    "0.025": 0.7024616744955735
+  },
+  "detectable_hr_with_implied_events": {
+    "power_0.8": 0.6431167226363437,
+    "power_0.9": 0.6000476340789528
+  },
+  "wukong28_implied_events_from_ci_and_p": [
+    218.29079765340953,
+    242.30199570919834
+  ],
+  "two_arm_scale": 1.5,
+  "implied_events_two_arm": 241.67799996710767,
+  "power_at_hr_0_75": {
+    "three_arm_a05": 0.44664065734781755,
+    "three_arm_a025": 0.338854257240922,
+    "two_arm_a05": 0.6087982507201326
+  },
+  "power_at_hr_0_65": {
+    "three_arm_a05": 0.7805506427392019,
+    "three_arm_a025": 0.6888578531641812,
+    "two_arm_a05": 0.9175092236005833
+  },
+  "power_at_hr_0_60": {
+    "three_arm_a05": 0.9000883944479561,
+    "two_arm_a05": 0.9778205053558848
+  },
+  "events_needed_hr_0_75": {
+    "p80_a05": 379.3517295973813,
+    "p90_a05": 507.8443353546264
+  },
+  "events_needed_hr_0_65": {
+    "p80_a05": 169.18066289993402,
+    "p90_a05": 226.4849072823766
+  },
+  "hr_240_vs_160_bicr": {
+    "est": 0.8241758241758241,
+    "lo": 0.604296575533464,
+    "hi": 1.124060298631104
+  },
+  "orr_diff_240_vs_160_bicr": {
+    "est": 0.25,
+    "lo": 0.13365224976397827,
+    "hi": 0.36634775023602173
+  },
+  "hr_ratio_bicr_over_inv": {
+    "240": 1.2295081967213115,
+    "160": 1.058139534883721
+  },
+  "hrr_open_label_meta": {
+    "est": 1.062,
+    "lo": 1.016,
+    "hi": 1.11
+  },
+  "median_shift_inv_minus_bicr": {
+    "arm240": 0.09999999999999964,
+    "arm160": -0.09999999999999964,
+    "control": -2.4000000000000004
+  },
+  "assumptions": [
+    "Schoenfeld approximation with 1:1 allocation within each pairwise comparison",
+    "two-arm counterfactual keeps total enrolment and per-patient event rate",
+    "arms of equal size (N/3) for ORR; the trial's multiplicity rule is not public"
+  ]
+}
