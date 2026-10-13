@@ -68,7 +68,7 @@ def fig2():
     a_.set_xticks([-1.737, 0, 1, 1.585]); a_.set_xticklabels(["3\nQ3W", "10\nQ3W", "20\nQ3W", "20 Q2W\n30 Q3W"])
     a_.set_xlabel("用量（mg/kg）。横軸は週あたり用量強度の対数"); a_.set_ylabel("奏効率 ORR（%、Clopper–Pearson 95%区間）")
     a_.set_ylim(0, 105); a_.legend(fontsize=7, frameon=False, loc="lower right")
-    a_.set_title("用量別の奏効率（四角の破線：nを報告値から導出、白抜きの菱形：Q2W）", fontsize=9)
+    a_.set_title("用量別の奏効率（四角の破線：要旨から導出したn（本文で確認済み）、白抜きの菱形：Q2W）", fontsize=9)
     b = ax[1]
     d = post["d_new"]
     b.hist(d, bins=60, color="#7f7f7f", alpha=.8)

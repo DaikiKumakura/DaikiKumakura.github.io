@@ -106,11 +106,11 @@ MARが前提とする「欠測が、将来のFVCと独立」は、有害事象�
 - Fig. 2の値と人数は、公開画像から読み取って転記した。図のCIが、観測された人のt区間であることは、人数と区間の幅は整合するが、論文に明記はない。
 - 欠測の人の中止の時期、理由、途中の測定は使えない。
 - 論文の著者27人のうち11人は、試験の依頼者（Insilico Medicine）の社員である（論文の利益相反の記載）。試験の管理、データ処理、解析は、外部の受託機関（Fortrea Clinical Pharmacology Services）が行ったが、依頼者側の著者も、試験の設計、収集、解析、解釈に関わったと、論文に書かれている。本記事の著者は、論文の著者とも、関連企業とも、利害関係がない。
-- 計画の変更はない。独立した再実装（別のコードでの再計算）は、本記事の公開時点で未実施である。
+- 計画の変更はない。別のコード（事後分布の格子計算と、試験のモンテカルロ・シミュレーション）で、tippingの $\delta$（点推定が0になる値 219.2 mL、確率0.80になる値 90.7 mL）と、成功確率（1群30、51、100、200、400人）を計算し直し、元の計算と、小数第2位まで（シミュレーションの誤差の範囲）一致した。
 
 ## 9. 再現
 
-解析計画、転記した集計値（出所つき）、コード、結果、図の作成コードを、配布ZIPにまとめた（[rentosertib-ph2a.zip](shared/rentosertib-ph2a/rentosertib-ph2a.zip)）。`python analysis.py && python figures.py` で再現できる（numpy、scipy、matplotlib。数秒、乱数のseed固定）。
+解析計画、転記した集計値（出所つき）、コード、結果、図の作成コードを、配布ZIPにまとめた（[rentosertib-ph2a.zip](shared/rentosertib-ph2a/rentosertib-ph2a.zip)）。`python analysis.py && python figures.py` で再現できる（numpy、scipy、matplotlib。数秒、乱数のseed固定）。別のコードでの照合は `python independent_check.py` で再現できる。
 
 ## この解析から持ち帰ること
 
