@@ -1,0 +1,182 @@
+{
+  "tag": "replogle_essential",
+  "seed": 20261012,
+  "n_split": 5,
+  "n_pert": 1832,
+  "n_genes": 8563,
+  "median_ndeg": 29.0,
+  "mean_ndeg": 194.21,
+  "median_cells": 132.0,
+  "R1_R4_vs_mean": {
+    "mse": {
+      "win_rate": 0.262,
+      "median_drf": -0.443,
+      "n": 9160
+    },
+    "pearson_all": {
+      "win_rate": 0.764,
+      "median_drf": 0.117,
+      "n": 9160
+    },
+    "pearson_top50": {
+      "win_rate": 0.997,
+      "median_drf": 0.914,
+      "n": 9160
+    },
+    "wmse": {
+      "win_rate": 0.917,
+      "median_drf": 0.671,
+      "n": 9160
+    },
+    "nir": {
+      "win_rate": 0.984,
+      "median_drf": 0.792,
+      "n": 9160
+    }
+  },
+  "sens_a_vs_mean_clean": {},
+  "R1_vs_ctrl": {
+    "mse": {
+      "win_rate": 0.298,
+      "median_drf": -0.443,
+      "n": 9160
+    },
+    "pearson_all": {
+      "win_rate": 0.977,
+      "median_drf": 0.275,
+      "n": 9160
+    },
+    "pearson_top50": {
+      "win_rate": 1.0,
+      "median_drf": 0.945,
+      "n": 9160
+    },
+    "wmse": {
+      "win_rate": 0.887,
+      "median_drf": 0.703,
+      "n": 9160
+    },
+    "nir": {
+      "win_rate": 0.954,
+      "median_drf": 0.8,
+      "n": 9160
+    }
+  },
+  "R3_by_effect_tercile_vs_mean": {
+    "tercile1": {
+      "mse": {
+        "win_rate": 0.009,
+        "median_drf": -0.628,
+        "n": 3055
+      },
+      "pearson_all": {
+        "win_rate": 0.647,
+        "median_drf": 0.041,
+        "n": 3055
+      },
+      "pearson_top50": {
+        "win_rate": 1.0,
+        "median_drf": 0.884,
+        "n": 3055
+      },
+      "wmse": {
+        "win_rate": 0.828,
+        "median_drf": 0.328,
+        "n": 3055
+      },
+      "nir": {
+        "win_rate": 0.959,
+        "median_drf": 0.447,
+        "n": 3055
+      }
+    },
+    "tercile2": {
+      "mse": {
+        "win_rate": 0.093,
+        "median_drf": -0.539,
+        "n": 3050
+      },
+      "pearson_all": {
+        "win_rate": 0.71,
+        "median_drf": 0.08,
+        "n": 3050
+      },
+      "pearson_top50": {
+        "win_rate": 0.997,
+        "median_drf": 0.911,
+        "n": 3050
+      },
+      "wmse": {
+        "win_rate": 0.927,
+        "median_drf": 0.601,
+        "n": 3050
+      },
+      "nir": {
+        "win_rate": 0.994,
+        "median_drf": 0.679,
+        "n": 3050
+      }
+    },
+    "tercile3": {
+      "mse": {
+        "win_rate": 0.685,
+        "median_drf": 0.299,
+        "n": 3055
+      },
+      "pearson_all": {
+        "win_rate": 0.934,
+        "median_drf": 0.458,
+        "n": 3055
+      },
+      "pearson_top50": {
+        "win_rate": 0.996,
+        "median_drf": 0.948,
+        "n": 3055
+      },
+      "wmse": {
+        "win_rate": 0.996,
+        "median_drf": 0.851,
+        "n": 3055
+      },
+      "nir": {
+        "win_rate": 1.0,
+        "median_drf": 0.999,
+        "n": 3055
+      }
+    }
+  },
+  "bootstrap_win_ci_perturbation_level": {
+    "mse": [
+      0.243,
+      0.262,
+      0.282
+    ],
+    "pearson_all": [
+      0.748,
+      0.764,
+      0.779
+    ],
+    "pearson_top50": [
+      0.996,
+      0.998,
+      0.999
+    ],
+    "wmse": [
+      0.906,
+      0.917,
+      0.928
+    ],
+    "nir": [
+      0.981,
+      0.984,
+      0.988
+    ]
+  },
+  "exploratory_mse_criterion": {
+    "agree": 0.991,
+    "base_rate_always_win": 0.264,
+    "crit_true": 480,
+    "obs_true": 484,
+    "n": 1832
+  }
+}

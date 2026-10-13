@@ -57,6 +57,32 @@ def fig3():
     fig.tight_layout(); fig.savefig(F / "03-dynamic-range.png", dpi=170); plt.close(fig)
 
 
+
+
+def fig4():
+    """Three datasets: win rates by metric and MSE win rate by effect tercile (needs summary_*.json from analysis_stream.py)."""
+    names = [("wessels_stream", "Wessels（THP-1、Cas13）"), ("norman", "Norman（K562、CRISPRa）"), ("replogle_essential", "Replogle essential（K562、CRISPRi）")]
+    D = {k: json.load(open(R / f"summary_{k}.json", encoding="utf-8")) for k, _ in names}
+    cols = ["#0072B2", "#E69F00", "#009E73"]
+    fig, ax = plt.subplots(1, 2, figsize=(11, 4), gridspec_kw={"width_ratios": [1.6, 1]})
+    x = np.arange(len(M))
+    for k, ((key, lab), c) in enumerate(zip(names, cols)):
+        ax[0].bar(x + (k - 1) * 0.27, [D[key]["R1_R4_vs_mean"][m]["win_rate"] for m in M], 0.27, color=c,
+                  label=f"{lab}：差次発現遺伝子数の中央値 {D[key]['median_ndeg']:.0f}")
+    ax[0].axhline(0.9, color="black", lw=.8, ls="--")
+    ax[0].set_xticks(x); ax[0].set_xticklabels([LAB[m] for m in M], fontsize=8); ax[0].set_ylim(0, 1.25)
+    ax[0].set_ylabel("技術的な重複が平均ベースラインに勝つ割合"); ax[0].legend(fontsize=7, frameon=False, loc="upper left")
+    ax[0].set_title("同じ点検を3つのデータで行った結果", fontsize=9)
+    for (key, lab), c in zip(names, cols):
+        ax[1].plot([1, 2, 3], [D[key]["R3_by_effect_tercile_vs_mean"][f"tercile{t}"]["mse"]["win_rate"] for t in (1, 2, 3)], "o-", color=c, label=lab.split("（")[0])
+    ax[1].axhline(0.9, color="black", lw=.8, ls="--"); ax[1].set_ylim(0, 1.02)
+    ax[1].set_xticks([1, 2, 3]); ax[1].set_xticklabels(["効果が小さい", "中間", "効果が大きい"], fontsize=8)
+    ax[1].set_ylabel("MSEでの勝率"); ax[1].legend(fontsize=7, frameon=False, loc="lower right"); ax[1].set_title("MSEは、効果の大きさで、勝率が大きく変わる", fontsize=9)
+    fig.tight_layout(); fig.savefig(F / "04-three-datasets.png", dpi=170); plt.close(fig)
+
+
 if __name__ == "__main__":
     fig1(); fig2(); fig3()
+    if all((R / f"summary_{k}.json").exists() for k in ("wessels_stream", "norman", "replogle_essential")):
+        fig4()
     print(sorted(p.name for p in F.glob("*.png")))
