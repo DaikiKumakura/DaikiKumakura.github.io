@@ -24,7 +24,9 @@ A = {}
 for a in ARMS:
     no, nr, nm = n(a, "n_observed_w12"), n(a, "n_randomized"), n(a, "n_missing_w12")
     se_obs_norm = (f(a, "obs_ci_hi") - f(a, "obs_ci_lo")) / (2 * Z)
-    se_obs_t = (f(a, "obs_ci_hi") - f(a, "obs_ci_lo")) / (2 * stats.t.ppf(0.975, no - 1))
+    # The published observed-case CIs are normal-based (the 60 mg QD interval is reproduced exactly from the Source Data with z=1.96; see source_data_check.py),
+    # so the standard error and SD are recovered with z, not with the t quantile used in the first version of this script.
+    se_obs_t = se_obs_norm
     se_mi = (f(a, "mi_ci_hi") - f(a, "mi_ci_lo")) / (2 * Z)
     A[a] = dict(nr=nr, no=no, nm=nm, mo=f(a, "obs_mean_ml"), mmi=f(a, "mi_mean_ml"), se_obs_norm=se_obs_norm, se_obs_t=se_obs_t,
                 sd_obs=se_obs_t * math.sqrt(no), se_mi=se_mi, m_missing_implied=(nr * f(a, "mi_mean_ml") - no * f(a, "obs_mean_ml")) / nm)

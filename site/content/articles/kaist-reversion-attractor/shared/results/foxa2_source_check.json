@@ -1,0 +1,466 @@
+{
+  "n_cells": 14537,
+  "note": "detected = UMI>0; mean_cp10k = mean of counts/total*1e4",
+  "by_site_and_type": {
+    "Colon|Enterocyte": {
+      "n": 875,
+      "FOXA2": {
+        "detected_pct": 3.9,
+        "mean_cp10k": 0.04
+      },
+      "MYB": {
+        "detected_pct": 19.1,
+        "mean_cp10k": 0.21
+      },
+      "HDAC2": {
+        "detected_pct": 28.9,
+        "mean_cp10k": 0.33
+      },
+      "KRT20": {
+        "detected_pct": 69.9,
+        "mean_cp10k": 5.96
+      },
+      "LGR5": {
+        "detected_pct": 0.9,
+        "mean_cp10k": 0.01
+      }
+    },
+    "Colon|Goblet": {
+      "n": 771,
+      "FOXA2": {
+        "detected_pct": 31.9,
+        "mean_cp10k": 0.49
+      },
+      "MYB": {
+        "detected_pct": 20.8,
+        "mean_cp10k": 0.26
+      },
+      "HDAC2": {
+        "detected_pct": 34.4,
+        "mean_cp10k": 0.48
+      },
+      "KRT20": {
+        "detected_pct": 47.9,
+        "mean_cp10k": 1.47
+      },
+      "LGR5": {
+        "detected_pct": 1.0,
+        "mean_cp10k": 0.01
+      }
+    },
+    "Colon|Paneth-like": {
+      "n": 358,
+      "FOXA2": {
+        "detected_pct": 2.5,
+        "mean_cp10k": 0.01
+      },
+      "MYB": {
+        "detected_pct": 22.1,
+        "mean_cp10k": 0.14
+      },
+      "HDAC2": {
+        "detected_pct": 49.7,
+        "mean_cp10k": 0.46
+      },
+      "KRT20": {
+        "detected_pct": 89.7,
+        "mean_cp10k": 8.46
+      },
+      "LGR5": {
+        "detected_pct": 0.3,
+        "mean_cp10k": 0.0
+      }
+    },
+    "Colon|Progenitor": {
+      "n": 1849,
+      "FOXA2": {
+        "detected_pct": 10.5,
+        "mean_cp10k": 0.06
+      },
+      "MYB": {
+        "detected_pct": 55.8,
+        "mean_cp10k": 0.45
+      },
+      "HDAC2": {
+        "detected_pct": 66.0,
+        "mean_cp10k": 0.66
+      },
+      "KRT20": {
+        "detected_pct": 37.6,
+        "mean_cp10k": 0.72
+      },
+      "LGR5": {
+        "detected_pct": 2.9,
+        "mean_cp10k": 0.01
+      }
+    },
+    "Colon|Stem Cell": {
+      "n": 141,
+      "FOXA2": {
+        "detected_pct": 22.7,
+        "mean_cp10k": 0.12
+      },
+      "MYB": {
+        "detected_pct": 60.3,
+        "mean_cp10k": 0.56
+      },
+      "HDAC2": {
+        "detected_pct": 75.9,
+        "mean_cp10k": 0.85
+      },
+      "KRT20": {
+        "detected_pct": 22.7,
+        "mean_cp10k": 0.18
+      },
+      "LGR5": {
+        "detected_pct": 52.5,
+        "mean_cp10k": 0.53
+      }
+    },
+    "Colon|TA": {
+      "n": 464,
+      "FOXA2": {
+        "detected_pct": 14.2,
+        "mean_cp10k": 0.09
+      },
+      "MYB": {
+        "detected_pct": 59.9,
+        "mean_cp10k": 0.43
+      },
+      "HDAC2": {
+        "detected_pct": 84.1,
+        "mean_cp10k": 1.07
+      },
+      "KRT20": {
+        "detected_pct": 32.5,
+        "mean_cp10k": 0.29
+      },
+      "LGR5": {
+        "detected_pct": 8.4,
+        "mean_cp10k": 0.04
+      }
+    },
+    "Rectum|Enteriendocrine": {
+      "n": 72,
+      "FOXA2": {
+        "detected_pct": 25.0,
+        "mean_cp10k": 0.44
+      },
+      "MYB": {
+        "detected_pct": 29.2,
+        "mean_cp10k": 0.33
+      },
+      "HDAC2": {
+        "detected_pct": 52.8,
+        "mean_cp10k": 0.86
+      },
+      "KRT20": {
+        "detected_pct": 15.3,
+        "mean_cp10k": 0.27
+      },
+      "LGR5": {
+        "detected_pct": 8.3,
+        "mean_cp10k": 0.08
+      }
+    },
+    "Rectum|Enterocyte": {
+      "n": 592,
+      "FOXA2": {
+        "detected_pct": 8.4,
+        "mean_cp10k": 0.09
+      },
+      "MYB": {
+        "detected_pct": 12.5,
+        "mean_cp10k": 0.13
+      },
+      "HDAC2": {
+        "detected_pct": 27.0,
+        "mean_cp10k": 0.27
+      },
+      "KRT20": {
+        "detected_pct": 86.0,
+        "mean_cp10k": 8.25
+      },
+      "LGR5": {
+        "detected_pct": 0.8,
+        "mean_cp10k": 0.01
+      }
+    },
+    "Rectum|Goblet": {
+      "n": 921,
+      "FOXA2": {
+        "detected_pct": 52.8,
+        "mean_cp10k": 0.83
+      },
+      "MYB": {
+        "detected_pct": 32.1,
+        "mean_cp10k": 0.36
+      },
+      "HDAC2": {
+        "detected_pct": 36.4,
+        "mean_cp10k": 0.44
+      },
+      "KRT20": {
+        "detected_pct": 42.2,
+        "mean_cp10k": 1.4
+      },
+      "LGR5": {
+        "detected_pct": 2.0,
+        "mean_cp10k": 0.01
+      }
+    },
+    "Rectum|Paneth-like": {
+      "n": 305,
+      "FOXA2": {
+        "detected_pct": 11.8,
+        "mean_cp10k": 0.07
+      },
+      "MYB": {
+        "detected_pct": 16.4,
+        "mean_cp10k": 0.12
+      },
+      "HDAC2": {
+        "detected_pct": 46.9,
+        "mean_cp10k": 0.45
+      },
+      "KRT20": {
+        "detected_pct": 69.5,
+        "mean_cp10k": 6.14
+      },
+      "LGR5": {
+        "detected_pct": 0.7,
+        "mean_cp10k": 0.0
+      }
+    },
+    "Rectum|Progenitor": {
+      "n": 1465,
+      "FOXA2": {
+        "detected_pct": 39.1,
+        "mean_cp10k": 0.32
+      },
+      "MYB": {
+        "detected_pct": 54.1,
+        "mean_cp10k": 0.52
+      },
+      "HDAC2": {
+        "detected_pct": 49.9,
+        "mean_cp10k": 0.44
+      },
+      "KRT20": {
+        "detected_pct": 27.2,
+        "mean_cp10k": 0.27
+      },
+      "LGR5": {
+        "detected_pct": 1.3,
+        "mean_cp10k": 0.01
+      }
+    },
+    "Rectum|Stem Cell": {
+      "n": 269,
+      "FOXA2": {
+        "detected_pct": 48.0,
+        "mean_cp10k": 0.36
+      },
+      "MYB": {
+        "detected_pct": 66.2,
+        "mean_cp10k": 0.53
+      },
+      "HDAC2": {
+        "detected_pct": 73.2,
+        "mean_cp10k": 0.68
+      },
+      "KRT20": {
+        "detected_pct": 22.3,
+        "mean_cp10k": 0.12
+      },
+      "LGR5": {
+        "detected_pct": 43.1,
+        "mean_cp10k": 0.34
+      }
+    },
+    "Rectum|TA": {
+      "n": 274,
+      "FOXA2": {
+        "detected_pct": 56.6,
+        "mean_cp10k": 0.4
+      },
+      "MYB": {
+        "detected_pct": 71.9,
+        "mean_cp10k": 0.54
+      },
+      "HDAC2": {
+        "detected_pct": 85.4,
+        "mean_cp10k": 0.88
+      },
+      "KRT20": {
+        "detected_pct": 29.6,
+        "mean_cp10k": 0.14
+      },
+      "LGR5": {
+        "detected_pct": 10.9,
+        "mean_cp10k": 0.05
+      }
+    },
+    "Ileum|Enteriendocrine": {
+      "n": 42,
+      "FOXA2": {
+        "detected_pct": 21.4,
+        "mean_cp10k": 0.21
+      },
+      "MYB": {
+        "detected_pct": 19.0,
+        "mean_cp10k": 0.14
+      },
+      "HDAC2": {
+        "detected_pct": 38.1,
+        "mean_cp10k": 0.54
+      },
+      "KRT20": {
+        "detected_pct": 92.9,
+        "mean_cp10k": 5.68
+      },
+      "LGR5": {
+        "detected_pct": 7.1,
+        "mean_cp10k": 0.05
+      }
+    },
+    "Ileum|Enterocyte": {
+      "n": 4252,
+      "FOXA2": {
+        "detected_pct": 0.4,
+        "mean_cp10k": 0.0
+      },
+      "MYB": {
+        "detected_pct": 0.9,
+        "mean_cp10k": 0.01
+      },
+      "HDAC2": {
+        "detected_pct": 13.7,
+        "mean_cp10k": 0.18
+      },
+      "KRT20": {
+        "detected_pct": 88.8,
+        "mean_cp10k": 5.15
+      },
+      "LGR5": {
+        "detected_pct": 0.8,
+        "mean_cp10k": 0.01
+      }
+    },
+    "Ileum|Goblet": {
+      "n": 327,
+      "FOXA2": {
+        "detected_pct": 21.1,
+        "mean_cp10k": 0.23
+      },
+      "MYB": {
+        "detected_pct": 15.6,
+        "mean_cp10k": 0.1
+      },
+      "HDAC2": {
+        "detected_pct": 36.4,
+        "mean_cp10k": 0.48
+      },
+      "KRT20": {
+        "detected_pct": 83.8,
+        "mean_cp10k": 3.73
+      },
+      "LGR5": {
+        "detected_pct": 6.4,
+        "mean_cp10k": 0.05
+      }
+    },
+    "Ileum|Paneth-like": {
+      "n": 96,
+      "FOXA2": {
+        "detected_pct": 3.1,
+        "mean_cp10k": 0.03
+      },
+      "MYB": {
+        "detected_pct": 8.3,
+        "mean_cp10k": 0.03
+      },
+      "HDAC2": {
+        "detected_pct": 34.4,
+        "mean_cp10k": 0.48
+      },
+      "KRT20": {
+        "detected_pct": 100.0,
+        "mean_cp10k": 10.94
+      },
+      "LGR5": {
+        "detected_pct": 6.2,
+        "mean_cp10k": 0.04
+      }
+    },
+    "Ileum|Progenitor": {
+      "n": 842,
+      "FOXA2": {
+        "detected_pct": 6.2,
+        "mean_cp10k": 0.04
+      },
+      "MYB": {
+        "detected_pct": 19.7,
+        "mean_cp10k": 0.14
+      },
+      "HDAC2": {
+        "detected_pct": 51.5,
+        "mean_cp10k": 0.55
+      },
+      "KRT20": {
+        "detected_pct": 85.6,
+        "mean_cp10k": 3.48
+      },
+      "LGR5": {
+        "detected_pct": 8.8,
+        "mean_cp10k": 0.06
+      }
+    },
+    "Ileum|Stem Cell": {
+      "n": 250,
+      "FOXA2": {
+        "detected_pct": 19.6,
+        "mean_cp10k": 0.16
+      },
+      "MYB": {
+        "detected_pct": 36.8,
+        "mean_cp10k": 0.32
+      },
+      "HDAC2": {
+        "detected_pct": 54.4,
+        "mean_cp10k": 0.61
+      },
+      "KRT20": {
+        "detected_pct": 52.4,
+        "mean_cp10k": 0.71
+      },
+      "LGR5": {
+        "detected_pct": 71.6,
+        "mean_cp10k": 1.22
+      }
+    },
+    "Ileum|TA": {
+      "n": 358,
+      "FOXA2": {
+        "detected_pct": 14.0,
+        "mean_cp10k": 0.07
+      },
+      "MYB": {
+        "detected_pct": 44.4,
+        "mean_cp10k": 0.29
+      },
+      "HDAC2": {
+        "detected_pct": 74.9,
+        "mean_cp10k": 0.9
+      },
+      "KRT20": {
+        "detected_pct": 70.4,
+        "mean_cp10k": 0.99
+      },
+      "LGR5": {
+        "detected_pct": 22.6,
+        "mean_cp10k": 0.15
+      }
+    }
+  }
+}

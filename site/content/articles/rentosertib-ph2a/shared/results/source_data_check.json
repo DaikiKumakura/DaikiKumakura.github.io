@@ -1,0 +1,20 @@
+{
+  "n": 10,
+  "mean": 98.4,
+  "sd": 141.1,
+  "se": 44.6,
+  "ci_normal_1p96": [
+    10.9,
+    185.9
+  ],
+  "ci_t_df9": [
+    -2.6,
+    199.4
+  ],
+  "published_ci": [
+    10.9,
+    185.9
+  ],
+  "published_mean": 98.4,
+  "note": "Individual values are not redistributed; run with the downloaded Source Data to reproduce."
+}
