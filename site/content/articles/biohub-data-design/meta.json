@@ -1,0 +1,20 @@
+{
+  "source_language": "ja",
+  "category": "essay",
+  "date": "2026-11-25",
+  "publish_at": "2026-11-25T09:00:00+09:00",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "Virtual Cellの次の勝負はデータづくり――Biohub構想を実験設計から読む",
+      "summary": "同じ28,800細胞を測定条件・ドナー・各側の細胞数へ配分する合成例。未測定条件の補完、独立反復、試料調製の負担を分け、予測したい介入からデータ生成を設計する。"
+    }
+  },
+  "english": {
+    "title": "Designing the data for virtual cells: a synthetic allocation audit inspired by Biohub",
+    "summary": "Four designs allocate the same 28,800 cells across combinations, donors and cells per arm. Exact bias-variance calculations distinguish sampling precision from missing-combination assumptions and expose preparation overhead at equal cell counts."
+  }
+}
