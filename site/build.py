@@ -146,12 +146,21 @@ def render_body(article, lang):
     math_fragments = []
     if article['meta'].get('math', False):
         def protect_math(match):
+            # Dollar delimiters are rewritten to \( \) and \[ \], the only ones MathJax is configured for.
+            if match.group('display') is not None:
+                tex = '\\[' + match.group('display') + '\\]'
+            elif match.group('inline') is not None:
+                tex = '\\(' + match.group('inline') + '\\)'
+            else:
+                tex = match.group(0)
             token = f'MATHPLACEHOLDER{len(math_fragments)}END'
-            math_fragments.append(html.escape(match.group(0)))
+            math_fragments.append(html.escape(tex))
             return token
+        math_pattern = re.compile(r'\\\([\s\S]*?\\\)|\\\[[\s\S]*?\\\]|\$\$(?P<display>[\s\S]+?)\$\$'
+                                  r'|(?<![\\$])\$(?P<inline>[^\s$](?:[^$\n]*?[^\s$])?)\$(?![$\d])')
         parts = re.split(r'(```[\s\S]*?```|`[^`\n]*`|<pre>[\s\S]*?</pre>)', body)
         for i in range(0, len(parts), 2):
-            parts[i] = re.sub(r'\\\([\s\S]*?\\\)|\\\[[\s\S]*?\\\]', protect_math, parts[i])
+            parts[i] = math_pattern.sub(protect_math, parts[i])
         body = ''.join(parts)
     parser = markdown.Markdown(extensions=['fenced_code', 'tables', 'toc', 'attr_list'])
     rendered = parser.convert(body)

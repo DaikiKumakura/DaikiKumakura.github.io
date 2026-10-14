@@ -22,6 +22,19 @@ class MathRenderingTests(unittest.TestCase):
             self.assertEqual(rendered.count('class="math"'), 2)
             self.assertIn(r'<code class="language-text">\(code_only\)', rendered)
 
+    def test_dollar_delimiters_are_rewritten_for_mathjax(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            folder = Path(temporary)
+            (folder / 'ja.md').write_text(
+                '- $w < 0.20$：a\n- $w_g \\ge 0.95$ and `$x$`\n\n$$\nU = a_1\n$$\n\nPrice $5 and $6.\n', encoding='utf-8')
+            rendered, _ = build.render_body({'folder': folder, 'meta': {'math': True}}, 'ja')
+            self.assertIn(r'<span class="math">\(w &lt; 0.20\)</span>', rendered)
+            self.assertIn(r'<span class="math">\(w_g \ge 0.95\)</span>', rendered)
+            self.assertIn('<span class="math">\\[\nU = a_1\n\\]</span>', rendered)
+            self.assertIn('<code>$x$</code>', rendered)
+            self.assertIn('Price $5 and $6.', rendered)
+            self.assertNotIn('$w', rendered)
+
     def test_template_uses_single_runtime_backslash(self):
         template = (build.BASE / 'templates/base.html').read_text(encoding='utf-8')
         self.assertIn(r"inlineMath:[['\\(','\\)']]", template)
