@@ -1,0 +1,20 @@
+{
+  "source_language": "ja",
+  "category": "essay",
+  "date": "2026-11-26",
+  "publish_at": "2026-11-26T09:00:00+09:00",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "解析は正しいのに、判断の採点で落ちる――OncologyBenchが測った最後の一段",
+      "summary": "OncologyBenchの公開例題２件を点検し、証拠の対応関係と追加実験の価値を独自に計算する。解析の正しさを、開発判断へ接続するための条件を示す。"
+    }
+  },
+  "english": {
+    "title": "From correct analyses to decisions: reading OncologyBench",
+    "summary": "An audit of two public examples, seven original metadata fixtures and a hypothetical value-of-information calculation distinguish evidence scope from project decisions."
+  }
+}
