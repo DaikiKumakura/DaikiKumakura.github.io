@@ -1,0 +1,20 @@
+{
+  "source_language": "ja",
+  "category": "essay",
+  "date": "2026-11-19",
+  "publish_at": "2026-11-19T09:00:00+09:00",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "バッチ差を消すと、残したい差も消えるか――CytoVIを補正の設計から点検する",
+      "summary": "健康骨髄の公開測定に既知のバッチ差を加え、交差した設計と完全交絡を比較する。CytoVIの保存出力から、粗い細胞型の読出しと同一型内の参照差を別々に診断する。"
+    }
+  },
+  "english": {
+    "title": "What should batch correction preserve? A design diagnostic with CytoVI",
+    "summary": "A semi-synthetic experiment on public measurements from two healthy bone-marrow donors contrasts crossed and confounded artificial batches. Fixed CytoVI runs separate coarse cell-label readability from within-type reference contrasts; this is not a disease-preservation validation."
+  }
+}
