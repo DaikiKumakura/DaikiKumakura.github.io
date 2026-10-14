@@ -1,0 +1,25 @@
+{
+  "source_language": "ja",
+  "category": "essay",
+  "date": "2026-11-22",
+  "publish_at": "2026-11-22T09:00:00+09:00",
+  "draft": false,
+  "math": false,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "単一細胞の代謝状態推定は、何で確かめればよいか",
+      "summary": "MeRNなど転写データから単一細胞の代謝状態を推定する手法について、代謝物の量・流れ・能力の区別、既存手法の検証、介入で確かめるときの落とし穴を整理する。",
+      "key_findings": [
+        "転写データからの推定が指すのは代謝物の量・流れ・能力のどれかを区別したい。転写データが最も近いのは能力である。",
+        "Compass、scFEA、MeRNはそれぞれ表現型、代謝物の量、タンパク質で検証している。推定した量そのものを同種の独立測定で確かめた例はまだ少ない。",
+        "介入による検証では、自明な予測を避け、時間を明示し、転写とは独立した測定で正解を取りたい。"
+      ]
+    }
+  },
+  "english": {
+    "title": "How should single-cell metabolic state inference be validated?",
+    "summary": "A Japanese essay on transcriptome-based single-cell metabolic inference (MeRN, Compass, scFEA): distinguishing metabolite levels, fluxes and capacity, what existing validations show, and pitfalls of validating with interventions. No new analysis."
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "source_language": "ja",
+  "category": "essay",
+  "date": "2026-11-21",
+  "publish_at": "2026-11-21T09:00:00+09:00",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "細胞をまたぐ摂動予測を評価する前に――同じ細胞での再現性から上限を知る",
+      "summary": "背景をまたぐ摂動予測の評価の前に、同じ細胞での再現性から相関の上限を知る必要がある。Nadig 2025の補正相関を手がかりに、評価で確かめたい点を整理する。",
+      "key_findings": [
+        "K562の別々の2つのスクリーンの間でも、log fold changeの生の相関の中央値は0.16で、推定誤差を補正すると0.90だった（Nadig 2025）。",
+        "雑音のない予測と雑音を含む観測の相関の上限はおよそ√r で、r そのものが目安になるのは測定どうしを比べる場合である。",
+        "背景をまたぐ予測の評価では、再現性からの上限、単純な基準、共通応答と固有応答の区別、応答の強さによる層別を並べたい。"
+      ]
+    }
+  },
+  "english": {
+    "title": "Before evaluating cross-context perturbation prediction: know the reproducibility bound",
+    "summary": "A Japanese essay arguing that cross-cell-line perturbation predictions should be read against within-context reproducibility, using the noise-corrected correlations reported by Nadig et al. (2025). No new analysis."
+  }
+}
