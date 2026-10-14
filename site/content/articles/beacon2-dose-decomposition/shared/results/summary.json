@@ -1,0 +1,454 @@
+{
+  "counts": {
+    "test_rows": 2282,
+    "train_rows": 5326,
+    "test_with_hlm_and_mppb": 335,
+    "test_clint_zero_dropped": 9,
+    "test_with_logd_and_caco2": 325,
+    "train_with_hlm_and_mppb": 1027,
+    "train_clint_zero_dropped": 40,
+    "train_with_logd_and_caco2": 780,
+    "test_clint_out_of_range_lt": 213,
+    "test_clint_out_of_range_gt": 15,
+    "censored_with_other_inputs_lt": 59,
+    "censored_with_other_inputs_gt": 2,
+    "censored_lt_bounds": [
+      4.5
+    ]
+  },
+  "beacon2_reported": {
+    "spearman": 0.79,
+    "fold_error": 2.4,
+    "n": 325,
+    "programs_spearman": 0.61,
+    "programs_pair_accuracy": 0.81
+  },
+  "beacon2_spearman_ci95": [
+    0.7381117817119248,
+    0.8325977047823072
+  ],
+  "parameters": {
+    "qh": 20.7,
+    "bw": 70.0,
+    "tau": 24.0,
+    "ka": 1.0,
+    "ic50_nm": 10.0,
+    "cover": 9.0,
+    "mic_protein": 0.5,
+    "papp_half": 1.0,
+    "seed": 20261014,
+    "n_rep": 500
+  },
+  "dependence": {
+    "A": {
+      "label": "Cavg, minimal (fu in WSM, Fa = 1, no fu,mic)",
+      "spearman_vs_hlm_clint": 0.9999933581006265,
+      "spearman_vs_fu": -0.6306140076113496,
+      "r2_logdose_on_logclint": 1.0,
+      "spearman_vs_config_A": 1.0,
+      "log10_dose_sd": 0.48104566589911124,
+      "dose_mg_median_at_mw450": 94.30344000000002,
+      "dose_mg_p5_p95_at_mw450": [
+        18.779040000000002,
+        485.80559999999997
+      ],
+      "frac_over_1g_at_mw450": 0.0,
+      "constant_dose_aafe_train_median": 2.765691250135064,
+      "constant_dose_aafe_test_median_oracle": 2.3797179610284287,
+      "measured_logd_spearman": 0.6320252714651767,
+      "measured_logd_spearman_boot95": [
+        0.5579227122105717,
+        0.6947538903658355
+      ],
+      "measured_mlm_n": 278,
+      "measured_mlm_spearman": 0.6436402556439222
+    },
+    "A_fumic": {
+      "label": "Cavg, + fu,mic from LogD",
+      "spearman_vs_hlm_clint": 0.9947892497295829,
+      "spearman_vs_fu": -0.6706876540597834,
+      "r2_logdose_on_logclint": 0.9876484458128826,
+      "spearman_vs_config_A": 0.9948191726817225,
+      "log10_dose_sd": 0.5164502900570173,
+      "dose_mg_median_at_mw450": 113.33171104496428,
+      "dose_mg_p5_p95_at_mw450": [
+        20.03061794925281,
+        764.9907791184041
+      ],
+      "frac_over_1g_at_mw450": 0.015384615384615385,
+      "constant_dose_aafe_train_median": 2.970696552565422,
+      "constant_dose_aafe_test_median_oracle": 2.5437133658256412,
+      "measured_logd_spearman": 0.6874872470521999,
+      "measured_logd_spearman_boot95": [
+        0.6190008427908242,
+        0.7418604216780318
+      ],
+      "measured_mlm_n": 278,
+      "measured_mlm_spearman": 0.6547320013407064
+    },
+    "A_nobind": {
+      "label": "Cavg, no plasma binding in WSM (as Page 2016 for bases)",
+      "spearman_vs_hlm_clint": 0.9079463243439301,
+      "spearman_vs_fu": -0.8869872121434864,
+      "r2_logdose_on_logclint": 0.8208775487324327,
+      "spearman_vs_config_A": 0.9080502341542055,
+      "log10_dose_sd": 0.8097508783588633,
+      "dose_mg_median_at_mw450": 764.1415384615383,
+      "dose_mg_p5_p95_at_mw450": [
+        53.76461211796245,
+        22160.9861052632
+      ],
+      "frac_over_1g_at_mw450": 0.4430769230769231,
+      "constant_dose_aafe_train_median": 4.515946449833029,
+      "constant_dose_aafe_test_median_oracle": 4.426742533462314,
+      "measured_logd_spearman": 0.7838757930828005,
+      "measured_logd_spearman_boot95": [
+        0.7294919139196057,
+        0.8282417756622614
+      ],
+      "measured_mlm_n": 278,
+      "measured_mlm_spearman": 0.6559359311620159
+    },
+    "A_fa": {
+      "label": "Cavg, + Fa from Caco-2 Papp",
+      "spearman_vs_hlm_clint": 0.9437093194535869,
+      "spearman_vs_fu": -0.5937896393160257,
+      "r2_logdose_on_logclint": 0.8400595553930559,
+      "spearman_vs_config_A": 0.9438143900164316,
+      "log10_dose_sd": 0.4667781106317946,
+      "dose_mg_median_at_mw450": 111.61113291150087,
+      "dose_mg_p5_p95_at_mw450": [
+        21.738266895037228,
+        652.2166070549863
+      ],
+      "frac_over_1g_at_mw450": 0.018461538461538463,
+      "constant_dose_aafe_train_median": 2.8450892222948854,
+      "constant_dose_aafe_test_median_oracle": 2.320861514518916,
+      "measured_logd_spearman": 0.5562714686442095,
+      "measured_logd_spearman_boot95": [
+        0.46707987601008605,
+        0.6318799981853089
+      ],
+      "measured_mlm_n": 278,
+      "measured_mlm_spearman": 0.6127745862737726
+    },
+    "A_full": {
+      "label": "Cavg, + fu,mic + Fa",
+      "spearman_vs_hlm_clint": 0.9472248105641468,
+      "spearman_vs_fu": -0.6343669779032324,
+      "r2_logdose_on_logclint": 0.8293340075911501,
+      "spearman_vs_config_A": 0.9473497833641263,
+      "log10_dose_sd": 0.5051507963020905,
+      "dose_mg_median_at_mw450": 128.06909983773167,
+      "dose_mg_p5_p95_at_mw450": [
+        23.92695762113827,
+        935.2114282668059
+      ],
+      "frac_over_1g_at_mw450": 0.043076923076923075,
+      "constant_dose_aafe_train_median": 3.021695704191735,
+      "constant_dose_aafe_test_median_oracle": 2.46766359147962,
+      "measured_logd_spearman": 0.6130187090208327,
+      "measured_logd_spearman_boot95": [
+        0.5334627622103637,
+        0.6865070723029623
+      ],
+      "measured_mlm_n": 278,
+      "measured_mlm_spearman": 0.6269561590540838
+    },
+    "B_bolus": {
+      "label": "Cmin, bolus, Vss 1 L/kg (extreme)",
+      "spearman_vs_hlm_clint": 0.7926809338625508,
+      "spearman_vs_fu": -0.07443784459176502,
+      "r2_logdose_on_logclint": 0.5937969031242333,
+      "spearman_vs_config_A": 0.7926123964785733,
+      "log10_dose_sd": 1.2298908181261332,
+      "dose_mg_median_at_mw450": 933.2088851799828,
+      "dose_mg_p5_p95_at_mw450": [
+        37.37384898508506,
+        302737.2514270952
+      ],
+      "frac_over_1g_at_mw450": 0.48615384615384616,
+      "constant_dose_aafe_train_median": 16.217257652120004,
+      "constant_dose_aafe_test_median_oracle": 8.839622330062443,
+      "measured_logd_spearman": 0.21596369439238267,
+      "measured_logd_spearman_boot95": [
+        0.11080419031313804,
+        0.3176228355551318
+      ],
+      "measured_mlm_n": 278,
+      "measured_mlm_spearman": 0.4347348415089188
+    },
+    "B_abs": {
+      "label": "Cmin, ka 1/h, Vss 1 L/kg",
+      "spearman_vs_hlm_clint": 0.8022160895605754,
+      "spearman_vs_fu": -0.08986586438826803,
+      "r2_logdose_on_logclint": 0.6118510605112868,
+      "spearman_vs_config_A": 0.8021513341337094,
+      "log10_dose_sd": 1.1700984169873194,
+      "dose_mg_median_at_mw450": 762.766532554066,
+      "dose_mg_p5_p95_at_mw450": [
+        35.934969387741944,
+        192925.18733298246
+      ],
+      "frac_over_1g_at_mw450": 0.46153846153846156,
+      "constant_dose_aafe_train_median": 14.322899676257189,
+      "constant_dose_aafe_test_median_oracle": 7.983746751546824,
+      "measured_logd_spearman": 0.227889872435516,
+      "measured_logd_spearman_boot95": [
+        0.12257896890810781,
+        0.3316124823319836
+      ],
+      "measured_mlm_n": 278,
+      "measured_mlm_spearman": 0.4432654006185737
+    },
+    "B_abs_v3": {
+      "label": "Cmin, ka 1/h, Vss 3 L/kg",
+      "spearman_vs_hlm_clint": 0.9496962988703824,
+      "spearman_vs_fu": -0.3850778927043051,
+      "r2_logdose_on_logclint": 0.9034490110065792,
+      "spearman_vs_config_A": 0.9496564322003119,
+      "log10_dose_sd": 0.6292219753641697,
+      "dose_mg_median_at_mw450": 188.37958914438266,
+      "dose_mg_p5_p95_at_mw450": [
+        24.319611032018116,
+        1795.4345746406145
+      ],
+      "frac_over_1g_at_mw450": 0.11692307692307692,
+      "constant_dose_aafe_train_median": 4.178838254262111,
+      "constant_dose_aafe_test_median_oracle": 3.125251436298547,
+      "measured_logd_spearman": 0.4567676149633346,
+      "measured_logd_spearman_boot95": [
+        0.35706985648378975,
+        0.5389191857917046
+      ],
+      "measured_mlm_n": 278,
+      "measured_mlm_spearman": 0.5730125069352809
+    },
+    "B_abs_oie_tozer_subset": {
+      "n": 128,
+      "spearman_vs_hlm_clint": 0.8685757126710669,
+      "vss_median": 0.7220339572254297,
+      "vss_p5_p95": [
+        0.27120016530637825,
+        1.8971685084688539
+      ]
+    },
+    "spearman_logd_vs_hlm_clint": 0.6319880015235821,
+    "fu_mic_p5_median_p95": [
+      0.6095533358700785,
+      0.8766059002568056,
+      0.9459355779739631
+    ],
+    "fa_p5_median_p95": [
+      0.26801262760583044,
+      0.9939639170764004,
+      0.9999999995525143
+    ]
+  },
+  "censoring_sensitivity_config_A": {
+    "at_bound": {
+      "n": 386,
+      "log10_dose_sd": 0.5145170282352137,
+      "constant_dose_aafe_test_median_oracle": 2.6566116075158437
+    },
+    "half_lower_bound": {
+      "n": 386,
+      "log10_dose_sd": 0.5757506124602034,
+      "constant_dose_aafe_test_median_oracle": 2.9535234456581496
+    }
+  },
+  "sigma_matching_beacon": {
+    "A_clint_only": {
+      "sigma_for_spearman_0_79": 0.34395742013668923,
+      "sigma_range_for_ci": [
+        0.29419268252502523,
+        0.4042337080499165
+      ],
+      "aafe_at_that_sigma": {
+        "bias_0.0": 1.8838006066515853,
+        "bias_0.3": 2.3620673991344137
+      },
+      "pair_accuracy_at_that_sigma": 0.936993783660792,
+      "sigma_for_aafe_2_4_no_bias": 0.4765012383715509,
+      "pair_accuracy_at_spearman_0_61": 0.8388217548292064
+    },
+    "A_clint_and_fu": {
+      "sigma_for_spearman_0_79": 0.34505700401118644,
+      "sigma_range_for_ci": [
+        0.2948998567139869,
+        0.4058021499897839
+      ],
+      "aafe_at_that_sigma": {
+        "bias_0.0": 1.8856226444383777,
+        "bias_0.3": 2.36262373457282
+      },
+      "pair_accuracy_at_that_sigma": 0.936903168485202,
+      "sigma_for_aafe_2_4_no_bias": 0.47583700060300355,
+      "pair_accuracy_at_spearman_0_61": 0.8388962933064835
+    },
+    "A_full_clint_only": {
+      "sigma_for_spearman_0_79": 0.35936833543135926,
+      "sigma_range_for_ci": [
+        0.3061802357060547,
+        0.42153750372727944
+      ],
+      "aafe_at_that_sigma": {
+        "bias_0.0": 1.9337610323387115,
+        "bias_0.3": 2.4048468550485445
+      },
+      "pair_accuracy_at_that_sigma": 0.9340295494464604,
+      "sigma_for_aafe_2_4_no_bias": 0.47511227113335963,
+      "pair_accuracy_at_spearman_0_61": 0.8347433655168065
+    },
+    "A_full_clint_and_fu": {
+      "sigma_for_spearman_0_79": 0.35841117664077526,
+      "sigma_range_for_ci": [
+        0.30664808956832007,
+        0.4225868740137559
+      ],
+      "aafe_at_that_sigma": {
+        "bias_0.0": 1.9335121760518892,
+        "bias_0.3": 2.4011914079528704
+      },
+      "pair_accuracy_at_that_sigma": 0.9339648990908985,
+      "sigma_for_aafe_2_4_no_bias": 0.4752267199281695,
+      "pair_accuracy_at_spearman_0_61": 0.8349516577525569
+    },
+    "B_abs_clint_only": {
+      "sigma_for_spearman_0_79": 0.2629055923862342,
+      "sigma_range_for_ci": [
+        0.22425301067391312,
+        0.3111030384889769
+      ],
+      "aafe_at_that_sigma": {
+        "bias_0.0": 5.185079960629753,
+        "bias_0.3": 26.989902109846525
+      },
+      "pair_accuracy_at_that_sigma": 0.8663173218384436,
+      "sigma_for_aafe_2_4_no_bias": 0.1419133563417151,
+      "pair_accuracy_at_spearman_0_61": 0.7705082253142173
+    },
+    "B_abs_clint_and_fu": {
+      "sigma_for_spearman_0_79": 0.21951387267047212,
+      "sigma_range_for_ci": [
+        0.1865920135520135,
+        0.26088323246645856
+      ],
+      "aafe_at_that_sigma": {
+        "bias_0.0": 5.528613870556677,
+        "bias_0.3": 29.384362553259464
+      },
+      "pair_accuracy_at_that_sigma": 0.8662270603231247,
+      "sigma_for_aafe_2_4_no_bias": 0.11363155278791076,
+      "pair_accuracy_at_spearman_0_61": 0.7705847053287933
+    }
+  },
+  "calibrated_aafe_at_spearman_0_79_config_A": 1.6679542261038354,
+  "potency_sweep": [
+    {
+      "potency_sd_log10": 0.0,
+      "config": "A",
+      "spearman_potency_fixed_vs_full": 1.0,
+      "p2_5": 1.0,
+      "p97_5": 1.0
+    },
+    {
+      "potency_sd_log10": 0.0,
+      "config": "A_full",
+      "spearman_potency_fixed_vs_full": 1.0,
+      "p2_5": 1.0,
+      "p97_5": 1.0
+    },
+    {
+      "potency_sd_log10": 0.0,
+      "config": "B_abs",
+      "spearman_potency_fixed_vs_full": 1.0,
+      "p2_5": 1.0,
+      "p97_5": 1.0
+    },
+    {
+      "potency_sd_log10": 0.25,
+      "config": "A",
+      "spearman_potency_fixed_vs_full": 0.872074594756893,
+      "p2_5": 0.8448727576526888,
+      "p97_5": 0.892893731779788
+    },
+    {
+      "potency_sd_log10": 0.25,
+      "config": "A_full",
+      "spearman_potency_fixed_vs_full": 0.8783414391834025,
+      "p2_5": 0.8539473808400189,
+      "p97_5": 0.8994736947896459
+    },
+    {
+      "potency_sd_log10": 0.25,
+      "config": "B_abs",
+      "spearman_potency_fixed_vs_full": 0.970708341111286,
+      "p2_5": 0.965052278328352,
+      "p97_5": 0.9755901892926433
+    },
+    {
+      "potency_sd_log10": 0.5,
+      "config": "A",
+      "spearman_potency_fixed_vs_full": 0.6625620626984428,
+      "p2_5": 0.6015151442339607,
+      "p97_5": 0.71310741359602
+    },
+    {
+      "potency_sd_log10": 0.5,
+      "config": "A_full",
+      "spearman_potency_fixed_vs_full": 0.6804736818555224,
+      "p2_5": 0.6227187527310227,
+      "p97_5": 0.7355513869225526
+    },
+    {
+      "potency_sd_log10": 0.5,
+      "config": "B_abs",
+      "spearman_potency_fixed_vs_full": 0.8978423120619441,
+      "p2_5": 0.8753009980249246,
+      "p97_5": 0.9157073392410817
+    },
+    {
+      "potency_sd_log10": 0.75,
+      "config": "A",
+      "spearman_potency_fixed_vs_full": 0.5114458246907653,
+      "p2_5": 0.42810889840106314,
+      "p97_5": 0.5946641245245664
+    },
+    {
+      "potency_sd_log10": 0.75,
+      "config": "A_full",
+      "spearman_potency_fixed_vs_full": 0.5269575341268594,
+      "p2_5": 0.44941727404610843,
+      "p97_5": 0.5975925925925926
+    },
+    {
+      "potency_sd_log10": 0.75,
+      "config": "B_abs",
+      "spearman_potency_fixed_vs_full": 0.8090341223148586,
+      "p2_5": 0.7755924090678693,
+      "p97_5": 0.8423671368395295
+    },
+    {
+      "potency_sd_log10": 1.0,
+      "config": "A",
+      "spearman_potency_fixed_vs_full": 0.4102030738898536,
+      "p2_5": 0.3171907562065467,
+      "p97_5": 0.5000853610398126
+    },
+    {
+      "potency_sd_log10": 1.0,
+      "config": "A_full",
+      "spearman_potency_fixed_vs_full": 0.4208580686207681,
+      "p2_5": 0.3293305192875745,
+      "p97_5": 0.5068203205565169
+    },
+    {
+      "potency_sd_log10": 1.0,
+      "config": "B_abs",
+      "spearman_potency_fixed_vs_full": 0.7230058448254767,
+      "p2_5": 0.6717031618688061,
+      "p97_5": 0.769139968189048
+    }
+  ]
+}
