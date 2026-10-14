@@ -1,0 +1,125 @@
+{
+  "ai_success": 4,
+  "ai_n": 10,
+  "ai_rate": 0.4,
+  "ai_ci95_clopper_pearson": [
+    0.12155225811982717,
+    0.7376219233930549
+  ],
+  "baseline": 0.289,
+  "exact_binomial_p_vs_baseline": 0.48849967383330206,
+  "power_with_n10_by_true_rate": {
+    "0.35": 0.09493408017324216,
+    "0.40": 0.1662386176,
+    "0.45": 0.2615627007544922,
+    "0.50": 0.3769531249999999,
+    "0.55": 0.50440459165293,
+    "0.60": 0.6331032575999995
+  },
+  "required_n": [
+    {
+      "true_ai_rate": 0.35,
+      "n_one_sample_vs_fixed_baseline": 470,
+      "n_first_reaching_80": 446,
+      "n_ai_comparator_5x": 542,
+      "n_ai_comparator_30x": 463,
+      "n_per_group_vs_matched_comparator": 917,
+      "n_one_sample_design_effect_1.5": 705,
+      "n_one_sample_design_effect_2.0": 940
+    },
+    {
+      "true_ai_rate": 0.4,
+      "n_one_sample_vs_fixed_baseline": 155,
+      "n_first_reaching_80": 136,
+      "n_ai_comparator_5x": 168,
+      "n_ai_comparator_30x": 143,
+      "n_per_group_vs_matched_comparator": 287,
+      "n_one_sample_design_effect_1.5": 233,
+      "n_one_sample_design_effect_2.0": 310
+    },
+    {
+      "true_ai_rate": 0.45,
+      "n_one_sample_vs_fixed_baseline": 74,
+      "n_first_reaching_80": 67,
+      "n_ai_comparator_5x": 82,
+      "n_ai_comparator_30x": 69,
+      "n_per_group_vs_matched_comparator": 140,
+      "n_one_sample_design_effect_1.5": 111,
+      "n_one_sample_design_effect_2.0": 148
+    },
+    {
+      "true_ai_rate": 0.5,
+      "n_one_sample_vs_fixed_baseline": 43,
+      "n_first_reaching_80": 41,
+      "n_ai_comparator_5x": 48,
+      "n_ai_comparator_30x": 41,
+      "n_per_group_vs_matched_comparator": 84,
+      "n_one_sample_design_effect_1.5": 65,
+      "n_one_sample_design_effect_2.0": 86
+    },
+    {
+      "true_ai_rate": 0.55,
+      "n_one_sample_vs_fixed_baseline": 29,
+      "n_first_reaching_80": 25,
+      "n_ai_comparator_5x": 32,
+      "n_ai_comparator_30x": 27,
+      "n_per_group_vs_matched_comparator": 55,
+      "n_one_sample_design_effect_1.5": 44,
+      "n_one_sample_design_effect_2.0": 58
+    },
+    {
+      "true_ai_rate": 0.6,
+      "n_one_sample_vs_fixed_baseline": 19,
+      "n_first_reaching_80": 19,
+      "n_ai_comparator_5x": 23,
+      "n_ai_comparator_30x": 19,
+      "n_per_group_vs_matched_comparator": 39,
+      "n_one_sample_design_effect_1.5": 29,
+      "n_one_sample_design_effect_2.0": 38
+    }
+  ],
+  "n_equivalence_margin_10pt": 176,
+  "min_n_rule": "smallest n whose exact power stays >= 80% for that n and the next 9 values (exact tests saw-tooth)",
+  "ci_at_40pct_by_n": [
+    {
+      "n": 10,
+      "k": 4,
+      "lo": 0.12155225811982717,
+      "hi": 0.7376219233930549
+    },
+    {
+      "n": 20,
+      "k": 8,
+      "lo": 0.1911900607253072,
+      "hi": 0.6394574126925103
+    },
+    {
+      "n": 30,
+      "k": 12,
+      "lo": 0.2265576488285936,
+      "hi": 0.5939650699481813
+    },
+    {
+      "n": 50,
+      "k": 20,
+      "lo": 0.2640783950945368,
+      "hi": 0.5482059715208196
+    },
+    {
+      "n": 100,
+      "k": 40,
+      "lo": 0.30329476870287747,
+      "hi": 0.502790849577665
+    },
+    {
+      "n": 200,
+      "k": 80,
+      "lo": 0.3315462637356393,
+      "hi": 0.47146432720295395
+    }
+  ],
+  "notes": [
+    "exact binomial (Clopper-Pearson / binomtest); two-sample n uses the normal approximation",
+    "design effect multiplies n for clustered programmes; values are illustrative"
+  ]
+}

@@ -1,0 +1,7 @@
+true_ai_rate,n_one_sample_vs_fixed_baseline,n_first_reaching_80,n_ai_comparator_5x,n_ai_comparator_30x,n_per_group_vs_matched_comparator,n_one_sample_design_effect_1.5,n_one_sample_design_effect_2.0
+0.35,470,446,542,463,917,705,940
+0.4,155,136,168,143,287,233,310
+0.45,74,67,82,69,140,111,148
+0.5,43,41,48,41,84,65,86
+0.55,29,25,32,27,55,44,58
+0.6,19,19,23,19,39,29,38
