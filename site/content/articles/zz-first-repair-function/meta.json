@@ -1,0 +1,20 @@
+{
+  "source_language": "ja",
+  "category": "essay",
+  "date": "2026-11-30",
+  "publish_at": "2026-11-30T09:00:00+09:00",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "DNA修復遺伝子が下がれば、PARP阻害薬は効きやすくなるのか",
+      "summary": "ZZ-FIRSTの公開発現データ12患者ペアを追加解析。修復と細胞周期の転写変化、RAD51の機能評価、併用の臨床的利益を分けて考える。"
+    }
+  },
+  "english": {
+    "title": "Does lower DNA repair gene expression imply greater PARP inhibitor sensitivity?",
+    "summary": "An exploratory analysis of 12 paired ZZ-FIRST biopsies distinguishes transcriptional repair and cell-cycle programs from functional markers and the incremental clinical benefit of PARP inhibition."
+  }
+}
