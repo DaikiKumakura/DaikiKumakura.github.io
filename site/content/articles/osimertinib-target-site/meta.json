@@ -1,0 +1,20 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2026-12-04",
+  "publish_at": "2026-12-04T09:00:00+09:00",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "オシメルチニブの血漿曝露と腫瘍内結合",
+      "summary": "公開PBPKを移植して80 mgと160 mgを比較。血漿・肺腫瘍量・可逆結合を分け、吸収式と組織分配の仮定を監査する。臨床的な増量判断には外挿しない。"
+    }
+  },
+  "english": {
+    "title": "Can osimertinib plasma exposure establish tumor target inhibition?",
+    "summary": "An independent implementation audits public target-site PBPK equations. Conditional dose comparisons distinguish plasma, modeled lung-tumor amounts and reversible binding states. Absorption conventions are examined without claiming clinical validation or dose selection."
+  }
+}
