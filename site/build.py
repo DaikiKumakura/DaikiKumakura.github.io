@@ -65,8 +65,13 @@ def validate_site(site):
         if row['category'] not in UI['en']['activity_types']:raise ValueError('Unknown activity category')
     for row in site['publications']:
         if row['kind'] not in UI['en']['publication_types']:raise ValueError('Unknown publication kind')
+    topic_slugs=[]
     for topic in site.get('analysis_topics',[]):
         if not topic.get('label') or not topic.get('articles'):raise ValueError('Invalid analysis topic')
+        if 'slug' in topic:
+            if not re.fullmatch(r'[a-z0-9]+(?:-[a-z0-9]+)*',topic['slug']) or not topic.get('description'):raise ValueError('A topic page needs a lowercase-hyphenated slug and a description: '+topic['label'])
+            topic_slugs.append(topic['slug'])
+    if len(topic_slugs)!=len(set(topic_slugs)):raise ValueError('Duplicate topic slug')
 
 
 def fingerprint(folder, meta):
@@ -270,8 +275,28 @@ def build(project=BASE, preview=False, strict_translations=False):
         return dict(title=m['locales'][m['source_language']]['title'],lang=m['source_language'],note='in Japanese' if m['source_language']=='ja' else '',href=f"writing/{a['slug']}.html")
     published={a['slug']:profile_link(a) for a in entries}
     # Unpublished or scheduled articles are left out until they are live.
-    analyses=[dict(label=t['label'],articles=[published[s] for s in t['articles'] if s in published]) for t in site.get('analysis_topics',[])]
+    hubs={}
+    for t in site.get('analysis_topics',[]):
+        live=[x for x in t['articles'] if x in published]
+        if live and t.get('slug'):hubs[t['slug']]=dict(label=t['label'],slug=t['slug'],href=f"topics/{t['slug']}.html",description=t['description'],articles=live)
+    analyses=[dict(label=t['label'],href=(f"topics/{t['slug']}.html" if t.get('slug') in hubs else None),articles=[published[s] for s in t['articles'] if s in published]) for t in site.get('analysis_topics',[])]
     analyses=[t for t in analyses if t['articles']]
+    def article_hubs(slug):
+        return [dict(label=h['label'],href='../'+h['href']) for h in hubs.values() if slug in h['articles']]
+    def article_topics(slug):
+        return [h['label'] for h in hubs.values() if slug in h['articles']]
+    def shown(a):
+        """How a topic page presents an article: English title and summary when they exist.
+
+        lang describes the title and summary; findings_lang describes the key findings."""
+        m=a['meta']; src=m['source_language']
+        if src!='en' and 'en' in m['locales']:
+            loc=m['locales']['en']
+            return dict(title=loc['title'],summary=loc['summary'],findings=loc.get('key_findings',[]),href=f"writing/{a['slug']}-en.html",lang='en',findings_lang='en',note='English translation of a Japanese article',date=m['date'],category=m['category'])
+        loc=m['locales'][src]; english=m.get('english')
+        return dict(title=(english or loc)['title'],summary=(english or loc)['summary'],findings=loc.get('key_findings',[]),href=f"writing/{a['slug']}.html",lang='en' if english else src,findings_lang=src,note='article in Japanese' if src=='ja' else '',date=m['date'],category=m['category'])
+    def cite_text(m,title,file):
+        return f"Kumakura, D. ({m['date'][:4]}). {title}. daikikumakura.github.io. {SITE_URL}writing/{file}"
     def related(slug, limit=5):
         # Other live articles that share an analysis topic, in topic order.
         seen=[]
@@ -281,13 +306,13 @@ def build(project=BASE, preview=False, strict_translations=False):
         # Related links point to each original article, titled in its own language.
         source={a['slug']:a['meta'] for a in entries}
         return [dict(href=f"{s}.html",title=source[s]['locales'][source[s]['source_language']]['title'],lang=source[s]['source_language']) for s in seen[:limit]]
-    def output(name,page,lang='en',article=None,og_image=None):
+    def output(name,page,lang='en',article=None,og_image=None,topics=None):
         canonical=SITE_URL if name in ('index.html','home.html') else SITE_URL+name
-        page=enrich(page,name,site,SITE_URL,article,og_image)
+        page=enrich(page,name,site,SITE_URL,article,og_image,topics)
         page=page.replace('</head>',f'<link rel="canonical" href="{canonical}">\n</head>')
         outputs[name]=page.encode('utf-8')
     for key,title in NAV.items():
-        page=env.get_template('page.html').render(site=site,lang='en',ui=ui,preview=preview,active=key,root='',alternatives={},title=site['name'] if key=='home' else title,description=site['profile'],math=False,articles=listings,recent=listings[:RECENT_ON_HOME],working_papers=[a for a in listings if a['category']=='paper'],analyses=analyses,illustration_alt=ILLUSTRATION_ALT[key])
+        page=env.get_template('page.html').render(site=site,lang='en',ui=ui,preview=preview,active=key,root='',alternatives={},title=site['name'] if key=='home' else title,description=site['profile'],math=False,articles=listings,recent=listings[:RECENT_ON_HOME],working_papers=[a for a in listings if a['category']=='paper'],analyses=analyses,hubs=list(hubs.values()),illustration_alt=ILLUSTRATION_ALT[key])
         output(key+'.html',page)
         if key=='home':outputs['index.html']=outputs['home.html']
     for a in entries:
@@ -301,11 +326,15 @@ def build(project=BASE, preview=False, strict_translations=False):
         for language in m['locales']:
             body,toc=render_body(a,language)
             body=add_image_attributes(body,a)
-            page=env.get_template('article.html').render(site=site,lang=language,ui=ui,preview=preview,active='writing',root='../',alternatives=alternatives,title=m['locales'][language]['title'],description=m['locales'][language]['summary'],math=m.get('math',False),author=m.get('author',site['name']),date=m['date'],category=m['category'],version=m.get('version',''),draft=m['draft'],stale=a['stale'][language],body=body,toc=toc,key_findings=m['locales'][language].get('key_findings',[]),english=m.get('english') if language!='en' and 'en' not in m['locales'] else None,related=related(a['slug']))
-            output('writing/'+alternatives[language],page,language,m,og_card)
+            page=env.get_template('article.html').render(site=site,lang=language,ui=ui,preview=preview,active='writing',root='../',alternatives=alternatives,title=m['locales'][language]['title'],description=m['locales'][language]['summary'],math=m.get('math',False),author=m.get('author',site['name']),date=m['date'],category=m['category'],version=m.get('version',''),draft=m['draft'],stale=a['stale'][language],body=body,toc=toc,key_findings=m['locales'][language].get('key_findings',[]),english=m.get('english') if language!='en' and 'en' not in m['locales'] else None,related=related(a['slug']),hubs=article_hubs(a['slug']),cite=cite_text(m,m['locales'][language]['title'],alternatives[language]))
+            output('writing/'+alternatives[language],page,language,m,og_card,article_topics(a['slug']))
         for asset in (a['folder']/'shared').rglob('*'):
             if asset.is_file():outputs[f"writing/shared/{a['slug']}/{asset.relative_to(a['folder']/'shared').as_posix()}"]=asset.read_bytes()
-    canonical_pages=['index.html']+[key+'.html' for key in NAV if key!='home']+[name for name in outputs if name.startswith('writing/') and name.endswith('.html')]
+    for h in hubs.values():
+        items=[shown(a) for x in h['articles'] for a in entries if a['slug']==x]
+        page=env.get_template('topic.html').render(site=site,lang='en',ui=ui,preview=preview,active='writing',root='../',alternatives={},title=h['label'],description=h['description'],math=False,hub=h,items=items)
+        output(h['href'],page)
+    canonical_pages=['index.html']+[key+'.html' for key in NAV if key!='home']+[name for name in outputs if name.startswith(('writing/','topics/')) and name.endswith('.html')]
     if not preview:
         for old,new in LEGACY_REDIRECTS.items():
             if old in outputs:raise ValueError('Redirect would replace a page: '+old)
@@ -322,6 +351,8 @@ def build(project=BASE, preview=False, strict_translations=False):
     if entries:
         newest=max(a['meta'].get('updated') or a['meta']['date'] for a in entries)
         lastmod['index.html']=lastmod['writing.html']=newest
+    for h in hubs.values():
+        lastmod[h['href']]=max(a['meta'].get('updated') or a['meta']['date'] for a in entries if a['slug'] in h['articles'])
     def sitemap_url(p):
         tag='<url><loc>'+html.escape(SITE_URL if p=='index.html' else SITE_URL+p)+'</loc>'
         if p in lastmod:tag+='<lastmod>'+lastmod[p]+'</lastmod>'
@@ -331,7 +362,7 @@ def build(project=BASE, preview=False, strict_translations=False):
         outputs['feed.xml']=atom_feed(site,entries)
     outputs['robots.txt']=('User-agent: *\n'+('Disallow: /\n' if preview else 'Allow: /\nSitemap: '+SITE_URL+'sitemap.xml\nSitemap: '+SITE_URL+'feed.xml\n')).encode('utf-8')
     if not preview:
-        outputs['llms.txt']=llms_txt(site,entries)
+        outputs['llms.txt']=llms_txt(site,entries,list(hubs.values()))
     outputs['.nojekyll'] = b''
     # Only remove obsolete files that this builder previously generated.
     # Do not recursively delete directories or touch unrelated files.
@@ -355,23 +386,37 @@ def build(project=BASE, preview=False, strict_translations=False):
     manifest.write_text(json.dumps(sorted(outputs), indent=2), encoding='utf-8')
     return dict(files=len(outputs), articles=len(entries), warnings=warnings, seo_warnings=seo_warnings(entries, site['name']))
 
-def llms_txt(site, entries):
-    """Plain-text site guide (llmstxt.org format) listing pages and live articles."""
-    lines=['# '+site['name']+' ('+site['alternate_name']+')','','> '+site['profile'],'',site['expertise'],'','## Pages','']
-    for key,label in NAV.items():
-        page=SITE_URL if key=='home' else SITE_URL+key+'.html'
+def llms_txt(site, entries, hubs=()):
+    """Plain-text site guide (llmstxt.org format) for language models and agents.
+
+    It restates the third-person summary, the identities that belong to the same person,
+    the topic pages, and every live article with its key findings."""
+    names = ', '.join(site.get('alternate_names', [site['alternate_name']]))
+    lines = ['# ' + site['name'] + ' (' + site['alternate_name'] + ')', '', '> ' + site.get('bio', site['profile']), '',
+             'Also written as: ' + names + '. All analyses use public data or simulation only and are not clinical or regulatory work.', '',
+             '## Identity', '',
+             f"- ORCID: {site['orcid']}", f"- Google Scholar: {site['scholar']}", f"- GitHub: {site['github']}", f"- Qiita: {site['qiita']}", f"- LinkedIn: {site['linkedin']}", '',
+             '## Pages', '']
+    for key, label in NAV.items():
+        page = SITE_URL if key == 'home' else SITE_URL + key + '.html'
         lines.append(f'- [{label}]({page})')
-    lines+=['','## Writing','']
+    if hubs:
+        lines += ['', '## Topics', '']
+        lines += [f"- [{h['label']}]({SITE_URL}{h['href']}): {h['description']}" for h in hubs]
+    lines += ['', '## Writing', '']
     for a in entries:
-        m=a['meta']; loc=m['locales'][m['source_language']]; english=m.get('english')
-        if m['source_language']!='en' and 'en' in m['locales']:
-            en=m['locales']['en']
+        m = a['meta']; loc = m['locales'][m['source_language']]; english = m.get('english')
+        if m['source_language'] != 'en' and 'en' in m['locales']:
+            en = m['locales']['en']
             lines.append(f"- [{en['title']}]({SITE_URL}writing/{a['slug']}-en.html) (English translation; original in Japanese: {SITE_URL}writing/{a['slug']}.html): {en['summary']}")
-            continue
-        title=english['title'] if english else loc['title']; summary=english['summary'] if english else loc['summary']
-        note=' (article in Japanese)' if m['source_language']=='ja' else ''
-        lines.append(f"- [{title}]({SITE_URL}writing/{a['slug']}.html){note}: {summary}")
-    return ('\n'.join(lines)+'\n').encode('utf-8')
+            findings = en.get('key_findings', [])
+        else:
+            title = english['title'] if english else loc['title']; summary = english['summary'] if english else loc['summary']
+            note = ' (article in Japanese)' if m['source_language'] == 'ja' else ''
+            lines.append(f"- [{title}]({SITE_URL}writing/{a['slug']}.html){note}: {summary}")
+            findings = loc.get('key_findings', []) if m['source_language'] == 'en' else []
+        lines += ['  - Key finding: ' + f for f in findings]
+    return ('\n'.join(lines) + '\n').encode('utf-8')
 
 def atom_time(meta):
     if meta.get('updated'):

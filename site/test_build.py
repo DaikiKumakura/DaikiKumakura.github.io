@@ -246,6 +246,30 @@ class BuildTests(unittest.TestCase):
   mp,m=self.meta('logistic-example');m['locales']['ja']['seo_title']=' ';mp.write_text(json.dumps(m),encoding='utf-8')
   with self.assertRaisesRegex(ValueError,'seo_title'):build.load_articles(self.root/'content',preview=True)
 
+ def test_topic_pages_hubs_citation_and_llms(self):
+  p=self.root/'content/site.json';site=build.read_json(p)
+  site['analysis_topics']=[{'label':'Example topic','slug':'example-topic','description':'About the example topic.','articles':['logistic-example','japanese-note']},
+                           {'label':'Hidden topic','slug':'hidden','description':'Nothing is live here.','articles':['missing-article']}]
+  p.write_text(json.dumps(site),encoding='utf-8')
+  for slug in ('logistic-example','japanese-note'):
+   mp,m=self.meta(slug);m['draft']=False;mp.write_text(json.dumps(m),encoding='utf-8')
+  build.build(self.root)
+  hub=self.text('topics/example-topic.html')
+  self.assertIn('About the example topic.',hub);self.assertIn('writing/logistic-example-en.html',hub)
+  self.assertIn('CollectionPage',hub);self.assertIn('BreadcrumbList',hub)
+  self.assertFalse((self.root/'dist/topics/hidden.html').exists())
+  self.assertIn('topics/example-topic.html',self.text('sitemap.xml'));self.assertNotIn('topics/hidden.html',self.text('sitemap.xml'))
+  self.assertIn('href="topics/example-topic.html"',self.text('profile.html'));self.assertIn('By topic',self.text('writing.html'))
+  article=self.text('writing/japanese-note.html')
+  self.assertIn('href="../topics/example-topic.html"',article);self.assertIn('Kumakura, D. (2026). ',article);self.assertIn('Cite this article',article) if 'lang="en"' in article.split('<article')[1][:60] else self.assertIn('引用',article)
+  llms=self.text('llms.txt')
+  for expected in ('## Topics','## Identity','Kumakura Daiki','Example topic'):self.assertIn(expected,llms)
+ def test_topic_slug_is_validated(self):
+  p=self.root/'content/site.json';site=build.read_json(p)
+  site['analysis_topics']=[{'label':'A','slug':'Bad Slug','description':'d','articles':['logistic-example']}]
+  p.write_text(json.dumps(site),encoding='utf-8')
+  with self.assertRaisesRegex(ValueError,'slug'):build.build(self.root,preview=True)
+
 if __name__=='__main__':unittest.main()
 
 

@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<article class="prose">
+<nav class="crumbs meta" aria-label="Breadcrumb" lang="en"><a href="{{ root }}index.html">Home</a> › <a href="{{ root }}writing.html">Writing</a> › {{ hub.label }}</nav>
+<h1>{{ hub.label }}</h1>
+<p class="lead">{{ hub.description }}</p>
+{% for a in items %}<section class="record"><p class="meta">{{ ui.categories[a.category] }} · {{ a.date }}{% if a.note %} · {{ a.note }}{% endif %}</p><h2 class="record-title"><a href="{{ root }}{{ a.href }}" lang="{{ a.lang }}">{{ a.title }}</a></h2><p lang="{{ a.lang }}">{{ a.summary }}</p>{% if a.findings %}<ul lang="{{ a.findings_lang }}">{% for f in a.findings %}<li>{{ f }}</li>{% endfor %}</ul>{% endif %}</section>{% endfor %}
+<p><a href="{{ root }}writing.html">All writing</a> · <a href="{{ root }}profile.html#selected-analyses">Selected analyses</a></p>
+</article>
+{% endblock %}

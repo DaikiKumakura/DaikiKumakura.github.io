@@ -57,7 +57,9 @@
         "tarlatamab-summary-pk",
         "tcell-engager-regimen-design",
         "tcell-engager-decision-framework"
-      ]
+      ],
+      "slug": "population-pk-dosing-interval",
+      "description": "Published population PK models are reconstructed, and summary or individual concentration data are fitted, to compare exposure when the dose, the interval or the step-up schedule changes: the bispecific T-cell engagers mosunetuzumab and tarlatamab, and nimotuzumab. Each note states what public data can and cannot support."
     },
     {
       "label": "PK/PD and target engagement",
@@ -65,15 +67,20 @@
         "warfarin-pkpd",
         "er-protac-pkpd",
         "ras-inhibitor-target-coverage"
-      ]
+      ],
+      "slug": "pk-pd-target-engagement",
+      "description": "Minimal PK/PD models link concentration to a pharmacodynamic response (warfarin prothrombin complex activity, ER degradation by a PROTAC, RAS-pathway inhibition) and ask how effect delay, target turnover and exposure at the site of action change comparisons of dosing frequency."
     },
     {
       "label": "Dose selection and benefit–risk",
       "articles": [
         "sotorasib-dose-comparison",
         "b7h3-adc-dose-information",
-        "treatment-duration-benefit-risk"
-      ]
+        "treatment-duration-benefit-risk",
+        "borrowing-prior-dose-selection"
+      ],
+      "slug": "dose-selection-benefit-risk",
+      "description": "Dose-comparison and treatment-duration trials read as evidence for choosing a dose: how conclusions change with the weight on benefit and harm, what another comparison would be worth, and how far a prior dose comparison can be borrowed for a new drug."
     },
     {
       "label": "Tumor dynamics and survival",
@@ -82,14 +89,27 @@
         "tumor-kinetics-landmark",
         "tumor-dropout-sensitivity",
         "psa-early-observation"
-      ]
+      ],
+      "slug": "tumor-dynamics-survival",
+      "description": "Early tumor measurements and PSA kinetics used to predict later outcomes with patients kept apart between training and test data, with attention to dropout, information time and simple benchmarks such as the last observed value."
     },
     {
       "label": "Immune biomarkers and treatment response",
       "articles": [
         "on-treatment-immune-change",
         "immune-outcome-validation"
-      ]
+      ],
+      "slug": "immune-biomarkers-response",
+      "description": "Fixed, low-dimensional immune-expression scores in public checkpoint-inhibitor cohorts: whether they change on treatment, whether they add information about response, and how far predictions transport to another cohort."
+    },
+    {
+      "label": "Evaluating AI and virtual-cell claims",
+      "articles": [
+        "ai-drug-discovery-bottlenecks",
+        "virtual-cell-target-evaluation"
+      ],
+      "slug": "ai-drug-discovery-evidence",
+      "description": "Essays (in Japanese) on which parts of AI drug-discovery and virtual-cell claims rest on measured evidence: separating experimental throughput, published results and clinical transition, and what evaluation metrics reward."
     }
   ],
   "thesis": {
@@ -2355,5 +2375,12 @@
       "description": "Improves warnings for conflicting upper- and lower-case NMTRAN column names without changing data conversion behavior. Adds regression tests for the warning and preservation of input values.",
       "validation": "Source build and 224 expectations across four relevant test files passed locally on Windows. Upstream review and CI are pending; this change has not been merged."
     }
+  ],
+  "bio": "Daiki Kumakura (熊倉大騎) is a mathematical biologist and bioinformatics researcher in the pharmaceutical industry, with a Ph.D. in Life Science from Hokkaido University (2025) and earlier work at RIKEN iTHEMS. The work applies mathematical modeling and statistical inference to dynamic systems. In personal technical notes based only on public data and simulation, it applies population PK, PK/PD, exposure–response and tumor-dynamics models to dose and regimen questions.",
+  "alternate_names": [
+    "熊倉大騎",
+    "Kumakura Daiki",
+    "熊倉 大騎",
+    "クマクラ ダイキ"
   ]
 }

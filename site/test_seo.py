@@ -83,6 +83,51 @@ class MetadataTests(unittest.TestCase):
         untouched = enrich(page, 'writing/x.html', site, 'https://daikikumakura.github.io/', {'date': '2026-10-01', 'locales': {'en': {'title': 'x', 'summary': 'y'}}})
         self.assertIn('<title>A very long research question about dosing | Daiki Kumakura</title>', untouched)
 
+    def test_person_has_every_name_and_a_third_person_description(self):
+        site = json.loads((Path(__file__).parent/'content/site.json').read_text(encoding='utf-8'))
+        result = enrich('<head><title>Profile | Daiki Kumakura</title><meta name="description" content="x"></head>', 'profile.html', site, 'https://daikikumakura.github.io/')
+        person = json.loads(result.split('application/ld+json">')[1].split('</script>')[0])['mainEntity']
+        self.assertIn('Kumakura Daiki', person['alternateName'])
+        self.assertIn('熊倉大騎', person['alternateName'])
+        self.assertTrue(person['description'].startswith('Daiki Kumakura'))
+        self.assertEqual(person['identifier']['value'], '0000-0001-9859-0720')
+        self.assertEqual(person['knowsLanguage'], ['ja', 'en'])
+
+    def test_translated_pair_gets_x_default_and_author(self):
+        site = json.loads((Path(__file__).parent/'content/site.json').read_text(encoding='utf-8'))
+        page = '<html lang="en"><head><title>T</title><meta name="description" content="d"><link rel="alternate" hreflang="ja" href="x.html"><link rel="alternate" hreflang="en" href="x-en.html"></head></html>'
+        result = enrich(page, 'writing/x-en.html', site, 'https://daikikumakura.github.io/', {'date': '2026-10-01'})
+        self.assertIn('hreflang="x-default" href="https://daikikumakura.github.io/writing/x-en.html"', result)
+        self.assertIn('<meta name="author" content="Daiki Kumakura">', result)
+        single = enrich('<html lang="en"><head><title>T</title><meta name="description" content="d"><link rel="alternate" hreflang="en" href="y.html"></head></html>', 'writing/y.html', site, 'https://daikikumakura.github.io/', {'date': '2026-10-01'})
+        self.assertNotIn('x-default', single)
+
+    def test_article_schema_names_topics_and_free_access(self):
+        site = json.loads((Path(__file__).parent/'content/site.json').read_text(encoding='utf-8'))
+        result = enrich('<head><title>T | Daiki Kumakura</title><meta name="description" content="d"></head>', 'writing/x.html', site, 'https://daikikumakura.github.io/', {'date': '2026-10-01'}, None, ['Topic A'])
+        article = json.loads(result.split('application/ld+json">')[1].split('</script>')[0])
+        self.assertTrue(article['isAccessibleForFree'])
+        self.assertEqual(article['keywords'], ['Topic A'])
+        self.assertEqual(article['publisher'], {'@id': 'https://daikikumakura.github.io/#person'})
+
+    def test_publications_are_scholarly_articles_with_doi(self):
+        site = json.loads((Path(__file__).parent/'content/site.json').read_text(encoding='utf-8'))
+        result = enrich('<head><title>Publication | Daiki Kumakura</title><meta name="description" content="x"></head>', 'publication.html', site, 'https://daikikumakura.github.io/')
+        items = json.loads(result.split('application/ld+json">')[1].split('</script>')[0])['mainEntity']['itemListElement']
+        self.assertEqual(len(items), len(site['publications']))
+        for entry in items:
+            self.assertIn(entry['item']['@type'], ('ScholarlyArticle', 'Thesis'))
+            self.assertEqual(entry['item']['identifier']['propertyID'], 'DOI')
+            self.assertTrue(entry['item']['datePublished'].isdigit())
+
+    def test_topic_page_schema(self):
+        site = json.loads((Path(__file__).parent/'content/site.json').read_text(encoding='utf-8'))
+        result = enrich('<html lang="en"><head><title>Example topic | Daiki Kumakura</title><meta name="description" content="About it."></head></html>', 'topics/example.html', site, 'https://daikikumakura.github.io/')
+        blobs = [json.loads(b.split('</script>')[0]) for b in result.split('application/ld+json">')[1:]]
+        self.assertEqual([b['@type'] for b in blobs], ['CollectionPage', 'BreadcrumbList'])
+        self.assertEqual(blobs[0]['name'], 'Example topic')
+        self.assertEqual(blobs[1]['itemListElement'][2]['item'], 'https://daikikumakura.github.io/topics/example.html')
+
 if __name__ == '__main__':
     unittest.main()
 
