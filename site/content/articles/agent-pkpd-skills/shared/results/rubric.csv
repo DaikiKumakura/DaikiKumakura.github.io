@@ -1,0 +1,20 @@
+item,description,S1,S2,N1,N2,note
+a1,2 subjects without baseline PCA (IDs 1 and 7),yes,yes,yes,yes,
+a2,4 zero concentrations at 0.5 h,yes,yes,yes,yes,S2 kept as observations; S1/N1/N2 excluded (M1)
+a3,duplicate concentration records in ID 9,yes,yes,yes,yes,
+a4,apparent CL/F and V/F stated (F unknown),yes,yes,no,no,N1/N2 reported CL and V without the /F label
+b1,1-compartment first-order absorption or justified alternative,yes,yes,yes,yes (2-cmt + lag),all four added an absorption lag with between-subject variability
+b2,NLME estimation,yes,yes,yes,yes,nlmixr2 in all runs
+b3,CL/F within 20% of 0.134 L/h and V/F within 20% of 7.84 L,yes,yes,yes,yes (V1 + Vp = 8.06 L of a 2-cmt model),"reference = allometric model (CL/F 0.136, V/F 7.92)"
+b4,uncertainty reported,bootstrap 100,bootstrap 100 (98 used),bootstrap 60 (SAEM),sandwich only,
+c1,recognises the concentration-response delay,yes,yes,yes,yes,
+c2,turnover or effect-compartment model,turnover,turnover + Hill,turnover,turnover + Hill,
+c3,compared with a direct model,yes,yes,no (effect compartment only),yes,
+c4,IC50 and delay parameter reported,yes,yes,yes,yes,
+d1,subject-level held-out evaluation,8-fold,LOSO,LOSO,LOSO,
+d2,only PK at or before 24 h; PCA scored after 24 h,yes,yes,yes,yes,cutoff checked in code; S1 folds 2 and 6 PK refits did not move from initial values (full-data estimates); S2 LOSO refits not checked for movement
+d3,conclusion,no improvement,no improvement,no improvement,no improvement,reference: no consistent improvement
+e1,diagnostics (GOF/VPC/shrinkage),yes,yes,yes,yes,
+e2,limitations incl. not INR or dosing,partial,yes,yes,yes,S1 did not state the INR/dosing scope
+e3,problems found on inspection,two numbers from a deleted script (disclosed); 2 of 8 CV PK refits did not move (not noticed),own transit-model implementation error (caught and discarded); 'lag' models pk2-pk5 had no lag (linCmt ignores tlag; not noticed),FOCEi point estimates outside the SAEM bootstrap interval for two parameters (disclosed),no bootstrap; pooled RMSE driven by one subject (disclosed),
+e4,scripts re-run by the author,not re-run,not re-run,not re-run,not re-run,not re-run (deviation from plan); report numbers matched each run's output files
