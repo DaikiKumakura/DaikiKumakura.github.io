@@ -61,6 +61,14 @@ def validate_site(site):
     for row in site['software']:
         for key in ('status','description','note'):
             if not isinstance(row.get(key),str) or not row[key]:raise ValueError('Missing software text')
+    software_slugs=[]
+    for row in site['software']:
+        if 'slug' in row:
+            summary=row.get('summary','')
+            if not re.fullmatch(r'[a-z0-9]+(?:-[a-z0-9]+)*',row['slug']) or not row.get('headline') or not 60<=len(summary)<=160:
+                raise ValueError('A software page needs a slug, a headline and a 60-160 character summary: '+row['id'])
+            software_slugs.append(row['slug'])
+    if len(software_slugs)!=len(set(software_slugs)):raise ValueError('Duplicate software slug')
     for row in site['activities']:
         if row['category'] not in UI['en']['activity_types']:raise ValueError('Unknown activity category')
     for row in site['publications']:
@@ -334,7 +342,12 @@ def build(project=BASE, preview=False, strict_translations=False):
         items=[shown(a) for x in h['articles'] for a in entries if a['slug']==x]
         page=env.get_template('topic.html').render(site=site,lang='en',ui=ui,preview=preview,active='writing',root='../',alternatives={},title=h['label'],description=h['description'],math=False,hub=h,items=items)
         output(h['href'],page)
-    canonical_pages=['index.html']+[key+'.html' for key in NAV if key!='home']+[name for name in outputs if name.startswith(('writing/','topics/')) and name.endswith('.html')]
+    for sw in site['software']:
+        if 'slug' not in sw:continue
+        related_live=[published[x] for x in sw.get('related_articles',[]) if x in published]
+        page=env.get_template('software-page.html').render(site=site,lang='en',ui=ui,preview=preview,active='software',root='../',alternatives={},title=sw['headline'],description=sw['summary'],math=False,sw=sw,related=related_live)
+        output(f"software/{sw['slug']}.html",page)
+    canonical_pages=['index.html']+[key+'.html' for key in NAV if key!='home']+[name for name in outputs if name.startswith(('writing/','topics/','software/')) and name.endswith('.html')]
     if not preview:
         for old,new in LEGACY_REDIRECTS.items():
             if old in outputs:raise ValueError('Redirect would replace a page: '+old)
@@ -403,6 +416,10 @@ def llms_txt(site, entries, hubs=()):
     if hubs:
         lines += ['', '## Topics', '']
         lines += [f"- [{h['label']}]({SITE_URL}{h['href']}): {h['description']}" for h in hubs]
+    pages = [x for x in site['software'] if 'slug' in x]
+    if pages:
+        lines += ['', '## Software', '']
+        lines += [f"- [{x['id']}]({SITE_URL}software/{x['slug']}.html): {x['summary']} Repository: {x['url']}" for x in pages]
     lines += ['', '## Writing', '']
     for a in entries:
         m = a['meta']; loc = m['locales'][m['source_language']]; english = m.get('english')

@@ -270,6 +270,21 @@ class BuildTests(unittest.TestCase):
   p.write_text(json.dumps(site),encoding='utf-8')
   with self.assertRaisesRegex(ValueError,'slug'):build.build(self.root,preview=True)
 
+ def test_software_pages(self):
+  build.build(self.root)
+  site=build.read_json(self.root/'content/site.json')
+  for sw in site['software']:
+   url='software/'+sw['slug']+'.html'
+   page=self.text(url)
+   for expected in (sw['id'],sw['url'],'SoftwareSourceCode','BreadcrumbList',sw['summary']):self.assertIn(expected,page,url)
+   self.assertIn(url,self.text('software.html'));self.assertIn(url,self.text('sitemap.xml'))
+   self.assertIn(sw['id'],self.text('llms.txt'))
+  self.assertIn('remotes::install_github',self.text('software/pkident.html'))
+ def test_software_page_needs_a_summary_of_search_length(self):
+  p=self.root/'content/site.json';site=build.read_json(p)
+  site['software'][0]['summary']='Too short.';p.write_text(json.dumps(site),encoding='utf-8')
+  with self.assertRaisesRegex(ValueError,'software page'):build.build(self.root,preview=True)
+
 if __name__=='__main__':unittest.main()
 
 

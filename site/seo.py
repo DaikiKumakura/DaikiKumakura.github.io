@@ -93,6 +93,9 @@ def enrich(page, name, site, site_url, article=None, og_image=None, topics=None)
   schema={'@context':'https://schema.org','@type':'CollectionPage','url':canonical,'name':'Software | '+site['name'],'about':person,'mainEntity':{'@type':'ItemList','itemListElement':works}}
  elif name.startswith('topics/'):
   schema={'@context':'https://schema.org','@type':'CollectionPage','url':canonical,'name':headline,'description':description,'inLanguage':'en','about':person,'isPartOf':{'@type':'WebSite','@id':site_url+'#website','url':site_url}}
+ elif name.startswith('software/'):
+  sw=next((x for x in site['software'] if x.get('slug')==key.split('/',1)[1]),None)
+  if sw:schema={'@context':'https://schema.org','@type':'SoftwareSourceCode','@id':canonical+'#software','url':canonical,'name':sw['id'],'description':sw['summary'],'codeRepository':sw['url'],'programmingLanguage':sw['tech'],'author':person,'isAccessibleForFree':True}
  elif key in ('writing','activity'):
   schema={'@context':'https://schema.org','@type':'CollectionPage','url':canonical,'name':title,'about':person}
  if schema:metadata.append('<script type="application/ld+json">'+json.dumps(schema,ensure_ascii=False).replace('<','\\u003c')+'</script>')
@@ -101,6 +104,9 @@ def enrich(page, name, site, site_url, article=None, og_image=None, topics=None)
   metadata.append('<script type="application/ld+json">'+json.dumps(crumbs,ensure_ascii=False).replace('<','\\u003c')+'</script>')
  if name.startswith('topics/'):
   crumbs={'@context':'https://schema.org','@type':'BreadcrumbList','itemListElement':[{'@type':'ListItem','position':1,'name':'Home','item':site_url},{'@type':'ListItem','position':2,'name':'Writing','item':site_url+'writing.html'},{'@type':'ListItem','position':3,'name':headline,'item':canonical}]}
+  metadata.append('<script type="application/ld+json">'+json.dumps(crumbs,ensure_ascii=False).replace('<','\\u003c')+'</script>')
+ if name.startswith('software/') and schema:
+  crumbs={'@context':'https://schema.org','@type':'BreadcrumbList','itemListElement':[{'@type':'ListItem','position':1,'name':'Home','item':site_url},{'@type':'ListItem','position':2,'name':'Software','item':site_url+'software.html'},{'@type':'ListItem','position':3,'name':schema['name'],'item':canonical}]}
   metadata.append('<script type="application/ld+json">'+json.dumps(crumbs,ensure_ascii=False).replace('<','\\u003c')+'</script>')
  return page.replace('</head>','\n'.join(metadata)+'\n</head>')
 

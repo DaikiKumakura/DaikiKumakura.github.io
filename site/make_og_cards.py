@@ -4,7 +4,7 @@
     python site/make_og_cards.py --live         cards for every published article
     python site/make_og_cards.py slug [slug...] cards for the named articles
 
-An article card is the article's first figure fitted onto a white 1200x630 canvas,
+An article card is the article's first figure (or, without one, its title) on a white 1200x630 canvas,
 saved as content/articles/<slug>/og.png. The build publishes it as writing/og/<slug>.png
 only when the article itself is published. Needs Pillow; an SVG figure is rendered
 with Microsoft Edge (headless). This is not a build dependency.
@@ -95,11 +95,53 @@ def first_figure(folder, slug):
     return None
 
 
+def wrap(draw, text, fnt, limit):
+    """Break text into lines no wider than limit pixels; works for Japanese, which has no spaces."""
+    lines, line = [], ''
+    for word in re.split(r'(?<=[ ])', text) if ' ' in text and text.isascii() else list(text):
+        if draw.textlength(line + word, font=fnt) > limit and line:
+            lines.append(line.rstrip())
+            line = word.lstrip()
+        else:
+            line += word
+        if word in ('。', '：') and line.strip():  # break after a Japanese sentence end
+            lines.append(line.rstrip())
+            line = ''
+    return lines + [line.rstrip()] if line.strip() else lines
+
+
+def title_card(folder):
+    """Card with the article title for articles that have no figure."""
+    meta = json.loads((folder / 'meta.json').read_text(encoding='utf-8'))
+    title = meta['locales'][meta['source_language']]['title']
+    image = Image.new('RGB', SIZE, WHITE)
+    draw = ImageDraw.Draw(image)
+    draw.rectangle([0, 0, 24, SIZE[1]], fill=ACCENT)
+    size = 64
+    while True:
+        fnt = font(FONT_BOLD, size)
+        lines = wrap(draw, title, fnt, 1000)
+        if len(lines) <= 4 or size <= 40:
+            break
+        size -= 4
+    y = 315 - len(lines) * (size + 18) // 2
+    for line in lines:
+        draw.text((90, y), line, font=fnt, fill=INK)
+        y += size + 18
+    draw.text((90, 540), 'Daiki Kumakura', font=font(FONT_BOLD, 30), fill=ACCENT)
+    label = 'daikikumakura.github.io'
+    right = font(FONT_REGULAR, 26)
+    draw.text((SIZE[0] - 60 - draw.textlength(label, font=right), 544), label, font=right, fill=MUTED)
+    out = folder / 'og.png'
+    image.save(out, optimize=True)
+    print('wrote', out.relative_to(BASE.parent), f'({out.stat().st_size // 1024} KB, title card)')
+
+
 def article_card(folder):
     slug = folder.name
     figure = first_figure(folder, slug)
     if figure is None:
-        print('skip (no figure):', slug)
+        title_card(folder)
         return
     with tempfile.TemporaryDirectory(ignore_cleanup_errors=True) as tmp:
         source = figure

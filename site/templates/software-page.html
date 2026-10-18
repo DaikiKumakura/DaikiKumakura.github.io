@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<article class="prose">
+<nav class="crumbs meta" aria-label="Breadcrumb"><a href="{{ root }}index.html">Home</a> › <a href="{{ root }}software.html">Software</a> › {{ sw.id }}</nav>
+<h1>{{ sw.id }}</h1>
+<p class="meta">{{ sw.tech }} · {{ sw.status }}</p>
+<p class="lead">{{ sw.description }}</p>
+{% if sw.details %}<section><h2>What it answers</h2><ul>{% for d in sw.details %}<li>{{ d }}</li>{% endfor %}</ul></section>{% endif %}
+{% if sw.install %}<section><h2>Installation</h2>{% for i in sw.install %}<p class="meta">{{ i.label }}</p><pre><code>{{ i.code }}</code></pre>{% endfor %}{% if sw.install_note %}<p>{{ sw.install_note }}</p>{% endif %}</section>{% elif sw.install_note %}<section><h2>Installation</h2><p>{{ sw.install_note }}</p></section>{% endif %}
+<section><h2>Status</h2><p>{{ sw.note }}</p></section>
+<section><h2>Links</h2><ul><li><a href="{{ sw.url }}">Source repository (GitHub)</a></li>{% for l in sw.links %}<li><a href="{{ l.url }}">{{ l.label }}</a></li>{% endfor %}</ul></section>
+{% if related %}<section class="related" aria-labelledby="same-questions"><h2 id="same-questions">Analyses on the same questions or toolchain</h2><ul>{% for r in related %}<li><a href="{{ root }}{{ r.href }}" lang="{{ r.lang }}">{{ r.title }}</a>{% if r.note %} <span class="meta">({{ r.note }})</span>{% endif %}</li>{% endfor %}</ul></section>{% endif %}
+<p><a href="{{ root }}software.html">All software</a></p>
+</article>
+{% endblock %}

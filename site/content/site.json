@@ -682,7 +682,27 @@
           "label": "Release 0.1.0"
         }
       ],
-      "note": "Ten reference models with expected results fixed from the literature or by derivation are reproduced, and two independent structural methods agree at every point. Expected standard errors agreed with the spread of repeated estimates on simulated data. R CMD check passes on Linux and Windows in CI (October 5, 2026). Decisions are local; population designs are not covered."
+      "note": "Ten reference models with expected results fixed from the literature or by derivation are reproduced, and two independent structural methods agree at every point. Expected standard errors agreed with the spread of repeated estimates on simulated data. R CMD check passes on Linux and Windows in CI (October 5, 2026). Decisions are local; population designs are not covered.",
+      "slug": "pkident",
+      "headline": "pkident: PK/PD identifiability in R",
+      "summary": "R package for structural and practical identifiability of PK/PD ODE models built on rxode2: what can be determined, how precisely, whether a profile is flat.",
+      "details": [
+        "Structure: with continuous, noise-free observation of the chosen outputs after known doses, which parameters, or combinations such as V/F, can be determined at all.",
+        "Design: with given sampling times, doses and assay error, how precisely each parameter would be estimated, and which added measurement, sampling time or dose level would help.",
+        "Fit: in an nlmixr2 fit, which parameters the data determine, and whether a flat likelihood profile is a property of the model or of the data."
+      ],
+      "install": [
+        {
+          "label": "R",
+          "code": "remotes::install_github(\"DaikiKumakura/pkident\")"
+        }
+      ],
+      "install_note": "pkident needs rxode2 and symengine; classify_profiles() also needs nlmixr2est and nlmixr2extra.",
+      "related_articles": [
+        "tarlatamab-summary-pk",
+        "nimotuzumab-poppk",
+        "warfarin-pkpd"
+      ]
     },
     {
       "id": "rsemflow",
@@ -713,7 +733,23 @@
           "label": "Release 0.1.1"
         }
       ],
-      "note": "Human and mouse data. Mismatched samples, inconsistent gene tables, missing model values and confounded designs stop the run instead of producing results. Simple effects from interaction models are tested against the reparameterized model. On ENCODE K562 knockdown data, each target gene is among the most significant decreases in its own knockdown. R CMD check passes on Linux, macOS and Windows in CI (October 6, 2026). Not on CRAN or Bioconductor; no figures are produced."
+      "note": "Human and mouse data. Mismatched samples, inconsistent gene tables, missing model values and confounded designs stop the run instead of producing results. Simple effects from interaction models are tested against the reparameterized model. On ENCODE K562 knockdown data, each target gene is among the most significant decreases in its own knockdown. R CMD check passes on Linux, macOS and Windows in CI (October 6, 2026). Not on CRAN or Bioconductor; no figures are produced.",
+      "slug": "rsemflow",
+      "headline": "rsemflow: RSEM to RNA-seq results in R",
+      "summary": "R package and CLI that turns RSEM gene results and a sample table into standard bulk RNA-seq outputs: PCA, DESeq2, preranked GSEA and GSVA, as TSV tables.",
+      "details": [],
+      "install": [
+        {
+          "label": "R",
+          "code": "install.packages(\"BiocManager\")\nBiocManager::install(\"DaikiKumakura/rsemflow\")"
+        },
+        {
+          "label": "Source checkout with the command-line launcher (Linux, macOS, WSL, HPC)",
+          "code": "git clone https://github.com/DaikiKumakura/rsemflow.git\ncd rsemflow\nbash install_local.sh"
+        }
+      ],
+      "install_note": "rsemflow needs R 4.3 or later and several Bioconductor packages; human and mouse data are supported.",
+      "related_articles": []
     },
     {
       "id": "retiaudit",
@@ -728,7 +764,19 @@
           "label": "Usage"
         }
       ],
-      "note": "Initial version, not on CRAN. R package checks pass in CI on Linux, Windows and macOS (October 5, 2026). It reports visible hints and does not reproduce reticulate's own discovery; use reticulate's diagnostics for actual configuration."
+      "note": "Initial version, not on CRAN. R package checks pass in CI on Linux, Windows and macOS (October 5, 2026). It reports visible hints and does not reproduce reticulate's own discovery; use reticulate's diagnostics for actual configuration.",
+      "slug": "retiaudit",
+      "headline": "retiaudit: reticulate Python audit",
+      "summary": "Dependency-free R companion to reticulate that reports Python selection overrides and project markers before Python starts.",
+      "details": [],
+      "install": [
+        {
+          "label": "R",
+          "code": "remotes::install_github(\"DaikiKumakura/retiaudit\")\nlibrary(retiaudit)\naudit_python(intent = \"managed\")"
+        }
+      ],
+      "install_note": "Not on CRAN; initial version.",
+      "related_articles": []
     },
     {
       "id": "RLR_transform",
@@ -738,7 +786,16 @@
       "description": "R scripts exploring transformations of compositional time series and dynamic interaction inference using CCM (Convergent Cross Mapping), including simulations and figure-generation code.",
       "featured": true,
       "links": [],
-      "note": "All six figure scripts parsed, and a small CCM example using original functions ran with legacy rEDM 0.7.3 on October 3, 2026. A reproduction README and automated smoke check are provided. Complete figure analyses have not been rerun."
+      "note": "All six figure scripts parsed, and a small CCM example using original functions ran with legacy rEDM 0.7.3 on October 3, 2026. A reproduction README and automated smoke check are provided. Complete figure analyses have not been rerun.",
+      "slug": "rlr-transform",
+      "headline": "RLR_transform: compositional CCM scripts",
+      "summary": "R scripts for transformations of compositional time series and dynamic interaction inference with Convergent Cross Mapping (CCM).",
+      "details": [],
+      "install": [],
+      "install_note": "",
+      "related_articles": [
+        "hidden-mediator-networks"
+      ]
     },
     {
       "id": "CRiSM",
@@ -753,7 +810,14 @@
           "label": "Usage"
         }
       ],
-      "note": "Invocation, failure handling and marker-alignment validation are implemented. Nine smoke tests passed locally and in Linux CI on October 3, 2026. Installed CLI execution was checked; the complete phylogenetic workflow with external tools remains unvalidated."
+      "note": "Invocation, failure handling and marker-alignment validation are implemented. Nine smoke tests passed locally and in Linux CI on October 3, 2026. Installed CLI execution was checked; the complete phylogenetic workflow with external tools remains unvalidated.",
+      "slug": "crism",
+      "headline": "CRiSM: ribosomal marker phylogenomics CLI",
+      "summary": "Python CLI connecting ribosomal marker-gene discovery and extraction with alignment, concatenation and phylogenetic inference.",
+      "details": [],
+      "install": [],
+      "install_note": "The source installation in the README (Conda environment) is the documented route; a stable PyPI release is not assumed.",
+      "related_articles": []
     },
     {
       "id": "ShotgunMetagenomics",
@@ -768,7 +832,14 @@
           "label": "Tutorial (Japanese)"
         }
       ],
-      "note": "Scripts now check inputs, references and existing outputs, stop on tool failures, and retain diagnostic files. Eight local control-flow tests passed on October 3, 2026; automated Linux checks are configured. Full real-data Docker analysis remains unvalidated."
+      "note": "Scripts now check inputs, references and existing outputs, stop on tool failures, and retain diagnostic files. Eight local control-flow tests passed on October 3, 2026; automated Linux checks are configured. Full real-data Docker analysis remains unvalidated.",
+      "slug": "shotgunmetagenomics",
+      "headline": "ShotgunMetagenomics: Docker tutorial",
+      "summary": "Japanese tutorial and Shell scripts for Docker-based shotgun metagenomic analysis: quality control and functional profiling.",
+      "details": [],
+      "install": [],
+      "install_note": "",
+      "related_articles": []
     },
     {
       "id": "Dockerfiles",
@@ -778,7 +849,14 @@
       "status": "Analysis environments",
       "description": "Dockerfiles for running existing bioinformatics tools in containers, including genome and metagenome analysis environments.",
       "note": "MAFFT and SeqKit environments were refreshed and passed Docker builds plus small FASTA execution checks in Linux CI on October 3, 2026. Other environment definitions remain historical and unverified.",
-      "links": []
+      "links": [],
+      "slug": "dockerfiles",
+      "headline": "Dockerfiles: bioinformatics tool containers",
+      "summary": "Dockerfiles for existing bioinformatics tools, including genome and metagenome analysis environments.",
+      "details": [],
+      "install": [],
+      "install_note": "",
+      "related_articles": []
     }
   ],
   "activities": [

@@ -128,6 +128,15 @@ class MetadataTests(unittest.TestCase):
         self.assertEqual(blobs[0]['name'], 'Example topic')
         self.assertEqual(blobs[1]['itemListElement'][2]['item'], 'https://daikikumakura.github.io/topics/example.html')
 
+    def test_software_page_schema(self):
+        site = json.loads((Path(__file__).parent/'content/site.json').read_text(encoding='utf-8'))
+        result = enrich('<html lang="en"><head><title>pkident | Daiki Kumakura</title><meta name="description" content="x"></head></html>', 'software/pkident.html', site, 'https://daikikumakura.github.io/')
+        blobs = [json.loads(b.split('</script>')[0]) for b in result.split('application/ld+json">')[1:]]
+        self.assertEqual([b['@type'] for b in blobs], ['SoftwareSourceCode', 'BreadcrumbList'])
+        self.assertEqual(blobs[0]['codeRepository'], 'https://github.com/DaikiKumakura/pkident')
+        self.assertEqual(blobs[0]['programmingLanguage'], 'R')
+        self.assertEqual(blobs[1]['itemListElement'][1]['item'], 'https://daikikumakura.github.io/software.html')
+
 if __name__ == '__main__':
     unittest.main()
 

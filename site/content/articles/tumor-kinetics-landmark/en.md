@@ -12,7 +12,7 @@ The context of use is a research decision: whether early tumor assessment needs 
 
 The `colorectal` and `colorectalLongi` datasets in CRAN frailtypack 3.8.1 contain a random subset of 150 participants from the FFCD 2000–05 trial of sequential versus combination chemotherapy for metastatic colorectal cancer: 906 tumor measurements, 121 deaths. Tumor size is the sum of lesion diameters after a Box–Cox transform (λ = 0.3); 34 measurements sit at a censoring floor. One participant has a measurement recorded after death and was excluded, as in the [earlier landmark analysis](tumor-dynamics-survival.html) of the same data.
 
-That earlier analysis compared clinical factors with the observed early change at 16 weeks and noted that sparse sampling did not justify individual growth modeling. The audit for this article quantified the point:
+[That earlier analysis](tumor-dynamics-survival.html) compared clinical factors with the observed early change at 16 weeks and noted that sparse sampling did not justify individual growth modeling. The audit for this article quantified the point:
 
 ![Follow-up measurements available before each landmark](shared/tumor-kinetics-landmark/figures/fig1-availability.png)
 
