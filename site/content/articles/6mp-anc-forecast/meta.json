@@ -1,0 +1,20 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2026-12-01",
+  "publish_at": "2026-12-01T09:00:00+09:00",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "6-MPの投与記録から好中球数を予測できるか",
+      "summary": "小児ALL維持療法の公開投与・ANC記録を再解析し、患者を分離して母集団PDと基準ANCのMAP更新を評価する。将来投与情報、原著のCRP除外、予測の限界を区別し、投与最適化へ進まなかった判断を示す。"
+    }
+  },
+  "english": {
+    "title": "Can initial mercaptopurine records predict subsequent neutrophil counts?",
+    "summary": "A public-data reanalysis separates training, calibration and test patients. Baseline-only empirical Bayes updating did not demonstrate incremental predictive value over simple benchmarks. Source exclusions, future-dose conditioning and estimation limits are explicit; no dose-policy optimization or new PK estimation is claimed."
+  }
+}
