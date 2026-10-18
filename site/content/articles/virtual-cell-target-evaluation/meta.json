@@ -9,7 +9,7 @@
   "author": "Daiki Kumakura",
   "locales": {
     "ja": {
-      "title": "Virtual Cellは何を予測できたのか――標的遺伝子と評価指標の落とし穴",
+      "title": "Virtual Cellは何を当てたのか。標的遺伝子と評価指標を点検する",
       "summary": "標的遺伝子の直接効果と摂動応答の予測を分け、最新研究と合成例からVirtual Cellの評価指標を点検する。",
       "key_findings": [
         "標的名という正当な入力、予測時に利用できない実測情報、評価指標の近道は別の問題である。",

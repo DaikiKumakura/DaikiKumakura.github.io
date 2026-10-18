@@ -9,7 +9,7 @@
   "author": "Daiki Kumakura",
   "locales": {
     "ja": {
-      "title": "Virtual Cellの次の勝負はデータづくり――Biohub構想を実験設計から読む",
+      "title": "Virtual Cellに何を測らせるか。Biohub構想とデータの作り方",
       "summary": "同じ28,800細胞を測定条件・ドナー・各側の細胞数へ配分する合成例。未測定条件の補完、独立反復、試料調製の負担を分け、予測したい介入からデータ生成を設計する。"
     }
   },
