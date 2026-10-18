@@ -6,6 +6,7 @@ import html
 import json
 import re
 import sys
+import unicodedata
 from datetime import date, datetime, timezone
 from urllib.parse import urljoin
 
@@ -74,7 +75,9 @@ def fingerprint(folder, meta):
     CRLF is normalized so a review recorded on Windows matches the LF checkout in CI."""
     source = meta['source_language']
     digest = hashlib.sha256()
-    digest.update(json.dumps(meta['locales'][source], sort_keys=True, ensure_ascii=False).encode())
+    # Search-result text is not article content: editing it must not unreview a translation.
+    original = {k: v for k, v in meta['locales'][source].items() if k not in ('seo_title', 'seo_description')}
+    digest.update(json.dumps(original, sort_keys=True, ensure_ascii=False).encode())
     digest.update((folder / f'{source}.md').read_bytes().replace(b'\r\n', b'\n'))
     # Sort by POSIX string: Windows paths compare case-insensitively, Linux paths do not.
     for path in sorted((folder / 'shared').rglob('*'), key=lambda p: p.relative_to(folder).as_posix()):
@@ -108,6 +111,9 @@ def load_articles(content, preview=False, now=None):
         for lang, data in meta['locales'].items():
             if lang not in LANGS or not data.get('title') or not data.get('summary'):
                 raise ValueError(f'Invalid article locale: {folder.name}/{lang}')
+            for key in ('seo_title', 'seo_description'):
+                if key in data and (not isinstance(data[key], str) or not data[key].strip()):
+                    raise ValueError(f'{key} must be a non-empty string: {folder.name}/{lang}')
             findings = data.get('key_findings', [])
             if not isinstance(findings, list) or len(findings) > 5 or not all(isinstance(x, str) and x.strip() for x in findings):
                 raise ValueError(f'key_findings must be up to five non-empty strings: {folder.name}/{lang}')
@@ -207,6 +213,31 @@ def add_image_attributes(body, article):
         return re.sub(r'\s*/?>$', extra + ' />', tag, count=1)
     return re.sub(r'<img\b[^>]*\bsrc="([^"]+)"[^>]*>', attributes, body)
 
+def display_width(text):
+    """Width in half-width cells: full-width (CJK) characters count twice."""
+    return sum(2 if unicodedata.east_asian_width(c) in 'WF' else 1 for c in text)
+
+def seo_warnings(entries, site_name):
+    """Advisory checks of search-result text; they never fail a build.
+
+    A title is cut at about 60 half-width cells and a description at about 160, so
+    the effective title (seo_title, or the title plus the site name) is measured."""
+    notes = []
+    for a in entries:
+        for lang, data in a['meta']['locales'].items():
+            title = data.get('seo_title') or f"{data['title']} | {site_name}"
+            description = data.get('seo_description') or data['summary']
+            where = f"{a['slug']}/{lang}"
+            if display_width(title) > 60:
+                notes.append(f'Title is cut in search results ({display_width(title)} cells > 60): {where}')
+            if display_width(description) > 200 if lang == 'ja' else len(description) > 160:
+                notes.append(f'Description is cut in search results ({len(description)} characters): {where}')
+            elif len(description) < (40 if lang == 'ja' else 70):
+                notes.append(f'Description is very short ({len(description)} characters): {where}')
+        if not (a['folder'] / 'og.png').is_file():
+            notes.append(f"No social card (og.png); the first figure is used: {a['slug']}")
+    return notes
+
 def build(project=BASE, preview=False, strict_translations=False):
     project = Path(project)
     site = read_json(project / 'content/site.json')
@@ -250,9 +281,9 @@ def build(project=BASE, preview=False, strict_translations=False):
         # Related links point to each original article, titled in its own language.
         source={a['slug']:a['meta'] for a in entries}
         return [dict(href=f"{s}.html",title=source[s]['locales'][source[s]['source_language']]['title'],lang=source[s]['source_language']) for s in seen[:limit]]
-    def output(name,page,lang='en',article=None):
+    def output(name,page,lang='en',article=None,og_image=None):
         canonical=SITE_URL if name in ('index.html','home.html') else SITE_URL+name
-        page=enrich(page,name,site,SITE_URL,article)
+        page=enrich(page,name,site,SITE_URL,article,og_image)
         page=page.replace('</head>',f'<link rel="canonical" href="{canonical}">\n</head>')
         outputs[name]=page.encode('utf-8')
     for key,title in NAV.items():
@@ -261,12 +292,17 @@ def build(project=BASE, preview=False, strict_translations=False):
         if key=='home':outputs['index.html']=outputs['home.html']
     for a in entries:
         m=a['meta']; original=m['source_language']
+        # The 1200x630 social card sits beside the article, not in shared/, so it is
+        # published only with the article and never changes a translation's revision.
+        card=a['folder']/'og.png'
+        og_card=f"writing/og/{a['slug']}.png" if card.is_file() else None
+        if og_card:outputs[og_card]=card.read_bytes()
         alternatives={code:(a['slug']+'.html' if code==original else a['slug']+'-'+code+'.html') for code in m['locales']}
         for language in m['locales']:
             body,toc=render_body(a,language)
             body=add_image_attributes(body,a)
             page=env.get_template('article.html').render(site=site,lang=language,ui=ui,preview=preview,active='writing',root='../',alternatives=alternatives,title=m['locales'][language]['title'],description=m['locales'][language]['summary'],math=m.get('math',False),author=m.get('author',site['name']),date=m['date'],category=m['category'],version=m.get('version',''),draft=m['draft'],stale=a['stale'][language],body=body,toc=toc,key_findings=m['locales'][language].get('key_findings',[]),english=m.get('english') if language!='en' and 'en' not in m['locales'] else None,related=related(a['slug']))
-            output('writing/'+alternatives[language],page,language,m)
+            output('writing/'+alternatives[language],page,language,m,og_card)
         for asset in (a['folder']/'shared').rglob('*'):
             if asset.is_file():outputs[f"writing/shared/{a['slug']}/{asset.relative_to(a['folder']/'shared').as_posix()}"]=asset.read_bytes()
     canonical_pages=['index.html']+[key+'.html' for key in NAV if key!='home']+[name for name in outputs if name.startswith('writing/') and name.endswith('.html')]
@@ -317,7 +353,7 @@ def build(project=BASE, preview=False, strict_translations=False):
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_bytes(data)
     manifest.write_text(json.dumps(sorted(outputs), indent=2), encoding='utf-8')
-    return dict(files=len(outputs), articles=len(entries), warnings=warnings)
+    return dict(files=len(outputs), articles=len(entries), warnings=warnings, seo_warnings=seo_warnings(entries, site['name']))
 
 def llms_txt(site, entries):
     """Plain-text site guide (llmstxt.org format) listing pages and live articles."""

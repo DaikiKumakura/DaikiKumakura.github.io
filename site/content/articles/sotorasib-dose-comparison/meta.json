@@ -15,7 +15,8 @@
         "Grade 3以上の治療関連有害事象は960 mgで+16.0ポイント（95%区間 +4.2〜+27.8）多く、事前分布・時点・相関を変えても頑健だった。",
         "奏効率の差は+7.8ポイント（−4.3〜+19.8）で不確か。奏効1件と重症毒性1件をほぼ同じ重さで見る（w ≥ 0.95）と240 mg寄りになる。",
         "判定を最も動かすのは害の定義で、OSのHR 0.75（0.53〜1.07）は960 mg寄りの信号を残す。群別の公開データだけでは用量を決められない。"
-      ]
+      ],
+      "seo_title": "用量比較試験は用量選択をどこまで支持するか：sotorasib"
     },
     "en": {
       "title": "How far does a dose-comparison trial support dose selection? Arm-level data for sotorasib 960 mg and 240 mg",
@@ -24,7 +25,9 @@
         "Grade≥3 treatment-related adverse events were 16.0 points more frequent at 960 mg (95% interval +4.2 to +27.8), robust to the prior, data cutoff and correlation.",
         "The response-rate difference was +7.8 points (−4.3 to +19.8). Weighting one response and one severe toxicity about equally (w ≥ 0.95) favors 240 mg.",
         "The definition of harm moves the decision most, and the OS HR of 0.75 (0.53 to 1.07) leaves a signal favoring 960 mg. Arm-level public data alone cannot settle the dose."
-      ]
+      ],
+      "seo_title": "How far does a dose-comparison trial support dose selection?",
+      "seo_description": "Arm-level data from a randomized sotorasib 960 mg vs 240 mg comparison: how decision regions change with benefit–harm weights. No dose is recommended."
     }
   },
   "english": {

@@ -45,9 +45,43 @@ class MetadataTests(unittest.TestCase):
         self.assertIn('summary_large_image', result)
         data = json.loads(re.search(r'application/ld\+json">(.*?)</script>', result)[1])
         self.assertEqual(data['dateModified'], '2026-10-01')
+        # SVG figures cannot be used for social previews, so the site-wide card is used.
         plain = enrich('<head><title>T</title><meta name="description" content="d"></head><body><img src="a.svg" alt="a"></body>', 'writing/y.html', site, 'https://daikikumakura.github.io/')
-        self.assertNotIn('og:image', plain)
-        self.assertIn('content="summary"', plain)
+        self.assertIn('<meta property="og:image" content="https://daikikumakura.github.io/assets/og-default.png">', plain)
+        self.assertIn('summary_large_image', plain)
+
+    def test_social_card_beats_the_first_figure(self):
+        site = json.loads((Path(__file__).parent/'content/site.json').read_text(encoding='utf-8'))
+        page = '<head><title>Long title | Daiki Kumakura</title><meta name="description" content="d"></head><body><img src="shared/x/b.png" alt="b" width="1800" height="1260"></body>'
+        result = enrich(page, 'writing/x.html', site, 'https://daikikumakura.github.io/', {'date': '2026-10-01'}, 'writing/og/x.png')
+        self.assertIn('og:image" content="https://daikikumakura.github.io/writing/og/x.png"', result)
+        self.assertIn('og:image:width" content="1200"', result)
+        self.assertIn('og:image:height" content="630"', result)
+        data = json.loads(re.search(r'application/ld\+json">(.*?)</script>', result)[1])
+        self.assertEqual(data['image'][0], 'https://daikikumakura.github.io/writing/og/x.png')
+
+    def test_site_pages_use_the_default_card(self):
+        site = json.loads((Path(__file__).parent/'content/site.json').read_text(encoding='utf-8'))
+        for name in ('index.html', 'profile.html', 'writing.html'):
+            page = '<html lang="en"><head><title>Profile | Daiki Kumakura</title><meta name="description" content="x"></head></html>'
+            result = enrich(page, name, site, 'https://daikikumakura.github.io/')
+            self.assertIn('og:image" content="https://daikikumakura.github.io/assets/og-default.png"', result, name)
+            self.assertIn('og:image:alt', result)
+        self.assertTrue((Path(__file__).parent/'assets/og-default.png').is_file())
+
+    def test_seo_text_shortens_title_and_description_only(self):
+        site = json.loads((Path(__file__).parent/'content/site.json').read_text(encoding='utf-8'))
+        page = '<html lang="en"><head><title>A very long research question about dosing | Daiki Kumakura</title><meta name="description" content="Long summary."></head></html>'
+        meta = {'date': '2026-10-01', 'locales': {'en': {'title': 'x', 'summary': 'y', 'seo_title': 'Short title', 'seo_description': 'Short description.'}}}
+        result = enrich(page, 'writing/x.html', site, 'https://daikikumakura.github.io/', meta)
+        self.assertIn('<title>Short title</title>', result)
+        self.assertIn('og:title" content="Short title"', result)
+        self.assertIn('<meta name="description" content="Short description.">', result)
+        article, crumbs = (json.loads(blob) for blob in re.findall(r'application/ld\+json">(.*?)</script>', result))
+        self.assertEqual(article['headline'], 'A very long research question about dosing')
+        self.assertEqual(crumbs['itemListElement'][2]['name'], 'A very long research question about dosing')
+        untouched = enrich(page, 'writing/x.html', site, 'https://daikikumakura.github.io/', {'date': '2026-10-01', 'locales': {'en': {'title': 'x', 'summary': 'y'}}})
+        self.assertIn('<title>A very long research question about dosing | Daiki Kumakura</title>', untouched)
 
 if __name__ == '__main__':
     unittest.main()

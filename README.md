@@ -32,6 +32,12 @@ Use `--lang ja` for Japanese. Edit the generated Markdown and `meta.json` in `si
 
 An original in one language is enough. A Japanese original may add `"english": {"title": ..., "summary": ...}` to `meta.json`; it is shown as a short English summary on the article and on the Profile page, and used in search metadata. List articles on the Profile page under `analysis_topics` in `site.json`; unpublished or scheduled articles appear only once they are live. Optional translations share code and figures in `shared/`; after reviewing one, run `python site/build.py review-translation article-slug --lang en` (or `ja`). Tests use their own fixtures, never your draft directory.
 
+## Search results and social previews
+
+- **Search-result text.** A locale in `meta.json` may add `seo_title` (up to about 60 half-width cells; Japanese characters count twice, and no site name is appended) and `seo_description` (up to about 160 characters). They change only the page `<title>`, the meta and Open Graph text; the heading and the structured-data headline keep the full title. Editing them does not unreview a translation. Every build prints `seo_warnings` for titles or descriptions that search engines would cut, and for articles without a card. The warnings are advisory.
+- **Social card.** `site/content/articles/<slug>/og.png` (1200×630) is published as `writing/og/<slug>.png` together with its article, never earlier, and is used for `og:image`. Without it the first figure is used, which LinkedIn may crop. Make cards with `python site/make_og_cards.py <slug>` or `--live` (needs Pillow; an SVG figure is rendered with Microsoft Edge). Pages without an article use `assets/og-default.png` (`--default`).
+- **Hidden articles.** Rescheduling a published article makes its URL return 404 until it is live again. The workflow warns about this (`site/check_dropped_urls.py`); it does not block the deploy.
+
 ## Scheduled articles
 
 Set `publish_at` in `meta.json` to a timezone-aware timestamp, for example `2026-10-04T09:00:00+09:00`, and set `date` to its local calendar date. Set `draft` to `false` only after review. Production builds omit the article, its shared files, and sitemap entry until that time. Preview builds include it and remain noindex.

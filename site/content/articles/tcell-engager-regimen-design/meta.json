@@ -15,7 +15,8 @@
         "公開PopPK（FDA Tables 66–67）を5,000人の仮想被験者で再計算すると、初回投与の曝露は添付文書の平均値に近いが、定常状態のトラフは約16〜41%高く、集団曝露の完全な再現ではない。",
         "投与強度を10 mg Q2Wに合わせても波形は保存されない。20 mg Q4Wは平均曝露が同じでも、ピーク中央値は約1.78倍、トラフ中央値は約0.60倍だった。",
         "有効性の飽和（Cycle 1 Cavg）、時期別のCRS、維持期の低濃度は別々の情報で評価する必要があり、平均曝露を合わせるだけでは維持レジメンの同等性を判断できない。"
-      ]
+      ],
+      "seo_title": "タルラタマブの投与間隔を、平均曝露だけで決められるか"
     },
     "en": {
       "title": "Can matching average exposure alone set the tarlatamab dosing interval?",
@@ -24,7 +25,9 @@
         "Recalculating the published PopPK model (FDA Tables 66–67) in 5,000 virtual subjects matched initial-dose exposure to the label means, but the steady-state trough was about 16–41% higher, so population exposure is not fully reproduced.",
         "Matching dose intensity to 10 mg Q2W does not preserve the profile: 20 mg Q4W kept average exposure but gave a median peak of about 1.78× and a median trough of about 0.60×.",
         "Efficacy saturation (Cycle 1 Cavg), CRS by period and low maintenance concentrations need separate evidence; matching average exposure alone cannot establish equivalence of maintenance regimens."
-      ]
+      ],
+      "seo_title": "Can average exposure alone set the tarlatamab interval?",
+      "seo_description": "A published tarlatamab PopPK model simulated with between-subject variability: matching average exposure does not preserve peaks and troughs."
     }
   },
   "english": {

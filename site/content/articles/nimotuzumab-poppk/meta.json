@@ -15,7 +15,8 @@
         "公開データ（12人、321濃度）で線形1区画・線形2区画・非線形消失付き2区画のPopPKを推定した。AICは790.42、751.25、747.47と複雑なモデルほど低かったが、被験者除外の予測RMSEの改善は約4.2%・約3.3%で、事前基準の10%に届かなかった。",
         "400 mg対200 mgのAUC比は線形モデルで2、非線形モデルで約2.35と10%以上異なった。投与条件の順位は一致しても、絶対曝露と用量比はモデルに依存する。",
         "bootstrapの収束通過率は4.5〜22%で、95%信頼区間は報告しなかった。非線形モデルの採用も線形モデルで十分とする判断も保留し、点滴・採血時刻の原記録と独立した検証データが次に必要である。"
-      ]
+      ],
+      "seo_title": "Nimotuzumabの実測PKから考える、PopPKモデルの複雑さ"
     },
     "en": {
       "title": "How complex does a population PK model need to be for exposure comparison? Measured nimotuzumab PK",
@@ -24,7 +25,9 @@
         "Linear one-compartment, linear two-compartment and nonlinear-elimination PopPK models were fitted to public data (12 subjects, 321 concentrations). AIC fell with complexity (790.42, 751.25, 747.47), but leave-one-subject-out RMSE improved by only about 4.2% and 3.3%, short of the prespecified 10%.",
         "The 400 to 200 mg AUC ratio was 2 in the linear models and about 2.35 in the nonlinear model, a difference above 10%: the models ranked dosing conditions alike, but absolute exposure and dose ratios depended on the model.",
         "Only 4.5–22% of bootstrap runs passed the convergence screen, so no 95% CIs were reported. Adopting the nonlinear model and declaring the linear model sufficient are both deferred; original infusion and sampling records and independent validation data are needed next."
-      ]
+      ],
+      "seo_title": "How complex must a population PK model be? Nimotuzumab",
+      "seo_description": "Three PopPK structures fitted to individual nimotuzumab data: validation, convergence and exposure differences show the limits of model selection."
     }
   },
   "english": {

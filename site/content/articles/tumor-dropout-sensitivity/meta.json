@@ -15,7 +15,9 @@
         "In a public colorectal-cancer subset where most scan dropout was death, the mean of patients still scanned overstated 48-week shrinkage by about a third in the combination arm; a mixed-effects model removed most of that bias.",
         "The 24-week shrinkage and arm difference held under every dropout assumption tried, including a joint model and delta adjustments.",
         "The 48-week arm difference lost support if dropouts in the better-looking arm deteriorated about 0.5 per year faster than predicted; without recorded dropout reasons, the mechanism is not identified."
-      ]
+      ],
+      "seo_title": "How much does dropout change a tumor-shrinkage estimate?",
+      "seo_description": "Most tumor-scan dropout was death. Mixed and joint models and delta adjustment: the 24-week arm difference held, the 48-week difference was fragile."
     }
   }
 }

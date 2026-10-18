@@ -215,6 +215,37 @@ class BuildTests(unittest.TestCase):
   build.build(self.root,preview=True)
   self.assertFalse((self.root/'dist/llms.txt').exists())
 
+ def test_social_card_is_published_only_with_its_article(self):
+  png=b'\x89PNG\r\n\x1a\n'+b'0'*20
+  for slug in ('logistic-example','japanese-note'):
+   (self.root/'content/articles'/slug/'og.png').write_bytes(png)
+  mp,m=self.meta('logistic-example');m['draft']=False;mp.write_text(json.dumps(m),encoding='utf-8')
+  build.build(self.root)
+  self.assertEqual((self.root/'dist/writing/og/logistic-example.png').read_bytes(),png)
+  self.assertFalse((self.root/'dist/writing/og/japanese-note.png').exists())
+  self.assertIn('writing/og/logistic-example.png',self.text('writing/logistic-example.html'))
+  self.assertIn('assets/og-default.png',self.text('profile.html'))
+ def test_seo_warnings_are_advisory(self):
+  mp,m=self.meta('logistic-example');m['draft']=False
+  m['locales']['en']['title']='A very long question title that search engines will certainly cut off somewhere';mp.write_text(json.dumps(m),encoding='utf-8')
+  result=build.build(self.root)
+  joined=' '.join(result['seo_warnings'])
+  self.assertIn('Title is cut in search results',joined);self.assertIn('logistic-example/en',joined)
+  self.assertIn('No social card (og.png)',joined)
+  m['locales']['en']['seo_title']='Short question';mp.write_text(json.dumps(m),encoding='utf-8')
+  self.assertNotIn('Title is cut in search results (',' '.join(w for w in build.build(self.root)['seo_warnings'] if 'logistic-example/en' in w))
+  self.assertEqual(build.display_width('PK'),2);self.assertEqual(build.display_width('用量'),4)
+ def test_search_text_does_not_unreview_a_translation(self):
+  mp,m=self.meta('logistic-example')
+  before=build.fingerprint(mp.parent,m)
+  m['locales'][m['source_language']].update(seo_title='Shorter',seo_description='A shorter description that is long enough to be a description.')
+  self.assertEqual(build.fingerprint(mp.parent,m),before)
+  m['locales'][m['source_language']]['summary']+=' Changed.'
+  self.assertNotEqual(build.fingerprint(mp.parent,m),before)
+ def test_seo_text_must_be_non_empty(self):
+  mp,m=self.meta('logistic-example');m['locales']['ja']['seo_title']=' ';mp.write_text(json.dumps(m),encoding='utf-8')
+  with self.assertRaisesRegex(ValueError,'seo_title'):build.load_articles(self.root/'content',preview=True)
+
 if __name__=='__main__':unittest.main()
 
 
