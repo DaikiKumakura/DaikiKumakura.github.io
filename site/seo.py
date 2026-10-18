@@ -12,7 +12,7 @@ DESCRIPTIONS = {
  'publication': 'Research publications by Daiki Kumakura: mathematical models, biological dynamics, antibiotic response, compositional time series and bioinformatics.',
  'activity': 'Conference presentations, teaching, event organization, outreach and media activities by Daiki Kumakura, grouped by year and category.'}
 
-HOME_TITLE='Daiki Kumakura / 熊倉大騎 — Mathematical Biology and PK/PD Modeling'
+HOME_TITLE='Daiki Kumakura / 熊倉大騎 — PK/PD and Mathematical Biology'  # 58 cells: not cut in search results
 
 DEFAULT_IMAGE='assets/og-default.png'
 IMAGE_SIZE=(1200,630)

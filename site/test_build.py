@@ -171,7 +171,7 @@ class BuildTests(unittest.TestCase):
   home=self.text('index.html')
   self.assertIn('application/atom+xml',home)
   self.assertIn('Recent writing',home);self.assertIn('writing/japanese-note.html',home)
-  self.assertIn('Mathematical Biology and PK/PD Modeling',home)
+  self.assertIn('PK/PD and Mathematical Biology',home);self.assertLessEqual(build.display_width(re.search(r'<title>(.*?)</title>',home)[1]),60)
   p,m=self.meta('japanese-note');m['updated']='2026-10-01';p.write_text(json.dumps(m),encoding='utf-8')
   with self.assertRaisesRegex(ValueError,'updated is before date'):build.build(self.root)
  def test_preview_has_no_feed(self):
