@@ -1,0 +1,20 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2026-12-07",
+  "publish_at": "2026-12-07T09:00:00+09:00",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "Sunvozertinibの用量と投与回数",
+      "summary": "実測集計PKから用量―曝露関係を推定し、4096人の条件付き仮想患者でQDとBIDを比較。奏効・下痢の集団差と、親薬物PKのレジメン予測を区別する。"
+    }
+  },
+  "english": {
+    "title": "Sunvozertinib dose and dosing-frequency comparisons",
+    "summary": "Observed aggregate PK supports a dose-exposure fit. A reconstructed parent PopPK model compares paired regimens in4096 conditional virtual patients. Clinical cohort differences, absorption assumptions and limits of split-dose predictions are explicit."
+  }
+}
