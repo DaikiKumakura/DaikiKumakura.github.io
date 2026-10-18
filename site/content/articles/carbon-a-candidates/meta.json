@@ -1,0 +1,25 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2026-12-02",
+  "publish_at": "2026-12-02T09:00:00+09:00",
+  "draft": false,
+  "math": false,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "Carbon-A の5億6,600万の遺伝子候補は、どれだけ本物か",
+      "summary": "Hugging FaceのCarbon-Aが公開した遺伝子予測のファイルを数え直し、5億6,600万という数を、同じ種の重複、確信度とRefSeqとの一致、予測の取りこぼしに分けて確かめる。",
+      "key_findings": [
+        "10月18日時点の公開分は34,060アセンブリ・4億5,379万遺伝子座で、1種1アセンブリに絞ると約2億1,700万になった。約半分は同じ種の別のアセンブリでの予測である。",
+        "確信度0.5以上は全体で約2億7,500万と推定された。RefSeqのある18アセンブリでは、構造まで一致する割合が確信度0.1未満の6%から0.9以上の96%まで上がった（学習に使われた注釈との比較）。",
+        "8 kb未満の配列は処理されず、2014年登録の鳥類20アセンブリなどでは予測が極端に少なかった。予測がないことは遺伝子がないことを意味しない。"
+      ]
+    }
+  },
+  "english": {
+    "title": "How many of Carbon-A's 566 million gene candidates are real?",
+    "summary": "A Japanese technical note that recounts the public Carbon-A gene predictions and splits the 566 million figure into species redundancy, confidence and agreement with RefSeq, and gaps such as unprocessed short sequences and a low-yield batch of bird assemblies."
+  }
+}

@@ -1,0 +1,616 @@
+{
+  "metadata_parsed": 34060,
+  "missing_gene_count": 0,
+  "upload_first_day": "2026-10-06",
+  "upload_last_day": "2026-10-18",
+  "upload_days_with_files": 13,
+  "total_genes": 453790190,
+  "share_of_reported_loci": 0.8017494522968198,
+  "zero_gene_assemblies": 2976,
+  "by_division": {
+    "fungi": {
+      "assemblies": 7477,
+      "genes": 63916781,
+      "median_genes": 8826
+    },
+    "invertebrate": {
+      "assemblies": 9924,
+      "genes": 109029338,
+      "median_genes": 12590
+    },
+    "plant": {
+      "assemblies": 5745,
+      "genes": 135511992,
+      "median_genes": 24137
+    },
+    "protozoa": {
+      "assemblies": 2480,
+      "genes": 14737800,
+      "median_genes": 2557
+    },
+    "vertebrate_mammalian": {
+      "assemblies": 3159,
+      "genes": 56318358,
+      "median_genes": 19341
+    },
+    "vertebrate_other": {
+      "assemblies": 5275,
+      "genes": 74275921,
+      "median_genes": 14890
+    }
+  },
+  "distinct_taxids": 17390,
+  "distinct_species": 16674,
+  "species_with_multiple_assemblies": 5155,
+  "one_per_species": {
+    "latest_accession": 216723914,
+    "most_annotated_bases": 225133403,
+    "closest_to_species_median": 213013589
+  },
+  "human": {
+    "assemblies": 1411,
+    "genes": 26437568,
+    "median": 19159,
+    "max": 84693
+  },
+  "sample_complete_fraction_by_division": {
+    "fungi": 0.9965,
+    "invertebrate": 0.9803,
+    "plant": 0.99,
+    "protozoa": 0.9913,
+    "vertebrate_mammalian": 0.9812,
+    "vertebrate_other": 0.9651
+  },
+  "sample_conf_fraction_by_division": {
+    "fungi": {
+      "0.1": 0.898485536252218,
+      "0.5": 0.6930690734594502,
+      "0.9": 0.31153503781738007
+    },
+    "invertebrate": {
+      "0.1": 0.8074863741178114,
+      "0.5": 0.49286388093075256,
+      "0.9": 0.0862928865907344
+    },
+    "plant": {
+      "0.1": 0.885059981854229,
+      "0.5": 0.6226141671427131,
+      "0.9": 0.14564081454349945
+    },
+    "protozoa": {
+      "0.1": 0.796828412607342,
+      "0.5": 0.5632577432067646,
+      "0.9": 0.29148129685192675
+    },
+    "vertebrate_mammalian": {
+      "0.1": 0.8881743209502913,
+      "0.5": 0.6615461278969352,
+      "0.9": 0.20088026653239166
+    },
+    "vertebrate_other": {
+      "0.1": 0.8575038843857055,
+      "0.5": 0.630449839944589,
+      "0.9": 0.1634437185271158
+    }
+  },
+  "extrapolated_all_assemblies": {
+    "conf_ge_0.1": {
+      "genes": 390860157,
+      "lo": 381684672,
+      "hi": 398837236
+    },
+    "conf_ge_0.5": {
+      "genes": 274792667,
+      "lo": 261306604,
+      "hi": 287683378
+    },
+    "conf_ge_0.9": {
+      "genes": 76805822,
+      "lo": 69194926,
+      "hi": 85797653
+    }
+  },
+  "extrapolated_one_per_species_latest": {
+    "conf_ge_0.1": {
+      "genes": 185124212,
+      "lo": 180202612,
+      "hi": 189347962
+    },
+    "conf_ge_0.5": {
+      "genes": 128536998,
+      "lo": 121229515,
+      "hi": 135823302
+    },
+    "conf_ge_0.9": {
+      "genes": 34156499,
+      "lo": 30547410,
+      "hi": 38534335
+    }
+  },
+  "sample_human_assemblies_in_mammal_sample": 8,
+  "sample_min_record_bp": {
+    "min": 8000.0,
+    "max": 31099325.0,
+    "n_eq_8000": 25,
+    "n": 120
+  },
+  "sample_frac_genome_processed": {
+    "median": 0.9927121099466114,
+    "n_lt_0_9": 33,
+    "n": 118
+  },
+  "sample_zero_gene": {
+    "n": 9,
+    "frac_genome_processed": [
+      0.001,
+      0.238,
+      0.149,
+      0.242,
+      0.066,
+      0.321,
+      0.402,
+      NaN,
+      0.342
+    ],
+    "processed_mb": [
+      0.1,
+      15.5,
+      55.2,
+      104.2,
+      0.3,
+      4.9,
+      24.2,
+      8.8,
+      294.1
+    ],
+    "organisms": [
+      "Emesis poeas",
+      "Triticum aestivum",
+      "Silene vulgaris",
+      "Triticum dicoccoides",
+      "Eukaryota sp.",
+      "Eukaryota sp.",
+      "Phytophthora capsici",
+      "Thalassiosira gravida",
+      "Perca fluviatilis"
+    ]
+  },
+  "low_yield_vertebrate": {
+    "threshold": 3000,
+    "n": 1429,
+    "of_vertebrate": 8434,
+    "zero": 213,
+    "birds": 313,
+    "identical_refseq_pair": 22,
+    "identical_pair_birds": 20
+  },
+  "low_yield_identical_nonzero": {
+    "n": 22,
+    "birds": 20,
+    "accession_number_range": [
+      2135,
+      710305
+    ]
+  },
+  "low_yield_identical_birds": {
+    "n": 20,
+    "release_first": "2014-05-08",
+    "release_last": "2014-06-25",
+    "submitters": {
+      "BGI": 20
+    },
+    "median_ncbi_contig_n50": 23671.5,
+    "accession_first": "GCA_000687205.1",
+    "accession_last": "GCA_000710305.1"
+  },
+  "refseq_compared": 18,
+  "refseq_precision_overlap": {
+    "median": 0.9499059218493202,
+    "min": 0.5232558139534884,
+    "max": 0.9995026854983092
+  },
+  "refseq_precision_exact_stop_tolerant": {
+    "median": 0.6685245273979644,
+    "min": 0.1627906976744186,
+    "max": 0.9304104002039256
+  },
+  "refseq_recall_loci_overlap": {
+    "median": 0.935814230219908,
+    "min": 0.0028648164726947,
+    "max": 0.9996046649535482
+  },
+  "refseq_low_yield": [
+    {
+      "organism": "Monoraphidium neglectum",
+      "predicted": 86,
+      "refseq_coding_loci": 16755
+    },
+    {
+      "organism": "Fulmarus glacialis",
+      "predicted": 1284,
+      "refseq_coding_loci": 15106
+    }
+  ],
+  "refseq_by_confidence_pooled": [
+    {
+      "bin": "[0.0, 0.1)",
+      "n": 28076,
+      "exact_rate": 0.05908961390511469,
+      "exact_lo": 0.04202207661237971,
+      "exact_hi": 0.08264254057294566,
+      "overlap_rate": 0.8551075651802251
+    },
+    {
+      "bin": "[0.1, 0.3)",
+      "n": 27537,
+      "exact_rate": 0.3019210516759269,
+      "exact_lo": 0.25492115362947926,
+      "exact_hi": 0.3648709162640352,
+      "overlap_rate": 0.845771144278607
+    },
+    {
+      "bin": "[0.3, 0.5)",
+      "n": 27702,
+      "exact_rate": 0.5367121507472384,
+      "exact_lo": 0.48040404434595557,
+      "exact_hi": 0.6089400577503399,
+      "overlap_rate": 0.9384881957981374
+    },
+    {
+      "bin": "[0.5, 0.7)",
+      "n": 36569,
+      "exact_rate": 0.701058273400968,
+      "exact_lo": 0.6502602164926912,
+      "exact_hi": 0.7585428822139629,
+      "overlap_rate": 0.9668298285433017
+    },
+    {
+      "bin": "[0.7, 0.9)",
+      "n": 65789,
+      "exact_rate": 0.8597637902992902,
+      "exact_lo": 0.8287718895309447,
+      "exact_hi": 0.8894107734921737,
+      "overlap_rate": 0.9828542765507912
+    },
+    {
+      "bin": "[0.9, 1.0)",
+      "n": 42440,
+      "exact_rate": 0.9645146088595664,
+      "exact_lo": 0.9530349061979558,
+      "exact_hi": 0.9740315387442555,
+      "overlap_rate": 0.9970782280867106
+    }
+  ],
+  "refseq_exact_rate_conf_lt_0_5": 0.2981575946708276,
+  "refseq_per_assembly": [
+    {
+      "division": "fungi",
+      "accession": "GCA_000027005.1",
+      "refseq": "GCF_000027005.1",
+      "organism": "Komagataella phaffii GS115",
+      "taxid": 644223,
+      "record_n50": 2394163,
+      "predicted": 5060,
+      "refseq_cds_chains": 5040,
+      "refseq_coding_loci": 5038,
+      "precision_exact": 0.9290513833992096,
+      "precision_exact_stop_tolerant": 0.9290513833992096,
+      "precision_overlap": 0.998814229249012,
+      "frac_complete_conf_ge_0_1": 0.9802371541501976,
+      "precision_exact_stop_tolerant_complete_conf_ge_0_1": 0.9461693548387096,
+      "precision_overlap_complete_conf_ge_0_1": 0.9993951612903226,
+      "recall_loci_overlap": 0.998412068281064
+    },
+    {
+      "division": "fungi",
+      "accession": "GCA_000585515.1",
+      "refseq": "GCF_000585515.1",
+      "organism": "Cladophialophora yegresii CBS 114405",
+      "taxid": 1182544,
+      "record_n50": 4268086,
+      "predicted": 10054,
+      "refseq_cds_chains": 10118,
+      "refseq_coding_loci": 10118,
+      "precision_exact": 0.8476228366819176,
+      "precision_exact_stop_tolerant": 0.8476228366819176,
+      "precision_overlap": 0.9995026854983092,
+      "frac_complete_conf_ge_0_1": 0.967972946091108,
+      "precision_exact_stop_tolerant_complete_conf_ge_0_1": 0.8715577476366626,
+      "precision_overlap_complete_conf_ge_0_1": 0.999691738594328,
+      "recall_loci_overlap": 0.9996046649535482
+    },
+    {
+      "division": "fungi",
+      "accession": "GCA_047715535.1",
+      "refseq": "GCF_047715535.1",
+      "organism": "Aspergillus foveolatus",
+      "taxid": 210207,
+      "record_n50": 388546,
+      "predicted": 9289,
+      "refseq_cds_chains": 11114,
+      "refseq_coding_loci": 11114,
+      "precision_exact": 0.6453870169017117,
+      "precision_exact_stop_tolerant": 0.6453870169017117,
+      "precision_overlap": 0.9642588007320486,
+      "frac_complete_conf_ge_0_1": 0.894283561201421,
+      "precision_exact_stop_tolerant_complete_conf_ge_0_1": 0.7145780666907428,
+      "precision_overlap_complete_conf_ge_0_1": 0.9768869628024558,
+      "recall_loci_overlap": 0.7940435486773438
+    },
+    {
+      "division": "invertebrate",
+      "accession": "GCA_000149515.1",
+      "refseq": "GCF_000149515.1",
+      "organism": "Caenorhabditis remanei",
+      "taxid": 31234,
+      "record_n50": 503307,
+      "predicted": 26123,
+      "refseq_cds_chains": 31476,
+      "refseq_coding_loci": 31469,
+      "precision_exact": 0.4615090150442139,
+      "precision_exact_stop_tolerant": 0.4615472954867358,
+      "precision_overlap": 0.9452972476361828,
+      "frac_complete_conf_ge_0_1": 0.8376909237070781,
+      "precision_exact_stop_tolerant_complete_conf_ge_0_1": 0.5377233468902801,
+      "precision_overlap_complete_conf_ge_0_1": 0.9598775305031304,
+      "recall_loci_overlap": 0.7919857637675173
+    },
+    {
+      "division": "invertebrate",
+      "accession": "GCA_000183805.3",
+      "refseq": "GCF_000183805.2",
+      "organism": "Loa loa",
+      "taxid": 7209,
+      "record_n50": 192380,
+      "predicted": 7957,
+      "refseq_cds_chains": 15440,
+      "refseq_coding_loci": 14903,
+      "precision_exact": 0.2998617569435717,
+      "precision_exact_stop_tolerant": 0.2998617569435717,
+      "precision_overlap": 0.9385446776423276,
+      "frac_complete_conf_ge_0_1": 0.634158602488375,
+      "precision_exact_stop_tolerant_complete_conf_ge_0_1": 0.44589774078478,
+      "precision_overlap_complete_conf_ge_0_1": 0.9510503369005152,
+      "recall_loci_overlap": 0.5820304636650339
+    },
+    {
+      "division": "invertebrate",
+      "accession": "GCA_018135715.1",
+      "refseq": "GCF_018135715.1",
+      "organism": "Danaus plexippus",
+      "taxid": 13037,
+      "record_n50": 8158176,
+      "predicted": 12528,
+      "refseq_cds_chains": 21503,
+      "refseq_coding_loci": 12669,
+      "precision_exact": 0.7708333333333334,
+      "precision_exact_stop_tolerant": 0.7708333333333334,
+      "precision_overlap": 0.9722222222222222,
+      "frac_complete_conf_ge_0_1": 0.913713282247765,
+      "precision_exact_stop_tolerant_complete_conf_ge_0_1": 0.8342797239451385,
+      "precision_overlap_complete_conf_ge_0_1": 0.9764130339827028,
+      "recall_loci_overlap": 0.9588759965269557
+    },
+    {
+      "division": "plant",
+      "accession": "GCA_000611645.1",
+      "refseq": "GCF_000611645.1",
+      "organism": "Monoraphidium neglectum",
+      "taxid": 145388,
+      "record_n50": 20473,
+      "predicted": 86,
+      "refseq_cds_chains": 16755,
+      "refseq_coding_loci": 16755,
+      "precision_exact": 0.1627906976744186,
+      "precision_exact_stop_tolerant": 0.1627906976744186,
+      "precision_overlap": 0.5232558139534884,
+      "frac_complete_conf_ge_0_1": 0.8023255813953488,
+      "precision_exact_stop_tolerant_complete_conf_ge_0_1": 0.2028985507246377,
+      "precision_overlap_complete_conf_ge_0_1": 0.5362318840579711,
+      "recall_loci_overlap": 0.0028648164726947
+    },
+    {
+      "division": "plant",
+      "accession": "GCA_004799145.2",
+      "refseq": "GCF_004799145.2",
+      "organism": "Neltuma alba",
+      "taxid": 207710,
+      "record_n50": 248737,
+      "predicted": 31233,
+      "refseq_cds_chains": 57577,
+      "refseq_coding_loci": 42089,
+      "precision_exact": 0.5880639067652803,
+      "precision_exact_stop_tolerant": 0.5880639067652803,
+      "precision_overlap": 0.8514712003329812,
+      "frac_complete_conf_ge_0_1": 0.8260493708577467,
+      "precision_exact_stop_tolerant_complete_conf_ge_0_1": 0.7022093023255814,
+      "precision_overlap_complete_conf_ge_0_1": 0.9022868217054264,
+      "recall_loci_overlap": 0.6302834469813966
+    },
+    {
+      "division": "plant",
+      "accession": "GCA_029784015.1",
+      "refseq": "GCF_029784015.1",
+      "organism": "Lycium ferocissimum",
+      "taxid": 112874,
+      "record_n50": 69906897,
+      "predicted": 25056,
+      "refseq_cds_chains": 44311,
+      "refseq_coding_loci": 30431,
+      "precision_exact": 0.7786159003831418,
+      "precision_exact_stop_tolerant": 0.7786558109833972,
+      "precision_overlap": 0.9445242656449552,
+      "frac_complete_conf_ge_0_1": 0.9208572796934866,
+      "precision_exact_stop_tolerant_complete_conf_ge_0_1": 0.8350452910328089,
+      "precision_overlap_complete_conf_ge_0_1": 0.95778615698002,
+      "recall_loci_overlap": 0.7801912523413624
+    },
+    {
+      "division": "protozoa",
+      "accession": "GCA_000165365.1",
+      "refseq": "GCF_000165365.1",
+      "organism": "Theileria parva strain Muguga",
+      "taxid": 333668,
+      "record_n50": 1971884,
+      "predicted": 3923,
+      "refseq_cds_chains": 4046,
+      "refseq_coding_loci": 4016,
+      "precision_exact": 0.9304104002039256,
+      "precision_exact_stop_tolerant": 0.9304104002039256,
+      "precision_overlap": 0.99949018608208,
+      "frac_complete_conf_ge_0_1": 0.975783838898802,
+      "precision_exact_stop_tolerant_complete_conf_ge_0_1": 0.9448798328108672,
+      "precision_overlap_complete_conf_ge_0_1": 1.0,
+      "recall_loci_overlap": 0.983316733067729
+    },
+    {
+      "division": "protozoa",
+      "accession": "GCA_000342415.1",
+      "refseq": "GCF_000342415.1",
+      "organism": "Theileria equi strain WA",
+      "taxid": 1537102,
+      "record_n50": 2338319,
+      "predicted": 5240,
+      "refseq_cds_chains": 5327,
+      "refseq_coding_loci": 5327,
+      "precision_exact": 0.9204198473282442,
+      "precision_exact_stop_tolerant": 0.9204198473282442,
+      "precision_overlap": 0.9994274809160304,
+      "frac_complete_conf_ge_0_1": 0.9772900763358778,
+      "precision_exact_stop_tolerant_complete_conf_ge_0_1": 0.935950009763718,
+      "precision_overlap_complete_conf_ge_0_1": 1.0,
+      "recall_loci_overlap": 0.988173455978975
+    },
+    {
+      "division": "protozoa",
+      "accession": "GCA_000740895.1",
+      "refseq": "GCF_000740895.1",
+      "organism": "Theileria orientalis strain Shintoku",
+      "taxid": 869250,
+      "record_n50": 2216979,
+      "predicted": 3988,
+      "refseq_cds_chains": 4002,
+      "refseq_coding_loci": 3999,
+      "precision_exact": 0.7158976930792377,
+      "precision_exact_stop_tolerant": 0.7158976930792377,
+      "precision_overlap": 0.9994984954864594,
+      "frac_complete_conf_ge_0_1": 0.8713640922768305,
+      "precision_exact_stop_tolerant_complete_conf_ge_0_1": 0.7942446043165468,
+      "precision_overlap_complete_conf_ge_0_1": 1.0,
+      "recall_loci_overlap": 0.994748687171793
+    },
+    {
+      "division": "vertebrate_mammalian",
+      "accession": "GCA_000181295.3",
+      "refseq": "GCF_000181295.1",
+      "organism": "Otolemur garnettii",
+      "taxid": 30611,
+      "record_n50": 13992998,
+      "predicted": 20096,
+      "refseq_cds_chains": 32670,
+      "refseq_coding_loci": 19544,
+      "precision_exact": 0.5768312101910829,
+      "precision_exact_stop_tolerant": 0.5768809713375797,
+      "precision_overlap": 0.9340664808917196,
+      "frac_complete_conf_ge_0_1": 0.8445461783439491,
+      "precision_exact_stop_tolerant_complete_conf_ge_0_1": 0.6791185481970304,
+      "precision_overlap_complete_conf_ge_0_1": 0.9434951685128448,
+      "recall_loci_overlap": 0.962443716741711
+    },
+    {
+      "division": "vertebrate_mammalian",
+      "accession": "GCA_000412655.1",
+      "refseq": "GCF_000412655.1",
+      "organism": "Myotis brandtii",
+      "taxid": 109478,
+      "record_n50": 3375333,
+      "predicted": 18828,
+      "refseq_cds_chains": 40937,
+      "refseq_coding_loci": 19924,
+      "precision_exact": 0.426173783726365,
+      "precision_exact_stop_tolerant": 0.4262268961121733,
+      "precision_overlap": 0.9430635224134268,
+      "frac_complete_conf_ge_0_1": 0.693807095814744,
+      "precision_exact_stop_tolerant_complete_conf_ge_0_1": 0.609354665850111,
+      "precision_overlap_complete_conf_ge_0_1": 0.9572839317155324,
+      "recall_loci_overlap": 0.9183396908251356
+    },
+    {
+      "division": "vertebrate_mammalian",
+      "accession": "GCA_000500345.1",
+      "refseq": "GCF_000500345.1",
+      "organism": "Peromyscus maniculatus bairdii",
+      "taxid": 230844,
+      "record_n50": 3892454,
+      "predicted": 21085,
+      "refseq_cds_chains": 45916,
+      "refseq_coding_loci": 21775,
+      "precision_exact": 0.6378942376096751,
+      "precision_exact_stop_tolerant": 0.6379416646905383,
+      "precision_overlap": 0.9440834716623192,
+      "frac_complete_conf_ge_0_1": 0.8497035807446052,
+      "precision_exact_stop_tolerant_complete_conf_ge_0_1": 0.7410694351417727,
+      "precision_overlap_complete_conf_ge_0_1": 0.9561844161643224,
+      "recall_loci_overlap": 0.9284041331802526
+    },
+    {
+      "division": "vertebrate_other",
+      "accession": "GCA_000690835.1",
+      "refseq": "GCF_000690835.1",
+      "organism": "Fulmarus glacialis",
+      "taxid": 30455,
+      "record_n50": 50488,
+      "predicted": 1284,
+      "refseq_cds_chains": 16251,
+      "refseq_coding_loci": 15106,
+      "precision_exact": 0.2546728971962617,
+      "precision_exact_stop_tolerant": 0.2546728971962617,
+      "precision_overlap": 0.8652647975077882,
+      "frac_complete_conf_ge_0_1": 0.338006230529595,
+      "precision_exact_stop_tolerant_complete_conf_ge_0_1": 0.4930875576036866,
+      "precision_overlap_complete_conf_ge_0_1": 0.935483870967742,
+      "recall_loci_overlap": 0.0734807361313385
+    },
+    {
+      "division": "vertebrate_other",
+      "accession": "GCA_026119805.1",
+      "refseq": "GCF_026119805.1",
+      "organism": "Tympanuchus pallidicinctus",
+      "taxid": 109042,
+      "record_n50": 45339891,
+      "predicted": 15592,
+      "refseq_cds_chains": 41586,
+      "refseq_coding_loci": 15422,
+      "precision_exact": 0.7103642893791688,
+      "precision_exact_stop_tolerant": 0.7103642893791688,
+      "precision_overlap": 0.9702411493073372,
+      "frac_complete_conf_ge_0_1": 0.9064905079527964,
+      "precision_exact_stop_tolerant_complete_conf_ge_0_1": 0.7759303806424225,
+      "precision_overlap_complete_conf_ge_0_1": 0.9746002547049668,
+      "recall_loci_overlap": 0.9688107897808326
+    },
+    {
+      "division": "vertebrate_other",
+      "accession": "GCA_031753505.1",
+      "refseq": "GCF_031753505.1",
+      "organism": "Anomalospiza imberbis",
+      "taxid": 187417,
+      "record_n50": 72455167,
+      "predicted": 16203,
+      "refseq_cds_chains": 41503,
+      "refseq_coding_loci": 16574,
+      "precision_exact": 0.6916620378942171,
+      "precision_exact_stop_tolerant": 0.6916620378942171,
+      "precision_overlap": 0.9545145960624576,
+      "frac_complete_conf_ge_0_1": 0.9119916064926248,
+      "precision_exact_stop_tolerant_complete_conf_ge_0_1": 0.7529268457738377,
+      "precision_overlap_complete_conf_ge_0_1": 0.9589226500642892,
+      "recall_loci_overlap": 0.9432243272595632
+    }
+  ],
+  "reported": {
+    "loci": 566000000,
+    "assemblies": 48167,
+    "taxa": 22617
+  }
+}
