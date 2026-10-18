@@ -10,7 +10,8 @@
   "locales": {
     "ja": {
       "title": "AlphaGenomeの高スコア変異は、創薬標的を教えてくれるか",
-      "summary": "AlphaGenome AtlasのAVIを順位尺度として読み、DNM1のスプライシング実験12変異を再集計する。PCSK9の証拠と対照し、変異の影響から治療方向を判断するまでに必要な情報を整理する。"
+      "summary": "AlphaGenome AtlasのAVIを順位尺度として読み、DNM1のスプライシング実験12変異を再集計する。PCSK9の証拠と対照し、変異の影響から治療方向を判断するまでに必要な情報を整理する。",
+      "seo_title": "AlphaGenomeの高スコア変異は、創薬標的を教えてくれるか"
     }
   },
   "english": {

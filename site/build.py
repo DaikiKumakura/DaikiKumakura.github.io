@@ -240,7 +240,7 @@ def seo_warnings(entries, site_name):
             elif len(description) < (40 if lang == 'ja' else 70):
                 notes.append(f'Description is very short ({len(description)} characters): {where}')
         if not (a['folder'] / 'og.png').is_file():
-            notes.append(f"No social card (og.png); the first figure is used: {a['slug']}")
+            notes.append(f"No social card (og.png); the first figure, or the site card if there is none, is used: {a['slug']}")
     return notes
 
 def build(project=BASE, preview=False, strict_translations=False):
