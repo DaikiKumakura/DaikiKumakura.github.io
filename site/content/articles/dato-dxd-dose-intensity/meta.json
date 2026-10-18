@@ -1,0 +1,20 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2026-12-03",
+  "publish_at": "2026-12-03T09:00:00+09:00",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "Dato-DXdは同じ投与強度なら曝露も揃うか",
+      "summary": "公開PopPKモデルから同総量・異なる投与間隔のADCとDXd曝露を比較する。有限期間AUC、後半平均、生成項の外挿を分け、有効性・毒性へ直接読み替えない。"
+    }
+  },
+  "english": {
+    "title": "Does equal dose intensity imply equal Dato-DXd exposure?",
+    "summary": "Conditional simulations compare ADC and unconjugated DXd under equal total input. Finite-horizon AUC, late-window exposure and unvalidated formation-clock extrapolation are distinguished; clinical benefit is not inferred."
+  }
+}
