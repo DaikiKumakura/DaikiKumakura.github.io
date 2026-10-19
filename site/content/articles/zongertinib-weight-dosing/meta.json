@@ -1,0 +1,21 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2026-12-11",
+  "publish_at": "2026-12-11T09:00:00+09:00",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "Zongertinibの体重別用量は曝露をどこまで揃えるか",
+      "summary": "公開PopPKとFDA用量比較表から、固定量・90 kgでの2段階用量・連続体重補正を比較。体重層ごと4096人の条件付き解析で、境界の段差と残る個体差を分ける。",
+      "seo_title": "Zongertinibの体重別用量と曝露 | Daiki Kumakura"
+    }
+  },
+  "english": {
+    "title": "Zongertinib weight-based dosing and exposure distributions",
+    "summary": "Public PopPK and FDA model-derived ratios compare fixed, weight-band and theoretical continuous dosing. Conditional simulations separate boundary discontinuities from residual variability without predicting clinical benefit."
+  }
+}
