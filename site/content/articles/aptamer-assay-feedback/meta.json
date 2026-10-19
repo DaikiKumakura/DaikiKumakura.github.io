@@ -1,0 +1,25 @@
+{
+  "source_language": "ja",
+  "category": "essay",
+  "date": "2026-12-08",
+  "publish_at": "2026-12-08T09:00:00+09:00",
+  "draft": false,
+  "math": false,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "AIが選んだ分子は、何に結合していたのか",
+      "summary": "Googleのアプタマー探索報告を読み、結合量・ビーズ背景・標的選択性を区別する。公開集計から閾値別の改善率を再計算し、分母と判定条件の整合性を確認する。",
+      "key_findings": [
+        "ミオグロビンの第2ラウンドでは対照にも付着する候補が増えたと報告され、標的の回収量だけでは探索の良し悪しを判断できない。",
+        "公開集計の再計算では第2から第3ラウンドのヒット率は3条件で上昇するが、倍率は約5.9〜9.1倍。生データでの再解析ではない。",
+        "補正残差を使う規則では採用数が増えることもある。本文と補足表の判定条件の対応が未確定で、原判定の再現とAIの因果的な優位性は確認できない。"
+      ]
+    }
+  },
+  "english": {
+    "title": "What were the AI-designed molecules binding to?",
+    "summary": "A Japanese technical essay audits aggregate counts from a Google aptamer discovery report, separating enrichment, bead background and counter-target specificity, while checking thresholds, denominators and limits on causal claims."
+  }
+}
