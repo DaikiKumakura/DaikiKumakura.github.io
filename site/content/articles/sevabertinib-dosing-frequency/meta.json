@@ -1,0 +1,20 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2026-12-09",
+  "publish_at": "2026-12-09T09:00:00+09:00",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "Sevabertinibの投与回数と製剤を分けて考える",
+      "summary": "製剤間の集計AUC比から相対Fを推定し、公開PopPKと4096人の条件付き仮想患者でBID・QDを比較。ピーク再構成の不一致とAUCのみのE–Rの限界を示す。"
+    }
+  },
+  "english": {
+    "title": "Sevabertinib dosing frequency and formulation",
+    "summary": "Aggregate AUC ratios estimate relative bioavailability. Public PopPK coefficients compare paired schedules in 4096 conditional virtual patients. Unresolved peak reconstruction and the limits of AUC-only E-R are explicit."
+  }
+}
