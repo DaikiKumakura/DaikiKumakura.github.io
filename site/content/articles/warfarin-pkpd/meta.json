@@ -4,18 +4,19 @@
   "date": "2026-10-04",
   "draft": false,
   "math": false,
-  "version": "1.0",
+  "version": "1.1",
   "author": "Daiki Kumakura",
   "locales": {
     "en": {
       "title": "When does individual information improve PK/PD prediction?",
-      "summary": "A reanalysis of measured warfarin PK/PCA data: effect delay, subject-separated prediction, and the limits of using additional PK measurements.",
+      "summary": "A reanalysis of measured warfarin PK/PCA data, revised with an absorption lag: effect delay, held-out prediction and the limits of extra PK.",
       "key_findings": [
-        "In 32 subjects with public single-dose warfarin PK and PCA data, a turnover model described the delay between concentration and response better than direct inhibition (held-out RMSE 0.0799 vs 0.1061 at the 24 h cutoff).",
-        "Adding each subject's PK measurements up to 24 or 48 h did not improve later PCA prediction: paired MSE differences were +0.0015 (−0.0012 to 0.0043) and +0.0021 (−0.0026 to 0.0064).",
-        "Concentration information does not recover individual PD sensitivity; the next informative experiment measures PD sensitivity or tests a repeat occasion, and nothing here supports a dose, INR target or bleeding-risk claim."
+        "In 32 subjects with public single-dose warfarin PK and PCA data, a turnover model described the delay between concentration and response better than direct inhibition (held-out RMSE 0.0807 vs 0.1078 at the 24 h cutoff); version 1.1 adds an absorption lag, which lowered the PK objective function by about 198.",
+        "Adding each subject's PK measurements up to 24 or 48 h did not improve later PCA prediction: paired MSE differences were +0.0052 (−0.0003 to 0.0125) and +0.0030 (−0.0019 to 0.0079), slightly further towards worse prediction than in version 1.0.",
+        "Concentration information does not recover individual PD sensitivity; every refit now starts from generic values after 20 of 67 version 1.0 PK refits were found not to have moved, and nothing here supports a dose, INR target or bleeding-risk claim."
       ],
       "seo_title": "When does individual information improve PK/PD prediction?"
     }
-  }
+  },
+  "updated": "2026-10-19"
 }
