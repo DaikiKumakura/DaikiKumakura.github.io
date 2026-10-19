@@ -680,6 +680,10 @@
         {
           "url": "https://github.com/DaikiKumakura/pkident/releases/tag/v0.1.0",
           "label": "Release 0.1.0"
+        },
+        {
+          "url": "https://daikikumakura.r-universe.dev/pkident",
+          "label": "R-universe"
         }
       ],
       "note": "Ten reference models with expected results fixed from the literature or by derivation are reproduced, and two independent structural methods agree at every point. Expected standard errors agreed with the spread of repeated estimates on simulated data. R CMD check passes on Linux and Windows in CI (October 5, 2026). Decisions are local; population designs are not covered.",
@@ -689,9 +693,14 @@
       "details": [
         "Structure: with continuous, noise-free observation of the chosen outputs after known doses, which parameters, or combinations such as V/F, can be determined at all.",
         "Design: with given sampling times, doses and assay error, how precisely each parameter would be estimated, and which added measurement, sampling time or dose level would help.",
-        "Fit: in an nlmixr2 fit, which parameters the data determine, and whether a flat likelihood profile is a property of the model or of the data."
+        "Fit: in an nlmixr2 fit, which parameters the data determine, and whether a flat likelihood profile is a property of the model or of the data.",
+        "Case studies in the package: how long PSA must be followed to estimate regrowth, and nimotuzumab target-mediated disposition."
       ],
       "install": [
+        {
+          "label": "R (binary from R-universe)",
+          "code": "install.packages(\"pkident\", repos = c(\"https://daikikumakura.r-universe.dev\", \"https://cloud.r-project.org\"))"
+        },
         {
           "label": "R",
           "code": "remotes::install_github(\"DaikiKumakura/pkident\")"
@@ -701,7 +710,8 @@
       "related_articles": [
         "tarlatamab-summary-pk",
         "nimotuzumab-poppk",
-        "warfarin-pkpd"
+        "warfarin-pkpd",
+        "psa-early-observation"
       ]
     },
     {
@@ -731,6 +741,10 @@
         {
           "url": "https://github.com/DaikiKumakura/rsemflow/releases/tag/v0.1.1",
           "label": "Release 0.1.1"
+        },
+        {
+          "url": "https://daikikumakura.r-universe.dev/rsemflow",
+          "label": "R-universe"
         }
       ],
       "note": "Human and mouse data. Mismatched samples, inconsistent gene tables, missing model values and confounded designs stop the run instead of producing results. Simple effects from interaction models are tested against the reparameterized model. On ENCODE K562 knockdown data, each target gene is among the most significant decreases in its own knockdown. R CMD check passes on Linux, macOS and Windows in CI (October 6, 2026). Not on CRAN or Bioconductor; no figures are produced.",
@@ -762,6 +776,10 @@
         {
           "url": "https://github.com/DaikiKumakura/retiaudit#readme",
           "label": "Usage"
+        },
+        {
+          "url": "https://daikikumakura.r-universe.dev/retiaudit",
+          "label": "R-universe"
         }
       ],
       "note": "Initial version, not on CRAN. R package checks pass in CI on Linux, Windows and macOS (October 5, 2026). It reports visible hints and does not reproduce reticulate's own discovery; use reticulate's diagnostics for actual configuration.",
@@ -770,6 +788,10 @@
       "summary": "Dependency-free R companion to reticulate that reports Python selection overrides and project markers before Python starts.",
       "details": [],
       "install": [
+        {
+          "label": "R (binary from R-universe)",
+          "code": "install.packages(\"retiaudit\", repos = c(\"https://daikikumakura.r-universe.dev\", \"https://cloud.r-project.org\"))"
+        },
         {
           "label": "R",
           "code": "remotes::install_github(\"DaikiKumakura/retiaudit\")\nlibrary(retiaudit)\naudit_python(intent = \"managed\")"
