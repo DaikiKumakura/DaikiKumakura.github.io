@@ -285,6 +285,14 @@ class BuildTests(unittest.TestCase):
   site['software'][0]['summary']='Too short.';p.write_text(json.dumps(site),encoding='utf-8')
   with self.assertRaisesRegex(ValueError,'software page'):build.build(self.root,preview=True)
 
+ def test_robots_lists_extra_documentation_sitemaps_but_not_in_preview(self):
+  build.build(self.root)
+  robots=self.text('robots.txt')
+  self.assertIn('Sitemap: '+build.SITE_URL+'sitemap.xml',robots)
+  for path in build.EXTRA_SITEMAPS:self.assertIn('Sitemap: '+build.SITE_URL+path,robots)
+  build.build(self.root,preview=True)
+  preview=self.text('robots.txt');self.assertIn('Disallow: /',preview);self.assertNotIn('Sitemap',preview)
+
 if __name__=='__main__':unittest.main()
 
 

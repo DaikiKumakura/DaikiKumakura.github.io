@@ -25,6 +25,8 @@ ILLUSTRATION_ALT = {
 LEGACY_PAGES = {'index':'index.html', 'about':'profile.html', 'publications':'publication.html', 'activities':'activity.html', 'writing':'writing.html', 'software':'software.html'}
 LEGACY_REDIRECTS = {'japanese.html':'index.html', 'publication_jpn.html':'publication.html', 'cv.html':'profile.html', 'research.html':'profile.html', 'education.html':'activity.html#teaching', 'gallery.html':'writing.html', 'link.html':'writing.html', 'about.html':'profile.html', 'publications.html':'publication.html', 'activities.html':'activity.html'}
 LEGACY_REDIRECTS.update({f'{language}/{old}.html':new for language in ('ja','en') for old,new in LEGACY_PAGES.items()})
+# Documentation sites published under this domain by other repositories (pkgdown) with their own sitemaps.
+EXTRA_SITEMAPS = ('rsemflow/sitemap.xml',)
 RECENT_ON_HOME = 3
 FEED_SIZE = 50
 BASE = Path(__file__).resolve().parent
@@ -373,7 +375,7 @@ def build(project=BASE, preview=False, strict_translations=False):
     outputs['sitemap.xml']=('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+''.join(sitemap_url(p) for p in canonical_pages if not preview or not p.startswith('writing/'))+'</urlset>').encode('utf-8')
     if not preview:
         outputs['feed.xml']=atom_feed(site,entries)
-    outputs['robots.txt']=('User-agent: *\n'+('Disallow: /\n' if preview else 'Allow: /\nSitemap: '+SITE_URL+'sitemap.xml\nSitemap: '+SITE_URL+'feed.xml\n')).encode('utf-8')
+    outputs['robots.txt']=('User-agent: *\n'+('Disallow: /\n' if preview else 'Allow: /\nSitemap: '+SITE_URL+'sitemap.xml\nSitemap: '+SITE_URL+'feed.xml\n'+''.join('Sitemap: '+SITE_URL+path+'\n' for path in EXTRA_SITEMAPS))).encode('utf-8')
     if not preview:
         outputs['llms.txt']=llms_txt(site,entries,list(hubs.values()))
     outputs['.nojekyll'] = b''
