@@ -4,19 +4,19 @@
   "date": "2026-10-04",
   "draft": false,
   "math": false,
-  "version": "1.1",
+  "version": "1.2",
   "author": "Daiki Kumakura",
   "locales": {
     "en": {
       "title": "When does individual information improve PK/PD prediction?",
-      "summary": "A reanalysis of measured warfarin PK/PCA data, revised with an absorption lag: effect delay, held-out prediction and the limits of extra PK.",
+      "summary": "A reanalysis of warfarin PK/PCA data, revised with an absorption lag and a Hill exponent: effect delay, held-out prediction and the limits of extra PK.",
       "key_findings": [
-        "In 32 subjects with public single-dose warfarin PK and PCA data, a turnover model described the delay between concentration and response better than direct inhibition (held-out RMSE 0.0807 vs 0.1078 at the 24 h cutoff); version 1.1 adds an absorption lag, which lowered the PK objective function by about 198.",
-        "Adding each subject's PK measurements up to 24 or 48 h did not improve later PCA prediction: paired MSE differences were +0.0052 (−0.0003 to 0.0125) and +0.0030 (−0.0019 to 0.0079), slightly further towards worse prediction than in version 1.0.",
-        "Concentration information does not recover individual PD sensitivity; every refit now starts from generic values after 20 of 67 version 1.0 PK refits were found not to have moved, and nothing here supports a dose, INR target or bleeding-risk claim."
+        "In 32 subjects with public single-dose warfarin PK and PCA data, a turnover model described the delay between concentration and response better than direct inhibition (held-out RMSE 0.0827 vs 0.0987 at the 24 h cutoff); version 1.1 added an absorption lag and version 1.2 a Hill exponent (1.28).",
+        "Adding each subject's PK measurements up to 24 or 48 h did not improve later PCA prediction: paired MSE differences were +0.0077 (0.0003 to 0.0174) and +0.0051 (−0.0013 to 0.0114), worse at 24 h.",
+        "The Hill exponent improved the in-sample fit but not held-out prediction; every refit starts from generic values after 20 of 67 version 1.0 PK refits were found not to have moved; nothing here supports a dose, INR target or bleeding-risk claim."
       ],
       "seo_title": "When does individual information improve PK/PD prediction?"
     }
   },
-  "updated": "2026-10-19"
+  "updated": "2026-10-20"
 }
