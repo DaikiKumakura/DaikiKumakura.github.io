@@ -1,0 +1,21 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2026-12-20",
+  "publish_at": "2026-12-20T09:00:00+09:00",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "Telisotuzumab vedotinの初期用量を公開PK・E–Rモデルで考える",
+      "seo_title": "Telisotuzumab vedotinの初期用量 | Daiki Kumakura",
+      "summary": "公表PK・初期曝露のE–R式で固定用量と初期低用量を比較。4096組の条件付き解析から、曝露の時間配分と静的モデルで判断できる範囲を考える。"
+    }
+  },
+  "english": {
+    "title": "Telisotuzumab vedotin initial dosing with public PK and exposure-response models",
+    "summary": "Conditional simulations compare fixed and lower-start dosing. Public first-cycle association models illustrate preference and coefficient sensitivity without establishing sequential-regimen clinical benefit."
+  }
+}
