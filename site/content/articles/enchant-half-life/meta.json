@@ -1,0 +1,25 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2026-12-15",
+  "publish_at": "2026-12-15T09:00:00+09:00",
+  "draft": false,
+  "math": false,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "ヒト半減期の Spearman 0.74 をどう読むか：Iambic の主張を、公開データで読み解く",
+      "summary": "Iambic Therapeuticsが2024年に示したヒト半減期のSpearman 0.74について、公開のTDCデータで、基準モデルの到達点、分割と試験データの影響、少数データの基準、分布容積とクリアランスの寄与を確かめる（Enchant自体は検証していない）。",
+      "key_findings": [
+        "同じ試験データなら0.74と0.58の差は0と両立しにくいが、白書には分割も試験データの大きさも書かれておらず、同じ条件か確認できない。TDCの固定の試験データで素朴な近傍法は0.52（区間0.37〜0.65）で、0.74は素朴な基準のどの試行（最大0.65）よりも高い。",
+        "ランダム分割とスキャフォールド分割の差は0.03〜0.04と小さく、試験データの顔ぶれの違いで同じ近傍法が0.36〜0.65まで動いた。",
+        "訓練が5薬物のとき素朴なモデルは0.06〜0.07で、符号の事前知識を与えた回帰は0.25（logPだけの規則と同水準）。半減期（0.44）は、測定した分布容積（0.68）より予測しにくい。"
+      ]
+    }
+  },
+  "english": {
+    "title": "How to read a Spearman of 0.74 for human half-life: checking Iambic's claim with public data and plain baselines",
+    "summary": "A Japanese technical note that uses public TDC data to check where plain baselines land on the fixed test set, how splits and test sets move them, what a few training drugs or a no-training rule reach, and how volume of distribution and clearance enter half-life. Enchant itself is not tested."
+  }
+}

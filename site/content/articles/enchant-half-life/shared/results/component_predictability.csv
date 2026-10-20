@@ -1,0 +1,31 @@
+seed,target,spearman
+0,half-life,0.5858493720955915
+0,Vss (measured),0.6915541010169457
+0,CL (derived from Vss and half-life),0.5764367215882795
+1,half-life,0.4399550822743994
+1,Vss (measured),0.5733673608265312
+1,CL (derived from Vss and half-life),0.3274530406646768
+2,half-life,0.3893793725308975
+2,Vss (measured),0.6816635780793058
+2,CL (derived from Vss and half-life),0.6002003084617659
+3,half-life,0.23198181359062867
+3,Vss (measured),0.6346091297574795
+3,CL (derived from Vss and half-life),0.5154885268489053
+4,half-life,0.4707270561371937
+4,Vss (measured),0.7098691137003024
+4,CL (derived from Vss and half-life),0.4725228304504229
+5,half-life,0.41166593484234926
+5,Vss (measured),0.7015387206217338
+5,CL (derived from Vss and half-life),0.5595808282079501
+6,half-life,0.5360104492075073
+6,Vss (measured),0.7680383333665686
+6,CL (derived from Vss and half-life),0.5194825144538407
+7,half-life,0.5532755626089823
+7,Vss (measured),0.6682034930812988
+7,CL (derived from Vss and half-life),0.5679710229524514
+8,half-life,0.40331503939598207
+8,Vss (measured),0.6999411672162024
+8,CL (derived from Vss and half-life),0.45568803590794443
+9,half-life,0.4003939355174031
+9,Vss (measured),0.6475249442144276
+9,CL (derived from Vss and half-life),0.5416645545223956
