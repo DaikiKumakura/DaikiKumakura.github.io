@@ -1,0 +1,72 @@
+{
+  "pxr": {
+    "gap_rank1_rank2_mae": 0.0031,
+    "gap_over_rank1_spread": 0.111,
+    "pairwise_comparisons_check": 4950
+  },
+  "lifescibench": {
+    "wilson_95": {
+      "GPT-Rosalind": [
+        0.327,
+        0.396
+      ],
+      "GPT-5.5": [
+        0.227,
+        0.289
+      ],
+      "Gemini 3.1 Pro": [
+        0.207,
+        0.268
+      ],
+      "GPT-5.4": [
+        0.18,
+        0.237
+      ],
+      "Grok 4.3": [
+        0.108,
+        0.156
+      ]
+    },
+    "unpaired_diff_95": {
+      "Rosalind-GPT5.5": [
+        0.058,
+        0.15
+      ],
+      "GPT5.5-Gemini3.1": [
+        -0.023,
+        0.065
+      ]
+    },
+    "note": "task-sampling uncertainty only; unpaired approximation (paired per-task results not public); pass rates are rounded to 0.1 point"
+  },
+  "aintibody": {
+    "ratio_lab_over_ai": 1.193,
+    "relative_improvement_pct": 16.2
+  },
+  "inputs": {
+    "pxr": {
+      "mae_rank1": 0.4061,
+      "pm_rank1": 0.028,
+      "mae_rank2": 0.4092,
+      "pm_rank2": 0.0281,
+      "n_activity_entries_pairwise": 100,
+      "pairwise_reported": 4950,
+      "tier1_activity": 28
+    },
+    "lifescibench": {
+      "n_tasks": 750,
+      "pass_rate": {
+        "GPT-Rosalind": 0.361,
+        "GPT-5.5": 0.257,
+        "Gemini 3.1 Pro": 0.236,
+        "GPT-5.4": 0.207,
+        "Grok 4.3": 0.13
+      }
+    },
+    "aintibody": {
+      "best_ai_pM": 94.7,
+      "best_lab_pM": 113.0,
+      "random_beats_model_pct": 39.0
+    }
+  }
+}
