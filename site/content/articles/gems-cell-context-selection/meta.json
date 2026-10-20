@@ -1,0 +1,25 @@
+{
+  "source_language": "ja",
+  "category": "essay",
+  "date": "2026-12-17",
+  "publish_at": "2026-12-17T09:00:00+09:00",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "GWASの候補変異、どの細胞で試すか。GEMSの数字を分母から読む",
+      "summary": "GEMSの公開集計値を分母から読み直す。細胞への注釈、ATACとRNAの対応、実験系を選ぶ根拠の違いを整理する。",
+      "key_findings": [
+        "GEMSは配列モデルの変異効果予測から、GWAS候補変異を細胞・組織へ結び付ける。因果的な細胞の実証とは区別する。",
+        "LDLで最多の肝臓RNA・肝細胞ATACの組合せは、両モダリティに対応が付く変異の78.0%、全候補の15.1%を占める。いずれも正解率ではない。",
+        "T2Dの低い両モダリティ対応率は、単独モデル間の不一致率ではない。未付与、組織と細胞の解像度、元データの厚みを実験選択に残す。"
+      ]
+    }
+  },
+  "english": {
+    "title": "Choosing cell contexts for GWAS experiments with GEMS",
+    "summary": "A Japanese essay audits the denominators in GEMS Table 2 and separates cell annotation coverage from causal validation and experimental cell selection."
+  }
+}
