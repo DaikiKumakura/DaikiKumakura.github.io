@@ -1,0 +1,25 @@
+{
+  "source_language": "ja",
+  "category": "essay",
+  "date": "2026-12-23",
+  "publish_at": "2026-12-23T09:00:00+09:00",
+  "draft": false,
+  "math": false,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "「AI創薬は第2相で止まる」はどこまで言えるか：引用の連鎖をたどる",
+      "summary": "AI創薬は第1相を通るが第2相では変わらず、律速は臨床にある、という2026年の論調について、数字の出どころを論文の要旨、学会抄録、調査会社のブログ、記事までたどる。分母の違いと、議論とデータの区別を整理する短い論考。",
+      "key_findings": [
+        "第2相の成功率の根拠は、2024年の論文の要旨（約40%、標本は限られる）、2026年のASCO抄録の件数（117件中、第1相を完了60件、第2相を完了8件）、調査会社の「同程度」という一文で、どれも小さな標本か途中の集計である。",
+        "117件中8件（6.8%）は、試験に入った全資産を分母にした途中の集計で、進行中の資産が分子に入らないため成功率より低く出る。第2相の結果が出たもののうちの約40%とは別の量で、並べて読めない。",
+        "「律速は臨床にある」という4つの記事の議論は一致しているが、新しい測定ではなく議論として繰り返されている。"
+      ]
+    }
+  },
+  "english": {
+    "title": "How Far Can \"AI Drug Discovery Stalls in Phase 2\" Be Supported? Tracing the Chain of Citations",
+    "summary": "A short Japanese reading essay that traces where the 2026 claim that AI-discovered drugs pass Phase 1 but not Phase 2 gets its numbers, separating denominators, primary sources and social-media citations from argument."
+  }
+}

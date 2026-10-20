@@ -1,0 +1,17 @@
+{
+  "share_completed_phase1_of_tracked": 0.5128,
+  "share_cleared_phase2_of_tracked": 0.0684,
+  "example_phase2_rate": 0.4,
+  "example_phase2_cp95": [
+    0.122,
+    0.738
+  ],
+  "note": "8/117 and 4/10 have different denominators (all assets that entered trials, including ongoing ones, vs completed Phase 2 trials); they are not comparable. 8/60 is also not a success rate (snapshot, ongoing assets censored).",
+  "inputs": {
+    "tracked_assets": 117,
+    "completed_phase1": 60,
+    "cleared_phase2": 8,
+    "phase2_completed_example": 10,
+    "phase2_success_example": 4
+  }
+}
