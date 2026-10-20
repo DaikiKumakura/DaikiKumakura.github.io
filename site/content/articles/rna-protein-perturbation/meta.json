@@ -1,0 +1,25 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2026-12-18",
+  "draft": false,
+  "math": false,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "RNAで摂動の効果を読む限界：同じ細胞の表面タンパク質で確かめる",
+      "summary": "同じ細胞でRNAと表面タンパク質を測ったCRISPRノックアウトの公開データで、RNAの変化がタンパク質の変化をどこまで代弁するかを調べた。ノイズを補正しても相関は0.42で、標的のmRNAがほぼ下がらないままタンパク質が大きく下がる例もあった。",
+      "key_findings": [
+        "ノックアウトでタンパク質がはっきり下がった16組（遺伝子×条件）のうち5組で、その遺伝子のmRNAの低下は0.1未満だった。PD-L1（CD274）は3条件すべてでそうだった。",
+        "他の遺伝子を壊したときの間接の効果では、RNAとタンパク質の変化の相関は0.26で、測定ノイズを補正しても0.42（感度解析で0.40〜0.52）にとどまった。",
+        "B2Mを壊すとHLA-Aのタンパク質は大きく下がったがmRNAはほぼ変わらず、RNAだけを見る予測では見えない効果があった。"
+      ]
+    }
+  },
+  "publish_at": "2026-12-18T09:00:00+09:00",
+  "english": {
+    "title": "Limits of reading perturbation effects from RNA: a check against surface proteins in the same cells",
+    "summary": "In public Perturb-CITE-seq data with CRISPR knockouts, RNA and surface proteins measured in the same cells agreed partly: the correlation of their changes was 0.42 after correcting for measurement noise, and some knockouts lowered the protein markedly while the gene's mRNA barely changed."
+  }
+}
