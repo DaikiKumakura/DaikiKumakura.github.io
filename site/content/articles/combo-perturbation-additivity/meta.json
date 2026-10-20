@@ -1,0 +1,25 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2026-12-17",
+  "draft": false,
+  "math": false,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "2遺伝子の同時摂動は「足し算」でどこまで説明できるか：Norman 2019をノイズを除いて読み直す",
+      "summary": "2遺伝子同時のCRISPRa（Norman 2019、131組）で、同時摂動の発現変化のうち単独の変化の和で説明できない部分を、ノイズを除いて見積もった。中央値は9%で、大きく外れる組の多くは全体の大きさがずれるだけで、係数1つで説明できた。",
+      "key_findings": [
+        "131組の同時摂動で、単独の変化の和で説明できない部分（ノイズ補正後）は中央値9%（四分位範囲5〜17%）で、20%を超えたのは27組だった。",
+        "20%を超えた27組のうち22組は、変化の向きが足し算どおりで大きさが弱まる形（係数cが1未満）だった。足し算に係数を1つ掛けると、27組のうち22組で20%を下回った。",
+        "このデータ（K562・CRISPRa）では、組み合わせ予測モデルが加法モデルに勝てる余地は多くの組で小さく、その多くは全体の大きさという1つの尺度にある。"
+      ]
+    }
+  },
+  "publish_at": "2026-12-17T09:00:00+09:00",
+  "english": {
+    "title": "How far does addition explain double-gene perturbations? Norman 2019 re-read with noise removed",
+    "summary": "In 131 double CRISPRa perturbations, the noise-corrected share of the expression change not explained by the sum of single effects had a median of 9%. Most pairs that departed strongly from additivity differed mainly in overall magnitude, which a single scale factor captured, so in these data the room for models to beat the additive baseline is small for most pairs."
+  }
+}
