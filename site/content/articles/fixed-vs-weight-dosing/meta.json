@@ -18,10 +18,24 @@
       ],
       "seo_title": "抗PD-1抗体の固定用量は、極端な体重の患者でも曝露を保てるか",
       "seo_description": "公表PopPKモデルと一般成人の体重分布で、pembrolizumab・nivolumabの固定用量と体重換算を比べた。固定用量は重い側で、体重換算は軽い側の初回投与でトラフが下がりやすい。用量は推奨しない。"
+    },
+    "en": {
+      "title": "Do fixed doses of anti-PD-1 antibodies keep exposure in range at extreme body weights?",
+      "summary": "Re-implemented population PK models for pembrolizumab and nivolumab were applied to a public adult weight distribution. Fixed doses let trough exposure fall below the trial-tested range most often in heavy patients, weight-based doses in the first interval of light patients; the verdict on extended intervals depends on how the range is defined. No dose is recommended.",
+      "key_findings": [
+        "With fixed doses, trough exposure fell below the lower limit of the trial range more often in heavy patients; more than 10% fell below it for pembrolizumab 200 mg at 150 kg and above (13.3%) and nivolumab 240 mg at 100 kg and above (10.7 to 18.5%).",
+        "Weight-based doses (2 mg/kg, 3 mg/kg) were worse on the light side: at 40 kg, 26 to 31% of patients had a first-interval trough below the lower limit.",
+        "The verdict on 400 mg Q6W and 480 mg Q4W changed with the definition of the range: 14 to 15% fell below a 5th-percentile limit but 0.06% (pembrolizumab) below a minimum-value limit. This compares exposure and recommends no dose."
+      ],
+      "seo_title": "Do fixed anti-PD-1 doses hold exposure at extreme weights?",
+      "seo_description": "Pembrolizumab and nivolumab fixed vs weight-based doses on a public adult weight distribution: flat doses fall short when heavy, weight-based when light."
     }
   },
   "english": {
     "title": "Do fixed doses of anti-PD-1 antibodies keep exposure in range at extreme body weights?",
     "summary": "Re-implemented population PK models for pembrolizumab and nivolumab were applied to a public adult weight distribution. Fixed doses let trough exposure fall below the trial-tested range most often in heavy patients, weight-based doses in the first interval of light patients; the verdict on extended intervals depends on how the range is defined. No dose is recommended."
+  },
+  "reviewed": {
+    "en": "8c7beb22a0b0c676fe4c08634f5f4274aee106a2c92a43af7e430fd70dc7ef9c"
   }
 }

@@ -18,10 +18,24 @@
       ],
       "seo_title": "既存薬の用量比較を新薬の用量選択にどこまで借りてよいか",
       "seo_description": "既存薬の用量比較を頑健な混合事前分布として借りると、同等なら得は小さく、逆向きなら正選択率が大きく下がった。1群40例では食い違いをほぼ検出できない。"
+    },
+    "en": {
+      "title": "How much of an existing drug's dose comparison can a new drug borrow?",
+      "summary": "Borrowing an existing drug's dose comparison as a robust mixture prior helped a new drug's dose selection only slightly when the drugs behaved alike, and cut correct selection sharply when the new drug favored the other dose. With 40 patients per arm, conflict was hardly detected; a borrowing weight of 0.25 to 0.5 is a rule of thumb.",
+      "key_findings": [
+        "If the new drug matched the existing drug, borrowing the full dose comparison improved expected regret by only about 1 point and raised correct dose selection by 6 to 10 points.",
+        "If the new drug favored the opposite dose, full borrowing lowered correct selection to 28 to 42% and worsened expected regret by 3.5 to 4.3 points.",
+        "With 40 patients per arm the robust mixture prior hardly detected conflict; the largest weight that kept the loss within 1 point under every condition was 0.25 (0.5 in the main analysis)."
+      ],
+      "seo_title": "How much can a new drug borrow from a dose comparison?",
+      "seo_description": "Borrowing an existing drug's dose comparison as a robust mixture prior gains little if the drugs match and loses much if they differ. Weight 0.25 to 0.5."
     }
   },
   "english": {
     "title": "How much of an existing drug's dose comparison can a new drug borrow?",
     "summary": "Borrowing public dose-comparison data from an existing drug through a robust mixture prior helped a new drug's dose selection only slightly when the drugs behaved alike, and cut correct selection sharply when the new drug favored the other dose. With 40 patients per arm the prior-data conflict was hardly detected; a borrowing weight of 0.25 to 0.5 kept the loss within one point."
+  },
+  "reviewed": {
+    "en": "35cdf8484ef08bc492c03d21898e6c845068f059a475ca5aa52810e9a7b500c7"
   }
 }
