@@ -1,0 +1,21 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2026-12-24",
+  "publish_at": "2026-12-24T09:00:00+09:00",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "Inavolisibの腎機能別用量をAUCとピーク・トラフから考える",
+      "seo_title": "Inavolisibの腎機能別用量とPK | Daiki Kumakura",
+      "summary": "公表3コンパートメントモデルと腎機能試験のAUC比で、用量補正と同一日量の分割を比較。4096組の条件付き解析からピーク・トラフの違いと臨床予測の限界を整理する。"
+    }
+  },
+  "english": {
+    "title": "Inavolisib renal dosing: AUC, peaks and troughs",
+    "summary": "Public three-compartment PK and aggregate renal study ratios support conditional exposure comparisons. Equal daily dose does not imply equal peaks or troughs; clinical benefit is not predicted."
+  }
+}
