@@ -1,0 +1,226 @@
+{
+  "seed": 20261022,
+  "n_subjects": 4096,
+  "benchmark": [
+    {
+      "metric": "Day 8-15 Cmax",
+      "model_all": 4372.258,
+      "model_CL_le_0.3": null,
+      "paper": 3794.53,
+      "ratio_all": 1.152,
+      "ratio_CL_le_0.3": null
+    },
+    {
+      "metric": "Day 8-15 Cavg",
+      "model_all": 3569.815,
+      "model_CL_le_0.3": null,
+      "paper": 3083.46,
+      "ratio_all": 1.158,
+      "ratio_CL_le_0.3": null
+    },
+    {
+      "metric": "Week 24 QW Cavg",
+      "model_all": 19379.759,
+      "model_CL_le_0.3": 31893.2,
+      "paper": 32025.26,
+      "ratio_all": 0.605,
+      "ratio_CL_le_0.3": 0.996
+    },
+    {
+      "metric": "Week 24 QW Ctrough",
+      "model_all": 17635.32,
+      "model_CL_le_0.3": 30407.102,
+      "paper": 30460.11,
+      "ratio_all": 0.579,
+      "ratio_CL_le_0.3": 0.998
+    }
+  ],
+  "share_CL_le_0.3": 0.606,
+  "linear_approx_day8_cmax_ratio_to_paper": 1.876,
+  "calibration": {
+    "predicted_mean_crs_12mg": 0.505,
+    "observed": 0.432,
+    "observed_95ci_jeffreys": [
+      0.361,
+      0.504
+    ],
+    "intercept_shift_to_match": -0.371,
+    "intercept_95ci_published": [
+      -10.5,
+      -5.03
+    ],
+    "day4_gm_ng_ml": 239.7,
+    "day4_p5_p95": [
+      60.5,
+      741.2
+    ]
+  },
+  "designs": [
+    {
+      "design": "approved_12_32_76",
+      "first_dose_mg": 12.0,
+      "tumor_burden": "low/intermediate",
+      "p_published": 0.4542,
+      "p_calibrated": 0.3794,
+      "p_cal_2_5": 0.3017,
+      "p_cal_97_5": 0.4581,
+      "day4_gm_ng_ml": 239.7273,
+      "day8_predose_gm_ng_ml": null,
+      "day8_predose_vs_approved": null
+    },
+    {
+      "design": "approved_12_32_76",
+      "first_dose_mg": 12.0,
+      "tumor_burden": "high",
+      "p_published": 0.6793,
+      "p_calibrated": 0.61,
+      "p_cal_2_5": 0.4571,
+      "p_cal_97_5": 0.7379,
+      "day4_gm_ng_ml": 239.7273,
+      "day8_predose_gm_ng_ml": null,
+      "day8_predose_vs_approved": null
+    },
+    {
+      "design": "approved_12_32_76",
+      "first_dose_mg": 12.0,
+      "tumor_burden": "all",
+      "p_published": null,
+      "p_calibrated": null,
+      "p_cal_2_5": null,
+      "p_cal_97_5": null,
+      "day4_gm_ng_ml": 239.7273,
+      "day8_predose_gm_ng_ml": 1220.2263,
+      "day8_predose_vs_approved": 1.0
+    },
+    {
+      "design": "mm1_4_20_76",
+      "first_dose_mg": 4.0,
+      "tumor_burden": "low/intermediate",
+      "p_published": 0.1775,
+      "p_calibrated": 0.1337,
+      "p_cal_2_5": 0.0848,
+      "p_cal_97_5": 0.2134,
+      "day4_gm_ng_ml": 74.9214,
+      "day8_predose_gm_ng_ml": null,
+      "day8_predose_vs_approved": null
+    },
+    {
+      "design": "mm1_4_20_76",
+      "first_dose_mg": 4.0,
+      "tumor_burden": "high",
+      "p_published": 0.3672,
+      "p_calibrated": 0.2974,
+      "p_cal_2_5": 0.1717,
+      "p_cal_97_5": 0.4907,
+      "day4_gm_ng_ml": 74.9214,
+      "day8_predose_gm_ng_ml": null,
+      "day8_predose_vs_approved": null
+    },
+    {
+      "design": "mm1_4_20_76",
+      "first_dose_mg": 4.0,
+      "tumor_burden": "all",
+      "p_published": null,
+      "p_calibrated": null,
+      "p_cal_2_5": null,
+      "p_cal_97_5": null,
+      "day4_gm_ng_ml": 74.9214,
+      "day8_predose_gm_ng_ml": 594.8596,
+      "day8_predose_vs_approved": 0.4875
+    },
+    {
+      "design": "single_32_76",
+      "first_dose_mg": 32.0,
+      "tumor_burden": "low/intermediate",
+      "p_published": 0.7372,
+      "p_calibrated": 0.6746,
+      "p_cal_2_5": 0.558,
+      "p_cal_97_5": 0.7659,
+      "day4_gm_ng_ml": 723.0114,
+      "day8_predose_gm_ng_ml": null,
+      "day8_predose_vs_approved": null
+    },
+    {
+      "design": "single_32_76",
+      "first_dose_mg": 32.0,
+      "tumor_burden": "high",
+      "p_published": 0.8787,
+      "p_calibrated": 0.8412,
+      "p_cal_2_5": 0.7279,
+      "p_cal_97_5": 0.9122,
+      "day4_gm_ng_ml": 723.0114,
+      "day8_predose_gm_ng_ml": null,
+      "day8_predose_vs_approved": null
+    },
+    {
+      "design": "single_32_76",
+      "first_dose_mg": 32.0,
+      "tumor_burden": "all",
+      "p_published": null,
+      "p_calibrated": null,
+      "p_cal_2_5": null,
+      "p_cal_97_5": null,
+      "day4_gm_ng_ml": 723.0114,
+      "day8_predose_gm_ng_ml": 872.7674,
+      "day8_predose_vs_approved": 0.7153
+    },
+    {
+      "design": "tb_adapted_5_32_76",
+      "first_dose_mg": 5.0,
+      "tumor_burden": "low/intermediate",
+      "p_published": 0.2219,
+      "p_calibrated": 0.1703,
+      "p_cal_2_5": 0.1134,
+      "p_cal_97_5": 0.2483,
+      "day4_gm_ng_ml": 94.4748,
+      "day8_predose_gm_ng_ml": null,
+      "day8_predose_vs_approved": null
+    },
+    {
+      "design": "tb_adapted_5_32_76",
+      "first_dose_mg": 5.0,
+      "tumor_burden": "high",
+      "p_published": 0.43,
+      "p_calibrated": 0.356,
+      "p_cal_2_5": 0.222,
+      "p_cal_97_5": 0.5421,
+      "day4_gm_ng_ml": 94.4748,
+      "day8_predose_gm_ng_ml": null,
+      "day8_predose_vs_approved": null
+    },
+    {
+      "design": "tb_adapted_5_32_76",
+      "first_dose_mg": 5.0,
+      "tumor_burden": "all",
+      "p_published": null,
+      "p_calibrated": null,
+      "p_cal_2_5": null,
+      "p_cal_97_5": null,
+      "day4_gm_ng_ml": 94.4748,
+      "day8_predose_gm_ng_ml": 982.7118,
+      "day8_predose_vs_approved": 0.8054
+    }
+  ],
+  "tb_equivalent_first_dose": {
+    "dose_mg": 5.45,
+    "concentration_ratio": 2.327,
+    "dose_2_5_97_5": [
+      2.69,
+      9.33
+    ],
+    "share_draws_below_grid_min_2mg": 0.02,
+    "dose_day4_linearity": {
+      "2": 36.8,
+      "3": 55.7,
+      "4": 74.9,
+      "5": 94.5,
+      "6": 114.4,
+      "7": 134.6,
+      "8": 155.1,
+      "10": 197.1,
+      "12": 240.3
+    },
+    "prob_matching_dose_mg": 5.49,
+    "p_ref_low_tb_12mg": 0.379
+  }
+}

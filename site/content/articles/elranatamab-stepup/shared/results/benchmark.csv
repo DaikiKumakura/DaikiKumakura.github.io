@@ -1,0 +1,5 @@
+metric,model_all,model_CL_le_0.3,paper,ratio_all,ratio_CL_le_0.3
+Day 8-15 Cmax,4372.258,,3794.53,1.152,
+Day 8-15 Cavg,3569.815,,3083.46,1.158,
+Week 24 QW Cavg,19379.759,31893.2,32025.26,0.605,0.996
+Week 24 QW Ctrough,17635.32,30407.102,30460.11,0.579,0.998

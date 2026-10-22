@@ -1,0 +1,194 @@
+{
+  "source": "Elranatamab PopPK/ER, Clin Pharmacokinet 2026, doi:10.1007/s40262-026-01663-z (PMC13461831, open access); Table 2 (main text) and ESM Table S2",
+  "pk_free_drug_linear_approx": {
+    "CL_L_day": 0.324,
+    "Vc_L": 4.777,
+    "Vp_L": 2.83,
+    "Q_L_day": 0.225,
+    "F": 0.562,
+    "ka_per_day": 0.287,
+    "sex_on_CL_female": -0.492,
+    "iiv_cv_pct": {
+      "CL": 100.1,
+      "Vc": 68.56,
+      "Vp": 14.83,
+      "Q": 14.83
+    }
+  },
+  "population": {
+    "female_fraction": 0.48,
+    "high_tumor_burden_fraction_known": 0.225,
+    "n_known_tb": 169,
+    "n_high_tb": 38,
+    "weight_mean_sd_kg": [
+      74.04,
+      17.95
+    ],
+    "weight_range_kg": [
+      36.5,
+      159.6
+    ],
+    "age_mean_sd_y": [
+      65.27,
+      9.68
+    ],
+    "age_range_y": [
+      36,
+      89
+    ],
+    "source_population": "paper Table 1 total (N=321)"
+  },
+  "er_crs_first_stepup": {
+    "metric": "free elranatamab concentration (ng/mL) on Day 4 after first step-up dose, before second dose",
+    "intercept": -7.65,
+    "intercept_ci": [
+      -10.5,
+      -5.03
+    ],
+    "tb_high": 1.14,
+    "tb_high_ci": [
+      0.335,
+      1.97
+    ],
+    "log_ctrough": 1.35,
+    "log_ctrough_ci": [
+      0.869,
+      1.88
+    ],
+    "events": 79,
+    "n": 183
+  },
+  "benchmarks_free_gm_ng_ml": {
+    "first_full_dose_day8": {
+      "Cavg": 3083.46,
+      "Cmax": 3794.53,
+      "Ctrough": 323.35
+    },
+    "SS_QW_week24": {
+      "Cavg": 32025.26,
+      "Cmax": 33020.03,
+      "Ctrough": 30460.11
+    }
+  },
+  "regimens_mg": {
+    "approved_12_32_76": [
+      [
+        0,
+        12
+      ],
+      [
+        3,
+        32
+      ],
+      [
+        7,
+        76
+      ],
+      [
+        14,
+        76
+      ],
+      [
+        21,
+        76
+      ]
+    ],
+    "mm1_4_20_76": [
+      [
+        0,
+        4
+      ],
+      [
+        3,
+        20
+      ],
+      [
+        7,
+        76
+      ],
+      [
+        14,
+        76
+      ],
+      [
+        21,
+        76
+      ]
+    ],
+    "single_32_76": [
+      [
+        0,
+        32
+      ],
+      [
+        7,
+        76
+      ],
+      [
+        14,
+        76
+      ],
+      [
+        21,
+        76
+      ]
+    ],
+    "tb_adapted_5_32_76": [
+      [
+        0,
+        5
+      ],
+      [
+        3,
+        32
+      ],
+      [
+        7,
+        76
+      ],
+      [
+        14,
+        76
+      ],
+      [
+        21,
+        76
+      ]
+    ]
+  },
+  "notes": "Sex effect linear: CL*(1-0.492) for females (paper equation). Weight on Vc and age on ka included with paper reference values. Week-24 dropout: ESM Fig. S2 caption (simulated CL>0.3 excluded after ~84 days).",
+  "tmdd": {
+    "CL": 0.324,
+    "Vc": 4.777,
+    "Vp": 2.83,
+    "Q": 0.225,
+    "Vcs": 15.418,
+    "CLs": 0.273,
+    "CLx": 0.164,
+    "Vcx": 3.802,
+    "BL": 6.914,
+    "Kd": 3.138,
+    "F": 0.562,
+    "ka": 0.287,
+    "sex_on_CL_female": -0.492,
+    "mw_kDa": 148,
+    "iiv_cv_pct": {
+      "CL": 100.1,
+      "Vc": 68.56,
+      "Vp": 14.83,
+      "Q": 14.83,
+      "Vcs": 135.98,
+      "CLs": 448.07,
+      "CLx": 79.18,
+      "Vcx": 70.07,
+      "BL": 134.61
+    },
+    "equations": "paper Methods: dA1/dt=ka*A3-k12*(A1-X)+k21*A2-CL*Cf-CLx*Cx; dA2/dt=k12*(A1-X)-k21*A2; dA3/dt=-ka*A3; dA4/dt=ksyn-CLs*Cfs-CLx*Cx; X quasi-equilibrium quadratic; ksyn=CLs*BL (assumed baseline steady state)",
+    "wt_on_Vc_power": 1.017,
+    "wt_ref_kg": 71.45,
+    "age_on_ka_power": -1.459,
+    "age_ref_y": 66,
+    "covariate_equations": "paper: TVCL=0.324*(1-0.492*SEXF); TVVc=4.777*(BWT/71.45)^1.017; TVka=0.287*(AGE/66)^-1.459"
+  },
+  "notes_linear": "Linear 2-compartment approximation (pk_free_drug_linear_approx) failed the benchmark (first full dose Cmax x1.93, SS Cavg x0.74); kept only as a recorded failed simplification."
+}

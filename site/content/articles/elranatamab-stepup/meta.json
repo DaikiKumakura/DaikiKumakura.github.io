@@ -1,0 +1,25 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2026-12-27",
+  "publish_at": "2026-12-27T09:00:00+09:00",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "二重特異性抗体の最初の一歩をどう刻むか：エラナタマブのステップアップ投与とCRSを、公開モデルで比べる",
+      "summary": "BCMA×CD3二重特異性抗体エラナタマブの公開PopPKモデル（sBCMA結合の準平衡モデル）とCRSの曝露反応モデルを使い、最初のステップアップ用量の設計を仮想患者4,096人で比べる。腫瘍量に応じて最初の用量を変える設計を、前向きに比べる候補として示す。",
+      "key_findings": [
+        "承認の12/32/76 mgで、最初の用量の後のCRSの予測確率は腫瘍量が低・中で0.38、高で0.61（観測43%に校正）。最初を4 mgにすると0.13と0.30、32 mgから始めると0.68と0.84だった。",
+        "腫瘍量が高い人で、低・中の人の12 mgと同じ予測確率にする最初の用量は約5.5 mg（係数の不確かさで2.7〜9.3 mg）と計算された。",
+        "最初の用量を下げると8日目の投与直前の濃度は承認設計の0.49〜0.80倍になるが、2回目以降のCRSには公開モデルがなく、そのリスクは評価できない。"
+      ]
+    }
+  },
+  "english": {
+    "title": "How to take the first step: comparing elranatamab step-up designs and CRS with public models",
+    "summary": "A Japanese technical note that combines the published quasi-equilibrium PopPK model and the CRS exposure-response model of elranatamab to compare first step-up doses in 4,096 virtual patients, proposing tumour-burden-adapted priming as a candidate for prospective comparison."
+  }
+}
