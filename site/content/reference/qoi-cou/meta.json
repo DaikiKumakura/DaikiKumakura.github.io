@@ -1,0 +1,44 @@
+{
+  "kind": "term",
+  "updated": "2026-10-22",
+  "math": false,
+  "related_articles": [
+    "tumor-dynamics-survival",
+    "mosunetuzumab-public-pk",
+    "fixed-vs-weight-dosing"
+  ],
+  "locales": {
+    "en": {
+      "title": "Question of interest (QOI) and context of use (COU)",
+      "summary": "QOI is the specific question a modeling analysis answers; COU is how the result will be used. Stating both before the analysis keeps the claim within what the data support.",
+      "seo_title": "Question of interest (QOI) and context of use (COU)",
+      "seo_description": "What question of interest (QOI) and context of use (COU) mean in model-informed drug development, why to state them first, with examples.",
+      "faq": [
+        {
+          "q": "Is the context of use the same as the indication of a drug?",
+          "a": "No. The context of use is the role of the analysis result in a decision, for example prioritizing a follow-up study. The indication is the clinical use of a drug."
+        },
+        {
+          "q": "Why is the question stated before the analysis?",
+          "a": "So that the question is not adjusted to the results. A prespecified question and a prespecified context of use limit what the analysis may claim."
+        }
+      ]
+    },
+    "ja": {
+      "title": "QOI（問い）とCOU（使いみち）",
+      "summary": "QOIは、解析が答える具体的な問い。COUは、結果をどの判断にどう使うか。解析の前に両方を書くと、データが支える範囲に主張をとどめられる。",
+      "seo_title": "QOI（問い）とCOU（使いみち）とは",
+      "seo_description": "モデルに基づく創薬・開発（MIDD）で使うQOI（Question of Interest）とCOU（Context of Use）の意味、解析の前に書く理由、公開データの解析での使い方。",
+      "faq": [
+        {
+          "q": "COUは、薬の適応と同じですか。",
+          "a": "違います。COUは、解析の結果が判断の中で果たす役割（たとえば追加の試験を優先する判断の材料）です。適応は薬の臨床での使い方です。"
+        },
+        {
+          "q": "なぜ問いを解析の前に書くのですか。",
+          "a": "結果に合わせて問いを変えないためです。前もって決めた問いと使いみちは、解析が主張できる範囲を限ります。"
+        }
+      ]
+    }
+  }
+}

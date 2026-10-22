@@ -1,0 +1,44 @@
+{
+  "kind": "term",
+  "updated": "2026-10-22",
+  "math": false,
+  "related_articles": [
+    "borrowing-prior-dose-selection",
+    "sotorasib-dose-comparison",
+    "b7h3-adc-dose-information"
+  ],
+  "locales": {
+    "en": {
+      "title": "Robust mixture prior and borrowing from an existing drug",
+      "summary": "A robust mixture prior combines an informative component from existing data with a vague component, weighted by a borrowing weight. It is meant to reduce borrowing when new data conflict, but with small samples it may hardly do so.",
+      "seo_title": "Robust mixture prior: borrowing from existing data",
+      "seo_description": "What a robust mixture prior is, how the borrowing weight works, and why it may not detect conflict with 40 patients per arm.",
+      "faq": [
+        {
+          "q": "What does the borrowing weight ω mean?",
+          "a": "It is the weight of the informative (existing-data) component in the mixture prior: 0 means no borrowing and 1 means full borrowing of the existing drug's data."
+        },
+        {
+          "q": "Does a robust mixture prior protect against a new drug that behaves differently?",
+          "a": "It is designed to, by lowering the weight of the existing-data component when the data conflict. In the simulation with 40 patients per arm, a difference of about 15 points was hardly detected, so it cannot be assumed to protect automatically."
+        }
+      ]
+    },
+    "ja": {
+      "title": "頑健な混合事前分布と、既存薬の情報の借用",
+      "summary": "頑健な混合事前分布は、既存のデータによる情報のある成分と、情報の乏しい成分を、借用の重みで混ぜる。新しいデータが食い違えば借用を弱めるはずだが、例数が少ないとほとんど働かないことがある。",
+      "seo_title": "頑健な混合事前分布と既存データの借用",
+      "seo_description": "頑健な混合事前分布とは何か、既存薬の用量比較を借りるときの借用の重みの意味、1群40例では食い違いを検出しにくい理由を説明する。",
+      "faq": [
+        {
+          "q": "借用の重み ω は何を意味しますか。",
+          "a": "混合事前分布のうち、情報のある（既存データの）成分の重みです。0は借りない、1は既存薬のデータを全量借りることを表します。"
+        },
+        {
+          "q": "頑健な混合事前分布は、新薬が既存薬と違うときに守ってくれますか。",
+          "a": "データが食い違うと既存データの成分の重みを下げることで守るよう設計されています。ただし1群40例のシミュレーションでは、15ポイント程度の差はほとんど検出されず、自動で守られるとは考えられません。"
+        }
+      ]
+    }
+  }
+}

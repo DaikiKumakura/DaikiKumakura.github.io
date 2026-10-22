@@ -23,7 +23,7 @@ class BuildTests(unittest.TestCase):
   self.temp=tempfile.TemporaryDirectory();self.root=Path(self.temp.name)
   # Test fixtures must not collide with or depend on real articles and drafts.
   for n in ('content','templates','assets','static'):
-   shutil.copytree(build.BASE/n,self.root/n,ignore=shutil.ignore_patterns('articles') if n=='content' else None)
+   shutil.copytree(build.BASE/n,self.root/n,ignore=shutil.ignore_patterns('articles','reference') if n=='content' else None)
   shutil.copytree(build.BASE/'fixtures/articles',self.root/'content/articles',dirs_exist_ok=True)
  def tearDown(self):self.temp.cleanup()
  def text(self,name):return (self.root/'dist'/name).read_text(encoding='utf-8')
@@ -292,6 +292,34 @@ class BuildTests(unittest.TestCase):
   for path in build.EXTRA_SITEMAPS:self.assertIn('Sitemap: '+build.SITE_URL+path,robots)
   build.build(self.root,preview=True)
   preview=self.text('robots.txt');self.assertIn('Disallow: /',preview);self.assertNotIn('Sitemap',preview)
+
+ def add_term(self,slug='sample-term',kind='term',related=('japanese-note',),**changes):
+  folder=self.root/'content/reference'/slug;folder.mkdir(parents=True)
+  locale=lambda lang:dict(title='Sample term' if lang=='en' else '用語の例',summary='A short definition that is long enough to serve as the page summary.' if lang=='en' else '要約の例',seo_title='Sample term' if lang=='en' else '用語の例',seo_description='A description of the sample term.' if lang=='en' else '用語の説明',faq=[dict(q='What is it?' if lang=='en' else '何ですか。',a='An example.' if lang=='en' else '例です。')])
+  meta=dict(kind=kind,updated='2026-10-22',related_articles=list(related),locales=dict(en=locale('en'),ja=locale('ja')));meta.update(changes)
+  (folder/'meta.json').write_text(json.dumps(meta,ensure_ascii=False),encoding='utf-8')
+  (folder/'en.md').write_text('## Definition'+chr(10)*2+'Text.'+chr(10),encoding='utf-8');(folder/'ja.md').write_text('## 定義'+chr(10)*2+'本文。'+chr(10),encoding='utf-8')
+ def test_reference_pages_publish_in_both_languages_with_structured_data(self):
+  p,m=self.meta('japanese-note');m.update(draft=False,date='2026-10-04',publish_at='2026-10-04T09:00:00+09:00');p.write_text(json.dumps(m),encoding='utf-8')
+  self.add_term();build.build(self.root)
+  en=self.text('glossary/sample-term.html');ja=self.text('glossary/sample-term-ja.html')
+  self.assertIn('<html lang="en">',en);self.assertIn('<html lang="ja">',ja)
+  self.assertIn('hreflang="ja" href="'+build.SITE_URL+'glossary/sample-term-ja.html"',en);self.assertIn('hreflang="x-default"',en)
+  self.assertIn('"@type": "DefinedTerm"',en.replace('"@type":"DefinedTerm"','"@type": "DefinedTerm"'));self.assertIn('FAQPage',en);self.assertIn('What is it?',en)
+  self.assertIn('FAQPage',ja)
+  self.assertIn('Sample term',self.text('reference.html'))
+  self.assertIn(build.SITE_URL+'glossary/sample-term-ja.html',self.text('sitemap.xml'));self.assertIn(build.SITE_URL+'glossary/sample-term.html',self.text('llms.txt'))
+  self.assertIn('href="../writing/',en)
+ def test_tool_page_is_a_web_application(self):
+  self.add_term('sample-tool','tool');build.build(self.root)
+  self.assertIn('WebApplication',self.text('tools/sample-tool.html'))
+ def test_reference_page_needs_both_languages_and_known_articles(self):
+  self.add_term('one-language',locales=dict(en=dict(title='x',summary='x',seo_title='x',seo_description='x')))
+  with self.assertRaisesRegex(ValueError,'both ja and en'):build.build(self.root)
+  shutil.rmtree(self.root/'content/reference/one-language');self.add_term('unknown-link',related=('no-such-article',))
+  with self.assertRaisesRegex(ValueError,'Unknown related article'):build.build(self.root)
+ def test_reference_is_absent_when_there_are_no_pages(self):
+  build.build(self.root);self.assertFalse((self.root/'dist/glossary').exists())
 
 if __name__=='__main__':unittest.main()
 

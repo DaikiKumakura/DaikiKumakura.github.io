@@ -1,0 +1,20 @@
+{
+  "kind": "catalog",
+  "updated": "2026-10-22",
+  "math": false,
+  "related_articles": ["mosunetuzumab-public-pk", "fixed-vs-weight-dosing", "tcell-engager-regimen-design", "tarlatamab-summary-pk", "nimotuzumab-poppk", "warfarin-pkpd", "ras-inhibitor-target-coverage"],
+  "locales": {
+    "en": {
+      "title": "Published PK and PK/PD models used in the analyses",
+      "summary": "A catalog of the published population PK and PK/PD models reimplemented, fitted or reused in the analyses on this site, with source papers, structure, what was done and the article.",
+      "seo_title": "Published PK and PK/PD models reimplemented in R and Python",
+      "seo_description": "Published population PK and PK/PD models (mosunetuzumab, pembrolizumab, nivolumab, tarlatamab, nimotuzumab, warfarin): sources, structure, analyses."
+    },
+    "ja": {
+      "title": "解析で使った公表PK・PK/PDモデルの一覧",
+      "summary": "このサイトの解析で、再実装・当てはめ・再利用した公表の母集団PK・PK/PDモデルの一覧。出典の論文、構造、行ったこと、対応する記事を示す。",
+      "seo_title": "再実装した公表PK・PK/PDモデルの一覧（R・Python）",
+      "seo_description": "mosunetuzumab、pembrolizumab、nivolumab、tarlatamab、nimotuzumab、warfarinなど、解析で使った公表の母集団PK・PK/PDモデルの出典、構造、記事の一覧。"
+    }
+  }
+}

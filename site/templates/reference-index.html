@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% block content %}
+<article class="prose">
+<nav class="crumbs meta" aria-label="Breadcrumb"><a href="{{ root }}index.html">Home</a> › Tools and reference</nav>
+<h1>{{ title }}</h1>
+<p class="lead">{{ description }}</p>
+{% for g in groups %}<section id="{{ g.heading|lower }}"><h2>{{ g.heading }}</h2>{% for i in g['items'] %}<article class="record"><h3 class="record-title"><a href="{{ i.en_href }}" lang="en">{{ i.en.title }}</a></h3><p lang="en">{{ i.en.summary }}</p><p lang="ja"><a href="{{ i.ja_href }}">{{ i.ja.title }}</a>（日本語）</p></article>{% endfor %}</section>{% endfor %}
+<p><a href="{{ root }}writing.html">Writing</a> · <a href="{{ root }}software.html">Software</a></p>
+</article>
+{% endblock %}

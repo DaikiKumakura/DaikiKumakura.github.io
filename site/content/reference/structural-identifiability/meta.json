@@ -1,0 +1,45 @@
+{
+  "kind": "term",
+  "updated": "2026-10-22",
+  "math": false,
+  "related_articles": [
+    "psa-early-observation",
+    "nimotuzumab-poppk",
+    "tarlatamab-summary-pk",
+    "warfarin-pkpd"
+  ],
+  "locales": {
+    "en": {
+      "title": "Structural identifiability of PK/PD models",
+      "summary": "Structural identifiability asks whether the parameters of a model can be determined uniquely from ideal, noise-free data of the chosen outputs. It depends on the model and the design, not on the data collected.",
+      "seo_title": "Structural identifiability of PK/PD models: definition",
+      "seo_description": "What structural identifiability means for PK/PD ODE models: when parameters can be determined from ideal data, the V/F example, and how pkident checks it in R.",
+      "faq": [
+        {
+          "q": "Does structural identifiability guarantee good parameter estimates?",
+          "a": "No. It is a property of the model under ideal data. With noisy, sparse data, parameters that are structurally identifiable can still be poorly estimated; that is practical identifiability."
+        },
+        {
+          "q": "Why can only V/F be determined after oral dosing?",
+          "a": "Without intravenous data, the bioavailability F scales the dose that reaches the circulation in the same way as a change in volume, so F and V cannot be separated; only V/F and CL/F can be determined."
+        }
+      ]
+    },
+    "ja": {
+      "title": "PK/PDモデルの構造的識別可能性",
+      "summary": "構造的識別可能性は、理想的でノイズのないデータから、モデルのパラメータを一意に決められるかを問う。モデルと設計で決まり、集めたデータには依存しない。",
+      "seo_title": "PK/PDモデルの構造的識別可能性とは",
+      "seo_description": "PK/PDのODEモデルで、理想的なデータからパラメータを一意に決められる条件。V/Fの例と、Rパッケージpkidentでの確認方法を説明する。",
+      "faq": [
+        {
+          "q": "構造的に識別可能なら、パラメータはよく推定できますか。",
+          "a": "いいえ。理想的なデータでの性質です。ノイズがあり採血が少ないと、構造的に識別可能でも推定が不安定になることがあります。これが実用的識別可能性の問題です。"
+        },
+        {
+          "q": "経口投与だけだと、なぜV/Fしか決められないのですか。",
+          "a": "静脈内投与のデータがないと、Fは循環に入る量を変えるので、容積を変えたときと同じ形で濃度に効きます。そのためFとVは分けられず、V/FやCL/Fだけが決まります。"
+        }
+      ]
+    }
+  }
+}

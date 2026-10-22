@@ -1,0 +1,20 @@
+{
+  "kind": "tool",
+  "updated": "2026-10-22",
+  "math": false,
+  "related_articles": ["fixed-vs-weight-dosing", "tcell-engager-regimen-design", "mosunetuzumab-public-pk"],
+  "locales": {
+    "en": {
+      "title": "Pembrolizumab and nivolumab: exposure by body weight under fixed and weight-based dosing",
+      "summary": "Look up how often trough and peak exposure of pembrolizumab and nivolumab leave the trial-tested range at a given body weight under flat, weight-based and extended-interval regimens.",
+      "seo_title": "Pembrolizumab and nivolumab dosing by body weight: explorer",
+      "seo_description": "Look up pembrolizumab and nivolumab exposure by body weight under flat, weight-based and extended-interval dosing, from a published-model simulation."
+    },
+    "ja": {
+      "title": "pembrolizumabとnivolumab：固定用量と体重換算の体重別の曝露",
+      "summary": "体重を入れると、pembrolizumabとnivolumabの固定用量・体重換算・間隔の長い方式で、トラフと最高濃度が試験の範囲を外れる割合を調べられます。",
+      "seo_title": "pembrolizumab・nivolumabの用量方式別の体重別曝露",
+      "seo_description": "体重を入れると、pembrolizumabとnivolumabの固定用量・体重換算・間隔の長い方式で、曝露が試験の範囲を外れる割合を調べられる。公表モデルのシミュレーション結果。"
+    }
+  }
+}

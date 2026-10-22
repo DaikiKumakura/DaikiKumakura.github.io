@@ -1,0 +1,44 @@
+{
+  "kind": "term",
+  "updated": "2026-10-22",
+  "math": false,
+  "related_articles": [
+    "mosunetuzumab-public-pk",
+    "fixed-vs-weight-dosing",
+    "nimotuzumab-poppk"
+  ],
+  "locales": {
+    "en": {
+      "title": "Reimplementing a published population PK model",
+      "summary": "Rebuilding a published population PK model from its tables and supplement in your own software, and checking that it reproduces the published values, lets you ask new questions without the original data.",
+      "seo_title": "Reimplementing a published population PK model",
+      "seo_description": "How and why to reimplement a published population PK model from its tables, how to check it, and why matching published values is not clinical validation.",
+      "faq": [
+        {
+          "q": "Do I need the original patient data to reimplement a PopPK model?",
+          "a": "No. The structure, typical values, covariate effects and variability reported in the paper and supplement are enough to rebuild the model. The original data are needed only to validate or refit it."
+        },
+        {
+          "q": "If my model reproduces the published exposure, is it validated for new regimens?",
+          "a": "No. It shows that the model was rebuilt correctly. Prediction for a different population or regimen needs separate evidence."
+        }
+      ]
+    },
+    "ja": {
+      "title": "公表された母集団PKモデルの再実装",
+      "summary": "公表された母集団PKモデルを、論文の表や補足資料から自分のソフトウェアで作り直し、公表値を再現できるか確かめる。元の患者データなしで、新しい問いを立てられる。",
+      "seo_title": "公表された母集団PKモデルの再実装",
+      "seo_description": "公表された母集団PKモデルを、論文の表から再実装する方法と理由、確認の仕方、公表値との一致が臨床での妥当性を示さない理由を説明する。",
+      "faq": [
+        {
+          "q": "PopPKモデルを再実装するのに、元の患者データは必要ですか。",
+          "a": "要りません。論文と補足資料に載っている構造、典型値、共変量の効果、個体差があれば作り直せます。元のデータが必要なのは、妥当性の確認や再推定のときだけです。"
+        },
+        {
+          "q": "公表された曝露を再現できれば、新しい投与方式にも妥当だといえますか。",
+          "a": "いえません。モデルを正しく作り直せたことを示すだけです。別の集団や投与方式への予測には、別の根拠が必要です。"
+        }
+      ]
+    }
+  }
+}

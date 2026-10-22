@@ -27,6 +27,11 @@ LEGACY_REDIRECTS = {'japanese.html':'index.html', 'publication_jpn.html':'public
 LEGACY_REDIRECTS.update({f'{language}/{old}.html':new for language in ('ja','en') for old,new in LEGACY_PAGES.items()})
 # Documentation sites published under this domain by other repositories (pkgdown) with their own sitemaps.
 EXTRA_SITEMAPS = ('rsemflow/sitemap.xml',)
+# Reference pages (tools, glossary terms, catalogs): one folder per page in content/reference,
+# written in both languages. English is the default file name, Japanese ends in -ja.
+REFERENCE_KINDS = {'tool': 'tools', 'term': 'glossary', 'catalog': 'catalog'}
+REFERENCE_HEADINGS = {'tool': 'Tools', 'term': 'Glossary', 'catalog': 'Catalogs'}
+REFERENCE_LABELS = {'tool': 'Tool', 'term': 'Glossary term', 'catalog': 'Catalog'}
 RECENT_ON_HOME = 3
 FEED_SIZE = 50
 BASE = Path(__file__).resolve().parent
@@ -232,6 +237,50 @@ def display_width(text):
     """Width in half-width cells: full-width (CJK) characters count twice."""
     return sum(2 if unicodedata.east_asian_width(c) in 'WF' else 1 for c in text)
 
+def load_reference(content, article_slugs):
+    """Reference pages: interactive tools, glossary terms and catalogs, each in Japanese and English."""
+    entries = []
+    for folder in sorted((content / 'reference').glob('*')):
+        if not folder.is_dir():
+            continue
+        if not re.fullmatch(r'[a-z0-9]+(?:-[a-z0-9]+)*', folder.name):
+            raise ValueError(f'Invalid reference slug: {folder.name}')
+        meta = read_json(folder / 'meta.json')
+        if meta.get('kind') not in REFERENCE_KINDS:
+            raise ValueError(f'Invalid reference kind: {folder.name}')
+        date.fromisoformat(meta['updated'])
+        if set(meta['locales']) != {'ja', 'en'}:
+            raise ValueError(f'A reference page needs both ja and en: {folder.name}')
+        for lang, data in meta['locales'].items():
+            for key in ('title', 'summary', 'seo_title', 'seo_description'):
+                if not isinstance(data.get(key), str) or not data[key].strip():
+                    raise ValueError(f'Missing {key}: {folder.name}/{lang}')
+            for item in data.get('faq', []):
+                if not item.get('q') or not item.get('a'):
+                    raise ValueError(f'A question needs q and a: {folder.name}/{lang}')
+            if not (folder / f'{lang}.md').is_file():
+                raise ValueError(f'Missing body: {folder.name}/{lang}.md')
+        for slug in meta.get('related_articles', []):
+            if slug not in article_slugs:
+                raise ValueError(f'Unknown related article {slug}: {folder.name}')
+        entries.append(dict(meta=meta, folder=folder, slug=folder.name, kind=meta['kind']))
+    return entries
+
+def reference_file(entry, lang):
+    return f"{REFERENCE_KINDS[entry['kind']]}/{entry['slug']}" + ('-ja' if lang == 'ja' else '') + '.html'
+
+def reference_warnings(entries):
+    notes = []
+    for e in entries:
+        for lang, data in e['meta']['locales'].items():
+            where = f"{reference_file(e, lang)}"
+            if display_width(data['seo_title']) > 60:
+                notes.append(f"Title is cut in search results ({display_width(data['seo_title'])} cells > 60): {where}")
+            description = data['seo_description']
+            if display_width(description) > 200 if lang == 'ja' else len(description) > 160:
+                notes.append(f'Description is cut in search results ({len(description)} characters): {where}')
+    return notes
+
 def seo_warnings(entries, site_name):
     """Advisory checks of search-result text; they never fail a build.
 
@@ -258,6 +307,7 @@ def build(project=BASE, preview=False, strict_translations=False):
     site = read_json(project / 'content/site.json')
     validate_site(site)
     entries = load_articles(project / 'content', preview)
+    reference = load_reference(project / 'content', {p.name for p in (project / 'content/articles').iterdir() if p.is_dir()})
     warnings = [f"Translation needs review: {a['slug']}/{lang}" for a in entries for lang, stale in a['stale'].items() if stale]
     if warnings and strict_translations:
         raise ValueError('\n'.join(warnings))
@@ -349,7 +399,27 @@ def build(project=BASE, preview=False, strict_translations=False):
         related_live=[published[x] for x in sw.get('related_articles',[]) if x in published]
         page=env.get_template('software-page.html').render(site=site,lang='en',ui=ui,preview=preview,active='software',root='../',alternatives={},title=sw['headline'],description=sw['summary'],math=False,sw=sw,related=related_live)
         output(f"software/{sw['slug']}.html",page)
-    canonical_pages=['index.html']+[key+'.html' for key in NAV if key!='home']+[name for name in outputs if name.startswith(('writing/','topics/','software/')) and name.endswith('.html')]
+    live_source={a['slug']:a['meta'] for a in entries}
+    def reference_links(slugs,language):
+        # Live articles only, in the page's language when the article has it.
+        links=[]
+        for slug in slugs:
+            if slug not in live_source:continue
+            m=live_source[slug]; code=language if language in m['locales'] else m['source_language']
+            links.append(dict(href=f"{slug}.html" if code==m['source_language'] else f"{slug}-{code}.html",title=m['locales'][code]['title'],lang=code))
+        return links
+    for e in reference:
+        m=e['meta']
+        alternatives={code:reference_file(e,code).split('/',1)[1] for code in ('en','ja')}
+        for language in ('en','ja'):
+            loc=m['locales'][language]
+            body,toc=render_body(dict(folder=e['folder'],meta=m),language)
+            page=env.get_template('reference.html').render(site=site,lang=language,ui=ui,preview=preview,active='writing',root='../',alternatives=alternatives,title=loc['title'],description=loc['summary'],math=m.get('math',False),body=body,faq=loc.get('faq',[]),related=reference_links(m.get('related_articles',[]),language),kind=REFERENCE_HEADINGS[e['kind']],updated=m['updated'])
+            output(reference_file(e,language),page,language,m)
+    groups=[dict(heading=REFERENCE_HEADINGS[kind],items=[dict(en=e['meta']['locales']['en'],ja=e['meta']['locales']['ja'],en_href=reference_file(e,'en'),ja_href=reference_file(e,'ja')) for e in reference if e['kind']==kind]) for kind in REFERENCE_KINDS]
+    groups=[g for g in groups if g['items']]
+    output('reference.html',env.get_template('reference-index.html').render(site=site,lang='en',ui=ui,preview=preview,active='writing',root='',alternatives={},title='Tools and reference',description='Interactive tools, a glossary of pharmacometrics terms and catalogs that accompany the analyses by Daiki Kumakura, in Japanese and English.',math=False,groups=groups))
+    canonical_pages=['index.html']+[key+'.html' for key in NAV if key!='home']+[name for name in outputs if name.startswith(('writing/','topics/','software/','tools/','glossary/','catalog/','reference.html')) and name.endswith('.html')]
     if not preview:
         for old,new in LEGACY_REDIRECTS.items():
             if old in outputs:raise ValueError('Redirect would replace a page: '+old)
@@ -366,6 +436,9 @@ def build(project=BASE, preview=False, strict_translations=False):
     if entries:
         newest=max(a['meta'].get('updated') or a['meta']['date'] for a in entries)
         lastmod['index.html']=lastmod['writing.html']=newest
+    for e in reference:
+        for code in ('en','ja'):lastmod[reference_file(e,code)]=e['meta']['updated']
+    if reference:lastmod['reference.html']=max(e['meta']['updated'] for e in reference)
     for h in hubs.values():
         lastmod[h['href']]=max(a['meta'].get('updated') or a['meta']['date'] for a in entries if a['slug'] in h['articles'])
     def sitemap_url(p):
@@ -377,7 +450,7 @@ def build(project=BASE, preview=False, strict_translations=False):
         outputs['feed.xml']=atom_feed(site,entries)
     outputs['robots.txt']=('User-agent: *\n'+('Disallow: /\n' if preview else 'Allow: /\nSitemap: '+SITE_URL+'sitemap.xml\nSitemap: '+SITE_URL+'feed.xml\n'+''.join('Sitemap: '+SITE_URL+path+'\n' for path in EXTRA_SITEMAPS))).encode('utf-8')
     if not preview:
-        outputs['llms.txt']=llms_txt(site,entries,list(hubs.values()))
+        outputs['llms.txt']=llms_txt(site,entries,list(hubs.values()),reference)
     outputs['.nojekyll'] = b''
     # Only remove obsolete files that this builder previously generated.
     # Do not recursively delete directories or touch unrelated files.
@@ -399,9 +472,9 @@ def build(project=BASE, preview=False, strict_translations=False):
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_bytes(data)
     manifest.write_text(json.dumps(sorted(outputs), indent=2), encoding='utf-8')
-    return dict(files=len(outputs), articles=len(entries), warnings=warnings, seo_warnings=seo_warnings(entries, site['name']))
+    return dict(files=len(outputs), articles=len(entries), warnings=warnings, seo_warnings=seo_warnings(entries, site['name'])+reference_warnings(reference))
 
-def llms_txt(site, entries, hubs=()):
+def llms_txt(site, entries, hubs=(), reference=()):
     """Plain-text site guide (llmstxt.org format) for language models and agents.
 
     It restates the third-person summary, the identities that belong to the same person,
@@ -422,6 +495,11 @@ def llms_txt(site, entries, hubs=()):
     if pages:
         lines += ['', '## Software', '']
         lines += [f"- [{x['id']}]({SITE_URL}software/{x['slug']}.html): {x['summary']} Repository: {x['url']}" for x in pages]
+    if reference:
+        lines += ['', '## Tools and reference', '', f'- [All tools and reference pages]({SITE_URL}reference.html)']
+        for e in reference:
+            en = e['meta']['locales']['en']
+            lines.append(f"- [{en['title']}]({SITE_URL}{reference_file(e, 'en')}) ({REFERENCE_LABELS[e['kind']]}; Japanese: {SITE_URL}{reference_file(e, 'ja')}): {en['summary']}")
     lines += ['', '## Writing', '']
     for a in entries:
         m = a['meta']; loc = m['locales'][m['source_language']]; english = m.get('english')

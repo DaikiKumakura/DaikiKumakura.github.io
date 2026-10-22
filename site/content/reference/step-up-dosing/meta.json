@@ -1,0 +1,44 @@
+{
+  "kind": "term",
+  "updated": "2026-10-22",
+  "math": false,
+  "related_articles": [
+    "mosunetuzumab-public-pk",
+    "tcell-engager-regimen-design",
+    "tarlatamab-summary-pk"
+  ],
+  "locales": {
+    "en": {
+      "title": "Step-up dosing of T-cell engaging bispecific antibodies",
+      "summary": "Step-up dosing starts with a small dose and increases it over the first cycle to the target dose, to lower the first concentration peak. A lower peak does not by itself tell how much cytokine release syndrome is reduced.",
+      "seo_title": "Step-up dosing of bispecific antibodies: what it means",
+      "seo_description": "What step-up dosing of T-cell engaging bispecific antibodies means, the mosunetuzumab schedule as an example, and what PK alone can and cannot say about CRS.",
+      "faq": [
+        {
+          "q": "Why is step-up dosing used for T-cell engagers?",
+          "a": "A high first dose can cause strong cytokine release. Starting low and stepping up lowers the first concentration peak, which is intended to reduce the severity of cytokine release syndrome."
+        },
+        {
+          "q": "Can PK modeling predict how much CRS a modified step-up schedule would cause?",
+          "a": "Not from PK alone. It can show how exposure changes, but predicting CRS incidence needs validated links from PK to receptor occupancy and from occupancy to CRS, which public information does not fully provide."
+        }
+      ]
+    },
+    "ja": {
+      "title": "T細胞誘導二重特異性抗体のステップアップ投与",
+      "summary": "ステップアップ投与は、少量から始め、最初のサイクルのうちに目標の用量まで段階的に増やして、最初の濃度ピークを下げる。ピークが低いことだけでは、サイトカイン放出症候群がどれだけ減るかは分からない。",
+      "seo_title": "二重特異性抗体のステップアップ投与とは",
+      "seo_description": "T細胞誘導二重特異性抗体のステップアップ投与の意味を、mosunetuzumabの投与スケジュールを例に説明し、PKだけでCRSについて言えること・言えないことを示す。",
+      "faq": [
+        {
+          "q": "T細胞誘導抗体で、なぜステップアップ投与をするのですか。",
+          "a": "最初に多く投与すると、強いサイトカイン放出が起こりうるためです。少量から段階的に増やすと、最初の濃度ピークが下がり、サイトカイン放出症候群の重さを抑えることを狙えます。"
+        },
+        {
+          "q": "PKモデルで、ステップアップ投与を変えたときのCRSの量を予測できますか。",
+          "a": "PKだけではできません。曝露がどう変わるかは示せますが、CRSの発生率の予測には、PKから受容体占有率、占有率からCRSへの検証された結びつきが必要で、公開情報は十分に与えていません。"
+        }
+      ]
+    }
+  }
+}

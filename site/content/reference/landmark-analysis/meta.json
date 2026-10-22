@@ -1,0 +1,44 @@
+{
+  "kind": "term",
+  "updated": "2026-10-22",
+  "math": false,
+  "related_articles": [
+    "tumor-dynamics-survival",
+    "tumor-kinetics-landmark",
+    "tumor-dropout-sensitivity"
+  ],
+  "locales": {
+    "en": {
+      "title": "Landmark analysis",
+      "summary": "A landmark analysis fixes a time point, uses only information available by then as predictors, and studies the outcome after it. It avoids using the future to predict the future.",
+      "seo_title": "Landmark analysis: definition and why it avoids bias",
+      "seo_description": "What a landmark analysis is, how it avoids immortal-time bias when relating early measurements such as tumor change to later survival, with a 16-week example.",
+      "faq": [
+        {
+          "q": "What is immortal-time bias?",
+          "a": "A bias that arises when a patient must survive long enough to be classified as exposed or as a responder, so the classification itself uses survival time that is then counted as follow-up. A landmark analysis avoids it by classifying patients only on information up to a fixed time."
+        },
+        {
+          "q": "How is the landmark time chosen?",
+          "a": "It should be fixed in advance by the clinical question, for example the time of the first planned tumor assessment, and not chosen after looking at the results; sensitivity to the choice should be checked."
+        }
+      ]
+    },
+    "ja": {
+      "title": "ランドマーク解析",
+      "summary": "ランドマーク解析は、時点を1つ決め、その時点までに得られた情報だけを予測因子に使い、それ以降の転帰を調べる。未来の情報で未来を予測することを避ける。",
+      "seo_title": "ランドマーク解析とは：不死時間バイアスを避ける方法",
+      "seo_description": "ランドマーク解析の意味と、腫瘍変化のような早期の測定値を後の生存と結びつけるとき不死時間バイアスを避ける仕組みを、16週の例で説明する。",
+      "faq": [
+        {
+          "q": "不死時間バイアスとは何ですか。",
+          "a": "患者が、曝露あり・効果ありと分類されるまで十分に生存している必要があるために、その分類自体が、追跡期間として数えられる生存時間を使ってしまうバイアスです。ランドマーク解析は、一定の時点までの情報だけで分類することで避けます。"
+        },
+        {
+          "q": "ランドマークの時点は、どう決めますか。",
+          "a": "臨床の問い（たとえば最初の腫瘍評価の予定時点）から、結果を見る前に決めます。選び方への感度も確かめます。"
+        }
+      ]
+    }
+  }
+}

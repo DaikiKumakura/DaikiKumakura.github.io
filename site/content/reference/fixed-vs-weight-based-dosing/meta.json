@@ -1,0 +1,44 @@
+{
+  "kind": "term",
+  "updated": "2026-10-22",
+  "math": false,
+  "related_articles": [
+    "fixed-vs-weight-dosing",
+    "tarlatamab-summary-pk",
+    "tcell-engager-regimen-design"
+  ],
+  "locales": {
+    "en": {
+      "title": "Fixed (flat) dosing versus weight-based dosing",
+      "summary": "Fixed dosing gives every patient the same dose; weight-based dosing scales it by body weight (mg/kg). For antibodies the difference matters mainly at the ends of the weight distribution.",
+      "seo_title": "Fixed (flat) dosing versus weight-based dosing",
+      "seo_description": "What fixed (flat) and weight-based dosing mean for monoclonal antibodies, and why exposure differs at extreme body weights (pembrolizumab, nivolumab).",
+      "faq": [
+        {
+          "q": "Does fixed dosing give the same exposure as weight-based dosing?",
+          "a": "Near the middle of the weight distribution, almost. At the extremes they differ: in the simulation, trough exposure fell below the trial range more often in heavy patients with fixed doses and in light patients with weight-based doses."
+        },
+        {
+          "q": "Does lower exposure at a very high weight mean lower efficacy?",
+          "a": "Not necessarily. Exposure–response relationships of anti-PD-1 antibodies are reported to be flat, so whether falling slightly below the lower limit matters clinically is outside what the exposure comparison shows."
+        }
+      ]
+    },
+    "ja": {
+      "title": "固定用量と体重換算用量",
+      "summary": "固定用量は全員に同じ量を、体重換算用量は体重に比例した量（mg/kg）を投与する。抗体では、体重の分布の両端で曝露に差が出る。",
+      "seo_title": "固定用量と体重換算用量の違い（抗体医薬）",
+      "seo_description": "抗体医薬の固定用量と体重換算用量の違い、体重の両端で曝露が変わる理由を、pembrolizumabとnivolumabの例で説明する。",
+      "faq": [
+        {
+          "q": "固定用量と体重換算用量で、曝露は同じになりますか。",
+          "a": "体重の中央付近ではほぼ同じです。両端では違い、シミュレーションでは、固定用量で重い患者、体重換算用量で軽い患者のトラフが、試験の範囲を下回りやすくなりました。"
+        },
+        {
+          "q": "体重が非常に重く曝露が低いと、効果も下がりますか。",
+          "a": "そうとは限りません。抗PD-1抗体の曝露反応は平坦と報告されています。範囲の下限を少し下回ることが臨床で問題になるかは、曝露の比較では分かりません。"
+        }
+      ]
+    }
+  }
+}

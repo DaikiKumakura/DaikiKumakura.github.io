@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+<article class="prose" lang="{{ lang }}">
+{% if alternatives|length > 1 %}<nav class="languages" aria-label="Page language">{% for code,href in alternatives.items() %}<a href="{{ href }}" lang="{{ code }}">{{ "日本語" if code == "ja" else "English" }}</a>{% endfor %}</nav>{% endif %}
+<nav class="crumbs meta" aria-label="Breadcrumb" lang="en"><a href="{{ root }}index.html">Home</a> › <a href="{{ root }}reference.html">Tools and reference</a> › {{ kind }}</nav>
+<h1>{{ title }}</h1>
+<p class="lead">{{ description }}</p>
+{{ body|safe }}
+{% if faq %}<section class="faq" data-faq aria-labelledby="faq-title"><h2 id="faq-title">{{ 'よくある質問' if lang == 'ja' else 'Frequently asked questions' }}</h2>{% for f in faq %}<h3>{{ f.q }}</h3><p>{{ f.a }}</p>{% endfor %}</section>{% endif %}
+{% if related %}<section class="related" aria-labelledby="related-analyses"><h2 id="related-analyses">{{ '関連する解析' if lang == 'ja' else 'Related analyses' }}</h2><ul>{% for r in related %}<li><a href="{{ root }}writing/{{ r.href }}" lang="{{ r.lang }}">{{ r.title }}</a></li>{% endfor %}</ul></section>{% endif %}
+<p class="meta">{{ '最終更新' if lang == 'ja' else 'Last updated' }}: {{ updated }} · <a href="{{ root }}reference.html">{{ 'ツールと用語集' if lang == 'ja' else 'All tools and reference pages' }}</a></p>
+</article>
+{% endblock %}

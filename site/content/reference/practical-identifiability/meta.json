@@ -1,0 +1,44 @@
+{
+  "kind": "term",
+  "updated": "2026-10-22",
+  "math": false,
+  "related_articles": [
+    "psa-early-observation",
+    "nimotuzumab-poppk",
+    "warfarin-pkpd"
+  ],
+  "locales": {
+    "en": {
+      "title": "Practical identifiability of PK/PD models",
+      "summary": "Practical identifiability asks whether real, noisy and finite data determine the parameters precisely enough. It depends on the sampling design, assay error and dose range, and shows up as bounded or flat likelihood profiles.",
+      "seo_title": "Practical identifiability of PK/PD models: definition",
+      "seo_description": "What practical identifiability means for PK/PD models fitted to real data: sampling design, expected standard errors, flat likelihood profiles.",
+      "faq": [
+        {
+          "q": "How can I tell whether a flat likelihood profile comes from the model or the data?",
+          "a": "Check structural identifiability first. If the parameter is structurally identifiable, a flat profile points to the data or design, so more informative sampling can help; if not, the model or the measured outputs must change."
+        },
+        {
+          "q": "Can practical identifiability be assessed before collecting data?",
+          "a": "Yes, for an assumed design and parameter values, by calculating expected standard errors. The result holds only near the assumed values."
+        }
+      ]
+    },
+    "ja": {
+      "title": "PK/PDモデルの実用的識別可能性",
+      "summary": "実用的識別可能性は、現実の有限でノイズのあるデータが、パラメータを十分な精度で決めるかを問う。採血設計、測定誤差、用量の幅に依存し、尤度プロファイルが有界か平らかで現れる。",
+      "seo_title": "PK/PDモデルの実用的識別可能性とは",
+      "seo_description": "実データに当てはめたPK/PDモデルの実用的識別可能性とは何か。採血設計、期待標準誤差、平らな尤度プロファイルの見方、改善のために変えるものを説明する。",
+      "faq": [
+        {
+          "q": "平らな尤度プロファイルは、モデルとデータのどちらの問題か、どう見分けますか。",
+          "a": "まず構造的識別可能性を確かめます。構造的に識別可能なら、原因はデータや設計にあるので、情報の多い採血で改善できます。そうでなければ、モデルか測定する出力を変える必要があります。"
+        },
+        {
+          "q": "データを集める前に、実用的識別可能性は評価できますか。",
+          "a": "できます。仮定した設計とパラメータ値について、期待標準誤差を計算します。結果は仮定した値の近くでだけ成り立ちます。"
+        }
+      ]
+    }
+  }
+}
