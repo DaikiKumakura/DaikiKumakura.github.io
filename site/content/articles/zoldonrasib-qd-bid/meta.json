@@ -1,0 +1,25 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2027-01-03",
+  "draft": false,
+  "math": false,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "Zoldonrasibを1日2回に分けたら：公開PK曲線からの予測",
+      "summary": "公開されたzoldonrasibの1日1回5用量の血中濃度曲線から薬物動態モデルを作り、同じ1日量を1日2回に分けたときを予測した。ピークは約半分、谷は約3倍（モデルと服薬間隔に強く依存）、AUCはほぼ同じ。1日2回の値は観測ではなく予測。",
+      "key_findings": [
+        "1200 mg 1日1回を600 mg 1日2回に分けると、定常状態のピークは0.50倍（95%区間0.41〜0.60）と予測され、試した6つの設定すべてで約半分（0.42〜0.52）だった。",
+        "谷の濃度は主解析で3.4倍（2.2〜4.6）に上がると予測されたが、モデルの形や飲む間隔によって1.9〜7.3倍まで動いた。",
+        "24時間のAUCは0.96倍で発表の脚注と矛盾しないが、区間（0.798〜1.161）が広く、事前の基準で「保たれる」とまでは確かめられなかった。"
+      ]
+    }
+  },
+  "publish_at": "2027-01-03T09:00:00+09:00",
+  "english": {
+    "title": "Splitting zoldonrasib into twice-daily doses: a prediction from published PK curves",
+    "summary": "A pharmacokinetic model fitted to published once-daily whole-blood curves of zoldonrasib predicts that splitting 1200 mg once daily into 600 mg twice daily would roughly halve the steady-state peak and raise the trough about threefold (strongly model- and spacing-dependent), with similar AUC. Twice-daily values are predictions, not observations."
+  }
+}
