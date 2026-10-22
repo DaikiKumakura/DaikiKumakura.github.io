@@ -1,0 +1,310 @@
+{
+  "seed": 20261023,
+  "n": 4096,
+  "benchmark_label_600_fast2": {
+    "model_q1_median_q3": [
+      376.8,
+      475.0,
+      605.8
+    ],
+    "observed_q1_median_q3": [
+      407,
+      506,
+      616
+    ],
+    "model_p1_p99": [
+      225.3,
+      1090.0
+    ],
+    "observed_min_max": [
+      149,
+      1430
+    ]
+  },
+  "regimens": [
+    {
+      "regimen": "A 600 mg, 2 h fast (label)",
+      "group": "all",
+      "cavg_median": 474.9613,
+      "cavg_p5": 277.7013,
+      "cavg_p95": 847.8824,
+      "ratio_median_vs_label": 1.0,
+      "share_below_obs_min": 0.0002,
+      "share_below_obs_q1": 0.3262,
+      "share_above_obs_q3": 0.2346,
+      "rel_hazard_alt_ast": 1.0,
+      "rel_hazard_2_5": 1.0,
+      "rel_hazard_97_5": 1.0
+    },
+    {
+      "regimen": "A 600 mg, 2 h fast (label)",
+      "group": "Asian",
+      "cavg_median": 495.7578,
+      "cavg_p5": 290.0523,
+      "cavg_p95": 872.5188,
+      "ratio_median_vs_label": 1.0,
+      "share_below_obs_min": 0.0,
+      "share_below_obs_q1": 0.2791,
+      "share_above_obs_q3": 0.2716,
+      "rel_hazard_alt_ast": 1.0,
+      "rel_hazard_2_5": 1.0,
+      "rel_hazard_97_5": 1.0
+    },
+    {
+      "regimen": "A 600 mg, 2 h fast (label)",
+      "group": "non-Asian",
+      "cavg_median": 410.1832,
+      "cavg_p5": 246.8813,
+      "cavg_p95": 718.9472,
+      "ratio_median_vs_label": 1.0,
+      "share_below_obs_min": 0.0011,
+      "share_below_obs_q1": 0.4917,
+      "share_above_obs_q3": 0.1047,
+      "rel_hazard_alt_ast": 1.0,
+      "rel_hazard_2_5": 1.0,
+      "rel_hazard_97_5": 1.0
+    },
+    {
+      "regimen": "B 400 mg with meal, always",
+      "group": "all",
+      "cavg_median": 323.0374,
+      "cavg_p5": 188.8742,
+      "cavg_p95": 576.6738,
+      "ratio_median_vs_label": 0.6801,
+      "share_below_obs_min": 0.0081,
+      "share_below_obs_q1": 0.7395,
+      "share_above_obs_q3": 0.031,
+      "rel_hazard_alt_ast": 0.7212,
+      "rel_hazard_2_5": 0.5307,
+      "rel_hazard_97_5": 0.9275
+    },
+    {
+      "regimen": "B 400 mg with meal, always",
+      "group": "Asian",
+      "cavg_median": 337.1819,
+      "cavg_p5": 197.2745,
+      "cavg_p95": 593.4299,
+      "ratio_median_vs_label": 0.6801,
+      "share_below_obs_min": 0.005,
+      "share_below_obs_q1": 0.7015,
+      "share_above_obs_q3": 0.0376,
+      "rel_hazard_alt_ast": 0.7114,
+      "rel_hazard_2_5": 0.5166,
+      "rel_hazard_97_5": 0.9246
+    },
+    {
+      "regimen": "B 400 mg with meal, always",
+      "group": "non-Asian",
+      "cavg_median": 278.9796,
+      "cavg_p5": 167.9124,
+      "cavg_p95": 488.9806,
+      "ratio_median_vs_label": 0.6801,
+      "share_below_obs_min": 0.0187,
+      "share_below_obs_q1": 0.8732,
+      "share_above_obs_q3": 0.0077,
+      "rel_hazard_alt_ast": 0.7633,
+      "rel_hazard_2_5": 0.604,
+      "rel_hazard_97_5": 0.938
+    },
+    {
+      "regimen": "C 400 mg with meal, 20% of days fasted",
+      "group": "all",
+      "cavg_median": 299.2156,
+      "cavg_p5": 174.946,
+      "cavg_p95": 534.148,
+      "ratio_median_vs_label": 0.63,
+      "share_below_obs_min": 0.0156,
+      "share_below_obs_q1": 0.8064,
+      "share_above_obs_q3": 0.0186,
+      "rel_hazard_alt_ast": 0.6862,
+      "rel_hazard_2_5": 0.4862,
+      "rel_hazard_97_5": 0.9164
+    },
+    {
+      "regimen": "C 400 mg with meal, 20% of days fasted",
+      "group": "Asian",
+      "cavg_median": 312.317,
+      "cavg_p5": 182.7269,
+      "cavg_p95": 549.6684,
+      "ratio_median_vs_label": 0.63,
+      "share_below_obs_min": 0.0088,
+      "share_below_obs_q1": 0.7755,
+      "share_above_obs_q3": 0.0235,
+      "rel_hazard_alt_ast": 0.6754,
+      "rel_hazard_2_5": 0.4714,
+      "rel_hazard_97_5": 0.9132
+    },
+    {
+      "regimen": "C 400 mg with meal, 20% of days fasted",
+      "group": "non-Asian",
+      "cavg_median": 258.4068,
+      "cavg_p5": 155.53,
+      "cavg_p95": 452.9215,
+      "ratio_median_vs_label": 0.63,
+      "share_below_obs_min": 0.0397,
+      "share_below_obs_q1": 0.9151,
+      "share_above_obs_q3": 0.0011,
+      "rel_hazard_alt_ast": 0.7322,
+      "rel_hazard_2_5": 0.5623,
+      "rel_hazard_97_5": 0.9285
+    },
+    {
+      "regimen": "D 400 mg with meal, 50% of days fasted",
+      "group": "all",
+      "cavg_median": 263.4828,
+      "cavg_p5": 154.0537,
+      "cavg_p95": 470.3593,
+      "ratio_median_vs_label": 0.5547,
+      "share_below_obs_min": 0.041,
+      "share_below_obs_q1": 0.8875,
+      "share_above_obs_q3": 0.0076,
+      "rel_hazard_alt_ast": 0.6371,
+      "rel_hazard_2_5": 0.4224,
+      "rel_hazard_97_5": 0.9001
+    },
+    {
+      "regimen": "D 400 mg with meal, 50% of days fasted",
+      "group": "Asian",
+      "cavg_median": 275.0196,
+      "cavg_p5": 160.9054,
+      "cavg_p95": 484.0262,
+      "ratio_median_vs_label": 0.5547,
+      "share_below_obs_min": 0.0298,
+      "share_below_obs_q1": 0.8683,
+      "share_above_obs_q3": 0.0097,
+      "rel_hazard_alt_ast": 0.6252,
+      "rel_hazard_2_5": 0.4072,
+      "rel_hazard_97_5": 0.8962
+    },
+    {
+      "regimen": "D 400 mg with meal, 50% of days fasted",
+      "group": "non-Asian",
+      "cavg_median": 227.5475,
+      "cavg_p5": 136.9564,
+      "cavg_p95": 398.833,
+      "ratio_median_vs_label": 0.5547,
+      "share_below_obs_min": 0.0805,
+      "share_below_obs_q1": 0.9548,
+      "share_above_obs_q3": 0.0,
+      "rel_hazard_alt_ast": 0.6882,
+      "rel_hazard_2_5": 0.5021,
+      "rel_hazard_97_5": 0.9144
+    },
+    {
+      "regimen": "E 600 mg with meal (off-label)",
+      "group": "all",
+      "cavg_median": 484.5562,
+      "cavg_p5": 283.3113,
+      "cavg_p95": 865.0107,
+      "ratio_median_vs_label": 1.0202,
+      "share_below_obs_min": 0.0002,
+      "share_below_obs_q1": 0.3013,
+      "share_above_obs_q3": 0.2529,
+      "rel_hazard_alt_ast": 1.0214,
+      "rel_hazard_2_5": 0.9426,
+      "rel_hazard_97_5": 1.1215
+    },
+    {
+      "regimen": "E 600 mg with meal (off-label)",
+      "group": "Asian",
+      "cavg_median": 505.7728,
+      "cavg_p5": 295.9118,
+      "cavg_p95": 890.1448,
+      "ratio_median_vs_label": 1.0202,
+      "share_below_obs_min": 0.0,
+      "share_below_obs_q1": 0.2578,
+      "share_above_obs_q3": 0.291,
+      "rel_hazard_alt_ast": 1.0223,
+      "rel_hazard_2_5": 0.9403,
+      "rel_hazard_97_5": 1.127
+    },
+    {
+      "regimen": "E 600 mg with meal (off-label)",
+      "group": "non-Asian",
+      "cavg_median": 418.4694,
+      "cavg_p5": 251.8687,
+      "cavg_p95": 733.4709,
+      "ratio_median_vs_label": 1.0202,
+      "share_below_obs_min": 0.0011,
+      "share_below_obs_q1": 0.4542,
+      "share_above_obs_q3": 0.1191,
+      "rel_hazard_alt_ast": 1.0175,
+      "rel_hazard_2_5": 0.9536,
+      "rel_hazard_97_5": 1.0964
+    },
+    {
+      "regimen": "F 600 mg, strict overnight fast",
+      "group": "all",
+      "cavg_median": 305.8924,
+      "cavg_p5": 178.8498,
+      "cavg_p95": 546.0671,
+      "ratio_median_vs_label": 0.644,
+      "share_below_obs_min": 0.0117,
+      "share_below_obs_q1": 0.7886,
+      "share_above_obs_q3": 0.0222,
+      "rel_hazard_alt_ast": 0.6958,
+      "rel_hazard_2_5": 0.4962,
+      "rel_hazard_97_5": 0.9219
+    },
+    {
+      "regimen": "F 600 mg, strict overnight fast",
+      "group": "Asian",
+      "cavg_median": 319.2861,
+      "cavg_p5": 186.8043,
+      "cavg_p95": 561.9339,
+      "ratio_median_vs_label": 0.644,
+      "share_below_obs_min": 0.0078,
+      "share_below_obs_q1": 0.7545,
+      "share_above_obs_q3": 0.0276,
+      "rel_hazard_alt_ast": 0.6853,
+      "rel_hazard_2_5": 0.4816,
+      "rel_hazard_97_5": 0.9188
+    },
+    {
+      "regimen": "F 600 mg, strict overnight fast",
+      "group": "non-Asian",
+      "cavg_median": 264.1729,
+      "cavg_p5": 159.0006,
+      "cavg_p95": 463.0282,
+      "ratio_median_vs_label": 0.644,
+      "share_below_obs_min": 0.0254,
+      "share_below_obs_q1": 0.9085,
+      "share_above_obs_q3": 0.0033,
+      "rel_hazard_alt_ast": 0.7408,
+      "rel_hazard_2_5": 0.5717,
+      "rel_hazard_97_5": 0.9332
+    }
+  ],
+  "sensitivity_meal_effect": [
+    {
+      "fed_F_multiplier": 0.9,
+      "cavg_median": 290.7337,
+      "ratio_vs_label": 0.6121,
+      "rel_hazard": 0.6742
+    },
+    {
+      "fed_F_multiplier": 1.0,
+      "cavg_median": 323.0374,
+      "ratio_vs_label": 0.6801,
+      "rel_hazard": 0.7212
+    },
+    {
+      "fed_F_multiplier": 1.15,
+      "cavg_median": 371.4931,
+      "ratio_vs_label": 0.7822,
+      "rel_hazard": 0.7991
+    },
+    {
+      "fed_F_multiplier": 1.3,
+      "cavg_median": 419.9487,
+      "ratio_vs_label": 0.8842,
+      "rel_hazard": 0.8868
+    }
+  ],
+  "dose_matching_label_with_meal_mg": 588.1,
+  "frel_factors": {
+    "fast10": 1.0,
+    "fast2": 1.553,
+    "fed": 1.584
+  }
+}

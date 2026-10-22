@@ -1,0 +1,15 @@
+{
+  "source": "FDA NDA 219713 Multidisciplinary Review (IBTROZI, taletrectinib), accessdata.fda.gov/drugsatfda_docs/nda/2025/219713Orig1s000MultidisciplineR.pdf; Table 74 (final PopPK), Table 88 (updated E-R Grade>=3 ALT/AST, Cox), Table 79 (ORR E-R), Table 77 (Cavgss quartiles), Section 19.4.3.4",
+  "pk": {"CL_L_h": 94.24, "Vc_L": 3680.27, "Q3_L_h": 19.06, "V3_L": 3650.55, "Q4_L_h": 133.07, "V4_L": 2492.92,
+         "ka_per_h": 2.25, "alag_h": 0.72, "Frel_ref_10h_fast": 1.0,
+         "CL_WT_power": 0.37, "WT_ref_kg_assumed": 66, "CL_asian_exp": -0.18, "VC_cancer_exp": 0.25,
+         "ka_fast2_exp": -1.47, "ka_fed_exp": -1.75, "Frel_fast2_exp": 0.44, "Frel_fed_exp": 0.46,
+         "Frel_fast2_ci": [0.378, 0.501], "Frel_fed_ci": [0.427, 0.497],
+         "omega2": {"CL": 0.03, "VC": 0.11, "KA": 0.70, "FREL": 0.08}},
+  "population": {"asian_fraction": 0.77, "weight_mean_sd_kg": [65, 13], "weight_range_kg": [38, 115],
+                 "source": "E-R efficacy dataset (N=312): Asian 77%, weight mean 65 (SD 13), range 38-115"},
+  "er_alt_ast_g3": {"model": "Cox", "hr_per_ng_ml_cavgss": 1.0018, "hr_ci": [1.0005, 1.0032], "source": "Table 88"},
+  "er_orr": {"or_per_ng_ml_cavgss": 0.99896, "or_ci": [0.99696, 1.0010], "p": 0.3073, "note": "flat (Table 79)"},
+  "observed_cavgss_600mg_quartiles_ng_ml": {"min": 149, "q1": 407, "median": 506, "q3": 616, "max": 1430, "n": 312},
+  "notes": "Reference for Frel and ka is 10-h fast. 'Fed' effect estimated from high-fat meal data in healthy subjects and applied to standard meals (FDA: standard-meal effect could not be robustly estimated). WT reference assumed 66 kg (PopPK dataset median; FDA figure note says reference subject has the median body weight)."
+}
