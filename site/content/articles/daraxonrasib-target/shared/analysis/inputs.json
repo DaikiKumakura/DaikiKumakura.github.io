@@ -1,0 +1,16 @@
+{
+  "source": "FDA NDA 220910 Multidisciplinary Review (RASONQUE, daraxonrasib), accessdata.fda.gov/drugsatfda_docs/nda/2026/220910Orig1s000MultidisciplineR.pdf",
+  "pk_table59": {"CL_L_h": 53.8, "Vc_L": 516, "Q_L_h": 26.1, "Vp_L": 255, "ka_per_h": 0.735, "tlag_h": 0.305, "EM": 0.357, "ET50_day": 5.90,
+     "omega2": {"CL": 0.139, "Vc": 0.168, "cov_CL_Vc": 0.0949, "ka": 0.847},
+     "reference": "65-year-old PDAC patient, 70 kg, TBILI 8 umol/L, >=1 prior therapy (covariates fixed at reference)",
+     "F_time": "F(t) = 1 - EM * t/(ET50 + t), t in days (Emax form assumed)"},
+  "mw_g_mol": 811.05,
+  "preclinical_pd": {"EC50_nM_tumor": 54, "EC90_nM_tumor": 966, "Imax": 0.99, "tumor_to_blood_auc_ratio": [4, 7],
+     "source": "FDA review pharmacology section: Capan-2 CDX, single dose; tumor DUSP6 mRNA vs tumor concentration; tumor AUC 4-7x blood"},
+  "applicant_claim": {"300mg": {"ge90": 1.00, "ge95": 0.75}, "200mg": {"ge90": 0.91, "ge95": 0.38},
+     "source": "FDA review, Applicant's position on dose selection (Module 2.7.2 Section 3.10.2); method not described in the review"},
+  "clinical": {"rdi_median": 0.931, "avg_daily_dose_median_mg": 279.3, "dose_reduction_pct": 36.1, "interruption_pct": 56.0,
+     "efficacy_er": "no significant E-R for OS, PFS, ORR, DOR in RASolute 302",
+     "safety_er_note": "predicted differences 200 vs 300 mg <=10% for all evaluated safety endpoints"},
+  "unbound_cmax_nM_300mg": 3.56
+}

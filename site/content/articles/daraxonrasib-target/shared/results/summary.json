@@ -1,0 +1,242 @@
+{
+  "seed": 20261023,
+  "n": 4096,
+  "hill": 0.762,
+  "target_attainment": [
+    {
+      "dose_mg": 120,
+      "tumor_blood_ratio": 1.0,
+      "cmin_median": 25.0986,
+      "cmax_median": 149.6025,
+      "auc24_median": 1578.0092,
+      "trough_inhib_median": 0.3916,
+      "share_trough_ge90": 0.0,
+      "share_trough_ge95": 0.0,
+      "share_avg_ge90": 0.0
+    },
+    {
+      "dose_mg": 120,
+      "tumor_blood_ratio": 4.0,
+      "cmin_median": 25.0986,
+      "cmax_median": 149.6025,
+      "auc24_median": 1578.0092,
+      "trough_inhib_median": 0.6464,
+      "share_trough_ge90": 0.0,
+      "share_trough_ge95": 0.0,
+      "share_avg_ge90": 0.0
+    },
+    {
+      "dose_mg": 120,
+      "tumor_blood_ratio": 5.5,
+      "cmin_median": 25.0986,
+      "cmax_median": 149.6025,
+      "auc24_median": 1578.0092,
+      "trough_inhib_median": 0.6986,
+      "share_trough_ge90": 0.0,
+      "share_trough_ge95": 0.0,
+      "share_avg_ge90": 0.0015
+    },
+    {
+      "dose_mg": 120,
+      "tumor_blood_ratio": 7.0,
+      "cmin_median": 25.0986,
+      "cmax_median": 149.6025,
+      "auc24_median": 1578.0092,
+      "trough_inhib_median": 0.7349,
+      "share_trough_ge90": 0.0007,
+      "share_trough_ge95": 0.0,
+      "share_avg_ge90": 0.0139
+    },
+    {
+      "dose_mg": 160,
+      "tumor_blood_ratio": 1.0,
+      "cmin_median": 33.4648,
+      "cmax_median": 199.4701,
+      "auc24_median": 2104.0123,
+      "trough_inhib_median": 0.4444,
+      "share_trough_ge90": 0.0,
+      "share_trough_ge95": 0.0,
+      "share_avg_ge90": 0.0
+    },
+    {
+      "dose_mg": 160,
+      "tumor_blood_ratio": 4.0,
+      "cmin_median": 33.4648,
+      "cmax_median": 199.4701,
+      "auc24_median": 2104.0123,
+      "trough_inhib_median": 0.6938,
+      "share_trough_ge90": 0.0,
+      "share_trough_ge95": 0.0,
+      "share_avg_ge90": 0.0015
+    },
+    {
+      "dose_mg": 160,
+      "tumor_blood_ratio": 5.5,
+      "cmin_median": 33.4648,
+      "cmax_median": 199.4701,
+      "auc24_median": 2104.0123,
+      "trough_inhib_median": 0.7416,
+      "share_trough_ge90": 0.001,
+      "share_trough_ge95": 0.0,
+      "share_avg_ge90": 0.0195
+    },
+    {
+      "dose_mg": 160,
+      "tumor_blood_ratio": 7.0,
+      "cmin_median": 33.4648,
+      "cmax_median": 199.4701,
+      "auc24_median": 2104.0123,
+      "trough_inhib_median": 0.7742,
+      "share_trough_ge90": 0.0032,
+      "share_trough_ge95": 0.0,
+      "share_avg_ge90": 0.0706
+    },
+    {
+      "dose_mg": 200,
+      "tumor_blood_ratio": 1.0,
+      "cmin_median": 45.5516,
+      "cmax_median": 213.6707,
+      "auc24_median": 2631.0597,
+      "trough_inhib_median": 0.5024,
+      "share_trough_ge90": 0.0,
+      "share_trough_ge95": 0.0,
+      "share_avg_ge90": 0.0
+    },
+    {
+      "dose_mg": 200,
+      "tumor_blood_ratio": 4.0,
+      "cmin_median": 45.5516,
+      "cmax_median": 213.6707,
+      "auc24_median": 2631.0597,
+      "trough_inhib_median": 0.7402,
+      "share_trough_ge90": 0.0007,
+      "share_trough_ge95": 0.0,
+      "share_avg_ge90": 0.0122
+    },
+    {
+      "dose_mg": 200,
+      "tumor_blood_ratio": 5.5,
+      "cmin_median": 45.5516,
+      "cmax_median": 213.6707,
+      "auc24_median": 2631.0597,
+      "trough_inhib_median": 0.7827,
+      "share_trough_ge90": 0.0049,
+      "share_trough_ge95": 0.0,
+      "share_avg_ge90": 0.0781
+    },
+    {
+      "dose_mg": 200,
+      "tumor_blood_ratio": 7.0,
+      "cmin_median": 45.5516,
+      "cmax_median": 213.6707,
+      "auc24_median": 2631.0597,
+      "trough_inhib_median": 0.8112,
+      "share_trough_ge90": 0.0234,
+      "share_trough_ge95": 0.0,
+      "share_avg_ge90": 0.2051
+    },
+    {
+      "dose_mg": 240,
+      "tumor_blood_ratio": 1.0,
+      "cmin_median": 54.662,
+      "cmax_median": 256.4049,
+      "auc24_median": 3157.2716,
+      "trough_inhib_median": 0.5367,
+      "share_trough_ge90": 0.0,
+      "share_trough_ge95": 0.0,
+      "share_avg_ge90": 0.0
+    },
+    {
+      "dose_mg": 240,
+      "tumor_blood_ratio": 4.0,
+      "cmin_median": 54.662,
+      "cmax_median": 256.4049,
+      "auc24_median": 3157.2716,
+      "trough_inhib_median": 0.7652,
+      "share_trough_ge90": 0.0017,
+      "share_trough_ge95": 0.0,
+      "share_avg_ge90": 0.0364
+    },
+    {
+      "dose_mg": 240,
+      "tumor_blood_ratio": 5.5,
+      "cmin_median": 54.662,
+      "cmax_median": 256.4049,
+      "auc24_median": 3157.2716,
+      "trough_inhib_median": 0.8046,
+      "share_trough_ge90": 0.0166,
+      "share_trough_ge95": 0.0,
+      "share_avg_ge90": 0.1675
+    },
+    {
+      "dose_mg": 240,
+      "tumor_blood_ratio": 7.0,
+      "cmin_median": 54.662,
+      "cmax_median": 256.4049,
+      "auc24_median": 3157.2716,
+      "trough_inhib_median": 0.8307,
+      "share_trough_ge90": 0.053,
+      "share_trough_ge95": 0.0,
+      "share_avg_ge90": 0.3381
+    },
+    {
+      "dose_mg": 300,
+      "tumor_blood_ratio": 1.0,
+      "cmin_median": 68.3274,
+      "cmax_median": 320.5061,
+      "auc24_median": 3946.5895,
+      "trough_inhib_median": 0.5781,
+      "share_trough_ge90": 0.0,
+      "share_trough_ge95": 0.0,
+      "share_avg_ge90": 0.0
+    },
+    {
+      "dose_mg": 300,
+      "tumor_blood_ratio": 4.0,
+      "cmin_median": 68.3274,
+      "cmax_median": 320.5061,
+      "auc24_median": 3946.5895,
+      "trough_inhib_median": 0.7934,
+      "share_trough_ge90": 0.0088,
+      "share_trough_ge95": 0.0,
+      "share_avg_ge90": 0.1187
+    },
+    {
+      "dose_mg": 300,
+      "tumor_blood_ratio": 5.5,
+      "cmin_median": 68.3274,
+      "cmax_median": 320.5061,
+      "auc24_median": 3946.5895,
+      "trough_inhib_median": 0.8288,
+      "share_trough_ge90": 0.0486,
+      "share_trough_ge95": 0.0,
+      "share_avg_ge90": 0.3252
+    },
+    {
+      "dose_mg": 300,
+      "tumor_blood_ratio": 7.0,
+      "cmin_median": 68.3274,
+      "cmax_median": 320.5061,
+      "auc24_median": 3946.5895,
+      "trough_inhib_median": 0.8521,
+      "share_trough_ge90": 0.1331,
+      "share_trough_ge95": 0.0002,
+      "share_avg_ge90": 0.5432
+    }
+  ],
+  "benchmark_300mg_day28": {
+    "cmax_median": 320.5,
+    "auc24_median": 3946.6,
+    "fda_review_total_cmax_300mg": 391,
+    "note": "FDA review states total Cmax at 300 mg 391 ng/mL (0.48 uM); model median vs reported value"
+  },
+  "R_needed_50pct_ge90_at_300": 13.200000000000001,
+  "R_needed_90pct_ge90_at_300": 30.05,
+  "R_needed_99pct_ge90_at_300": 61.75,
+  "R_needed_50pct_avg_ge90_at_300": 7.0,
+  "R_needed_90pct_avg_ge90_at_300": 12.5,
+  "R_needed_99pct_avg_ge90_at_300": 21.5,
+  "share200_avg_ge90_at_that_R": 0.9462890625,
+  "share200_at_R_where_300_reaches_99pct": 0.959228515625,
+  "blood_trough_needed_for_90pct_inhibition_R1_nM": 1108.5
+}

@@ -1,0 +1,25 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2027-01-05",
+  "publish_at": "2027-01-05T09:00:00+09:00",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "ダラキソンラシブ300 mgの「標的抑制100%」を再計算する：FDA審査報告の公開された数字だけで、どこまで再現できるか",
+      "summary": "RAS(ON)阻害薬ダラキソンラシブの用量の根拠として申請者が挙げた「300 mgで全員がRAS経路の90%以上の抑制」を、FDA審査報告の母集団薬物動態モデルと前臨床の標的抑制の濃度反応だけで、仮想患者4,096人で再計算する。",
+      "key_findings": [
+        "腫瘍の濃度を血中の4〜7倍とすると、24時間平均で90%以上の抑制に達する患者は300 mgで12〜54%、200 mgで1〜21%だった。",
+        "申請者の予測に近い値（300 mgで99%）にするには腫瘍の濃度が血中の約22倍必要で、その条件では200 mgでも95%が達し、予測の差の大きさは再現できなかった。",
+        "標的抑制の予測は公開されていない前提に依存すると考えられ、第三者が確かめられないため、用量の妥当性は第3相の臨床データと合わせて読む必要がある。"
+      ]
+    }
+  },
+  "english": {
+    "title": "Recomputing daraxonrasib's '100% target inhibition' at 300 mg from numbers in the FDA review",
+    "summary": "A Japanese technical note recomputing the applicant's claim that 300 mg daraxonrasib achieves at least 90% RAS-pathway inhibition in all patients, using only the PopPK model and preclinical tumour DUSP6 concentration-response published in FDA's review, in 4,096 virtual patients."
+  }
+}
