@@ -1,0 +1,13 @@
+{
+  "pk_400mg_steady_state": {"Cmax_mean_sd_ng_ml": [657, 185], "AUC0_24_mean_sd_ng_h_ml": [9130, 3160], "n": 76, "tmax_median_h": 2.0,
+    "t_half_single_dose_h": [17.6, 2.7], "t_half_n": 4, "accumulation_auc": [1.4, 0.4],
+    "source": "Sacher et al. NEJM 2023 (doi:10.1056/NEJMoa2303810) as reported by OncLive and search summaries; accumulation from Desai et al. Nat Med 2024 (divarasib + cetuximab). Primary PDF not read."},
+  "orr_nejm_2023": {
+    "NSCLC": {"all": [31, 58], "400mg": [22, 39], "lower": [9, 19]},
+    "CRC": {"all": [16, 55], "400mg": [14, 39], "lower": [2, 16]},
+    "derivation": "lower = all minus 400 mg; counts back-calculated from reported percentages (53.4% of 58, 56.4% of 39, 29.1% of 55, 35.9% of 39)"},
+  "lower_dose_mix_assumed": {"50": 6, "100": 5, "200": 10, "source": "NSCLC enrolment by dose in long-term follow-up (Single-Agent Divarasib ... Long-Term Follow-Up of a Phase I Study, 2025, PMC12527784): 400 n=44, 200 n=10, 100 n=5, 50 n=6; mix assumed equal for CRC"},
+  "safety_pooled": {"dose_reduction_pct": 14, "discontinuation_pct": 3, "nausea_any_pct": 74, "diarrhea_any_pct": 61, "vomiting_any_pct": 58, "grade3_5_trae_nsclc_pct": 18,
+    "note": "pooled across doses, mostly 400 mg; not available by dose"},
+  "assumptions": ["dose-proportional PK 50-400 mg (not verified from primary source)", "one-compartment first-order absorption; CL/F from AUC_ss at 400 mg", "between-subject CV of CL/F = SD/mean of AUC_ss (34.6%)"]
+}
