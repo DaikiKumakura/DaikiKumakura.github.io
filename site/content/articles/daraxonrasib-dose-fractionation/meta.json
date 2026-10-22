@@ -1,0 +1,21 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2026-12-29",
+  "publish_at": "2026-12-29T09:00:00+09:00",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "Daraxonrasibを分割すると安全になるのか",
+      "seo_title": "Daraxonrasibの分割投与と全血PK | Daiki Kumakura",
+      "summary": "公表ヒトPopPK係数と4,096組の条件付き仮想個体でQDとBIDを比較。ピーク低下と最低濃度上昇を、安全性E–Rの異なる指標から検討する。"
+    }
+  },
+  "english": {
+    "title": "Daraxonrasib dose fractionation: opposing exposure metrics",
+    "summary": "Conditional paired simulations using public human PopPK coefficients separate peak reduction from minimum-concentration increase. Transported safety associations do not establish BID clinical benefit."
+  }
+}
