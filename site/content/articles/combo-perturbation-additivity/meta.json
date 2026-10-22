@@ -1,7 +1,7 @@
 {
   "source_language": "ja",
   "category": "note",
-  "date": "2026-12-17",
+  "date": "2026-12-31",
   "draft": false,
   "math": false,
   "version": "1.0",
@@ -17,7 +17,7 @@
       ]
     }
   },
-  "publish_at": "2026-12-17T09:00:00+09:00",
+  "publish_at": "2026-12-31T09:00:00+09:00",
   "english": {
     "title": "How far does addition explain double-gene perturbations? Norman 2019 re-read with noise removed",
     "summary": "In 131 double CRISPRa perturbations, the noise-corrected share of the expression change not explained by the sum of single effects had a median of 9%. Most pairs that departed strongly from additivity differed mainly in overall magnitude, which a single scale factor captured, so in these data the room for models to beat the additive baseline is small for most pairs."
