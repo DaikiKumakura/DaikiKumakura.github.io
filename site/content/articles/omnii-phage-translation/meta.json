@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "category": "essay",
+  "date": "2027-01-10",
+  "publish_at": "2027-01-10T09:00:00+09:00",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "AI設計ファージが患者に投与された。薬剤耐性菌治療は何が変わるか",
+      "summary": "Omnii-1のファージ研究報告を読み、候補選別、体外評価、患者投与を分けて考える。無次元の曝露計算と先行臨床試験から、AIによる設計の先に必要な測定を検討する。",
+      "seo_title": "AI設計ファージと薬剤耐性菌治療。Omnii-1の到達点",
+      "seo_description": "AI設計ファージの患者投与をどう読むか。Omnii-1の候補選別、未公開の臨床転帰、先行試験と曝露の数理例から、ファージ療法の開発課題を考える。",
+      "key_findings": [
+        "Omnii-1の開発元はAI設計ファージを含むカクテルの患者投与を報告したが、臨床経過と治療結果は公開していない。",
+        "ある評価菌株では上位100候補の24%が活動性基準を超え、全ライブラリの4.5%に対して約5.33倍だった。臨床奏効率ではない。",
+        "無次元の説明例では到達と失活によって曝露が変わる。候補選別の成績だけでは、感染部位の曝露や患者の治療効果は決まらない。"
+      ]
+    }
+  },
+  "english": {
+    "title": "AI-designed phages reach a patient: what changes in drug-resistant infection treatment?",
+    "summary": "A Japanese essay separates reported phage prioritization, laboratory findings and clinical administration, with an uncalibrated dimensionless exposure illustration and context from an earlier clinical trial."
+  }
+}
