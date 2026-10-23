@@ -1,0 +1,21 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2027-01-06",
+  "publish_at": "2027-01-06T09:00:00+09:00",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "GFH375を分割すればピークは下がるのか。公開PKから予測し、実測BIDと比べる",
+      "seo_title": "GFH375の分割投与と実測PK | Daiki Kumakura",
+      "summary": "公開平均PKを推定し、2,048組の仮想個体で600 mg QDと300 mg BIDを比較。実測BIDとの不一致から、分割投与の予測をどこまで使えるか検討する。"
+    }
+  },
+  "english": {
+    "title": "GFH375 dose fractionation: prediction versus observed BID PK",
+    "summary": "Public aggregate PK fitting and conditional paired simulations are checked against an observed BID cohort. The peak mismatch limits regimen conclusions."
+  }
+}
