@@ -1,0 +1,21 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2027-01-07",
+  "publish_at": "2027-01-07T09:00:00+09:00",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "Gedatolisibの休薬週を毎週投与に変えると何が変わるか",
+      "seo_title": "Gedatolisibの休薬週とPK | Daiki Kumakura",
+      "summary": "公開PopPKモデルで同じ540 mgを3回または4回に配分。2,048組の仮想個体から、ピークと第4週の曝露の違いを検討する。"
+    }
+  },
+  "english": {
+    "title": "Gedatolisib: redistributing exposure into the rest week",
+    "summary": "A public four-compartment PK model compares equal 540 mg cycle amounts. Conditional paired simulations separate lower peaks from increased last-week exposure, without clinical benefit claims."
+  }
+}
