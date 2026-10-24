@@ -1,0 +1,21 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2027-01-12",
+  "publish_at": "2027-01-12T09:00:00+09:00",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "Camizestrantの製剤・食事条件で、同じ75 mgは同じ曝露になるか",
+      "seo_title": "Camizestrantの製剤・食事とPK | Daiki Kumakura",
+      "summary": "公開クロスオーバー試験の集計PKを再解析。調整済み比、単純モデルの不適合、条件付き仮想ペアから、製剤・食事の比較と個人予測を区別する。"
+    }
+  },
+  "english": {
+    "title": "Camizestrant formulations and food: aggregate PK reanalysis",
+    "summary": "Public crossover summaries separate adjusted exposure contrasts from individual predictions. Conditional endpoint pairs and a failed trajectory adequacy check show the limits."
+  }
+}
