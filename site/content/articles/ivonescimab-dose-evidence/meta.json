@@ -1,7 +1,7 @@
 {
   "source_language": "ja",
   "category": "note",
-  "date": "2026-11-01",
+  "date": "2026-11-03",
   "draft": false,
   "math": true,
   "version": "1.0",
@@ -23,5 +23,5 @@
     "title": "Can public data show that ivonescimab 20 mg/kg Q3W beats 10 mg/kg Q3W?",
     "summary": "A Japanese research note auditing what published phase 1-2 pharmacokinetics, PD-1 receptor occupancy and dose-level response rates can say about 20 versus 10 mg/kg Q3W of ivonescimab, with the analysis plan fixed before computing. The answer is inconclusive. It makes no claim about efficacy ranking, recommended dose or any regulatory decision."
   },
-  "publish_at": "2026-11-01T09:00:00+09:00"
+  "publish_at": "2026-11-03T18:00:00+09:00"
 }

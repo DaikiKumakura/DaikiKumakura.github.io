@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
   schedule:
     # Scheduled articles become eligible at their timezone-aware publish_at.
-    - cron: '7,37 0 * * *' # 09:07 and 09:37 JST; avoid the top-of-hour peak.
+    - cron: '7,37 0,9 * * *' # 09:07/09:37 and 18:07/18:37 JST.
     - cron: '17 * * * *' # Hourly catch-up if an earlier run is delayed or dropped.
 permissions:
   contents: read

@@ -1,7 +1,7 @@
 {
   "source_language": "ja",
   "category": "note",
-  "date": "2026-11-11",
+  "date": "2026-11-08",
   "draft": false,
   "math": true,
   "version": "1.0",
@@ -23,5 +23,5 @@
     "title": "What can public RNA-seq say about \"reverting cancer cells to normal\"?",
     "summary": "A Japanese note re-reading a reported reversion of colorectal cancer cells after triple knockdown of three genes chosen by a Boolean network model, using the public RNA-seq data and a pre-fixed analysis plan. It checks whether the targets were expressed and knocked down, how specific the enterocyte program was, and how consistent the lines were. It does not evaluate the paper's other experiments or any therapy."
   },
-  "publish_at": "2026-11-11T09:00:00+09:00"
+  "publish_at": "2026-11-08T18:00:00+09:00"
 }

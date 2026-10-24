@@ -1,7 +1,7 @@
 {
   "source_language": "ja",
   "category": "note",
-  "date": "2026-12-16",
+  "date": "2026-11-22",
   "draft": false,
   "math": false,
   "version": "1.0",
@@ -17,7 +17,7 @@
       ]
     }
   },
-  "publish_at": "2026-12-16T09:00:00+09:00",
+  "publish_at": "2026-11-22T18:00:00+09:00",
   "english": {
     "title": "Reading an affinity-prediction R² of 0.43 against the measurement-noise ceiling",
     "summary": "Using IC50 values reported for the same compound and target by different ChEMBL documents, the R² reachable on a literature-based affinity benchmark is estimated at 0.59 to 0.70 once re-cited duplicates are removed (0.91 if they are kept). Atomwell's reported 0.434 sits at about two-thirds of that ceiling; Atomwell itself is not verified here."

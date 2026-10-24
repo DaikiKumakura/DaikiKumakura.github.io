@@ -1,7 +1,7 @@
 {
   "source_language": "ja",
   "category": "note",
-  "date": "2026-11-14",
+  "date": "2026-11-05",
   "draft": false,
   "math": true,
   "version": "1.0",
@@ -23,5 +23,5 @@
     "title": "How robust is the FVC signal in the rentosertib phase 2a trial to missing-data assumptions?",
     "summary": "A Japanese note re-reading the published phase 2a summary values of the generative-AI-designed TNIK inhibitor rentosertib. It asks how robust the 60 mg FVC improvement is to missing-data assumptions (MAR, worsening after dropout, placebo-like course), with a plan fixed before computing. It makes no claim about efficacy, dose or safety."
   },
-  "publish_at": "2026-11-14T09:00:00+09:00"
+  "publish_at": "2026-11-05T18:00:00+09:00"
 }
