@@ -1,7 +1,7 @@
 {
   "source_language": "ja",
   "category": "note",
-  "date": "2026-11-02",
+  "date": "2026-11-01",
   "draft": false,
   "math": true,
   "version": "1.0",
@@ -23,5 +23,5 @@
     "title": "Can an evaluation metric tell a technical duplicate from a mean baseline? Checking on public Perturb-seq data",
     "summary": "A Japanese note that independently tests the premise of the rebuttal that deep models do lose to linear baselines only because of poorly calibrated metrics: can a metric tell a technical duplicate of the same perturbation from a mean baseline? A pre-fixed plan on public Cas13 Perturb-seq data. It does not evaluate any model."
   },
-  "publish_at": "2026-11-02T09:00:00+09:00"
+  "publish_at": "2026-11-01T18:00:00+09:00"
 }
