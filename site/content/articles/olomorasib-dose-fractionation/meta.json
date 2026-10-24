@@ -1,0 +1,21 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2027-01-13",
+  "publish_at": "2027-01-13T09:00:00+09:00",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "Olomorasibの曝露の頭打ちは、少量分割で変わるか",
+      "seo_title": "Olomorasibの少量分割とPK | Daiki Kumakura",
+      "summary": "公開実測PKから用量–曝露と吸収を推定し、150 mg BIDと100 mg TIDを比較。飽和モデルの不確実性と投与時刻が予測に与える影響を検討する。"
+    }
+  },
+  "english": {
+    "title": "Olomorasib dose fractionation: saturation versus timing",
+    "summary": "Public measured PK compares proportional and saturating exposure models. Conditional simulations distinguish daily exposure from peaks, troughs and uneven dosing times."
+  }
+}
