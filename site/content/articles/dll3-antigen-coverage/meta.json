@@ -1,0 +1,22 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2026-11-27",
+  "publish_at": "2026-11-27T13:00:00+09:00",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "DLL3を補う標的としてB7-H3とSEZ6を比べる",
+      "summary": "SCLCの公開共発現表から、DLL3へB7-H3・SEZ6を加えた追加被覆率を標本別に計算。二つのコホートで順位と不確実性を比較し、RNA検出と薬効の違いを整理する。",
+      "seo_title": "DLL3・B7-H3・SEZ6の標本別追加被覆率",
+      "seo_description": "SCLCの公開共発現表を再解析。DLL3にB7-H3とSEZ6を追加したRNA被覆率を標本別に比較し、順位の不確実性とタンパク質・薬効へ外挿できない範囲を示す。"
+    }
+  },
+  "english": {
+    "title": "Comparing B7-H3 and SEZ6 as additional targets alongside DLL3",
+    "summary": "Sample-level reanalysis of published SCLC coexpression fractions. Additional RNA-detection coverage and resampling uncertainty are compared across two cohorts without inferring protein density or drug efficacy."
+  }
+}
