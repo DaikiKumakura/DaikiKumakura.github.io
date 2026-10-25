@@ -1,0 +1,22 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2026-11-27",
+  "publish_at": "2026-11-27T18:00:00+09:00",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "抗原量とE:T比からTCEの薬効を予測できるか",
+      "summary": "5T4×CD3の公開薬効図を数値化し、抗原量とE:T比を用いる小さなHillモデルを未使用株・条件で検証。平均的な改善と予測が外れる条件を比較する。",
+      "seo_title": "5T4 TCEの抗原量・E:T比と未使用株での薬効予測",
+      "seo_description": "14細胞株の5T4×CD3公開図を再解析。抗原量に応じたEC50・最大効果モデルを株単位で検証し、E:T比の別条件予測、読取誤差、外挿の限界を示す。"
+    }
+  },
+  "english": {
+    "title": "Can antigen density and effector ratio predict TCE cytotoxicity?",
+    "summary": "Grouped validation of small Hill models against digitized 5T4×CD3 observed means. Cell-line and E:T held-out tests are separated; no clinical-dose or QSP superiority claim is made."
+  }
+}
