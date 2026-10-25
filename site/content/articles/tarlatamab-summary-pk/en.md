@@ -247,7 +247,7 @@ This article does not fit a new CRS model that treats the three per-dose summari
 | What is the effect of the interval? | Under linear PK, the average-concentration ratio is 2/3 for Q3W and 1/2 for Q4W | Using absolute concentrations or troughs as precise patient predictions |
 | Can this be linked to efficacy and CRS? | Showed the need to separate exposure metrics and dosing history | Guaranteeing maintained efficacy or reduced CRS with Q3W or Q4W |
 
-To take the model to the next decision, the comparison conditions and evaluation metrics need to be defined, and information that can identify them needs to be collected.
+The follow-up questions concern maintenance troughs, peak safety after dose increases, and early CRS. Each requires different measurements.
 
 | Next question | Metric to evaluate | Additional information needed |
 | --- | --- | --- |

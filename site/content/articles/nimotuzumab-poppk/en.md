@@ -1,4 +1,4 @@
-From published individual concentration data, I estimated three PopPK models: linear one-compartment, linear two-compartment, and two-compartment with nonlinear elimination. The question is not "which is the most complex model?" but **which structure is needed to compare exposure across dosing conditions, and how far the results can be trusted**.
+From published individual concentration data, I estimated three PopPK models: linear one-compartment, linear two-compartment, and two-compartment with nonlinear elimination. The analysis asks **which structure is needed to compare exposure across dosing conditions, and how far the results can be trusted**.
 
 Here, the more complex models improved the fit to the training data. However, the improvement in internal validation with subjects left out was small, and convergence problems remained in resampling-based estimation. Although the models ranked the dosing conditions in the same order, absolute exposure and dose ratios did not agree. **The evidence was therefore insufficient either to adopt the nonlinear model or to conclude that the linear model is enough.** This article shows the calculations behind that conclusion and the information needed next.
 
@@ -231,8 +231,6 @@ These are checks of the implementation and numerical integration. They do not re
 What is needed next is not simply adding another complex equation. First, the original records of infusion start and end and sampling times, and the history of selecting and processing the distributed data, should be checked. Then measurements that can distinguish the early distribution phase from the low-concentration terminal phase, more independent subjects per dose, and validation data not used for selection are needed.
 
 If additional measurements are designed for existing data, the next question is to weigh the differences between candidate-model predictions in the low and high concentration ranges against measurement error and sampling burden. This analysis alone has not determined optimal sampling times or the required number of subjects, so no specific design values are proposed.
-
-The conclusion from an MIDD perspective is that **whether to make a model more complex should be decided not only by improvement in fit but by whether the structure changes the numbers to be compared and whether it can be estimated stably from the data**. Here, the effect on the numbers was confirmed, but stable estimation and independent validation were not achieved. Deferring adoption and identifying the additional information needed is as far as this data can support.
 
 ## Reproduction materials and sources
 

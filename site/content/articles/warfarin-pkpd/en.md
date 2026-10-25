@@ -1,8 +1,6 @@
 ## A warfarin reanalysis of the value of limited PK measurements
 
-> **Revised 20 October 2026 (version 1.2).** Both PD models now estimate the Hill exponent instead of fixing it to one. It improved the in-sample turnover fit (objective function −17.3 for one parameter) but not held-out population prediction (RMSE 0.0827 vs 0.0807), and limited PK now worsens later PCA prediction at the 24 h cutoff with an interval that excludes zero. The version 1.1 results are kept in the companion archive.
->
-> **Version 1.1 (19 October 2026).** The PK model now includes an absorption lag time with between-subject variability. Version 1.0 had no lag; four independent AI-agent reanalyses of the same data all added one, and it lowered the PK objective function by about 198. Every refit (cross-validation folds, bootstrap resamples, sensitivity runs) now starts from generic initial values rather than the full-data estimates; in version 1.0, 20 of 67 PK refits had not moved from those estimates. The conclusions are unchanged in direction: limited PK still does not improve later PCA prediction, and now points slightly further towards worse prediction. The version 1.0 results are kept in the companion archive.
+> **Version 1.2, revised 20 October 2026.** This version estimates the Hill exponent in both PD models. Detailed changes and the refit correction are recorded below under Revision history.
 
 Additional concentration measurements did not improve prediction of subsequent prothrombin complex activity (PCA) in this reanalysis; at the 24 h cutoff they made it worse. A turnover model described the delay between concentration and response better than direct inhibition, but more PK information was not enough to recover individual PD sensitivity. This is an exploratory assessment of publicly distributed observations, not a dosing recommendation.
 
@@ -161,9 +159,13 @@ Agreement verifies implementation, not biology or clinical validity. The in-samp
 
 This measured-data example supports a limited methodological conclusion: representing effect delay matters, while additional PK measurements need not resolve response heterogeneity. The held-out comparison gives no evidence of improved PCA prediction from PK alone, with or without the absorption lag or an estimated Hill exponent. A better in-sample fit (the Hill exponent) also did not translate into better held-out prediction. It does not prove PK monitoring has no value in other settings.
 
-The revisions themselves are a reminder of why model structure and refit behaviour need to be checked: adding the lag changed the PK fit substantially, nearly a third of the version 1.0 PK refits (20 of 67) had silently not moved, and the Hill exponent improved the fit without improving prediction. The direction of the main conclusion survived all three changes.
-
 The next discriminating experiment would measure information about PD sensitivity, assess baseline measurement uncertainty and test prediction in an independent cohort or repeat occasion. It should be motivated by a clearly defined future decision rather than by collecting more concentrations automatically. No comparison here justifies a patient dose, chronic regimen, INR target or bleeding-risk claim. A simultaneous PK/PD likelihood, better characterized assay error and robust optimization would be necessary before stronger quantitative qualification.
+
+## Revision history
+
+**Revised 20 October 2026 (version 1.2).** Both PD models now estimate the Hill exponent instead of fixing it to one. It improved the in-sample turnover fit (objective function −17.3 for one parameter) but not held-out population prediction (RMSE 0.0827 vs 0.0807), and limited PK now worsens later PCA prediction at the 24 h cutoff with an interval that excludes zero. The version 1.1 results are kept in the companion archive.
+
+**Version 1.1 (19 October 2026).** The PK model now includes an absorption lag time with between-subject variability. Version 1.0 had no lag; independent reanalyses of the same data supported adding one, and it lowered the PK objective function by about 198. Every refit (cross-validation folds, bootstrap resamples, sensitivity runs) now starts from generic initial values rather than the full-data estimates; in version 1.0, 20 of 67 PK refits had not moved from those estimates. The conclusions are unchanged in direction: limited PK still does not improve later PCA prediction, and now points slightly further towards worse prediction. The version 1.0 results are kept in the companion archive.
 
 ## Sources and reproducibility
 

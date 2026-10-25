@@ -44,7 +44,7 @@ Three points stand out. The survivors' mean overstated shrinkage most where drop
 
 ## How much worse would unmeasured patients need to be?
 
-The joint model is one specific assumption. The delta adjustment asks a more direct question: if every patient's unobserved trajectory after the last scan were worse than the mixed model predicts by δ per year, what would the estimates become? δ was fixed in advance at 0, 0.5, 1, 2 and 3 per year, bracketing the last-interval slopes seen before death.
+The joint model represents one specified link between tumor trajectories and death. The delta adjustment asks a more direct question: if every patient's unobserved trajectory after the last scan were worse than the mixed model predicts by δ per year, what would the estimates become? δ was fixed in advance at 0, 0.5, 1, 2 and 3 per year, bracketing the last-interval slopes seen before death.
 
 ![Delta-adjusted shrinkage at 48 weeks and the tipping point for the arm difference](shared/tumor-dropout-sensitivity/figures/02-delta-sensitivity.png)
 

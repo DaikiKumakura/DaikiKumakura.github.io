@@ -9,14 +9,14 @@
   "author": "Daiki Kumakura",
   "locales": {
     "ja": {
-      "title": "抗PD-1抗体の固定用量は、極端な体重の患者でも曝露を保てるか",
+      "title": "極端な体重でも抗PD-1抗体の固定用量は曝露を保てるか",
       "summary": "公表PopPKモデルと一般成人の体重分布で、pembrolizumab・nivolumabの固定用量と体重換算を比べた。固定用量は重い側で、体重換算は軽い側の初回投与でトラフが試験の範囲を下回りやすい。曝露の比較であり、用量は推奨しない。",
       "key_findings": [
         "固定用量では体重の重い側でトラフが試験の範囲の下限を下回りやすく、下回る患者が10%を超えたのはpembrolizumab 200 mgで150 kg以上（13.3%）、nivolumab 240 mgで100 kg以上（10.7〜18.5%）だった。",
         "体重換算（2 mg/kg、3 mg/kg）は逆に軽い側で不利で、体重40 kgでは初回投与間隔のトラフが26〜31%の患者で下限を下回った。",
         "400 mg Q6W・480 mg Q4Wの評価は「範囲」の定義で変わり、下限を5パーセンタイルにすると14〜15%、最小値にすると0.06%（pembrolizumab）が下回った。曝露の比較であり、用量は推奨しない。"
       ],
-      "seo_title": "抗PD-1抗体の固定用量は、極端な体重の患者でも曝露を保てるか",
+      "seo_title": "極端な体重でも抗PD-1抗体の固定用量は曝露を保てるか",
       "seo_description": "公表PopPKモデルと一般成人の体重分布で、pembrolizumab・nivolumabの固定用量と体重換算を比べた。固定用量は重い側で、体重換算は軽い側の初回投与でトラフが下がりやすい。用量は推奨しない。"
     },
     "en": {
@@ -28,7 +28,7 @@
         "The verdict on 400 mg Q6W and 480 mg Q4W changed with the definition of the range: 14 to 15% fell below a 5th-percentile limit but 0.06% (pembrolizumab) below a minimum-value limit. This compares exposure and recommends no dose."
       ],
       "seo_title": "Do fixed anti-PD-1 doses hold exposure at extreme weights?",
-      "seo_description": "Pembrolizumab and nivolumab fixed vs weight-based doses on a public adult weight distribution: flat doses fall short when heavy, weight-based when light."
+      "seo_description": "Public anti-PD-1 PK models compare first-interval troughs across body weights using model-defined limits; clinical effects are not inferred."
     }
   },
   "english": {
@@ -36,6 +36,6 @@
     "summary": "Re-implemented population PK models for pembrolizumab and nivolumab were applied to a public adult weight distribution. Fixed doses let trough exposure fall below the trial-tested range most often in heavy patients, weight-based doses in the first interval of light patients; the verdict on extended intervals depends on how the range is defined. No dose is recommended."
   },
   "reviewed": {
-    "en": "8c7beb22a0b0c676fe4c08634f5f4274aee106a2c92a43af7e430fd70dc7ef9c"
+    "en": "a58013f059b7f22eec871e54fd1a4dba24bcc1fabfeda07d7e04d06580e784ce"
   }
 }

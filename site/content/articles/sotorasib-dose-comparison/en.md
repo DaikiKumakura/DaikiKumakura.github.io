@@ -1,6 +1,6 @@
 Many dose-comparison trials state that they are not powered for hypothesis testing. Their results are still read as evidence for a dose decision. This article uses public data from a randomized comparison of 960 mg and 240 mg of the KRAS G12C inhibitor sotorasib to show which dose is supported as the trade-off weight between benefit and harm changes.
 
-The result first. Grade 3 or higher treatment-related adverse events (TRAEs) were about 16 percentage points more frequent at 960 mg, and this difference was robust to changes in the assumptions. The difference in response rate (about 8 points) had an interval that crossed zero. If one additional response and one additional severe toxicity are weighted about equally, the comparison favors 240 mg; only when severe toxicity is weighted quite lightly does it favor 960 mg. This conclusion, however, changes with what is counted as "harm", and overall survival (OS) retains a signal favoring 960 mg. **Arm-level public data alone cannot settle the dose; what this analysis can do is identify what is missing.**
+Grade 3 or higher treatment-related adverse events (TRAEs) were about 16 percentage points more frequent at 960 mg, and this difference was robust to changes in the assumptions. The difference in response rate (about 8 points) had an interval that crossed zero. If one additional response and one additional severe toxicity are weighted about equally, the comparison favors 240 mg; only when severe toxicity is weighted quite lightly does it favor 960 mg. This conclusion, however, changes with what is counted as "harm", and overall survival (OS) retains a signal favoring 960 mg. **Arm-level public data alone cannot settle the dose; what this analysis can do is identify what is missing.**
 
 ## Question and context of use
 
@@ -23,7 +23,7 @@ The numbers were taken from the sponsor's briefing document released for the Oct
 | Progression-free survival (PFS) HR | 0.95 (0.66, 1.36) | Reference | 2023-01-18 |
 | OS HR | 0.75 (0.53, 1.07) | Reference | 2023-06-23 |
 
-Four cautions apply when reading these numbers.
+Four features of the trial affect how these arm-level differences can be interpreted.
 
 - **Efficacy and safety come from different cutoffs.** Response rate is from June 2023 and safety from January 2023, so benefit and harm are not compared at the same time point.
 - **Dose reduction was not allowed in the 240 mg arm.** "Adverse events leading to dose reduction or interruption" therefore do not mean the same thing in the two arms and are not used here.[1]

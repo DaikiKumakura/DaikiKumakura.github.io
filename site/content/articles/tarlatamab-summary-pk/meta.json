@@ -9,14 +9,14 @@
   "author": "Daiki Kumakura",
   "locales": {
     "ja": {
-      "title": "タルラタマブの公開PKデータから、投与間隔の変更をどこまで評価できるか",
+      "title": "タルラタマブの公開PKデータによる投与間隔変更の評価",
       "summary": "公開PK集約値から2コンパートメントモデルを推定し、識別性と不確実性を踏まえてQ2W・Q3W・Q4Wの曝露を比較する。",
       "key_findings": [
         "添付文書のCycle 2 PK集約値6個に2コンパートメントモデルを当てはめ、最大誤差10.0%で説明できた。ただしprofile解析ではCL・Q・Vpが十分に識別されず、終末半減期は約19.0日でNCA中央値6.21日と一致しなかった。",
         "同じ10 mgで間隔を延ばすと、平均濃度比はQ3Wで2/3、Q4Wで1/2（線形PKの物質収支で固定）。トラフ比はQ4Wで0.371（条件付き範囲0.171〜0.498）と幅が大きかった。",
         "有効性のEmax関係は初回サイクルの平均濃度に基づくため、維持期のトラフへ閾値として転用できない。CRSの投与回別の低下も、現在の曝露だけでは説明できない。"
       ],
-      "seo_title": "タルラタマブの投与間隔の変更を公開PKからどこまで評価できるか"
+      "seo_title": "タルラタマブの公開PKデータによる投与間隔変更の評価"
     },
     "en": {
       "title": "How far can public summary PK data evaluate a change in the tarlatamab dosing interval?",
@@ -34,6 +34,6 @@
     "summary": "A two-compartment model estimated from published aggregate PK values, comparing Q2W, Q3W and Q4W exposure in light of identifiability and uncertainty."
   },
   "reviewed": {
-    "en": "6b4be9658a0cca9946db8d8767731e570beec17c3a0393c5d57845ad778d0595"
+    "en": "bf40d2833907c6a45cae9157f0cbe6cc194e4981f9ef17c4d5afd3603d5a4804"
   }
 }

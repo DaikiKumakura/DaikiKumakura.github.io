@@ -86,7 +86,7 @@ Full borrowing (ω = 1) was not acceptable under any condition. Only ω = 0.25 w
 
 ## What can and cannot be concluded
 
-**What can be concluded:** If the dose comparison of an existing drug is borrowed for a new drug, it is reasonable to limit the weight to about 0.25 to 0.5 and to secure a comparison of about 40 patients per arm for the new drug itself. In addition, separate evidence is needed that the endpoint that decided the dose for the existing drug points the same way for the new drug (exposure–response, target saturation, nonclinical data). That endpoint is harm for sotorasib and response for ifinatamab deruxtecan. Borrowing does not replace that evidence.
+**What can be concluded:** Under the utility and deterioration tolerance defined here, a borrowing weight up to 0.5 was acceptable in the main condition with 40 patients per arm for the new drug, while 0.25 was acceptable across all sensitivity conditions. These hypothetical-scenario results are not general rules for borrowing weights or sample sizes. In addition, separate evidence is needed that the endpoint that decided the dose for the existing drug points the same way for the new drug (exposure–response, target saturation, nonclinical data). That endpoint is harm for sotorasib and response for ifinatamab deruxtecan. Borrowing does not replace that evidence.
 
 **What cannot be concluded:**
 - The scenarios of the new drug are hypothetical.
@@ -94,7 +94,7 @@ Full borrowing (ω = 1) was not acceptable under any condition. Only ω = 0.25 w
 - The correlation between response and adverse events within an arm and time-dependent harm are not handled.
 - The effect of the existing drug was not used as a prediction for the new drug.
 
-Borrowing pays off only when the new drug points the same way as the existing drug, and the gain is small. The loss when it points the other way is large and hard to notice from the data.
+
 
 ## Checking the implementation
 

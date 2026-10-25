@@ -8,7 +8,7 @@ This article uses public SCOT trial results to reconstruct a duration comparison
 
 The question of interest is how a randomized treatment-duration comparison informs the balance between efficacy preservation and toxicity reduction. The context of use is study design and evidence appraisal. A wrong inference could overstate what a shorter regimen preserves, or promote a utility-weighted ranking whose assumptions are hidden.
 
-The roadmap initially suggested a different trial. SCOT was selected because its original efficacy and safety tables are openly retrievable. This change preserves the duration question but changes the clinical setting. Individual participant data were not obtained; there is no claim of individual outcome modeling, NLME estimation, or exposure–response analysis here.
+SCOT was selected because its original efficacy and safety tables are openly retrievable. Individual participant data were not obtained; there is no claim of individual outcome modeling, NLME estimation, or exposure–response analysis here.
 
 ## Source data and denominators
 
@@ -83,7 +83,7 @@ This later report adds context; its survival follow-up is not merged with the ea
 
 A useful duration study must specify what efficacy decrement matters, how cumulative toxicity is measured, and whose preferences the decision reflects. Collecting safety and efficacy jointly supports analyses that published margins alone cannot supply. Longitudinal toxicity, recovery, discontinuation, and dose intensity would further distinguish schedule burden from delivered exposure.
 
-The present data support a transparent evidence comparison and a robust within-cohort toxicity sensitivity analysis. They do not support individualized benefit–risk, a continuous duration–response curve, extrapolation to an untested duration, or PK-guided dose selection. The value of the analysis is in preserving these boundaries while making the observed differences easy to inspect.
+The present data support a transparent evidence comparison and a robust within-cohort toxicity sensitivity analysis. They do not support individualized benefit–risk, a continuous duration–response curve, extrapolation to an untested duration, or PK-guided dose selection.
 
 ## Reproduce
 

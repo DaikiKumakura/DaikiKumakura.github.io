@@ -125,7 +125,7 @@ These checks verify the implementation and numerical calculation. They are not m
 
 Reference values are based on the [product information](https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=2ef0cf38-101c-4681-98fe-c05dc9ead443) and [Table S2 of the PopPK supplement](https://ascpt.onlinelibrary.wiley.com/doi/suppl/10.1111/cts.13825). For the end-of-interval reference, 2.6 µg/mL, also given in [Table 10 of the 2025 FDA label](https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/761263s006lbl.pdf), was used.
 
-AUC and end-of-interval concentration were close, but Cycle 1 Cmax differed by about −4.0%. So it is not claimed that "all metrics are within 3%". Because Cmax also depends on infusion duration, the infusion was not treated as an instantaneous bolus.
+AUC and end-of-interval concentration were close, but Cycle 1 Cmax differed by about −4.0%.  Because Cmax also depends on infusion duration, the infusion was not treated as an instantaneous bolus.
 
 Moreover, the published values are geometric means of model-predicted exposure in the patient population, a different statistic from the typical curve with reference covariates and η = 0 calculated here. This is not a reproduction using the same individual patient parameters and covariate distribution as the publication. **This closeness is reference material confirming the consistency of the implementation; it does not mean independent external validation or reproduction of the patient population.**
 

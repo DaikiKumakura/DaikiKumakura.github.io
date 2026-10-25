@@ -232,13 +232,13 @@ The lesson is methodological: an aggregate exposure–response curve cannot by i
 
 The periodic analytical PK/tumor solutions agreed with an independent, repeatedly dosed ODE implementation to a maximum absolute error below \(10^{-7}\). High-resolution AUC calculations matched the analytic dose/clearance identity within 0.001%. Exact linear threshold-crossing tests passed. Refining 240 to 960 segments changed reference PTC90 by 0 pp for reversible/covalent models and 0.03 pp for delayed pathway response. Individual TAT differences near the pathway threshold can still reach 4.1 pp; stable population attainment does not prove every trajectory is equally precise.
 
-These numerical checks establish implementation consistency. They do not cure the mouse-source unit ambiguity, model residuals, unknown human tumor exposure, unmeasured turnover, assumed population distributions or absence of clinical safety linkage. No synthetic profile was relabeled as clinical IPD, no NLME estimation of human IIV was claimed, and no fabricated VPC was produced. The analysis runs in Python; it does not claim executed R, nlmixr2 or Stan estimation.
+These numerical checks establish implementation consistency. They do not cure the mouse-source unit ambiguity, model residuals, unknown human tumor exposure, unmeasured turnover, assumed population distributions or absence of clinical safety linkage. The Python implementation reconstructs aggregate mouse data and compares hypothetical regimens; it does not estimate human individual variability.
 
 **What is supported:** transparent public-model reconstruction, explicit identification of implementation discrepancies, and paired hypothetical regimen comparisons under specified mechanisms and variability.
 
 **What remains unsupported:** selecting a clinical QD/BID regimen for a new molecule, deriving a safe starting dose, predicting tumor response, or carrying a mouse pathway threshold directly into a human therapeutic window.
 
-The practical output is a map of which assumptions need drug-specific evidence. It is the difference between calculating a smooth curve and knowing why that curve can—or cannot—support a decision.
+Applying these scenarios to a new molecule requires measurements of human tumor exposure, target or pathway turnover, and between-patient variability. The dose-splitting and interruption comparisons remain conditional on those properties.
 
 ## 日本語要約
 

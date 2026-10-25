@@ -1,6 +1,6 @@
 In designing doses for a targeted protein degrader (TPD), it is necessary to consider not only plasma concentration but also how far the target is reduced and how quickly it recovers. This article examines public data on ER-PROTACs and compares dosing frequencies with a minimal model of target degradation and recovery.
 
-The result first. In this **simulation based on assumptions**, the regimen with the highest maximal degradation did not necessarily sustain degradation best. However, public data alone cannot determine a particular drug's recovery rate, the degradation it requires, or its clinical dosing interval. The organization of measured values and the calculations used to understand the model structure need to be read separately.
+In this **simulation based on assumptions**, the regimen with the highest maximal degradation did not necessarily sustain degradation best. However, public data alone cannot determine a particular drug's recovery rate, the degradation it requires, or its clinical dosing interval. The organization of measured values and the calculations used to understand the model structure need to be read separately.
 
 ## Question and context of use
 

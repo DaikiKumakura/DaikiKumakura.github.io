@@ -76,7 +76,7 @@ Changing landmarks changes eligibility and the information available. The week-2
 
 Early tumor change retained some association with subsequent survival and slightly improved held-out scores. The uncertainty and weak calibration prevent a stronger predictive claim. Further work would need denser longitudinal measurement, explicit censoring-aware trajectory estimation where identifiable, a distinct validation cohort, and an observation-process analysis.
 
-The randomized origin does not make this landmark-selected secondary analysis a causal comparison of treatment strategies. Treatment effects on tumor change and survival are not sufficient to qualify a surrogate, and this dataset lacks the PK and dose histories needed for a dose–exposure–tumor–survival chain. For model-informed research, the practical lesson is to establish the information time and endpoint before escalating the model's complexity.
+The randomized origin does not make this landmark-selected secondary analysis a causal comparison of treatment strategies. Treatment effects on tumor change and survival are not sufficient to qualify a surrogate, and this dataset lacks the PK and dose histories needed for a dose–exposure–tumor–survival chain. Further predictive comparisons should retain the fixed information time and endpoint so that added model complexity can be evaluated without introducing future information.
 
 ## Reproduce the analysis
 

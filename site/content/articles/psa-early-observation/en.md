@@ -14,7 +14,7 @@ The two-component model improved on the fitted linear and single-decay candidate
 
 **Question:** how much observation is needed before separating PSA decline and regrowth adds reliable predictive information beyond simple extrapolation?
 
-**Context of use:** retrospective evaluation of measurement and modeling design. The analysis does not select an individual treatment, compare drug effects, estimate resistant-cell fractions, or qualify PSA as an overall-survival surrogate. A negative result is useful if it prevents a convenient fitted parameter from becoming an unsupported decision rule.
+**Context of use:** retrospective evaluation of measurement and modeling design. The analysis does not select an individual treatment, compare drug effects, estimate resistant-cell fractions, or qualify PSA as an overall-survival surrogate.
 
 The relevant comparison is an honest prediction benchmark at the same landmark. Fitting all available follow-up and then claiming an early prediction would answer a different question.
 

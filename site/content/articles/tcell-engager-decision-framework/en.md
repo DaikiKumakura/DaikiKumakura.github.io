@@ -320,11 +320,13 @@ python analysis.py
 python scientific_checks.py
 ```
 
-Seeds are fixed at 20261006. Cached fits are reused; remove a named cached fit's draws/diagnostics to refit it. The notebook reruns PK, regimen/design calculations and checks and displays the saved NUTS diagnostics/draws; the full nine NUTS fits are executed separately by `bayes.py`. Source manifests, model assumptions, session versions and outputs are included. Production publication is scheduled separately from analysis execution.
+Seeds are fixed at 20261006. Cached fits are reused; remove a named cached fit's draws/diagnostics to refit it. The notebook reruns PK, regimen/design calculations and checks and displays the saved NUTS diagnostics/draws; the full nine NUTS fits are executed separately by `bayes.py`. Source manifests, model assumptions, session versions and outputs are included.
 
-## 19. Conclusion
+## 19. Measurements needed next
 
-Public evidence supports reconstruction of important pieces of regimen logic. It also exposes where a tempting quantitative extension exceeds the data. The useful result is a separation of efficacy exposure, acute stimulation, history assumptions, priming measurements and maintenance coverage—and an explicit calculation of which measurements could change a stated decision. Sparse clinical summaries cannot turn that framework into a validated clinical optimizer.
+The CRS history timescale remains prior-sensitive. Connected dose, PK, PD and CRS event records, together with controlled priming, washout and rechallenge measurements, are needed to distinguish exposure history from other period effects. Rechallenge should assess retained killing as well as cytokine attenuation.
+
+For PK, adding late samples addresses the weak CL information in the tested early-only designs. The local information calculation does not qualify a clinical sampling schedule: assay error, BLQ, random effects and dropout still need to be included. These measurement requirements follow from the identified gaps; the current data do not establish an optimal step-up or maintenance regimen.
 
 ## References
 

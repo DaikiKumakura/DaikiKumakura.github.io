@@ -9,26 +9,26 @@
   "author": "Daiki Kumakura",
   "locales": {
     "ja": {
-      "title": "既存薬の用量比較を、新薬の用量選択にどこまで借りてよいか",
-      "summary": "既存薬の用量比較を頑健な混合事前分布として新薬の用量選択に借りると、同等なら得は小さく、逆向きなら正選択率が大きく下がった。1群40例では事前分布との食い違いをほぼ検出できない。借用の重みは0.25〜0.5が目安。",
+      "title": "新薬の用量選択に既存薬の用量比較をどこまで借りてよいか",
+      "summary": "公開された既存薬の用量比較を仮想新薬の事前分布に借用し、期待後悔と正選択率を比較した。本解析の効用と悪化許容幅では主条件で重み0.5まで、全感度条件で0.25が許容された。一般的な借用規則ではない。",
       "key_findings": [
         "新薬が既存薬と同等なら、既存薬の用量比較を全量借りても期待後悔の改善は約1ポイントで、正しい用量を選ぶ割合は6〜10ポイント上がるにとどまった。",
         "新薬が既存薬と逆の用量を有利にする場合、全量の借用で正しい用量を選ぶ割合は28〜42%まで下がり、期待後悔は3.5〜4.3ポイント悪化した。",
         "1群40例では頑健な混合事前分布も食い違いをほぼ検出できず、どの条件でも損を1ポイント以内に抑えられた借用の重みは0.25までだった（主解析では0.5まで）。"
       ],
-      "seo_title": "既存薬の用量比較を新薬の用量選択にどこまで借りてよいか",
+      "seo_title": "新薬の用量選択に既存薬の用量比較をどこまで借りてよいか",
       "seo_description": "既存薬の用量比較を頑健な混合事前分布として借りると、同等なら得は小さく、逆向きなら正選択率が大きく下がった。1群40例では食い違いをほぼ検出できない。"
     },
     "en": {
       "title": "How much of an existing drug's dose comparison can a new drug borrow?",
-      "summary": "Borrowing an existing drug's dose comparison as a robust mixture prior helped a new drug's dose selection only slightly when the drugs behaved alike, and cut correct selection sharply when the new drug favored the other dose. With 40 patients per arm, conflict was hardly detected; a borrowing weight of 0.25 to 0.5 is a rule of thumb.",
+      "summary": "Existing-drug dose comparisons inform priors for hypothetical new drugs. Under the defined utility and deterioration tolerance, weight 0.5 was acceptable in the main condition and 0.25 across all sensitivity conditions; these are not general borrowing rules.",
       "key_findings": [
         "If the new drug matched the existing drug, borrowing the full dose comparison improved expected regret by only about 1 point and raised correct dose selection by 6 to 10 points.",
         "If the new drug favored the opposite dose, full borrowing lowered correct selection to 28 to 42% and worsened expected regret by 3.5 to 4.3 points.",
         "With 40 patients per arm the robust mixture prior hardly detected conflict; the largest weight that kept the loss within 1 point under every condition was 0.25 (0.5 in the main analysis)."
       ],
       "seo_title": "How much can a new drug borrow from a dose comparison?",
-      "seo_description": "Borrowing an existing drug's dose comparison as a robust mixture prior gains little if the drugs match and loses much if they differ. Weight 0.25 to 0.5."
+      "seo_description": "Existing-drug dose evidence supplies priors in simulated new-drug decisions. Weights 0.25–0.5 depend on the chosen utility and tolerance."
     }
   },
   "english": {
@@ -36,6 +36,6 @@
     "summary": "Borrowing public dose-comparison data from an existing drug through a robust mixture prior helped a new drug's dose selection only slightly when the drugs behaved alike, and cut correct selection sharply when the new drug favored the other dose. With 40 patients per arm the prior-data conflict was hardly detected; a borrowing weight of 0.25 to 0.5 kept the loss within one point."
   },
   "reviewed": {
-    "en": "35cdf8484ef08bc492c03d21898e6c845068f059a475ca5aa52810e9a7b500c7"
+    "en": "848a017e6afb695b3738f531400c93c4f2390b4274d2f443b4ad9c5168ac830a"
   }
 }

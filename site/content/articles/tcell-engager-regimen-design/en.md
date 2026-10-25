@@ -183,7 +183,7 @@ For maintenance dosing, measuring only troughs is not enough, and neither is mea
 
 With the public PopPK model, exposure comparisons within regimens, including between-subject variability, can be made in a reproducible way. A mismatch with the absolute exposure of the published population remains, and this does not amount to a new NLME estimation based on patient data.
 
-What the results support most directly is that **matching dose intensity does not preserve the shape of exposure**. Efficacy saturation, CRS with each dose, and periods of low concentration during maintenance each need to be evaluated from different information. Before making the model more complex, making clear which metric and observation period can support which judgment is the starting point for regimen evaluation with public information.
+What the results support most directly is that **matching dose intensity does not preserve the shape of exposure**. Efficacy saturation, CRS with each dose, and periods of low concentration during maintenance each need to be evaluated from different information. Assessing maintenance-interval equivalence requires exposure, efficacy and safety data under the longer intervals. CRS assessment also requires actual dosing, premedication and onset times linked within patients.
 
 ## Reproducing the analysis
 

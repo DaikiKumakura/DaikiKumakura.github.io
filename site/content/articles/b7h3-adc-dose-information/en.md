@@ -1,6 +1,6 @@
 ## Summary
 
-A dose-comparison study can leave uncertainty without making another study worthwhile. The relevant question is whether new observations are likely to change a decision, and how costly the remaining mistakes would be under a stated decision criterion.
+Uncertainty after a dose-comparison study does not by itself justify another study. Its value depends on whether new observations could change the chosen action and reduce the expected loss under a stated decision criterion.
 
 Using public randomized-cohort counts from IDeate-Lung01, I compared 8 and 12 mg/kg through a simple Bayesian response–harm model. The estimated response difference was clearer than the severe-adverse-event difference. At a hypothetical harm weight of one, another 50 participants per arm had an expected information value of only **0.074 response-equivalent units per 100 future decision subjects**. At weights two and four, that value was **1.62** and **11.02**, respectively. These are conditional research calculations, not observed clinical benefits or financial returns. Unreported joint outcomes and follow-up assumptions changed the value materially.
 

@@ -130,10 +130,7 @@ So the conclusion on the heavy side does not change between trough and average c
 
 ## What can and cannot be concluded
 
-**What can be concluded:**
-- Under the published models and the general adult weight distribution, flat doses tend to leave trough exposure below the trial range at the upper end of the weight distribution.
-- Weight-based dosing tends to leave exposure below the range in the first interval at the lower end.
-- The bands needing additional confirmation are about 150 kg and above for pembrolizumab 200 mg and about 100 to 120 kg and above for nivolumab 240 mg. For weight-based regimens, it is the first interval at 40 to 50 kg.
+Under the models and exposure criteria used here, additional confirmation was indicated for pembrolizumab 200 mg at about 150 kg and above, nivolumab 240 mg at about 100 to 120 kg and above, and the first interval of weight-based regimens at 40 to 50 kg.
 
 **What cannot be concluded:**
 - **Difference in effect:** Whether these exposure differences translate into differences in effect cannot be judged. Exposure–response is reported to be flat for anti-PD-1 antibodies, and whether falling slightly below the lower limit of the range matters clinically lies outside this analysis.
@@ -144,7 +141,7 @@ So the conclusion on the heavy side does not change between trough and average c
 - Measured trough concentrations in patients of 150 kg and above.
 - The exposure–response relationship at both ends of body weight.
 
-The discussion of flat versus weight-based dosing should be settled at the ends of the distribution, not for the average patient. For that, the exposure metric whose range is to be protected has to be decided first.
+Measured exposure, including trough concentrations, is needed in the weight bands identified here. The exposure metric and range used for dose comparisons should be selected together with exposure–response evidence.
 
 ## Sources
 
