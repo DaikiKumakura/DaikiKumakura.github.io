@@ -1,0 +1,22 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2026-11-27",
+  "publish_at": "2026-11-27T09:00:00+09:00",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "DLL3陽性CTCの判定に何個の細胞が必要か",
+      "summary": "Tarlatamab研究の公開CTC表20患者を再集計。20 mL換算数と実測分母を区別し、25%判定の条件付き精度と固定測定数の設計計算を示す。",
+      "seo_title": "DLL3陽性CTCの判定と必要な測定細胞数",
+      "seo_description": "Tarlatamab研究の公開CTC表を再集計。正規化数と実測分母を区別し、DLL3陽性割合25%の判定に対する測定数と過分散の影響を計算する。"
+    }
+  },
+  "english": {
+    "title": "How many CTCs are needed to classify DLL3 positivity?",
+    "summary": "Reanalysis of a public 20-patient tarlatamab CTC table. Conditional count-precision bounds and fixed-count design calculations separate normalized counts from unavailable raw denominators."
+  }
+}
