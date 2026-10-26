@@ -1,0 +1,22 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2026-11-29",
+  "publish_at": "2026-11-29T09:00:00+09:00",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "TCEで抗原陰性細胞が残る量を陽性率から予測できるか",
+      "summary": "HER2陽性・陰性細胞の混合培養を再解析。1係数の終点モデルで未使用の混合割合を予測し、細胞塊の距離が変わると陽性率だけの説明が通用しないことを調べる。",
+      "seo_title": "TCEの抗原陰性細胞を陽性率から予測する",
+      "seo_description": "HER2×CD3 TCEの公開実験から陰性細胞の5日目の量を再解析。混合条件の除外予測、読取感度、空間配置による限界と次の実験条件を示す。"
+    }
+  },
+  "english": {
+    "title": "Can antigen-positive fractions predict residual antigen-negative cells after a TCE?",
+    "summary": "Aggregate reanalysis of HER2/CD3 mixed tumoroids. A one-parameter endpoint model undergoes exploratory mixture-condition holdout and reading sensitivity; separated clusters expose limits of a fraction-only explanation. Not clinical dosing or donor-level validation."
+  }
+}
