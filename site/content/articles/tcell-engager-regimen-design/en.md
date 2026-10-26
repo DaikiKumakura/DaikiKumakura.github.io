@@ -2,7 +2,7 @@ I reproduced the published population PK (PopPK) model of tarlatamab and examine
 
 In this analysis, extending the dosing interval while increasing the dose proportionally preserved average exposure but not peaks or troughs. This difference shows that matching average exposure alone cannot establish equivalence of maintenance regimens. What follows is a research and learning reanalysis of public documents and is not to be used for treatment or for dose decisions in clinical trials.
 
-## Background and questions
+## Background and questions {#background-and-questions}
 
 Tarlatamab is a T-cell engager targeting DLL3 and CD3. The US label regimen is 1 mg on Day 1, 10 mg on Days 8 and 15, then 10 mg every 2 weeks, each as a 1-hour intravenous infusion.[1] The initial step-up and the subsequent maintenance phase raise different questions.
 
@@ -15,7 +15,7 @@ Tarlatamab is a T-cell engager targeting DLL3 and CD3. The US label regimen is 1
 
 The context of use (COU) is the comparison of exposure between regimens using the public tarlatamab model. Transferring mg doses to new DLL3-targeted drugs, predicting risk for individual patients, and guaranteeing the efficacy or safety of Q3W/Q4W are out of scope.
 
-## Data and the type of evidence
+## Data and the type of evidence {#data-and-the-type-of-evidence}
 
 | Source | Information used | Type of evidence |
 | --- | --- | --- |
@@ -29,9 +29,9 @@ Individual concentrations, actual dosing times, CRS onset times and their link t
 
 The documents were checked on 3 October 2026. Because observation and management conditions on the label can be updated, the historical CRS summary of 133 patients is not mixed with current safety summaries. This article does not describe dosing or management procedures.
 
-## Reproducing the public PopPK model
+## Reproducing the public PopPK model {#reproducing-the-public-poppk-model}
 
-### Model and units
+### Model and units {#model-and-units}
 
 With drug amounts \(A_c, A_p\) (mg) in the central and peripheral compartments,
 
@@ -69,7 +69,7 @@ Five thousand subjects were generated with the fixed seed `20261005`. All were f
 
 The comparison was paired: every virtual subject received every regimen. This separates between-subject differences from changes due to the regimen better than comparing two independently generated populations.
 
-### What was verified
+### What was verified {#what-was-verified}
 
 The analytical solution was checked against an independent matrix-exponential solution, and the total AUC after a single dose converged to Dose/CL. At steady state \(C_{avg,ss}=Dose/(CL\tau)\) is used. These are checks of the implementation and do not replace validation of clinical predictive performance.
 
@@ -93,7 +93,7 @@ The virtual mean brings the initial peaks close to the published means. The stea
 
 The implementation is therefore consistent as a calculation from the public reference parameters, but it is not treated as a model that fully reproduces the population exposure on the label. The comparisons below are mainly **relative changes within the same model and the same subjects**. They are not used to judge absolute trough thresholds.
 
-## How to read the efficacy exposure–response
+## How to read the efficacy exposure–response {#how-to-read-the-efficacy-exposureresponse}
 
 The published analysis uses the model-estimated Cycle 1 average concentration as the explanatory variable, not the dose itself.[4]
 
@@ -121,7 +121,7 @@ The ORR EC50 could not be confirmed from the text extracted from the FDA documen
 
 Saturation near 10 mg is consistent with the published interpretation that higher doses add little benefit. It does not, however, demonstrate equivalence of other schedules that produce the same Cycle 1 average exposure. Still less can this concentration or mg dose be transferred directly to another DLL3-targeted drug, which differs in binding, half-life, distribution and mechanism.
 
-## Can CRS be summarized as "lower concentration, less CRS"?
+## Can CRS be summarized as "lower concentration, less CRS"? {#can-crs-be-summarized-as-lower-concentration-less-crs}
 
 For the 133 patients in DeLLphi-301, the period-specific summary in Figure 2 was used.[5] These are all-grade CRS counts and should not be confused with grade ≥2 or ≥3. Wilson 95% intervals were recalculated for each period.
 
@@ -139,7 +139,7 @@ However, **this opposite direction alone cannot prove biological adaptation**. T
 
 The three periods are therefore not tested as three independent groups, and no tolerance or adaptation parameters are estimated from three points. Nor can 54 + 39 + 10 be summed as "the number of patients who experienced CRS". Figure 2 is a period-by-period descriptive summary, not a model that gives the CRS probability of an individual's next dose.
 
-## Maintenance: the same average exposure, a different profile
+## Maintenance: the same average exposure, a different profile {#maintenance-the-same-average-exposure-a-different-profile}
 
 The comparator is steady-state 10 mg Q2W. Using the same CL and Vc for each virtual subject, four conditions were compared:
 
@@ -162,13 +162,13 @@ With the dose per administration fixed, average exposure and trough fall. When d
 
 This shows that a comparison matched on average exposure narrows the question. A finding that efficacy is associated with average exposure is not the same as a finding that periods of low concentration are acceptable. Nor can safety necessarily be judged with the same exposure metric as efficacy.
 
-### Separating between-subject variability from estimation uncertainty
+### Separating between-subject variability from estimation uncertainty {#separating-between-subject-variability-from-estimation-uncertainty}
 
 The width in the figure above is IIV based on a fixed Ω, not uncertainty in the parameter estimates. Separately, the ratios were recalculated under 16 conditions combining the endpoints of the published 95% CIs for CL, Vc, Q and Vp. This is a stress test using combinations of endpoints, not a confidence interval reconstructed from the joint distribution of the parameters.
 
 Across the range of the published fixed effects, the direction was maintained: with dose intensity held constant, the average is preserved, the peak rises and the trough falls. Structural uncertainty from assuming a linear two-compartment model, and from omitting time-varying CL or immune responses, is not covered by this sensitivity analysis.
 
-## What to examine next
+## What to examine next {#what-to-examine-next}
 
 | What we want to decide | What public information allowed | Additional information needed |
 | --- | --- | --- |
@@ -179,17 +179,17 @@ Across the range of the published fixed effects, the direction was maintained: w
 
 For maintenance dosing, measuring only troughs is not enough, and neither is measuring only peaks. The more a condition preserves the average, the more information is needed that distinguishes the period just after dosing from the period just before the next dose. For CRS, linking dosing, premedication and onset times in the same patients comes before simply measuring more concentrations. A numerical value of information was not calculated, because how much that information would change the decision has not been defined.
 
-## Conclusion
+## Maintenance equivalence needs more than average exposure {#conclusion}
 
 With the public PopPK model, exposure comparisons within regimens, including between-subject variability, can be made in a reproducible way. A mismatch with the absolute exposure of the published population remains, and this does not amount to a new NLME estimation based on patient data.
 
 What the results support most directly is that **matching dose intensity does not preserve the shape of exposure**. Efficacy saturation, CRS with each dose, and periods of low concentration during maintenance each need to be evaluated from different information. Assessing maintenance-interval equivalence requires exposure, efficacy and safety data under the longer intervals. CRS assessment also requires actual dosing, premedication and onset times linked within patients.
 
-## Reproducing the analysis
+## Reproducing the analysis {#reproducing-the-analysis}
 
 [Download the analysis code, input summaries, executed notebook and result tables](shared/tcell-engager-regimen-design/tcell-engager-analysis.zip). In a Python environment, run `pip install -r requirements.txt` and then `python analysis.py`. The figures were created independently from the published models and summaries. The notebook runs the same analysis and saves the results and figure outputs.
 
-## References
+## References {#references}
 
 1. [IMDELLTRA prescribing information, DailyMed, Sections 2 and 12.3, Table 17](https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1e7b6163-5d83-42ea-82c9-cf7620cdc782). Accessed 2026-10-03.
 2. [FDA. Tarlatamab multidisciplinary review, 2024](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2024/761344Orig1s000MultidisciplineR.pdf). Tables 66–67 (printed pages 294–295), Table 71 (310–311).

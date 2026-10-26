@@ -9,7 +9,7 @@
   "author": "Daiki Kumakura",
   "locales": {
     "ja": {
-      "title": "Camizestrantの製剤・食事条件で、同じ75 mgは同じ曝露になるか",
+      "title": "Camizestrantの製剤と食事条件で75 mgの曝露はどう変わるか",
       "seo_title": "Camizestrantの製剤・食事とPK | Daiki Kumakura",
       "summary": "公開クロスオーバー試験の集計PKを再解析。調整済み比、単純モデルの不適合、条件付き仮想ペアから、製剤・食事の比較と個人予測を区別する。"
     }

@@ -9,7 +9,7 @@
   "author": "Daiki Kumakura",
   "locales": {
     "ja": {
-      "title": "GFH375を分割すればピークは下がるのか。公開PKから予測し、実測BIDと比べる",
+      "title": "GFH375の分割投与でピークは下がるか。公開PK予測を実測BIDと比べる",
       "seo_title": "GFH375の分割投与と実測PK | Daiki Kumakura",
       "summary": "公開平均PKを推定し、2,048組の仮想個体で600 mg QDと300 mg BIDを比較。実測BIDとの不一致から、分割投与の予測をどこまで使えるか検討する。"
     }

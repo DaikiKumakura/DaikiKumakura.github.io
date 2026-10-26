@@ -8,7 +8,7 @@
   "author": "Daiki Kumakura",
   "locales": {
     "ja": {
-      "title": "公開データで、ivonescimabの20 mg/kg Q3Wは10 mg/kg Q3Wより良いと言えるか",
+      "title": "Ivonescimabの20 mg/kg Q3Wは10 mg/kg Q3Wより良いと言えるか",
       "summary": "ivonescimab（PD-1×VEGF二重特異性抗体）の公開された第1〜2相のPK・PD-1占有率・用量別奏効率が、20 mg/kg Q3Wと10 mg/kg Q3Wの差についてどこまで言えるかを、解析計画を先に固定して監査する。結論は「どちらとも言えない」。",
       "key_findings": [
         "用量別の奏効率の差は、新しい設定で95%信用区間が−25〜+25ポイントに広がり、傾きが正である確率は0.71で、事前に決めた基準（0.90以上）に届かなかった。",

@@ -9,7 +9,7 @@
   "author": "Daiki Kumakura",
   "locales": {
     "ja": {
-      "title": "2Dでは似ていた抗がん剤が、3Dでは違って見える理由",
+      "title": "2Dでは似ていた抗がん剤が3Dでは違って見える理由",
       "summary": "5-FUとオラパリブのCell Painting公開データを再集計する。濃度と416の共通画像特徴をそろえ、2D・3D培養で変わる薬剤の近さを、DNA合成・損傷応答・RNAの測定と照らし合わせる。",
       "seo_title": "抗がん剤の反応は2D・3D培養でどう変わる？",
       "seo_description": "5-FUとオラパリブの公開Cell Paintingデータを再解析。共通416特徴と固定濃度で画像の類似度を比べ、DNA損傷応答・EdU・RNAの測定から、創薬AIが学ぶ薬剤応答の条件依存性を考える。",

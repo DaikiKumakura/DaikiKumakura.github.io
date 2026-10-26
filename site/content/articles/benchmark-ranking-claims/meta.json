@@ -9,7 +9,7 @@
   "author": "Daiki Kumakura",
   "locales": {
     "ja": {
-      "title": "「1位」「最高」をどう読むか：PXRチャレンジ、LifeSciBench、AIntibodyの順位の主張を確かめる",
+      "title": "PXR・LifeSciBench・AIntibodyの順位は何を示すか",
       "summary": "2026年に公表された三つの順位の主張（OpenADMET PXRチャレンジ、OpenAIのLifeSciBench、AIntibody）を、盲検、公式の順位表、不確かさ、利害、基準の五つの問いで読み比べ、公表された数値から「1位」「最高」の意味の違いを整理する。",
       "key_findings": [
         "PXRチャレンジの活性予測では、主催者の統計的な同順位のグループの先頭と区別できないエントリーが28あり、1位と2位のMAEの差0.0031は1位の幅0.0280の約0.11倍だった。「1位」は事実でも、他より優れるとは読めない。",

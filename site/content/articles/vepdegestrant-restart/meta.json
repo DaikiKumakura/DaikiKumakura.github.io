@@ -9,7 +9,7 @@
   "author": "Daiki Kumakura",
   "locales": {
     "ja": {
-      "title": "Vepdegestrantは休薬後、いつ元の曝露に戻るか",
+      "title": "Vepdegestrantは休薬後いつ元の曝露に戻るか",
       "seo_title": "Vepdegestrantの休薬・再開PK | Daiki Kumakura",
       "summary": "公開ヒトPopPKモデルで休薬・再開後のAUC、ピーク、投与前濃度を比較。2,048組の条件付き計算と、蓄積倍率の不一致から予測の範囲を考える。"
     }

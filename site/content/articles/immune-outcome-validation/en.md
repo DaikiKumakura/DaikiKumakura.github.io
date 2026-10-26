@@ -2,7 +2,7 @@ A small immune-feature model improved discrimination relative to a weak clinical
 
 **日本語要約：** 個人別の公開RNA・臨床データから、ECOGと性別のモデルにTeff・間質の2指標を加えた。開発データの交差検証では識別性能が改善したが、外部データではAUC 0.554、応答11例に留まり、確率予測の校正も不十分だった。相対的な改善だけで実用性や治療効果予測を主張しない。
 
-## The question and its intended use
+## The question and its intended use {#the-question-and-its-intended-use}
 
 Does adding a T-effector score and a stromal score to minimal clinical information improve prediction of reported CR/PR in a second checkpoint-inhibitor-treated urothelial cancer cohort? This is a research exercise for deciding which biomarker hypotheses merit further work. It does not support treatment selection, an individual response estimate, causal treatment benefit, or a dose decision.
 
@@ -10,7 +10,7 @@ The distinction between association and treatment-effect prediction is central. 
 
 [Mariathasan et al. (2018)](https://doi.org/10.1038/nature25501) connected T-cell effector biology and stromal TGFβ signaling with outcomes under atezolizumab, including an immune-excluded context. Bulk stromal expression alone does not measure spatial T-cell exclusion. [Rose et al. (2021)](https://doi.org/10.1038/s41416-021-01488-6) reported a separate real-world urothelial cancer series. These are established published biological hypotheses and cohorts: the present work is a transparent reassessment, not a new discovery or prospective validation.
 
-## Start with the patient and source audit
+## Start with the patient and source audit {#start-with-the-patient-and-source-audit}
 
 The development bundle contains 348 RNA samples, representing 347 anonymized patients. One patient has two samples with consistent response and clinical labels; their TPM values were averaged. There are 298 response-evaluable patients, including 68 CR/PR responses. Unknown or NE response was excluded, rather than assigned nonresponse.
 
@@ -24,7 +24,7 @@ GEO processed data were obtained directly from the NCBI FTP distribution. Availa
 
 The two studies provide different source cohorts, but their anonymized identifiers cannot prove that no patient appears in both. Individual biopsy timing is not adequately encoded in the joined metadata. Aggregate pretreatment descriptions should not be substituted for patient-level verification. OS and PFS fields exist, but a common endpoint, time-unit and censoring dictionary was not established in this audit; they were not analyzed. TMB was also withheld because targeted panels and measurement comparability were not harmonized.
 
-## Fix a minimal model before examining external performance
+## Fix a minimal model before examining external performance {#fix-a-minimal-model-before-examining-external-performance}
 
 The [analysis plan](shared/immune-outcome-validation/analysis-plan.md) was written after reviewing data availability and response counts, before fitting or assessing external performance. This is not blinded or prospectively registered validation. RNA annotation availability in the external source was used to define the common gene universe; the evaluation is therefore not an untouched end-to-end validation of gene preprocessing.
 
@@ -45,7 +45,7 @@ Estimation minimizes summed logistic negative log likelihood plus half the sum o
 
 Internal evaluation uses five patient-level stratified folds repeated ten times. Feature scaling and coefficient estimation occur within each training fold. Each patient's ten held-out probabilities are averaged. The resulting metrics describe aggregated repeated-CV predictions. Final coefficients and scales are then fitted on development only and saved in [a frozen model artifact](shared/immune-outcome-validation/results/model-frozen.json) before external scoring. Its hash is checked unchanged after evaluation. No validation-cohort centering, coefficient update, gene selection or cutoff optimization is applied.
 
-## Results: relative improvement is not adequate absolute performance
+## Results: relative improvement is not adequate absolute performance {#results-relative-improvement-is-not-adequate-absolute-performance}
 
 | cohort | model | metric | value | lower | upper | n | events |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -81,7 +81,7 @@ Positive AUC differences favor the immune model; negative Brier and log-loss dif
 
 For scale, predicting the observed response fraction for everyone gives an in-sample constant-probability Brier score of approximately 0.176 in development and 0.129 externally. The external constant uses external outcomes, so it is an explanatory benchmark, not a deployable validation competitor. The augmented model's external Brier score is 0.135.
 
-## Calibration and population shift
+## Calibration and population shift {#calibration-and-population-shift}
 
 | model | offset_intercept | joint_intercept | slope |
 | --- | --- | --- | --- |
@@ -105,7 +105,7 @@ The Teff mean falls from 0.605 to 0.467 despite within-sample ranking. The exter
 
 A prespecified liver-adjusted sensitivity was fitted on 271 development complete cases and applied unchanged to the 72 external cases. External AUC was 0.581, Brier 0.133 and log loss 0.435. This is descriptive, does not establish reliable calibration, and cannot be ranked as the preferred model using external performance. Development liver disease category and external cumulative liver-metastasis flags are not perfectly matched measurements.
 
-## What this analysis supports—and what it does not
+## External response prediction remains unreliable {#what-this-analysis-supportsand-what-it-does-not}
 
 The two immune features carry development-cohort response information beyond this minimal clinical comparator. Their fixed external predictions retain a small relative discrimination advantage, but remain weak in absolute terms, and probability-score gains are uncertain. Calibration, sample selection, assay transfer and patient-level provenance limit the interpretation.
 
@@ -113,7 +113,7 @@ A useful next study would prospectively define the specimen timing, response asc
 
 This work can prioritize a biological hypothesis. It cannot establish a clinically useful biomarker, an individual's response probability, or who benefits from checkpoint inhibition.
 
-## Reproduce and review
+## Reproduce and review {#reproduce-and-review}
 
 The companion includes the fixed plan, source hashes, gene universe, extraction and analysis scripts, aggregate result tables, four analytical figures and a model equation, fitted coefficients, integrity checks and an executed review notebook. Patient-level observations are downloaded separately and are not bundled. See [README](shared/immune-outcome-validation/README.md) for versions, the extraction caveat and ordered commands. Full analysis is reproducible from pinned inputs; the notebook verifies the resulting artifacts and displays the results. 
 

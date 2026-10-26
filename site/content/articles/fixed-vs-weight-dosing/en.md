@@ -10,7 +10,7 @@ The results first.
 
 All of these are comparisons of exposure, not of effect.
 
-## Relation to previous work
+## Relation to previous work {#relation-to-previous-work}
 
 The move to flat dosing was justified for both drugs by population-PK comparisons of exposure.
 
@@ -25,7 +25,7 @@ All of these are comparisons over the whole trial population. This article adds 
 2. It uses the weight distribution of the general adult population (NHANES) rather than the trial populations.
 3. It fixes what "stays in range" means as a numerical rule before any calculation.
 
-## Question and context of use
+## Checking flat doses at the ends of the weight distribution {#question-and-context-of-use}
 
 **Question of Interest (QOI):** Compared with weight-based dosing, can flat dosing keep exposure within the range confirmed in clinical trials even for patients at extreme body weights?
 
@@ -38,7 +38,7 @@ All of these are comparisons over the whole trial population. This article adds 
 
 A weight band was judged to "stay in range" if no more than 10% of patients fell below the lower limit and no more than 5% exceeded the upper limit. These limits are proxies for the exposure used in the trials, not thresholds for efficacy or toxicity.
 
-## Models and data
+## Models and data {#models-and-data}
 
 **Pembrolizumab** used the final model of Ahamadi et al. (2017) (Table 3).
 
@@ -63,7 +63,7 @@ The footnote of the paper's table also gave a formula with different values (CL 
 - Both drugs have linear PK, so the concentration per 1 mg was computed once and multiplied by the dose of each regimen.
 - The implementation was checked with 10 tests (for example, the steady-state average concentration matching dose/(CL·τ) and reproduction of the typical values in the papers).
 
-## Results: more flat-dose patients fall below the lower limit on the heavy side
+## Results: more flat-dose patients fall below the lower limit on the heavy side {#results-more-flat-dose-patients-fall-below-the-lower-limit-on-the-heavy-side}
 
 ![Steady-state trough concentration by weight band](shared/fixed-vs-weight-dosing/figures/01-trough-by-weight.png)
 
@@ -90,7 +90,7 @@ With flat doses, the trough falls as weight increases.
 
 **Light side:** The picture reverses. For virtual patients of 40 kg, falling below the lower limit rose to about 12% with weight-based regimens. Limiting to the trough of the first dosing interval, 26% (pembrolizumab) and 31% (nivolumab) fell below the 5th percentile of the first-interval trough of the reference regimen. With flat doses, exposure in light patients is rather higher.
 
-## For extended-interval regimens, the assessment depends on the criterion
+## For extended-interval regimens, the assessment depends on the criterion {#for-extended-interval-regimens-the-assessment-depends-on-the-criterion}
 
 For 400 mg Q6W and 480 mg Q4W, more than 10% fell below the lower limit from the 60–80 kg band onward. This is not due to body weight. If the dosing interval is doubled, the trough falls even at the same average concentration. The lower limit here was set from the troughs of the Q3W and Q2W reference regimens.
 
@@ -102,7 +102,7 @@ As a post hoc check not in the analysis plan, the same judgment was made with th
 
 So the conclusion on the heavy side does not change between trough and average concentration. The assessment of extended-interval regimens, however, depends on the choice of exposure metric itself: whether trough or average concentration is emphasized. Which one to adopt is determined by the exposure–response relationship, not by this model alone.
 
-## Sensitivity analyses
+## Sensitivity analyses {#sensitivity-analyses}
 
 ![Stability of the judgment in the heavy band (150 kg and above)](shared/fixed-vs-weight-dosing/figures/03-sensitivity-heavy.png)
 
@@ -121,14 +121,14 @@ So the conclusion on the heavy side does not change between trough and average c
 - **Weight-based regimens:** Met the criterion under every condition and in every band.
 - **Albumin (a covariate other than weight):** At 30 g/L, the CL of pembrolizumab is 1.29 times higher. This is comparable to the difference between 100 kg and 150 kg (1.27 times), so body weight is not the only thing that creates the two ends of exposure.
 
-## Checking the implementation
+## Checking the implementation {#checking-the-implementation}
 
 - **Independent recalculation:** The exposure computed with rxode2, the core of the calculation, was recomputed with a separate implementation. Across 960 values (30 virtual patients per drug × 4 regimens × 4 metrics), the maximum relative difference was 1.1×10⁻⁵. The separate implementation integrates the differential equations directly dose by dose in Python, without the shortcut of multiplying the concentration per 1 mg.
 - **Recalculation of the summaries:** The lower and upper limits and the proportions by weight band were also recomputed from the exposure file and agreed.
 - **Comparison with published values:** For nivolumab 480 mg Q4W relative to 3 mg/kg, the ratios were 0.98 for average, 0.79 for trough and 1.34 for peak concentration, close to the "similar, about 16% lower, about 45% higher" of Long et al. (2018). For pembrolizumab, the ratio of average concentration for 400 mg Q6W to 200 mg Q3W was 1.00 (Lala et al.: about 1% higher), and the peak of 400 mg Q6W was 31% of that of 10 mg/kg Q2W (Lala et al.: about 65% lower).
 - **Reproducibility:** The random seed is fixed, and the same result files are regenerated.
 
-## What can and cannot be concluded
+## What can and cannot be concluded {#what-can-and-cannot-be-concluded}
 
 Under the models and exposure criteria used here, additional confirmation was indicated for pembrolizumab 200 mg at about 150 kg and above, nivolumab 240 mg at about 100 to 120 kg and above, and the first interval of weight-based regimens at 40 to 50 kg.
 
@@ -143,7 +143,7 @@ Under the models and exposure criteria used here, additional confirmation was in
 
 Measured exposure, including trough concentrations, is needed in the weight bands identified here. The exposure metric and range used for dose comparisons should be selected together with exposure–response evidence.
 
-## Sources
+## Sources {#sources}
 
 - Ahamadi M, et al. Model-based characterization of the pharmacokinetics of pembrolizumab: a humanized anti-PD-1 monoclonal antibody in advanced solid tumors. *CPT Pharmacometrics Syst Pharmacol*. 2017;6:49–57. [doi:10.1002/psp4.12139](https://doi.org/10.1002/psp4.12139)
 - Bajaj G, et al. Model-based population pharmacokinetic analysis of nivolumab in patients with solid tumors. *CPT Pharmacometrics Syst Pharmacol*. 2017;6:58–66. [doi:10.1002/psp4.12143](https://doi.org/10.1002/psp4.12143)

@@ -9,9 +9,9 @@
   "author": "Daiki Kumakura",
   "locales": {
     "ja": {
-      "title": "CytoVIでバッチ差を消すと、残したい差はどうなるか",
+      "title": "CytoVIでバッチ差を消すと残したい差はどうなるか",
       "summary": "健康骨髄の公開測定に既知のバッチ差を加え、交差した設計と完全交絡を比較する。CytoVIの保存出力から、粗い細胞型の読出しと同一型内の参照差を別々に診断する。",
-      "seo_title": "CytoVIでバッチ差を消すと、残したい差はどうなるか"
+      "seo_title": "CytoVIでバッチ差を消すと残したい差はどうなるか"
     }
   },
   "english": {

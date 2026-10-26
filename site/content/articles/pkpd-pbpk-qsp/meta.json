@@ -9,9 +9,9 @@
   "author": "Daiki Kumakura",
   "locales": {
     "ja": {
-      "title": "PK/PD・PopPK・PBPK・QSP：目的、データ、結果の読み方",
+      "title": "PK/PD・PopPK・PBPK・QSPの使い分けを目的とデータから考える",
       "summary": "PK/PD、母集団PK、PBPK、QSPの目的、入力データ、解析対象、結果の読み方、判断の限界を比較する。架空のPK/PDと集団分布の例を使い、個人差・診断・外挿を考える。",
-      "seo_title": "PK/PD・PopPK・PBPK・QSP：目的、データ、結果の読み方"
+      "seo_title": "PK/PD・PopPK・PBPK・QSPの使い分けを目的とデータから考える"
     }
   },
   "english": {

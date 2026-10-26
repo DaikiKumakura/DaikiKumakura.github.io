@@ -8,13 +8,13 @@ The results first.
 - **Conflict detection:** The mechanism by which a robust mixture prior detects conflict and reduces borrowing had almost no effect with 40 patients per arm.
 - **Rule of thumb:** Limiting the borrowing weight to 0.25 to 0.5 kept the loss within 1 point.
 
-## Question and context of use
+## Borrowing evidence for a hypothetical new drug {#question-and-context-of-use}
 
 **Question of Interest (QOI):** In a dose-selection trial of a new drug, when the dose comparison of an existing drug of the same class is borrowed as a prior, how much more accurate does dose selection become, and how much more often is it wrong when the new drug differs?
 
 **Context of Use (COU):** Material for discussing how much information from an existing drug may be borrowed, and what data specific to the new drug are needed, when planning a dose-optimization trial of a new drug. The effect of the existing drug is not used as a prediction for the new drug. No dose is recommended for any specific new drug.
 
-## Setup
+## Setup {#setup}
 
 **Data of the existing drug (published arm-level summaries):**
 
@@ -45,7 +45,7 @@ Severe adverse events are Grade ≥3 treatment-related adverse events for sotora
 
 The assumption is that even drugs of the same class can easily differ in the size of the dose effect by this much. S1 and S3 are extreme cases where the difference disappears.
 
-## Results: small gains, large losses
+## Results: small gains, large losses {#results-small-gains-large-losses}
 
 ![Change in expected regret against the borrowing weight](shared/borrowing-prior-dose-selection/figures/01-regret-change.png)
 
@@ -70,7 +70,7 @@ The figure shows the change in expected regret (the difference in utility betwee
 
 With 40 patients per arm, a difference of about 15 points cannot be distinguished. It cannot be said that using a mixture prior protects the analysis automatically when the drugs differ.
 
-## How much can be borrowed
+## How much can be borrowed {#how-much-can-be-borrowed}
 
 Using a rule fixed in advance (improvement when equivalent, and no more than 1 point of deterioration in any scenario), the acceptable ω was determined.
 
@@ -84,7 +84,7 @@ Using a rule fixed in advance (improvement when equivalent, and no more than 1 p
 
 Full borrowing (ω = 1) was not acceptable under any condition. Only ω = 0.25 was acceptable under all conditions.
 
-## What can and cannot be concluded
+## What can and cannot be concluded {#what-can-and-cannot-be-concluded}
 
 **What can be concluded:** Under the utility and deterioration tolerance defined here, a borrowing weight up to 0.5 was acceptable in the main condition with 40 patients per arm for the new drug, while 0.25 was acceptable across all sensitivity conditions. These hypothetical-scenario results are not general rules for borrowing weights or sample sizes. In addition, separate evidence is needed that the endpoint that decided the dose for the existing drug points the same way for the new drug (exposure–response, target saturation, nonclinical data). That endpoint is harm for sotorasib and response for ifinatamab deruxtecan. Borrowing does not replace that evidence.
 
@@ -95,14 +95,13 @@ Full borrowing (ω = 1) was not acceptable under any condition. Only ω = 0.25 w
 - The effect of the existing drug was not used as a prediction for the new drug.
 
 
-
-## Checking the implementation
+## Checking the implementation {#checking-the-implementation}
 
 - **Independent reimplementation:** The mixture-prior update and the simulation were rewritten in a different language (R) with a different random-number stream. For the two existing drugs × two scenarios (equivalent and the one with the largest deterioration) × three borrowing weights (0, 0.5, 1), the correct-selection rate and expected regret agreed within Monte Carlo error (|z| < 4).
 - **Posterior weights:** A unit test confirmed that the posterior weights of the mixture prior match the beta-binomial formula.
 - **Reproducibility:** Rerunning with the same seed reproduces the result files byte for byte.
 
-## Sources and data
+## Sources and data {#sources-and-data}
 
 1. Amgen Inc. Sotorasib. Background Information for the Oncologic Drugs Advisory Committee, 05 October 2023 (FDA public document). <https://www.fda.gov/media/172698/download> (Table 20, Table 29)
 2. Rudin CM, et al. OA04.03: interim analysis of IDeate-Lung01. *J Thorac Oncol*. 2024;19:S15–S16. [doi:10.1016/j.jtho.2024.09.033](https://doi.org/10.1016/j.jtho.2024.09.033). The arm-level summaries at the same data cutoff were taken from the [published interim results announcement](https://www.merck.com/news/ifinatamab-deruxtecan-continues-to-demonstrate-promising-objective-response-rates-in-patients-with-extensive-stage-small-cell-lung-cancer-in-ideate-lung01-phase-2-trial/).

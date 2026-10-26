@@ -1,6 +1,6 @@
 Model estimation from public summary data, and exposure comparison that accounts for uncertainty
 
-## Introduction
+## Evaluating an interval change from summary PK {#introduction}
 
 If a mathematical model is built from published pharmacokinetic (PK) tables, concentrations under a different dosing interval can be calculated. But being able to draw a concentration curve is not the same as being able to use that prediction for a decision.
 
@@ -8,7 +8,7 @@ This article uses tarlatamab, a T-cell engager targeting DLL3, to estimate a two
 
 In this analysis, the six summary values were explained within about 10%. However, uncertainty in clearance and peripheral distribution was large, and a wide range remained for trough concentrations when the interval was extended at the same dose. Relative changes in average concentration need to be evaluated separately from predictions of trough concentration.
 
-## 1. Background and questions
+## 1. Background and questions {#1-background-and-questions}
 
 For tarlatamab, the labeled regimen is 1 mg on the first day, 10 mg on Day 8, and 10 mg every 2 weeks from Day 15, each given intravenously over 1 hour.[1] The initial step-up dosing and the subsequent maintenance dosing need to be treated as different questions.
 
@@ -22,7 +22,7 @@ The **questions of interest (QOI)** are:
 
 The **context of use (COU)** is model reconstruction and scenario comparison based on public information for research and learning. It is not used for individual dose adjustment, changing the approved regimen, or guaranteeing the efficacy or safety of Q3W or Q4W.
 
-## 2. How to read the data
+## 2. How to read the data {#2-how-to-read-the-data}
 
 The main analysis used six values — maximum concentration, AUC and pre-dose concentration — from the Cycle 2 Day 1 and Day 15 PK table in the PMDA package insert.[1] The "Ctrough" in that table is explicitly labeled "pre-dose concentration" in the corresponding Table 23 of the review report.[2] In this analysis it was therefore matched to the time just before the dose on that day. Replacing it with the concentration 14 days after a dose would misalign the time points of the fit.
 
@@ -43,7 +43,7 @@ These are not individual patients' concentrations. The correspondence between me
 
 **Figure 1.** Points are public geometric means and crosses are model predictions. Error bars are 95% intervals for the geometric mean approximated on the log scale from the reported CV and number of patients, not the 95% range between patients. AUC, which has different units, is not overlaid on the same axis as concentrations.
 
-## 3. Mathematical model and estimation
+## 3. Mathematical model and estimation {#3-mathematical-model-and-estimation}
 
 Let \(A_c\) and \(A_p\) be the drug amounts in the central and peripheral compartments. A two-compartment model with linear elimination was used.
 
@@ -68,7 +68,7 @@ The first dose is at \(t=0\), with doses at 0, 7, 14, 28 and 42 days. Cycle 2 Da
 
 Because the system is a fixed linear system, the state was updated with matrix exponentials for each interval. A separate numerical integrator, `solve_ivp`, was used to check the implementation. At the estimated parameters, the difference in drug amount was 8.6e-13 mg and the difference in AUC was 2.9e-12 µg·day/mL; numerical differences are far too small to explain the estimation results below.
 
-### Objective function for summary values
+### Objective function for summary values {#objective-function-for-summary-values}
 
 The reported CV was converted to a proportion, and the log-scale standard error of the geometric mean was approximated as
 
@@ -90,7 +90,7 @@ This is a working approximation that treats the error of each summary value as a
 
 The values used for external comparison are \(CL=0.649\) L/day, \(V_c=3.44\) L, \(V_p=5.06\) L and \(Q=1.11\) L/day.[4] They were neither fixed nor added to the objective function as a penalty.
 
-## 4. Fit results and diagnostics
+## 4. Fit results and diagnostics {#4-fit-results-and-diagnostics}
 
 | Parameter | Estimate here | Public PopPK value (for comparison) | Unit |
 | --- | --- | --- | --- |
@@ -116,7 +116,7 @@ Optimization from 30 different starting values was judged successful in every ca
 
 **Figure 2.** The line is a representative curve calculated from the estimated model. Only the Cycle 2 summary values for pre-dose and maximum concentration are overlaid as observations; there are no observed data at the many time points along the line. The mean concentration curves in published figures were not digitized here.
 
-### Convergence of the optimization and identifiability are different problems
+### Convergence of the optimization and identifiability are different problems {#convergence-of-the-optimization-and-identifiability-are-different-problems}
 
 A profile analysis was performed in which each parameter was fixed and the rest were re-optimized.
 
@@ -128,7 +128,7 @@ Vc has a relatively sharp minimum. For CL toward lower values and for Q toward h
 
 The terminal half-life of the estimated model was about 19.0 days, not the same as the public NCA median of 6.21 days. The NCA observation window, the population summary statistic and the long-term asymptotic phase of the model do not measure the same thing, so it is not appropriate either to reject the model on this difference alone or to ignore the mismatching half-lives. The terminal phase is not treated as sufficiently identified by these summary values.
 
-### Hold-out is not external validation
+### Hold-out is not external validation {#hold-out-is-not-external-validation}
 
 The three values for one of the Cycle 2 dosing days were removed, and the four parameters were re-estimated from the remaining three values only.
 
@@ -143,7 +143,7 @@ The three values for one of the Cycle 2 dosing days were removed, and the four p
 
 The prediction error for AUC widened to about 15–19%. This is a diagnostic of instability when information is reduced. Because the number of training values is below the number of parameters and the result depends on how the optimum is chosen, it is not called validation of predictive performance in independent patients or trials.
 
-## 5. What changes when the interval is extended at the same 10 mg
+## 5. What changes when the interval is extended at the same 10 mg {#5-what-changes-when-the-interval-is-extended-at-the-same-10-mg}
 
 Q2W, Q3W and Q4W were compared as intervals of 14, 21 and 28 days. Each dose is 10 mg, so dose intensity is not maintained. Steady state was calculated directly from the condition that drug amounts return to the same state after one cycle, rather than approximated with many doses.
 
@@ -172,7 +172,7 @@ For a relative comparison at the same dose and the same patient's CL,
 
 These ratios do not change even if Vp and Q are uncertain. The absolute average concentration, however, still carries the uncertainty in CL. What is stable is the **ratio due to the interval**, assuming linear, time-invariant CL.
 
-### Propagating uncertainty to predictions
+### Propagating uncertainty to predictions {#propagating-uncertainty-to-predictions}
 
 Summary values were generated around the six fitted predictions using the log-scale standard errors above, and the model was re-estimated 300 times. This is neither patient resampling nor IIV estimation; it is a summary-level parametric bootstrap that assumes independent summary errors and a fixed model.
 
@@ -199,7 +199,7 @@ A sensitivity analysis was also performed assuming a common correlation among th
 
 The correlations of 0.5 and 0.8 are not measured estimates but assumptions for examining the effect of the missing covariance. The correlation between dosing days is set to 0 in this sensitivity analysis as well. The data here alone still cannot select an appropriate correlation structure.
 
-### Comparisons that maintain average exposure ask a different question
+### Comparisons that maintain average exposure ask a different question {#comparisons-that-maintain-average-exposure-ask-a-different-question}
 
 So far the dose per administration has been fixed at 10 mg. As a different question, hypothetical scenarios that keep the dose intensity \(D/\tau\) were also calculated. Relative to 10 mg Q2W, 15 mg Q3W and 20 mg Q4W give equal average exposure under linear PK.
 
@@ -217,9 +217,9 @@ All values are ratios for the representative model relative to 10 mg Q2W. The 15
 
 In other words, when evaluating "extending the dosing interval", it must first be decided whether the dose per administration is fixed or average exposure is maintained. The ability to maintain average exposure alone does not show that safety related to peaks, or efficacy late in the interval, is also maintained. Stating the conditions of a regimen comparison is itself the first step toward using a model for decisions.
 
-## 6. Can this be linked to efficacy and CRS?
+## 6. Can this be linked to efficacy and CRS? {#6-can-this-be-linked-to-efficacy-and-crs}
 
-### Which exposure metric is the efficacy "plateau" about?
+### Which exposure metric is the efficacy "plateau" about? {#which-exposure-metric-is-the-efficacy-plateau-about}
 
 The DCR Emax relationship in the FDA document uses the first-cycle average concentration as the explanatory variable, with \(E_{\max}=0.650\) and \(EC_{50}=49.4\) ng/mL.[4]
 
@@ -231,7 +231,7 @@ In this equation, the exposures corresponding to 90% and 95% of the maximal effe
 
 Also, \(E\) here is the **average concentration in the first cycle**. This threshold cannot be applied directly to maintenance Ctrough to conclude that "Q4W is effective because the threshold is exceeded". The published E–R analysis and this summary PK analysis differ in population, exposure metric and estimation method.[5] Sharing the same unit does not make the explanatory variables interchangeable.
 
-### Do not explain the fall in CRS by current exposure alone
+### Do not explain the fall in CRS by current exposure alone {#do-not-explain-the-fall-in-crs-by-current-exposure-alone}
 
 In the 10 mg cohort of DeLLphi-301, the numbers of patients reporting CRS in the periods after the first, Day 8 and Day 15 doses were 54/133, 39/133 and 10/133.[6] The early incidence is high even though the first dose is small.
 
@@ -239,7 +239,7 @@ From this summary, it is hard to explain the differences between doses with a si
 
 This article does not fit a new CRS model that treats the three per-dose summaries as independent patient data. Presenting a hypothesis from summary points was kept distinct from predicting risk based on each patient's exposure and onset time. Links to E–R and CRS are limited to interpreting public information and organizing the data needed.
 
-## 7. Answers to the QOI and the data needed next
+## 7. Answers to the QOI and the data needed next {#7-answers-to-the-qoi-and-the-data-needed-next}
 
 | Question | What can be supported here | What cannot be supported |
 | --- | --- | --- |
@@ -261,7 +261,7 @@ If published concentration curves are digitized, the type of mean, the number of
 
 In this analysis, the constraint was the definition and information content of the summary values rather than numerical accuracy: which time point the pre-dose concentration corresponds to, whether average concentration and trough are distinguished, and whether uncertainty is propagated to predictions. These checks need to be done before linking the model to a use.
 
-## Reproducing the analysis
+## Reproducing the analysis {#reproducing-the-analysis}
 
 [Download the analysis code, input CSV and result tables](https://daikikumakura.github.io/writing/shared/tarlatamab-summary-pk/tarlatamab-analysis.zip). The random seed is 20261003. Estimation, the 30-start optimization, profiles, the 300-replicate bootstrap, hold-out, the covariance sensitivity analysis and the comparison with an independent ODE implementation run from one script. No patient-level data are included.
 
@@ -272,7 +272,7 @@ python -m pip install -r requirements.txt
 python analysis.py
 ```
 
-## References
+## References {#references}
 
 1. [PMDA. Imdelltra package insert, 16.1.1, Table 1 (Japanese)](https://www.pmda.go.jp/PmdaSearch/iyakuDetail/112292_4291477D1029_1_04). Revised May 2026; accessed 2026-10-03.
 2. [PMDA. Imdelltra review report, Table 23 (PDF page 24; Japanese)](https://www.pmda.go.jp/drugs/2025/P20250114001/112292000_30600AMX00310_A100_1.pdf). 2024-12-27.

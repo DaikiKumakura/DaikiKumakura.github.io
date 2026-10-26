@@ -9,9 +9,9 @@
   "author": "Daiki Kumakura",
   "locales": {
     "ja": {
-      "title": "AlphaProtein Novoの酵素設計で、実験に回す候補をどう絞るか",
+      "title": "AlphaProtein Novoで実験に回す酵素候補をどう絞るか",
       "summary": "反応機構を設計入力にするAlphaProtein Novoを読み解く。構造指標と活性の違い、複数配列による足場評価、ヒット率の分母を整理し、公開された件数から参考区間を再計算する。",
-      "seo_title": "AlphaProtein Novoの酵素設計で、実験に回す候補をどう絞るか"
+      "seo_title": "AlphaProtein Novoで実験に回す酵素候補をどう絞るか"
     }
   },
   "english": {

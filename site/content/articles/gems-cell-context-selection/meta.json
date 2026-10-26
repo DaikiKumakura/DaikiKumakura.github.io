@@ -9,7 +9,7 @@
   "author": "Daiki Kumakura",
   "locales": {
     "ja": {
-      "title": "GWASの候補変異、どの細胞で試すか。GEMSの数字を分母から読む",
+      "title": "GWAS候補変異をどの細胞で試すか。GEMSの分母を読む",
       "summary": "GEMSの公開集計値を分母から読み直す。細胞への注釈、ATACとRNAの対応、実験系を選ぶ根拠の違いを整理する。",
       "key_findings": [
         "GEMSは配列モデルの変異効果予測から、GWAS候補変異を細胞・組織へ結び付ける。因果的な細胞の実証とは区別する。",

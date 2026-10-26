@@ -9,9 +9,9 @@
   "author": "Daiki Kumakura",
   "locales": {
     "ja": {
-      "title": "PIEの平均AUPRCが高ければ、追試する遺伝子も選べるか",
+      "title": "PIEの平均AUPRCから追試する遺伝子を選べるか",
       "summary": "公開評価10,335行をDEGラベルと照合し、背景別の陽性率とAUPRCを再集計する。平均性能、同じ摂動の背景差、限られた追試件数での精度を区別し、候補選びに必要な追加評価を示す。",
-      "seo_title": "PIEの平均AUPRCが高ければ、追試する遺伝子も選べるか"
+      "seo_title": "PIEの平均AUPRCから追試する遺伝子を選べるか"
     }
   },
   "english": {
