@@ -1,0 +1,22 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2026-11-29",
+  "publish_at": "2026-11-29T18:00:00+09:00",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "24時間と48時間の測定から72時間後のTCE薬効を予測できるか",
+      "summary": "5T4×CD3の公開実験を再解析。24・48時間の観測平均だけから72時間を予測し、単純な外挿との違いと測定を省略できない条件を調べる。",
+      "seo_title": "TCEの早期測定から72時間後の薬効を予測する",
+      "seo_description": "5T4×CD3 TCEの24・48時間の実験値から72時間を予測。時間依存モデル、持越し、直線外挿を比較し、遅れの識別と測定時間の選択を検討する。"
+    }
+  },
+  "english": {
+    "title": "Can 24- and 48-hour measurements predict a 72-hour TCE assay response?",
+    "summary": "Retrospective time-extrapolation benchmark using 54 aggregate means in two 5T4/CD3 cell-line assays. Early-only estimation and lag selection are compared with carry-forward and linear baselines. Lag sensitivity, reading uncertainty and unavailable donor linkage constrain measurement-shortening claims."
+  }
+}
