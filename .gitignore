@@ -2,3 +2,5 @@ site/dist/
 site/.deps/
 site/.venv/
 **/__pycache__/
+
+site/.topic-model/

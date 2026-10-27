@@ -8,6 +8,8 @@ from pathlib import Path
 from html.parser import HTMLParser
 from urllib.parse import unquote, urlsplit
 import build
+from unittest.mock import patch
+from test_article_topics import lexical_embeddings
 
 class Links(HTMLParser):
  def __init__(self):
@@ -20,6 +22,7 @@ class Links(HTMLParser):
 
 class BuildTests(unittest.TestCase):
  def setUp(self):
+  self.embedding_patch=patch('article_topics.embedding_vectors',side_effect=lexical_embeddings);self.embedding_patch.start();self.addCleanup(self.embedding_patch.stop)
   self.temp=tempfile.TemporaryDirectory();self.root=Path(self.temp.name)
   # Test fixtures must not collide with or depend on real articles and drafts.
   for n in ('content','templates','assets','static'):
@@ -75,7 +78,8 @@ class BuildTests(unittest.TestCase):
   self.assertIn('rel="canonical" href="'+build.SITE_URL+'"',self.text('index.html'))
   for key in build.NAV:
    self.assertNotIn('noindex',self.text(key+'.html'))
-   self.assertIn('alt="'+build.ILLUSTRATION_ALT[key]+'"',self.text(key+'.html'))
+   if key!='writing':self.assertIn('alt="'+build.ILLUSTRATION_ALT[key]+'"',self.text(key+'.html'))
+   else:self.assertNotIn('writing-isometric.svg',self.text('writing.html'))
  def test_profile_lists_only_published_analyses(self):
   p=self.root/'content/site.json';site=build.read_json(p)
   site['analysis_topics']=[{'label':'Example topic','articles':['logistic-example','japanese-note','missing-article']}]
@@ -256,10 +260,10 @@ class BuildTests(unittest.TestCase):
   for slug in ('logistic-example','japanese-note'):
    mp,m=self.meta(slug);m['draft']=False;mp.write_text(json.dumps(m),encoding='utf-8')
   build.build(self.root)
-  network=json.loads(self.text('assets/article-network.json'))
-  group=next(g for g in network['clusters'] if 'logistic-example' in g['articles'])
+  topics=json.loads(self.text('assets/article-topics.json'))
+  group=next(g for g in topics['clusters'] if 'logistic-example' in g['articles'])
   hub=self.text(group['href'])
-  self.assertIn('Automatically detected',hub);self.assertIn('writing/logistic-example-en.html',hub)
+  self.assertIn('Articles grouped automatically',hub);self.assertIn('writing/logistic-example-en.html',hub)
   self.assertIn('CollectionPage',hub);self.assertIn('BreadcrumbList',hub)
   self.assertFalse((self.root/'dist/topics/hidden.html').exists())
   self.assertIn(group['href'],self.text('sitemap.xml'));self.assertNotIn('topics/hidden.html',self.text('sitemap.xml'))
@@ -267,7 +271,7 @@ class BuildTests(unittest.TestCase):
   article=self.text('writing/japanese-note.html')
   self.assertIn('href="../topics/cluster-',article);self.assertIn('Kumakura, D. (2026). ',article);self.assertIn('Cite this article',article) if 'lang="en"' in article.split('<article')[1][:60] else self.assertIn('引用',article)
   llms=self.text('llms.txt')
-  for expected in ('## Topics','## Identity','Kumakura Daiki','Cluster 1'):self.assertIn(expected,llms)
+  for expected in ('## Topics','## Identity','Kumakura Daiki',group['label']):self.assertIn(expected,llms)
   self.assertNotIn('Example topic',llms)
  def test_legacy_topic_path_is_validated(self):
   p=self.root/'content/site.json';site=build.read_json(p)
@@ -275,7 +279,7 @@ class BuildTests(unittest.TestCase):
   p.write_text(json.dumps(site),encoding='utf-8')
   with self.assertRaisesRegex(ValueError,'legacy topic path'):build.build(self.root,preview=True)
 
- def test_language_sitemap_and_live_topic_map(self):
+ def test_language_sitemap_and_live_topics(self):
   p=self.root/'content/site.json';site=build.read_json(p)
   site['analysis_topics']=[{'label':'Example','slug':'example','description':'Example topic.','articles':['logistic-example','japanese-note']}]
   p.write_text(json.dumps(site),encoding='utf-8')
@@ -289,32 +293,37 @@ class BuildTests(unittest.TestCase):
     self.assertEqual(set(alternatives),{'ja','en','x-default'})
     self.assertEqual(alternatives['en'],alternatives['x-default'])
   page=self.text('writing.html')
-  data=json.loads(re.search(r'id="topic-map-data">(.*?)</script>',page)[1])
+  data=json.loads(self.text('assets/article-topics.json'))
   self.assertEqual(data['article_count'],1)
-  self.assertEqual(len(data['nodes']),1)
+  self.assertEqual(len(data['articles']),1)
   self.assertNotIn('japanese-note',json.dumps(data))
+  self.assertNotIn('topic-map',page)
+  self.assertNotIn('EXPLORE THE WORK',page)
+  self.assertIn('data-topic-article=',page)
   original=self.text('writing/logistic-example.html');translated=self.text('writing/logistic-example-en.html')
   schema=lambda html:json.loads(re.search(r'application/ld\+json">(.*?)</script>',html)[1])
   self.assertIn('workTranslation',schema(original));self.assertNotIn('translationOfWork',schema(original))
   self.assertIn('translationOfWork',schema(translated));self.assertNotIn('workTranslation',schema(translated))
 
- def test_scheduled_articles_do_not_influence_network_until_publication(self):
+ def test_scheduled_articles_do_not_influence_topics_until_publication(self):
   mp,m=self.meta('logistic-example');m['draft']=False;mp.write_text(json.dumps(m),encoding='utf-8')
   mp,m=self.meta('japanese-note');m.update(draft=False,date='2099-01-01',publish_at='2099-01-01T09:00:00+09:00')
   mp.write_text(json.dumps(m),encoding='utf-8');build.build(self.root)
-  before=self.text('assets/article-network.json')
+  before=self.text('assets/article-topics.json')
   m['english']={'title':'Unpublished sentinel','summary':'Unpublished sentinel kinase occupancy.'}
   mp.write_text(json.dumps(m),encoding='utf-8');build.build(self.root)
-  self.assertEqual(before,self.text('assets/article-network.json'))
+  self.assertEqual(before,self.text('assets/article-topics.json'))
   m.update(date='2000-01-01',publish_at='2000-01-01T09:00:00+09:00')
   mp.write_text(json.dumps(m),encoding='utf-8');build.build(self.root)
-  after=json.loads(self.text('assets/article-network.json'))
+  after=json.loads(self.text('assets/article-topics.json'))
   self.assertEqual(after['article_count'],2)
-  self.assertIn('japanese-note',{node['id'] for node in after['nodes']})
-  self.assertIn('data-article-cluster=',self.text('writing.html'))
+  self.assertIn('japanese-note',{node['id'] for node in after['articles']})
+  self.assertIn('data-topic-article=',self.text('writing.html'))
   legacy=build.read_json(self.root/'content/site.json')['legacy_topic_paths'][0]
   self.assertIn('writing.html#by-topic',self.text(legacy))
   self.assertNotIn(build.SITE_URL+legacy+'<',self.text('sitemap.xml'))
+  self.assertIn('writing.html#by-topic',self.text('topics/cluster-10.html'))
+  self.assertNotIn(build.SITE_URL+'topics/cluster-10.html<',self.text('sitemap.xml'))
 
  def test_software_pages(self):
   build.build(self.root)

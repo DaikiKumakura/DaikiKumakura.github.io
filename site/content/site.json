@@ -47,7 +47,7 @@
       "body": "Analysis of interactions in dynamic systems, including CCM (Convergent Cross Mapping). I am interested in distinguishing predictive relationships from causal interpretations and making the assumptions behind each analysis explicit."
     }
   ],
-  "analysis_note": "Articles grouped by an unsupervised text-similarity network. Cluster labels are automatically extracted keywords and change as articles are published.",
+  "analysis_note": "Articles grouped by similarities in their titles and summaries.",
   "thesis": {
     "title": "Functional Specialization and Phenotypic Plasticity: A Mathematical Modeling Approach to Microbial Growth Dynamics",
     "url": "https://eprints.lib.hokudai.ac.jp/repo/huscap/all/95430/"

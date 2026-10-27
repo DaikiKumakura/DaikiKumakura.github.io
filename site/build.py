@@ -333,11 +333,11 @@ def build(project=BASE, preview=False, strict_translations=False):
         if english:return dict(title=english['title'],lang='en',note='in Japanese',href=f"writing/{a['slug']}.html")
         return dict(title=m['locales'][m['source_language']]['title'],lang=m['source_language'],note='in Japanese' if m['source_language']=='ja' else '',href=f"writing/{a['slug']}.html")
     published={a['slug']:profile_link(a) for a in entries}
-    from article_network import article_network
-    topic_map=article_network(entries,published)
-    outputs['assets/article-network.json']=(json.dumps(topic_map,ensure_ascii=False,indent=2)+'\n').encode('utf-8')
-    article_clusters={n['id']:n['cluster'] for n in topic_map['nodes']}
-    hubs={h['slug']:dict(h,label=f"Cluster {h['id']}: {h['label']}") for h in topic_map['clusters']}
+    from article_topics import cluster_articles
+    topic_data=cluster_articles(load_articles(project/'content'),published)
+    outputs['assets/article-topics.json']=(json.dumps(topic_data,ensure_ascii=False,indent=2)+'\n').encode('utf-8')
+    article_clusters={n['id']:n['cluster'] for n in topic_data['articles']}
+    hubs={h['slug']:dict(h) for h in topic_data['clusters']}
     analyses=[dict(label=h['label'],href=h['href'],articles=[published[s] for s in h['articles']]) for h in hubs.values()]
     def article_hubs(slug):
         return [dict(label=h['label'],href='../'+h['href']) for h in hubs.values() if slug in h['articles']]
@@ -363,12 +363,9 @@ def build(project=BASE, preview=False, strict_translations=False):
         punctuation='' if not language_note and citation_title.endswith(('?', '!')) else '.'
         return f"Kumakura, D. ({m['date'][:4]}). {citation_title}{language_note}{punctuation} daikikumakura.github.io. {SITE_URL}writing/{file}"
     def related(slug, language, limit=5):
-        # Strongest lexical neighbors in the same computed graph, including cross-cluster edges.
-        neighbors=[]
-        for edge in topic_map['edges']:
-            if slug in (edge['source'],edge['target']):
-                neighbors.append((edge['weight'],edge['target'] if edge['source']==slug else edge['source']))
-        seen=[s for weight,s in sorted(neighbors,key=lambda pair:(-pair[0],pair[1]))]
+        if slug not in article_clusters:return []
+        # Related articles belong to the same directly fitted text cluster.
+        seen=[a['slug'] for a in entries if a['slug']!=slug and article_clusters.get(a['slug'])==article_clusters.get(slug)]
         # Keep readers in their chosen language when a complete version exists.
         source={a['slug']:a['meta'] for a in entries}
         result=[]
@@ -382,8 +379,9 @@ def build(project=BASE, preview=False, strict_translations=False):
         page=enrich(page,name,site,SITE_URL,article,og_image,topics)
         page=page.replace('</head>',f'<link rel="canonical" href="{canonical}">\n</head>')
         outputs[name]=page.encode('utf-8')
+    topic_sections=[dict(h,items=[a for a in listings if a['slug'] in h['articles']]) for h in hubs.values()]
     for key,title in NAV.items():
-        page=env.get_template('page.html').render(site=site,lang='en',ui=ui,preview=preview,active=key,root='',alternatives={},title=site['name'] if key=='home' else title,description=site['profile'],math=False,articles=listings,recent=listings[:RECENT_ON_HOME],working_papers=[a for a in listings if a['category']=='paper'],analyses=analyses,hubs=list(hubs.values()),topic_map=topic_map,article_clusters=article_clusters,illustration_alt=ILLUSTRATION_ALT[key])
+        page=env.get_template('page.html').render(site=site,lang='en',ui=ui,preview=preview,active=key,root='',alternatives={},title=site['name'] if key=='home' else title,description=site['profile'],math=False,articles=listings,recent=listings[:RECENT_ON_HOME],working_papers=[a for a in listings if a['category']=='paper'],analyses=analyses,hubs=list(hubs.values()),topic_data=topic_data,article_clusters=article_clusters,topic_sections=topic_sections,illustration_alt=ILLUSTRATION_ALT[key])
         output(key+'.html',page)
         if key=='home':outputs['index.html']=outputs['home.html']
     for a in entries:
@@ -434,6 +432,7 @@ def build(project=BASE, preview=False, strict_translations=False):
     if not preview:
         redirects=dict(LEGACY_REDIRECTS)
         redirects.update({path:'writing.html#by-topic' for path in site.get('legacy_topic_paths',[])})
+        redirects.update({f'topics/cluster-{number}.html':'writing.html#by-topic' for number in range(1,11) if f'topics/cluster-{number}.html' not in outputs})
         for old,new in redirects.items():
             if old in outputs:raise ValueError('Redirect would replace a page: '+old)
             outputs[old]=env.get_template('redirect.html').render(target=SITE_URL+new,source=old).encode('utf-8')
