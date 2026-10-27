@@ -1,6 +1,4 @@
-Model estimation from public summary data, and exposure comparison that accounts for uncertainty
-
-## Evaluating an interval change from summary PK {#introduction}
+## Abstract {#introduction}
 
 If a mathematical model is built from published pharmacokinetic (PK) tables, concentrations under a different dosing interval can be calculated. But being able to draw a concentration curve is not the same as being able to use that prediction for a decision.
 
@@ -8,9 +6,9 @@ This article uses tarlatamab, a T-cell engager targeting DLL3, to estimate a two
 
 In this analysis, the six summary values were explained within about 10%. However, uncertainty in clearance and peripheral distribution was large, and a wide range remained for trough concentrations when the interval was extended at the same dose. Relative changes in average concentration need to be evaluated separately from predictions of trough concentration.
 
-## 1. Background and questions {#1-background-and-questions}
+## Introduction {#1-background-and-questions}
 
-For tarlatamab, the labeled regimen is 1 mg on the first day, 10 mg on Day 8, and 10 mg every 2 weeks from Day 15, each given intravenously over 1 hour.[1] The initial step-up dosing and the subsequent maintenance dosing need to be treated as different questions.
+For tarlatamab, the labeled regimen is 1 mg on the first day, 10 mg on Day 8, and 10 mg every 2 weeks from Day 15, each given intravenously over 1 hour ([1](#ref-1)). The initial step-up dosing and the subsequent maintenance dosing need to be treated as different questions.
 
 Early on, the issues are the rise of exposure and the timing of CRS. In maintenance, the issue is how the maximum concentration, average exposure and the concentration just before the next dose change with the dosing interval. It is hard for a single PK metric to represent both.
 
@@ -22,9 +20,13 @@ The **questions of interest (QOI)** are:
 
 The **context of use (COU)** is model reconstruction and scenario comparison based on public information for research and learning. It is not used for individual dose adjustment, changing the approved regimen, or guaranteeing the efficacy or safety of Q3W or Q4W.
 
-## 2. How to read the data {#2-how-to-read-the-data}
+## Methods {#2-how-to-read-the-data}
 
-The main analysis used six values — maximum concentration, AUC and pre-dose concentration — from the Cycle 2 Day 1 and Day 15 PK table in the PMDA package insert.[1] The "Ctrough" in that table is explicitly labeled "pre-dose concentration" in the corresponding Table 23 of the review report.[2] In this analysis it was therefore matched to the time just before the dose on that day. Replacing it with the concentration 14 days after a dose would misalign the time points of the fit.
+The main analysis used six values — maximum concentration, AUC and pre-dose concentration — from the Cycle 2 Day 1 and Day 15 PK table in the PMDA package insert ([1](#ref-1)). The "Ctrough" in that table is explicitly labeled "pre-dose concentration" in the corresponding Table 23 of the review report ([2](#ref-2)). In this analysis it was therefore matched to the time just before the dose on that day. Replacing it with the concentration 14 days after a dose would misalign the time points of the fit.
+
+Table 1 presents the corresponding values and conditions.
+
+<span id="table-1"></span>Table 1. Public summary PK values used for estimation
 
 | Time point | Metric | Geometric mean (CV%) | n | Unit |
 | --- | --- | --- | --- | --- |
@@ -35,15 +37,12 @@ The main analysis used six values — maximum concentration, AUC and pre-dose co
 | Cycle 2 Day 15 | Cmax | 2.65 (41) | 18 | µg/mL |
 | Cycle 2 Day 15 | AUC0–336h | 298 (48) | 15 | h·µg/mL |
 
-Concentrations and AUCs are geometric means with CV% in parentheses. The number of patients differs by metric. The half-life of 6.21 days is a median reported for Cycle 2 Day 15, a different statistic from the geometric-mean PK metrics.[1] Here the half-life was not included in the fit and was used only as an interpretive check.
+Concentrations and AUCs are geometric means with CV% in parentheses. The number of patients differs by metric. The half-life of 6.21 days is a median reported for Cycle 2 Day 15, a different statistic from the geometric-mean PK metrics ([1](#ref-1)). Here the half-life was not included in the fit and was used only as an interpretive check.
 
-These are not individual patients' concentrations. The correspondence between metrics from the same patient, dose delays, covariates and details of missing data are not available. The published population PK analysis used 420 patients and 8,509 samples; the information used here is six summary values.[3] This is not described as a reproduction of the original NLME analysis.
+These are not individual patients' concentrations. The correspondence between metrics from the same patient, dose delays, covariates and details of missing data are not available. The published population PK analysis used 420 patients and 8,509 samples; the information used here is six summary values ([3](#ref-3)). This is not described as a reproduction of the original NLME analysis.
 
-![Public PK summary values and model predictions. Pre-dose concentration, maximum concentration and AUC are shown on separate axes.](shared/tarlatamab-summary-pk/figures/01-observed-fit.png)
 
-**Figure 1.** Points are public geometric means and crosses are model predictions. Error bars are 95% intervals for the geometric mean approximated on the log scale from the reported CV and number of patients, not the 95% range between patients. AUC, which has different units, is not overlaid on the same axis as concentrations.
-
-## 3. Mathematical model and estimation {#3-mathematical-model-and-estimation}
+### Model and estimation {#3-mathematical-model-and-estimation}
 
 Let \(A_c\) and \(A_p\) be the drug amounts in the central and peripheral compartments. A two-compartment model with linear elimination was used.
 
@@ -68,7 +67,7 @@ The first dose is at \(t=0\), with doses at 0, 7, 14, 28 and 42 days. Cycle 2 Da
 
 Because the system is a fixed linear system, the state was updated with matrix exponentials for each interval. A separate numerical integrator, `solve_ivp`, was used to check the implementation. At the estimated parameters, the difference in drug amount was 8.6e-13 mg and the difference in AUC was 2.9e-12 µg·day/mL; numerical differences are far too small to explain the estimation results below.
 
-### Objective function for summary values {#objective-function-for-summary-values}
+#### Objective function for summary values {#objective-function-for-summary-values}
 
 The reported CV was converted to a proportion, and the log-scale standard error of the geometric mean was approximated as
 
@@ -88,9 +87,19 @@ J(\theta)=\sum_j\left\{\frac{\log Y_j^{\mathrm{model}}(\theta)-\log Y_j^{\mathrm
 
 This is a working approximation that treats the error of each summary value as an independent normal distribution. Cmax and AUC calculated from the same patients may be correlated, but that covariance is not published. Also, the geometric mean of a population generally does not equal the value calculated from a single representative parameter set. What is estimated here is a representative model that approximates the summary values, not the typical parameters or IIV of the population.
 
-The values used for external comparison are \(CL=0.649\) L/day, \(V_c=3.44\) L, \(V_p=5.06\) L and \(Q=1.11\) L/day.[4] They were neither fixed nor added to the objective function as a penalty.
+The values used for external comparison are \(CL=0.649\) L/day, \(V_c=3.44\) L, \(V_p=5.06\) L and \(Q=1.11\) L/day ([4](#ref-4)). They were neither fixed nor added to the objective function as a penalty.
 
-## 4. Fit results and diagnostics {#4-fit-results-and-diagnostics}
+## Results {#4-fit-results-and-diagnostics}
+
+Figure 1 compares the public summaries with the fitted model.
+
+![Public PK summary values and model predictions. Pre-dose concentration, maximum concentration and AUC are shown on separate axes.](shared/tarlatamab-summary-pk/figures/01-observed-fit.png)
+
+**Figure 1.** Points are public geometric means and crosses are model predictions. Error bars are 95% intervals for the geometric mean approximated on the log scale from the reported CV and number of patients, not the 95% range between patients. AUC, which has different units, is not overlaid on the same axis as concentrations.
+
+Table 2 presents the corresponding values and conditions.
+
+<span id="table-2"></span>Table 2. Estimated parameters and published model values
 
 | Parameter | Estimate here | Public PopPK value (for comparison) | Unit |
 | --- | --- | --- | --- |
@@ -100,6 +109,10 @@ The values used for external comparison are \(CL=0.649\) L/day, \(V_c=3.44\) L, 
 | Q | 0.792 | 1.11 | L/day |
 
 The maximum absolute relative error against the public summary values was 10.0%.
+
+Table 3 presents the corresponding values and conditions.
+
+<span id="table-3"></span>Table 3. Fit to the public summaries
 
 | Time point | Metric | Public value | Model prediction | Relative error | Unit |
 | --- | --- | --- | --- | --- | --- |
@@ -132,6 +145,10 @@ The terminal half-life of the estimated model was about 19.0 days, not the same 
 
 The three values for one of the Cycle 2 dosing days were removed, and the four parameters were re-estimated from the remaining three values only.
 
+Table 4 presents the corresponding values and conditions.
+
+<span id="table-4"></span>Table 4. Prediction errors after leaving out a dosing day
+
 | Time point removed | Metric | Prediction error |
 | --- | --- | --- |
 | C2D1 | Pre-dose concentration | -4.2% |
@@ -143,9 +160,13 @@ The three values for one of the Cycle 2 dosing days were removed, and the four p
 
 The prediction error for AUC widened to about 15–19%. This is a diagnostic of instability when information is reduced. Because the number of training values is below the number of parameters and the result depends on how the optimum is chosen, it is not called validation of predictive performance in independent patients or trials.
 
-## 5. What changes when the interval is extended at the same 10 mg {#5-what-changes-when-the-interval-is-extended-at-the-same-10-mg}
+### Interval comparison at the same 10 mg dose {#5-what-changes-when-the-interval-is-extended-at-the-same-10-mg}
 
 Q2W, Q3W and Q4W were compared as intervals of 14, 21 and 28 days. Each dose is 10 mg, so dose intensity is not maintained. Steady state was calculated directly from the condition that drug amounts return to the same state after one cycle, rather than approximated with many doses.
+
+Table 5 presents the corresponding values and conditions.
+
+<span id="table-5"></span>Table 5. Interval comparisons at a fixed dose
 
 | Regimen | Cmax (µg/mL) | Cavg (µg/mL) | Ctrough (µg/mL) | Cmax ratio | Cavg ratio | Ctrough ratio |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -172,13 +193,17 @@ For a relative comparison at the same dose and the same patient's CL,
 
 These ratios do not change even if Vp and Q are uncertain. The absolute average concentration, however, still carries the uncertainty in CL. What is stable is the **ratio due to the interval**, assuming linear, time-invariant CL.
 
-### Propagating uncertainty to predictions {#propagating-uncertainty-to-predictions}
+#### Propagating uncertainty to predictions {#propagating-uncertainty-to-predictions}
 
 Summary values were generated around the six fitted predictions using the log-scale standard errors above, and the model was re-estimated 300 times. This is neither patient resampling nor IIV estimation; it is a summary-level parametric bootstrap that assumes independent summary errors and a fixed model.
 
 ![Dosing interval and exposure ratios. Lines are point estimates; bands are the 2.5th–97.5th percentiles of the conditional bootstrap.](shared/tarlatamab-summary-pk/figures/04-maintenance.png)
 
 **Figure 4.** The bands are conditional widths with the structural model, dosing history, independent errors and parameter search range held fixed. They are not 95% prediction intervals for a future patient population. The band for the Cavg ratio coincides with the line because, by the mass balance above, the ratio is fixed algebraically.
+
+Table 6 presents the corresponding values and conditions.
+
+<span id="table-6"></span>Table 6. Conditional resampling ranges for exposure ratios
 
 | Regimen | Metric | Point estimate of ratio | Conditional 2.5–97.5% range |
 | --- | --- | --- | --- |
@@ -191,6 +216,10 @@ The search range was CL 0.05–5 L/day, Vc 0.3–30 L, Vp 0.1–300 L and Q 0.01
 
 A sensitivity analysis was also performed assuming a common correlation among the three metrics on the same dosing day.
 
+Table 7 presents the corresponding values and conditions.
+
+<span id="table-7"></span>Table 7. Sensitivity to assumed correlations
+
 | Assumed correlation between metrics | CL | Vc | Vp | Q | Q4W/Q2W trough ratio |
 | --- | --- | --- | --- | --- | --- |
 | 0 | 0.845 | 4.075 | 10.162 | 0.792 | 0.371 |
@@ -199,9 +228,13 @@ A sensitivity analysis was also performed assuming a common correlation among th
 
 The correlations of 0.5 and 0.8 are not measured estimates but assumptions for examining the effect of the missing covariance. The correlation between dosing days is set to 0 in this sensitivity analysis as well. The data here alone still cannot select an appropriate correlation structure.
 
-### Comparisons that maintain average exposure ask a different question {#comparisons-that-maintain-average-exposure-ask-a-different-question}
+#### Comparisons that maintain average exposure ask a different question {#comparisons-that-maintain-average-exposure-ask-a-different-question}
 
 So far the dose per administration has been fixed at 10 mg. As a different question, hypothetical scenarios that keep the dose intensity \(D/\tau\) were also calculated. Relative to 10 mg Q2W, 15 mg Q3W and 20 mg Q4W give equal average exposure under linear PK.
+
+Table 8 presents the corresponding values and conditions.
+
+<span id="table-8"></span>Table 8. Hypothetical equal-intensity regimen comparisons
 
 | Hypothetical regimen | Cmax ratio | Cavg ratio | Ctrough ratio |
 | --- | --- | --- | --- |
@@ -217,11 +250,11 @@ All values are ratios for the representative model relative to 10 mg Q2W. The 15
 
 In other words, when evaluating "extending the dosing interval", it must first be decided whether the dose per administration is fixed or average exposure is maintained. The ability to maintain average exposure alone does not show that safety related to peaks, or efficacy late in the interval, is also maintained. Stating the conditions of a regimen comparison is itself the first step toward using a model for decisions.
 
-## 6. Can this be linked to efficacy and CRS? {#6-can-this-be-linked-to-efficacy-and-crs}
+## Discussion {#6-can-this-be-linked-to-efficacy-and-crs}
 
 ### Which exposure metric is the efficacy "plateau" about? {#which-exposure-metric-is-the-efficacy-plateau-about}
 
-The DCR Emax relationship in the FDA document uses the first-cycle average concentration as the explanatory variable, with \(E_{\max}=0.650\) and \(EC_{50}=49.4\) ng/mL.[4]
+The DCR Emax relationship in the FDA document uses the first-cycle average concentration as the explanatory variable, with \(E_{\max}=0.650\) and \(EC_{50}=49.4\) ng/mL ([4](#ref-4)).
 
 \[
 P(\mathrm{DCR})=E_{\max}\frac{E}{EC_{50}+E}.
@@ -229,17 +262,21 @@ P(\mathrm{DCR})=E_{\max}\frac{E}{EC_{50}+E}.
 
 In this equation, the exposures corresponding to 90% and 95% of the maximal effect are \(9EC_{50}=444.6\) ng/mL and \(19EC_{50}=938.6\) ng/mL. This does not mean DCR is 90% or 95%.
 
-Also, \(E\) here is the **average concentration in the first cycle**. This threshold cannot be applied directly to maintenance Ctrough to conclude that "Q4W is effective because the threshold is exceeded". The published E–R analysis and this summary PK analysis differ in population, exposure metric and estimation method.[5] Sharing the same unit does not make the explanatory variables interchangeable.
+Also, \(E\) here is the **average concentration in the first cycle**. This threshold cannot be applied directly to maintenance Ctrough to conclude that "Q4W is effective because the threshold is exceeded". The published E–R analysis and this summary PK analysis differ in population, exposure metric and estimation method ([5](#ref-5)). Sharing the same unit does not make the explanatory variables interchangeable.
 
 ### Do not explain the fall in CRS by current exposure alone {#do-not-explain-the-fall-in-crs-by-current-exposure-alone}
 
-In the 10 mg cohort of DeLLphi-301, the numbers of patients reporting CRS in the periods after the first, Day 8 and Day 15 doses were 54/133, 39/133 and 10/133.[6] The early incidence is high even though the first dose is small.
+In the 10 mg cohort of DeLLphi-301, the numbers of patients reporting CRS in the periods after the first, Day 8 and Day 15 doses were 54/133, 39/133 and 10/133 ([6](#ref-6)). The early incidence is high even though the first dose is small.
 
 From this summary, it is hard to explain the differences between doses with a single-variable relationship in which "higher blood concentration means more CRS". Nor can the fall in incidence be taken as proof of a mechanism of immune adaptation, because premedication, management, dosing history, patient status and the handling of recurrence in the same patients cannot be separated.
 
 This article does not fit a new CRS model that treats the three per-dose summaries as independent patient data. Presenting a hypothesis from summary points was kept distinct from predicting risk based on each patient's exposure and onset time. Links to E–R and CRS are limited to interpreting public information and organizing the data needed.
 
-## 7. Summary definitions constrain prediction {#7-answers-to-the-qoi-and-the-data-needed-next}
+## Conclusion {#7-answers-to-the-qoi-and-the-data-needed-next}
+
+Table 9 presents the corresponding values and conditions.
+
+<span id="table-9"></span>Table 9. Questions and scope of inference
 
 | Question | What can be supported here | What cannot be supported |
 | --- | --- | --- |
@@ -249,7 +286,7 @@ This article does not fit a new CRS model that treats the three per-dose summari
 
 Covariances between PK metrics and linked patient-level dosing, sampling and CRS times were unavailable. Population means alone cannot connect maintenance troughs with peaks during escalation. More precise interpolation does not restore those missing observations: the main constraint was summary definition and information content rather than numerical precision.
 
-## Reproducing the analysis {#reproducing-the-analysis}
+## Data and code availability {#reproducing-the-analysis}
 
 [Download the analysis code, input CSV and result tables](https://daikikumakura.github.io/writing/shared/tarlatamab-summary-pk/tarlatamab-analysis.zip). The random seed is 20261003. Estimation, the 30-start optimization, profiles, the 300-replicate bootstrap, hold-out, the covariance sensitivity analysis and the comparison with an independent ODE implementation run from one script. No patient-level data are included.
 
@@ -262,16 +299,9 @@ python analysis.py
 
 ## References {#references}
 
-1. [PMDA. Imdelltra package insert, 16.1.1, Table 1 (Japanese)](https://www.pmda.go.jp/PmdaSearch/iyakuDetail/112292_4291477D1029_1_04). Revised May 2026; accessed 2026-10-03.
-2. [PMDA. Imdelltra review report, Table 23 (PDF page 24; Japanese)](https://www.pmda.go.jp/drugs/2025/P20250114001/112292000_30600AMX00310_A100_1.pdf). 2024-12-27.
-3. [Kong S, et al. Population Pharmacokinetics of Tarlatamab. Clin Pharmacokinet. 2025;64:729–741](https://doi.org/10.1007/s40262-025-01499-z).
-4. [FDA. Tarlatamab Multidisciplinary Review, Tables 66 and 71](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2024/761344Orig1s000MultidisciplineR.pdf). 2024.
-5. [Chen PW, et al. Tarlatamab Exposure–Efficacy and Exposure–Safety Relationships to Inform Dose Selection. Clin Cancer Res. 2025;31:4688–4697](https://doi.org/10.1158/1078-0432.CCR-25-2134).
-6. [Sands JM, et al. Practical management of adverse events in patients receiving tarlatamab. Cancer. 2025;131:e35738, Figure 2](https://doi.org/10.1002/cncr.35738).
-
-[1]: https://www.pmda.go.jp/PmdaSearch/iyakuDetail/112292_4291477D1029_1_04
-[2]: https://www.pmda.go.jp/drugs/2025/P20250114001/112292000_30600AMX00310_A100_1.pdf
-[3]: https://doi.org/10.1007/s40262-025-01499-z
-[4]: https://www.accessdata.fda.gov/drugsatfda_docs/nda/2024/761344Orig1s000MultidisciplineR.pdf
-[5]: https://doi.org/10.1158/1078-0432.CCR-25-2134
-[6]: https://doi.org/10.1002/cncr.35738
+1. <span id="ref-1"></span>Pharmaceuticals and Medical Devices Agency. IMDELLTRA electronic package insert [English translation of title; in Japanese]. Revised 2026 May. Section 16.1.1, Table 1 [cited 2026 Oct 3]. [Product information](https://www.pmda.go.jp/PmdaSearch/iyakuDetail/112292_4291477D1029_1_04).
+2. <span id="ref-2"></span>Pharmaceuticals and Medical Devices Agency. IMDELLTRA review report [English translation of title; in Japanese]. 2024 Nov 26. Table 23, PDF p. 24. [Review report](https://www.pmda.go.jp/drugs/2025/P20250114001/112292000_30600AMX00310_A100_1.pdf).
+3. <span id="ref-3"></span>Kong S, Minocha M, Chen PW, Martinez P, Anderson ES, Parkes A, et al. Population pharmacokinetics of tarlatamab, a half-life extended DLL3-directed bispecific T-cell engager in patients with previously treated small cell lung cancer. Clin Pharmacokinet. 2025;64(5):729–741. [doi:10.1007/s40262-025-01499-z](https://doi.org/10.1007/s40262-025-01499-z).
+4. <span id="ref-4"></span>US Food and Drug Administration. Tarlatamab multidisciplinary review [Internet]. 2024. Tables 66–67, printed pp. 294–295; Table 71, pp. 310–311. [Review document](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2024/761344Orig1s000MultidisciplineR.pdf).
+5. <span id="ref-5"></span>Chen PW, Minocha M, Kong S, Jiang T, Anderson ES, Parkes A, et al. Tarlatamab exposure–efficacy and exposure–safety relationships to inform dose selection in patients with small cell lung cancer. Clin Cancer Res. 2025;31(22):4688–4697. [doi:10.1158/1078-0432.CCR-25-2134](https://doi.org/10.1158/1078-0432.CCR-25-2134). [Full text and supplementary materials](https://pmc.ncbi.nlm.nih.gov/articles/PMC12616239/).
+6. <span id="ref-6"></span>Sands JM, Champiat S, Hummel HD, Paulson KG, Borghaei H, Bustamante Alvarez J, et al. Practical management of adverse events in patients receiving tarlatamab, a delta-like ligand 3–targeted bispecific T-cell engager immunotherapy, for previously treated small cell lung cancer. Cancer. 2025;131(3):e35738. [doi:10.1002/cncr.35738](https://doi.org/10.1002/cncr.35738). [Full text, Figure 2](https://pmc.ncbi.nlm.nih.gov/articles/PMC11775405/).

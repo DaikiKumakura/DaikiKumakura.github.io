@@ -1,18 +1,16 @@
-公開集約データによるモデル推定と、不確実性を踏まえた曝露比較
+## 要旨 {#_1}
 
-## 公開PK集計値から投与間隔を考える {#_1}
-
-公開された薬物動態（PK）の表から数理モデルを作れば、投与間隔を変えたときの濃度を計算できる。しかし、濃度曲線が描けることと、その予測を意思決定に使えることは同じではない。
+公開された薬物動態（pharmacokinetics、PK）の表から数理モデルを作れば、投与間隔を変えたときの濃度を計算できる。しかし、濃度曲線が描けることと、その予測を意思決定に使えることは同じではない。
 
 本稿では、DLL3を標的とするT-cell engagerであるタルラタマブ（tarlatamab）を題材に、公開されたPKの集約値から2コンパートメントモデルを推定する。公表済みのPopPKパラメータを入力するだけではなく、観測に由来する集約値を当てはめの対象にし、何がデータによって決まり、何が仮定に依存するかを調べる。
 
 今回の結果では、6個の集約値を約10%以内の誤差で説明できた。一方、クリアランスや末梢分布に関する不確実性は大きく、同じ用量で投与間隔を延長したときのトラフ濃度には幅が残った。平均濃度の相対変化と、トラフ濃度の予測を分けて評価する必要がある。
 
-## 1. 背景と問い {#1}
+## 背景と目的 {#1}
 
-タルラタマブでは、初回に1 mg、8日目に10 mg、15日目以降に10 mgを2週間間隔で、各1時間かけて静脈内投与する用法が示されている。[1] 初期のstep-up dosingと、その後の維持投与は、異なる問いとして扱う必要がある。
+タルラタマブでは、初回に1 mg、8日目に10 mg、15日目以降に10 mgを2週間間隔で、各1時間かけて静脈内投与する用法が示されている ([1](#ref-1))。 初期のstep-up dosingと、その後の維持投与は、異なる問いとして扱う必要がある。
 
-初期には、曝露の立ち上がりとCRSの発現時期が問題になる。維持期には、平均曝露、最高濃度、次回投与直前の濃度が、投与間隔によってどう変わるかが問題になる。一つのPK指標だけで両者を代表させるのは難しい。
+初期には、曝露の立ち上がりとサイトカイン放出症候群（cytokine release syndrome、CRS）の発現時期が問題になる。維持期には、平均曝露、最高濃度、次回投与直前の濃度が、投与間隔によってどう変わるかが問題になる。一つのPK指標だけで両者を代表させるのは難しい。
 
 **Question of interest（QOI）**は次の3点とする。
 
@@ -22,9 +20,13 @@
 
 **Context of use（COU）**は、公開情報に基づく研究・学習目的のモデル再構築とシナリオ比較である。患者ごとの用量調整、承認用法の変更、Q3W・Q4Wの有効性や安全性の保証には使用しない。
 
-## 2. データをどう読むか {#2}
+## 方法 {#2}
 
-主解析には、PMDA電子添文のCycle 2 Day 1・15のPK表から、最高濃度、AUC、投与前濃度の6値を使用した。[1] 表の「Ctrough」は、審査報告書の対応する表23では「投与前濃度」と明記されている。[2] したがって、本解析では当該投与日の投与直前に対応させた。投与後14日目の濃度へ置き換えると、当てはめの時点がずれる。
+主解析には、PMDA電子添文のCycle 2 Day 1・15のPK表から、最高濃度、AUC、投与前濃度の6値を使用した ([1](#ref-1))。 表の「Ctrough」は、審査報告書の対応する[原資料の表23](https://www.pmda.go.jp/drugs/2025/P20250114001/112292000_30600AMX00310_A100_1.pdf#page=24)では「投与前濃度」と明記されている ([2](#ref-2))。 したがって、本解析では当該投与日の投与直前に対応させた。投与後14日目の濃度へ置き換えると、当てはめの時点がずれる。
+
+表1に推定に用いた公開PK集約値を示す。
+
+<span id="table-1"></span>表1．推定に用いた公開PK集約値
 
 | 時点 | 指標 | 幾何平均（CV%） | n | 単位 |
 | --- | --- | --- | --- | --- |
@@ -35,15 +37,12 @@
 | Cycle 2 Day 15 | Cmax | 2.65 (41) | 18 | µg/mL |
 | Cycle 2 Day 15 | AUC0–336h | 298 (48) | 15 | h·µg/mL |
 
-濃度とAUCは幾何平均、括弧内はCV%である。人数は指標ごとに異なる。半減期6.21日はCycle 2 Day 15に報告された中央値であり、幾何平均のPK指標とは統計量が異なる。[1] 本稿では半減期を当てはめに含めず、解釈上の確認に使った。
+濃度とAUCは幾何平均、括弧内はCV%である。人数は指標ごとに異なる。半減期6.21日はCycle 2 Day 15に報告された中央値であり、幾何平均のPK指標とは統計量が異なる ([1](#ref-1))。 本稿では半減期を当てはめに含めず、解釈上の確認に使った。
 
-なお、ここにあるのは個々の患者の濃度ではない。同じ患者から得られた各指標の対応関係、投与延期、共変量、欠測の詳細は取得できない。公開された母集団PK解析では420例・8509検体が使われているが、本稿の情報量は6個の集約値である。[3] 元のNLME解析を再現したとは呼ばない。
+なお、ここにあるのは個々の患者の濃度ではない。同じ患者から得られた各指標の対応関係、投与延期、共変量、欠測の詳細は取得できない。公開された母集団PK解析では420例・8509検体が使われているが、本稿の情報量は6個の集約値である ([3](#ref-3))。 元のNLME解析を再現したとは呼ばない。
 
-![公開されたPK集約値とモデル予測。投与前濃度・最高濃度・AUCを別の軸で表示](shared/tarlatamab-summary-pk/figures/01-observed-fit.png)
 
-**図1.** 点は公開幾何平均、×はモデル予測。誤差棒は報告CVと人数から対数スケールで近似した幾何平均の95%区間であり、患者間の95%範囲ではない。単位が異なるAUCを濃度と同じ軸へ重ねていない。
-
-## 3. 数理モデルと推定方法 {#3}
+### モデルと推定方法 {#3}
 
 中心・末梢コンパートメントの薬物量をそれぞれ \(A_c,A_p\) とする。線形消失を持つ2コンパートメントモデルを用いた。
 
@@ -68,7 +67,7 @@ T_{\mathrm{inf}}&=\frac{1}{24}\ \mathrm{day}.
 
 固定された線形系なので、区間ごとの行列指数を使って状態を更新した。実装の確認には、別の数値積分器 `solve_ivp` を使った。推定されたパラメータでの薬物量の差は 8.6e-13 mg、AUCの差は 2.9e-12 µg·day/mLであり、数値積分の違いは以下の推定結果を説明する大きさではなかった。
 
-### 集約値に対する目的関数 {#_2}
+#### 集約値に対する目的関数 {#_2}
 
 報告されたCVを小数に直し、幾何平均の対数標準誤差を次で近似した。
 
@@ -88,9 +87,19 @@ J(\theta)=\sum_j\left\{\frac{\log Y_j^{\mathrm{model}}(\theta)-\log Y_j^{\mathrm
 
 これは、各集約値の誤差を独立な正規分布として扱う作業上の近似である。同じ患者から計算されたCmaxとAUCには相関があり得るが、その共分散は公開されていない。また、集団の幾何平均と「代表的な一つのパラメータ集合から計算した値」は一般に一致しない。ここで推定するのは集約値を近似する代表モデルであり、母集団の典型パラメータやIIVそのものではない。
 
-外部比較用の値は \(CL=0.649\) L/day、\(V_c=3.44\) L、\(V_p=5.06\) L、\(Q=1.11\) L/dayである。[4] これらを固定したり、目的関数へペナルティとして加えたりしていない。
+外部比較用の値は \(CL=0.649\) L/day、\(V_c=3.44\) L、\(V_p=5.06\) L、\(Q=1.11\) L/dayである ([4](#ref-4))。 これらを固定したり、目的関数へペナルティとして加えたりしていない。
 
-## 4. 当てはめの結果と診断 {#4}
+## 結果 {#4}
+
+図1は公表集約値とモデルの照合を示す。
+
+![公開されたPK集約値とモデル予測。投与前濃度・最高濃度・AUCを別の軸で表示](shared/tarlatamab-summary-pk/figures/01-observed-fit.png)
+
+**図1.** 点は公開幾何平均、×はモデル予測。誤差棒は報告CVと人数から対数スケールで近似した幾何平均の95%区間であり、患者間の95%範囲ではない。単位が異なるAUCを濃度と同じ軸へ重ねていない。
+
+表2にパラメータ推定値と公開モデルとの比較を示す。
+
+<span id="table-2"></span>表2．パラメータ推定値と公開モデルとの比較
 
 | パラメータ | 今回の推定 | 公開PopPK値（比較用） | 単位 |
 | --- | --- | --- | --- |
@@ -100,6 +109,10 @@ J(\theta)=\sum_j\left\{\frac{\log Y_j^{\mathrm{model}}(\theta)-\log Y_j^{\mathrm
 | Q | 0.792 | 1.11 | L/day |
 
 公開集約値に対する最大絶対相対誤差は 10.0%だった。
+
+表3に集約値への当てはまりを示す。
+
+<span id="table-3"></span>表3．集約値への当てはまり
 
 | 時点 | 指標 | 公開値 | モデル予測 | 相対誤差 | 単位 |
 | --- | --- | --- | --- | --- | --- |
@@ -132,6 +145,10 @@ Vcには比較的鋭い最小値がある。一方、CLは低い値の方向、Q
 
 Cycle 2の一方の投与日の3値を除き、残った3値だけで4パラメータを再推定した。
 
+表4に投与日を除いたときの予測誤差を示す。
+
+<span id="table-4"></span>表4．投与日を除いたときの予測誤差
+
 | 除いた時点 | 指標 | 予測誤差 |
 | --- | --- | --- |
 | C2D1 | 投与前濃度 | -4.2% |
@@ -143,9 +160,13 @@ Cycle 2の一方の投与日の3値を除き、残った3値だけで4パラメ�
 
 AUCの予測誤差は約15–19%に広がった。これは情報を減らした場合の不安定さを示す診断である。訓練データ数がパラメータ数を下回り、最適解の選び方にも依存するため、独立した患者・試験での予測性能を示すvalidationとは呼ばない。
 
-## 5. 同じ10 mgで投与間隔を延長すると何が変わるか {#5-10-mg}
+### 同じ10 mgでの投与間隔比較 {#5-10-mg}
 
 Q2W、Q3W、Q4Wを、それぞれ14、21、28日間隔として比較した。いずれも1回量は10 mgであり、投与強度は維持していない。定常状態は、多数回投与で近似する代わりに、1周期後に薬物量が同じ状態へ戻る条件から直接計算した。
+
+表5に1回量固定の投与間隔比較を示す。
+
+<span id="table-5"></span>表5．1回量固定の投与間隔比較
 
 | 投与 | Cmax（µg/mL） | Cavg（µg/mL） | Ctrough（µg/mL） | Cmax比 | Cavg比 | Ctrough比 |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -172,13 +193,17 @@ C_{\mathrm{avg}}^{ss}=\frac{D}{CL\tau}.
 
 となる。この比は、VpやQが不明確でも変わらない。ただし絶対的な平均濃度にはCLの不確実性が残る。安定しているのは、線形・時間不変のCLを仮定した場合の**間隔による比**である。
 
-### 不確実性を予測へ伝播する {#_4}
+#### 不確実性を予測へ伝播する {#_4}
 
 当てはめた6個の予測値を中心に、上記の対数標準誤差で集約値を生成し、300回再推定した。これは患者の再標本化でもIIV推定でもない。独立な集約誤差と固定したモデルを仮定するsummary-level parametric bootstrapである。
 
 ![投与間隔と曝露比。線は点推定、帯は条件付きbootstrapの2.5–97.5パーセンタイル](shared/tarlatamab-summary-pk/figures/04-maintenance.png)
 
 **図4.** 帯は構造モデル、投与履歴、独立誤差、パラメータ探索範囲を固定した条件付きの幅。将来の患者集団の95%予測区間ではない。Cavg比の帯が線に重なるのは、上の物質収支により比が代数的に固定されるためである。
+
+表6に条件付き再推定による曝露比の範囲を示す。
+
+<span id="table-6"></span>表6．条件付き再推定による曝露比の範囲
 
 | 投与 | 指標 | 比の点推定 | 条件付き2.5–97.5%範囲 |
 | --- | --- | --- | --- |
@@ -191,6 +216,10 @@ C_{\mathrm{avg}}^{ss}=\frac{D}{CL\tau}.
 
 同じ投与日の3指標に共通の相関を仮定した感度分析も行った。
 
+表7に指標間相関の仮定による感度分析を示す。
+
+<span id="table-7"></span>表7．指標間相関の仮定による感度分析
+
 | 仮定した指標間相関 | CL | Vc | Vp | Q | Q4W/Q2Wトラフ比 |
 | --- | --- | --- | --- | --- | --- |
 | 0 | 0.845 | 4.075 | 10.162 | 0.792 | 0.371 |
@@ -199,9 +228,13 @@ C_{\mathrm{avg}}^{ss}=\frac{D}{CL\tau}.
 
 相関0.5・0.8は実測推定値ではなく、欠けている共分散の影響を調べる仮定である。投与日間の相関はこの感度分析でも0に置いている。今回のデータだけから適切な相関構造を選べない点は残る。
 
-### 平均曝露を維持する場合の比較条件 {#_5}
+#### 平均曝露を維持する場合の比較条件 {#_5}
 
 ここまでは1回量を10 mgに固定した比較だった。別の問いとして、投与強度 \(D/\tau\) を保つ仮想シナリオも計算した。10 mg Q2Wに対し、15 mg Q3W・20 mg Q4Wとすれば、線形PKでは平均曝露が等しくなる。
+
+表8に投与強度一定の仮想レジメン比較を示す。
+
+<span id="table-8"></span>表8．投与強度一定の仮想レジメン比較
 
 | 仮想投与 | Cmax比 | Cavg比 | Ctrough比 |
 | --- | --- | --- | --- |
@@ -217,11 +250,11 @@ C_{\mathrm{avg}}^{ss}=\frac{D}{CL\tau}.
 
 つまり「投与間隔を延ばす」を評価するときには、1回量を固定するのか、平均曝露を維持するのかを先に決める必要がある。平均曝露を維持できることだけでは、ピークに関係する安全性や投与間隔後半の薬効まで維持されるとは判断できない。レジメンの比較条件を明示すること自体が、モデルを判断に使うための第一歩となる。
 
-## 6. 有効性とCRSまで結び付けられるか {#6-crs}
+## 考察 {#6-crs}
 
 ### 有効性の「平坦部」に対応する曝露指標 {#_6}
 
-FDA資料に示されたDCRのEmax関係は、初回サイクルの平均濃度を説明変数とし、\(E_{\max}=0.650\)、\(EC_{50}=49.4\) ng/mLとしている。[4]
+FDA資料に示されたDCRのEmax関係は、初回サイクルの平均濃度を説明変数とし、\(E_{\max}=0.650\)、\(EC_{50}=49.4\) ng/mLとしている ([4](#ref-4))。
 
 \[
 P(\mathrm{DCR})=E_{\max}\frac{E}{EC_{50}+E}.
@@ -229,17 +262,21 @@ P(\mathrm{DCR})=E_{\max}\frac{E}{EC_{50}+E}.
 
 この式では最大効果の90%・95%に対応する曝露は、それぞれ \(9EC_{50}=444.6\) ng/mL、\(19EC_{50}=938.6\) ng/mLとなる。これはDCRが90%・95%という意味ではない。
 
-また、ここでの \(E\) は**初回サイクルの平均濃度**である。維持期のCtroughへこの閾値を直接当て、「閾値を超えたのでQ4Wでも有効」と判断することはできない。Published E–R解析と今回の集約PK解析は、対象集団・曝露指標・推定方法が異なる。[5] 単位が同じでも、説明変数を交換してよいわけではない。
+また、ここでの \(E\) は**初回サイクルの平均濃度**である。維持期のCtroughへこの閾値を直接当て、「閾値を超えたのでQ4Wでも有効」と判断することはできない。公表された曝露反応（exposure–response、E–R）解析と今回の集約PK解析は、対象集団・曝露指標・推定方法が異なる ([5](#ref-5))。 単位が同じでも、説明変数を交換してよいわけではない。
 
 ### CRSの低下と投与履歴 {#crs}
 
-DeLLphi-301の10 mgコホートでは、初回・8日目・15日目の投与後の期間にCRSを報告した患者数は、それぞれ54/133、39/133、10/133である。[6] 初回量が小さいにもかかわらず、初期の発現割合が高い。
+DeLLphi-301の10 mgコホートでは、初回・8日目・15日目の投与後の期間にCRSを報告した患者数は、それぞれ54/133、39/133、10/133である ([6](#ref-6))。 初回量が小さいにもかかわらず、初期の発現割合が高い。
 
 この集計から、「血中濃度が上がるほどCRSが増える」という一変数の関係だけで投与回ごとの差を説明するのは難しい。一方、発現割合の低下をそのまま免疫適応の機序の証明とすることもできない。前投薬、管理体制、投与歴、患者状態、同じ患者での再発の扱いなどを分離できないからである。
 
 本稿では、3つの投与回別集計を独立な患者データとして扱うCRSモデルを新たに当てはめていない。集計点から仮説を提示することと、患者ごとの曝露・発現時間に基づいてリスクを予測することを区別した。E–RやCRSへの接続は、公開情報の解釈と必要データの整理にとどめる。
 
-## 7. 集約値の定義が予測の幅を制約する {#7-qoi}
+## 結論 {#7-qoi}
+
+表9に解析の問いと支持される範囲を示す。
+
+<span id="table-9"></span>表9．解析の問いと支持される範囲
 
 | 問い | 今回支持できること | 支持できないこと |
 | --- | --- | --- |
@@ -249,7 +286,7 @@ DeLLphi-301の10 mgコホートでは、初回・8日目・15日目の投与後�
 
 PK指標間の共分散と、同じ患者の投与・採血・CRS時刻は得られていない。維持期トラフと増量時ピークを集団平均だけで結ぶことはできず、集約値を精密に補間してもこの不足は解消しない。今回の制約は、数値計算の精度より、値の定義と情報量にあった。
 
-## 再実行と解析資料 {#_7}
+## データとコードの公開状況 {#_7}
 
 [Download analysis code, input CSV and result tables](https://daikikumakura.github.io/writing/shared/tarlatamab-summary-pk/tarlatamab-analysis.zip)。乱数seedは20261003。推定、30-start、profile、300回bootstrap、hold-out、共分散の感度分析、独立ODE実装との比較を一つのスクリプトで実行できる。患者レベルデータは含まない。
 
@@ -260,18 +297,11 @@ python -m pip install -r requirements.txt
 python analysis.py
 ```
 
-## 参考文献 {#_8}
+## 参照 {#_8}
 
-1. [PMDA. IMDELLTRA electronic package insert, Section 16.1.1 and Table 1 [in Japanese]](https://www.pmda.go.jp/PmdaSearch/iyakuDetail/112292_4291477D1029_1_04). May 2026 revision; checked 2026-10-03.
-2. [PMDA. IMDELLTRA assessment report, Table 23 (PDF p. 24) [in Japanese]](https://www.pmda.go.jp/drugs/2025/P20250114001/112292000_30600AMX00310_A100_1.pdf). 2024-12-27.
-3. [Kong S, et al. Population Pharmacokinetics of Tarlatamab. Clin Pharmacokinet. 2025;64:729–741](https://doi.org/10.1007/s40262-025-01499-z).
-4. [FDA. Tarlatamab Multidisciplinary Review, Tables 66・71](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2024/761344Orig1s000MultidisciplineR.pdf). 2024.
-5. [Chen PW, et al. Tarlatamab Exposure–Efficacy and Exposure–Safety Relationships to Inform Dose Selection. Clin Cancer Res. 2025;31:4688–4697](https://doi.org/10.1158/1078-0432.CCR-25-2134).
-6. [Sands JM, et al. Practical management of adverse events in patients receiving tarlatamab. Cancer. 2025;131:e35738, Figure 2](https://doi.org/10.1002/cncr.35738).
-
-[1]: https://www.pmda.go.jp/PmdaSearch/iyakuDetail/112292_4291477D1029_1_04
-[2]: https://www.pmda.go.jp/drugs/2025/P20250114001/112292000_30600AMX00310_A100_1.pdf
-[3]: https://doi.org/10.1007/s40262-025-01499-z
-[4]: https://www.accessdata.fda.gov/drugsatfda_docs/nda/2024/761344Orig1s000MultidisciplineR.pdf
-[5]: https://doi.org/10.1158/1078-0432.CCR-25-2134
-[6]: https://doi.org/10.1002/cncr.35738
+1. <span id="ref-1"></span>Pharmaceuticals and Medical Devices Agency. IMDELLTRA electronic package insert [English translation of title; in Japanese]. Revised 2026 May. Section 16.1.1, Table 1 [cited 2026 Oct 3]. [Product information](https://www.pmda.go.jp/PmdaSearch/iyakuDetail/112292_4291477D1029_1_04).
+2. <span id="ref-2"></span>Pharmaceuticals and Medical Devices Agency. IMDELLTRA review report [English translation of title; in Japanese]. 2024 Nov 26. Table 23, PDF p. 24. [Review report](https://www.pmda.go.jp/drugs/2025/P20250114001/112292000_30600AMX00310_A100_1.pdf).
+3. <span id="ref-3"></span>Kong S, Minocha M, Chen PW, Martinez P, Anderson ES, Parkes A, et al. Population pharmacokinetics of tarlatamab, a half-life extended DLL3-directed bispecific T-cell engager in patients with previously treated small cell lung cancer. Clin Pharmacokinet. 2025;64(5):729–741. [doi:10.1007/s40262-025-01499-z](https://doi.org/10.1007/s40262-025-01499-z).
+4. <span id="ref-4"></span>US Food and Drug Administration. Tarlatamab multidisciplinary review [Internet]. 2024. Tables 66–67, printed pp. 294–295; Table 71, pp. 310–311. [Review document](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2024/761344Orig1s000MultidisciplineR.pdf).
+5. <span id="ref-5"></span>Chen PW, Minocha M, Kong S, Jiang T, Anderson ES, Parkes A, et al. Tarlatamab exposure–efficacy and exposure–safety relationships to inform dose selection in patients with small cell lung cancer. Clin Cancer Res. 2025;31(22):4688–4697. [doi:10.1158/1078-0432.CCR-25-2134](https://doi.org/10.1158/1078-0432.CCR-25-2134). [Full text and supplementary materials](https://pmc.ncbi.nlm.nih.gov/articles/PMC12616239/).
+6. <span id="ref-6"></span>Sands JM, Champiat S, Hummel HD, Paulson KG, Borghaei H, Bustamante Alvarez J, et al. Practical management of adverse events in patients receiving tarlatamab, a delta-like ligand 3–targeted bispecific T-cell engager immunotherapy, for previously treated small cell lung cancer. Cancer. 2025;131(3):e35738. [doi:10.1002/cncr.35738](https://doi.org/10.1002/cncr.35738). [Full text, Figure 2](https://pmc.ncbi.nlm.nih.gov/articles/PMC11775405/).

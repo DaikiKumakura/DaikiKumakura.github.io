@@ -10,13 +10,16 @@
     "en": {
       "title": "When does individual information improve PK/PD prediction?",
       "summary": "A reanalysis of warfarin PK/PCA data, revised with an absorption lag and a Hill exponent: effect delay, held-out prediction and the limits of extra PK.",
-      "key_findings": [
-        "In 32 subjects with public single-dose warfarin PK and PCA data, a turnover model described the delay between concentration and response better than direct inhibition (held-out RMSE 0.0827 vs 0.0987 at the 24 h cutoff); version 1.1 added an absorption lag and version 1.2 a Hill exponent (1.28).",
-        "Adding each subject's PK measurements up to 24 or 48 h did not improve later PCA prediction: paired MSE differences were +0.0077 (0.0003 to 0.0174) and +0.0051 (−0.0013 to 0.0114), worse at 24 h.",
-        "The Hill exponent improved the in-sample fit but not held-out prediction. All current refits start from generic values; nothing here supports a dose, INR target or bleeding-risk claim."
-      ],
       "seo_title": "When does individual information improve PK/PD prediction?"
+    },
+    "ja": {
+      "title": "個人のPK情報はワルファリンのPCA予測を改善するか",
+      "summary": "公開ワルファリンPK/PCAデータを再解析し、吸収ラグとHill係数、未使用被験者での予測、仮想反復投与を比較した。追加PK情報がPD予測を改善しない条件と、最適化警告による限界を示す。",
+      "seo_title": "ワルファリンの個人PK情報とPCA予測"
     }
   },
-  "updated": "2026-10-20"
+  "updated": "2026-10-27",
+  "reviewed": {
+    "ja": "32c12706229ead27ab76b65e58208347637fef37943210dcdb031ba3ebbdd231"
+  }
 }

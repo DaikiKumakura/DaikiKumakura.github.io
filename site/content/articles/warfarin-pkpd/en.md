@@ -1,20 +1,22 @@
-## A warfarin reanalysis of the value of limited PK measurements {#a-warfarin-reanalysis-of-the-value-of-limited-pk-measurements}
+## Abstract {#a-warfarin-reanalysis-of-the-value-of-limited-pk-measurements}
 
 > **Version 1.2, revised 20 October 2026.** This version estimates the Hill exponent in both PD models. Detailed changes and the refit correction are recorded below under Revision history.
 
 Additional concentration measurements did not improve prediction of subsequent prothrombin complex activity (PCA) in this reanalysis; at the 24 h cutoff they made it worse. A turnover model described the delay between concentration and response better than direct inhibition, but more PK information was not enough to recover individual PD sensitivity. This is an exploratory assessment of publicly distributed observations, not a dosing recommendation.
 
-**日本語要約：** 公開された単回投与の個人別PK/PCAデータを解析した。第1.1版でPKモデルに吸収の遅れ（ラグタイム）とその個人差を加え、すべての再推定を全データの推定値ではない初期値から行うよう改めた。第1.2版では、阻害曲線の傾き（Hill係数）も推定した。傾きは当てはまりを改善したが、未使用の被験者での予測は改善しなかった。作用の遅れを表現するturnoverモデルはdirect-effectモデルより良好だった。一方、24・48時間までの濃度情報を追加しても、その後のPCA予測は改善せず、24時間の区切りでは悪化した。個別化の価値は情報量だけでなく、何の個人差を測定できるかに依存する。推定警告が残るため、投与条件比較は探索的な感度分析と位置づける。
+## Introduction {#the-decision-question}
 
-## The decision question {#the-decision-question}
-
-Can weight or limited postdose PK observations reduce uncertainty in a person's later PD response? The context of use is a research evaluation of the value of information under a single oral challenge. PCA is an activity measure. It is not interchangeable with a measured INR, a bleeding probability, or a therapeutic target. The work does not address chronic anticoagulant treatment.
+Can weight or limited postdose PK observations reduce uncertainty in a person's later PD response? The context of use is a research evaluation of the value of information under a single oral challenge. PCA is an activity measure. It is not interchangeable with a measured international normalized ratio (INR), a bleeding probability, or a therapeutic target. The work does not address chronic anticoagulant treatment.
 
 The distinction matters: better concentration prediction need not imply better response prediction. PK variability and PD sensitivity are different quantities. A repeat-challenge simulation can explore this distinction, but it cannot establish benefit to patients.
 
-## Audit the observations before fitting {#audit-the-observations-before-fitting}
+## Methods {#audit-the-observations-before-fitting}
 
-The [nlmixr2data documentation](https://nlmixr2.github.io/nlmixr2data/reference/warfarin.html) describes a 32-subject warfarin dataset. I acquired a pinned upstream commit, saved source hashes, and checked the numerical records against the [University of Auckland original-data download](https://holford.fmhs.auckland.ac.nz/research/nlmixr/). That page also supplies a separate simulated dataset; it was not used here. All seven numerical columns match exactly, and endpoint and sex recodings match.
+The nlmixr2data documentation describes a 32-subject warfarin dataset ([1](#ref-1)). I acquired a pinned upstream commit, saved source hashes, and checked the numerical records against the University of Auckland original-data download ([2](#ref-2)). That page also supplies a separate simulated dataset; it was not used here. All seven numerical columns match exactly, and endpoint and sex recodings match. The distributor cites O’Reilly et al. for historical provenance, but record-level mapping to the original publication is unavailable ([3](#ref-3)).
+
+Table 1 summarizes the comparison.
+
+<span id="table-1"></span>Table 1. Observed data and preprocessing
 
 | Audit item | Actual input / treatment |
 |---|---|
@@ -36,7 +38,7 @@ The administered dose already depends on weight. This is not an experiment contr
 
 *Figure 1. Actual observations and design. Unequal early sampling matters: 19 subjects first have PK measured at 24 h, leaving absorption chiefly informed by the densely sampled subset.*
 
-## The minimum models {#the-minimum-models}
+### PK and PD models {#the-minimum-models}
 
 The oral one-compartment model has first-order absorption after a lag time, apparent clearance CL/F and apparent volume V/F. Bioavailability cannot be separated from clearance or volume using these oral data. Individual CL/F, V/F, absorption rate and lag time are lognormally distributed with diagonal covariance. The lag places the four zero concentrations at 0.5 h before absorption begins in the subjects whose lag exceeds 0.5 h. Concentration error is normal on the natural scale, with standard deviation sqrt(add² + (prop × concentration)²), matching nlmixr2's combined2 implementation. The four zeros therefore enter as observations, not logged zeros or invented BLQ values.
 
@@ -48,13 +50,19 @@ For normalized PCA R and concentration C, the direct model is R = 1/(1+(C/IC50)^
 
     dR/dt = kout [1/(1+(C/IC50)^γ) − R],   R(0) = 1.
 
-Maximum inhibition is fixed to one; the Hill exponent γ is a typical-value parameter without between-subject variability (fixed to one in versions 1.0 and 1.1). The turnover rate delays the response even when plasma concentration changes promptly. This is consistent with the distinction between concentration and the time course of effect described by [Wright, Winter and Duffull (2011)](https://doi.org/10.1111/j.1365-2125.2011.03925.x). It is a deliberately reduced biomarker model, not a model of individual clotting factors.
+Maximum inhibition is fixed to one; the Hill exponent γ is a typical-value parameter without between-subject variability (fixed to one in versions 1.0 and 1.1). The turnover rate delays the response even when plasma concentration changes promptly. This is consistent with the distinction between concentration and the time course of effect described by Wright et al. ([4](#ref-4)). It is a deliberately reduced biomarker model, not a model of individual clotting factors.
 
-PK is estimated first with FOCEi; its empirical Bayes individual estimates, including the individual lag, drive the PD model. PD has random IC50 and, for turnover, random kout, with additive normalized-PCA error. This is **sequential conditional estimation**, not simultaneous PK/PD estimation. PD random effects may absorb PK estimation error. Subject resampling refits both stages, but does not remove this conditioning limitation or baseline-normalization bias.
+PK is estimated first with first-order conditional estimation with interaction (FOCEi); its empirical Bayes individual estimates, including the individual lag, drive the PD model. PD has random IC50 and, for turnover, random kout, with additive normalized-PCA error. This is **sequential conditional estimation**, not simultaneous PK/PD estimation. PD random effects may absorb PK estimation error. Subject resampling refits both stages, but does not remove this conditioning limitation or baseline-normalization bias.
 
-## What the fit and diagnostics show {#what-the-fit-and-diagnostics-show}
+## Results {#what-the-fit-and-diagnostics-show}
+
+### Fit and diagnostics {#revision-section-1}
 
 Typical constant-PK estimates were CL/F 0.134 L/h, V/F 8.03 L, ka 1.22 h⁻¹ and lag time 0.99 h. Turnover estimates were IC50 1.46 mg/L, Hill exponent 1.28 and kout 0.0495 h⁻¹, corresponding to a turnover half-life of 14.0 h. With γ fixed to one (version 1.1), IC50 was 1.18 mg/L and kout 0.0536 h⁻¹. In version 1.0 (no lag, γ = 1) the estimates were CL/F 0.134 L/h, V/F 7.84 L, ka 0.567 h⁻¹, IC50 1.15 mg/L and kout 0.0515 h⁻¹. These are conditional estimates from this implementation, not replacements for a clinically qualified model.
+
+Table 2 summarizes the comparison.
+
+<span id="table-2"></span>Table 2. Candidate-model AIC and optimization warnings
 
 | model | AIC | warning |
 | --- | --- | --- |
@@ -74,11 +82,15 @@ Variance shrinkage is high for the absorption rate (83%) and the lag time (85%),
 
 All 147 refits (folds, resamples and sensitivity runs) start from the same generic initial values. One bootstrap PK refit did not move from them and was excluded, so 59 of 60 planned subject-bootstrap sequences are used; 2 passed the explicit optimization-warning screen. Across them, γ ranged from 1.12 to 1.45 (2.5th to 97.5th percentile). Parameter variation from these finite fits is retained only as sensitivity.
 
-## Does limited PK information help a held-out subject? {#does-limited-pk-information-help-a-held-out-subject}
+### Held-out prediction {#does-limited-pk-information-help-a-held-out-subject}
 
 Five deterministic folds split **subjects**, not observations. Each fold reestimates PK and both PD structures without its held-out subjects, from generic initial values. Baseline PCA is available in every strategy. Population prediction uses typical constant PK and PD parameters; weight prediction uses the fitted allometric PK parameters and the same turnover structure reestimated after allometric PK. Neither uses test-subject postdose measurements. The direct-effect comparison belongs to the constant-PK sequence; no unestimated allometric direct-effect result is shown.
 
-PK-informed prediction estimates individual PK random effects (including the lag) by MAP using only actual concentration measurements at or before 24 or 48 h, with the fitted population prior and combined measurement error. It does not use future PK or any postbaseline PCA. Subsequent PCA is scored strictly after the cutoff. Prediction integrates the turnover equation using typical PD sensitivity, because this strategy has not measured individual PD sensitivity. It is a conditional point-prediction comparison, not a claim that the MAP estimate is known truth or a fully Bayesian predictive distribution.
+PK-informed prediction estimates individual PK random effects (including the lag) by maximum a posteriori estimation (MAP) using only actual concentration measurements at or before 24 or 48 h, with the fitted population prior and combined measurement error. It does not use future PK or any postbaseline PCA. Subsequent PCA is scored strictly after the cutoff. Prediction integrates the turnover equation using typical PD sensitivity, because this strategy has not measured individual PD sensitivity. It is a conditional point-prediction comparison, not a claim that the MAP estimate is known truth or a fully Bayesian predictive distribution.
+
+Table 3 summarizes the comparison.
+
+<span id="table-3"></span>Table 3. Held-out prediction after each cutoff
 
 | cutoff | strategy | subjects | RMSE | direct_RMSE | mean_PK_measurements |
 | --- | --- | --- | --- | --- | --- |
@@ -91,6 +103,10 @@ PK-informed prediction estimates individual PK random effects (including the lag
 
 Estimating γ did not improve held-out population prediction of the turnover model (24 h: 0.0827 vs 0.0807 with γ = 1; 48 h: 0.1016 vs 0.0987), although it improved the in-sample fit. It narrowed the gap of the direct model, which remains worse than turnover. Errors are normalized PCA units, computed by averaging squared error within each subject, then across subjects before taking the square root. Different cutoffs contain different future windows and must not be compared as if the scored outcomes were identical. “24 h” also does not mean one sample: the actual earlier sampling varies. The 48 h subset excludes the subject with no later PCA.
 
+Table 4 summarizes the comparison.
+
+<span id="table-4"></span>Table 4. Paired MSE difference: PK-informed minus population prediction
+
 | cutoff | subjects | mean_MSE_difference | low | high |
 | --- | --- | --- | --- | --- |
 | 24 | 30 | 0.0077 | 0.0003 | 0.0174 |
@@ -102,11 +118,15 @@ Negative MSE difference favors PK information. Both point estimates favor the po
 
 *Figure 3. Turnover-model RMSE and subject-bootstrap intervals. The direct model's errors are reported in the table. Population prediction is a typical-individual predictor, not integration over the full random-effect distribution.*
 
-## A paired dose experiment, with information available at the right time {#a-paired-dose-experiment-with-information-available-at-the-right-time}
+### Paired repeat-challenge sensitivity {#a-paired-dose-experiment-with-information-available-at-the-right-time}
 
 To examine the consequence for dose design, I simulated a **second single challenge after complete washout**, with invariant individual PK/PD parameters. A subject's noisy concentration at 24 h, or at both 24 and 48 h, comes from a preceding reference challenge of 1.5 mg/kg. This makes the information available before the hypothetical second dose. Applying the same postdose information to the already administered first dose would be impossible.
 
 The experiment uses 300 virtual subjects sharing the same random effects across strategies. Weight is sampled from the observed distribution. The comparator's fixed dose is calibrated to a typical individual's normalized PCA nadir of 0.25; weight scaling and PK-informed MAP estimates are alternatives. A separate oracle knows all true PK and PD parameters. It is an ideal upper bound, not a usable strategy. The acceptance band 0.20–0.30 is **an arbitrary algorithm test**, with no clinical therapeutic interpretation. Every strategy is constrained to the observed dose range of 60–153 mg.
+
+Table 5 summarizes the comparison.
+
+<span id="table-5"></span>Table 5. Paired virtual repeat-challenge outcomes
 
 | strategy | n | nadir_median | nadir_SD | target_fraction | dose_bound_fraction |
 | --- | --- | --- | --- | --- | --- |
@@ -124,6 +144,10 @@ In this simulation, PK-informed dosing increased attainment of the arbitrary ban
 
 A further 20 evenly selected finite subject-bootstrap parameter sets repeat the experiment in 150 paired virtual subjects each, with the same seeds. They include estimation variation and PK measurement noise, but remain warning-dependent sensitivity rather than a formal probability of clinical success. Changing from constant PK to fitted allometry also changes the relation between weight and exposure:
 
+Table 6 summarizes the comparison.
+
+<span id="table-6"></span>Table 6. Sensitivity to PK structure
+
 | PK_structure | strategy | target_fraction | nadir_SD | dose_bound_fraction |
 | --- | --- | --- | --- | --- |
 | constant | PK24 | 0.4800 | 0.0756 | 0.1867 |
@@ -139,9 +163,13 @@ A further 20 evenly selected finite subject-bootstrap parameter sets repeat the 
 
 A weight-based strategy cannot be judged solely under a truth model that assumes no weight effect. Both structures are therefore retained. For the allometric sensitivity, turnover PD was reestimated after allometric PK; this remains sequential conditional estimation, not a joint likelihood. There is no observed repeated challenge to validate parameter stability, washout, the counterfactual dose responses or absence of interoccasion variability. Dose bounds also limit what even the oracle can attain.
 
-## Numerical checks and uncertainty {#numerical-checks-and-uncertainty}
+### Numerical consistency and predictive checks {#numerical-checks-and-uncertainty}
 
 Independent Python concentration formulas (with the lag) and fine-grid turnover integration were checked against R's individual predictions:
+
+Table 7 summarizes the comparison.
+
+<span id="table-7"></span>Table 7. Independent numerical checks
 
 | check | max_absolute_error |
 | --- | --- |
@@ -155,9 +183,11 @@ Agreement verifies implementation, not biology or clinical validity. The in-samp
 
 *Figure 5. Pointwise predictive limits summarized across subjects, with normalized observations. The exact subject/time quantiles remain in the private analysis archive; aggregate review files accompany the article.*
 
-## Additional PK did not improve held-out PCA prediction {#what-can-be-concluded}
+## Discussion {#what-can-be-concluded}
 
 This measured-data example supports a limited methodological conclusion: representing effect delay matters, while additional PK measurements need not resolve response heterogeneity. The held-out comparison gives no evidence of improved PCA prediction from PK alone, with or without the absorption lag or an estimated Hill exponent. A better in-sample fit (the Hill exponent) also did not translate into better held-out prediction. It does not prove PK monitoring has no value in other settings.
+
+## Conclusion {#revision-section-2}
 
 PD sensitivity and baseline uncertainty remain incompletely resolved, and there is no independent cohort or repeat occasion. No comparison here justifies a patient dose, chronic regimen, INR target or bleeding-risk claim. The sequential likelihood and assay-error assumptions also limit quantitative qualification.
 
@@ -167,14 +197,13 @@ PD sensitivity and baseline uncertainty remain incompletely resolved, and there 
 
 **Version 1.1 (19 October 2026).** The PK model now includes an absorption lag time with between-subject variability. Version 1.0 had no lag; independent reanalyses of the same data supported adding one, and it lowered the PK objective function by about 198. Every refit (cross-validation folds, bootstrap resamples, sensitivity runs) now starts from generic initial values rather than the full-data estimates; in version 1.0, 20 of 67 PK refits had not moved from those estimates. The conclusions are unchanged in direction: limited PK still does not improve later PCA prediction, and now points slightly further towards worse prediction. The version 1.0 results are kept in the companion archive.
 
-## Sources and reproducibility {#sources-and-reproducibility}
-
-- [nlmixr2data warfarin reference](https://nlmixr2.github.io/nlmixr2data/reference/warfarin.html), pinned source commit `f2cfb01ade88d4d30e66f56b19efce2a2c6e26bd`; acquisition records distinguish documented and actual row counts.
-- [University of Auckland original and simulated datasets](https://holford.fmhs.auckland.ac.nz/research/nlmixr/), used to establish which file contains the original observations.
-- [O’Reilly, Aggeler and Leong, 1963](https://doi.org/10.1172/JCI104839), *Studies of the coumarin anticoagulant drugs: The pharmacodynamics of warfarin in man*. Historical provenance cited by the data distributor; record-level mapping to the original publications is unavailable.
-- [Wright, Winter and Duffull, 2011](https://doi.org/10.1111/j.1365-2125.2011.03925.x), *Understanding the time course of pharmacological effect: a PKPD approach*.
+## Data and code availability {#sources-and-reproducibility}
 
 See [the executed review notebook](shared/warfarin-pkpd/analysis.ipynb), [reproduction instructions](shared/warfarin-pkpd/README.md), and [the downloadable reproduction bundle](shared/warfarin-pkpd/warfarin-pkpd-companion.zip). The notebook executes aggregate checks and figure display; full estimation is a documented separate command, not silently rerun when opening the notebook. Individual observation files, fitted RDS objects and private planning materials are not distributed. The bundle also contains the version 1.0 and 1.1 scripts and aggregate results.
 
+## References {#revision-section-3}
 
-[Download the companion: code, aggregate results and executed notebook](shared/warfarin-pkpd/warfarin-pkpd-companion.zip)
+1. <span id="ref-1"></span>nlmixr2data developers. Warfarin PK/PD data [Dataset documentation]. nlmixr2data. Source commit f2cfb01ade88d4d30e66f56b19efce2a2c6e26bd. [Dataset reference](https://nlmixr2.github.io/nlmixr2data/reference/warfarin.html).
+2. <span id="ref-2"></span>Holford N. nlmixr: original and simulated warfarin datasets [Internet]. University of Auckland [cited 2026 Oct 27]. Available from: [Original and simulated datasets](https://holford.fmhs.auckland.ac.nz/research/nlmixr/).
+3. <span id="ref-3"></span>O’Reilly RA, Aggeler PM, Leong LS. Studies on the coumarin anticoagulant drugs: the pharmacodynamics of warfarin in man. J Clin Invest. 1963;42(10):1542–1551. [doi:10.1172/JCI104839](https://doi.org/10.1172/JCI104839).
+4. <span id="ref-4"></span>Wright DFB, Winter HR, Duffull SB. Understanding the time course of pharmacological effect: a PKPD approach. Br J Clin Pharmacol. 2011;71(6):815–823. [doi:10.1111/j.1365-2125.2011.03925.x](https://doi.org/10.1111/j.1365-2125.2011.03925.x).

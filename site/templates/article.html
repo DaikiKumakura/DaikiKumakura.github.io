@@ -5,7 +5,7 @@
 <nav class="crumbs meta" aria-label="Breadcrumb" lang="en"><a href="{{ root }}index.html">Home</a> › <a href="{{ root }}writing.html">Writing</a></nav>
 <h1>{{ title }}</h1>
 <p class="meta">{{ author }} · {{ date }} · {{ ui.categories[category] }}{% if version %} · {{ version }}{% endif %}</p>
-<p class="lead">{{ description }}</p>
+{% if not has_abstract %}<p class="lead">{{ description }}</p>{% endif %}
 {% if key_findings %}<section class="key-findings" aria-labelledby="key-findings"><h2 id="key-findings">{{ '要点' if lang == 'ja' else 'Key findings' }}</h2><ul>{% for k in key_findings %}<li>{{ k }}</li>{% endfor %}</ul></section>{% endif %}
 {% if english %}<section class="abstract" lang="en" aria-labelledby="english-summary"><h2 id="english-summary">Summary in English</h2><p><strong>{{ english.title }}</strong></p><p>{{ english.summary }}</p><p class="meta">The full article is in Japanese.</p></section>{% endif %}
 {% if draft %}<p class="notice">{{ ui.draft_notice }}</p>{% endif %}
@@ -14,6 +14,6 @@
 {% if toc %}<details><summary>{{ ui.toc }}</summary>{{ toc|safe }}</details>{% endif %}
 {{ body|safe }}
 <p><a href="{{ root }}writing.html">{{ ui.back }}</a></p>
-<section class="cite" lang="en" aria-labelledby="cite-this"{% if lang == 'ja' %} aria-label="この記事の引用"{% endif %}><h2 id="cite-this">Cite this article</h2>{% set citation_text, citation_url = cite.rsplit(' ', 1) %}<p>{{ citation_text }} <a href="{{ citation_url }}">{{ citation_url }}</a></p></section>
+<aside class="cite" lang="en" aria-labelledby="cite-this"><p id="cite-this">Cite this article</p>{% set citation_text, citation_url = cite.rsplit(' ', 1) %}<p>{{ citation_text }} <a href="{{ citation_url }}">{{ citation_url }}</a></p></aside>
 </article>
 {% endblock %}

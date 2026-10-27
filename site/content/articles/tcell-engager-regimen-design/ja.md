@@ -1,10 +1,16 @@
-タルラタマブの公開PopPKモデルを再現し、初期投与、有効性の曝露反応、CRSの発現時期、維持投与の曝露を分けて調べた。公開情報から比較しやすいのは、投与条件を変えたときのPKである。一方、有効性やCRSまで結び付けるには、使う曝露指標と観察期間が元の解析と一致しているかを確認する必要がある。
+## 要旨 {#revision-section-1}
+
+タルラタマブの公開母集団薬物動態（population pharmacokinetics、PopPK）モデルを再現し、初期投与、有効性の曝露反応、サイトカイン放出症候群（cytokine release syndrome、CRS）の発現時期、維持投与の曝露を分けて調べた。公開情報から比較しやすいのは、投与条件を変えたときのPKである。一方、有効性やCRSまで結び付けるには、使う曝露指標と観察期間が元の解析と一致しているかを確認する必要がある。
 
 本解析では、投与間隔を延ばし、投与量を比例して増やすと平均曝露は保存されるが、ピークとトラフは保存されなかった。この違いから、平均曝露を合わせるだけでは維持レジメンの同等性を判断できないことを示す。以下は公開資料を用いた研究・学習目的の再解析であり、治療や臨床試験の用量決定には使用しない。
 
-## 背景と問い {#_1}
+## 背景と目的 {#_1}
 
-タルラタマブはDLL3とCD3を標的とするT-cell engagerである。米国添付文書のレジメンは初回1 mg、Day 8とDay 15に10 mg、その後10 mgを2週ごと、各1時間の静脈内投与である[1]。初回のstep-upと、その後の維持投与では、考えるべき問いが異なる。
+タルラタマブはDLL3とCD3を標的とするT-cell engagerである。米国添付文書のレジメンは初回1 mg、Day 8とDay 15に10 mg、その後10 mgを2週ごと、各1時間の静脈内投与である ([1](#ref-1))。初回のstep-upと、その後の維持投与では、考えるべき問いが異なる。
+
+表1に解析の問いと範囲を示す。
+
+<span id="table-1"></span>表1．解析の問いと範囲
 
 | 問い（QOI） | 本解析で扱う指標 | 判断したい範囲 |
 | --- | --- | --- |
@@ -15,23 +21,27 @@
 
 解析の利用範囲（COU）は、タルラタマブの公開モデルを使ったレジメン間の曝露比較である。新しいDLL3標的薬へのmg用量の移植、患者のリスク予測、Q3W/Q4Wの有効性・安全性の保証は範囲外とする。
 
-## データと証拠の区分 {#_2}
+## 方法 {#_2}
+
+表2に使用資料と証拠の性質を示す。
+
+<span id="table-2"></span>表2．使用資料と証拠の性質
 
 | 資料 | 使用した情報 | 証拠の性質 |
 | --- | --- | --- |
-| FDA multidisciplinary review（2024）、Tables 66–67 | 2コンパートメントPK、IIV、固定効果の区間 | 公表されたモデル推定値[2] |
-| PopPK原著（2025） | 420例、8,509検体、モデルと共変量の位置付け | 患者データに基づく原著解析[3] |
-| [Exposure–response paper (2025)](https://pmc.ncbi.nlm.nih.gov/articles/PMC12616239/)・[FDA Table 71](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2024/761344Orig1s000MultidisciplineR.pdf) | Cycle 1 Cavgに対する有効性モデル | 公表された曝露反応推定[2,4] |
-| DeLLphi-301有害事象管理論文、Figure 2 | 133例の期間別CRS人数 | 公表された観察集計[5] |
-| 米国添付文書、Section 12.3、Table 17 | 平均濃度とCV%、投与条件 | モデルに基づく公表集約値[1] |
+| FDA multidisciplinary review（2024）、Tables 66–67 | 2コンパートメントPK、IIV、固定効果の区間 | 公表されたモデル推定値 ([2](#ref-2)) |
+| PopPK原著（2025） | 420例、8,509検体、モデルと共変量の位置付け | 患者データに基づく原著解析 ([3](#ref-3)) |
+| [Exposure–response paper (2025)](https://pmc.ncbi.nlm.nih.gov/articles/PMC12616239/)・[FDA Table 71](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2024/761344Orig1s000MultidisciplineR.pdf) | Cycle 1 Cavgに対する有効性モデル | 公表された曝露反応推定 ([2](#ref-2), [4](#ref-4)) |
+| DeLLphi-301有害事象管理論文、[原著Figure 2](https://pmc.ncbi.nlm.nih.gov/articles/PMC11775405/) | 133例の期間別CRS人数 | 公表された観察集計 ([5](#ref-5)) |
+| 米国添付文書、Section 12.3、Table 17 | 平均濃度とCV%、投与条件 | モデルに基づく公表集約値 ([1](#ref-1)) |
 
 患者ごとの濃度、実投与時刻、CRS発現時刻、前処置・腫瘍量との対応は取得していない。今回の5,000人はモデルの個体間変動から生成した**仮想被験者**であり、臨床データではない。また、公表モデルの再計算と、新しい患者データによるNLME推定は別の作業である。本解析では後者を行っていない。
 
 2026年10月3日に資料を確認した。添付文書の観察・管理条件は更新され得るため、過去の133例のCRS集計と現在の安全性集計を混ぜない。この記事は投与管理手順を説明するものではない。
 
-## 公開PopPKモデルの再現 {#poppk}
+### 公開PopPKモデルの再実装 {#poppk}
 
-### モデルと単位 {#_3}
+#### モデルと単位 {#_3}
 
 中心・末梢コンパートメントの薬物量を\(A_c,A_p\)（mg）とすると、
 
@@ -43,6 +53,10 @@
 
 濃度は\(C=A_c/V_c\)。時間はday、流量はL/dayとする。計算上のmg/Lを1,000倍してng/mLへ変換した。1時間の投与を瞬時のbolusとして扱わず、有限時間の定速入力として実装した。
 
+表3に公開モデルのパラメータを示す。
+
+<span id="table-3"></span>表3．公開モデルのパラメータ
+
 | パラメータ | 参照値 | 公表95% CI |
 | --- | ---: | ---: |
 | CL（L/day） | 0.649 | 0.616–0.682 |
@@ -53,7 +67,7 @@
 | Vcのη標準偏差 | 0.387 | 0.329–0.445 |
 | ηCLとηVcの相関 | 0.535 | 0.314–0.755 |
 
-出典はFDA Tables 66–67[2]。IIVの0.437と0.387は、同表の**標準偏差・相関表記**として使う。CVと解釈してlog-SDへ再変換しない。
+出典はFDA Tables 66–67 ([2](#ref-2))。IIVの0.437と0.387は、同表の**標準偏差・相関表記**として使う。CVと解釈してlog-SDへ再変換しない。
 
 \[
 CL_i=0.649\exp(\eta_{CL,i}),\quad
@@ -69,13 +83,27 @@ V_{c,i}=3.44\exp(\eta_{Vc,i}),\quad
 
 各仮想被験者にすべてのレジメンを与えるpaired比較とした。独立に生成した2集団を比較するより、個体間差とレジメンによる変化を区別できる。
 
-### 何を検証したか {#_4}
+#### 数値計算の確認 {#_4}
 
 解析解を行列指数関数による独立した解と照合し、単回投与の全AUCがDose/CLへ収束することを確認した。定常状態では\(C_{avg,ss}=Dose/(CL\tau)\)を使う。これらは実装の検証であり、臨床予測性能の検証を代替しない。
 
+## 結果 {#revision-section-2}
+
+### 公表曝露要約との照合 {#revision-section-3}
+
+図1に初期濃度推移を示す。
+
+図1に示す。
+
 ![公表PopPKから生成した初期濃度推移。帯は仮想被験者の5–95パーセンタイルであり、推定値の信頼区間ではない。](shared/tcell-engager-regimen-design/figures/01-pk.png)
 
+*図1．初期濃度推移。帯は仮想被験者の5–95パーセンタイルであり、推定値の信頼区間ではない。*
+
 表はng/mL。公表値は添付文書の**平均**、典型値はη=0、仮想平均は参照共変量固定の集団に対する算術平均である。
+
+表4に公表平均曝露との照合を示す。
+
+<span id="table-4"></span>表4．公表平均曝露との照合
 
 | 期間 | 指標 | 公表平均 | 典型値 | 仮想平均 |
 | --- | --- | ---: | ---: | ---: |
@@ -93,21 +121,29 @@ V_{c,i}=3.44\exp(\eta_{Vc,i}),\quad
 
 従って、実装は公開参照パラメータの計算として整合しているが、添付文書の集団曝露を完全再現したモデルとしては扱わない。以下では、主に**同一モデル・同一被験者内の相対変化**を比較する。絶対トラフの閾値判定には使わない。
 
-## 有効性の曝露反応をどう読むか {#_5}
+### 有効性の曝露反応 {#_5}
 
-公表解析は、用量そのものではなく、モデル推定されたCycle 1平均濃度を説明変数にしている[4]。
+公表解析は、用量そのものではなく、モデル推定されたCycle 1平均濃度を説明変数にしている ([4](#ref-4))。
 
 \[
 p(E)=\frac{E_{max}E}{EC_{50}+E},\qquad E=C_{avg,\mathrm{first\ cycle}}.
 \]
 
-出版社のSupplementary Table S1で正式な推定値を確認した[4]。ORRは\(E_{max}=0.339\)、\(EC_{50}=57.4\) ng/mL（95% CI 22.5–146）、DCRは\(E_{max}=0.650\)、\(EC_{50}=49.4\) ng/mL（95% CI 20.9–117）である。患者レベルデータなしに、新しいEmax推定を行うことはしない。
+出版社の[原著Supplementary Table S1](https://pmc.ncbi.nlm.nih.gov/articles/PMC12616239/)で正式な推定値を確認した ([4](#ref-4))。ORRは\(E_{max}=0.339\)、\(EC_{50}=57.4\) ng/mL（95% CI 22.5–146）、DCRは\(E_{max}=0.650\)、\(EC_{50}=49.4\) ng/mL（95% CI 20.9–117）である。患者レベルデータなしに、新しいEmax推定を行うことはしない。
+
+図2に示す。
 
 ![ORRとDCRの公表Emaxモデル。淡色はEC50の公表区間端点だけを動かした感度分析であり、信頼帯・予測帯ではない。](shared/tcell-engager-regimen-design/figures/04-efficacy.png)
 
+*図2．ORRとDCRの公表Emaxモデル。淡色はEC50の公表区間端点だけを動かした感度分析であり、信頼帯・予測帯ではない。*
+
 \(E_{90}=9EC_{50}=444.6\) ng/mLは、モデル最大値の90%に到達するCycle 1 Cavgである。DCRが90%になる濃度ではなく、同モデルでは\(0.9\times0.650=58.5\%\)に対応する。また、これを維持投与のCtrough閾値へ置き換える根拠はない。
 
-原著が報告した予測値を、今回の再計算値と区別して示す[4]。
+原著が報告した予測値を、今回の再計算値と区別して示す ([4](#ref-4))。
+
+表5に原著モデルによる用量別の予測を示す。
+
+<span id="table-5"></span>表5．原著モデルによる用量別の予測
 
 | 目標用量 Q2W | 公表予測ORR | 公表予測DCR |
 | --- | ---: | ---: |
@@ -121,9 +157,13 @@ ORRのEC50はFDAテキスト抽出では確認できなかったが、出版社�
 
 10 mg近傍で飽和が見られることは、より高い用量の追加利益が小さいという公表解析の解釈と整合する。しかし、同じCycle 1平均曝露を作る別スケジュールの同等性を実証してはいない。まして、別のDLL3標的薬は結合能、半減期、分布、作用構造が異なるため、この濃度やmg用量を直接移植できない。
 
-## CRSは「濃度が低ければ少ない」で整理できるか {#crs}
+### 観察期間別のCRS {#crs}
 
-DeLLphi-301の133例について、Figure 2の期間別集計を用いた[5]。all-grade CRSであり、grade ≥2や≥3と混同しない。区間は各期間に対するWilson 95%区間を再計算した。
+DeLLphi-301の133例について、[原著Figure 2](https://pmc.ncbi.nlm.nih.gov/articles/PMC11775405/)の期間別集計を用いた ([5](#ref-5))。all-grade CRSであり、grade ≥2や≥3と混同しない。区間は各期間に対するWilson 95%区間を再計算した。
+
+表6に観察期間別のCRS集計を示す。
+
+<span id="table-6"></span>表6．観察期間別のCRS集計
 
 | 観察期間 | CRS人数 / 133 | 割合 | Wilson 95%区間 |
 | --- | ---: | ---: | ---: |
@@ -131,15 +171,19 @@ DeLLphi-301の133例について、Figure 2の期間別集計を用いた[5]。a
 | C1D8–14 | 39 | 29.3% | 22.2–37.6% |
 | C1D15–28 | 10 | 7.5% | 4.1–13.3% |
 
+図3に示す。
+
 ![左は仮想被験者のピーク中央値、右は別の臨床集計のCRS割合とWilson区間。左右を患者ごとに対応付けた図ではない。](shared/tcell-engager-regimen-design/figures/02-crs.png)
+
+*図3．左は仮想被験者のピーク中央値、右は別の臨床集計のCRS割合とWilson区間。左右は患者ごとに対応付けたものではない。*
 
 参照モデルでは、初回1 mgから10 mgへ増量するとピークが増え、同じ10 mgの次投与でも残存薬物によってピークが増える。一方、臨床集計の期間別CRS割合は低下する。これは、投与全体を一つの単調増加する濃度–CRS関係だけで記述する前に、投与履歴と観察条件を検討する理由になる。
 
 ただし、**この逆方向の変化だけから生物学的適応を証明できない**。同じ患者が複数期間に含まれ、最後の期間は14日間で、最初の2期間の7日間と長さが異なる。各実投与のリスク集合、前処置、腫瘍量の変化、中止・遅延、CRS再発も患者ごとには分からない。
 
-したがって、3期間を独立した3群として差の有意性を計算せず、3点から耐性・適応パラメータを推定しない。54+39+10を「CRSを経験した患者数」として合計することもできない。Figure 2は期間別に記述するための集計であり、個人の次投与のCRS確率を与えるモデルではない。
+したがって、3期間を独立した3群として差の有意性を計算せず、3点から耐性・適応パラメータを推定しない。54+39+10を「CRSを経験した患者数」として合計することもできない。原著の[Figure 2](https://pmc.ncbi.nlm.nih.gov/articles/PMC11775405/)は期間別に記述するための集計であり、個人の次投与のCRS確率を与えるモデルではない。
 
-## 維持投与：同じ平均曝露でも波形は違う {#_6}
+### 維持投与の平均と波形 {#_6}
 
 比較対象は定常10 mg Q2W。仮想被験者ごとに同じCL・Vcを使い、次の4条件を比較した。
 
@@ -147,6 +191,10 @@ DeLLphi-301の133例について、Figure 2の期間別集計を用いた[5]。a
 - 15 mg Q3W、20 mg Q4W：単位時間当たり投与量を10 mg Q2Wに合わせる。
 
 これらは計算上の反実仮想であり、推奨レジメンではない。比は各被験者の指標を自身の10 mg Q2Wで割った後に集約する。
+
+表7に維持投与の患者内曝露比を示す。
+
+<span id="table-7"></span>表7．維持投与の患者内曝露比
 
 | 条件 | Cavg比 | Cmax比［5–95%］ | Ctrough比［5–95%］ |
 | --- | ---: | ---: | ---: |
@@ -156,34 +204,40 @@ DeLLphi-301の133例について、Figure 2の期間別集計を用いた[5]。a
 | 15 mg Q3W | 1.000 | 1.385［1.286–1.450］ | 0.778［0.651–0.870］ |
 | 20 mg Q4W | 1.000 | 1.776［1.579–1.905］ | 0.597［0.412–0.753］ |
 
+図4に示す。
+
 ![維持投与の患者内曝露比。点は中央値、線はIIVによる5–95パーセンタイル。固定効果推定値の信頼区間ではない。](shared/tcell-engager-regimen-design/figures/03-maintenance.png)
+
+*図4．維持投与の患者内曝露比。点は中央値、線は固定した個体間変動による5–95パーセンタイルであり、推定値の信頼区間ではない。*
 
 1回量を固定すると平均曝露とトラフは低下する。投与強度を合わせると、平均曝露はどのCLでも数学的に等しくなるが、ピークが上がり、トラフが下がる。Q4Wでは平均を保存しても、ピーク中央値は約1.78倍、トラフ中央値は約0.60倍となった。
 
 この結果は、平均曝露を一致させた比較が問いを狭めることを示す。有効性が平均曝露に関連するという結果と、低濃度期間が許容されるという結果は同じではない。安全性も、有効性と同じ曝露指標で判断できるとは限らない。
 
-### 個体間変動と推定不確実性を分ける {#_7}
+#### 個体間変動と推定不確実性 {#_7}
 
 上図の幅は固定したΩに基づくIIVであり、パラメータ推定の不確実性ではない。別にCL、Vc、Q、Vpの公表95% CI端点を組み合わせた16条件で比を再計算した。これはパラメータの同時分布を復元した信頼区間ではなく、端点の組合せによるストレステストである。
 
 公表固定効果の範囲を動かしても、投与強度一定なら平均が保存され、ピークが上がりトラフが下がるという方向は維持された。モデル構造を線形2コンパートメントとしたこと、時間変化するCLや免疫反応を含めていないことによる構造的不確実性は、この感度分析には含まれない。
 
-## 維持間隔の同等性には別の曝露指標が要る {#_9}
+## 考察 {#_9}
 
 公開PopPKを用いれば、個体間変動を含むレジメン内の曝露比較を再現可能な形で行える。ただし、公表集団の絶対曝露との不一致は残り、患者データに基づく新しいNLME推定を行ったことにはならない。
 
+## 結論 {#revision-section-4}
+
 今回の結果で最も直接的に支持されるのは、**投与強度を合わせても、曝露の波形は保存されない**という点である。有効性の飽和、投与ごとのCRS、維持投与の低濃度期間は、それぞれ異なる情報から評価する必要がある。維持間隔の同等性を判断するには、延長した間隔での曝露・有効性・安全性データが必要である。CRSの検討には、同じ患者の実投与・前処置・発現時刻を結び付けたデータを要する。
 
-## 再現方法 {#_10}
+## データとコードの公開状況 {#_10}
 
 [解析コード・入力集計・実行済みNotebook・結果表をダウンロード](shared/tcell-engager-regimen-design/tcell-engager-analysis.zip)。Python環境で `pip install -r requirements.txt` の後、`python analysis.py` を実行する。図は公表モデル・集計から独自作成した。Notebookは同じ解析を実行し、結果と図の出力を保存する。
 
-## 参考文献 {#_11}
+## 参照 {#_11}
 
-1. [IMDELLTRA prescribing information, DailyMed, Sections 2・12.3, Table 17](https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1e7b6163-5d83-42ea-82c9-cf7620cdc782). checked 2026-10-03.
-2. [FDA. Tarlatamab multidisciplinary review, 2024](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2024/761344Orig1s000MultidisciplineR.pdf). Tables 66–67 (printed pp. 294–295) and Table 71 (pp. 310–311).
-3. [Kong S, et al. Population Pharmacokinetics of Tarlatamab in Patients with Small Cell Lung Cancer. Clin Pharmacokinet. 2025;64:729–741](https://doi.org/10.1007/s40262-025-01499-z).
-4. [Chen PW, et al. Tarlatamab Exposure–Efficacy and Exposure–Safety Relationships to Inform Dose Selection in Patients with Small Cell Lung Cancer. Clin Cancer Res. 2025;31:4688–4697](https://pmc.ncbi.nlm.nih.gov/articles/PMC12616239/).
-5. [Practical management of adverse events in patients receiving tarlatamab, a delta-like ligand 3–targeted bispecific T-cell engager immunotherapy, for previously treated small cell lung cancer](https://pmc.ncbi.nlm.nih.gov/articles/PMC11775405/). Figure 2 and administration-management conditions.
+1. <span id="ref-1"></span>Amgen Inc. IMDELLTRA (tarlatamab-dlle) prescribing information [Internet]. DailyMed [cited 2026 Oct 3]. Sections 2 and 12.3, Table 17. [Product information](https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1e7b6163-5d83-42ea-82c9-cf7620cdc782).
+2. <span id="ref-2"></span>US Food and Drug Administration. Tarlatamab multidisciplinary review [Internet]. 2024. Tables 66–67, printed pp. 294–295; Table 71, pp. 310–311. [Review document](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2024/761344Orig1s000MultidisciplineR.pdf).
+3. <span id="ref-3"></span>Kong S, Minocha M, Chen PW, Martinez P, Anderson ES, Parkes A, et al. Population pharmacokinetics of tarlatamab, a half-life extended DLL3-directed bispecific T-cell engager in patients with previously treated small cell lung cancer. Clin Pharmacokinet. 2025;64(5):729–741. [doi:10.1007/s40262-025-01499-z](https://doi.org/10.1007/s40262-025-01499-z).
+4. <span id="ref-4"></span>Chen PW, Minocha M, Kong S, Jiang T, Anderson ES, Parkes A, et al. Tarlatamab exposure–efficacy and exposure–safety relationships to inform dose selection in patients with small cell lung cancer. Clin Cancer Res. 2025;31(22):4688–4697. [doi:10.1158/1078-0432.CCR-25-2134](https://doi.org/10.1158/1078-0432.CCR-25-2134). [Full text and supplementary materials](https://pmc.ncbi.nlm.nih.gov/articles/PMC12616239/).
+5. <span id="ref-5"></span>Sands JM, Champiat S, Hummel HD, Paulson KG, Borghaei H, Bustamante Alvarez J, et al. Practical management of adverse events in patients receiving tarlatamab, a delta-like ligand 3–targeted bispecific T-cell engager immunotherapy, for previously treated small cell lung cancer. Cancer. 2025;131(3):e35738. [doi:10.1002/cncr.35738](https://doi.org/10.1002/cncr.35738). [Full text, Figure 2](https://pmc.ncbi.nlm.nih.gov/articles/PMC11775405/).
 
 <span id="_8"></span>

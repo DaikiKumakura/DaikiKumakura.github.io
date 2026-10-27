@@ -1,16 +1,20 @@
+## Abstract {#revision-section-1}
+
 In a public subset of a colorectal-cancer trial, adding early tumor change modestly improved held-out discrimination. The uncertainty interval included no improvement, and calibration remained weak. The data therefore support a candidate for further study rather than a survival surrogate or treatment decision rule.
 
-日本語要約：早期腫瘍変化と、その後の生存との関連を、情報を利用できる時点をそろえて検証した。128人の16週landmark集団では検証時のC-indexが0.532から0.581へ上がったが、改善幅の区間はゼロを含んだ。腫瘍変化と生存が関連することと、臨床判断に使えることを区別する必要がある。
-
-## The question comes before the model {#the-question-comes-before-the-model}
+## Introduction {#the-question-comes-before-the-model}
 
 The question of interest was whether an early tumor measurement adds out-of-sample information about later overall survival beyond baseline clinical factors and tumor burden. The context of use is research prioritization: deciding whether early monitoring deserves further predictive study. This analysis does not assess treatment switching, dosing, causal mediation, or qualification of a treatment-effect surrogate.
 
 A tempting analysis uses each patient's smallest tumor measurement, wherever it occurred, to predict survival from treatment initiation. That analysis uses information that was unavailable at the prediction time. It also gives patients who survive longer more opportunities to have a response recorded. Here, the prediction time is explicitly fixed at week 16, and only earlier measurements enter the predictors.
 
-## Data and the audit that changed the analysis {#data-and-the-audit-that-changed-the-analysis}
+## Methods {#data-and-the-audit-that-changed-the-analysis}
 
-The `colorectal` and `colorectalLongi` datasets distributed in **frailtypack 3.8.1** contain a random subset of 150 participants from the FFCD 2000–05 trial, comparing sequential and combination chemotherapy for metastatic colorectal cancer. The source-specific description in Chiou et al. establishes the time unit as years and corroborates the stored age categories. This is a secondary analysis of the distributed subset, not a reanalysis of the entire randomized trial. [frailtypack documentation](https://search.r-project.org/CRAN/refmans/frailtypack/html/colorectalLongi.html), [Chiou et al., Journal of Statistical Software](https://doi.org/10.18637/jss.v105.i05).
+### Data and integrity checks {#revision-section-2}
+
+The `colorectal` and `colorectalLongi` datasets distributed in **frailtypack 3.8.1** contain a random subset of 150 participants from the FFCD 2000–05 trial, comparing sequential and combination chemotherapy for metastatic colorectal cancer. The source-specific description in Chiou et al. establishes the time unit as years and corroborates the stored age categories. This is a secondary analysis of the distributed subset, not a reanalysis of the entire randomized trial ([1](#ref-1), [2](#ref-2)).
+
+<span id="table-1"></span>Table 1. Data-integrity checks
 
 | Audit item | Finding and consequence |
 | --- | --- |
@@ -22,15 +26,15 @@ The `colorectal` and `colorectalLongi` datasets distributed in **frailtypack 3.8
 | Endpoint | Overall survival; new-lesion records are not a qualified PFS definition |
 | Age dictionary | Use stored <60, 60–69 and >69 years; preserve the discrepancy with the package help file |
 
-Neither the time inconsistency nor the age dictionary was silently corrected. A sensitivity analysis retained the affected participant after removing only the inconsistent measurement. Raw participant records are not included in the companion archive; the acquisition and export scripts retrieve the official distribution. A software-package license does not establish every underlying clinical-data right.
+Table 1 summarizes the integrity checks. Neither the time inconsistency nor the age dictionary was silently corrected. A sensitivity analysis retained the affected participant after removing only the inconsistent measurement. Raw participant records are not included in the companion archive; the acquisition and export scripts retrieve the official distribution. A software-package license does not establish every underlying clinical-data right.
 
-![Early sampling density limits individual kinetic modeling](shared/tumor-dynamics-survival/figures/early-sampling.png)
-
-## A conditional landmark estimand {#a-conditional-landmark-estimand}
+### Landmark definition and predictors {#a-conditional-landmark-estimand}
 
 The primary landmark was 16 weeks, converted using 52.1775 weeks per year. Eligibility required survival and observation beyond the landmark, a baseline tumor measurement, and at least one positive-time measurement on or before week 16. After the integrity exclusion, **128 participants with 101 subsequent deaths** entered the primary analysis. The target population is therefore the observed, landmark-eligible subset, not every randomized participant.
 
-Two Cox models used exactly the same participants:
+Two Cox models used exactly the same participants; fitting used the survival package ([3](#ref-3)). Table 2 lists their predictors:
+
+<span id="table-2"></span>Table 2. Predictors available at the landmark
 
 | Model | Predictors available by the landmark |
 | --- | --- |
@@ -41,13 +45,27 @@ The measurement time enters because a change observed early and a change observe
 
 The floor-censored last measurement occurred in one primary participant. A bounded sensitivity used the transformed nonnegative-size lower bound −1/0.3 and the documented rounded floor −3.33. It is an approximate sensitivity analysis, not a censored longitudinal likelihood. It also does not fully address floor censoring in every baseline or follow-up measurement. Tumor values are not interpreted as millimeters or RECIST percentage changes.
 
-## Validation instead of an in-sample association claim {#validation-instead-of-an-in-sample-association-claim}
+### Validation and uncertainty {#validation-instead-of-an-in-sample-association-claim}
 
 Five patient-separated folds were repeated ten times using a fixed seed. Each Cox model and its baseline hazard were estimated in the training fold. Test participants' later measurements never entered the predictors. Repeated held-out predictions were averaged per participant, yielding a cross-validated ensemble assessment rather than an estimate of the performance of one final deployed fit.
 
-Reported measures were concordance, one-year IPCW Brier score, and calibration. Training-fold censoring survival at one year was at least 0.963, exceeding the prespecified 0.20 support threshold. For the averaged-prediction assessment, censoring estimates were also averaged over repeats; this is an approximation to repeated cross-fitted IPCW evaluation. Paired bootstrap intervals resampled participants 1,000 times conditional on these predictions. They exclude uncertainty from refitting and are not prospective external-validation intervals.
+Reported measures were concordance, one-year inverse-probability-of-censoring-weighted (IPCW) Brier score, and calibration. Training-fold censoring survival at one year was at least 0.963, exceeding the prespecified 0.20 support threshold. For the averaged-prediction assessment, censoring estimates were also averaged over repeats; this is an approximation to repeated cross-fitted IPCW evaluation. Paired bootstrap intervals resampled participants 1,000 times conditional on these predictions. They exclude uncertainty from refitting and are not prospective external-validation intervals.
+
+## Results {#revision-section-3}
+
+### Sampling and held-out prediction {#revision-section-4}
+
+Figure 1 summarizes the early sampling density; Figures 2 and 3 show held-out performance and calibration. Table 3 gives the primary scores.
+
+![Early sampling density limits individual kinetic modeling](shared/tumor-dynamics-survival/figures/early-sampling.png)
+
+*Figure 1. Early tumor-sampling density in the public trial subset. Sparse individual measurements limit kinetic modeling. Original analysis.*
 
 ![Held-out discrimination and probability scoring](shared/tumor-dynamics-survival/figures/heldout-performance.png)
+
+*Figure 2. Patient-separated held-out concordance and one-year IPCW Brier score for the two models. Intervals are conditional on the averaged cross-validated predictions and exclude uncertainty from refitting. Original analysis.*
+
+<span id="table-3"></span>Table 3. Primary held-out performance
 
 | Primary result | Clinical | Clinical + early change |
 | --- | ---: | ---: |
@@ -59,9 +77,13 @@ The concordance difference was **+0.049**, with a conditional 95% interval of **
 
 ![Held-out probability calibration](shared/tumor-dynamics-survival/figures/heldout-calibration.png)
 
-The full-data extended model associated increasing transformed tumor burden with worse survival, but that association did not establish useful prediction. Schoenfeld-residual tests did not detect a global proportional-hazards departure (clinical p=0.58; extended p=0.76). These tests have limited power and do not certify the model.
+*Figure 3. Held-out calibration for subsequent survival in the landmark-eligible subset. Predictions were averaged across repeated patient-separated folds. Original analysis.*
 
-## Sensitivity changes the target population {#sensitivity-changes-the-target-population}
+The full-data extended model associated increasing transformed tumor burden with worse survival, but that association did not establish useful prediction. Schoenfeld-residual tests did not detect a global proportional-hazards departure (clinical p = 0.58; extended p = 0.76). These tests have limited power and do not certify the model.
+
+### Sensitivity analyses {#sensitivity-changes-the-target-population}
+
+<span id="table-4"></span>Table 4. Landmark and integrity sensitivity analyses
 
 | Landmark or integrity sensitivity | Participants / deaths | Clinical C | Extended C | Clinical Brier | Extended Brier |
 | --- | ---: | ---: | ---: | ---: | ---: |
@@ -70,23 +92,26 @@ The full-data extended model associated increasing transformed tumor burden with
 | Week 24 | 123 / 97 | 0.514 | 0.550 | 0.2479 | 0.2308 |
 | Week 16, retain participant but drop inconsistent row | 129 / 102 | 0.531 | 0.572 | 0.2542 | 0.2485 |
 
-Changing landmarks changes eligibility and the information available. The week-24 result is not evidence that waiting longer is a superior clinical policy. The floor-bound sensitivity used identical primary folds and changed the extended Brier score by less than 0.000001. That small difference concerns this particular bounded numerical assumption; it does not remove selection bias or validate the tumor scale.
+Table 4 compares the landmark and integrity sensitivities. Changing landmarks changes eligibility and the information available. The week-24 result is not evidence that waiting longer is a superior clinical policy. The floor-bound sensitivity used identical primary folds and changed the extended Brier score by less than 0.000001. That small difference concerns this particular bounded numerical assumption; it does not remove selection bias or validate the tumor scale.
 
-## Early change had limited predictive value {#what-the-analysis-supports}
+## Discussion {#what-the-analysis-supports}
 
 Early tumor change retained some association with subsequent survival and slightly improved held-out scores. The uncertainty and weak calibration prevent a stronger predictive claim. Sparse longitudinal observations and the observation process limit interpretation of fitted trajectories.
 
+## Conclusion {#revision-section-5}
+
+Early tumor change added only modest held-out information beyond the clinical model, with intervals that included no improvement and weak calibration. It does not support a survival surrogate or a treatment decision rule.
+
 The randomized origin does not make this landmark-selected secondary analysis a causal comparison of treatment strategies. Treatment effects on tumor change and survival are not sufficient to qualify a surrogate, and this dataset lacks the PK and dose histories needed for a dose–exposure–tumor–survival chain.
 
-## Reproduce the analysis {#reproduce-the-analysis}
+## Data and code availability {#reproduce-the-analysis}
+
+[Download code, aggregate results and executed notebook](shared/tumor-dynamics-survival/tumor-dynamics-survival-companion.zip).
 
 The companion contains acquisition scripts, R estimation code, aggregate tables, figures, and an executed notebook. It excludes participant-level CSVs and private planning documents. Run acquisition, R export, and `analyze.R` in that order. Numerical work used R 4.5.1 and survival 3.8-3. See [the companion instructions](shared/tumor-dynamics-survival/README.md).
 
-## Sources {#sources}
+## References {#sources}
 
-1. frailtypack 3.8.1, official CRAN distribution and [longitudinal dataset documentation](https://search.r-project.org/CRAN/refmans/frailtypack/html/colorectalLongi.html). Source archive SHA-256 and extracted-file hashes are recorded with the acquisition script.
-2. Chiou SH et al. *Regression Modeling for Recurrent Events Possibly with an Informative Terminal Event Using R Package reReg*. Journal of Statistical Software 105(5), 2023. [doi:10.18637/jss.v105.i05](https://doi.org/10.18637/jss.v105.i05). Used to reconcile source-specific units and cohort definitions.
-3. [survival package documentation](https://cran.r-project.org/package=survival), Cox regression, concordance and proportional-hazards diagnostics. Methods were implemented locally; this article reports secondary-analysis results, not findings attributed to the package authors.
-
-
-[Download code, aggregate results and executed notebook](shared/tumor-dynamics-survival/tumor-dynamics-survival-companion.zip)
+1. <span id="ref-1"></span>frailtypack developers. frailtypack [Software and dataset documentation]. Version 3.8.1. CRAN. [Longitudinal dataset documentation](https://search.r-project.org/CRAN/refmans/frailtypack/html/colorectalLongi.html). The acquired source archive and extracted files are identified by SHA-256 in the companion acquisition record.
+2. <span id="ref-2"></span>Chiou SH, Xu G, Yan J, Huang CY. Regression modeling for recurrent events possibly with an informative terminal event using R package reReg. J Stat Softw. 2023;105(5):1–34. [doi:10.18637/jss.v105.i05](https://doi.org/10.18637/jss.v105.i05).
+3. <span id="ref-3"></span>Therneau TM. survival: a package for survival analysis in R [Software]. Version 3.8-3. CRAN. [Package documentation](https://cran.r-project.org/package=survival).

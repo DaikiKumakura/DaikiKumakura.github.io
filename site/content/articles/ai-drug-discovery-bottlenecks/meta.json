@@ -10,12 +10,7 @@
   "locales": {
     "ja": {
       "title": "AI創薬のボトルネックはどこにあるか",
-      "summary": "AI創薬の実験接続、公開業績、臨床移行を点検し、実験量と開発判断に使える証拠を区別する。",
-      "key_findings": [
-        "実験サービスの売上増加だけでは、AIによる供給不足を立証できない。",
-        "候補の選別とプログラム数の変化によって、総実験数は増える場合も減る場合もある。",
-        "候補薬の臨床進展と、AIが臨床成功率を高めたという因果的証拠は区別する。"
-      ]
+      "summary": "AI創薬の実験接続、公開業績、臨床移行を点検し、実験量と開発判断に使える証拠を区別する。"
     },
     "en": {
       "title": "Where are the bottlenecks in AI-enabled drug discovery?",
@@ -29,6 +24,7 @@
     "summary": "A Japanese essay reviewing experimental workflows, industry disclosures and clinical progress. It distinguishes experimental throughput from evidence useful for development decisions; revenue growth and individual clinical advances do not establish an AI-driven supply shortage or a causal improvement in clinical success."
   },
   "reviewed": {
-    "en": "63c0442fddc18463c8a752733094cd65b96f01d77a513d8c609fd620ea810d0e"
-  }
+    "en": "b8fd1169a13d2731bc935223d3b482be5d997014fffeb148842370f3268e2ed4"
+  },
+  "updated": "2026-10-27"
 }
