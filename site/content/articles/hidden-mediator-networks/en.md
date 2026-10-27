@@ -197,4 +197,3 @@ The system is linear, with one mediator and a known periodic input x. Nonlineari
 14. Dai HI, Vugmeyster Y, Mangal N. Characterizing exposure-response relationship for therapeutic monoclonal antibodies in immuno-oncology and beyond: challenges, perspectives, and prospects. *Clinical Pharmacology & Therapeutics* 108, 1156–1170 (2020). [doi:10.1002/cpt.1953](https://doi.org/10.1002/cpt.1953)
 15. Minikel EV, et al. Refining the impact of genetic evidence on clinical success. *Nature* 629, 624–629 (2024). [doi:10.1038/s41586-024-07316-0](https://doi.org/10.1038/s41586-024-07316-0)
 16. VanderWeele TJ. Mediation analysis: a practitioner's guide. *Annual Review of Public Health* 37, 17–32 (2016). [doi:10.1146/annurev-publhealth-032315-021402](https://doi.org/10.1146/annurev-publhealth-032315-021402)
-

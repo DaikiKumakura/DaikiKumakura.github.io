@@ -201,4 +201,3 @@ Measurement SD, R0 and concentration profiles are known. Interindividual variabi
 17. U.S. FDA. [M15 General Principles for Model-Informed Drug Development, final guidance](https://www.fda.gov/regulatory-information/search-fda-guidance-documents/m15-general-principles-model-informed-drug-development) (2026-06-03).
 18. U.S. FDA. [Considerations for the Use of Artificial Intelligence to Support Regulatory Decision-Making for Drug and Biological Products, draft guidance](https://www.fda.gov/regulatory-information/search-fda-guidance-documents/considerations-use-artificial-intelligence-support-regulatory-decision-making-drug-and-biological) (2025-01).
 19. EMA, U.S. FDA. [Guiding principles of good AI practice in drug development](https://www.ema.europa.eu/en/documents/other/guiding-principles-good-ai-practice-drug-development_en.pdf) (2026-01). [EMA announcement](https://www.ema.europa.eu/en/news/ema-fda-set-common-principles-ai-medicine-development-0).
-
