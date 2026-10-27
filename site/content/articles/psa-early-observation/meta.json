@@ -17,6 +17,15 @@
         "The regrowth rate was weakly identified, with its population mean at the lower bound at every landmark, so no minimum observation period for a regrowth-based decision can be set from these data."
       ],
       "seo_title": "Does separating PSA decline and regrowth improve prediction?"
+    },
+    "ja": {
+      "title": "早期PSAの低下と再上昇を分ければ予測は良くなるか",
+      "summary": "公開PSA400人で低下・再上昇の階層モデルを直近値予測と比較し、早期予測誤差、再上昇速度の同定、治療継続者への選択を分けて検討する。",
+      "seo_title": "早期PSA予測と再上昇速度の同定"
     }
+  },
+  "updated": "2026-10-28",
+  "reviewed": {
+    "ja": "3dc0ffc98e207e30e7c53553245c8e396c84e0f26fce1d3bad99b196ed535923"
   }
 }

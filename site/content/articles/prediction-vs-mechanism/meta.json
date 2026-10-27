@@ -30,6 +30,7 @@
     "summary": "A Japanese essay distinguishing observational prediction, prediction under intervention and mechanistic claims, drawing on recent perturbation-prediction benchmarks and ICH M15. A reproducible synthetic indirect-response example shows that parameter sets compatible with the same data agree on a slowly varying regimen but diverge in the unobserved early hours, and that early sampling resolves the practical non-identifiability. It makes no claim about any real drug."
   },
   "reviewed": {
-    "en": "ea47a9589b57a9cf9e0f99353448097748eb18fcbbe4e6c61e1691183cdacec2"
-  }
+    "en": "d825e0ff11abcab049eee9c912e2ff2027526f2ad8067cd9fc1ff8eb9c2d05ab"
+  },
+  "updated": "2026-10-28"
 }

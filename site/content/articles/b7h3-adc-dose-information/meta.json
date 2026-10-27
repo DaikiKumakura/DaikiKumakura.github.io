@@ -18,6 +18,15 @@
       ],
       "seo_title": "Is another ifinatamab dose comparison informative?",
       "seo_description": "Public randomized B7-H3 ADC dose-cohort counts used to quantify the value of more data, decision uncertainty and sensitivity to unreported joint outcomes."
+    },
+    "ja": {
+      "title": "B7-H3 ADCの用量比較を追加する情報価値はどれだけあるか",
+      "summary": "IDeate-Lung01の公開用量群を用い、奏効・害の効用仮定と結合転帰・追跡条件が追加比較のEVSIへ与える影響を計算する。",
+      "seo_title": "B7-H3 ADCの追加用量比較と情報価値"
     }
+  },
+  "updated": "2026-10-28",
+  "reviewed": {
+    "ja": "4dfab310f219859e6af6a1c0fa96838c7fd799c6a8c08d0103f1ba141a11e32a"
   }
 }

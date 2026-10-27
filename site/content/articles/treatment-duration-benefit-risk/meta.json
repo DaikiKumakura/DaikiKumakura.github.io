@@ -17,6 +17,15 @@
         "Efficacy and toxicity come from different populations, so a joint 'disease-free without neuropathy' probability is not identified; non-inferiority is not the same as identical efficacy."
       ],
       "seo_title": "What can aggregate data show about treatment duration?"
+    },
+    "ja": {
+      "title": "治療期間を短くした便益と害は一つの数値にできるか",
+      "summary": "SCOT公開結果の有効性と神経毒性を、分母・区間・欠測を分けて再構築し、個人の便益・害を集約値から推定する限界を検討する。",
+      "seo_title": "治療期間短縮の便益と害をどう評価するか"
     }
+  },
+  "updated": "2026-10-28",
+  "reviewed": {
+    "ja": "317003eb084e9e2c881d836f23e972a6b46e66db8a69a1c20c022a608cfe79e6"
   }
 }
