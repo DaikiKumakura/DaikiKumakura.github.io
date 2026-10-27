@@ -18,6 +18,15 @@
       ],
       "seo_title": "How much does dropout change a tumor-shrinkage estimate?",
       "seo_description": "Most tumor-scan dropout was death. Mixed and joint models and delta adjustment: the 24-week arm difference held, the 48-week difference was fragile."
+    },
+    "ja": {
+      "title": "腫瘍縮小の群間差は脱落の仮定でどれだけ変わるか",
+      "summary": "公開大腸がん試験の腫瘍計測を用い、混合効果モデル、死亡とのjoint model、delta調整で縮小と群間差の仮定依存を検討する。",
+      "seo_title": "腫瘍縮小と群間差の脱落感度解析"
     }
+  },
+  "updated": "2026-10-28",
+  "reviewed": {
+    "ja": "47a9d7871a8142a9a61149d5873bac7193c295d1bef2738ae1be8763908a4aa7"
   }
 }

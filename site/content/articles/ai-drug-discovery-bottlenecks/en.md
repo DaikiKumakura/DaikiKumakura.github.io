@@ -6,6 +6,8 @@ Proposing many molecules does not make it possible to build and test all of them
 
 My view is that **the ability to turn experimental results into evidence for development decisions is becoming more important alongside the ability to generate candidates**. That is different from claiming an industry-wide shortage of experimental capacity. Publicly documented changes need to be separated from hypotheses about their consequences.
 
+<span id="scope-and-limitations"></span>
+
 ## Scope and sources {#revision-section-1}
 
 This essay draws across peer-reviewed papers and Perspectives, AI organizations' technical reports, life-science financial results and announcements, FDA and Federal Register materials, and reporting including Reuters. Searches were conducted on October 6, 2026. It is neither an exhaustive survey of news and social media nor an industry-wide statistical study or investment-return forecast.

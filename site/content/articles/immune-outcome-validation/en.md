@@ -1,30 +1,33 @@
+## Abstract {#article-abstract}
+
 A small immune-feature model improved discrimination relative to a weak clinical comparator, but it did not become a reliable response predictor in the external-source cohort. Its external AUC was **0.554 (95% interval 0.367–0.725)**, and calibration was poor. The two RNA scores carried information in development, but their probability predictions did not transport adequately to the external-source cohort.
 
-**日本語要約：** 個人別の公開RNA・臨床データから、ECOGと性別のモデルにTeff・間質の2指標を加えた。開発データの交差検証では識別性能が改善したが、外部データではAUC 0.554、応答11例に留まり、確率予測の校正も不十分だった。相対的な改善だけで実用性や治療効果予測を主張しない。
 
-## The question and its intended use {#the-question-and-its-intended-use}
+## Introduction {#the-question-and-its-intended-use}
 
 Does adding a T-effector score and a stromal score to minimal clinical information improve prediction of reported CR/PR in a second checkpoint-inhibitor-treated urothelial cancer cohort? This is a research exercise for deciding which biomarker hypotheses merit further work. It does not support treatment selection, an individual response estimate, causal treatment benefit, or a dose decision.
 
 The distinction between association and treatment-effect prediction is central. Both sources contain treated patients. There is no randomized untreated or alternative-treatment comparator here. A feature associated with outcome could reflect general prognosis, treatment sensitivity, selection into an RNA-assayed subset, or several mechanisms together.
 
-[Mariathasan et al. (2018)](https://doi.org/10.1038/nature25501) connected T-cell effector biology and stromal TGFβ signaling with outcomes under atezolizumab, including an immune-excluded context. Bulk stromal expression alone does not measure spatial T-cell exclusion. [Rose et al. (2021)](https://doi.org/10.1038/s41416-021-01488-6) reported a separate real-world urothelial cancer series. These are established published biological hypotheses and cohorts: the present work is a transparent reassessment, not a new discovery or prospective validation.
+Mariathasan and colleagues ([1](#ref-1)) connected T-cell effector biology and stromal TGFβ signaling with outcomes under atezolizumab, including an immune-excluded context. Bulk stromal expression alone does not measure spatial T-cell exclusion. Rose and colleagues ([2](#ref-2)) reported a separate real-world urothelial cancer series. These are established published biological hypotheses and cohorts: the present work is a transparent reassessment, not a new discovery or prospective validation.
 
-## Start with the patient and source audit {#start-with-the-patient-and-source-audit}
+## Methods {#start-with-the-patient-and-source-audit}
 
 The development bundle contains 348 RNA samples, representing 347 anonymized patients. One patient has two samples with consistent response and clinical labels; their TPM values were averaged. There are 298 response-evaluable patients, including 68 CR/PR responses. Unknown or NE response was excluded, rather than assigned nonresponse.
 
-For [GSE176307](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE176307), the published clinical series has 103 patients. The current processed matrix has 92 RNA columns. The sample key maps 90 columns to GEO samples and 89 unique patients; the two unmapped columns were excluded. One patient has two RNA measurements, averaged after confirming matching clinical fields. There are 88 response-evaluable RNA patients, but only 72 with the primary clinical predictors observed. This external analysis therefore includes 11 responses, not all patients in the reported series.
+For GSE176307 ([3](#ref-3)), the published clinical series has 103 patients. The current processed matrix has 92 RNA columns. The sample key maps 90 columns to GEO samples and 89 unique patients; the two unmapped columns were excluded. One patient has two RNA measurements, averaged after confirming matching clinical fields. There are 88 response-evaluable RNA patients, but only 72 with the primary clinical predictors observed. This external analysis therefore includes 11 responses, not all patients in the reported series.
 
 ![Patient accounting](shared/immune-outcome-validation/figures/cohort-flow.png)
 
-The original development distribution server did not respond during acquisition. I used a [pinned mirror of IMvigor210CoreBiologies](https://github.com/SiYangming/IMvigor210CoreBiologies/tree/26b8d2b9e6e91f7412646db111c9e567172ed87f), retaining the source URL, commit and SHA-256 of every downloaded file. Original bundle authors are Dorothee Nickles and Richard Bourgon. The mirror's license document states Creative Commons Attribution 3.0 Unported; [the original manuscript](https://pmc.ncbi.nlm.nih.gov/articles/PMC6028240/) also describes the processed bundle as freely available under a Creative Commons license. **The mirror was not byte-verified against the unavailable publisher server.** A checksum establishes which artifact was analyzed; it does not establish original-source authenticity.
+**Figure 1. Patient accounting.** The primary complete-case external analysis uses 72 patients with 11 responses; this is a subset of the published clinical series.
+
+The original development distribution server did not respond during acquisition. I used a pinned mirror of IMvigor210CoreBiologies ([4](#ref-4)), retaining the source URL, commit and SHA-256 of every downloaded file. Original bundle authors are Dorothee Nickles and Richard Bourgon. The mirror's license document states Creative Commons Attribution 3.0 Unported; the original manuscript ([1](#ref-1)) also describes the processed bundle as freely available under a Creative Commons license. **The mirror was not byte-verified against the unavailable publisher server.** A checksum establishes which artifact was analyzed; it does not establish original-source authenticity.
 
 GEO processed data were obtained directly from the NCBI FTP distribution. Availability is not a universal license for redistributing all underlying participant records. The companion release supplies acquisition instructions and aggregate results; it excludes patient-level clinical and RNA matrices. Source permissions and attribution must be reviewed before reuse in another context.
 
 The two studies provide different source cohorts, but their anonymized identifiers cannot prove that no patient appears in both. Individual biopsy timing is not adequately encoded in the joined metadata. Aggregate pretreatment descriptions should not be substituted for patient-level verification. OS and PFS fields exist, but a common endpoint, time-unit and censoring dictionary was not established in this audit; they were not analyzed. TMB was also withheld because targeted panels and measurement comparability were not harmonized.
 
-## Fix a minimal model before examining external performance {#fix-a-minimal-model-before-examining-external-performance}
+### Prespecified features and estimation {#fix-a-minimal-model-before-examining-external-performance}
 
 The [analysis plan](shared/immune-outcome-validation/analysis-plan.md) was written after reviewing data availability and response counts, before fitting or assessing external performance. This is not blinded or prospectively registered validation. RNA annotation availability in the external source was used to define the common gene universe; the evaluation is therefore not an untouched end-to-end validation of gene preprocessing.
 
@@ -41,11 +44,15 @@ The fitted probability is
 
 ![Logistic model and training-only standardization](shared/immune-outcome-validation/figures/model-equation.png)
 
+**Equation 1. Logistic model and training-only standardization.** Clinical predictors and the two RNA scores enter a ridge-penalized logistic model; scales are fitted within each training fold or on development data for final scoring.
+
 Estimation minimizes summed logistic negative log likelihood plus half the sum of squared non-intercept coefficients. The intercept is unpenalized, the ridge penalty is fixed at 1, and there is no hyperparameter search. This stabilizes a deliberately small model; it does not make its coefficients unbiased causal effects.
 
 Internal evaluation uses five patient-level stratified folds repeated ten times. Feature scaling and coefficient estimation occur within each training fold. Each patient's ten held-out probabilities are averaged. The resulting metrics describe aggregated repeated-CV predictions. Final coefficients and scales are then fitted on development only and saved in [a frozen model artifact](shared/immune-outcome-validation/results/model-frozen.json) before external scoring. Its hash is checked unchanged after evaluation. No validation-cohort centering, coefficient update, gene selection or cutoff optimization is applied.
 
-## Results: relative improvement is not adequate absolute performance {#results-relative-improvement-is-not-adequate-absolute-performance}
+## Results {#results-relative-improvement-is-not-adequate-absolute-performance}
+
+**Table 1. Discrimination and probability scores**
 
 | cohort | model | metric | value | lower | upper | n | events |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -66,7 +73,11 @@ Intervals are percentile intervals from 2,000 patient resamples. External interv
 
 ![Discrimination](shared/immune-outcome-validation/figures/discrimination.png)
 
-The clinical comparator has little useful discrimination in this dataset. Adding immune features improves repeated-CV AUC from 0.509 to 0.645. Externally, the apparent increase from 0.437 to 0.554 is real as a paired numerical contrast, but the augmented model's absolute AUC interval includes 0.5. Beating a weak comparator does not establish useful prediction.
+**Figure 2. Discrimination in development and external evaluation.** Repeated-CV predictions and the frozen external predictions are evaluated separately.
+
+The clinical comparator has little useful discrimination in this dataset. Adding immune features improves repeated-CV AUC from 0.509 to 0.645. Externally, the increase from 0.437 to 0.554 is an observed paired numerical contrast, but the augmented model's absolute AUC interval includes 0.5. Beating a weak comparator does not establish useful prediction.
+
+**Table 2. Paired differences between augmented and clinical models**
 
 | cohort | metric | delta | lower | upper | valid_bootstraps |
 | --- | --- | --- | --- | --- | --- |
@@ -81,7 +92,9 @@ Positive AUC differences favor the immune model; negative Brier and log-loss dif
 
 For scale, predicting the observed response fraction for everyone gives an in-sample constant-probability Brier score of approximately 0.176 in development and 0.129 externally. The external constant uses external outcomes, so it is an explanatory benchmark, not a deployable validation competitor. The augmented model's external Brier score is 0.135.
 
-## Calibration and population shift {#calibration-and-population-shift}
+### Calibration and population shift {#calibration-and-population-shift}
+
+**Table 3. External calibration diagnostics**
 
 | model | offset_intercept | joint_intercept | slope |
 | --- | --- | --- | --- |
@@ -92,7 +105,11 @@ The offset intercept fixes the slope at one and describes calibration-in-the-lar
 
 ![External calibration](shared/immune-outcome-validation/figures/calibration.png)
 
+**Figure 3. External calibration.** Development-prediction tertile boundaries are fixed; external observed response fractions have Wilson 95% intervals and group denominators.
+
 Bins use frozen development-prediction tertile boundaries. Points show external observed response fractions, with Wilson 95% intervals and denominators. They are descriptive and should not be used to choose a clinical cutoff.
+
+**Table 4. Cohort characteristics and RNA scores**
 
 | cohort | n | responders | response_fraction | ecog_ge1_fraction | male_fraction | Teff_mean | Stroma_mean |
 | --- | --- | --- | --- | --- | --- | --- | --- |
@@ -101,21 +118,32 @@ Bins use frozen development-prediction tertile boundaries. Points show external 
 
 ![RNA score shift](shared/immune-outcome-validation/figures/score-shift.png)
 
+**Figure 4. RNA-score distributions across sources.** Within-sample ranks do not remove differences in the Teff distribution.
+
 The Teff mean falls from 0.605 to 0.467 despite within-sample ranking. The external response fraction is lower, ECOG distribution and sex mix differ, and the real-world source includes several PD-1/PD-L1 agents rather than a single atezolizumab setting. The data cannot separate biological composition changes from assay or selection effects. Seventeen of the 89 external RNA patients lack ECOG; complete-case selection loses 16 response-evaluable patients and could bias performance. This is an unresolved transport problem, not a reason to recenter the external cohort until it looks like development.
 
 A prespecified liver-adjusted sensitivity was fitted on 271 development complete cases and applied unchanged to the 72 external cases. External AUC was 0.581, Brier 0.133 and log loss 0.435. This is descriptive, does not establish reliable calibration, and cannot be ranked as the preferred model using external performance. Development liver disease category and external cumulative liver-metastasis flags are not perfectly matched measurements.
 
-## External response prediction remains unreliable {#what-this-analysis-supportsand-what-it-does-not}
+## Discussion {#what-this-analysis-supportsand-what-it-does-not}
 
 The two immune features carry development-cohort response information beyond this minimal clinical comparator. Their fixed external predictions retain a small relative discrimination advantage, but remain weak in absolute terms, and probability-score gains are uncertain. Calibration, sample selection, assay transfer and patient-level provenance limit the interpretation.
 
 Specimen timing, response ascertainment, assay transfer and participant provenance remain limitations of this comparison. Recalibrating on the 11 external responses would use the validation outcomes and would no longer be an independent test.
 
+## Conclusion {#article-conclusion}
+
 This work can prioritize a biological hypothesis. It cannot establish a clinically useful biomarker, an individual's response probability, or who benefits from checkpoint inhibition.
 
-## Reproduce and review {#reproduce-and-review}
+## Data and code availability {#reproduce-and-review}
 
 The companion includes the fixed plan, source hashes, gene universe, extraction and analysis scripts, aggregate result tables, four analytical figures and a model equation, fitted coefficients, integrity checks and an executed review notebook. Patient-level observations are downloaded separately and are not bundled. See [README](shared/immune-outcome-validation/README.md) for versions, the extraction caveat and ordered commands. Full analysis is reproducible from pinned inputs; the notebook verifies the resulting artifacts and displays the results. 
 
 
 [Download the companion: code, aggregate results and executed notebook](shared/immune-outcome-validation/immune-outcome-validation-companion.zip)
+
+## References {#article-references}
+
+1. <span id="ref-1"></span>Mariathasan S, Turley SJ, Nickles D, Castiglioni A, Yuen K, Wang Y, et al. TGFβ attenuates tumour response to PD-L1 blockade by contributing to exclusion of T cells. Nature. 2018;554(7693):544–548. [doi:10.1038/nature25501](https://doi.org/10.1038/nature25501). [Open full text](https://pmc.ncbi.nlm.nih.gov/articles/PMC6028240/).
+2. <span id="ref-2"></span>Rose TL, Weir WH, Mayhew GM, Shibata Y, Eulitt P, Uronis JM, et al. Fibroblast growth factor receptor 3 alterations and response to immune checkpoint inhibition in metastatic urothelial cancer: a real world experience. British Journal of Cancer. 2021;125(9):1251–1260. [doi:10.1038/s41416-021-01488-6](https://doi.org/10.1038/s41416-021-01488-6).
+3. <span id="ref-3"></span>National Center for Biotechnology Information. Gene Expression Omnibus: GSE176307 [Dataset]. [Series record](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE176307). The analysis used the processed TPM distribution and associated sample metadata.
+4. <span id="ref-4"></span>Nickles D, Bourgon R. IMvigor210CoreBiologies [Dataset and software]. [Mirror pinned to commit 26b8d2b9e6e91f7412646db111c9e567172ed87f](https://github.com/SiYangming/IMvigor210CoreBiologies/tree/26b8d2b9e6e91f7412646db111c9e567172ed87f). Original bundle authors are credited here; the mirror was not byte-verified against the unavailable original distribution server. File hashes and source details are retained in the companion materials.

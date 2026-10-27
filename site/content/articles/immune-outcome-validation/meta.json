@@ -17,6 +17,15 @@
         "The two scores support a biological hypothesis worth further study, not a clinically useful biomarker, an individual response probability or a prediction of who benefits from checkpoint inhibition."
       ],
       "seo_title": "Do two immune scores improve response prediction?"
+    },
+    "ja": {
+      "title": "免疫RNAスコアは別の尿路上皮がん集団でも奏効予測を改善するか",
+      "summary": "公開尿路上皮がん集団のTeff・間質スコアを固定して外部検証し、識別性能、校正、欠測と移植可能性の限界を調べた。",
+      "seo_title": "免疫RNAスコアと尿路上皮がんの奏効予測"
     }
+  },
+  "updated": "2026-10-27",
+  "reviewed": {
+    "ja": "c336b42cdec4a001f85f14c1436887b8993a64e0cc2d865bd5dd0dea8b1f5df8"
   }
 }

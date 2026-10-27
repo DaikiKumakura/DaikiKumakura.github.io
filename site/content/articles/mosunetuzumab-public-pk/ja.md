@@ -30,6 +30,8 @@
 
 ## 方法 {#_2}
 
+<span id="_3"></span>
+
 ### 使用した資料 {#revision-section-1}
 
 構造モデルとNONMEMコード、ROの式はBenderらのPopPK論文と補足資料から取得した。最終推定値、個体間変動（interindividual variability、IIV）、CRS回帰式はLiらの曝露反応（exposure–response、E–R）論文の補足資料でも確認した ([2](#ref-2), [3](#ref-3))。
@@ -84,6 +86,8 @@ CL(t)=CL_{ss}+(CL_{base}-CL_{ss})\exp\left(-\frac{\ln 2}{HL_{trans}}t\right)
 固定効果は[原著補足資料のTable S3](https://ascpt.onlinelibrary.wiley.com/doi/suppl/10.1002/cpt.3445)の最終推定値を使用した ([3](#ref-3))。NONMEMコードの初期値を最終推定値として読み込まないようにした。
 
 このCLの減少は、元のPopPK解析の時間依存性を再現する経験的な表現である。今回の再実装では病態、腫瘍量や治療反応を時間とともに解く機構モデルにはしていない。したがって、変更レジメンでも同じ時間依存CLが成立するという仮定が含まれる。
+
+<span id="_4"></span>
 
 ### 共変量と仮想患者 {#revision-section-2}
 

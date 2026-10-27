@@ -1,18 +1,22 @@
+## Abstract {#article-abstract}
+
 Many dose-comparison trials state that they are not powered for hypothesis testing. Their results are still read as evidence for a dose decision. This article uses public data from a randomized comparison of 960 mg and 240 mg of the KRAS G12C inhibitor sotorasib to show which dose is supported as the trade-off weight between benefit and harm changes.
 
 Grade 3 or higher treatment-related adverse events (TRAEs) were about 16 percentage points more frequent at 960 mg, and this difference was robust to changes in the assumptions. The difference in response rate (about 8 points) had an interval that crossed zero. If one additional response and one additional severe toxicity are weighted about equally, the comparison favors 240 mg; only when severe toxicity is weighted quite lightly does it favor 960 mg. This conclusion, however, changes with what is counted as "harm", and overall survival (OS) retains a signal favoring 960 mg. **Arm-level public data alone cannot settle the dose; what this analysis can do is identify what is missing.**
 
-## Question and context of use {#question-and-context-of-use}
+## Introduction {#question-and-context-of-use}
 
 The Question of Interest (QoI) is: "From the arm-level results of CodeBreaK 100 Part B, how confidently can we say that 960 mg provides additional benefit that outweighs its additional harm relative to 240 mg, and how does the answer change with the weight?"
 
-The Context of Use (CoU) is limited to structuring the research question. The analysis shows the regions where the comparison favors 960 mg, favors 240 mg, or is indeterminate for each weight, and identifies the data needed next to move the decision. It is not used for a clinical dose recommendation or to re-evaluate a regulatory decision. Because it is not evidence that decides on its own, model influence is set as low.
+The Context of Use (CoU) is limited to structuring the research question. The analysis shows the regions where the comparison favors 960 mg, favors 240 mg, or is indeterminate for each weight, and examines the information gaps that constrain the decision. It is not used for a clinical dose recommendation or to re-evaluate a regulatory decision. Because it is not evidence that decides on its own, model influence is set as low.
 
-## Data {#data}
+## Methods {#data}
 
-The data come from CodeBreaK 100 phase 2 Part B (NCT03600883), an open-label trial in which 209 patients with previously treated KRAS G12C-mutated advanced non-small cell lung cancer were randomized to 960 mg or 240 mg once daily. The primary endpoints were objective response rate by blinded independent central review (BICR) and safety.[1, 2]
+The data come from CodeBreaK 100 phase 2 Part B (NCT03600883), an open-label trial in which 209 patients with previously treated KRAS G12C-mutated advanced non-small cell lung cancer were randomized to 960 mg or 240 mg once daily. The primary endpoints were objective response rate by blinded independent central review (BICR) and safety ([1](#ref-1), [2](#ref-2)).
 
-The numbers were taken from the sponsor's briefing document released for the October 2023 FDA Oncologic Drugs Advisory Committee (ODAC) and from the abstract of the publication.[1, 2] No patient-level data were used.
+The numbers were taken from the sponsor's briefing document released for the October 2023 FDA Oncologic Drugs Advisory Committee (ODAC), including [Tables 20 and 29](https://www.fda.gov/media/172698/download), and from the abstract of the publication ([1](#ref-1), [2](#ref-2)). No patient-level data were used.
+
+**Table 1. Arm-level efficacy and safety**
 
 | Endpoint | 960 mg | 240 mg | Data cutoff |
 | --- | ---: | ---: | --- |
@@ -26,11 +30,11 @@ The numbers were taken from the sponsor's briefing document released for the Oct
 Four features of the trial affect how these arm-level differences can be interpreted.
 
 - **Efficacy and safety come from different cutoffs.** Response rate is from June 2023 and safety from January 2023, so benefit and harm are not compared at the same time point.
-- **Dose reduction was not allowed in the 240 mg arm.** "Adverse events leading to dose reduction or interruption" therefore do not mean the same thing in the two arms and are not used here.[1]
-- **The exposure difference is much smaller than the dose difference.** The sponsor's document reports Cmax and AUC 22% higher at 960 mg, and the publication abstract reports 1.3-fold.[1, 2] The fourfold dose difference does not translate into a fourfold exposure difference.
-- **Disease burden and exposure are confounded.** Patients with more advanced disease were reported to have lower clearance, higher exposure and poorer response.[1] Individual exposure–response cannot be estimated from arm-level summaries.
+- **Dose reduction was not allowed in the 240 mg arm.** "Adverse events leading to dose reduction or interruption" therefore do not mean the same thing in the two arms and are not used here ([1](#ref-1)).
+- **The exposure difference is much smaller than the dose difference.** The sponsor's document reports Cmax and AUC 22% higher at 960 mg, and the publication abstract reports 1.3-fold ([1](#ref-1), [2](#ref-2)). The fourfold dose difference does not translate into a fourfold exposure difference.
+- **Disease burden and exposure are confounded.** Patients with more advanced disease were reported to have lower clearance, higher exposure and poorer response ([1](#ref-1)). Individual exposure–response cannot be estimated from arm-level summaries.
 
-## Methods {#methods}
+### Probability model and sensitivity analyses {#methods}
 
 For each arm, a uniform Beta(1, 1) prior and a binomial likelihood were placed on each proportion, and 200,000 samples were drawn from the posterior. The two main quantities are the differences:
 
@@ -47,7 +51,9 @@ $w$ expresses how many additional responses are required in exchange for one add
 
 The weights, thresholds and sensitivity conditions were fixed in an analysis plan before the differences and probabilities were computed. The sensitivity analyses varied the prior, the response-rate cutoff, the definition of harm, the within-arm correlation between response and toxicity, and the threshold. Because the joint distribution of response and toxicity in the same patients is not public, the correlation was treated as an assumption of ±0.3.
 
-PFS and OS have short follow-up and no power, so they are not included in $U(w)$; the reported HRs are shown as context.
+Posterior intervals for proportion differences were also compared with Newcombe intervals for independent proportions ([3](#ref-3)). OS probabilities use a normal approximation centered on the reported log HR, with standard error recovered from its reported 95% confidence interval. Interpreting this distribution as uncertainty about the HR requires that approximation; a frequentist confidence interval does not by itself supply a probability for the true HR. Required event counts use the Schoenfeld formula with two-sided alpha 0.05, 80% power, equal allocation and proportional hazards ([4](#ref-4)).
+
+Follow-up is limited and the trial was not powered for PFS or OS comparisons, so they are not included in $U(w)$; the reported HRs are shown as context.
 
 ## Results {#results}
 
@@ -83,22 +89,25 @@ The OS HR was 0.75 (95% CI 0.53 to 1.07). Read with a normal approximation on th
 
 This OS signal is not part of $U(w)$. If the OS difference is real, judging in favor of 240 mg from the trade-off between response rate and severe toxicity alone would be premature. Conversely, confirming the observed HR of 0.75 with 80% power would require about 380 events, roughly three times the 129 events at the reported cutoff.
 
-## Dose decision regions depend on the weight assigned to harm {#what-can-and-cannot-be-decided}
+## Discussion {#what-can-and-cannot-be-decided}
 
-**What can be decided:** 960 mg clearly increases Grade≥3 TRAEs. The response-rate difference favors 960 mg but is uncertain, and unless severe toxicity is weighted very lightly, the trade-off between response and severe toxicity alone does not support 960 mg.
+Grade≥3 TRAEs were more frequent at 960 mg, and the 95% posterior interval for the difference excluded zero. The response-rate difference favors 960 mg but is uncertain, and unless severe toxicity is weighted very lightly, the trade-off between response and severe toxicity alone does not support 960 mg.
 
-**What cannot be decided:** non-inferiority of 240 mg; a conclusion that does not depend on the definition of harm; whether there is an OS difference; individual exposure–response; the dose that should be used clinically.
+The analysis cannot establish non-inferiority of 240 mg, a conclusion independent of the harm definition, an OS difference, individual exposure–response, or the dose to use clinically.
 
 The OS follow-up scale of about 380 events is a conditional calculation, not an observed survival difference. The aggregate data do not identify within-patient response/harm dependence, actual intensity after dose changes, or the relationship between disease burden and exposure.
 
-## Reproducing the analysis {#reproducing-the-analysis}
+## Conclusion {#article-conclusion}
+
+Dose decision regions depend on the definition and weight of harm. The main analysis favored 240 mg when response and Grade≥3 TRAE were weighted similarly. Uncertainty about OS and within-patient benefit–harm dependence remains, so this does not establish a clinical dosing recommendation.
+
+## Data and code availability {#reproducing-the-analysis}
 
 The analysis code, the input table of arm-level numbers and the result tables are included in the [distribution files](shared/sotorasib-dose-comparison/sotorasib-analysis.zip). They run with Python 3.12, numpy, scipy, pandas and matplotlib. `python test_analysis.py` runs nine checks, `python analysis.py` produces the result tables, and `python figures.py` regenerates the figures. The random seed is fixed. The original PDFs are not redistributed; only the source URLs and the extracted number tables are included.
 
 ## References {#references}
 
-1. Amgen Inc. Sotorasib. Background Information for the Oncologic Drugs Advisory Committee, 05 October 2023 (FDA public document). https://www.fda.gov/media/172698/download (Section 5.2, Table 20, Section 6.2, Table 29, Section 7.2)
-2. Hochmair MJ, et al. Sotorasib (960 mg or 240 mg) once daily in patients with previously treated KRAS G12C-mutated advanced NSCLC. *Eur J Cancer*. 2024;208:114204. [doi:10.1016/j.ejca.2024.114204](https://doi.org/10.1016/j.ejca.2024.114204)
-3. U.S. FDA. FDA Briefing Document, Oncologic Drugs Advisory Committee Meeting, October 5, 2023, NDA 214665 s005. https://www.fda.gov/media/172696/download (postmarketing requirement for dose comparison)
-4. Newcombe RG. Interval estimation for the difference between independent proportions: comparison of eleven methods. *Stat Med*. 1998;17:873–890.
-5. Schoenfeld DA. Sample-size formula for the proportional-hazards regression model. *Biometrics*. 1983;39:499–503.
+1. <span id="ref-1"></span>Amgen Inc. Sotorasib: Background Information for the Oncologic Drugs Advisory Committee, 05 October 2023 [Internet; sponsor briefing document]. 2023 Sep 5. [Public FDA-hosted document](https://www.fda.gov/media/172698/download). Sections 5.2, 6.2 and 7.2; Tables 20 and 29.
+2. <span id="ref-2"></span>Hochmair MJ, Vermaelen K, Mountzios G, Carcereny E, Dooms C, Lee SH, et al. Sotorasib (960 mg or 240 mg) once daily in patients with previously treated KRAS G12C-mutated advanced NSCLC. Eur J Cancer. 2024;208:114204. [doi:10.1016/j.ejca.2024.114204](https://doi.org/10.1016/j.ejca.2024.114204). The abstract was used for this analysis.
+3. <span id="ref-3"></span>Newcombe RG. Interval estimation for the difference between independent proportions: comparison of eleven methods. Stat Med. 1998;17(8):873–890. [doi:10.1002/(SICI)1097-0258(19980430)17:8<873::AID-SIM779>3.0.CO;2-I](https://doi.org/10.1002/%28SICI%291097-0258%2819980430%2917%3A8%3C873%3A%3AAID-SIM779%3E3.0.CO%3B2-I).
+4. <span id="ref-4"></span>Schoenfeld DA. Sample-size formula for the proportional-hazards regression model. Biometrics. 1983;39(2):499–503. [doi:10.2307/2531021](https://doi.org/10.2307/2531021).

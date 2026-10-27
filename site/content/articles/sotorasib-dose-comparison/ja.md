@@ -1,18 +1,22 @@
+## 要旨 {#article-abstract}
+
 用量比較試験の多くは「仮説検定の検出力を持たない」と明記される。それでも、その結果は用量の判断材料として読まれる。本記事では、KRAS G12C阻害薬sotorasibの960 mgと240 mgを無作為に比べた公開データを使い、便益と害の交換比（重み）を変えたとき、どちらの用量が支持されるかを整理する。
 
 Grade 3以上の治療関連有害事象（TRAE）は960 mgで約16ポイント多く、この差は仮定を変えても頑健だった。一方、奏効率の差（約8ポイント）は区間が0をまたいだ。奏効1件の増加と重症毒性1件の増加を同じ重さで見るなら240 mg寄り、重症毒性をかなり軽く見る場合だけ960 mg寄りになる。ただし、この結論は「害」として何を数えるかで変わり、全生存期間（OS）には960 mg寄りの信号が残る。**群別の公開データだけでは用量を決められず、何が足りないかを特定するところまでが、この解析で言えることである。**
 
-## 問いと使用範囲 {#_1}
+## 背景と目的 {#_1}
 
-Question of Interest（QoI）は、「CodeBreaK 100 Part Bの群別結果から、960 mgが240 mgに対して、追加の害を上回る追加の便益をもたらすと、どの程度の確信で言えるか。その答えは重みによってどう変わるか」とする。
+解析の問い（question of interest、QoI）は、「CodeBreaK 100 Part Bの群別結果から、960 mgが240 mgに対して、追加の害を上回る追加の便益をもたらすと、どの程度の確信で言えるか。その答えは重みによってどう変わるか」とする。
 
-Context of Use（CoU）は研究上の論点整理に限る。重み別に「960 mg寄り／240 mg寄り／判定保留」の領域を示し、判定を動かすために次に必要なデータを特定する。臨床の用量推奨や、規制判断の再評価には用いない。単独で判断を決める証拠ではないため、モデルの影響度は低いと置く。
+利用範囲（context of use、CoU）は研究上の論点整理に限る。重み別に「960 mg寄り／240 mg寄り／判定保留」の領域を示し、判定を制約する情報の不足を検討する。臨床の用量推奨や、規制判断の再評価には用いない。単独で判断を決める証拠ではないため、モデルの影響度は低いと置く。
 
-## 使用したデータ {#_2}
+## 方法 {#_2}
 
-対象はCodeBreaK 100 phase 2 Part B（NCT03600883）である。前治療歴のあるKRAS G12C変異進行非小細胞肺癌の患者209人を、960 mgと240 mgの1日1回投与に無作為に割り付けた非盲検試験で、主要評価項目は独立中央判定（BICR）による奏効率と安全性だった。[1, 2]
+対象はCodeBreaK 100 phase 2 Part B（NCT03600883）である。前治療歴のあるKRAS G12C変異進行非小細胞肺癌の患者209人を、960 mgと240 mgの1日1回投与に無作為に割り付けた非盲検試験で、主要評価項目は独立中央判定（BICR）による奏効率と安全性だった ([1](#ref-1), [2](#ref-2))。
 
-数値は、2023年10月のFDA諮問委員会（ODAC）で公開された申請者資料と、論文の抄録から取った。[1, 2] 患者別データは使っていない。
+数値は、2023年10月のFDA諮問委員会（ODAC）で公開された申請者資料と、論文の抄録から取った ([1](#ref-1), [2](#ref-2))。 患者別データは使っていない。
+
+**表1　群別の有効性と安全性**
 
 | 評価項目 | 960 mg | 240 mg | データカットオフ |
 | --- | ---: | ---: | --- |
@@ -26,11 +30,11 @@ Context of Use（CoU）は研究上の論点整理に限る。重み別に「960
 群間差を読む前に、次の4点を確認する。
 
 - **有効性と安全性の時点が違う。** 奏効率は2023年6月、安全性は2023年1月の値である。同じ時点の便益と害の比較ではない。
-- **240 mg群では減量が許されていなかった。** そのため「減量・休薬に至った有害事象」は2群で同じ意味を持たず、本記事では使わない。[1]
-- **曝露の差は用量の差よりずっと小さい。** 申請者資料はCmaxとAUCが960 mgで22%高いと記載し、論文抄録は1.3倍と記載している。[1, 2] 4倍の用量差がそのまま曝露差になっていない。
-- **病勢と曝露が交絡している。** 病勢が進んだ患者ほどクリアランスが低く曝露が高く、かつ反応が悪いと報告されている。[1] 群別の集計値から、個人の曝露–反応は推定できない。
+- **240 mg群では減量が許されていなかった。** そのため「減量・休薬に至った有害事象」は2群で同じ意味を持たず、本記事では使わない ([1](#ref-1))。
+- **曝露の差は用量の差よりずっと小さい。** 申請者資料はCmaxとAUCが960 mgで22%高いと記載し、論文抄録は1.3倍と記載している ([1](#ref-1), [2](#ref-2))。 4倍の用量差がそのまま曝露差になっていない。
+- **病勢と曝露が交絡している。** 病勢が進んだ患者ほどクリアランスが低く曝露が高く、かつ反応が悪いと報告されている ([1](#ref-1))。 群別の集計値から、個人の曝露–反応は推定できない。
 
-## 方法 {#_3}
+### 確率モデルと感度解析 {#_3}
 
 各群の割合に一様事前分布Beta(1, 1)と二項尤度を置き、事後分布から20万サンプルを引いた。主要な指標は次の2つの差である。
 
@@ -46,6 +50,8 @@ $$
 $w$ は「重症毒性を1件増やす代わりに、奏効の増加を何件求めるか」を表す。$P(U(w) > 0) \ge 0.80$ なら960 mg寄り、$\le 0.20$ なら240 mg寄り、その間は判定保留とした。閾値0.80は慣例的な値で、最適値ではない。
 
 重み、閾値、感度解析の条件は、差や確率を計算する前に解析計画として固定した。感度解析では、事前分布、奏効率の時点、害の定義、群内での奏効と毒性の相関、閾値を変えた。同じ患者の奏効と毒性の結合は公開されていないので、相関は±0.3の仮定として扱った。
+
+割合差の事後区間は、独立した割合差のNewcombe区間とも比較した ([3](#ref-3))。OSについては、公表HRの対数を中心とし、公表95%信頼区間から標準誤差を求めた正規分布で確率を近似した。この分布をHRの不確実性として読むための近似であり、頻度論の信頼区間だけから自動的に真のHRの確率が得られるわけではない。必要イベント数はSchoenfeldの式を用い、両側有意水準0.05、検出力80%、等割付、比例ハザードを仮定した ([4](#ref-4))。
 
 PFSとOSは追跡が短く、検出力もないため、$U(w)$ には入れず、報告されたHRを文脈として示す。
 
@@ -83,22 +89,25 @@ OSのHRは0.75（95% CI 0.53〜1.07）だった。対数スケールの正規近
 
 このOSの信号は$U(w)$に入っていない。もしOSの差が本物なら、奏効率と重症毒性の交換だけで240 mg寄りと判定するのは早すぎる。逆に、観測されたHR 0.75を検出力80%で確かめるには約380イベントが必要で、報告時点の129イベントの約3倍にあたる。
 
-## 用量の判定領域は害の重みに依存する {#_8}
+## 考察 {#_8}
 
-**判断できること：** 960 mgはGrade≥3 TRAEを確実に増やす。奏効率の差は960 mg寄りだが不確かで、重症毒性を非常に軽く見る立場でなければ、奏効と重症毒性の交換だけから960 mgを支持できない。
+Grade≥3 TRAEの割合は960 mgで高く、差の95%事後区間は0を含まなかった。奏効率の差は960 mg寄りだが不確かで、重症毒性を非常に軽く見る立場でなければ、奏効と重症毒性の交換だけから960 mgを支持できない。
 
-**判断できないこと：** 240 mgの非劣性。害の定義に依らない結論。OSの差の有無。個人の曝露–反応。臨床で使うべき用量。
+一方、240 mgの非劣性、害の定義によらない結論、OSの差の有無、個人の曝露–反応、臨床で使うべき用量は、この解析から判断できない。
 
 約380イベントというOS追跡規模は仮定に基づく計算であり、OS差を検出した結果ではない。同じ患者での奏効と毒性、減量・休薬後の投与強度、病勢と曝露の対応は今回の集計から特定できない。
 
-## 再実行 {#_9}
+## 結論 {#article-conclusion}
+
+用量の判定領域は害の定義と重みに依存する。奏効とGrade≥3 TRAEを同程度に重くみる主解析は240 mg寄りだったが、OSの不確実性と患者単位の便益・害の対応が残り、臨床用量を確定する結論には至らない。
+
+## データとコードの公開状況 {#_9}
 
 解析コード、入力の群別数値表、結果表は[配布資料](shared/sotorasib-dose-comparison/sotorasib-analysis.zip)に含めた。Python 3.12、numpy、scipy、pandas、matplotlibで実行できる。`python test_analysis.py` で9件の検査、`python analysis.py` で結果表、`python figures.py` で図を再生成する。乱数seedは固定してある。元のPDFは再配布せず、出典URLと抽出した数値表だけを含めた。
 
-## 出典 {#_10}
+## 参照 {#_10}
 
-1. Amgen Inc. Sotorasib. Background Information for the Oncologic Drugs Advisory Committee, 05 October 2023 (public FDA materials). https://www.fda.gov/media/172698/download  (Section 5.2, Table 20, Section 6.2, Table 29 and Section 7.2)
-2. Hochmair MJ, et al. Sotorasib (960 mg or 240 mg) once daily in patients with previously treated KRAS G12C-mutated advanced NSCLC. *Eur J Cancer*. 2024;208:114204. [doi:10.1016/j.ejca.2024.114204](https://doi.org/10.1016/j.ejca.2024.114204)
-3. U.S. FDA. FDA Briefing Document, Oncologic Drugs Advisory Committee Meeting, October 5, 2023, NDA 214665 s005. https://www.fda.gov/media/172696/download  (postmarketing dose-comparison requirement)
-4. Newcombe RG. Interval estimation for the difference between independent proportions: comparison of eleven methods. *Stat Med*. 1998;17:873–890.
-5. Schoenfeld DA. Sample-size formula for the proportional-hazards regression model. *Biometrics*. 1983;39:499–503.
+1. <span id="ref-1"></span>Amgen Inc. Sotorasib: Background Information for the Oncologic Drugs Advisory Committee, 05 October 2023 [Internet; sponsor briefing document]. 2023 Sep 5. [Public FDA-hosted document](https://www.fda.gov/media/172698/download). Sections 5.2, 6.2 and 7.2; Tables 20 and 29.
+2. <span id="ref-2"></span>Hochmair MJ, Vermaelen K, Mountzios G, Carcereny E, Dooms C, Lee SH, et al. Sotorasib (960 mg or 240 mg) once daily in patients with previously treated KRAS G12C-mutated advanced NSCLC. Eur J Cancer. 2024;208:114204. [doi:10.1016/j.ejca.2024.114204](https://doi.org/10.1016/j.ejca.2024.114204). The abstract was used for this analysis.
+3. <span id="ref-3"></span>Newcombe RG. Interval estimation for the difference between independent proportions: comparison of eleven methods. Stat Med. 1998;17(8):873–890. [doi:10.1002/(SICI)1097-0258(19980430)17:8<873::AID-SIM779>3.0.CO;2-I](https://doi.org/10.1002/%28SICI%291097-0258%2819980430%2917%3A8%3C873%3A%3AAID-SIM779%3E3.0.CO%3B2-I).
+4. <span id="ref-4"></span>Schoenfeld DA. Sample-size formula for the proportional-hazards regression model. Biometrics. 1983;39(2):499–503. [doi:10.2307/2531021](https://doi.org/10.2307/2531021).

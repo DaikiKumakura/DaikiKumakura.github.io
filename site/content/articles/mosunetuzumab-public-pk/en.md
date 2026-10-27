@@ -30,6 +30,8 @@ The **context of use (COU)** is reimplementation of a public model and regimen c
 
 ## Methods {#public-information-and-reimplementation-of-the-model}
 
+<span id="sources-used"></span>
+
 ### Sources used {#revision-section-1}
 
 The structural model, NONMEM code and RO equation were taken from the PopPK paper by Bender et al. and its supplement. The final estimates, interindividual variability (IIV) and the CRS regression were also checked in the supplement of the exposure–response (E–R) paper by Li et al. ([2](#ref-2), [3](#ref-3)).
@@ -45,6 +47,8 @@ Table 2 summarizes these quantities and conditions.
 | LUNSUMIO intravenous product information | Dosing days, infusion durations, exposure values by cycle | Dosage and Administration, Clinical Pharmacology |
 
 The supplements were obtained from the Europe PMC open archive. What is published here are original figures, calculation code and results, not reproductions of figures or tables from the papers. The sources and the SHA-256 of each file are recorded in the [source manifest](shared/mosunetuzumab-public-pk/results/source_manifest.json).
+
+<span id="a-two-compartment-model-with-time-varying-clearance"></span>
 
 ### A two-compartment model with time-varying clearance {#revision-section-2}
 
@@ -84,6 +88,8 @@ Table 3 summarizes these quantities and conditions.
 The fixed effects are the final estimates in [Table S3 of the E–R supplement](https://ascpt.onlinelibrary.wiley.com/doi/suppl/10.1002/cpt.3445) ([3](#ref-3)). Care was taken not to read the initial values in the NONMEM code as final estimates.
 
 This decrease in CL is an empirical representation that reproduces the time dependence in the original PopPK analysis. In this reimplementation it is not a mechanistic model that solves disease state, tumor burden or treatment response over time. An assumption is therefore included that the same time-dependent CL holds for modified regimens.
+
+<span id="covariates-and-virtual-patients"></span>
 
 ### Covariates and virtual patients {#revision-section-3}
 
