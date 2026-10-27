@@ -12,10 +12,19 @@
       "title": "平均は合った。でも細胞の分布は違った。最適輸送で応答を読む",
       "summary": "公開4iデータの3薬剤・pERKを使い、平均予測と分位点写像を比較する。分布の距離と高値側割合、セル分割の限界、分布が一致しても細胞の履歴が決まらない理由を検証する。",
       "seo_title": "平均は合った。でも細胞の分布は違った。最適輸送で応答を読む"
+    },
+    "en": {
+      "title": "Matching a mean does not determine a cell population: a transport diagnostic",
+      "summary": "A one-marker, known-condition diagnostic on public 4i data compares mean-based predictions and a quantile map. Distributional agreement is separated from lineage identification, biological replication and resistance. No CellOT or CMonge model was trained.",
+      "seo_title": "Cell response distributions and optimal transport",
+      "seo_description": "A public 4i diagnostic compares means, quantile maps and pERK tails. Distributional agreement does not identify individual-cell histories or resistance."
     }
   },
   "english": {
     "title": "Matching a mean does not determine a cell population: a transport diagnostic",
     "summary": "A one-marker, known-condition diagnostic on public 4i data compares mean-based predictions and a quantile map. Distributional agreement is separated from lineage identification, biological replication and resistance. No CellOT or CMonge model was trained."
+  },
+  "reviewed": {
+    "en": "777e7e1d3cd53b11fe284abbc493e701a44dae870bdaf5f092c6efc406158853"
   }
 }

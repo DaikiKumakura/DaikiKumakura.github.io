@@ -1,6 +1,14 @@
+## 要旨 {#article-abstract}
+
+公開4i画像データの3薬剤・pERK一マーカーで、平均に基づく予測と1次元分位点写像を比較した。平均誤差が小さくても分布の距離は残り、分位点写像で距離が小さくなっても高値側割合は完全には一致しなかった。投与後の学習セルを使う既知条件内の評価であり、未知薬剤への予測検証ではない。別の数理例から、周辺分布の一致だけでは細胞ごとの履歴を識別できないことも示す。
+
+## 背景と目的 {#article-introduction}
+
 薬剤を加えた細胞の平均値を予測できた。しかし、一部の細胞だけが高い値を保つのか、全体が同じように変わるのかは、平均だけでは分からない。
 
 細胞応答の予測を、遺伝子やタンパク質の平均から、細胞集団の分布へ広げる方法の一つが最適輸送である。私は、その価値を「平均では見えない違いを、何で確かめるか」という問いから考えたい。
+
+## 対象と確認範囲 {#article-scope}
 
 この記事では、公開4iデータの3薬剤について、タンパク質のリン酸化マーカーpERKの分布を使った小さな検証を行う。4iはRNA測定ではなく、画像による多項目のタンパク質測定である。pERKはERKのリン酸化状態を表すマーカーである。CMongeやCellOTの再学習ではなく、1次元の分位点写像と単純な対照を自作して比較した。文献・データ確認日：2026年10月12日。
 
@@ -8,19 +16,23 @@
 
 single-cell RNA-seqなどでは、測定時に細胞を壊すため、介入前と介入後の同じ細胞を通常は一対一で測れない。得られるのは、対照と投与後の別々の細胞集団である。
 
-CellOTは、この対応のない分布の間に、変化のコストを小さくする写像を学ぶ。CMongeは、薬剤や用量などの条件を与えて写像を学ぶ枠組みへ拡張する。個別条件の分布を扱うことと、未測定条件へ予測することは、検証を分ける必要がある。[CellOT Original paper](https://www.nature.com/articles/s41592-023-01969-x)、[CMonge Original paper](https://www.nature.com/articles/s42256-026-01242-8)
+CellOTは、この対応のない分布の間に、変化のコストを小さくする写像を学ぶ。CMongeは、薬剤や用量などの条件を与えて写像を学ぶ枠組みへ拡張する。個別条件の分布を扱うことと、未測定条件へ予測することは、検証を分ける必要がある。[CellOT原著](https://www.nature.com/articles/s41592-023-01969-x) ([1](#ref-1))、[CMonge原著](https://www.nature.com/articles/s42256-026-01242-8) ([2](#ref-2))
 
 最適輸送の「輸送」は、細胞を物理的に動かす意味ではない。発現やマーカー値の空間で、対照の状態を投与後の状態へ対応させる計算である。どの変化を近いと扱うかは、距離、スケール、使う特徴に依存する。
 
 ここで二つの問いを分けたい。予測した細胞集団が、実測集団の分布に近いか。さらに、ある細胞が実際にその状態へ変わったか。対応のない測定から、前者を確かめることはできても、後者をそのまま検証したことにはならない。
 
-## 4iのpERKだけで平均と分布を比べる {#4iperk}
+## 方法 {#article-methods}
 
-解析対象は8時間の前処理済み4iファイルの、対照、trametinib、dabrafenib、everolimusである。3薬剤はCellOTのExtended Data Fig. 2で細胞応答の写像を示した例に合わせて選んだ。`intensity-cell-pERK-mean`という一つの特徴を使う。この名前のmeanは、画像内で一細胞の強度を集計した平均であり、この記事が比較する集団平均とは別である。
+### 解析対象とセル分割 {#4iperk}
 
-原配布先は[ETH data record](https://doi.org/10.3929/ethz-b-000609681)である。取得時にダウンロードが応答制限を返したため、別の最適輸送研究の[4i files distributed through the official benchmark](https://github.com/ngushchin/EntropicOTBenchmark/tree/db2a4d0888e593659786fa27785c2fe1c82678fc/benchmark_construction_examples/single_cell_drugs/4i)を使用した。取得版とSHA256は配布物に記録したが、原アーカイブとのバイト単位の同一性は未確認である。
+解析対象は8時間の前処理済み4iファイルの、対照、trametinib、dabrafenib、everolimusである。3薬剤は[CellOTのExtended Data Figure 2](https://www.nature.com/articles/s41592-023-01969-x)で細胞応答の写像を示した例に合わせて選んだ。`intensity-cell-pERK-mean`という一つの特徴を使う。この名前のmeanは、画像内で一細胞の強度を集計した平均であり、この記事が比較する集団平均とは別である。
+
+原配布先は[ETHのデータ登録](https://doi.org/10.3929/ethz-b-000609681) ([3](#ref-3))である。取得時にダウンロードが応答制限を返したため、別の最適輸送研究の[公式研究ベンチマークの4i配布ファイル](https://github.com/ngushchin/EntropicOTBenchmark/tree/db2a4d0888e593659786fa27785c2fe1c82678fc/benchmark_construction_examples/single_cell_drugs/4i) ([4](#ref-4))を使用した。取得版とSHA256は配布物に記録したが、原アーカイブとのバイト単位の同一性は未確認である。
 
 取得ファイルは119,479細胞・78特徴。論文が報告する解析版とは細胞数・特徴数が異なり、その解析版を再現したものではない。今回使う4条件は18,899細胞で、各条件のセル行を80%の学習用と20%の評価用に分けた。対照の分割は全薬剤で共有する。
+
+**表1　主分割のセル行数**
 
 | 条件 | 学習セル | 評価セル |
 | --- | ---: | ---: |
@@ -33,9 +45,11 @@ CellOTは、この対応のない分布の間に、変化のコストを小さ�
 
 pERKは公開ファイルの前処理後の値をそのまま用いた。前処理を生画像から再現しておらず、絶対的なリン酸化量や薬剤間の臨床的な強さを推定する解析ではない。
 
-## 三つの予測で残る違いが変わる {#_2}
+### 比較する予測 {#_2}
 
 同じ学習・評価の分割で、次の三つを比べた。すべて投与後の学習分布を使う。
+
+**表2　比較する予測と保持する情報**
 
 | 予測 | 対照の評価セルに与える値 | 保持するもの |
 | --- | --- | --- |
@@ -57,7 +71,9 @@ T(x)=F_1^{-1}\{F_0(x)\}
 
 **図1。** 黒は投与群の評価セル、橙は平均一点、灰は平均倍率、青は分位点写像。縦軸はその値以下のセル割合、横軸は前処理後pERKの対数目盛である。横軸の範囲は薬剤ごとに異なるので、各パネル内で予測と実測を比べる。線は201分位点で描いた。橙の縦線は、全セルを同じ値にまとめる予測を表す。
 
-## 平均誤差が小さくても分布の距離は残る {#_3}
+## 結果 {#article-results}
+
+### 平均誤差と分布の距離 {#_3}
 
 分布の違いにはWasserstein-1距離を使った。1次元では、分位点どうしの距離を積分する尺度である。
 
@@ -66,6 +82,8 @@ W_1(\mu,\nu)=\int_0^1|F_\mu^{-1}(u)-F_\nu^{-1}(u)|\,du.
 \]
 
 平均誤差と\(W_1\)は、ともに対照の学習セルの標準偏差で割った。平均誤差は予測平均から実測平均を引いた符号付きの差で、距離は小さいほど分布が近い。距離計算には、図の201分位点ではなく、評価用の全セル値を使った。
+
+**表3　平均誤差とWasserstein距離**
 
 | 薬剤 | 予測 | 平均誤差／対照SD | W1／対照SD |
 | --- | --- | ---: | ---: |
@@ -85,9 +103,11 @@ W_1(\mu,\nu)=\int_0^1|F_\mu^{-1}(u)-F_\nu^{-1}(u)|\,du.
 
 また、投与群の学習セルをそのまま分布として評価セルと比べた参照距離は、主分割のEverolimusで0.0614だった。分位点写像の0.0687には、学習と評価の標本が違う影響も混ざる。この参照は、未知の細胞へ予測するモデルでも、性能の厳密な上限でもない。
 
-## 高値側の割合には閾値を先に固定する {#_4}
+### 高値側割合と分割感度 {#_4}
 
 分布の距離に加え、高いpERKを持つ側の割合を調べた。閾値は薬剤ごとの投与学習セルの90%点に固定し、評価セルを見て変更していない。
+
+**表4　学習群で固定した閾値を超える割合**
 
 | 薬剤 | 実測の高値側割合 | 平均倍率 | 分位点写像 |
 | --- | ---: | ---: | ---: |
@@ -101,7 +121,7 @@ W_1(\mu,\nu)=\int_0^1|F_\mu^{-1}(u)-F_\nu^{-1}(u)|\,du.
 
 分割をさらに2通り変えた感度解析でも、三つの薬剤で分位点写像の距離は平均倍率より小さかった。ただし距離の大きさは動く。Everolimusの学習群と評価群の参照距離は、3分割で約0.044〜0.143だった。これは分割の感度であり、独立した生物学的反復からの信頼区間ではない。
 
-## 分布が一致しても同じ細胞の運命は決まらない {#_5}
+## 考察 {#_5}
 
 ここまでは分布の評価である。対応のない測定から個々の細胞の変化まで言えるかは、別の問題になる。
 
@@ -115,12 +135,21 @@ W_1(\mu,\nu)=\int_0^1|F_\mu^{-1}(u)-F_\nu^{-1}(u)|\,du.
 
 さらに、今回の比較は、測定に残った細胞の割合を合計1にした分布を扱う。薬剤によって細胞が減ったり、集団の構成が変わったりした結果も、正規化後の分布へ入る。分布の写像だけで、細胞死、増殖、状態変化を分離できるとは言えない。
 
+## 結論 {#article-conclusion}
+
 マーカーの平均、分布距離、高値側割合は、今回のデータでも異なる応答の特徴を表した。ただし、これらはいずれも周辺分布の指標であり、同じ細胞の履歴や絶対数を復元するものではない。
 
-## 再計算と資料 {#_6}
+## データとコードの公開状況 {#_6}
 
 [自作コード・集計結果・図・再実行手順](shared/optimal-transport-cell-distributions/optimal-transport-cell-distributions.zip)を配布する。元の4iファイルはZIPに含めず、固定URLからの取得とハッシュ確認をする`fetch_data.py`を用意した。Python、NumPy、SciPy、h5py、matplotlibを使い、`analysis.py`で3分割の結果を再計算できる。
 
 解析は探索的で、データの代表値を確認した後に範囲を固定した。3薬剤・一マーカーのセル分割を、未知薬剤・患者・実験系への汎化と解釈しない。
 
-資料は[CellOT](https://www.nature.com/articles/s41592-023-01969-x)、[CMonge](https://www.nature.com/articles/s42256-026-01242-8)、[4i data record](https://doi.org/10.3929/ethz-b-000609681)、取得に用いた[Official research benchmark](https://github.com/ngushchin/EntropicOTBenchmark)である。第三者の図・論文・コード・モデル重み・個別セル識別子は配布物に含めていない。
+資料は[CellOT](https://www.nature.com/articles/s41592-023-01969-x) ([1](#ref-1))、[CMonge](https://www.nature.com/articles/s42256-026-01242-8) ([2](#ref-2))、[4i data record](https://doi.org/10.3929/ethz-b-000609681) ([3](#ref-3))、取得に用いた[公式研究ベンチマーク](https://github.com/ngushchin/EntropicOTBenchmark) ([4](#ref-4))である。第三者の図・論文・コード・モデル重み・個別セル識別子は配布物に含めていない。
+
+## 参照 {#article-references}
+
+1. <span id="ref-1"></span>Bunne C, Stark SG, Gut G, del Castillo JS, Levesque M, Lehmann KV, et al. Learning single-cell perturbation responses using neural optimal transport. Nature Methods. 2023;20(11):1759–1768. [doi:10.1038/s41592-023-01969-x](https://doi.org/10.1038/s41592-023-01969-x).
+2. <span id="ref-2"></span>Driessen A, Rajwade DA, Harsanyi B, Rapsomaniki M, Born J. Conditional Monge Gap enables generalizable single-cell perturbation modelling. Nature Machine Intelligence. 2026;8(6):984–996. [doi:10.1038/s42256-026-01242-8](https://doi.org/10.1038/s42256-026-01242-8).
+3. <span id="ref-3"></span>Bunne C, Stark S, Gut G, Lehmann KV, Pelkmans L, Krause RA, et al. Datasets of Learning Single-Cell Perturbation Responses using Neural Optimal Transport [Dataset]. ETH Zurich; 2023 Apr 27. [Data record](https://doi.org/10.3929/ethz-b-000609681).
+4. <span id="ref-4"></span>EntropicOTBenchmark contributors. EntropicOTBenchmark: single-cell drug 4i data [Research benchmark distribution]. Commit db2a4d0888e593659786fa27785c2fe1c82678fc [cited 2026 Oct 12]. [Fixed files](https://github.com/ngushchin/EntropicOTBenchmark/tree/db2a4d0888e593659786fa27785c2fe1c82678fc/benchmark_construction_examples/single_cell_drugs/4i).
