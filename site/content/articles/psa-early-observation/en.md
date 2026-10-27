@@ -1,4 +1,4 @@
-## Summary
+## Summary {#summary}
 
 A curve can fit PSA measurements without identifying a distinct regrowth rate. It can also outperform an overly rigid decay model while adding little to the latest observed PSA. Those are different claims and require different checks.
 
@@ -6,11 +6,11 @@ Using 400 patients in a public PSA/survival example dataset, I compared early pr
 
 The two-component model improved on the fitted linear and single-decay candidates. Its advantage over the last-value benchmark was uncertain at 6 and 12 weeks; at 24 weeks the last value was better in the paired test-cohort comparison. Regrowth remained weakly informed under the implemented approximate hierarchical estimator, with its population mean at the lower parameter bound at every landmark. This is a failure to qualify a regrowth-based early decision rule, rather than evidence that regrowth never occurs.
 
-## 日本語要旨
+## 日本語要旨 {#_1}
 
 登録不要で取得できる400人のPSA実測データから、低下・再上昇を分けた階層モデルを推定し、患者を学習・区間校正・検証に分けて早期予測を評価した。2成分モデルは単純な低下モデルより予測誤差が小さかったが、直近値を使う予測に対する優位性は初期時点では明確ではなく、24週では直近値の方が良好だった。再上昇速度の情報も弱かった。今回の近似推定法と評価対象において、「複雑なモデルを使えばよい」「何週あれば再上昇を判断できる」とは結論できない。予測精度、速度の識別性、治療継続者への選択を分けて判断する必要がある。
 
-## Question and context of use
+## Question and context of use {#question-and-context-of-use}
 
 **Question:** how much observation is needed before separating PSA decline and regrowth adds reliable predictive information beyond simple extrapolation?
 
@@ -18,7 +18,7 @@ The two-component model improved on the fitted linear and single-decay candidate
 
 The relevant comparison is an honest prediction benchmark at the same landmark. Fitting all available follow-up and then claiming an early prediction would answer a different question.
 
-## Public data and the audit that changed the analysis
+## Public data and the audit that changed the analysis {#public-data-and-the-audit-that-changed-the-analysis}
 
 The [official downloadable example](https://monolixsuite.slp-software.com/monolix/2024R1/psa-and-survival-data-set) contains 400 patients, 6,627 PSA rows and 286 deaths. It is the original publication's training subset from the VENICE comparator treated with docetaxel/prednisone. The separate original validation subset is not included in this download. I split the 400 again for internal evaluation; this is **not external validation**. [Desmée et al., 2017](https://pmc.ncbi.nlm.nih.gov/articles/PMC5654727/)
 
@@ -32,7 +32,7 @@ The original protocol scheduled PSA approximately every 21 days during treatment
 
 The raw CSV is publicly offered without account registration. It is not bundled with the companion: public availability does not establish unrestricted redistribution rights. The acquisition script downloads the official file and checks its recorded SHA256. All figures here are original aggregate figures.
 
-## Models: separate the shape from the estimation method
+## Models: separate the shape from the estimation method {#models-separate-the-shape-from-the-estimation-method}
 
 Let the latent on-treatment PSA be
 
@@ -62,7 +62,7 @@ The linear candidate has an exact Gaussian marginal likelihood; the nonlinear ca
 
 Population fitting uses uncensored measurements. Individual MAP calculations include a Gaussian CDF contribution for below-quantification observations. This hybrid is a limitation: an individual censoring term does not make the population estimator a fully censored NLME likelihood. Predictive checks and sensitivity analyses are needed before relying on it, and parameter qualification would require a more complete estimator.
 
-## Prediction design
+## Prediction design {#prediction-design}
 
 The split is fixed at **240 training, 80 calibration and 80 test patients**, using seed 20261004. For each landmark, eligibility requires continued treatment and follow-up plus at least two prior on-treatment PSA measurements spanning 14 days. Population fitting uses only eligible training patients and their history through that landmark. Test predictions use each test patient's prior history; their future measurements do not enter fitting.
 
@@ -74,7 +74,7 @@ For prediction intervals, each calibration patient contributes one score: the la
 
 **Figure 1.** The denominator changes with landmark. Of the assigned 80 test patients, 69, 69, 53 and 43 contribute main prediction targets. Falling error over time therefore cannot be attributed solely to gaining more observations; later assessment also selects a different treatment-continuing population.
 
-## Results: a complex model needs a strong simple benchmark
+## Results: a complex model needs a strong simple benchmark {#results-a-complex-model-needs-a-strong-simple-benchmark}
 
 All MAEs below are in `log(PSA+1)` units and are patient-weighted. They are not ng/mL errors, percentages or response probabilities.
 
@@ -100,7 +100,7 @@ The two-component model's smaller error than the declining candidates is consist
 
 The differences from the last-value benchmark at 6 and 12 weeks are small and their resampling intervals cross zero. At 24 weeks, the two-component candidate is worse on this paired held-out comparison. No parameter or prior was selected using these test errors. The results do not justify discarding the simple benchmark or choosing a universal optimal observation duration.
 
-## Calibration is not the same as a narrow interval
+## Calibration is not the same as a narrow interval {#calibration-is-not-the-same-as-a-narrow-interval}
 
 | Landmark | Calibration patients | Two-component patient coverage | Full width | Last-value patient coverage |
 | --- | --- | --- | --- | --- |
@@ -117,7 +117,7 @@ Full width is on the supplied transformed scale. The nominal patient-level targe
 
 For scale, a radius of 1.742 at 6 weeks means a roughly 5.7-fold factor on `PSA+1`, not a precise prediction. Coverage alone would conceal that lack of resolution. These calibrated prediction intervals are not confidence intervals for \(g\) or tumor biology.
 
-## Identification: the prior must not supply the conclusion
+## Identification: the prior must not supply the conclusion {#identification-the-prior-must-not-supply-the-conclusion}
 
 | Landmark | Eligible test patients | Data rank <4 | Data condition >10⁶ | Median g SD ratio |
 | --- | --- | --- | --- | --- |
@@ -136,7 +136,7 @@ Every two-component population fit places mean log regrowth at the specified low
 
 I therefore do not publish individually definitive growth/decline estimates or convert these parameters into treatment recommendations. The supported statement concerns this bounded model and this first-order estimator. It does **not** establish that regrowth is unidentifiable under every likelihood, a richer mechanistic model, a longer complete series, or a fully joint analysis.
 
-## Sensitivity: shrinkage and treatment boundaries matter
+## Sensitivity: shrinkage and treatment boundaries matter {#sensitivity-shrinkage-and-treatment-boundaries-matter}
 
 | Landmark | Prior SD ×0.5 | Primary | Prior SD ×2 | Including post-treatment targets |
 | --- | --- | --- | --- | --- |
@@ -155,15 +155,15 @@ Doubling individual prior SD reduces two-component MAE at 6 weeks from 0.429 to 
 
 Omitting individual BLQ history gives the same main test errors here because test patients contributing the main prediction errors have no BLQ in their landmark histories. This statement does not include eligible patients without observed prediction targets. That sensitivity is uninformative about handling BLQ in general. Future BLQ targets are excluded from the main errors, and uncensored-only population fitting remains a limitation. A 42-day forecast-window analysis is also included in the companion with its own target counts.
 
-## What can be decided?
+## The observation windows did not identify a regrowth threshold {#what-can-be-decided}
 
 This analysis supports keeping the latest-value predictor as a serious benchmark, separating predictive accuracy from regrowth identification, and auditing risk-set changes before interpreting improvement with time. It also shows the exact conditions under which this implemented hierarchy adds little or loses predictive performance.
 
 It does **not** establish a minimum observation period for a regrowth-based treatment decision. None of the examined windows resolves the identified rate-estimation problem under this estimator, and landmark comparisons involve different selected patients. Nor does it evaluate a future trial's benefit–risk or prove PSA surrogacy for survival.
 
-For a new development program, the practical sequence is to specify the decision and target population, preserve treatment/measurement timing, include a last-value comparator, use a full censored nonlinear estimator if parameters will drive decisions, and then require prospectively specified validation of both prediction and decision performance. The present result cannot be transferred as a validated cutoff to another therapy.
+These results cannot be transferred as a validated cutoff to another therapy.
 
-## Limits and reproducibility
+## Limits and reproducibility {#limits-and-reproducibility}
 
 This is one publicly distributed treatment-group subset with internal validation. It lacks the original independent validation patients, detailed dose histories and treatment-switch causes. Treatment cessation, death and measurement availability create selection that is not solved by splitting patients or adding a conformal interval. Missing-not-at-random behavior is not identified. Small later test groups and the fixed split limit precision.
 
@@ -171,7 +171,7 @@ The first-order population approximation, diagonal random-effects hierarchy, num
 
 The companion contains the acquisition/hash check, transformation and audit code, fixed protocol, model implementation, aggregate results, five original figures, verification tests and an executed notebook. Raw data and individual parameters are not redistributed. The notebook reruns the analysis from the official download. All tables are generated from the saved results rather than manually transcribed.
 
-## References
+## References {#references}
 
 1. Desmée S, Mentré F, Veyrat-Follet C, Sébastien B, Guedj J. Using the SAEM algorithm for mechanistic joint models characterizing the relationship between nonlinear PSA kinetics and survival in prostate cancer patients. *Biometrics*. 2017;73:305–312. [DOI](https://doi.org/10.1111/biom.12537), [open author manuscript](https://pmc.ncbi.nlm.nih.gov/articles/PMC5654727/). Data provenance and observation definition; the present estimator differs.
 2. MonolixSuite documentation. [PSA and survival data set](https://monolixsuite.slp-software.com/monolix/2024R1/psa-and-survival-data-set). Public CSV accessed 2026-10-04; recorded SHA256 in companion.

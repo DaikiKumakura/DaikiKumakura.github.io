@@ -187,20 +187,11 @@ If tumor volume data are added, natural growth should first be confirmed in the 
 
 Leaving one dose out within the same study is held-out validation and should be named differently from external validation with an independent study. A fit to group means does not replace PopPK or NLME analysis using individual data.
 
-## What to measure next {#what-to-measure-next}
+## Non-monotonic degradation is outside this model {#what-to-measure-next}
 
-| What we want to decide | Missing information | Priority measurement |
-| --- | --- | --- |
-| Separate drug retention from slow target recovery | Paired time courses of concentration and PD | Plasma and tumor concentrations and target amount under the same conditions, including late time points |
-| Compare QD and Q2D | Target amount up to just before the second dose | PD and concentrations including around 24 / 48 h |
-| Whether degradation continues during off-treatment days | Tissue exposure after the last dose | Parallel measurement of concentration and PD during the off-treatment period |
-| Which PD metric explains efficacy | Correspondence between time-course PD and tumor volume | Several regimens, the same model, vehicle control |
-| Assess differences between patients | Between-subject distributions and correlations | Linked individual PK, PD, target amount and covariates |
-| Whether to add a hook effect | Reproducible non-monotonicity at high concentrations | PD over a wide concentration range, checks for toxicity and assay interference |
+The model does not include a hook effect or assume that one must occur at high doses. It therefore cannot describe degradation weakening at high concentrations.[3,4]
 
-In addition to existing time points such as 3 and 24 hours, a design measuring recovery at candidate times of 24, 48 and 72 hours could be considered. These are not optimized time points, however. They should be narrowed down by sensitivity or information content once the actual fall in concentration, target recovery and measurement error are known.
-
-A hook effect is not included in this monotonic model. It is not treated as something that always occurs at high doses; a mechanistic model is warranted when there are data that a monotonic model cannot explain. When moving to a different target, the same parameter values should not be reused; what is reusable is the procedure of verifying exposure, turnover, PD metrics and downstream responses in turn.[3,4]
+Drug retention at the site of action and slow target recovery also cannot be separated by an endpoint degradation measurement alone. Conditions with the same maximal degradation can leave different target amounts before the following dose. With recovery rates left unspecified by the public data, these simulations do not settle the choice between QD and Q2D for a particular drug.
 
 ## Reproduction and checks {#reproduction-and-checks}
 
@@ -225,7 +216,7 @@ When the time step was changed from 0.25 h to 0.125 h, the maximum, minimum, mea
 | Implications that depend on assumptions | Maximal degradation alone may mislead comparisons of dosing frequency; recovery and retention need to be distinguished |
 | Questions not yet answerable | The required ER degradation, the optimal interval for an actual drug, target attainment in a patient population, clinical efficacy and safety |
 
-Public data show what a model should keep separate. They do not necessarily identify all the parameters needed. For this purpose, before making the model more complex, the question is whether **measuring effect-site exposure and target recovery up to the next dose** is more useful than adding another data point on maximal degradation. Testing that judgment with real data is the task for the next analysis.
+The 16 conditions are assumed PD trajectories, not fitted parameters for an actual drug. Site retention and target recovery cannot be separated from the published endpoint degradation alone. The analysis also does not rank the value of alternative additional measurements.
 
 ## References {#references}
 

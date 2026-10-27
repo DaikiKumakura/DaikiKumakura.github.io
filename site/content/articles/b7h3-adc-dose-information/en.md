@@ -1,20 +1,20 @@
-## Summary
+## Summary {#summary}
 
 Uncertainty after a dose-comparison study does not by itself justify another study. Its value depends on whether new observations could change the chosen action and reduce the expected loss under a stated decision criterion.
 
 Using public randomized-cohort counts from IDeate-Lung01, I compared 8 and 12 mg/kg through a simple Bayesian response–harm model. The estimated response difference was clearer than the severe-adverse-event difference. At a hypothetical harm weight of one, another 50 participants per arm had an expected information value of only **0.074 response-equivalent units per 100 future decision subjects**. At weights two and four, that value was **1.62** and **11.02**, respectively. These are conditional research calculations, not observed clinical benefits or financial returns. Unreported joint outcomes and follow-up assumptions changed the value materially.
 
-### 日本語要約
+### 日本語要約 {#_1}
 
 IDeate-Lung01のランダム化用量群の公開集約値から、追加の8/12 mg/kg比較がどの条件で判断を改善し得るかを調べた。奏効率の差より重症有害事象の差が不確かであり、追加試験の情報価値は便益と害の重み、両者の患者内の対応、未観測の遅発性の害の仮定に依存した。試験費用・判断対象集団・生存便益を含まないため、追加試験への投資や臨床用量をこの計算だけで決めることはできない。
 
-## The development question
+## The development question {#the-development-question}
 
 The question is **when a further randomized dose comparison would change a response-versus-harm judgment enough to deserve consideration**. It is deliberately narrower than reconstructing an entire dose-selection submission.
 
 The context of use is research prioritization. The model helps distinguish a trade-off that is already resolved under a particular preference from one that could benefit from more evidence. Its influence should remain low: it does not recommend treatment, select a dose for another B7-H3 ADC, or replace exposure–response and survival evidence. Misusing it for those purposes could trade away important benefits or overlook serious harm.
 
-## Which observations belong in the comparison?
+## Which observations belong in the comparison? {#which-observations-belong-in-the-comparison}
 
 The analysis uses the **treated randomized Part 1 cohorts only**, at the common interim cutoff of **25 April 2024**. The later report also contains a nonrandomized 12-mg/kg extension, which is excluded. The audited numerical inputs are:
 
@@ -34,7 +34,7 @@ The [primary paper][primary] and its supplementary appendix were separately audi
 
 *Figure 1. Original calculations from the audited Part 1 counts. Dots and squares show posterior means; bars show 95% equal-tail credible intervals under Beta(1,1) priors. Every interval refers to a marginal endpoint.*
 
-## A decision criterion that can be inspected
+## A decision criterion that can be inspected {#a-decision-criterion-that-can-be-inspected}
 
 Let \(p_d\) be the response probability and \(q_d\) the probability of at least one severe TEAE in the observed treatment/follow-up process for dose \(d\). Define
 
@@ -60,7 +60,7 @@ I kept two questions separate:
 
 An uncertain descriptive conclusion is not a third action in the EVSI calculation. Introducing a formal defer action would require a specified cost and subsequent evidence strategy.
 
-## What is already clear, and what remains uncertain?
+## What is already clear, and what remains uncertain? {#what-is-already-clear-and-what-remains-uncertain}
 
 The posterior response difference was **+27.4 percentage points**, with a 95% credible interval of **+7.9 to +46.0**. The severe-TEAE difference was **+6.2 points**, with an interval of **−14.0 to +26.3**. These are new model-based estimates, not trial-reported confidence intervals.
 
@@ -77,7 +77,7 @@ The expected-utility choice remains 12 mg/kg until approximately \(w=4.39\), but
 
 *Figure 2. The upper panel shows superiority probability and the descriptive certainty thresholds. The lower panel shows mean utility differences and credible intervals. The primary model assumes independent endpoint parameters; the weight is hypothetical.*
 
-## What would another trial buy?
+## What would another trial buy? {#what-would-another-trial-buy}
 
 Expected value of perfect information (EVPI) is the expected loss from the current best action relative to an oracle that knows the endpoint probabilities. It sets an upper bound on the value of learning them. Expected value of sample information (EVSI) evaluates a specified, imperfect additional study:
 
@@ -106,15 +106,15 @@ At weight one the choice is already relatively resolved. Even learning all four 
 
 For an independent check, I simulated 60,000 future trials per design. At weight two, posterior-predictive oracle-discordant choices occurred in about **25.7%** without new observations, **18.4%** with +50/arm, and **14.8%** with +100/arm. This is a model-conditional chance of choosing the lower-utility action, not a frequentist type-I error, clinical error rate, or prediction of an actual future trial. Expected regret and Monte Carlo standard errors are provided in the companion results.
 
-## Which assumptions could change the judgment?
+## Which assumptions could change the judgment? {#which-assumptions-could-change-the-judgment}
 
-### Joint response and harm outcomes
+### Joint response and harm outcomes {#joint-response-and-harm-outcomes}
 
 The public margins do not reveal whether responders were the same participants who experienced severe TEAEs. I constructed three compatible joint tables in each arm: minimum overlap, overlap nearest marginal independence, and maximum overlap. Each was assigned a Dirichlet prior of 0.5 per cell. The marginal posteriors remain the primary Beta(1,1)-updated distributions, isolating the joint assumption's effect.
 
 At weight two and +50/arm, estimated EVSI per 100 future subjects was **2.77**, **1.62**, and **0.32**, respectively. The corresponding Monte Carlo standard errors were **0.028**, **0.019**, and **0.006**. These errors measure simulation precision within an assumed table; they do not quantify uncertainty about the unknown table. The extrema are identification stress tests, not estimates of clinical dependence.
 
-### Prior, endpoint, evaluability, and timing
+### Prior, endpoint, evaluability, and timing {#prior-endpoint-evaluability-and-timing}
 
 At weight two and +50/arm:
 
@@ -140,21 +140,21 @@ The same calendar cutoff does not produce a common toxicity horizon. Interim med
 
 An additional response-classification stress assigns the unlisted BOR residual to responders in one arm only. It changes EVSI at weight two and +50/arm from 1.62 to **3.82** when assigned to the low arm and **0.94** when assigned to the high arm. These are counterfactual recodings, not imputed observed responses or a correction to the reported ORR.
 
-## The resulting research judgment
+## Information value depends on the unresolved trade-off {#the-resulting-research-judgment}
 
 Under a response-focused preference such as weight one, more of the same binary data has little value for this criterion. A larger repeat comparison should not be justified merely because the severe-event interval is wide.
 
-Under a preference closer to the unresolved trade-off, additional randomized evidence could reduce expected loss. Before prioritizing a larger study, however, obtaining **patient-linked response/harm outcomes, event timing, adequate long-term ascertainment, and an explicit preference definition** may be more useful than increasing the sample size while retaining the same aggregate uncertainty. The present analysis does not quantify the value of collecting those specific missing variables, so that ordering is a methodological recommendation rather than an estimated optimum.
+The joint response/harm outcomes, event timing and long-term ascertainment remain unreported in the aggregate data. Their separate information values were not quantified here, so this calculation cannot rank those measurements against a larger randomized comparison.
 
 To convert information value into an investment judgment, one would need a target population size \(H\) and study, delay, and opportunity costs \(C\) in compatible units. The conditional expression \(H\times\mathrm{EVSI}>C\) does not supply those inputs. No optimal trial size or monetary return is established here. Nor does a forced binary action in the calculation establish that another dose-comparison trial is ethically or operationally appropriate.
 
-## Limits and reproducibility
+## Limits and reproducibility {#limits-and-reproducibility}
 
 This study uses public aggregate counts. It cannot fit individual PK, exposure–response, survival, recurrent toxicity, or dropout mechanisms. ORR does not measure durable or survival benefit, and Grade ≥3 TEAE combines heterogeneous severities. Fatal and nonfatal ILD must not be collapsed into an inferred clinical equivalence. Different harm definitions alter the criterion; they do not constitute validation of one another. Transporting these probabilities to a new population, or to another B7-H3 ADC, is unqualified.
 
 The companion includes audited counts, source locations and hashes, original code, aggregate outputs, original figures, and an executed Notebook. Publisher documents and private planning materials are excluded. Ten verification tests check count reconstruction, no-data EVSI, exact small-design enumeration, predictive expectations, monotonicity, perfect-information bounds, joint-table feasibility, and agreement with independent numerical integration and simulated trials. Reproducibility verifies the calculation; it does not remove its clinical limitations.
 
-## References
+## References {#references}
 
 1. Rudin CM, et al. Ifinatamab Deruxtecan in Patients With Extensive-Stage Small Cell Lung Cancer: Primary Analysis of the Phase II IDeate-Lung01 Trial. *J Clin Oncol*. 2026;44:261–273. [doi:10.1200/JCO-25-02142][primary]. Supplementary appendix available with the [open-access record](https://pmc.ncbi.nlm.nih.gov/articles/PMC12834294/).
 2. Rudin CM, et al. OA04.03: interim analysis of IDeate-Lung01. *J Thorac Oncol*. 2024;19:S15–S16. [doi:10.1016/j.jtho.2024.09.033](https://doi.org/10.1016/j.jtho.2024.09.033). Same-cutoff counts were extracted from the [public primary interim release][interim]; the publisher abstract was not downloaded.

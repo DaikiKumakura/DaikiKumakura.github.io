@@ -128,7 +128,7 @@ So the conclusion on the heavy side does not change between trough and average c
 - **Comparison with published values:** For nivolumab 480 mg Q4W relative to 3 mg/kg, the ratios were 0.98 for average, 0.79 for trough and 1.34 for peak concentration, close to the "similar, about 16% lower, about 45% higher" of Long et al. (2018). For pembrolizumab, the ratio of average concentration for 400 mg Q6W to 200 mg Q3W was 1.00 (Lala et al.: about 1% higher), and the peak of 400 mg Q6W was 31% of that of 10 mg/kg Q2W (Lala et al.: about 65% lower).
 - **Reproducibility:** The random seed is fixed, and the same result files are regenerated.
 
-## What can and cannot be concluded {#what-can-and-cannot-be-concluded}
+## Exposure criteria do not determine clinical effects {#what-can-and-cannot-be-concluded}
 
 Under the models and exposure criteria used here, additional confirmation was indicated for pembrolizumab 200 mg at about 150 kg and above, nivolumab 240 mg at about 100 to 120 kg and above, and the first interval of weight-based regimens at 40 to 50 kg.
 
@@ -136,12 +136,6 @@ Under the models and exposure criteria used here, additional confirmation was in
 - **Difference in effect:** Whether these exposure differences translate into differences in effect cannot be judged. Exposure–response is reported to be flat for anti-PD-1 antibodies, and whether falling slightly below the lower limit of the range matters clinically lies outside this analysis.
 - **Differences between populations:** NHANES is the US general adult population, not cancer patients or the Japanese weight distribution. With the Asian weight distribution, the results for the heavy bands of the flat doses were rather worse. The number of patients concerned is small, however.
 - **Covariate correlations:** Correlations among covariates such as body weight and albumin cannot be identified from public data and were not included.
-
-**Data needed next:**
-- Measured trough concentrations in patients of 150 kg and above.
-- The exposure–response relationship at both ends of body weight.
-
-Measured exposure, including trough concentrations, is needed in the weight bands identified here. The exposure metric and range used for dose comparisons should be selected together with exposure–response evidence.
 
 ## Sources {#sources}
 

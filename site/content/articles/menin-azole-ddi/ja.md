@@ -4,13 +4,13 @@ Menin阻害剤のrevumenibとziftomenibは、どちらもCYP3Aによる代謝を
 
 本解析の結論は、**今回の公開資料だけでは、Menin阻害剤に共通するazole併用倍率を正当化できない**、というものになった。理由は単に数字が違うことではない。ラベルのPK表にはモデル由来の値が含まれ、原著の「検証済み」という評価とFDAの用途別評価も同じではなかった。どの情報が独立した検証に使えるのか、AUCへの適合がCmaxまで説明するのかを分けて調べた。
 
-## 問いと使用範囲
+## 問いと使用範囲 {#_1}
 
 QOIは「既存薬のazole併用情報を別薬に移すと、薬剤固有の公開情報との整合性がどこで失われるか」である。COUは公開データによる研究・学習と、次に収集する情報の優先度の検討とした。患者の用量変更や臨床試験の用量決定には使わない。
 
 この解析は個体濃度時系列からのNLME推定でも、Simcypの全身PBPKモデルの再実装でもない。公表された集約PK・PBPK結果を入力とする、情報の監査と縮約モデルの解析である。入手していない患者背景を仮想患者で補って、実測データの検証と呼ぶことはしなかった。
 
-## 同じ表の中にも異なる種類の数値がある
+## 同じ表の中にも異なる種類の数値がある {#_2}
 
 FDA/NIHラベル、両薬のFDA審査資料、2026年のziftomenib PBPK論文を確認した。資料の版、投与条件、初回か定常状態か、観測値かモデル由来かを入力CSVに残した。
 
@@ -24,7 +24,7 @@ FDA/NIHラベル、両薬のFDA審査資料、2026年のziftomenib PBPK論文を
 
 例えばrevumenibのラベル行のAUC生比は1.74だが、用量を補正すると2.94になる。ziftomenibのラベル行のAUC比は2.39である。いずれも今回の計算結果だが、同一患者・同じ投与条件でazoleの有無だけを変えたDDI比ではない。用量補正は群間の患者背景や投与履歴の違いを消さない。[REVUFORJ Table9](https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=6eb3cdbc-0e74-477d-82d6-3bb172d3f63f&version=5)、[FDA ziftomenib審査 p133](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/220305Orig1s000MultidisciplineR.pdf)
 
-## AUCを合わせてもCmaxが合うとは限らない
+## AUCを合わせてもCmaxが合うとは限らない {#auccmax}
 
 Ziftomenibの公表PBPK感度解析には、CYP3A代謝寄与率 $f_m$ を20–80%へ変えた7条件がある。その計算結果と、校正に使った臨床群比との比（S/O）を調べた。本解析では0.80–1.25を整合性スクリーニングとした。これは臨床的許容域や承認基準ではない。
 
@@ -46,7 +46,7 @@ S/Oと予測倍率から元の参照群比を逆算すると、AUCは約2.25–2
 
 原著もモデル性能の文脈で2倍誤差に言及している。「通過なし」は厳しい基準での結果であり、モデルがあらゆる用途で不十分という証明ではない。一方、広い許容幅を通過したことも、別の阻害条件や新薬への外挿を検証したことにはならない。**用途に必要な精度と、独立した検証データを先に定める必要がある。**
 
-## 別薬から2倍を借りるとずれの向きも同じにならない
+## 別薬から2倍を借りるとずれの向きも同じにならない {#2}
 
 次に、revumenibのazole約2倍をziftomenibのitraconazole条件へ移す、単純な情報借用を計算した。主参照はFDA Table66、感度参照は原著Table3とした。以下はFDAが用いた保守的 $f_m=0.7$ の条件との比較である。
 
@@ -63,7 +63,7 @@ S/Oと予測倍率から元の参照群比を逆算すると、AUCは約2.25–2
 
 $f_m=0.6$ の条件ではAUCの不一致は小さくなり、Cmaxでは大きくなった。単一倍率は「安全側」とも一括には言えない。AUCを小さく、Cmaxを大きく見積もる場合があるからである。ここから安全性や有効性の順位を決めるには、さらに薬剤固有のE–R情報が必要になる。
 
-## AUC倍率だけでは代謝と吸収を分けられない
+## AUC倍率だけでは代謝と吸収を分けられない {#auc}
 
 次の縮約式を使った。
 
@@ -81,7 +81,7 @@ $B$ は経口bioavailabilityの比、$r$ は残存CYP3A活性、$f_m$ は阻害�
 
 これは「PBPKを使っても機序を推定できない」という結論ではない。**AUCという一つの数字だけを見て、阻害の強さ・代謝寄与・吸収変化を一意に割り当てることはできない**という、今回のモデル内の結果である。絶対bioavailability、IV clearance、mass balance、吸収・輸送の情報があると、許される組合せを狭められる。
 
-## 「論文で検証済み」と「その用途で十分」は別に読む
+## 「論文で検証済み」と「その用途で十分」は別に読む {#_3}
 
 Ziftomenibの2026年PBPK論文はモデルを検証済みと説明している。一方、FDA審査のPBPK評価では、疎な採血、小さい群、高い変動、併用薬などのため、患者PKによる $f_m$ の検証は不十分と評価されていた。FDAはin vitro、mass balance、絶対bioavailabilityなども使い、保守的条件を検討している。ラベルの記載を支持したことを、すべてのモデル仮定が検証されたことと同一視しない。[原著](https://doi.org/10.1002/psp4.70327)、[FDA ziftomenib審査 pp304/311–313](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/220305Orig1s000MultidisciplineR.pdf)
 
@@ -89,20 +89,13 @@ Ziftomenibの2026年PBPK論文はモデルを検証済みと説明している�
 
 Revumenibにも、親薬の適合から代謝物M1の予測性能を導けない問題がある。M1はQTcに関係し、FDAはcobicistat以外の阻害条件でのモデル性能に懸念を示している。親薬AUCを合わせたからQTリスクまで再現できるとは言えない。[FDA revumenib審査 pp287–293](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2024/218944Orig1s000MultidisciplineR.pdf)
 
-## 新薬なら次に何を集めるか
+## 同じ標的でも相互作用の倍率は共通しない {#_4}
 
-今回の結果から考える情報収集の優先度は次の通りである。統計的に最適化した試験設計ではなく、残った曖昧さを減らすための順序である。
+同じ標的の薬でも、代謝寄与や吸収、実際の併用条件は異なる。今回の資料からクラス共通のAUC倍率は支持できず、AUCへの適合もCmaxや未使用の阻害条件の再現を保証しなかった。
 
-| 優先する情報 | 減らしたい曖昧さ |
-| --- | --- |
-| 代謝寄与、吸収・輸送、絶対BA／IV PK・mass balance | 同じAUC倍率を作る機序の区別 |
-| 併用開始・中止時刻、阻害剤曝露、食事・PPIなどを伴う患者PK | 「強阻害剤併用」という群名だけでは消えない交絡 |
-| 校正に使わないmoderate条件でのAUCとCmax | strong条件への適合から別条件へ移せるか |
-| 必要に応じて親薬・代謝物とQTなどの対応データ | 曝露の再現を安全性予測と取り違えないこと |
+倍率を借りること自体が常に誤りなのではない。今回の縮約式では、同じ倍率を異なる機序が作れ、その機序が変わると外挿も変わる。この曖昧さを残したまま、既存薬の値を新薬の安全性予測へ使うことはできない。
 
-同じ標的の薬は、どの相互作用を早期に調べるかを考える材料になる。倍率の借用を一律に禁じるわけではないが、今回の資料からクラス共通の値は支持できない。借用するなら、薬剤固有の代謝・吸収、実際の併用条件、未使用条件での予測性能を確認する必要がある。
-
-## 再実行と限界
+## 再実行と限界 {#_5}
 
 入力CSV、解析関数、図作成コード、実行済Notebookを制作フォルダに保存した。単位換算、式の逆算、数値積分によるpeak上限、丸め幅、境界値の10検査を通した。解析は決定的なグリッド計算で乱数を使わない。
 
@@ -110,7 +103,7 @@ Revumenibにも、親薬の適合から代謝物M1の予測性能を導けない
 
 ラベルの集約半減期から代表1-compartment曲線を作れるかという補助診断はNotebookと補足メモに保存した。本文の主結論はその診断に依存しない。縮約式の非識別性も、既知のモデルの性質を確認する説明用計算であり、新しい薬理学的発見ではない。
 
-## 参考文献
+## 参考文献 {#_6}
 
 1. Templeton IE, Litou C, Jones HM, et al. A Practical Alternative to Refine the Estimate of fmCYP3A4 and Evaluate Drug–Drug Interaction Potential for Ziftomenib Using PBPK Modeling to Inform Labeling. *CPT Pharmacometrics Syst Pharmacol.* 2026;15:e70327. [doi:10.1002/psp4.70327](https://doi.org/10.1002/psp4.70327).
 2. FDA. NDA 220305, KOMZIFTI multidisciplinary review. 2025. [審査資料](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/220305Orig1s000MultidisciplineR.pdf).
@@ -118,6 +111,6 @@ Revumenibにも、親薬の適合から代謝物M1の予測性能を導けない
 4. NIH DailyMed. REVUFORJ prescribing information, revised February 2026. [ラベル](https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=6eb3cdbc-0e74-477d-82d6-3bb172d3f63f&version=5).
 5. FDA. KOMZIFTI prescribing information. 2025. [ラベル](https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/220305s000lbl.pdf).
 
-## 解析関数と検査コード
+## 解析関数と検査コード {#_7}
 
 [解析関数と単体検査のZIP](shared/menin-azole-ddi/menin-azole-ddi-functions.zip)を配布する。原データや解析全体の再実行資料は含まない。検査に使う構成例を、臨床データの検証とは扱わない。

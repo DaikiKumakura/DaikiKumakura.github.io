@@ -2,13 +2,13 @@ In a public subset of a colorectal-cancer trial, most patients stopped having tu
 
 日本語要約：脱落の大半が死亡で、死亡が近い人ほど腫瘍が大きくなっていた公開臨床試験データで、腫瘍縮小の推定が脱落の扱いでどれだけ変わるかを調べた。計測が続いている人の平均は48週の縮小を過大に示し、通常の混合効果モデルがその多くを補正した。死亡を腫瘍の値に結ぶ joint model はさらに少し縮小を小さくした。24週の群間差はすべての仮定で保たれたが、48週の群間差は、見かけの良い群の脱落者が予測より年0.5だけ悪化すると仮定しただけで支持を失った。脱落の理由は記録されておらず、どの仮定が正しいかは決められない。
 
-## The question
+## The question {#the-question}
 
 Tumor-growth-inhibition (TGI) summaries, such as the mean change in tumor size at a fixed week, are estimated from patients who are still being scanned. In advanced cancer, scans stop mainly because patients progress, deteriorate or die, so the patients who remain are not a random sample. **How much does the estimated shrinkage, and the difference between treatment arms, depend on what is assumed about the patients who are no longer measured?**
 
 The context of use is a research decision: whether a TGI summary from such data can be taken at face value, and if not, at which time points and under which conditions it should not be trusted. The quantity a mixed-effects model estimates here is hypothetical, in the ICH E9(R1) sense: the mean trajectory had every patient remained alive and measured. Tumor size after death does not exist, so this quantity rests on assumptions about unobserved values. The analysis shows how strongly it depends on them; it does not decide which estimand is right.
 
-## Data and what they allow
+## Data and what they allow {#data-and-what-they-allow}
 
 The `colorectal` and `colorectalLongi` datasets in CRAN frailtypack 3.8.1 contain a random subset of 150 of the 410 participants of FFCD 2000–05, a randomized trial of sequential chemotherapy (fluorouracil first, then FOLFOX6, then FOLFIRI) versus upfront combination (FOLFOX6, then FOLFIRI). Tumor size is the sum of lesion diameters after a Box–Cox transform (λ = 0.3); negative changes mean shrinkage on that scale. One participant has a measurement after death and was excluded, leaving 149 patients, 900 measurements and 120 deaths. Earlier analyses of the same subset looked at [early tumor change and survival](tumor-dynamics-survival.html) and [kinetic models at a landmark](tumor-kinetics-landmark.html).
 
@@ -21,7 +21,7 @@ The `colorectal` and `colorectalLongi` datasets in CRAN frailtypack 3.8.1 contai
 
 Because reasons are missing, the dropout mechanism cannot be estimated. The plan, fixed before any model was fitted, was therefore restricted to two ways of varying the assumption: a joint model in which the risk of death depends on the current tumor size, and a delta-adjustment sensitivity analysis.
 
-## Three ways to estimate the trajectory
+## Three ways to estimate the trajectory {#three-ways-to-estimate-the-trajectory}
 
 1. **Mean of patients still measured.** Descriptive; it ignores dropout entirely.
 2. **Mixed-effects model (MAR).** A linear mixed model with a piecewise-linear time course (change of slope at 24 weeks), arm-specific slopes and correlated random intercept and slopes (`nlme`, maximum likelihood). It assumes dropout depends only on observed data. Intervals come from 1,000 patient-level bootstrap refits.
@@ -42,7 +42,7 @@ In the joint model, each unit of transformed tumor size multiplied the hazard of
 
 Three points stand out. The survivors' mean overstated shrinkage most where dropout was heaviest: −1.80 versus −1.37 in the combination arm at 48 weeks. The mixed model already removed most of that gap by extrapolating each dropout's own trajectory. The joint model moved the 48-week estimates by a further 0.12 (sequential) and 0.15 (combination) towards less shrinkage, and left 24 weeks essentially unchanged because most deaths came later. The pre-specified rule called the joint model's change material only if it exceeded half the width of the mixed model's interval; it did not, at either time point.
 
-## How much worse would unmeasured patients need to be?
+## How much worse would unmeasured patients need to be? {#how-much-worse-would-unmeasured-patients-need-to-be}
 
 The joint model represents one specified link between tumor trajectories and death. The delta adjustment asks a more direct question: if every patient's unobserved trajectory after the last scan were worse than the mixed model predicts by δ per year, what would the estimates become? δ was fixed in advance at 0, 0.5, 1, 2 and 3 per year, bracketing the last-interval slopes seen before death.
 
@@ -54,7 +54,7 @@ The joint model represents one specified link between tumor trajectories and dea
 
 Two data choices pointed the same way. Excluding scans after the first new lesions, a common convention that ties dropout more closely to progression, left the 48-week difference from the mixed model with an interval that included zero (−0.62, −1.32 to +0.43). Excluding the 34 measurements at the transform's floor reduced shrinkage in both arms but left every conclusion unchanged.
 
-## Does the joint model recover a known truth?
+## Does the joint model recover a known truth? {#does-the-joint-model-recover-a-known-truth}
 
 Before relying on the joint model, it was checked on synthetic data with a known answer: 30 trials of 150 patients per scenario, with tumor trajectories and death times generated from the fitted joint model and the same 81% death fraction as the real data. The association between tumor size and death was set to zero (MAR true), to the estimate, or to twice the estimate. The plan required the joint model to beat the mixed model in the scenarios with an association, and both to be nearly unbiased (|bias| < 0.1) when MAR was true. Only replicates whose joint model converged (R̂ < 1.1; 20 to 23 of 30 per scenario, after a first run with shorter chains converged too rarely) are summarized; the mixed model is compared on the same replicates.
 
@@ -66,7 +66,7 @@ Before relying on the joint model, it was checked on synthetic data with a known
 
 The joint model therefore failed two of the pre-specified criteria, and, as the plan required, it is not used as the main evidence. It remains one plausible scenario. The check also explains the pattern in the real data: a common mechanism mostly distorts each arm's shrinkage, while only an arm-specific mechanism moves the difference, which is what the one-arm delta adjustment probes.
 
-## What can and cannot be concluded
+## The late arm difference depended on dropout assumptions {#what-can-and-cannot-be-concluded}
 
 **Supported:** In this subset, the mean of patients still scanned should not be read as treatment-induced shrinkage after the first months; it overstated shrinkage at 48 weeks by about a third in the combination arm. Shrinkage at 24 weeks and the arm difference at 24 weeks were insensitive to every dropout assumption tried. Shrinkage in the combination arm at 48 weeks survived even large assumed deterioration.
 
@@ -74,13 +74,13 @@ The joint model therefore failed two of the pre-specified criteria, and, as the 
 
 **Not supported:** Any statement that dropout is ignorable, or that the joint model's small shift shows that dropout hardly matters; the joint model did not pass its synthetic-data check for the arm difference. Without recorded reasons, the dropout mechanism is not identified; the joint model and the delta adjustment are alternative assumptions. Nor does this analysis evaluate mechanistic TGI models, treatment benefit (the trial's primary endpoint was progression-free survival and showed no difference), physical tumor sizes, or other trials.
 
-**What would change the answer:** recorded reasons for stopping assessment (progression, toxicity, death, withdrawal), scans continued after progression, tumor sizes on the original scale, and the full trial population. With reasons available, separate assumptions could be made for toxicity and progression dropouts instead of a single δ.
+Unrecorded assessment-stop reasons leave toxicity and progression dropout mixed under a single sensitivity parameter δ. Original-scale sizes and post-progression scans were also unavailable; the analysis cannot separate those mechanisms.
 
-## Reproduce
+## Reproduce {#reproduce}
 
 The companion contains the acquisition and export scripts, the analysis, simulation and validation code, aggregate result tables and figure code. It does not contain participant-level data: `acquire.py` downloads the source package from CRAN and checks its SHA-256, and `export.R` writes the two datasets locally. Run `python acquire.py`, `Rscript export.R`, `python audit.py`, `Rscript analyze.R`, `Rscript simulate.R 1` (and 2, 3), `Rscript simulate.R combine`, `Rscript validate.R` and `python figures.py` (R 4.5.3 with nlme 3.1-168, survival 3.8-6, JMbayes2 0.6.0 and lme4 2.0-1; Python 3.12 with matplotlib). The mixed model was cross-checked against an independent implementation (lme4, fixed effects within 4 × 10⁻⁶), and the joint model against a second MCMC seed (posterior means within 0.005). The analysis outputs were byte-identical under R 4.5.1 with survival 3.8-3 and R 4.5.3 with survival 3.8-6.
 
-## Sources
+## Sources {#sources}
 
 1. Rondeau V, et al. frailtypack: general frailty models. CRAN package version 3.8.1, datasets `colorectal` and `colorectalLongi`. https://cran.r-project.org/package=frailtypack
 2. Ducreux M, et al. Sequential versus combination chemotherapy for the treatment of advanced colorectal cancer (FFCD 2000–05): an open-label, randomised, phase 3 trial. *Lancet Oncol*. 2011;12(11):1032–1044. doi:10.1016/S1470-2045(11)70199-1

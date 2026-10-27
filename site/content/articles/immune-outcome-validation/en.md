@@ -109,7 +109,7 @@ A prespecified liver-adjusted sensitivity was fitted on 271 development complete
 
 The two immune features carry development-cohort response information beyond this minimal clinical comparator. Their fixed external predictions retain a small relative discrimination advantage, but remain weak in absolute terms, and probability-score gains are uncertain. Calibration, sample selection, assay transfer and patient-level provenance limit the interpretation.
 
-A useful next study would prospectively define the specimen timing, response ascertainment and clinical dictionary; harmonize assay processing; verify distinct participants; and collect enough events to evaluate calibration and clinical utility. If the goal is treatment-benefit prediction, a suitable comparative design is needed. Adding more genes or recalibrating on these 11 responses would answer a different question and would require a new validation dataset.
+Specimen timing, response ascertainment, assay transfer and participant provenance remain limitations of this comparison. Recalibrating on the 11 external responses would use the validation outcomes and would no longer be an independent test.
 
 This work can prioritize a biological hypothesis. It cannot establish a clinically useful biomarker, an individual's response probability, or who benefits from checkpoint inhibition.
 

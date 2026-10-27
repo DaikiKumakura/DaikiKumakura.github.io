@@ -1,12 +1,12 @@
-## 日本語要約
+## 日本語要約 {#_1}
 
-T-cell engagerの投与設計では、有効性に必要な曝露、初期の免疫刺激、投与履歴、維持期の濃度を分けて考える必要がある。本解析はタルラタマブの公開2コンパートメントPopPKと正式Emaxモデルを再計算し、CRS集計に曝露履歴を加えたBayesian探索モデルを適用した。5,000人の仮想被験者と14条件のstep-upを比較したが、CRSの絶対値と履歴半減期は仮定に依存し、最適レジメンは決められなかった。別に、仮想薬剤の成立条件、実験の近似情報価値、採血設計を計算した。平均曝露を保存してもピークとトラフは変わり、初期採血を増やすだけではCLの推定が安定しない。これらは公開情報の再現と仮定したシナリオを分け、次に測定すべきものを具体化する方法である。患者のリスク予測、新しい薬剤の用量提案、実験投資の確定順位には使用しない。
+T-cell engagerの投与設計では、有効性に必要な曝露、初期の免疫刺激、投与履歴、維持期の濃度を分けて考える必要がある。本解析はタルラタマブの公開2コンパートメントPopPKと正式Emaxモデルを再計算し、CRS集計に曝露履歴を加えたBayesian探索モデルを適用した。5,000人の仮想被験者と14条件のstep-upを比較したが、CRSの絶対値と履歴半減期は仮定に依存し、最適レジメンは決められなかった。別に、仮想薬剤の成立条件、実験の近似情報価値、採血設計を計算した。平均曝露を保存してもピークとトラフは変わり、初期採血を増やすだけではCLの推定が安定しない。公開情報の再現、仮定したシナリオ、情報価値の近似計算は、それぞれ異なる証拠として扱った。患者のリスク予測、新しい薬剤の用量提案、実験投資の確定順位には使用しない。
 
-## Abstract
+## Abstract {#abstract}
 
 Public clinical pharmacology evidence can inform regimen questions before molecule-specific data become available, but its evidential limits must remain visible. We reconstructed a reference-covariate two-compartment tarlatamab model, propagated published interindividual variability in 5,000 virtual subjects, and used published ORR and DCR Emax parameters. Nine generalized Bayesian model and sensitivity conditions examined three overlapping aggregate CRS windows. Fourteen step-up schedules were compared, followed by steady-state maintenance simulations. A separate, explicitly hypothetical model explored dimensionless molecule feasibility, approximate decision value of measurements, and PK/cytokine sampling designs. Initial mean exposures were reasonably close to label summaries, whereas steady-state trough agreement remained incomplete. Exposure-history and administration-category models both described the three CRS summaries; the history timescale remained prior-sensitive despite satisfactory sampling diagnostics. Equal dose intensity preserved average exposure while changing peaks and troughs. In hypothetical decision scenarios, priming measurements had substantial value, but rankings depended on assumed utility and measurement models. Local information calculations showed weak CL identification from early-only sampling. These results support a reproducible route from evidence to testable measurement requirements, rather than identification of a clinically optimal schedule. No individual clinical data were used, and neither the CRS extrapolations nor hypothetical assay rankings are validated clinical predictions.
 
-## 1. Regimen design is more than choosing a target dose
+## 1. Regimen design is more than choosing a target dose {#1-regimen-design-is-more-than-choosing-a-target-dose}
 
 A schedule must address efficacy exposure, acute immune activation, and pharmacologic coverage over time. A small initial dose can reduce an acute stimulus but may also fail to produce a sufficient priming response. A longer maintenance interval can preserve average exposure while changing its waveform.
 
@@ -16,7 +16,7 @@ The [preceding PK analysis](tcell-engager-regimen-design.html) separated these q
 
 **Figure 1.** Analytical workflow. Clinical reconstruction and hypothetical decision scenarios are separate evidence streams; a fitted clinical posterior is not automatically transferred to a new molecule.
 
-## 2. Question of interest and context of use
+## 2. Question of interest and context of use {#2-question-of-interest-and-context-of-use}
 
 **QoI:** Which parts of a T-cell engager regimen comparison are supported by public evidence, which depend on assumptions about exposure history and priming, and which measurements could resolve those assumptions?
 
@@ -24,7 +24,7 @@ The [preceding PK analysis](tcell-engager-regimen-design.html) separated these q
 
 This framing is consistent with the emphasis on efficacy, safety, and tolerability in [FDA Project Optimus](https://www.fda.gov/about-fda/oncology-center-excellence/project-optimus) and its [Oncology Dosing Tool Kit](https://www.fda.gov/about-fda/oncology-center-excellence/oncology-dosing-tool-kit). [ICH M15, finalized by FDA in June 2026](https://www.fda.gov/regulatory-information/search-fda-guidance-documents/m15-general-principles-model-informed-drug-development), provides a context for defining model use and supporting evidence. None of these resources endorses this particular simulation.
 
-## 3. Evidence, reconstructions, and assumptions
+## 3. Evidence, reconstructions, and assumptions {#3-evidence-reconstructions-and-assumptions}
 
 | Evidence | Use | Limits |
 | --- | --- | --- |
@@ -38,7 +38,7 @@ This framing is consistent with the emphasis on efficacy, safety, and tolerabili
 
 No individual participant-level clinical data were used. We label published counts **observed**, source parameter estimates **published model-derived**, our calculations **reconstructed**, and untested regimens/hypothetical molecules **exploratory**. Sources were checked on 2026-10-03. Public source material is retained for audit but excluded from the downloadable package; source URLs are included.
 
-## 4. Reference-covariate two-compartment PopPK
+## 4. Reference-covariate two-compartment PopPK {#4-reference-covariate-two-compartment-poppk}
 
 For amounts in mg, volumes in L, and time in days:
 
@@ -71,7 +71,7 @@ The steady trough discrepancy prevents qualification as a complete reproduction 
 
 The source reports weight, ADA and race effects [1,2]. A separate covariate bracket uses the reported proportional coefficients with both linear and exponential weight forms, because the exact weight functional form was not independently confirmed. These calculations are labeled assumptions and are not called a reproduction of the full covariate model.
 
-## 5. Formal efficacy E–R
+## 5. Formal efficacy E–R {#5-formal-efficacy-er}
 
 The published model is
 
@@ -89,7 +89,7 @@ At reconstructed medians for 3/10/100 mg, ORR is 28.2/31.7/33.7%, compared with 
 
 An E90 of 9×EC50 means 90% of the model maximum, not 90% response. Neither this Cycle-1 average-exposure relation nor its plateau supplies a maintenance trough threshold. A response model transferred to a new schedule is an exploratory calculation, not demonstrated efficacy equivalence. One-at-a-time EC50 endpoint sensitivity for every schedule is supplied in `results/efficacy-sensitivity.csv`; it does not propagate a joint Emax–EC50 posterior.
 
-## 6. What the CRS summaries motivate
+## 6. What the CRS summaries motivate {#6-what-the-crs-summaries-motivate}
 
 The observed all-grade proportions are 40.6%, 29.3% and 7.5% across D1–7, D8–14 and D15–28 [5]. Reference-model peaks increase across the corresponding administrations.
 
@@ -101,7 +101,7 @@ A shared monotone-increasing exposure-only model cannot describe this particular
 
 Epcoritamab RTTE modeling in 600 subjects used stimulation and inhibition components and included prophylaxis and prior CAR-T effects [6]. It supports considering exposure history, but its Grade ≥2 hazard parameters cannot be inserted into an all-grade tarlatamab probability model. No quantitative epcoritamab prior was borrowed here.
 
-## 7. A generalized Bayesian history model
+## 7. A generalized Bayesian history model {#7-a-generalized-bayesian-history-model}
 
 For normalized peak \(x_{ik}=C_{max,ik}/(1\,\mu g/mL)\):
 
@@ -132,7 +132,7 @@ Sensitivity uses w=0.25 and 1. Down-weighting does not solve the unknown depende
 
 We fit positive-slope exposure-only, unconstrained exposure-only, administration-category and continuous-history models, plus wider-prior and fast/slow-history conditions. Each uses four NUTS chains, 1,500 tuning and 1,200 retained draws per chain. Across nine fits, maximum R-hat is below 1.008, minimum bulk ESS exceeds 816, and there are zero divergences. These diagnostics assess sampling, not model identification.
 
-## 8. Fit is easier than identification
+## 8. Fit is easier than identification {#8-fit-is-easier-than-identification}
 
 ![Marginal fitted CRS probabilities and prior-sensitive history timescales.](shared/tcell-engager-decision-framework/figures/05-crs-posterior.png)
 
@@ -152,7 +152,7 @@ With prior centers of 5 versus 60 days, TH intervals shift to approximately 4.7�
 
 **Diagnostic figure.** Prior/posterior overlap and chain behavior. Broad intervals and prior sensitivity remain despite converged traces. Results are stored in chain-ordered NPZ files and diagnostic tables.
 
-## 9. Step-up scenarios and their uncertainty
+## 9. Step-up scenarios and their uncertainty {#9-step-up-scenarios-and-their-uncertainty}
 
 Fourteen prefixes are tested at 7-day spacing. After the first 10 mg target administration, another 10 mg is given 7 days later, then every 14 days. Thus the 1→10 prefix reproduces D1/D8/D15; direct 10 uses D1/D8/D22. This rule is a defined counterfactual geometry, not an approved direct-dose regimen. Cycle 1 is days 0–28 for every comparison.
 
@@ -176,7 +176,7 @@ For direct 10, the sensitivity run gives approximately 59.6% (47.1–80.7%) in t
 
 Very small priming doses do not necessarily minimize predicted CRS: a 0.1 mg prefix leaves less history attenuation before the target dose in this model. Conversely, this model cannot establish how much priming is sufficient. Changes in absolute CRS values or rankings under assumptions should be treated as fragility, not optimization evidence.
 
-## 10. Priming adequacy is a missing measurement
+## 10. Priming adequacy is a missing measurement {#10-priming-adequacy-is-a-missing-measurement}
 
 A candidate bounded priming response is
 
@@ -188,7 +188,7 @@ This notation is a response index unless a probabilistic endpoint and observatio
 
 The data needed include dose/concentration, exposure duration, interchallenge interval, viability, CD69/CD25, cytokines and TDCC. Donor and target-density variation should be paired across conditions. Safety-only optimization is incomplete, but adding an arbitrary priming cutoff does not make it clinically complete.
 
-## 11. Maintenance exposure and a drug-specific margin
+## 11. Maintenance exposure and a drug-specific margin {#11-maintenance-exposure-and-a-drug-specific-margin}
 
 The population is simulated at steady state under six conditions. For each subject, metrics are divided by their own 10 mg Q2W value.
 
@@ -198,7 +198,7 @@ The population is simulated at steady state under six conditions. For each subje
 
 Teclistamab supplies an example of a different evidence chain: median estimated troughs of 20.4, 14.4 and 11.7 µg/mL were compared with an ex-vivo cytotoxicity EC90,max of 6.039 µg/mL [7]. The resulting calculated margins are 3.38, 2.38 and 1.94. The threshold came from five patient bone-marrow samples, and the switching analysis concerned responders. It is neither a universal TCE threshold nor a sufficient condition for every patient. No such validated tarlatamab maintenance margin is introduced here.
 
-## 12. A dimensionless molecule feasibility map
+## 12. A dimensionless molecule feasibility map {#12-a-dimensionless-molecule-feasibility-map}
 
 We separately define a hypothetical one-compartment bolus model. Normalized TDCC E90 is 1; functional TI is cytokine E50/TDCC E90. Its units are not convertible to tarlatamab mg. The model has no fitted clinical CRS likelihood.
 
@@ -217,7 +217,7 @@ Across TI=1–100 and half-life=1–21 days, each condition uses 500 virtual sub
 
 **Figure 8.** Binary existence of at least one feasible candidate in a finite grid. Blue does not indicate a probability of clinical success. White does not establish that no feasible schedule exists outside the grid. Broader TI and longer half-life can help in this structure, but dose grid, variability, priming and thresholds materially affect the boundary.
 
-## 13. Decision value of the next measurement
+## 13. Measurement value under three utility assumptions {#13-decision-value-of-the-next-measurement}
 
 The purpose of an assay is to change or stabilize a defined decision. We therefore evaluate expected utility, rather than labeling a reduction in parameter variance as value of information.
 
@@ -249,7 +249,7 @@ Priming information has value in these scenarios because priming uncertainty and
 
 Tumor-growth/kill measurements are not given a numeric information-value rank: this toy utility has no fitted tumor-growth component. Assigning a value anyway would manufacture a decision model that was not analyzed.
 
-## 14. PK and cytokine sampling designs
+## 14. PK and cytokine sampling designs {#14-pk-and-cytokine-sampling-designs}
 
 We calculate local Fisher information for log(CL,Vc,Q,Vp), with assumed independent log-concentration error SD 0.30. Concentrations follow 1→10→10 mg at days 0/7/14; the residual SD is an **assumed design value**, not the FDA's reported residual SD. Information is per subject and excludes BLQ, random effects, dropout and between-occasion variation. Pre-dose zero concentrations contribute no log-information.
 
@@ -269,7 +269,7 @@ Day-7 and day-14 samples are before their infusions. Extremely large early-desig
 
 For cytokines, we assume peak time uniformly distributed from 2–12 h and response exp{−0.5[log(t/tpeak)/0.6]²}, with no measurement error. Capturing at least 80% of the true peak occurs in 49.2% of simulations for 0/6/24 h, 89.6% for 0/2/6/12/24 h and 100% for 0/2/4/6/12/24 h. The last value follows the smooth assumed peak shapes and timing range; it does not guarantee clinical peak capture. Kinetic and assay noise sensitivity is required before using a real sampling recommendation.
 
-## 15. Experiment → parameter → decision
+## 15. Experiment → parameter → decision {#15-experiment-parameter-decision}
 
 | Experiment | Information | Decision it can support |
 | --- | --- | --- |
@@ -286,13 +286,13 @@ Cell experiments should include antigen-low/medium/high targets, multiple donors
 
 NHP information is useful only when target and CD3 cross-reactivity and pharmacologic relevance are supported. Non-reactive species cannot supply a relevant stimulation prior. Even reactive species do not guarantee human CRS prediction.
 
-## 16. Updating for a molecule with new data
+## 16. Updating for a molecule with new data {#16-updating-for-a-molecule-with-new-data}
 
 The progression is external structural knowledge → molecule-specific in-vitro data → relevant animal data → human longitudinal observations. Numeric borrowing requires an endpoint/scale correspondence and an exchangeability argument. A robust or discounted prior must permit contradictory molecule-specific data to dominate.
 
 Replacing PK alone is insufficient. Cytokine potency, target density, tissue distribution, priming and efficacy relationships may all change. The external tarlatamab history model is an exploratory reference, not a portable clinical prior. A candidate's measurement costs and consequences must also replace the hypothetical utility before information-value results can guide resource allocation.
 
-## 17. Validation and boundaries
+## 17. Validation and boundaries {#17-validation-and-boundaries}
 
 | Conclusion | Classification | Reason |
 | --- | --- | --- |
@@ -308,7 +308,7 @@ Replacing PK alone is insufficient. Cytokine potency, target density, tissue dis
 
 Limitations include missing IPD and event timing, unknown window dependence, differing prophylaxis, target/disease/route differences, incomplete covariate reconstruction, prior-driven history parameters and finite candidate grids. Matching three proportions is not external validation. No new molecule, clinical recommendation, causal mechanism or optimal regimen is claimed.
 
-## 18. Reproduce the analysis
+## 18. Reproduce the analysis {#18-reproduce-the-analysis}
 
 [Download code, executed notebook, input tables, posterior draws and result tables](shared/tcell-engager-decision-framework/tcell-decision-analysis.zip). Original figures were generated from these calculations; no journal figures were copied.
 
@@ -322,13 +322,13 @@ python scientific_checks.py
 
 Seeds are fixed at 20261006. Cached fits are reused; remove a named cached fit's draws/diagnostics to refit it. The notebook reruns PK, regimen/design calculations and checks and displays the saved NUTS diagnostics/draws; the full nine NUTS fits are executed separately by `bayes.py`. Source manifests, model assumptions, session versions and outputs are included.
 
-## 19. Measurements needed next
+## The present data do not identify an optimal regimen {#19-measurements-needed-next}
 
-The CRS history timescale remains prior-sensitive. Connected dose, PK, PD and CRS event records, together with controlled priming, washout and rechallenge measurements, are needed to distinguish exposure history from other period effects. Rechallenge should assess retained killing as well as cytokine attenuation.
+The history timescale remained prior-sensitive, while late PK samples improved CL information only within the tested local approximation. Neither result establishes an optimal clinical step-up or maintenance schedule.
 
-For PK, adding late samples addresses the weak CL information in the tested early-only designs. The local information calculation does not qualify a clinical sampling schedule: assay error, BLQ, random effects and dropout still need to be included. These measurement requirements follow from the identified gaps; the current data do not establish an optimal step-up or maintenance regimen.
+The generalized CRS model cannot separate exposure history from other period effects in the aggregate records. The sampling calculation also omits assay error beyond its assumed model, BLQ, random effects and dropout. These are boundaries of the reported results, not a validated protocol for a subsequent study.
 
-## References
+## References {#references}
 
 1. [FDA tarlatamab multidisciplinary review, 2024, Tables 66–67 and 71](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2024/761344Orig1s000MultidisciplineR.pdf).
 2. [Kong S, et al. Population Pharmacokinetics of Tarlatamab. Clin Pharmacokinet. 2025;64:729–741. DOI 10.1007/s40262-025-01499-z](https://doi.org/10.1007/s40262-025-01499-z).

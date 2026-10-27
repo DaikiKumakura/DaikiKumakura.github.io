@@ -239,7 +239,7 @@ From this summary, it is hard to explain the differences between doses with a si
 
 This article does not fit a new CRS model that treats the three per-dose summaries as independent patient data. Presenting a hypothesis from summary points was kept distinct from predicting risk based on each patient's exposure and onset time. Links to E–R and CRS are limited to interpreting public information and organizing the data needed.
 
-## 7. Answers to the QOI and the data needed next {#7-answers-to-the-qoi-and-the-data-needed-next}
+## 7. Summary definitions constrain prediction {#7-answers-to-the-qoi-and-the-data-needed-next}
 
 | Question | What can be supported here | What cannot be supported |
 | --- | --- | --- |
@@ -247,19 +247,7 @@ This article does not fit a new CRS model that treats the three per-dose summari
 | What is the effect of the interval? | Under linear PK, the average-concentration ratio is 2/3 for Q3W and 1/2 for Q4W | Using absolute concentrations or troughs as precise patient predictions |
 | Can this be linked to efficacy and CRS? | Showed the need to separate exposure metrics and dosing history | Guaranteeing maintained efficacy or reduced CRS with Q3W or Q4W |
 
-The follow-up questions concern maintenance troughs, peak safety after dose increases, and early CRS. Each requires different measurements.
-
-| Next question | Metric to evaluate | Additional information needed |
-| --- | --- | --- |
-| Can exposure late in the interval be maintained? | Maintenance Ctrough and its uncertainty | Dosing records for the same patients, several concentrations late in the interval, information on missing data and delays |
-| Does the peak become a problem with dose increases that keep average exposure? | Cmax and corresponding safety | Concentrations at the end of infusion and in the distribution phase; adverse events and their times by patient |
-| What are the early CRS differences linked to? | Exposure and onset time after each dose | Within-patient correspondence including dose number, premedication, recurrence and patient status |
-
-Adding the covariance between PK metrics would also allow the currently assumed error structure to be updated. Conversely, drawing the curves more precisely without this information does not resolve the uncertainty needed for decisions.
-
-If published concentration curves are digitized, the type of mean, the number of patients at each time point, the error bars and the reading error need to be recorded before adding them to the model. It should not be assumed that adding curves improves the identifiability of Vp or Q; the profile analysis and prediction widths should be checked again.
-
-In this analysis, the constraint was the definition and information content of the summary values rather than numerical accuracy: which time point the pre-dose concentration corresponds to, whether average concentration and trough are distinguished, and whether uncertainty is propagated to predictions. These checks need to be done before linking the model to a use.
+Covariances between PK metrics and linked patient-level dosing, sampling and CRS times were unavailable. Population means alone cannot connect maintenance troughs with peaks during escalation. More precise interpolation does not restore those missing observations: the main constraint was summary definition and information content rather than numerical precision.
 
 ## Reproducing the analysis {#reproducing-the-analysis}
 

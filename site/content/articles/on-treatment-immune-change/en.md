@@ -82,9 +82,9 @@ These are **conditional association diagnostics in participants with available p
 
 This small comparison records observable differences. It neither explains why an on-treatment biopsy is missing nor demonstrates that missingness is random. Other participants had only on-treatment specimens and could not enter this baseline comparison. Prior treatment, exact lesion composition and individual collection timing are not adjusted here.
 
-## What follows for a monitoring study {#what-follows-for-a-monitoring-study}
+## Paired immune shifts did not establish monitoring utility {#what-follows-for-a-monitoring-study}
 
-The data support a within-participant immune-expression shift among observed pairs. They provide weaker evidence that the primary change adds useful information about response. A further monitoring study should jointly record collection days, progression and response-assessment dates, biopsy failures, lesion/site identity, prior treatment, and assay quality. A prespecified post-biopsy endpoint and distinct validation cohort would allow the next question to be tested at a legitimate information time.
+The data support a within-participant immune-expression shift among observed pairs. They provide weaker evidence that the primary change adds useful response information. Collection timing, biopsy failure, lesion identity and response ascertainment limit interpretation at a fixed information time.
 
 This analysis provides no PK measurements or exposure-linked response, and cannot justify dose adjustment. It also does not establish a novel immune biology discovery; it is a bounded reanalysis of an existing longitudinal cohort. The pairing audit, fixed low-dimensional scores and normalization sensitivity are documented in the companion.
 

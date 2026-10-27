@@ -2,11 +2,11 @@
 
 本記事ではPRISMの公式19Q4データから、事前に選んだ3薬・肺由来6細胞株を再解析した。30組のうち1組は全欠測、残る29曲線では12曲線のEC50 profileが探索範囲の端まで閉じなかった。**この12曲線では、点推定を精密な感受性の順位や追加濃度の根拠として扱えない。** 一方、erlotinib–HCC827のようにtechnical redoでも遷移が保たれる例もあった。目的はPRISM全体の良し悪しを判定することではなく、次に何を測るべきかを曲線ごとに分けることである。
 
-## 問いと使用範囲
+## 問いと使用範囲 {#_1}
 
 QOIは「公開EC50を次の濃度・再実験の選択に使えるか、その判断を変えるのは何か」とする。COUは非臨床の追試設計に限る。患者のPKを推定した解析ではなく、細胞株の結果から臨床用量や治療選択は決めない。モデルの判断への影響は低い。誤ったEC50の採用は、不適切な濃度に追試を集中させる危険がある。
 
-## データ：未集約でも「生データ」ではない
+## データ：未集約でも「生データ」ではない {#_2}
 
 PRISMは細胞株を混合し、barcodeを通じて薬剤処理後の相対的なviabilityを測るスクリーニングである。[1] 公式19Q4 version 4を利用した。Figshare上のライセンスはCC BY 4.0であり、出典を明示する。[2]
 
@@ -25,7 +25,7 @@ PRISMは細胞株を混合し、barcodeを通じて薬剤処理後の相対的�
 
 erlotinibとpalbociclibにはHTS002とMTS010の両方がある。READMEはMTS010をtechnical redoと記載し、利用可能なら優先するよう勧めている。[2] したがって、両screenの比較を独立した生物学的追試や外部検証とは呼ばない。
 
-## 方法：EC50の値よりどこまで決まるかを見る
+## 方法：EC50の値よりどこまで決まるかを見る {#ec50}
 
 相対viabilityを $v=2^{\mathrm{log2FC}}$ とし、クリッピングせずに次を推定した。
 
@@ -39,9 +39,9 @@ $L,U$ は高濃度・低濃度側の漸近値、$h$ はHill slopeである。$b_
 
 次にEC50を固定し、残りのパラメータを再推定するprofileを計算した。全域101点に推定値近傍81点を追加し、各点を4開始点で最適化した。残差増加をF分布に基づく95%相当の基準と比べた。これは補正済み技術反復、独立残差、指定曲線を条件とした**近似的な許容範囲**であり、独立した実験の95%信頼区間ではない。境界制約や補正後の相関もあるため、coverageを保証しない。
 
-## 結果
+## 結果 {#_3}
 
-### 遷移を観測している曲線と数値だけが出る曲線
+### 遷移を観測している曲線と数値だけが出る曲線 {#_4}
 
 ![反復未集約の観測値と再推定曲線。点は技術測定、線はplate offsetを除いた共通曲線。](shared/prism-potency-reliability/figures/fig1_observed_curves.png)
 
@@ -58,7 +58,7 @@ $L,U$ は高濃度・低濃度側の漸近値、$h$ はHill slopeである。$b_
 
 29曲線で最適化は収束したが、12曲線のprofileが探索境界まで開放し、7曲線の点推定は測定範囲外だった。17曲線では漸近値またはslopeが設定した境界に接し、7曲線は1plateしか残っていない。**収束したことだけでは、EC50がデータから識別されるとは言えない。** また、閉じたprofileでも1plateだけから推定されたものがあり、狭い許容範囲を独立再現性の証拠とはしない。
 
-### 点推定の変化と推定できないことを分ける
+### 点推定の変化と推定できないことを分ける {#_5}
 
 ![EC50を固定した残差profile。緑は測定濃度範囲、破線1は条件付き残差の許容基準。](shared/prism-potency-reliability/figures/fig2_ec50_profiles.png)
 
@@ -68,21 +68,15 @@ $L,U$ は高濃度・低濃度側の漸近値、$h$ はHill slopeである。$b_
 
 公式処理済みパラメータと結合できた27曲線も比較した。今回の制約、plate offset、最適化によって点推定は変わるため、公式EC50をそのまま再現した解析ではない。同じ観測源からの再処理比較であり、独立検証ではない。両表を比較できるよう、点推定・profile・反復構造を一緒に保存する。
 
-## 次に何を測るか
+## 局所感度の最大点は最適濃度ではない {#_6}
 
 ![推定曲線のlog10 EC50に対する局所感度。上下漸近値とHill slopeを固定した条件付き計算。](shared/prism-potency-reliability/figures/fig3_conditional_sensitivity.png)
 
-**図3：** 他のパラメータが既知なら、EC50付近の濃度はその変化に敏感である。しかし、漸近値やslopeも不確かな曲線では、この局所感度の最大点を「最適な次濃度」と呼べない。
+**図3：** 上下漸近値とHill slopeが既知なら、EC50付近の濃度はその変化に敏感になる。これらも不確かな曲線では、局所感度の最大点だけで最適な追加濃度は決まらない。
 
-今回の結果から、追試を次のように分ける。
+erlotinib–HCC827の約0.01〜0.03 µMには、両screenで遷移が見える。一方、profileが開く曲線や1plateしか残らない曲線では、点推定の近くへ濃度を追加する根拠が弱い。図の感度は、対照や漸近値、別実験での再現性が不明という問題を解消しない。
 
-- **遷移が両screenで保たれる場合：** erlotinib–HCC827では、約0.01〜0.03 µM付近を含む追加濃度が条件付き候補になる。ただし、上下のplateauを確認する濃度と別実験の反復を残す。
-- **profileが開放する場合：** 大きなEC50点推定から自動的に高濃度へ延ばさず、まず元の範囲で独立再実験し、対照・反応の方向・漸近値を確認する。再実験後に、溶解性や非特異的毒性も踏まえて拡張を判断する。
-- **1plateしか残らない場合：** 条件付きprofileが狭くても、独立再実験の優先度を下げない。欠測が多いcurveは、精密そうなEC50を濃度選択の根拠にしない。
-
-追加濃度を一つ選ぶだけでなく、「何を先に確認するべきか」を決めるのが、この解析の役割である。
-
-## 限界と結論
+## 限界と結論 {#_7}
 
 対象は3薬・6株であり、PRISM全体の未識別率を推定する標本ではない。補正前のMFIからQC・ComBatを再実装しておらず、plate offsetだけでは処理の不確実性を復元できない。残差の独立性・等分散性、Hill曲線の妥当性も十分ではなく、profileを独立実験CIとして読むことはできない。培地中の遊離濃度、曝露時間差、患者PKへの変換も扱っていない。
 
@@ -90,12 +84,12 @@ $L,U$ は高濃度・低濃度側の漸近値、$h$ はHill slopeである。$b_
 
 数値は`analysis/02_analyze.py`の`curve_fits.csv`、`profiles.csv`、`audit.json`、`screen_comparison.csv`から取得した。図は`analysis/03_figures.py`で作成し、再実行手順とNotebookを保存した。
 
-## 参考資料
+## 参考資料 {#_8}
 
 1. Corsello SM et al. Discovering the anticancer potential of non-oncology drugs by systematic viability profiling. *Nature Cancer* 2020;1:235–248. [DOI:10.1038/s43018-019-0018-6](https://doi.org/10.1038/s43018-019-0018-6)。公開資料として[PRISM公式プロジェクトページ](https://depmap.org/repurposing/)を併用。
 2. Broad DepMap et al. [PRISM Repurposing 19Q4 Dataset, version 4](https://figshare.com/articles/dataset/9393293/4)。使用ファイルのREADME・注釈・未集約LFC・公式curve parameters、CC BY 4.0。
 3. Broad Institute. [PRISM secondary screen processing script](https://github.com/broadinstitute/repurposing/blob/master/secondary_processing_script.R)。処理手順の照合に使用。
 
-## 解析関数と検査コード
+## 解析関数と検査コード {#_9}
 
 [解析関数と単体検査のZIP](shared/prism-potency-reliability/prism-potency-reliability-functions.zip)を配布する。原データや解析全体の再実行資料は含まない。検査に使う構成例を、臨床データの検証とは扱わない。

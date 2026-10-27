@@ -2,7 +2,7 @@ From published individual concentration data, I estimated three PopPK models: li
 
 Here, the more complex models improved the fit to the training data. However, the improvement in internal validation with subjects left out was small, and convergence problems remained in resampling-based estimation. Although the models ranked the dosing conditions in the same order, absolute exposure and dose ratios did not agree. **The evidence was therefore insufficient either to adopt the nonlinear model or to conclude that the linear model is enough.** This article shows the calculations behind that conclusion and the information needed next.
 
-## Question and use
+## Question and use {#question-and-use}
 
 In the original nimotuzumab study, a semi-mechanistic nonlinear PK model was examined for data from patients with advanced breast cancer.[1] This analysis is not a full reproduction of the original model. It is a secondary analysis that uses the data distributed in a public package to compare model complexity against the intended use.
 
@@ -12,7 +12,7 @@ In the original nimotuzumab study, a semi-mechanistic nonlinear PK model was exa
 
 "Ranking in the same order" and "agreeing numerically to the precision needed for the use" are different judgments. The analysis plan required, as conditions supporting added complexity, an improvement of at least 10% in subject-level prediction RMSE together with calibration and identifiability. To conclude that a simpler structure is enough, it required that the main exposures and ratios differ by no more than 10% from plausible alternative models, together with an assessment of uncertainty. This 10% is a prespecified criterion for this study, not a general regulatory standard.
 
-## Auditing the data first
+## Auditing the data first {#auditing-the-data-first}
 
 `nimoData` from `nlmixr2data` 2.0.10 at a fixed commit was used.[2] The SHA-256 of the original RDA is `896d256aee8919061b76358c5e723a786571182f88e5069bf5aa79fc24b82352`. The RDA was written out to CSV, and dosing and observation records were checked separately.
 
@@ -32,7 +32,7 @@ The log scale is consistent with `IPRED = log(conc)` in the official model examp
 
 The audit of the original paper (A01) recorded 443 concentration observations, but the distributed data contain 321, and there is no table mapping extraction or processing.[1,2] The analysis uses the 321 distributed observations; it cannot be described as reproducing the full data of the original study. Estimation used the recorded RATE, and replacing all infusions with 0.5 h was re-estimated as a separate sensitivity analysis.
 
-## Estimating three candidates in the same framework
+## Estimating three candidates in the same framework {#estimating-three-candidates-in-the-same-framework}
 
 Let concentration be `C = A1 / V1` and the infusion input `R_in(t)`. M1 is a linear one-compartment model, and M2 is the following linear two-compartment model.
 
@@ -77,7 +77,7 @@ The estimates of the selected candidate solutions are shown below. CL/Q are in L
 
 With a common likelihood, AIC was 790.42 for M1, 751.25 for M2 and 747.47 for M3; M3 is about 3.78 lower than M2. However, in A02 the largest absolute parameter correlation for M3 was about 0.990, and covariance and optimizer warnings remain. The model is not adopted on the AIC ranking alone.
 
-## Separating goodness of fit from prediction for new subjects
+## Separating goodness of fit from prediction for new subjects {#separating-goodness-of-fit-from-prediction-for-new-subjects}
 
 ![Fit and residuals by model](shared/nimotuzumab-poppk/a03/figures/01-gof.png)
 
@@ -118,7 +118,7 @@ The mean improvement for M2/M3 does not reach 10%. With an 8192-point Sobol inte
 | M2 | 12 | 12 | 0 |
 | M3 | 12 | 12 | 1 |
 
-## VPC that preserves the dosing history
+## VPC that preserves the dosing history {#vpc-that-preserves-the-dosing-history}
 
 Actual dosing times, rates and sampling times were kept, and 1000 datasets were generated for each model. The same eta was used for repeated observations of the same subject, with residual error added to each observation. The first and tenth doses were separated by dose level and summarized by time since the previous dose. The time bins were 0–2, 2–30, 30–72, 72–168, 168–360 and 360–720 h, set to cover the recorded schedule; bins with fewer than 3 observations are not shown.
 
@@ -128,7 +128,7 @@ Actual dosing times, rates and sampling times were kept, and 1000 datasets were 
 
 With three subjects per dose, several observations in a bin do not add independent subjects. Medians are shifted for some doses and periods, and inclusion within a wide band alone does not guarantee fit. This is an uncorrected VPC by dose, not a prediction-corrected VPC.
 
-## Not forcing confidence intervals out of the bootstrap
+## Not forcing confidence intervals out of the bootstrap {#not-forcing-confidence-intervals-out-of-the-bootstrap}
 
 Keeping the dose strata, subjects were resampled with replacement and each model was re-estimated 200 times. Observation rows were not resampled individually. Because this is the empirical distribution of strata with only three people, the lack of information in a small population remains. For M1, the optimizer was changed from bobyqa to nlminb and another 200 runs were made. The additional runs did not replace the original results; both were kept.
 
@@ -149,7 +149,7 @@ No candidate reaches the prespecified 80% criterion, so 95% confidence intervals
 
 **Figure 6.** Km or Vmax was fixed at 1/64 to 64 times the candidate solution (7 points), and the remaining parameters were re-estimated. The vertical axis is the difference from the A03 reference FOCEi objective function. This is a finite grid search, not the independent-quadrature curve used for AIC and not a formal profile confidence interval. Points with convergence warnings are shown as open symbols rather than hidden. The curve is not taken as a smooth true profile, and the boundedness of an interval is not asserted.
 
-## The same ranking of dosing conditions does not mean the same numbers
+## The same ranking of dosing conditions does not mean the same numbers {#the-same-ranking-of-dosing-conditions-does-not-mean-the-same-numbers}
 
 Estimation used the actual dosing history. For the comparison simulations, conditions were standardized: 50 / 100 / 200 / 400 mg, a 168 h interval, a 0.5 h infusion and 10 doses. Fixed effects were set to the candidate solutions, and 10,000 people following each model's Omega were generated from the same standard normal random numbers. **Within each model, this is a paired comparison giving every condition to the same virtual individuals.** Using the same random numbers across models does not guarantee the same biological individual differences in the same real patient.
 
@@ -186,7 +186,7 @@ Ten doses of 200 mg at intervals of 144 / 168 / 192 h were also compared. The to
 
 With the same parameters, changing a 0.5 h infusion to 1 h changed the paired median of first-dose Cmax by about −0.1% to −0.2% in all three models. This is a comparison in which "only the infusion was changed with the same pharmacokinetics", which differs from the input-history sensitivity below.
 
-## What happens when the input-history and body-weight assumptions change
+## What happens when the input-history and body-weight assumptions change {#what-happens-when-the-input-history-and-body-weight-assumptions-change}
 
 Exposure from the solutions re-estimated with subjects left out was also examined. The table gives the range across the 12 leave-one-out solutions of the typical-individual tenth-dose AUC at 200 mg and the 400/200 mg ratio. These are neither between-subject distributions nor confidence intervals.
 
@@ -212,13 +212,13 @@ A re-estimation replacing all recorded infusions with 0.5 h, and a re-estimation
 
 Because convergence warnings also remain for each sensitivity re-estimation, the differences are not treated as proof of a robust covariate effect or of the correct infusion duration. In addition, exposure including body weight and IIV was calculated for 10,000 people with recorded baseline weights resampled with replacement (`allometry-exposure.csv`). This is a sensitivity analysis conditional on the weight distribution of the 12 observed people, not the distribution of a general patient population. It does not claim to have synthesized the joint distribution of unknown patient characteristics.
 
-## What numerical checks confirmed
+## What numerical checks confirmed {#what-numerical-checks-confirmed}
 
 An independent Python implementation (analytical transitions for the linear models, DOP853 for M3) was compared with the R predictions for nine estimated solutions covering the reference, infusion sensitivity and allometry. The maximum difference in log prediction was 3.3e-06. Changing the integration grid from 337 to 673 points changed AUC by at most 3.6e-07 in relative terms (a cohort of 32 people with the same random numbers). It was also confirmed that the paired dose ratios for M1/M2 match the theoretical linear values, that LOSO covered 36 subject folds and 963 observation evaluations, and that the exposure table has 168 rows.
 
 These are checks of the implementation and numerical integration. They do not resolve the provenance of the data, the convergence of estimation, or the biological validity of the model.
 
-## What this analysis can decide
+## Predictive gains from added structure remained unstable {#what-this-analysis-can-decide}
 
 | Judgment | What is supported here | What is not supported |
 | --- | --- | --- |
@@ -228,11 +228,9 @@ These are checks of the implementation and numerical integration. They do not re
 | Comparing dosing conditions | Exposure and ratio differences within fixed candidate models can be quantified | Optimizing therapeutic doses, predicting clinical risk |
 | Uncertainty | IIV, structural differences and re-estimation failures can be distinguished | Reliable 95% CIs from the bootstrap |
 
-What is needed next is not simply adding another complex equation. First, the original records of infusion start and end and sampling times, and the history of selecting and processing the distributed data, should be checked. Then measurements that can distinguish the early distribution phase from the low-concentration terminal phase, more independent subjects per dose, and validation data not used for selection are needed.
+Original infusion and sampling records and the selection/processing history were not verified. The observations also constrain separation of early distribution from the low-concentration terminal phase. No optimal sampling time or sample size was calculated, and added structural complexity alone did not resolve this uncertainty.
 
-If additional measurements are designed for existing data, the next question is to weigh the differences between candidate-model predictions in the low and high concentration ranges against measurement error and sampling burden. This analysis alone has not determined optimal sampling times or the required number of subjects, so no specific design values are proposed.
-
-## Reproduction materials and sources
+## Reproduction materials and sources {#reproduction-materials-and-sources}
 
 The analysis record is saved in the executed `a03-diagnostics.ipynb`. For distribution, a [review notebook](shared/nimotuzumab-poppk/review.ipynb) that runs without patient-level data, [instructions for rerunning](shared/nimotuzumab-poppk/README.md), model definitions and R re-estimation scripts, independent Python prediction, diagnostics and simulation, summary CSVs and figures were prepared. The review notebook reruns the comparisons and checks from saved results; the long R estimation itself is a separate command. The distribution materials contain no patient-level data or RDS files and record the source of the fixed version and the hash of the original. The license for the code is treated separately from the usage rights for the original data and the copyright of the original paper.
 

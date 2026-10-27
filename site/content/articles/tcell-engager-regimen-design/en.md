@@ -168,17 +168,6 @@ The width in the figure above is IIV based on a fixed Ω, not uncertainty in the
 
 Across the range of the published fixed effects, the direction was maintained: with dose intensity held constant, the average is preserved, the peak rises and the trough falls. Structural uncertainty from assuming a linear two-compartment model, and from omitting time-varying CL or immune responses, is not covered by this sensitivity analysis.
 
-## What to examine next {#what-to-examine-next}
-
-| What we want to decide | What public information allowed | Additional information needed |
-| --- | --- | --- |
-| Extending the maintenance interval | Relative changes in average, peak and trough | Exposure, efficacy and safety data at longer intervals |
-| Safety of step-up conditions | Description of CRS by period; structuring the questions together with PK | Linked actual dosing times, onset times, recurrence, premedication and patient status |
-| Reproducing absolute population exposure | Recalculation of the typical and IIV model at reference covariates | Covariate distribution, actual dosing history, identity of the model used |
-| Application to another DLL3-targeted drug | Identifying the metrics to compare and the information gaps | That drug's PK, binding and PD, safety and efficacy data |
-
-For maintenance dosing, measuring only troughs is not enough, and neither is measuring only peaks. The more a condition preserves the average, the more information is needed that distinguishes the period just after dosing from the period just before the next dose. For CRS, linking dosing, premedication and onset times in the same patients comes before simply measuring more concentrations. A numerical value of information was not calculated, because how much that information would change the decision has not been defined.
-
 ## Maintenance equivalence needs more than average exposure {#conclusion}
 
 With the public PopPK model, exposure comparisons within regimens, including between-subject variability, can be made in a reproducible way. A mismatch with the absolute exposure of the published population remains, and this does not amount to a new NLME estimation based on patient data.
@@ -196,3 +185,5 @@ What the results support most directly is that **matching dose intensity does no
 3. [Kong S, et al. Population Pharmacokinetics of Tarlatamab in Patients with Small Cell Lung Cancer. Clin Pharmacokinet. 2025;64:729–741](https://doi.org/10.1007/s40262-025-01499-z).
 4. [Chen PW, et al. Tarlatamab Exposure–Efficacy and Exposure–Safety Relationships to Inform Dose Selection in Patients with Small Cell Lung Cancer. Clin Cancer Res. 2025;31:4688–4697](https://pmc.ncbi.nlm.nih.gov/articles/PMC12616239/).
 5. [Practical management of adverse events in patients receiving tarlatamab, a delta-like ligand 3–targeted bispecific T-cell engager immunotherapy, for previously treated small cell lung cancer](https://pmc.ncbi.nlm.nih.gov/articles/PMC11775405/). Figure 2 and dosing management conditions.
+
+<span id="what-to-examine-next"></span>

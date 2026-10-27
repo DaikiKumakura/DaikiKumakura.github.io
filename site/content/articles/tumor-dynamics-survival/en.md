@@ -2,13 +2,13 @@ In a public subset of a colorectal-cancer trial, adding early tumor change modes
 
 日本語要約：早期腫瘍変化と、その後の生存との関連を、情報を利用できる時点をそろえて検証した。128人の16週landmark集団では検証時のC-indexが0.532から0.581へ上がったが、改善幅の区間はゼロを含んだ。腫瘍変化と生存が関連することと、臨床判断に使えることを区別する必要がある。
 
-## The question comes before the model
+## The question comes before the model {#the-question-comes-before-the-model}
 
 The question of interest was whether an early tumor measurement adds out-of-sample information about later overall survival beyond baseline clinical factors and tumor burden. The context of use is research prioritization: deciding whether early monitoring deserves further predictive study. This analysis does not assess treatment switching, dosing, causal mediation, or qualification of a treatment-effect surrogate.
 
 A tempting analysis uses each patient's smallest tumor measurement, wherever it occurred, to predict survival from treatment initiation. That analysis uses information that was unavailable at the prediction time. It also gives patients who survive longer more opportunities to have a response recorded. Here, the prediction time is explicitly fixed at week 16, and only earlier measurements enter the predictors.
 
-## Data and the audit that changed the analysis
+## Data and the audit that changed the analysis {#data-and-the-audit-that-changed-the-analysis}
 
 The `colorectal` and `colorectalLongi` datasets distributed in **frailtypack 3.8.1** contain a random subset of 150 participants from the FFCD 2000–05 trial, comparing sequential and combination chemotherapy for metastatic colorectal cancer. The source-specific description in Chiou et al. establishes the time unit as years and corroborates the stored age categories. This is a secondary analysis of the distributed subset, not a reanalysis of the entire randomized trial. [frailtypack documentation](https://search.r-project.org/CRAN/refmans/frailtypack/html/colorectalLongi.html), [Chiou et al., Journal of Statistical Software](https://doi.org/10.18637/jss.v105.i05).
 
@@ -26,7 +26,7 @@ Neither the time inconsistency nor the age dictionary was silently corrected. A 
 
 ![Early sampling density limits individual kinetic modeling](shared/tumor-dynamics-survival/figures/early-sampling.png)
 
-## A conditional landmark estimand
+## A conditional landmark estimand {#a-conditional-landmark-estimand}
 
 The primary landmark was 16 weeks, converted using 52.1775 weeks per year. Eligibility required survival and observation beyond the landmark, a baseline tumor measurement, and at least one positive-time measurement on or before week 16. After the integrity exclusion, **128 participants with 101 subsequent deaths** entered the primary analysis. The target population is therefore the observed, landmark-eligible subset, not every randomized participant.
 
@@ -41,7 +41,7 @@ The measurement time enters because a change observed early and a change observe
 
 The floor-censored last measurement occurred in one primary participant. A bounded sensitivity used the transformed nonnegative-size lower bound −1/0.3 and the documented rounded floor −3.33. It is an approximate sensitivity analysis, not a censored longitudinal likelihood. It also does not fully address floor censoring in every baseline or follow-up measurement. Tumor values are not interpreted as millimeters or RECIST percentage changes.
 
-## Validation instead of an in-sample association claim
+## Validation instead of an in-sample association claim {#validation-instead-of-an-in-sample-association-claim}
 
 Five patient-separated folds were repeated ten times using a fixed seed. Each Cox model and its baseline hazard were estimated in the training fold. Test participants' later measurements never entered the predictors. Repeated held-out predictions were averaged per participant, yielding a cross-validated ensemble assessment rather than an estimate of the performance of one final deployed fit.
 
@@ -61,7 +61,7 @@ The concordance difference was **+0.049**, with a conditional 95% interval of **
 
 The full-data extended model associated increasing transformed tumor burden with worse survival, but that association did not establish useful prediction. Schoenfeld-residual tests did not detect a global proportional-hazards departure (clinical p=0.58; extended p=0.76). These tests have limited power and do not certify the model.
 
-## Sensitivity changes the target population
+## Sensitivity changes the target population {#sensitivity-changes-the-target-population}
 
 | Landmark or integrity sensitivity | Participants / deaths | Clinical C | Extended C | Clinical Brier | Extended Brier |
 | --- | ---: | ---: | ---: | ---: | ---: |
@@ -72,17 +72,17 @@ The full-data extended model associated increasing transformed tumor burden with
 
 Changing landmarks changes eligibility and the information available. The week-24 result is not evidence that waiting longer is a superior clinical policy. The floor-bound sensitivity used identical primary folds and changed the extended Brier score by less than 0.000001. That small difference concerns this particular bounded numerical assumption; it does not remove selection bias or validate the tumor scale.
 
-## What the analysis supports
+## Early change had limited predictive value {#what-the-analysis-supports}
 
-Early tumor change retained some association with subsequent survival and slightly improved held-out scores. The uncertainty and weak calibration prevent a stronger predictive claim. Further work would need denser longitudinal measurement, explicit censoring-aware trajectory estimation where identifiable, a distinct validation cohort, and an observation-process analysis.
+Early tumor change retained some association with subsequent survival and slightly improved held-out scores. The uncertainty and weak calibration prevent a stronger predictive claim. Sparse longitudinal observations and the observation process limit interpretation of fitted trajectories.
 
-The randomized origin does not make this landmark-selected secondary analysis a causal comparison of treatment strategies. Treatment effects on tumor change and survival are not sufficient to qualify a surrogate, and this dataset lacks the PK and dose histories needed for a dose–exposure–tumor–survival chain. Further predictive comparisons should retain the fixed information time and endpoint so that added model complexity can be evaluated without introducing future information.
+The randomized origin does not make this landmark-selected secondary analysis a causal comparison of treatment strategies. Treatment effects on tumor change and survival are not sufficient to qualify a surrogate, and this dataset lacks the PK and dose histories needed for a dose–exposure–tumor–survival chain.
 
-## Reproduce the analysis
+## Reproduce the analysis {#reproduce-the-analysis}
 
 The companion contains acquisition scripts, R estimation code, aggregate tables, figures, and an executed notebook. It excludes participant-level CSVs and private planning documents. Run acquisition, R export, and `analyze.R` in that order. Numerical work used R 4.5.1 and survival 3.8-3. See [the companion instructions](shared/tumor-dynamics-survival/README.md).
 
-## Sources
+## Sources {#sources}
 
 1. frailtypack 3.8.1, official CRAN distribution and [longitudinal dataset documentation](https://search.r-project.org/CRAN/refmans/frailtypack/html/colorectalLongi.html). Source archive SHA-256 and extracted-file hashes are recorded with the acquisition script.
 2. Chiou SH et al. *Regression Modeling for Recurrent Events Possibly with an Informative Terminal Event Using R Package reReg*. Journal of Statistical Software 105(5), 2023. [doi:10.18637/jss.v105.i05](https://doi.org/10.18637/jss.v105.i05). Used to reconcile source-specific units and cohort definitions.

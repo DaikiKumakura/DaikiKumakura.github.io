@@ -101,15 +101,6 @@ logitは、確率をオッズ（起きる確率÷起きない確率）の対数�
 - **有効性。** 濃度は15日目以降には設計によらずほぼ揃う（図1A）が、最初の2週間の違いが奏効に影響するかは、このモデルでは扱えない。
 - **臨床的な利益。** 全グレードのCRSの予測確率の差が、重いCRS、入院の期間、トシリズマブの使用、神経毒性（ICANS）、感染症の差になるかは、評価していない。
 
-## 6. 次に比べるなら {#6}
-
-この計算から、前向きに比べる候補として、次を挙げる。
-
-1. 腫瘍量が高い人だけ、最初の用量を4〜6 mgに下げる層別の設計。
-2. その場合、2回目、3回目の用量の後のCRSを、主要な評価に含める。最初のCRSを減らした分が、後ろにずれる可能性があるからである。
-
-計算の結果は「試す価値のある仮説」であり、承認された投与法を変える根拠ではない。
-
 ## 限界 {#_3}
 
 - 係数は論文の転載で、個人データからの推定ではない。固定効果の推定の不確かさと、係数間の共分散は入れていない。sBCMAのクリアランスの個人間変動は、論文の値（変動係数448%）をそのまま使った。
@@ -125,3 +116,5 @@ logitは、確率をオッズ（起きる確率÷起きない確率）の対数�
 
 1. Elranatamab population pharmacokinetics and exposure–response for cytokine release syndrome in patients with relapsed or refractory multiple myeloma. *Clin Pharmacokinet* 2026. doi:10.1007/s40262-026-01663-z（PMC13461831、オープンアクセス。補足資料のTable S2とFig. S2を使用）
 2. Exposure–response analyses to inform the optimal epcoritamab monotherapy dosing regimen in relapsed or refractory follicular lymphoma. 2026. PMC13545055（3段階のステップアップの報告）
+
+<span id="6"></span>
