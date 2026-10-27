@@ -83,14 +83,14 @@ class BuildTests(unittest.TestCase):
   mp,m=self.meta('logistic-example');m['draft']=False;mp.write_text(json.dumps(m),encoding='utf-8')
   build.build(self.root)
   profile=self.text('profile.html')
-  self.assertIn('Selected analyses',profile);self.assertIn('Example topic',profile)
+  self.assertIn('Selected analyses',profile);self.assertNotIn('Example topic',profile)
   # A Japanese original with an English translation is listed by its translation.
   self.assertIn('href="writing/logistic-example-en.html"',profile)
   self.assertNotIn('japanese-note',profile)
- def test_real_analysis_topics_name_existing_articles(self):
+ def test_real_site_has_no_manually_assigned_topics(self):
   site=build.read_json(build.BASE/'content/site.json')
-  for topic in site['analysis_topics']:
-   for slug in topic['articles']:self.assertTrue((build.BASE/'content/articles'/slug/'meta.json').is_file(),slug)
+  self.assertNotIn('analysis_topics',site)
+  self.assertTrue(all(path.startswith('topics/') for path in site['legacy_topic_paths']))
  def test_english_summary_and_social_metadata(self):
   p,m=self.meta('japanese-note');m.update(draft=False,updated='2026-09-30',english={'title':'English title','summary':'English summary.'});p.write_text(json.dumps(m),encoding='utf-8')
   build.build(self.root)
@@ -202,7 +202,9 @@ class BuildTests(unittest.TestCase):
   site['analysis_topics']=[{'label':'Example','articles':['logistic-example','japanese-note']}]
   p.write_text(json.dumps(site),encoding='utf-8')
   for slug in ('logistic-example','japanese-note'):
-   mp,m=self.meta(slug);m['draft']=False;mp.write_text(json.dumps(m),encoding='utf-8')
+   mp,m=self.meta(slug);m['draft']=False
+   if slug=='japanese-note':m['english']={'title':'Logistic growth response','summary':'Logistic growth and population model response.'}
+   mp.write_text(json.dumps(m),encoding='utf-8')
   build.build(self.root)
   page=self.text('writing/japanese-note.html')
   _,m=self.meta('japanese-note')
@@ -254,21 +256,24 @@ class BuildTests(unittest.TestCase):
   for slug in ('logistic-example','japanese-note'):
    mp,m=self.meta(slug);m['draft']=False;mp.write_text(json.dumps(m),encoding='utf-8')
   build.build(self.root)
-  hub=self.text('topics/example-topic.html')
-  self.assertIn('About the example topic.',hub);self.assertIn('writing/logistic-example-en.html',hub)
+  network=json.loads(self.text('assets/article-network.json'))
+  group=next(g for g in network['clusters'] if 'logistic-example' in g['articles'])
+  hub=self.text(group['href'])
+  self.assertIn('Automatically detected',hub);self.assertIn('writing/logistic-example-en.html',hub)
   self.assertIn('CollectionPage',hub);self.assertIn('BreadcrumbList',hub)
   self.assertFalse((self.root/'dist/topics/hidden.html').exists())
-  self.assertIn('topics/example-topic.html',self.text('sitemap.xml'));self.assertNotIn('topics/hidden.html',self.text('sitemap.xml'))
-  self.assertIn('href="topics/example-topic.html"',self.text('profile.html'));self.assertIn('By topic',self.text('writing.html'))
+  self.assertIn(group['href'],self.text('sitemap.xml'));self.assertNotIn('topics/hidden.html',self.text('sitemap.xml'))
+  self.assertIn('href="'+group['href']+'"',self.text('profile.html'));self.assertIn('By topic',self.text('writing.html'))
   article=self.text('writing/japanese-note.html')
-  self.assertIn('href="../topics/example-topic.html"',article);self.assertIn('Kumakura, D. (2026). ',article);self.assertIn('Cite this article',article) if 'lang="en"' in article.split('<article')[1][:60] else self.assertIn('引用',article)
+  self.assertIn('href="../topics/cluster-',article);self.assertIn('Kumakura, D. (2026). ',article);self.assertIn('Cite this article',article) if 'lang="en"' in article.split('<article')[1][:60] else self.assertIn('引用',article)
   llms=self.text('llms.txt')
-  for expected in ('## Topics','## Identity','Kumakura Daiki','Example topic'):self.assertIn(expected,llms)
- def test_topic_slug_is_validated(self):
+  for expected in ('## Topics','## Identity','Kumakura Daiki','Cluster 1'):self.assertIn(expected,llms)
+  self.assertNotIn('Example topic',llms)
+ def test_legacy_topic_path_is_validated(self):
   p=self.root/'content/site.json';site=build.read_json(p)
-  site['analysis_topics']=[{'label':'A','slug':'Bad Slug','description':'d','articles':['logistic-example']}]
+  site['legacy_topic_paths']=['../Bad Slug']
   p.write_text(json.dumps(site),encoding='utf-8')
-  with self.assertRaisesRegex(ValueError,'slug'):build.build(self.root,preview=True)
+  with self.assertRaisesRegex(ValueError,'legacy topic path'):build.build(self.root,preview=True)
 
  def test_language_sitemap_and_live_topic_map(self):
   p=self.root/'content/site.json';site=build.read_json(p)
@@ -285,13 +290,31 @@ class BuildTests(unittest.TestCase):
     self.assertEqual(alternatives['en'],alternatives['x-default'])
   page=self.text('writing.html')
   data=json.loads(re.search(r'id="topic-map-data">(.*?)</script>',page)[1])
-  self.assertEqual(len(data),1)
-  self.assertEqual(len(data[0]['articles']),1)
+  self.assertEqual(data['article_count'],1)
+  self.assertEqual(len(data['nodes']),1)
   self.assertNotIn('japanese-note',json.dumps(data))
   original=self.text('writing/logistic-example.html');translated=self.text('writing/logistic-example-en.html')
   schema=lambda html:json.loads(re.search(r'application/ld\+json">(.*?)</script>',html)[1])
   self.assertIn('workTranslation',schema(original));self.assertNotIn('translationOfWork',schema(original))
   self.assertIn('translationOfWork',schema(translated));self.assertNotIn('workTranslation',schema(translated))
+
+ def test_scheduled_articles_do_not_influence_network_until_publication(self):
+  mp,m=self.meta('logistic-example');m['draft']=False;mp.write_text(json.dumps(m),encoding='utf-8')
+  mp,m=self.meta('japanese-note');m.update(draft=False,date='2099-01-01',publish_at='2099-01-01T09:00:00+09:00')
+  mp.write_text(json.dumps(m),encoding='utf-8');build.build(self.root)
+  before=self.text('assets/article-network.json')
+  m['english']={'title':'Unpublished sentinel','summary':'Unpublished sentinel kinase occupancy.'}
+  mp.write_text(json.dumps(m),encoding='utf-8');build.build(self.root)
+  self.assertEqual(before,self.text('assets/article-network.json'))
+  m.update(date='2000-01-01',publish_at='2000-01-01T09:00:00+09:00')
+  mp.write_text(json.dumps(m),encoding='utf-8');build.build(self.root)
+  after=json.loads(self.text('assets/article-network.json'))
+  self.assertEqual(after['article_count'],2)
+  self.assertIn('japanese-note',{node['id'] for node in after['nodes']})
+  self.assertIn('data-article-cluster=',self.text('writing.html'))
+  legacy=build.read_json(self.root/'content/site.json')['legacy_topic_paths'][0]
+  self.assertIn('writing.html#by-topic',self.text(legacy))
+  self.assertNotIn(build.SITE_URL+legacy+'<',self.text('sitemap.xml'))
 
  def test_software_pages(self):
   build.build(self.root)
