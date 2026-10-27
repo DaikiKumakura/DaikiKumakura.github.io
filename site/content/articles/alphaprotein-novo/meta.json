@@ -12,10 +12,19 @@
       "title": "AlphaProtein Novoで実験に回す酵素候補をどう絞るか",
       "summary": "反応機構を設計入力にするAlphaProtein Novoを読み解く。構造指標と活性の違い、複数配列による足場評価、ヒット率の分母を整理し、公開された件数から参考区間を再計算する。",
       "seo_title": "AlphaProtein Novoで実験に回す酵素候補をどう絞るか"
+    },
+    "en": {
+      "title": "How does AlphaProtein Novo select enzymes for experimental testing?",
+      "summary": "A source-based examination of catalytic motifs, structural metrics, sequence ensembles and denominators in enzyme design. Reported counts are recalculated; no model inference or enzyme experiments were performed.",
+      "seo_title": "How AlphaProtein Novo selects enzymes for testing",
+      "seo_description": "Catalytic motifs, structural filters and experimental hit-rate denominators in AlphaProtein Novo. Reported counts are recalculated without model execution."
     }
   },
   "english": {
     "title": "How does AlphaProtein Novo select enzymes for experimental testing?",
     "summary": "A source-based examination of catalytic motifs, structural metrics, sequence ensembles and denominators in enzyme design. Reported counts are recalculated; no model inference or enzyme experiments were performed."
+  },
+  "reviewed": {
+    "en": "bd7e922f2b54a35cab8981f25f8188ac01f7e69148141dc24a7b7efdc61c3378"
   }
 }

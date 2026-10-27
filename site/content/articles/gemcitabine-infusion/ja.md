@@ -1,24 +1,34 @@
+## 要旨 {#article-abstract}
+
+公表臨床PopPKモデルの固定効果を用い、同じ投与量の30・60・100分点滴を比較した。血漿AUCは一致し、PBMC内dFdCTPのAUC差は点滴速度区分による形成CLの切替を反映した。形成CLを固定すると細胞内AUC∞の差は消えた。点滴延長の利益を新しく実証した結果ではなく、PBMC曝露と腫瘍の活性化、臨床転帰は区別する必要がある。
+
 文献確認日：2026年10月12日。
+
+## 背景と目的 {#article-introduction}
 
 ゲムシタビンは細胞内へ入り、リン酸化されて活性代謝物になる。血漿中の親薬物を多くすることと、細胞内のdFdCTPを多くすることは、同じ操作とは限らない。では、同じ投与量で点滴を延ばす候補を比較するとき、血中PKだけで十分だろうか。
 
-薬理作用にはdFdCDPも関わるが［5］、今回は公開された臨床モデルで扱えるdFdCTPに範囲を限る。
+薬理作用にはdFdCDPも関わるが ([1](#ref-1))、今回は公開された臨床モデルで扱えるdFdCTPに範囲を限る。
 
 公開された臨床PopPKモデルの固定効果を使い、30・60・100分の単回点滴を比較した。血漿AUCは同じだった一方、選んだモデルではPBMC内dFdCTPのAUCが変わった。ただし、その差は点滴速度によって形成クリアランスを切り替える式から生じる。**計算された差を、点滴延長の有用性を新しく証明した結果としては扱わない。**
 
-## 問いと使い道 {#_1}
+## 方法 {#article-methods}
+
+### 問いと使用範囲 {#_1}
 
 **QOI：** 同じ投与量の点滴条件を、血漿AUC、ピーク、PBMC内dFdCTPで区別できるか。細胞内曝露の差は濃度曲線の形から生じるのか、形成クリアランスの仮定から生じるのか。
 
-**COU：** 点滴条件を研究上比較し、次に測定すべき指標と、モデルで選べない点を整理する。患者の治療変更や臨床試験の用量決定には使用しない。
+**COU：** 点滴条件を研究上比較し、識別に関係する指標と、モデルで選べない点を整理する。患者の治療変更や臨床試験の用量決定には使用しない。
 
-100分点滴は探索的な計算条件であり、推奨ではない。米国製品情報には、60分を超える点滴などによる毒性増加の警告がある［1］。本解析はそのリスクを計算したり、警告を変更する根拠を示したりしていない。
+100分点滴は探索的な計算条件であり、推奨ではない。米国製品情報には、60分を超える点滴などによる毒性増加の警告がある ([2](#ref-2))。本解析はそのリスクを計算したり、警告を変更する根拠を示したりしていない。
 
-## 血漿・PBMC・腫瘍を分ける {#pbmc}
+### 対象とする生体区画 {#pbmc}
 
-今回の実装元はKhatriらの臨床研究である。40人の固形腫瘍患者で血漿ゲムシタビン・dFdUとPBMC内dFdCTPを測定し、PopPKモデルを推定している［2］。PBMCは末梢血単核細胞であり、腫瘍細胞ではない。
+今回の実装元はKhatriらの臨床研究である。40人の固形腫瘍患者で血漿ゲムシタビン・dFdUとPBMC内dFdCTPを測定し、PopPKモデルを推定している ([3](#ref-3))。PBMCは末梢血単核細胞であり、腫瘍細胞ではない。
 
-一方、2020年の多階層PBPK研究は膵癌細胞株の代謝情報と生理学的なスケーリングを組み合わせ、腫瘍内の代謝物を扱っている［3］。これを今回のPBMCモデルへ同一視して移植はしない。
+一方、2020年の多階層PBPK研究は膵癌細胞株の代謝情報と生理学的なスケーリングを組み合わせ、腫瘍内の代謝物を扱っている ([4](#ref-4))。これを今回のPBMCモデルへ同一視して移植はしない。
+
+**表1　計算する区画と解釈の範囲**
 
 | 対象 | 今回計算するもの | そこから直接は言えないこと |
 |---|---|---|
@@ -26,19 +36,21 @@
 | PBMC | 公表モデルに基づくdFdCTPの相対曝露 | 腫瘍内dFdCTP、臨床的利益 |
 | 腫瘍 | 今回は計算しない | PBMCの結果を腫瘍の値へ置き換えない |
 
-## 公開モデルのどこを実装したか {#_2}
+### 実装した部分モデル {#_2}
 
 血漿の親薬物を2区画、PBMC内dFdCTPを3区画で記述する部分を独立に実装した。dFdUの枝はこの二つへ戻る項がないため、省いた。全身PBPKや原著NONMEMの全実行設定を再現したものではない。患者別データからの再推定もしていない。
 
 典型条件は体表面積1.76 m²、70歳、原著の参照遺伝子型で固定した。NT5C2はマイナーアレルを持つCC/CT、SLC28A3は形成CLへの1.77倍の効果を適用しない参照条件である。投与量は1000 mg/m²、総量1760 mg。各条件とも、投与前の薬物量を0とした単回点滴である。
 
+**表2　代表条件に用いたパラメータ**
+
 | パラメータ | 使用値 | 出典 |
 |---|---|---|
-| 血漿総CL、中央V、Q、末梢V | 425 L/h、114 L、10.1 L/h、101 L | Table 2 |
-| PBMC形成CL | 0.061または0.118 L/h | Table 4 |
-| PBMC消失CL、中央V | 0.00131 L/h、0.005 L | Table 4 |
-| PBMC末梢1のQ、V | 0.206 L/h、0.0288 L | Table 4 |
-| PBMC末梢2のQ、V | 0.00126 L/h、0.0877 L | Table 4 |
+| 血漿総CL、中央V、Q、末梢V | 425 L/h、114 L、10.1 L/h、101 L | [原著Table 2](https://doi.org/10.1038/bjc.2013.738) |
+| PBMC形成CL | 0.061または0.118 L/h | [原著Table 4](https://doi.org/10.1038/bjc.2013.738) |
+| PBMC消失CL、中央V | 0.00131 L/h、0.005 L | [原著Table 4](https://doi.org/10.1038/bjc.2013.738) |
+| PBMC末梢1のQ、V | 0.206 L/h、0.0288 L | [原著Table 4](https://doi.org/10.1038/bjc.2013.738) |
+| PBMC末梢2のQ、V | 0.00126 L/h、0.0877 L | [原著Table 4](https://doi.org/10.1038/bjc.2013.738) |
 
 血漿中央・末梢の濃度を \(C_c,C_p\)、PBMC側の中央・末梢濃度を \(M_c,M_j\) とすると、薬物量の式は
 
@@ -62,7 +74,11 @@
 
 コード内部の量はゲムシタビン当量mgで揃えた。これは同じモル量を一律にスケールしたもので、dFdCTPそのものの化学的な質量ではない。細胞内の図・表は30分条件との比として示し、患者のPBMC濃度を測定したような絶対値の表示はしない。
 
-## 血漿AUCは同じでもピークは下がる {#auc}
+## 結果 {#article-results}
+
+### 血漿AUCとピーク {#auc}
+
+**表3　固定効果による同量点滴の比較**
 
 | 点滴時間 | 速度 mg/m²/min | 血漿AUC∞ mg·h/L | 血漿Cmax mg/L | PBMC AUC∞比 | PBMC AUC0–72比 | PBMC Cmax比 |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -74,7 +90,7 @@
 
 ![同じ投与量で点滴時間を変えた血漿・PBMCの時間推移](shared/gemcitabine-infusion/figures/01-timecourse.png)
 
-*図1。左は血漿ゲムシタビン、右はPBMC内dFdCTPを30分条件のピークで正規化した値。左右の時間軸は異なる。右は公表された点滴速度区分を使った結果で、腫瘍内曝露や薬効の予測ではない。*
+**図1。** 左は血漿ゲムシタビン、右はPBMC内dFdCTPを30分条件のピークで正規化した値。左右の時間軸は異なる。右は公表された点滴速度区分を使った結果で、腫瘍内曝露や薬効の予測ではない。
 
 血漿のピークは点滴を長くすると下がる。血漿AUC∞は全条件で同じになる。一定CLの線形モデルで全量が消失するなら、これは
 
@@ -84,7 +100,7 @@ AUC_{plasma,\infty}=\frac{Dose}{CL}
 
 という構造から決まる。点滴時間の違いによるAUC不変を、臨床的な同等性の証明とはしない。今回、原著以外の点滴時間依存の分布変化などは組み込んでいない。
 
-## 細胞内AUCの約2倍はどこから出たのか {#auc2}
+### 細胞内AUC差の発生源 {#auc2}
 
 採用されたモデルではdFdCTP形成は線形であり、点滴速度 \(ROI\) に応じて \(CL_f\) を切り替える。
 
@@ -95,7 +111,7 @@ CL_f=\begin{cases}
 \end{cases}
 \]
 
-25ちょうどは高速度側に割り当てた。これは実装上の取り決めで、独立に検証された生物学的な境界ではない。原著では複数の区切りを試し、モデル適合の改善が大きい値を選んでいる。飽和形成の代替モデルより、最終的には線形形成モデルが選ばれた［2］。
+25ちょうどは高速度側に割り当てた。これは実装上の取り決めで、独立に検証された生物学的な境界ではない。原著では複数の区切りを試し、モデル適合の改善が大きい値を選んでいる。飽和形成の代替モデルより、最終的には線形形成モデルが選ばれた ([3](#ref-3))。
 
 全量が消失した後まで式を積分すると、PBMC中央区画では
 
@@ -109,17 +125,17 @@ AUC_{PBMC,\infty}=\frac{CL_f}{CL_e}AUC_{plasma,\infty}
 
 ![形成クリアランスを変える場合と固定する場合のPBMC内AUC比較](shared/gemcitabine-infusion/figures/02-formation-comparison.png)
 
-*図2。青は公表された速度区分、金は形成CLを固定した対照。両者とも血漿AUCは同じ。対照は臨床的に検証された代替モデルではなく、差の発生源を確認するための仮定変更である。*
+**図2。** 青は公表された速度区分、金は形成CLを固定した対照。両者とも血漿AUCは同じ。対照は臨床的に検証された代替モデルではなく、差の発生源を確認するための仮定変更である。
 
 形成CLを固定すると、細胞内AUC∞も同じになった。つまり、この実装から得られたAUCの増加は、輸送やリン酸化を連続的に計算して発見したものではなく、**点滴速度に関連づけられた形成CLの差を反映したもの**である。観測研究の関連を、点滴時間だけの因果効果として扱えない。
 
 また、このモデルでは60分から100分へ延ばしても同じ速度区分にあるため、AUC∞は増えない。ピークや有限時間のAUCは多少異なるが、「さらに長くするほど活性化が進む」という結論にはならない。
 
-## 境界と観測後の尾部 {#_3}
+### 境界と観測後の尾部 {#_3}
 
 ![点滴時間区分とPBMC曝露の外挿への依存](shared/gemcitabine-infusion/figures/03-boundary-and-tail.png)
 
-*図3。左は点滴時間を変えたときのAUC倍率。1000 mg/m²では40分が25 mg/m²/minに当たり、モデルの区分が切り替わる。右は30分点滴でPBMC消失CLだけを公表ブートストラップの下限・点推定・上限へ変え、各条件のAUC∞のうち時点までに含まれる割合を示したもの。信頼区間ではない。*
+**図3。** 左は点滴時間を変えたときのAUC倍率。1000 mg/m²では40分が25 mg/m²/minに当たり、モデルの区分が切り替わる。右は30分点滴でPBMC消失CLだけを公表ブートストラップの下限・点推定・上限へ変え、各条件のAUC∞のうち時点までに含まれる割合を示したもの。信頼区間ではない。
 
 40分の前後でAUCが跳ぶことを「最適時間の発見」と解釈してはいけない。その跳びは、与えた区分式の特徴である。境界をわずかにまたぐ前後で実際に形成が急変するかは、このモデルの計算だけでは分からない。
 
@@ -127,37 +143,38 @@ AUC_{PBMC,\infty}=\frac{CL_f}{CL_e}AUC_{plasma,\infty}
 
 AUC∞の一部は、観測窓の後の経過をモデルで補った値になる。比較研究では、短い採血窓で積分した値と、長い尾部を外挿した値を区別する必要がある。後者は消失・分布の仮定へ依存する。
 
-不確実性として、Table 2・4の周辺ブートストラップ範囲を一つずつ変える54条件も実行した。形成CLの低速度・高速度の上下限を組み合わせると、AUC倍率の角の値は0.70～5.73となる。しかしこれは**二つの周辺範囲を機械的に組み合わせたシナリオ**であり、倍率の95%信頼区間ではない。元の共同ブートストラップ分布がなければ、その区間は計算できない。独立な仮想患者を作って臨床集団の予測区間とすることも避けた。
+不確実性として、[原著Table 2・4](https://doi.org/10.1038/bjc.2013.738)の周辺ブートストラップ範囲を一つずつ変える54条件も実行した。形成CLの低速度・高速度の上下限を組み合わせると、AUC倍率の角の値は0.70～5.73となる。しかしこれは**二つの周辺範囲を機械的に組み合わせたシナリオ**であり、倍率の95%信頼区間ではない。元の共同ブートストラップ分布がなければ、その区間は計算できない。独立な仮想患者を作って臨床集団の予測区間とすることも避けた。
 
-## 活性代謝物が増えることと利益が増えること {#_4}
+### 数値実装の検算 {#_6}
 
-E6201試験では、固定速度投与による生存の改善は事前に設定した有意性基準を満たさず、骨髄抑制は多かった。しかも標準側1000 mg/m²・30分と固定速度側1500 mg/m²・150分は、総用量も異なる［4］。今回の同用量比較を、その試験の再解析や、点滴時間単独の臨床的検証とは呼べない。
+行列指数による解を独立のODEソルバーと照合し、有限期間の積分に残存量の尾部を加えた値がAUC∞の解析式と一致することを確認した。形成CLの固定、点滴終了の連続性、速度境界、二重計上の防止を含む6件のテストが成功した。本文の数値・図表は`analysis/run_analysis.py`とCSVから生成している。
 
-2026年8月のTIGeR-PaCサブ研究も確認した。この研究は局所動脈投与と静脈投与を比べ、血漿ゲムシタビンとdFdUを測定している［5］。PBMCや腫瘍のdFdCTP測定を、今回の計算へ追加できる資料ではない。投与法の工夫は今も研究されているが、血漿の変化だけから腫瘍の活性化を判断する問題は残る。
+## 考察 {#_4}
 
-## PBMCの曝露を腫瘍の薬効へ置き換えない {#_5}
+E6201試験では、固定速度投与による生存の改善は事前に設定した有意性基準を満たさず、骨髄抑制は多かった。しかも標準側1000 mg/m²・30分と固定速度側1500 mg/m²・150分は、総用量も異なる ([5](#ref-5))。今回の同用量比較を、その試験の再解析や、点滴時間単独の臨床的検証とは呼べない。
+
+2026年8月のTIGeR-PaCサブ研究も確認した。この研究は局所動脈投与と静脈投与を比べ、血漿ゲムシタビンとdFdUを測定している ([1](#ref-1))。PBMCや腫瘍のdFdCTP測定を、今回の計算へ追加できる資料ではない。投与法の工夫は今も研究されているが、血漿の変化だけから腫瘍の活性化を判断する問題は残る。
+
+ただし、患者ごとの観測値を用いた再検証ではない。原著の全共変量・個体間変動・残差を再現しておらず、腫瘍内濃度、毒性、生存を計算していない。固定したPBMC中央Vは原著の細胞数・体積の仮定に基づくもので、個人の体積を測定した値ではない。
+
+## 結論 {#_5}
 
 点滴時間を延ばした条件で細胞内曝露が増えたのは、公表モデルの形成CL区分を反映した結果だった。輸送やリン酸化の速度を実測から分離した結果ではない。
 
 さらに、ここで扱った細胞内濃度はPBMCのdFdCTPである。腫瘍内で同じ増加が起こるか、増加が有効性や骨髄抑制をどう変えるかは、この計算からは分からない。血漿AUCが同じでも、細胞内活性化まで同じとは限らず、PBMCの曝露が高い条件をそのまま最良の点滴時間と呼ぶこともできない。
 
-## 計算の検査と限界 {#_6}
-
-行列指数による解を独立のODEソルバーと照合し、有限期間の積分に残存量の尾部を加えた値がAUC∞の解析式と一致することを確認した。形成CLの固定、点滴終了の連続性、速度境界、二重計上の防止を含む6件のテストが成功した。本文の数値・図表は`analysis/run_analysis.py`とCSVから生成している。
-
-ただし、患者ごとの観測値を用いた再検証ではない。原著の全共変量・個体間変動・残差を再現しておらず、腫瘍内濃度、毒性、生存を計算していない。固定したPBMC中央Vは原著の細胞数・体積の仮定に基づくもので、個人の体積を測定した値ではない。
-
 今回の範囲では、血漿AUCだけでは点滴条件を区別できず、細胞内AUCを加えても、その差は活性化のモデル仮定に依存した。ピーク低下と代謝物増加を同じ利点と数えることはできず、安全性と薬効の優劣はこの比較では決まらない。
 
-## 出典と再実行 {#_7}
-
-1. [Gemcitabine US prescribing information (DailyMed)](https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=d80176fe-3e8b-48be-87c2-9c603013b3fa). Section 5.1.
-2. Khatri A, et al. SLC28A3 genotype and gemcitabine rate of infusion affect dFdCTP metabolite disposition in patients with solid tumours. *British Journal of Cancer*. 2014;110:304–312. [doi:10.1038/bjc.2013.738](https://doi.org/10.1038/bjc.2013.738).([Open full text](https://pmc.ncbi.nlm.nih.gov/articles/PMC3899768/)). Tables 2・4, Methods, Results.
-3. Garcia-Cremades M, et al. Mechanistic Multiscale Pharmacokinetic Model for the Anticancer Drug 2’,2’-difluorodeoxycytidine (Gemcitabine) in Pancreatic Cancer. *Clinical and Translational Science*. 2020;13. [doi:10.1111/cts.12747](https://doi.org/10.1111/cts.12747).([Open full text](https://pmc.ncbi.nlm.nih.gov/articles/PMC7214642/)).
-4. Poplin E, et al. Phase III, Randomized Study of Gemcitabine and Oxaliplatin Versus Gemcitabine (fixed-dose rate infusion) Compared With Gemcitabine (30-minute infusion) in Patients With Pancreatic Carcinoma E6201. *Journal of Clinical Oncology*. 2009;27:3778–3785. [doi:10.1200/JCO.2008.20.9007](https://doi.org/10.1200/JCO.2008.20.9007).([Open full text](https://pmc.ncbi.nlm.nih.gov/articles/PMC2727286/)).
-5. Novelli PM, et al. Pharmacokinetic and pharmacodynamic sub-study of trans-arterial vs. intravenous gemcitabine in the TIGeR-PaC phase 3 clinical trial. *Cancer Chemotherapy and Pharmacology*. 2026;96:91. [doi:10.1007/s00280-026-04939-0](https://doi.org/10.1007/s00280-026-04939-0).([Open full text](https://link.springer.com/article/10.1007/s00280-026-04939-0)).
+## データとコードの公開状況 {#_7}
 
 図、数値表、コードは独自に作成した。原著の図、患者データ、補足資料は配布物に含めていない。
 
-
 [計算コード・数値表・再実行手順](shared/gemcitabine-infusion/gemcitabine-simulation.zip)
+
+## 参照 {#article-references}
+
+1. <span id="ref-1"></span>Novelli PM, Zervos EE, Zureikat AH, Pishvaian MJ, Meredith K, Hatoum H, et al. Pharmacokinetic and pharmacodynamic sub-study of trans-arterial vs. intravenous gemcitabine in the TIGeR-PaC phase 3 clinical trial. Cancer Chemotherapy and Pharmacology. 2026;96(1):91. [doi:10.1007/s00280-026-04939-0](https://doi.org/10.1007/s00280-026-04939-0).
+2. <span id="ref-2"></span>DailyMed. Gemcitabine injection, solution: US prescribing information [Internet]. Revised 2025 Sep [cited 2026 Oct 28]. Section 5.1. [Prescribing information](https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=d80176fe-3e8b-48be-87c2-9c603013b3fa).
+3. <span id="ref-3"></span>Khatri A, Williams BW, Fisher J, Brundage RC, Gurvich VJ, Lis LG, et al. SLC28A3 genotype and gemcitabine rate of infusion affect dFdCTP metabolite disposition in patients with solid tumours. British Journal of Cancer. 2014;110(2):304–312. [doi:10.1038/bjc.2013.738](https://doi.org/10.1038/bjc.2013.738).
+4. <span id="ref-4"></span>Garcia‐Cremades M, Melillo N, Troconiz IF, Magni P. Mechanistic Multiscale Pharmacokinetic Model for the Anticancer Drug 2’,2’-difluorodeoxycytidine (Gemcitabine) in Pancreatic Cancer. Clinical and Translational Science. 2020;13(3):608–617. [doi:10.1111/cts.12747](https://doi.org/10.1111/cts.12747).
+5. <span id="ref-5"></span>Poplin E, Feng Y, Berlin J, Rothenberg ML, Hochster H, Mitchell E, et al. Phase III, Randomized Study of Gemcitabine and Oxaliplatin Versus Gemcitabine (fixed-dose rate infusion) Compared With Gemcitabine (30-minute infusion) in Patients With Pancreatic Carcinoma E6201: A Trial of the Eastern Cooperative Oncology Group. Journal of Clinical Oncology. 2009;27(23):3778–3785. [doi:10.1200/JCO.2008.20.9007](https://doi.org/10.1200/JCO.2008.20.9007).

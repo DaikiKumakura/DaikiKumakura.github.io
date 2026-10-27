@@ -12,10 +12,19 @@
       "title": "ゲムシタビンの点滴時間を変える：血中AUCと細胞内曝露は同じ判断につながるか",
       "summary": "同量の点滴を公開PopPKモデルの固定効果で比較し、血漿ピーク、PBMC内dFdCTP、形成CLの仮定、観測後の尾部を点検する。臨床的な点滴条件の推奨や腫瘍内曝露の予測は行わない。",
       "seo_title": "ゲムシタビンの点滴時間を変える：血中AUCと細胞内曝露"
+    },
+    "en": {
+      "title": "Gemcitabine infusion duration: plasma AUC and intracellular exposure",
+      "summary": "A fixed-effect plasma/PBMC subsystem from a published clinical model is implemented independently. Equal doses give equal plasma AUC, while PBMC AUC differences are determined by a categorical formation-clearance assumption. Constant-formation and tail scenarios clarify limits; no tumor, clinical benefit, safety or regimen recommendation is inferred.",
+      "seo_title": "Gemcitabine infusion: plasma and intracellular exposure",
+      "seo_description": "An equal-dose simulation separates plasma AUC, PBMC dFdCTP and formation-clearance assumptions. No tumor or clinical outcome prediction is made."
     }
   },
   "english": {
     "title": "Gemcitabine infusion duration: plasma AUC and intracellular exposure",
     "summary": "A fixed-effect plasma/PBMC subsystem from a published clinical model is implemented independently. Equal doses give equal plasma AUC, while PBMC AUC differences are determined by a categorical formation-clearance assumption. Constant-formation and tail scenarios clarify limits; no tumor, clinical benefit, safety or regimen recommendation is inferred."
+  },
+  "reviewed": {
+    "en": "545f0e0fedcde8048c5b3e94325710433980e12cdf66e25871b53cb75377aa37"
   }
 }
