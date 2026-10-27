@@ -17,11 +17,20 @@
       ],
       "seo_title": "ivonescimab 20 mg/kg Q3Wは10 mg/kg Q3Wより良いと言えるか",
       "seo_description": "ivonescimabの公開第1〜2相のPK・PD-1占有率・用量別奏効率で、20 mg/kg Q3Wと10 mg/kg Q3Wの差がどこまで言えるかを、事前に固定した計画で監査する。結論は「どちらとも言えない」。"
+    },
+    "en": {
+      "title": "Can public data show that ivonescimab 20 mg/kg Q3W beats 10 mg/kg Q3W?",
+      "summary": "A Japanese research note auditing what published phase 1-2 pharmacokinetics, PD-1 receptor occupancy and dose-level response rates can say about 20 versus 10 mg/kg Q3W of ivonescimab, with the analysis plan fixed before computing. The answer is inconclusive. It makes no claim about efficacy ranking, recommended dose or any regulatory decision.",
+      "seo_title": "Ivonescimab dose evidence: what public data support",
+      "seo_description": "Aggregate PK, occupancy and ORR inform an inconclusive dose comparison. Hierarchical uncertainty and illustrative assurance do not establish a recommended dose."
     }
   },
   "english": {
     "title": "Can public data show that ivonescimab 20 mg/kg Q3W beats 10 mg/kg Q3W?",
     "summary": "A Japanese research note auditing what published phase 1-2 pharmacokinetics, PD-1 receptor occupancy and dose-level response rates can say about 20 versus 10 mg/kg Q3W of ivonescimab, with the analysis plan fixed before computing. The answer is inconclusive. It makes no claim about efficacy ranking, recommended dose or any regulatory decision."
   },
-  "publish_at": "2026-11-01T09:00:00+09:00"
+  "publish_at": "2026-11-01T09:00:00+09:00",
+  "reviewed": {
+    "en": "976988501e45674669b9587b1f06918069bbe930a805f0da83cbc6909721db05"
+  }
 }

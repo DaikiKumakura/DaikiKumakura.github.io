@@ -1,34 +1,48 @@
+## 要旨 {#article-abstract}
+
+Sunvozertinibの公表実測PK集計から用量–曝露関係を推定し、公表PopPKで4096人の条件付き比較を行った。200 mg QDから100 mg BIDへ変えると24時間AUCはモデル構造により等しく、同一人内ピークの中央値は11.3%低下した。奏効と下痢の集計は解析集団が異なり、個人E–Rには変換していない。分割時の親薬物曝露予測から、下痢低下・有効性維持・最適投与法を結論できない。
+
 文献確認日：2026年10月19日。公開された実測PKの集計値から用量―曝露関係を推定し、別の公表PopPKモデルで条件付き仮想患者を生成した。個人別データを用いた新規NLME推定ではない。
 
-SunvozertinibはEGFR exon 20 insertion変異を持つ非小細胞肺がんに用いられる経口阻害薬で、2025年7月に米国で承認された［1］。2026年には一次治療の第III相WU-KONG28も報告されている［5］。ただし、今回の臨床比較は主に**プラチナ治療後のWU-KONG1B**であり、一次治療の患者と混ぜない。
+## 背景と目的 {#article-introduction}
+
+SunvozertinibはEGFR exon 20 insertion変異を持つ非小細胞肺がんに用いられる経口阻害薬で、2025年7月に米国で承認された ([1](#ref-1))。2026年には一次治療の第III相WU-KONG28も学会抄録で報告されている ([2](#ref-2))。ただし、今回の臨床比較は主に**プラチナ治療後のWU-KONG1B**であり、一次治療の患者と混ぜない。
 
 用量を増やすのか、同じ1日量を小分けにするのか。この二つは、曝露の変え方が異なる。公開情報から、実際にどこまで比較できるかを計算した。
 
 **4096人の条件付き仮想患者では、200 mg QDから100 mg BIDへの変更で、24時間AUCは等しく、ピークの中央値は11.3%低下した。** ただし、これを下痢の低下や有効性維持とは読み替えない。公開データから推定した部分と、公表モデルに依存する部分を分けて示す。
 
-## 問いとこの結果の使い方 {#_1}
+## 方法 {#article-methods}
+
+### 問いと使用範囲 {#_1}
+
+**表1　問いと使用範囲・推定値の来歴**
 
 | 項目 | 定義 |
 | --- | --- |
 | QOI | 公開された用量―曝露データとPopPKを使うと、200・250・300 mgの1日1回投与、および同じ1日総量の分割投与で、AUC・ピーク・トラフの患者間分布はどう変わるか。その差を臨床の奏効・毒性の予測まで結び付けられるか。 |
-| COU | 次の投与条件比較で測定すべき曝露指標と、検証する候補を整理する。個人の治療変更、最適用量の決定、分割投与の有効性・安全性保証には使用しない。 |
+| COU | 投与条件の研究で比較する曝露指標と、未検証の候補条件を整理する。個人の治療変更、最適用量の決定、分割投与の有効性・安全性保証には使用しない。 |
 | 新しく推定したもの | 公開された群別実測PKの用量―曝露指数と係数、用量群別の奏効・下痢発現確率の不確実性。 |
 | 公表値を使うもの | PopPKの構造、固定効果、個体間変動。新しい患者別PKや個人E–Rの推定とは区別する。 |
 
-承認された基準は200 mg・1日1回である［1］。BIDへの変更は、QDで推定された吸収・食事・製剤・相対Fの条件を各回にそのまま移す外挿でもある。食事時刻、服薬遵守、DZ0753の挙動は検証していない。
+承認された基準は200 mg・1日1回を食事とともに投与する条件である ([1](#ref-1))。BIDへの変更は、QDで推定された吸収・食事・製剤・相対Fの条件を各回にそのまま移す外挿でもある。食事時刻、服薬遵守、DZ0753の挙動は検証していない。
 
 250 mg・1日1回、100 mg・1日2回、150 mg・1日2回は本記事の探索条件であり、推奨レジメンではない。
 
-## 資料から取得したもの {#_2}
+### 公開資料と取得情報 {#_2}
+
+**表2　使用資料と解析上の役割**
 
 | 資料 | 数値・情報 | 解析での役割 |
 | --- | --- | --- |
-| [Wang et al. (2022), Supplementary Table S6](https://doi.org/10.1158/2159-8290.CD-21-1615)［2］ | 50–400 mgの5用量群の幾何平均AUC・Cmax、CV、群別n | 実測集計値に対するパラメータ推定 |
-| FDA審査資料のPopPK表［3］ | CL/F・容積・吸収・初回通過代謝経路・分散共分散 | 親薬物のPopPK実装、仮想患者生成 |
-| WU-KONG1Bの用量比較［3,4］ | ランダム化された有効性評価可能集団の奏効件数 | 用量群別の奏効確率の推定 |
-| FDAの120日安全性更新、Table 62［3］ | 200 mg全投与例と300 mg全投与例のGrade 3–4下痢 | 有害事象の記述的比較 |
+| [Wang et al. (2022), Supplementary Table S6](https://doi.org/10.1158/2159-8290.CD-21-1615) ([3](#ref-3)) | 50–400 mgの5用量群の幾何平均AUC・Cmax、CV、群別n | 実測集計値に対するパラメータ推定 |
+| FDA審査資料のPopPK表 ([4](#ref-4)) | CL/F・容積・吸収・初回通過代謝経路・分散共分散 | 親薬物のPopPK実装、仮想患者生成 |
+| WU-KONG1Bの用量比較 ([4](#ref-4), [5](#ref-5)) | ランダム化された有効性評価可能集団の奏効件数 | 用量群別の奏効確率の推定 |
+| FDAの120日安全性更新、[Table 62](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/219839Orig1s000MultidisciplineR.pdf) ([4](#ref-4)) | 200 mg全投与例と300 mg全投与例のGrade 3–4下痢 | 有害事象の記述的比較 |
 
 Table S6の数値には、原資料に「preliminary, unvalidated and subject to change」との留保がある。今回も初期の集計資料として扱い、後のモデルを独立に臨床検証したとは呼ばない。群別の患者背景や同一患者の重複を再確認できないため、集計値だけから個体間変動を新たに推定することもしない。
+
+**表3　初期試験の実測PK集計**
 
 | 1日量 mg | n | AUCτ ng·h/mL | Cmax ng/mL |
 | --- | ---: | ---: | ---: |
@@ -40,7 +54,9 @@ Table S6の数値には、原資料に「preliminary, unvalidated and subject to
 
 初期試験Cycle 2 Day 1の幾何平均。nは各群の集計対象数で、患者個票は取得していない。
 
-## 実測集計値から用量―曝露関係を推定する {#_3}
+## 集計値の推定と結果 {#article-aggregate}
+
+### 用量–曝露関係 {#_3}
 
 まず、AUCとCmaxそれぞれについて、
 
@@ -60,6 +76,8 @@ SE_g\simeq\sqrt{\frac{\log\{1+(CV_g/100)^2\}}{n_g}}
 
 として重み付き最小二乗で推定する。CVの定義と対数正規性、群間独立性を置いた近似であり、この区間を患者個人の予測区間とは呼ばない。
 
+**表4　用量–曝露power modelの推定値**
+
 | 指標 | 200 mgでの係数a | 指数b | bの近似95%区間 |
 | --- | ---: | ---: | --- |
 | AUC | 6897.9 | 1.143 | 0.974–1.313 |
@@ -67,13 +85,15 @@ SE_g\simeq\sqrt{\frac{\log\{1+(CV_g/100)^2\}}{n_g}}
 
 ![初期試験の群別幾何平均と、用量―曝露のpower model。エラーバーは集計CVとnから計算した近似区間。](shared/sunvozertinib-dose-design/figures/01-fit.png)
 
+**図1　集計実測PKと用量–曝露モデル。** 区間は集計CVとnから求めた近似値。
+
 50 mg群を除くと指数はAUCで0.930、Cmaxで0.896となり、低用量群の影響が大きい。両指標の指数は1より大きい点推定になったが、近似区間は1を含む。この集計表だけから、用量比例を否定したり、非線形PKの機構を同定したりはしない。係数aの単位はAUCがng·h/mL、Cmaxがng/mLである。
 
 この推定は、個人別のCL・V・吸収速度を同定したものではない。平均AUCとCmaxだけから多区画モデルの係数を全て推定することは避け、公表PopPKの用量比例という仮定と、初期集計値の整合を調べる位置づけにした。重みなし・1群ずつ除外した推定もCSVへ残した。
 
-## 奏効と下痢の比較対象を揃える {#_4}
+### 臨床比較の集団と確率推定 {#_4}
 
-奏効には、200 mg群39/85、ランダム化300 mg群42/89を使った。これは有効性評価可能集団であり、全ランダム化患者を分母にしたITT推定とは異なる［3,4］。
+奏効には、200 mg群39/85、ランダム化300 mg群42/89を使った。これは有効性評価可能集団であり、全ランダム化患者を分母にしたITT推定とは異なる ([4](#ref-4), [5](#ref-5))。
 
 下痢は、FDAの120日更新におけるGrade 3–4 TEAEのgrouped termで、200 mg群2/91、300 mg群23/111である。300 mg側には非ランダム化の追加18例が含まれる。原著の別時点の治療関連AEや、別の重症度定義へすり替えない。**下痢の群間差は、ランダム化比較による因果効果とは扱わない。**
 
@@ -90,6 +110,8 @@ p_g\mid r_g,n_g\sim Beta(r_g+1/2,n_g-r_g+1/2)
 
 から推定した。これは用量群別の確率推定であり、患者別曝露を説明変数としたE–Rモデルの新規推定ではない。
 
+**表5　用量群別の事後確率**
+
 | 指標 | 用量 | 件数/分母 | 事後平均 | 95%信用区間 |
 | --- | --- | --- | ---: | --- |
 | ORR | 200 mg | 39/85 | 45.9% | 35.6–56.5% |
@@ -99,11 +121,13 @@ p_g\mid r_g,n_g\sim Beta(r_g+1/2,n_g-r_g+1/2)
 
 ![群別発現確率の事後平均と95%信用区間。奏効と安全性は異なる解析集団であり、同一人物の便益・リスクの同時確率ではない。縦軸の範囲は左右で異なる。](shared/sunvozertinib-dose-design/figures/02-clinical.png)
 
+**図2　用量群別の発現確率。** 奏効と下痢は異なる集団を使い、同一人の便益・害の同時確率ではない。
+
 300−200 mgの奏効率差の事後平均は1.3 percentage points、95%信用区間は-13.4〜15.9だった。下痢の記述的な群差は18.3 points、区間は10.3〜26.7。後者を用量変更の因果効果とはしない。
 
 奏効差の区間が0をまたぐことは、同等性や非劣性の証明ではない。また、群全体の奏効・毒性から、同じ患者が奏効し、かつ有害事象を起こさない確率は計算できない。
 
-## 公表PopPKから同じ仮想患者に別の投与条件を与える {#poppk}
+## 公表PopPKによる条件付き比較 {#poppk}
 
 親薬物と活性代謝物DZ0753の公表モデルのうち、親薬物側を、公表された構造記述・パラメータ表から独立に再構成した。原NONMEMコードを取得して完全再現したわけではない。代謝物から親薬物へのフィードバックがない構造なので親薬物の計算は分離できる。ただし、代謝物濃度は今回予測しておらず、**親薬物の曝露だけで全活性や有効性を表したとはしない**。
 
@@ -125,6 +149,8 @@ p_g\mid r_g,n_g\sim Beta(r_g+1/2,n_g-r_g+1/2)
 \]
 
 ここでCL、Vは見かけの係数であり、絶対的なFを新たに同定していない。\(f_{pre}=0.125\)は公表モデルでの吸収中の代謝物側への分岐で、絶対バイオアベイラビリティではない。投与量は各イベントで \(A_{T1}\) へ加えた。
+
+**表6　親薬物の公表パラメータ**
 
 | パラメータ | 採用値 |
 | --- | ---: |
@@ -155,9 +181,11 @@ p_g\mid r_g,n_g\sim Beta(r_g+1/2,n_g-r_g+1/2)
 
 CLとVcの公表共分散を保持した。kaとの共分散は公表表に記載がないため0とする条件である。残差誤差は真の曝露のばらつきではないので、曝露分布には加えない。固定seedで4096人を生成し、同じ \(\eta_i\) を各条件に使った。これは公表モデルに条件付けた仮想患者であり、試験参加者の再標本化ではない。
 
-## 比較するのは同じ24時間の曝露 {#24}
+### 共通24時間の曝露比較 {#24}
 
 比較条件は200・250・300 mg QD、100・150 mg BIDとした。各人で周期定常状態を線形系の行列指数から直接解き、AUCは共通の24時間、ピークとトラフは各反復投与周期で評価する。12時間AUCを24時間AUCとそのまま比較しない。
+
+**表7　条件付き仮想患者の曝露分布**
 
 | 条件 | AUC24中央値 [5–95%点] | Cmax中央値 [5–95%点] | トラフ中央値 [5–95%点] |
 | --- | --- | --- | --- |
@@ -170,6 +198,8 @@ CLとVcの公表共分散を保持した。kaとの共分散は公表表に記�
 AUC24はng·h/mL、濃度はng/mL。固定効果を固定した条件付き個体差であり、パラメータ推定誤差や臨床予測区間ではない。
 
 ![基準背景の反復濃度と、同一仮想患者に100 mg BID・200 mg QDを与えた曝露比。右の範囲は仮想患者間の5–95%点で、推定値の信用区間ではない。](shared/sunvozertinib-dose-design/figures/03-regimens.png)
+
+**図3　条件付きの投与法比較。** 同一仮想患者内の比と患者間の分布を区別する。
 
 100 mg BID/200 mg QDの同一人内ピーク比は中央値0.887、5–95%点0.798–0.940。トラフ比は中央値1.143、1.073–1.261だった。分割の効果は全員同じ割合ではない。250・300 mg QDでは、線形モデルの仮定により200 mg QDから各曝露指標が1.25・1.50倍になる。
 
@@ -187,6 +217,8 @@ AUC_{24}=\frac{(1-f_{pre})\,Dose_{day}}{CL/F}
 
 吸収の数え方の感度解析として、投与depotと二つのtransitを区別する3段階の実装も計算した。同じkaを保つ場合と、平均吸収時間を保つようkaを1.5倍にする場合を分けた。新しい推定や妥当な上下限ではなく、公開記述の具体化に依存する程度を調べる対照である。
 
+**表8　吸収構造を変更した対照**
+
 | 構造対照 | 同一人内ピーク比の中央値 | 5–95%点 |
 | --- | ---: | --- |
 | 3steps_same_ka | 0.890 | 0.801–0.942 |
@@ -196,6 +228,8 @@ AUC_{24}=\frac{(1-f_{pre})\,Dose_{day}}{CL/F}
 
 絶対曝露も確認した。
 
+**表9　絶対曝露の規模の比較**
+
 | 用量 | 基準背景の再構成AUC24 | 初期実測群の幾何平均AUCτ | 単純比 |
 | --- | ---: | ---: | ---: |
 | 200 mg | 7919 | 6817 | 1.16 |
@@ -203,31 +237,36 @@ AUC_{24}=\frac{(1-f_{pre})\,Dose_{day}}{CL/F}
 
 単位はng·h/mL。体重固定の基準背景と、異なる初期試験群の幾何平均なので、これを予測誤差や外部検証の指標とはしない。絶対値は一致しておらず、原モデルを臨床的にqualificationできたとは主張しない。
 
-## なぜ分割投与の下痢発現率まで計算しないのか {#_5}
-
-FDA資料の有効性E–Rでは、200–300 mg QDの範囲で時間平均曝露とORRに有意な関係が認められていない。これは未知の投与法でも有効性が変わらないことを保証しない。安全性でも、事象によってAUCや時間平均曝露が使われ、今回のCmax低下率を、そのまま下痢リスクの低下率へ代入できない［3］。
-
-群別ORRと群別下痢を、各用量の平均AUCに当てはめて個人E–Rを作ることもしなかった。群平均での関係は個人の曝露―反応関係とは限らず、2用量だけでは曲線形を十分に検証できないためである。
-
-この計算から予測できたのは、分割時の親薬物曝露分布である。毒性低下・有効性維持・服薬負担を合わせた臨床的な最適化は、まだ行えていない。
-
-## 数値検査と臨床予測の限界 {#_6}
+### 数値実装の検算 {#_6}
 
 行列指数の周期解と独立ODE積分のAUC相対差は4e-12、周期状態の最大誤差は1.4e-09 µg。基準背景のピーク計算の時間刻みを細かくした相対差は2.9e-05だった。仮想患者の吸収速度等の端から選んだ48条件での刻み幅比較の最大相対差は0.00067。量収支、同じ1日量のAUC、線形性、共分散の正定値、乱数再現性、既知指数の回収を含む9検査が成功した。
 
 これらは自作実装の数値検査であり、原モデルのコード再現性や臨床妥当性を保証しない。
 
-入力と出力は`analysis/run_analysis.py`から再生成できる。実測PKの推定は`outputs/fit.json`、群別発現率は`clinical-estimates.csv`、仮想曝露とpaired比は`virtual-exposure.csv`、`paired-ratios.csv`に保存した。元の論文・図・患者個票は配布しない。
+## 考察 {#_5}
+
+FDA資料の有効性E–Rでは、200–300 mg QDの範囲で時間平均曝露とORRに有意な関係が認められていない。これは未知の投与法でも有効性が変わらないことを保証しない。安全性でも、事象によってAUCや時間平均曝露が使われ、今回のCmax低下率を、そのまま下痢リスクの低下率へ代入できない ([4](#ref-4))。
+
+群別ORRと群別下痢を、各用量の平均AUCに当てはめて個人E–Rを作ることもしなかった。群平均での関係は個人の曝露―反応関係とは限らず、2用量だけでは曲線形を十分に検証できないためである。
+
+この計算から予測できたのは、分割時の親薬物曝露分布である。毒性低下・有効性維持・服薬負担を合わせた臨床的な最適化は、まだ行えていない。
 
 AUCが有害事象の関連指標なら、AUCを保つ分割でそのリスクが下がる根拠はない。親薬物のトラフ上昇とDZ0753の未予測も残り、BIDの臨床的な利点は示していない。一次治療やCNSの有効性も評価していない。
 
-## 参考文献 {#_7}
+## 結論 {#article-conclusion}
 
-1. [FDA sunvozertinib accelerated approval (2025)](https://www.fda.gov/drugs/resources-information-approved-drugs/fda-grants-accelerated-approval-sunvozertinib-metastatic-non-small-cell-lung-cancer-egfr-exon-20). Used to check approval conditions and dosage.
-2. Wang M, et al. Sunvozertinib, a Selective EGFR Inhibitor for Previously Treated Non–Small Cell Lung Cancer with EGFR Exon 20 Insertion Mutations. *Cancer Discov*. 2022;12:1676–1689. [Paper and supplementary materials](https://doi.org/10.1158/2159-8290.CD-21-1615). Aggregate PK from supplementary Table S6 was used.
-3. [FDA NDA 219839 multidisciplinary review](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/219839Orig1s000MultidisciplineR.pdf). See PopPK tables (PDF pp. 229–230), safety Table 62 (PDF p. 180) and Section 19.4 E–R; populations and cutoffs are distinguished.
-4. Yang JCH, et al. Phase II Dose-Randomized Study of Sunvozertinib in Platinum-Pretreated Non–Small Cell Lung Cancer With Epidermal Growth Factor Receptor Exon 20 Insertion Mutations (WU-KONG1B). *J Clin Oncol*. 2025. [Original paper](https://doi.org/10.1200/JCO-25-00788). Randomized and additional cohorts were distinguished.
-5. Sunvozertinib monotherapy versus platinum-based chemotherapy as first-line treatment for advanced NSCLC with EGFR exon20ins: Primary analysis of WU-KONG28. *J Clin Oncol*. 2026;44(suppl):LBA8500. [ASCO abstract](https://doi.org/10.1200/JCO.2026.44.17_suppl.LBA8500). Background only; not pooled into the present model estimation or clinical comparison.
+条件付きシミュレーションは、モデル構造によりAUCを保ったまま分割が親薬物のピークとトラフを変える程度を示した。群別の臨床集計からは、その変化を便益・害へ結ぶ個人E–Rを決められない。BIDの臨床的な優位を示した結果ではない。
 
+## データとコードの公開状況 {#article-availability}
 
-[Analysis code, aggregate inputs, results and reproduction instructions](shared/sunvozertinib-dose-design/sunvozertinib-analysis.zip)
+入力と出力は`analysis/run_analysis.py`から再生成できる。実測PKの推定は`outputs/fit.json`、群別発現率は`clinical-estimates.csv`、仮想曝露とpaired比は`virtual-exposure.csv`、`paired-ratios.csv`に保存した。元の論文・図・患者個票は配布しない。
+
+[解析コード・集計入力・結果・再実行手順](shared/sunvozertinib-dose-design/sunvozertinib-analysis.zip)
+
+## 参照 {#_7}
+
+1. <span id="ref-1"></span>US Food and Drug Administration. FDA grants accelerated approval to sunvozertinib for metastatic non-small cell lung cancer with EGFR exon 20 insertion mutations [Internet]. 2025 Jul 2. [Approval announcement](https://www.fda.gov/drugs/resources-information-approved-drugs/fda-grants-accelerated-approval-sunvozertinib-metastatic-non-small-cell-lung-cancer-egfr-exon-20).
+2. <span id="ref-2"></span>Heymach JV, Liu G, Xing L, Greillier L, Thomas J, Yazici O, et al. Sunvozertinib monotherapy versus platinum-based chemotherapy as first-line treatment for advanced NSCLC with EGFR exon20ins: Primary analysis of a multinational phase 3 randomized study (WU-KONG28) [Conference abstract]. Journal of Clinical Oncology. 2026;44(17_suppl):LBA8500. [doi:10.1200/JCO.2026.44.17_suppl.LBA8500](https://doi.org/10.1200/JCO.2026.44.17_suppl.LBA8500).
+3. <span id="ref-3"></span>Wang M, Yang JCH, Mitchell PL, Fang J, Camidge DR, Nian W, et al. Sunvozertinib, a Selective EGFR Inhibitor for Previously Treated Non–Small Cell Lung Cancer with EGFR Exon 20 Insertion Mutations. Cancer Discovery. 2022;12(7):1676–1689. [doi:10.1158/2159-8290.CD-21-1615](https://doi.org/10.1158/2159-8290.CD-21-1615).
+4. <span id="ref-4"></span>US Food and Drug Administration. Sunvozertinib: NDA 219839 multidisciplinary review. 2025. PopPK tables, PDF pp. 229–230; safety Table 62, PDF p. 180; Section 19.4. [Assessment report](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/219839Orig1s000MultidisciplineR.pdf).
+5. <span id="ref-5"></span>Yang JCH, Wang M, Doucet L, Fan Y, Lv D, Sun M, et al. Phase II Dose-Randomized Study of Sunvozertinib in Platinum-Pretreated Non–Small Cell Lung Cancer With Epidermal Growth Factor Receptor Exon 20 Insertion Mutations (WU-KONG1B). Journal of Clinical Oncology. 2025;43(29):3198–3208. [doi:10.1200/JCO-25-00788](https://doi.org/10.1200/JCO-25-00788).
