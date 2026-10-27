@@ -11,13 +11,17 @@
     "en": {
       "title": "Does a tumor-kinetic model add anything to a single early tumor change?",
       "summary": "At 16, 24 and 32 weeks, a mixed-effects tumor-kinetic estimate added no held-out survival discrimination beyond the observed one-point change, and carrying the last value forward predicted the next measurement best.",
-      "key_findings": [
-        "At 16, 24 and 32 weeks, a mixed-effects tumor-kinetic estimate changed held-out survival C-index by only +0.002 to +0.016 over the observed one-point change, and every interval included zero.",
-        "For the next tumor measurement, carrying the last value forward was the most accurate rule at every landmark (MAE 0.42–0.61), beating both linear and quadratic mixed models.",
-        "Kinetic terms correlated about 0.97 with the one-point change, so with this measurement density a simple change suffices; this is not an evaluation of mechanistic TGI models in general."
-      ],
       "seo_title": "Does a tumor-kinetic model add to one early tumor change?",
       "seo_description": "A mixed-effects tumor-kinetic model added no held-out survival discrimination over one early tumor change; the last value best predicted the next measurement."
+    },
+    "ja": {
+      "title": "腫瘍動態モデルは一点の早期変化より予測に役立つか",
+      "summary": "公開大腸がんデータで一点変化と混合効果モデルを比較した。生存の識別能、次の腫瘍計測、計測密度と較正から、動態モデルの追加価値を検証する。",
+      "seo_title": "腫瘍動態モデルと一点変化の予測比較"
     }
+  },
+  "updated": "2026-10-27",
+  "reviewed": {
+    "ja": "559dd7b8d54963373e81fb52357da5503fbe31cc2bc8f63f8cfea3885b92c0a8"
   }
 }

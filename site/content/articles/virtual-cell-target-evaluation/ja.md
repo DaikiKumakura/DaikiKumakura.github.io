@@ -1,18 +1,25 @@
+## 要旨 {#article-abstract}
+
+CRISPRiの標的発現低下を当てることと、他の遺伝子の応答を予測することは区別する必要がある。文献と公開評価仕様を比較し、正解と競合候補の標的を非対称に扱う照合指標を検討した。3摂動・5遺伝子の合成例では、下流応答を予測しない出力もrow-maskで1.00を得たが、panel-maskとpairwise-maskでは0.50だった。この例は評価の近道を示すものであり、実モデルの順位やpairwise法の優越性を示すものではない。
+
 文献確認日：2026年10月6日。文献の報告と、本記事で作成した合成データの計算例を区別する。
+
+## 背景と目的 {#article-introduction}
 
 遺伝子を抑えた後の細胞を予測するモデルが、その遺伝子の発現低下を当てた。それだけで、細胞の応答を理解したと言えるだろうか。
 
-Eric Kernfeldの[December 2025 blog post](https://ekernf01.github.io/target_gene_shenanigans)は、この素朴な疑問から、細胞への介入後の応答を計算上で予測するVirtual Cellの評価を問い直している。本記事はその問題提起を出発点に、最近の摂動予測研究と評価仕様を読み、どこまで結論を支持できるかを整理する。検討の中心は、CRISPRiの転写応答と、平均応答を候補へ照合する評価である。Virtual Cell全体の評価ではない。
+Eric Kernfeldの2025年12月のブログ記事 ([1](#ref-1)) は、この素朴な疑問から、細胞への介入後の応答を計算上で予測するVirtual Cellの評価を問い直している。本記事はその問題提起を出発点に、最近の摂動予測研究と評価仕様を読み、どこまで結論を支持できるかを整理する。検討の中心は、CRISPRiの転写応答と、平均応答を候補へ照合する評価である。Virtual Cell全体の評価ではない。
 
-先に私の判断を書く。**標的遺伝子の直接的な変化を当てる能力と、他の遺伝子の応答を当てる能力は分けて評価したい。さらに、候補と照合する指標では、正解の標的の直接効果だけを除き、不正解候補の標的の直接効果を残す非対称な扱いを避けたい。** ただし、これを理由にsingle-cell foundation model全体の有用性を否定することはできない。
 
-## 1. 細胞表現の学習と介入後の予測 {#1}
+## 細胞表現の学習と介入後の予測 {#1}
 
 Perturb-seqは、遺伝子への介入とsingle-cell RNA-seqを組み合わせ、介入後の転写状態を測定する。未実験の標的や細胞背景へ予測を広げられれば、次に行う実験の選択に使える。その期待が、Virtual Cellという言葉の魅力の一つになっている。
 
-ここで、single-cell foundation model（scFM）は、大量の細胞データで事前学習し、その表現を複数の解析に利用するモデルを指す。Geneformerは転写データからの転移学習、scFoundationは大規模な事前学習と複数の下流タスクを報告した。しかし、細胞状態の表現が良いことと、未知の介入後の発現量を正しく予測できることは、別の検証問題である。[Geneformer](https://www.nature.com/articles/s41586-023-06139-9)、[scFoundation](https://www.nature.com/articles/s41592-024-02305-7)
+ここで、single-cell foundation model（scFM）は、大量の細胞データで事前学習し、その表現を複数の解析に利用するモデルを指す。Geneformerは転写データからの転移学習、scFoundationは大規模な事前学習と複数の下流タスクを報告した。しかし、細胞状態の表現が良いことと、未知の介入後の発現量を正しく予測できることは、別の検証問題である ([2](#ref-2), [3](#ref-3))。
 
 評価の前に、何を未知にするかを決める必要がある。
+
+**表1　未知条件の分け方**
 
 | 予測したい状況 | テストで未知にするもの | その結果だけでは示せないこと |
 | --- | --- | --- |
@@ -21,23 +28,23 @@ Perturb-seqは、遺伝子への介入とsingle-cell RNA-seqを組み合わせ�
 | 単独摂動から、組合せを予測する | 摂動の組合せ | 未知の単独摂動の予測能力 |
 | 他の実験で測った応答を新しい実験へ移す | データセット・実験条件 | 摂動応答を一切観測しない予測能力 |
 
-これは本記事での整理であり、論文ごとの分割方法はさらに確認する必要がある。Weiらの広範なベンチマークも、未知の摂動と未知の細胞背景を区別している。論文は2025年12月にオンライン公開され、2026年の巻に掲載された。[Wei et al.](https://www.nature.com/articles/s41592-025-02980-0)
+これは本記事での整理であり、論文ごとの分割方法はさらに確認する必要がある。Weiらの広範なベンチマークも、未知の摂動と未知の細胞背景を区別している。論文は2025年12月にオンライン公開され、2026年の巻に掲載された ([4](#ref-4))。
 
 細胞をランダムに分け、同じ標的・同じ実験の細胞が学習と評価の両側にある設定を、未知標的への汎化と呼ぶことはできない。また、事前学習に評価対象の実験が入っていないかも、可能な範囲で監査したい。これは標的遺伝子のマスクとは別の問題である。
 
-## 2. 標的の発現低下が示す予測能力 {#2}
+## 標的の発現低下が示す予測能力 {#2}
 
 CRISPRiでは、標的遺伝子の転写を抑えるように実験を設計する。その直接効果が強いと、発現変化の大きい遺伝子に重みを置く評価は、標的を下げるだけの予測を高く評価しうる。
 
-Csendesらは、scGPTとscFoundationを単純な基準モデルと比較し、Top-20 DE（差次的発現の検定で選ばれた上位20遺伝子）の評価からCRISPR標的を除く解析も実施した。標的を含むTop-20の評価ではscGPTがTrain Mean（学習摂動の平均応答を、すべてのテスト摂動へ共通に使う予測）を上回る一方、その評価には標的自身の変化が混ざる。ここで問われるのは、得点の改善がどの遺伝子の予測に由来するかである。[Csendes et al.](https://link.springer.com/article/10.1186/s12864-025-11600-2)
+Csendesらは、scGPTとscFoundationを単純な基準モデルと比較し、Top-20 DE（差次的発現の検定で選ばれた上位20遺伝子）の評価からCRISPR標的を除く解析も実施した。標的を含むTop-20の評価ではscGPTがTrain Mean（学習摂動の平均応答を、すべてのテスト摂動へ共通に使う予測）を上回る一方、その評価には標的自身の変化が混ざる。ここで問われるのは、得点の改善がどの遺伝子の予測に由来するかである ([5](#ref-5))。
 
-Wongらも、深層学習との比較に適切な単純baselineを置く重要性と、既存ベンチマーク用データの修正を報告した。本記事では、その原著の要旨で確認できる範囲を参照する。[Wong et al.](https://pubmed.ncbi.nlm.nih.gov/40407144/)
+Wongらも、深層学習との比較に適切な単純baselineを置く重要性と、既存ベンチマーク用データの修正を報告した。本記事では、その原著の要旨で確認できる範囲を参照する ([6](#ref-6))。
 
 ただし、標的の応答を「生物学ではない」と全面的に切り捨てるのも強すぎる。ノックダウン効率、残存発現、ガイド差が予測目的なら、それ自体が研究対象になる。私が分離したいのは、**介入の効き具合を予測する課題と、その条件下で起こる応答を予測する課題**である。
 
-CRISPR knockoutについても、機能喪失とmRNAの消失は同じではない。mRNAが残る場合に、その測定値を一律にゼロとすることは、目的に応じたモデル上の仮定であり、観測事実ではない。PEREGGRNの論文も、knockoutではmRNAが残ったり増加したりする可能性を記載している。[Kernfeld et al.](https://link.springer.com/article/10.1186/s13059-025-03840-y)
+CRISPR knockoutについても、機能喪失とmRNAの消失は同じではない。mRNAが残る場合に、その測定値を一律にゼロとすることは、目的に応じたモデル上の仮定であり、観測事実ではない。PEREGGRNの論文も、knockoutではmRNAが残ったり増加したりする可能性を記載している ([7](#ref-7))。
 
-## 3. 「leakage」で一括りにしない {#3-leakage}
+## 「leakage」で一括りにしない {#3-leakage}
 
 議論を明確にするため、介入ラベルを \(I\)、介入後の標的発現を \(Z\)、それ以外の発現を \(X\)、細胞背景を \(c\) とする。
 
@@ -55,7 +62,9 @@ p(X\mid Z,I,c)
 
 を評価する。後者は前者より多くの情報を条件として与えている。
 
-PEREGGRNでは、closest-controlを使う設定で、標的の値を介入後の発現量へ置き換えて予測する。これは、標的の変化を条件として扱う設定の例である。ただし、未知の実験を事前に予測する用途で、その介入後の実測値が入手できるとは限らない。[PEREGGRN methods](https://link.springer.com/article/10.1186/s13059-025-03840-y)
+PEREGGRNでは、closest-controlを使う設定で、標的の値を介入後の発現量へ置き換えて予測する。これは、標的の変化を条件として扱う設定の例である。ただし、未知の実験を事前に予測する用途で、その介入後の実測値が入手できるとは限らない ([7](#ref-7))。
+
+**表2　区別すべき評価上の問題**
 
 | 問題 | 何が起きるか | 確認すること |
 | --- | --- | --- |
@@ -66,7 +75,7 @@ PEREGGRNでは、closest-controlを使う設定で、標的の値を介入後の
 
 **標的名をモデルに与えること自体は、通常の摂動予測では情報漏洩ではない。** 何を介入したかは正当な入力である。「target-gene leakage」という表現を使う場合も、入力の漏洩なのか、評価の近道なのかを説明したい。
 
-## 4. 自分の標的だけを除く照合の近道 {#4}
+## 自分の標的だけを除く照合の近道 {#4}
 
 Retrieval型の評価は、予測を観測候補へ照合して正解を順位付けする評価である。摂動 \(i\) の予測 \(\hat x_i\) を、正解 \(x_i\) と他の摂動の観測 \(x_j\) に照合し、正解の方が近ければ高得点になる。
 
@@ -78,15 +87,17 @@ d_{-i}(\hat x_i,x_i),\qquad d_{-i}(\hat x_i,x_j).
 
 候補 \(j\) には、その標的 \(j\) の強い低下が残る。予測側で、他の標的を逆方向に大きくしておけば、不正解候補との距離を押し上げられる。
 
-Arcの公開仕様には、この近道を使った予測の `pds_cosine` が、3つのvalidation contextで0.798、0.757、0.761となったと記載されている。対応するbaselineは0.530、0.528、0.510だった。これはArcの報告値であり、本記事で実データから再計算した値ではない。[cell-eval2 metrics reference](https://github.com/ArcInstitute/cell-eval2/blob/0ce25cf4c495e76e60dfca4ddc8f822507aa0e18/docs/metrics.md)
+Arcの公開仕様には、この近道を使った予測の `pds_cosine` が、3つのvalidation contextで0.798、0.757、0.761となったと記載されている。対応するbaselineは0.530、0.528、0.510だった。これはArcの報告値であり、本記事で実データから再計算した値ではない ([8](#ref-8))。
 
-2026年8月19日付の競技仕様では、`pds_cosine` はpanel内の全標的を固定的に除外する。候補ごとに残る座標が変わらない方法である。なお、競技の6指標すべてが全標的を除くわけではない。他の5指標では、その摂動自身の標的を除く。[VCC2026 metrics brief](https://github.com/ArcInstitute/cell-eval2/blob/0ce25cf4c495e76e60dfca4ddc8f822507aa0e18/docs/vcc2026_metrics/vcc2026-metrics-brief.md)
+2026年8月19日付の競技仕様では、`pds_cosine` はpanel内の全標的を固定的に除外する。候補ごとに残る座標が変わらない方法である。なお、競技の6指標すべてが全標的を除くわけではない。他の5指標では、その摂動自身の標的を除く ([9](#ref-9))。
 
 この資料の日付を、実際の運用変更日と同一視することは避ける。また、raw PDSの0.5という基準と、baseline・replicateで正規化した競技得点の0という基準は別である。
 
-## 5. 3摂動の計算例で確かめる {#5-3}
+## 合成例による検証 {#5-3}
 
 大規模データを読む前に、問題が成立する最小限の例を作った。遺伝子A・B・Cをそれぞれ抑える3摂動と、下流遺伝子D・Eを用意する。以下はcontrol（非標的対照）との差を表す合成値であり、実験データではない。
+
+**表3　合成データの介入効果**
 
 | 摂動 | A | B | C | D | E |
 | --- | ---: | ---: | ---: | ---: | ---: |
@@ -100,9 +111,13 @@ Arcの公開仕様には、この近道を使った予測の `pds_cosine` が、
 
 *図1：本記事で作成した合成例。青は負、茶は正、灰はゼロ。色は符号だけを表し、大きさは各セルの数値で示す。自分以外のpanel標的だけを増加させた予測であり、D・Eの下流応答は予測していない。数値の単位は任意。*
 
+### 計算結果 {#toy-results}
+
 cosine距離を使うと、Aを除いた正解との内積はゼロで、距離は1になる。しかしB摂動との内積には \(10\times(-5)\) が入り、距離は1より大きくなる。Cとの比較も同様である。正解を当てたように見えるが、起きているのは不正解候補を遠ざける操作である。
 
 比較したのは、row-mask、panel-mask（panelの全標的を一括除外）、次節のpairwise-mask（二者比較ごとに両標的を除外）である。同点は0.5点、ゼロベクトルのcosine距離は1と定義した。計算上は距離の差が \(10^{-12}\) 以下の場合を同点として扱った。rowとpanelでは、正解と各候補の勝敗を平均することが、同点補正した正規化順位に対応する。旧実装の同点処理や前処理を完全再現する実験ではない。
+
+**表4　マスク方法による得点の違い**
 
 | 予測 | Row-mask | Panel-mask | Pairwise-mask |
 | --- | ---: | ---: | ---: |
@@ -117,7 +132,7 @@ cosine距離を使うと、Aを除いた正解との内積はゼロで、距離�
 
 この例が示すのは、**下流応答を予測しない出力が、特定の評価規則で満点になりうること**である。実際のモデルの順位、実データでの効果量、pairwise法の優越性は示していない。[計算コード](shared/virtual-cell-target-evaluation/toy_metrics.py)と[結果CSV](shared/virtual-cell-target-evaluation/toy-results.csv)を公開し、入力・依存ライブラリ・図を含む[再実行資料ZIP](shared/virtual-cell-target-evaluation/virtual-cell-target-evaluation.zip)も用意した。
 
-## 6. 全標的除去と二者比較での除去 {#6}
+## 全標的除去と二者比較での除去 {#6}
 
 panel-maskには、同じ固定座標を使える利点がある。一方、Aを抑えたときにBが変わるという応答も、Bが別の摂動の標的なら評価から消える。これは、本来測りたい情報を減らす可能性がある。
 
@@ -136,21 +151,23 @@ a_{ij}=d_{-(i,j)}(\hat x_i,x_i),\qquad
 b_{ij}=d_{-(i,j)}(\hat x_i,x_j).
 \]
 
-この式と以下の解釈は、[Original post proposal](https://ekernf01.github.io/target_gene_shenanigans)を基にした本記事の整理である。各二者比較では同じ遺伝子を使い、最後に勝率を平均する。候補ごとに違う座標で求めた距離を、そのまま一列に並べて順位付けする方法とは異なる。
+この式と以下の解釈は、Kernfeldの原案を基にした本記事の整理である ([1](#ref-1))。各二者比較では同じ遺伝子を使い、最後に勝率を平均する。候補ごとに違う座標で求めた距離を、そのまま一列に並べて順位付けする方法とは異なる。
 
 AUCに似た勝率と考えると理解しやすいが、通常のROC-AUCや、一つの固定距離から作る順位と同じものではない。比較ごとに座標が変わるため、全候補に共通する距離順序があるとも限らない。
 
 この方法では、比較に無関係な第三の標的を残せる。ただし、それが常に有利とは言えない。残る標的の直接効果、遺伝子間の依存、複数標的の摂動、弱い応答、cosine距離のノルム依存を含めた検証が必要である。合成例で同じspikeを防げたことだけでは、本命や最適解とは断定できない。
 
-## 7. 最近の論文が支持する範囲 {#7}
+## 最近の論文が支持する範囲 {#7}
 
-2025年のAhlmann-Eltzeらは、検討した遺伝子摂動予測で深層学習が単純な線形baselineを上回らないと報告した。Systemaは、多くの摂動に共通する系統的変動と、摂動固有の応答を区別して評価する必要を示した。これらは、単純な基準モデルを省略できない理由になる。[Ahlmann-Eltze et al.](https://www.nature.com/articles/s41592-025-02772-6)、[Systema](https://www.nature.com/articles/s41587-025-02777-8.pdf)
+2025年のAhlmann-Eltzeらは、検討した遺伝子摂動予測で深層学習が単純な線形baselineを上回らないと報告した。Systemaは、多くの摂動に共通する系統的変動と、摂動固有の応答を区別して評価する必要を示した。これらは、単純な基準モデルを省略できない理由になる ([10](#ref-10), [11](#ref-11))。
 
-一方、2026年10月のMillerらは、14データセット・18指標を用い、陽性対照と陰性対照を区別できるかという意味で指標を点検した。感度の良い指標では、複数の深層学習モデルがbaselineを上回った。これは予測確率の校正ではなく、**評価指標が有用な予測を識別する能力の点検**である。論文も、未知の細胞背景への予測は扱っていないと述べる。[Miller et al.](https://www.nature.com/articles/s41587-026-03307-w)
+一方、2026年10月のMillerらは、14データセット・18指標を用い、陽性対照と陰性対照を区別できるかという意味で指標を点検した。感度の良い指標では、複数の深層学習モデルがbaselineを上回った。これは予測確率の校正ではなく、**評価指標が有用な予測を識別する能力の点検**である。論文も、未知の細胞背景への予測は扱っていないと述べる ([12](#ref-12))。
 
 この二つの見方は、単純に片方が他方を否定する関係ではない。全遺伝子の平均誤差は弱い応答を埋もれさせることがあり、変化の強い遺伝子だけの指標は標的の直接効果を強調することがある。何を検出したい指標なのか、陽性対照を識別できるか、近道でも高得点になるかを、それぞれ調べる必要がある。
 
 最近のモデルも、同じ課題を解いているわけではない。
+
+**表5　近年の研究と評価対象**
 
 | 研究・モデル | 主に報告する能力 | 今回の問題との関係 |
 | --- | --- | --- |
@@ -160,13 +177,13 @@ AUCに似た勝率と考えると理解しやすいが、通常のROC-AUCや、�
 | PIE、2026年10月のプレプリント | 生物学的な知識を入力し、集団レベルの摂動効果を予測 | 未知標的・未知文脈・両者が未知の設定を区別する必要がある |
 | Millerら、Nature Biotechnology 2026 | 指標の感度点検と、未知標的・未知組合せのモデル比較 | 高得点・低得点を指標の性質と切り離して解釈できない |
 
-各論文が報告する能力の概要は、[UCE](https://www.nature.com/articles/s41586-026-10689-z)、[State](https://pubmed.ncbi.nlm.nih.gov/42673963/)、[Stack](https://doi.org/10.64898/2026.01.09.698608)、[Miller et al.](https://www.nature.com/articles/s41587-026-03307-w)を参照した。表の「今回の問題との関係」は本記事の解釈である。Stackは、この調査ではプレプリントとして扱う。
+能力の概要は、UCE・State・Stackの各原著とMillerらの報告に基づく ([13](#ref-13), [14](#ref-14), [15](#ref-15), [12](#ref-12))。表の「今回の問題との関係」は本記事の解釈である。Stackは、この調査ではプレプリントとして扱う。
 
-PIEは2026年10月5日に公開された新しい例である。公開READMEと発表資料では、知識源、対象文脈のcontrol、学習データ内の摂動応答を利用すると説明されている。未知条件を予測するという主張も、何も観測せずに予測するという意味ではない。本記事では公開資料で確認できる設計の紹介に留め、詳細な性能値や独立検証を済ませたという主張は採用しない。[PIE public implementation documentation](https://github.com/ArcInstitute/pie)、[Author announcement](https://arcinstitute.org/news/pie)
+PIEは2026年10月5日に公開された新しい例である。公開READMEと発表資料では、知識源、対象文脈のcontrol、学習データ内の摂動応答を利用すると説明されている。未知条件を予測するという主張も、何も観測せずに予測するという意味ではない。本記事では公開資料で確認できる設計の紹介に留め、詳細な性能値や独立検証を済ませたという主張は採用しない ([16](#ref-16))。
 
-データ側では、2026年9月のTahoe-100Mが、50のがん細胞株・1,100のdrug-dose条件を含む大規模な薬剤摂動アトラスを報告した。ただし、薬剤によるタンパク質の阻害と、CRISPRiによる標的mRNAの抑制は同じ介入ではない。本記事の標的マスクを、薬剤摂動へそのまま適用する根拠にはならない。[Tahoe-100M](https://www.sciencedirect.com/science/article/pii/S0092867426010081)
+データ側では、2026年9月のTahoe-100Mが、50のがん細胞株・1,100のdrug-dose条件を含む大規模な薬剤摂動アトラスを報告した。ただし、薬剤によるタンパク質の阻害と、CRISPRiによる標的mRNAの抑制は同じ介入ではない。本記事の標的マスクを、薬剤摂動へそのまま適用する根拠にはならない ([17](#ref-17))。
 
-さらに、Nicolらの2026年プレプリントは、予測側と観測側から同じcontrol推定値を引くと、共有される推定誤差で相関が膨らむ問題を報告した。[Nicol et al.](https://www.biorxiv.org/content/10.64898/2026.05.07.723486v1)
+さらに、Nicolらの2026年プレプリントは、予測側と観測側から同じcontrol推定値を引くと、共有される推定誤差で相関が膨らむ問題を報告した ([18](#ref-18))。
 
 直感を得るため、互いに独立な推定誤差 \(\epsilon_p,\epsilon_t,\epsilon_c\) を仮定する。本記事での代数的な説明では、
 
@@ -181,42 +198,19 @@ PIEは2026年10月5日に公開された新しい例である。公開READMEと�
 
 標的マスク、遺伝子集合、前処理、同点処理が異なれば、同じ指標名でも数値の意味が変わる。今回の人工例でも、標的だけの予測や全摂動に共通する予測が、採点方法によって異なる得点を得た。
 
-SchäferらのscPertEvalプレプリントは、評価をrepresentation、metric、score transformation、reporting strategyへ分解している。この区別で読むと、前処理や正規化まで異なる成績を指標名だけで比較できないことが分かる。[scPertEval](https://www.biorxiv.org/content/10.64898/2026.07.23.740433v1)
+SchäferらのscPertEvalプレプリントは、評価をrepresentation、metric、score transformation、reporting strategyへ分解している。この区別で読むと、前処理や正規化まで異なる成績を指標名だけで比較できないことが分かる ([19](#ref-19))。
 
 本記事のpanel-maskとpairwise-maskの比較は、数式と人工例の範囲に限られる。実測での予測性能や細胞集団の分布を検証したわけではなく、得点の差だけを下流応答の機序理解へ置き換えることはできない。
 
-## 9. 標的の直接効果と下流応答の評価 {#9}
+## 結論 {#9}
 
 Kernfeldの問いは、標的を下げることを当てた得点を、下流の応答を理解した証拠として読んでよいか、という問いだった。Arcの公開仕様は、retrievalでの標的の扱いの非対称性が実際に得点の近道になることも示している。
 
 本記事の合成例でも、その仕組みを再現できた。しかし、そこから「scFMは役に立たない」「pairwise-maskで評価問題は解決した」とは言えない。
 
-私は、モデルの名前や規模よりも、**予測前に何を知っていて、何を未知にし、どの応答を、どの対照より良く予測したのか**を読みたい。その条件を明示すれば、Virtual Cellの進歩と限界を、同じ土台で議論できる。
+評価の解釈を決めるのは、**予測前に何を知っていて、何を未知にし、どの応答を、どの対照より良く予測したのか**である。その条件を明示すれば、Virtual Cellの進歩と限界を、同じ土台で議論できる。
 
-## 参考資料 {#_1}
-
-Links in the text identify primary sources. No extended quotations beyond the original blog or figures from existing papers are reproduced.
-
-1. Kernfeld E. Blog, 2025-12-05: [Target-gene prediction and retrieval critique](https://ekernf01.github.io/target_gene_shenanigans).
-2. Theodoris CV et al. *Nature*, 2023. [10.1038/s41586-023-06139-9](https://doi.org/10.1038/s41586-023-06139-9).
-3. Hao M et al. *Nature Methods*, 2024. [10.1038/s41592-024-02305-7](https://doi.org/10.1038/s41592-024-02305-7).
-4. Csendes G et al. Benchmarking foundation cell models for post-perturbation RNA-seq prediction. *BMC Genomics*, 2025. [10.1186/s12864-025-11600-2](https://doi.org/10.1186/s12864-025-11600-2).
-5. Kernfeld E et al. A comparison of computational methods for expression forecasting. *Genome Biology*, 2025. [10.1186/s13059-025-03840-y](https://doi.org/10.1186/s13059-025-03840-y).
-6. Ahlmann-Eltze C et al. Deep-learning-based gene perturbation effect prediction does not yet outperform simple linear baselines. *Nature Methods*, 2025. [10.1038/s41592-025-02772-6](https://doi.org/10.1038/s41592-025-02772-6).
-7. Viñas Torné R et al. Systema. published online 2025-08-25. [10.1038/s41587-025-02777-8](https://doi.org/10.1038/s41587-025-02777-8).
-8. Wei Z et al. *Nature Methods* 23, 2026 (published online 2025-12-11). [10.1038/s41592-025-02980-0](https://doi.org/10.1038/s41592-025-02980-0).
-9. Miller HE et al. Deep learning perturbation models can outperform baselines on calibrated metrics. *Nature Biotechnology*, 2026. [10.1038/s41587-026-03307-w](https://doi.org/10.1038/s41587-026-03307-w).
-10. Rosen Y et al. UCE. *Nature*, 2026. [10.1038/s41586-026-10689-z](https://doi.org/10.1038/s41586-026-10689-z).
-11. Adduri AK et al. State. *Cell*, 2026. [10.1016/j.cell.2026.07.052](https://doi.org/10.1016/j.cell.2026.07.052).
-12. Dong M et al. Stack. *bioRxiv*, 2026 preprint. [10.64898/2026.01.09.698608](https://doi.org/10.64898/2026.01.09.698608).
-13. Nicol PB et al. *bioRxiv*, 2026 preprint. [10.64898/2026.05.07.723486](https://doi.org/10.64898/2026.05.07.723486).
-14. Arc Institute. [cell-eval2 metrics reference](https://github.com/ArcInstitute/cell-eval2/blob/0ce25cf4c495e76e60dfca4ddc8f822507aa0e18/docs/metrics.md), [competition brief dated 2026-08-19](https://github.com/ArcInstitute/cell-eval2/blob/0ce25cf4c495e76e60dfca4ddc8f822507aa0e18/docs/vcc2026_metrics/vcc2026-metrics-brief.md). Links are pinned to checked commit 0ce25cf. The competition brief refers to implementation 0.15.0 and rule version 3.
-15. Verma R et al. PIE. *bioRxiv*, 2026 preprint. [10.64898/2026.10.02.756297](https://doi.org/10.64898/2026.10.02.756297). The author announcement and public README were checked for this article. [Abstract](https://www.biorxiv.org/content/10.64898/2026.10.02.756297v1) was also consulted. The full paper was not examined in detail.
-16. Zhang J et al. Tahoe-100M. *Cell*, 2026. [10.1016/j.cell.2026.08.035](https://doi.org/10.1016/j.cell.2026.08.035).
-17. Wong DR, Hill AS, Moccia R. *Bioinformatics*, 2025. [10.1093/bioinformatics/btaf317](https://doi.org/10.1093/bioinformatics/btaf317). The abstract was checked on PubMed.
-18. Schäfer PSL et al. scPertEval. *bioRxiv*, 2026 preprint. [10.64898/2026.07.23.740433](https://doi.org/10.64898/2026.07.23.740433).
-
-## 計算例の再実行と限界 {#_2}
+## データとコードの公開状況 {#_2}
 
 [再実行資料ZIP](shared/virtual-cell-target-evaluation/virtual-cell-target-evaluation.zip)を展開し、Python 3.11以上で、展開先のフォルダから以下を実行する。NumPyとPillowの確認済みの版は同梱した`requirements.txt`に固定した。フォントが環境によって異なる場合、図の文字の見た目は変わるが計算値は変わらない。
 
@@ -227,4 +221,26 @@ python toy_metrics.py
 
 `toy-results.csv`、`toy-data.json`、図1・2を生成する。3摂動・5遺伝子の人工的な平均効果を直接与えており、実データの取得、scFMの学習、single-cell分布の再現、Arc競技パイプラインの再実行は行っていない。
 
-陽性対照2種類と、共通予測100種類の基準得点を検査した。pairwise法については、この計算例と数式上の性質の確認までであり、実データでの比較検証は今後の課題である。
+陽性対照2種類と、共通予測100種類の基準得点を検査した。pairwise法については、この計算例と数式上の性質の確認までであり、実データでの比較検証は実施していない。
+
+## 参照 {#_1}
+
+1. <span id="ref-1"></span>Kernfeld E. We predict that the transcript abundance from the gene we are knocking down will (checks notes) decrease [Internet; blog]. 2025 Dec 5. [Original post](https://ekernf01.github.io/target_gene_shenanigans).
+2. <span id="ref-2"></span>Theodoris CV, Xiao L, Chopra A, Chaffin MD, Al Sayed ZR, Hill MC, et al. Transfer learning enables predictions in network biology. Nature. 2023;618(7965):616–624. [doi:10.1038/s41586-023-06139-9](https://doi.org/10.1038/s41586-023-06139-9).
+3. <span id="ref-3"></span>Hao M, Gong J, Zeng X, Liu C, Guo Y, Cheng X, et al. Large-scale foundation model on single-cell transcriptomics. Nature Methods. 2024;21(8):1481–1491. [doi:10.1038/s41592-024-02305-7](https://doi.org/10.1038/s41592-024-02305-7).
+4. <span id="ref-4"></span>Wei Z, Wang Y, Gao Y, Wang S, Li P, Si D, et al. Benchmarking algorithms for generalizable single-cell perturbation response prediction. Nature Methods. 2026;23(2):451–464. [doi:10.1038/s41592-025-02980-0](https://doi.org/10.1038/s41592-025-02980-0).
+5. <span id="ref-5"></span>Csendes G, Sanz G, Szalay KZ, Szalai B. Benchmarking foundation cell models for post-perturbation RNA-seq prediction. BMC Genomics. 2025;26:393. [doi:10.1186/s12864-025-11600-2](https://doi.org/10.1186/s12864-025-11600-2).
+6. <span id="ref-6"></span>Wong DR, Hill AS, Moccia R. Simple controls exceed best deep learning algorithms and reveal foundation model effectiveness for predicting genetic perturbations. Bioinformatics. 2025;41(6):btaf317. [doi:10.1093/bioinformatics/btaf317](https://doi.org/10.1093/bioinformatics/btaf317). Only the abstract was consulted for the scientific claims discussed here.
+7. <span id="ref-7"></span>Kernfeld E, Yang Y, Weinstock JS, Battle A, Cahan P. A comparison of computational methods for expression forecasting. Genome Biology. 2025;26(1):388. [doi:10.1186/s13059-025-03840-y](https://doi.org/10.1186/s13059-025-03840-y).
+8. <span id="ref-8"></span>Arc Institute. cell-eval2 metrics reference [Internet; software documentation]. Commit 0ce25cf4c495e76e60dfca4ddc8f822507aa0e18. [Pinned document](https://github.com/ArcInstitute/cell-eval2/blob/0ce25cf4c495e76e60dfca4ddc8f822507aa0e18/docs/metrics.md).
+9. <span id="ref-9"></span>Arc Institute. VCC2026 metrics brief [Internet; software documentation]. Commit 0ce25cf4c495e76e60dfca4ddc8f822507aa0e18. [Pinned document](https://github.com/ArcInstitute/cell-eval2/blob/0ce25cf4c495e76e60dfca4ddc8f822507aa0e18/docs/vcc2026_metrics/vcc2026-metrics-brief.md). Dated 2026 Aug 19; implementation 0.15.0, rule version 3.
+10. <span id="ref-10"></span>Ahlmann-Eltze C, Huber W, Anders S. Deep-learning-based gene perturbation effect prediction does not yet outperform simple linear baselines. Nature Methods. 2025;22(8):1657–1661. [doi:10.1038/s41592-025-02772-6](https://doi.org/10.1038/s41592-025-02772-6).
+11. <span id="ref-11"></span>Viñas Torné R, Wiatrak M, Piran Z, Fan S, Jiang L, Teichmann SA, et al. Systema: a framework for evaluating genetic perturbation response prediction beyond systematic variation. Nature Biotechnology. 2026;44(6):1050–1059. [doi:10.1038/s41587-025-02777-8](https://doi.org/10.1038/s41587-025-02777-8).
+12. <span id="ref-12"></span>Miller HE, Mejia GM, Leblanc FJA, Swain B, Wang B, de Lima Camillo LP. Deep learning perturbation models can outperform baselines on calibrated metrics. Nature Biotechnology. 2026 [published online 2026-10-01]. [doi:10.1038/s41587-026-03307-w](https://doi.org/10.1038/s41587-026-03307-w).
+13. <span id="ref-13"></span>Rosen Y, Roohani Y, Agrawal A, Samotorčan L, Tabula Sapiens Consortium, Quake SR, et al. Universal cell embedding provides a foundation model for cell biology. Nature. 2026;656(8126):183–191. [doi:10.1038/s41586-026-10689-z](https://doi.org/10.1038/s41586-026-10689-z).
+14. <span id="ref-14"></span>Adduri AK, Gautam D, Bevilacqua B, Naghipourfar M, Imran A, Shah R, et al. Predicting cellular responses to perturbation across diverse contexts with State. Cell. 2026;189(19):5914–5931.e20. [doi:10.1016/j.cell.2026.07.052](https://doi.org/10.1016/j.cell.2026.07.052).
+15. <span id="ref-15"></span>Dong M, Adduri A, Gautam D, Carpenter C, Shah R, Ricci-Tam C, et al. Stack: In-Context Learning of Single-Cell Biology. bioRxiv [Preprint]. 2026. [doi:10.64898/2026.01.09.698608](https://doi.org/10.64898/2026.01.09.698608).
+16. <span id="ref-16"></span>Verma R, Adduri A, Bevilacqua B, Eraslan B, Burke DP, Goodarzi H, et al. PIE: Generalizing perturbation effects across unseen perturbations, contexts and datasets. bioRxiv [Preprint]. 2026. [doi:10.64898/2026.10.02.756297](https://doi.org/10.64898/2026.10.02.756297). [Public implementation](https://github.com/ArcInstitute/pie); [author announcement](https://arcinstitute.org/news/pie). The announcement, public README and abstract were consulted; the full paper was not examined in detail.
+17. <span id="ref-17"></span>Zhang J, Ubas AA, Svensson V, Thomas N, Subramanyam V, Carpenter C, et al. Tahoe-100M: Mapping drug-induced molecular phenotypes at single-cell resolution. Cell. 2026;189(19):5945–5961.e8. [doi:10.1016/j.cell.2026.08.035](https://doi.org/10.1016/j.cell.2026.08.035).
+18. <span id="ref-18"></span>Nicol PB, Shivakumar S, Irizarry RA. Spurious correlation inflates performance in single-cell perturbation prediction. bioRxiv [Preprint]. 2026. [doi:10.64898/2026.05.07.723486](https://doi.org/10.64898/2026.05.07.723486).
+19. <span id="ref-19"></span>Schäfer PSL, Reid KA, Boldyga Z, Aksu ED, Hakem H, Saez-Rodriguez J. Towards Principled Evaluation of Single-Cell Perturbation Prediction Models. bioRxiv [Preprint]. 2026. [doi:10.64898/2026.07.23.740433](https://doi.org/10.64898/2026.07.23.740433).

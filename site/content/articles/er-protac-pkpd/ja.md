@@ -1,18 +1,22 @@
+## 要旨 {#article-abstract}
+
 標的タンパク質分解薬（targeted protein degrader; TPD）の投与設計では、血漿濃度だけでなく、標的がどこまで減り、どの速さで戻るかを考える必要がある。本記事ではER-PROTACの公開データを点検し、標的分解と回復を表す最小モデルで投与頻度を比較する。
 
 今回の**仮定を置いたシミュレーション**では、最大分解率が高い投与法ほど分解を維持するとは限らなかった。ただし、公表データだけから特定の薬剤の回復速度、必要分解率、臨床投与間隔まで決めることはできない。実測値の整理と、モデルの構造を理解するための計算を分けて読む必要がある。
 
-## ER分解の最大値と持続を比べる {#_1}
+## 背景と目的 {#_1}
 
-Question of Interest（QoI）は、「同じ長期平均投与量で頻度を変えたとき、分解の最大値・最低値・時間平均はどう変わるか。その比較に何の測定が不足しているか」とする。
+解析の問い（question of interest、QoI）は、「同じ長期平均投与量で頻度を変えたとき、分解の最大値・最低値・時間平均はどう変わるか。その比較に何の測定が不足しているか」とする。
 
-Context of Use（CoU）は公開情報を用いた研究・学習、候補モデルの比較、追加測定の設計に限定する。実薬の用量選択、患者のリスク予測、動物からヒトへの効果予測には用いない。後述の濃度と用量は相対単位であり、vepdegestrantやERD-1233のmg用量へ換算できない。
+利用範囲（context of use、CoU）は公開情報を用いた研究・学習、候補モデルの比較、追加測定の設計に限定する。実薬の用量選択、患者のリスク予測、動物からヒトへの効果予測には用いない。後述の濃度と用量は相対単位であり、vepdegestrantやERD-1233のmg用量へ換算できない。
 
 ## 公開データから確認できること {#_2}
 
 ### 終了時ER分解と腫瘍増殖抑制の違い {#er}
 
-GoughらのMCF7モデルでは、vepdegestrantの3、10、30 mg/kgの毎日投与でTGIが85、98、120%となる一方、試験終了時のER分解は全用量で94%以上だった。[1]
+Goughらの[原論文Figure 5C](https://pmc.ncbi.nlm.nih.gov/articles/PMC11325148/)に示されたMCF7モデルでは、vepdegestrantの3、10、30 mg/kgの毎日投与でTGIが85、98、120%となる一方、試験終了時のER分解は全用量で94%以上だった ([1](#ref-1))。
+
+**表1　終了時ER分解と腫瘍増殖抑制**
 
 | 毎日の投与量 | 公表TGI | 試験終了時のER分解 |
 | --- | ---: | ---: |
@@ -20,13 +24,15 @@ GoughらのMCF7モデルでは、vepdegestrantの3、10、30 mg/kgの毎日投�
 | 10 mg/kg | 98% | ≥94% |
 | 30 mg/kg | 120% | ≥94% |
 
-TGIは対照群との腫瘍増殖の比較であり、細胞死率や臨床奏効率ではない。100%を超える値も、同論文の定義・実験条件で解釈する必要がある。
+腫瘍増殖抑制率（tumor growth inhibition、TGI）は対照群との腫瘍増殖の比較であり、細胞死率や臨床奏効率ではない。100%を超える値も、同論文の定義・実験条件で解釈する必要がある。
 
 この観測は「終了時の分解率だけでは用量間の薬効差を説明しきれない」という問いを与える。しかし、分解の持続時間が原因だと証明するものではない。測定時刻、低濃度側のPD、結合による阻害作用、下流応答、実験間のばらつきなども候補に残る。**終了時のPDを最大分解率と呼び替えてはいけない。**
 
 ### 血漿濃度の低下と腫瘍中の薬物残留 {#_3}
 
-ERD-1233の一次論文には、10 mg/kg投与後のER Y537S変異MCF-7モデルで、血漿と腫瘍の濃度が報告されている。ARV-471との比較値も同じ報告にある。[2]
+ERD-1233の一次論文には、10 mg/kg投与後のER Y537S変異MCF-7モデルで、血漿と腫瘍の濃度が報告されている。ARV-471との比較値も同じ報告にある ([2](#ref-2))。
+
+**表2　公表された血漿・腫瘍濃度と濃度比**
 
 | 化合物 | 投与後時刻 | 血漿濃度（ng/mL） | 腫瘍濃度（ng/mL） | 腫瘍／血漿比（本記事で計算） |
 | --- | ---: | ---: | ---: | ---: |
@@ -36,25 +42,27 @@ ERD-1233の一次論文には、10 mg/kg投与後のER Y537S変異MCF-7モデル
 
 ![公表された血漿・腫瘍濃度。縦軸は対数。](shared/er-protac-pkpd/figures/01-public-concentrations.png)
 
-**図1：** 論文本文の値を再描画したもの。推定曲線や個体データではない。比は各時点の公表濃度からの算術計算であり、平衡分配係数や非結合濃度比ではない。測定誤差の数値がこの比較に揃っていないため、誤差棒は付けていない。
+**図1：** [ERD-1233原論文](https://pmc.ncbi.nlm.nih.gov/articles/PMC12981313/)本文の値を再描画したもの。推定曲線や個体データではない。比は各時点の公表濃度からの算術計算であり、平衡分配係数や非結合濃度比ではない。測定誤差の数値がこの比較に揃っていないため、誤差棒は付けていない。
 
 少なくとも、この条件では24時間後の血漿濃度だけを腫瘍曝露の代わりにできない。一方、2時点から腫瘍移行速度、腫瘍での消失速度、標的回復速度を別々に同定することもできない。腫瘍ホモジネートの総濃度を、標的へ作用する細胞内非結合濃度として扱うことは避ける。
 
 ### 資料ごとの用途 {#_4}
 
+**表3　資料の用途と限界**
+
 | 資料 | 今回の利用 | この資料だけではできないこと |
 | --- | --- | --- |
-| Vepdegestrant非臨床論文[1] | 終了時ER分解とTGIの比較 | 全投与期間のPD軌跡の推定 |
-| ERD-1233論文[2] | 血漿・腫瘍濃度の数値点検 | 2時点からの独立した組織移行・回復速度推定 |
-| Haid・ReichelのTPDモデリング[3] | PKと分解動態を結ぶ考え方 | 本記事のパラメータを実薬の値と見なすこと |
-| AZD4241のAACR抄録[4] | PK/PD/腫瘍モデルの先行例 | 抄録に未掲載の個体データ・推定値の再現 |
-| VepdegestrantのヒトPopPK論文[5] | 将来のヒト曝露解析の候補資料 | 動物のPDをヒトへそのまま移植すること |
+| Vepdegestrant非臨床論文 ([1](#ref-1)) | 終了時ER分解とTGIの比較 | 全投与期間のPD軌跡の推定 |
+| ERD-1233論文 ([2](#ref-2)) | 血漿・腫瘍濃度の数値点検 | 2時点からの独立した組織移行・回復速度推定 |
+| Haid・ReichelのTPDモデリング ([3](#ref-3)) | PKと分解動態を結ぶ考え方 | 本記事のパラメータを実薬の値と見なすこと |
+| AZD4241のAACR抄録 ([4](#ref-4)) | PK/PD/腫瘍モデルの先行例 | 抄録に未掲載の個体データ・推定値の再現 |
+| VepdegestrantのヒトPopPK論文 ([5](#ref-5)) | 将来のヒト曝露解析の候補資料 | 動物のPDをヒトへそのまま移植すること |
 
-文献[4]は学会抄録であり、査読論文と同じ情報量ではない。文献[1]の個体データは著者への問い合わせ対象とされている。本記事は公開された本文の集約値だけを使い、入手していない個体データを再解析したとは主張しない。
+文献 ([4](#ref-4))は学会抄録であり、査読論文と同じ情報量ではない。文献 ([1](#ref-1))の個体データは著者への問い合わせ対象とされている。本記事は公開された本文の集約値だけを使い、入手していない個体データを再解析したとは主張しない。
 
-なお、vepdegestrantは2026年5月1日にFDA承認済みで、承認用量は食事とともに200 mgを1日1回である。[6] 今回は既存薬の公開データをモデルの検討材料に使う。承認済み薬について、これからFIH用量を決めるという位置付けにはしない。
+なお、vepdegestrantは2026年5月1日にFDA承認済みで、承認用量は食事とともに200 mgを1日1回である ([6](#ref-6))。 今回は既存薬の公開データをモデルの検討材料に使う。承認済み薬について、これからFIH用量を決めるという位置付けにはしない。
 
-## 最小モデルを作る {#_5}
+## 方法 {#_5}
 
 ### 曝露：血漿と作用部位を分ける {#_6}
 
@@ -101,11 +109,13 @@ D_{ss}(C)=\frac{k_D(C)}{k_{deg}+k_D(C)}
 x(t)=1-\{1-x(0)\}\exp(-k_{deg}t)
 \]
 
-と回復する。この式での半減期は残る標的欠損の半減期である。薬が作用部位に残っている期間の見かけの回復半減期とは区別する。[3]
+と回復する。この式での半減期は残る標的欠損の半減期である。薬が作用部位に残っている期間の見かけの回復半減期とは区別する ([3](#ref-3))。
 
-## 仮定と投与条件 {#_7}
+### 仮定と投与条件 {#_7}
 
 以下は実薬へfitした推定値ではない。構造を比較するための設定値である。
+
+**表4　モデルの設定値**
 
 | パラメータ | 設定 | 位置付け |
 | --- | --- | --- |
@@ -118,6 +128,8 @@ x(t)=1-\{1-x(0)\}\exp(-k_{deg}t)
 | Hill係数 | 1.2 | 仮定 |
 | 初期標的量 | baseline比1 | 未処置平衡 |
 
+**表5　長期平均投与量を揃えた投与法**
+
 | 投与法 | 1回の相対用量 | 長期平均の週投与量 |
 | --- | ---: | ---: |
 | QD（24時間ごと） | 1 | 7 |
@@ -127,7 +139,7 @@ x(t)=1-\{1-x(0)\}\exp(-k_{deg}t)
 
 Q2Dは暦週ごとの回数が交互に変わる。14日で7回、相対用量14となるため、比較は長期平均投与量を揃え、42日間を計算した最後の14日間で行う。この期間にはQ2Dと週単位の休薬周期が整数個入る。線形PKと投与量に依存しない吸収を仮定するが、平均投与量が等しくてもPDの形や安全性が等しいとは限らない。
 
-## 結果：最大値と維持は異なる {#_8}
+## 結果 {#_8}
 
 ### 単回投与後の持続を生む2つの機構 {#2}
 
@@ -144,6 +156,8 @@ PDだけを見ると、分解の持続を「標的が戻りにくい」と解釈
 **図3：** 作用部位平衡化半減期2 hの条件。42日間のうち最後の7日を表示する。上段は標的半減期6 h、下段は48 h。頻度を下げて1回量を増やすと、分解が深くなる時点と回復する時点が同時に生まれる。
 
 作用部位半減期2 hの2シナリオを数値で示す。最低値は固定した14日窓での最小分解率であり、すべての投与直前値をまとめた「trough」と同一ではない。
+
+**表6　標的半減期と投与法による分解率**
 
 | 標的半減期 | 投与法 | 最大分解率 | 最低分解率 | 平均分解率 |
 | --- | --- | ---: | ---: | ---: |
@@ -167,7 +181,11 @@ PDだけを見ると、分解の持続を「標的が戻りにくい」と解釈
 
 同じ血漿PKと同じ長期平均投与量でも、標的turnoverと作用部位動態の仮定でPDの比較結果は変わる。今回の16条件だけから、間欠投与の臨床的な成立条件や最適投与法は決められない。
 
-## 指標を薬効へ結び付けるには何が必要か {#_11}
+### 数値実装の検証 {#numerical-checks}
+
+計算刻みを0.25 hから0.125 hへ変えたとき、基準条件の最大・最低・平均・閾値時間指標の差は最大0.001ポイント未満だった。また、全条件で標的量が0〜1に収まり、薬物作用ゼロでの回復が解析解と一致することを確認した。この検証は数値実装の確認であり、実薬や患者への予測性能の検証ではない。
+
+## 考察 {#_11}
 
 比較すべき候補は、最大分解率、投与前分解率、固定期間内の最低値、平均分解率、分解率の積分、閾値を超える時間である。
 
@@ -188,26 +206,17 @@ T_{D>D^*}=\int_{t_0}^{t_0+L}\mathbf 1\{D(t)>D^*\}\,dt
 
 同じ研究内で用量を1つ残す検証はheld-out validationであり、独立した別研究による外部検証とは呼び分ける。群平均へのfitは個体データを使うPopPKやNLME解析の代わりにならない。
 
-## 単調モデルでは高濃度側の非単調性を説明できない {#_12}
+### 単調モデルで説明できない挙動 {#_12}
 
-今回のモデルにはhook effectを含めていない。高用量なら必ず起こる現象とも仮定していないため、高濃度側で分解が弱まる挙動はこの式からは出てこない。[3,4]
+今回のモデルにはhook effectを含めていない。高用量なら必ず起こる現象とも仮定していないため、高濃度側で分解が弱まる挙動はこの式からは出てこない ([3](#ref-3), [4](#ref-4))。
 
 また、薬物が作用部位に残ることと、標的の回復が遅いことは、終点の分解率だけでは区別できなかった。同じ最大分解率を示す条件でも、次回投与直前の標的量は異なり得る。公開データで決まらない回復速度を仮定したまま、特定薬のQDとQ2Dの優劣まで結論することはできない。
 
-## 再現と検証 {#_13}
+## 結論 {#_14}
 
-[解析コード・入力値・結果・実行済みノートブックをダウンロード](shared/er-protac-pkpd/er-protac-analysis.zip)。図は本記事のコードで作成した。論文の図画像を転載していない。
+同じ長期平均投与量でも、最大分解率が高い投与法ほど分解を維持するとは限らなかった。標的の回復と作用部位の動態を仮定した比較であり、実薬の最適投与間隔を求めた結果ではない。
 
-```bash
-python -m pip install -r requirements.txt
-python analysis.py
-```
-
-`data/public-concentrations.csv`は論文本文の集約値の転記、`results/regimen-metrics.csv`は仮定したシミュレーションの結果である。両者を同じ観測データとして扱わない。
-
-計算刻みを0.25 hから0.125 hへ変えたとき、基準条件の最大・最低・平均・閾値時間指標の差は最大0.001ポイント未満だった。また、全条件で標的量が0〜1に収まり、薬物作用ゼロでの回復が解析解と一致することを確認した。この検証は数値実装の確認であり、実薬や患者への予測性能の検証ではない。
-
-## 次回投与までの標的回復がまだ分からない {#_14}
+**表7　解析で示された範囲**
 
 | 区分 | 本記事の到達点 |
 | --- | --- |
@@ -219,13 +228,22 @@ python analysis.py
 
 今回の16条件は仮定したPD軌跡であり、実薬の係数を推定した結果ではない。作用部位の残留と標的の回復は、公開された終了時点の分解率だけからは分離できず、追加測定どうしの価値の大小もこの解析では決まっていない。
 
-## 参考文献 {#_15}
+## データとコードの公開状況 {#_13}
 
-1. Gough SM, et al. Oral Estrogen Receptor PROTAC Vepdegestrant (ARV-471) Is Highly Efficacious as Monotherapy and in Combination with CDK4/6 or PI3K/mTOR Pathway Inhibitors in Preclinical ER+ Breast Cancer Models. *Clinical Cancer Research*. 2024;30:3549–3563. [DOI: 10.1158/1078-0432.CCR-23-3465](https://doi.org/10.1158/1078-0432.CCR-23-3465) · [Open full text](https://pmc.ncbi.nlm.nih.gov/articles/PMC11325148/). See the text corresponding to Fig. 5C and the Data Availability statement.
-2. Discovery of ERD-1233 as a Potent and Orally Efficacious Estrogen Receptor PROTAC Degrader for the Treatment of ER+ Human Breast Cancer. *Journal of Medicinal Chemistry*. [DOI: 10.1021/acs.jmedchem.4c01521](https://doi.org/10.1021/acs.jmedchem.4c01521) · [Open full text](https://pmc.ncbi.nlm.nih.gov/articles/PMC12981313/). See the main text on tumor and plasma drug concentrations.
-3. Haid RTU, Reichel A. Transforming the Discovery of Targeted Protein Degraders: The Translational Power of Predictive PK/PD Modeling. *Clinical Pharmacology & Therapeutics*. 2024;116:770–781. [DOI: 10.1002/cpt.3273](https://doi.org/10.1002/cpt.3273) · [Author manuscript](https://www.research-collection.ethz.ch/bitstreams/e5de623e-6050-46a2-83f6-10eea6dc42f6/download).
-4. Quiroga A, et al. Preclinical mechanistic PK/PD/Efficacy modeling for AZD4241, a novel oral estrogen receptor (ER) degrader (PROTAC), to support dose selection during early clinical development. *Cancer Research*. 2026;86(7 Suppl):5019. **conference abstract**. [DOI: 10.1158/1538-7445.AM2026-5019](https://doi.org/10.1158/1538-7445.AM2026-5019).
-5. Population Pharmacokinetics and Exposure–Response Analyses of Vepdegestrant, a First-in-Class PROteolysis-TArgeting Chimera Estrogen Receptor Degrader. [Open full text](https://pmc.ncbi.nlm.nih.gov/articles/PMC13454499/) · [DOI: 10.1002/jcph.70252](https://doi.org/10.1002/jcph.70252). This model's parameters were not used in the numerical simulations here.
-6. FDA. FDA approves vepdegestrant for ER-positive, HER2-negative, ESR1-mutated advanced or metastatic breast cancer. 2026-05-01. [Approval announcement](https://www.fda.gov/drugs/resources-information-approved-drugs/fda-approves-vepdegestrant-er-positive-her2-negative-esr1-mutated-advanced-or-metastatic-breast).
+[解析コード・入力値・結果・実行済みノートブックをダウンロード](shared/er-protac-pkpd/er-protac-analysis.zip)。図は本記事のコードで作成した。論文の図画像を転載していない。
 
-Sources checked: 2026-10-03.
+```bash
+python -m pip install -r requirements.txt
+python analysis.py
+```
+
+`data/public-concentrations.csv`は論文本文の集約値の転記、`results/regimen-metrics.csv`は仮定したシミュレーションの結果である。両者を同じ観測データとして扱わない。
+
+## 参照 {#_15}
+
+1. <span id="ref-1"></span>Gough SM, Flanagan JJ, Teh J, Andreoli M, Rousseau E, Pannone M, et al. Oral Estrogen Receptor PROTAC Vepdegestrant (ARV-471) Is Highly Efficacious as Monotherapy and in Combination with CDK4/6 or PI3K/mTOR Pathway Inhibitors in Preclinical ER+ Breast Cancer Models. Clinical Cancer Research. 2024;30(16):3549–3563. [doi:10.1158/1078-0432.CCR-23-3465](https://doi.org/10.1158/1078-0432.CCR-23-3465). [Open full text](https://pmc.ncbi.nlm.nih.gov/articles/PMC11325148/).
+2. <span id="ref-2"></span>Acharyya RK, Rej RK, Hu B, Chen Z, Wu D, Lu J, et al. Discovery of ERD-1233 as a Potent and Orally Efficacious Estrogen Receptor PROTAC Degrader for the Treatment of ER+ Human Breast Cancer. Journal of Medicinal Chemistry. 2024;67(21):19010–19037. [doi:10.1021/acs.jmedchem.4c01521](https://doi.org/10.1021/acs.jmedchem.4c01521). [Open full text](https://pmc.ncbi.nlm.nih.gov/articles/PMC12981313/).
+3. <span id="ref-3"></span>Haid RTU, Reichel A. Transforming the Discovery of Targeted Protein Degraders: The Translational Power of Predictive PK/PD Modeling. Clinical Pharmacology & Therapeutics. 2024;116(3):770–781. [doi:10.1002/cpt.3273](https://doi.org/10.1002/cpt.3273). [Author manuscript](https://www.research-collection.ethz.ch/bitstreams/e5de623e-6050-46a2-83f6-10eea6dc42f6/download).
+4. <span id="ref-4"></span>Quiroga A, Gutierrez PM, Nyoni L, Cureton N, Lawson M, Smith A, et al. Abstract 5019: Preclinical mechanistic PK/PD/Efficacy modeling for AZD4241, a novel oral estrogen receptor (ER) degrader (PROTAC), to support dose selection during early clinical development. [Conference abstract] Cancer Research. 2026;86(7 Suppl):5019. [doi:10.1158/1538-7445.AM2026-5019](https://doi.org/10.1158/1538-7445.AM2026-5019).
+5. <span id="ref-5"></span>Yang DZ, Masters JC, Wang H, Tran L, Zhang Y, Lee KC, et al. Population Pharmacokinetics and Exposure–Response Analyses of Vepdegestrant, a First‐in‐Class PROteolysis‐TArgeting Chimera Estrogen Receptor Degrader. The Journal of Clinical Pharmacology. 2026;66(8):e70252. [doi:10.1002/jcph.70252](https://doi.org/10.1002/jcph.70252). [Open full text](https://pmc.ncbi.nlm.nih.gov/articles/PMC13454499/). The parameters of this model were not used in the simulations reported here.
+6. <span id="ref-6"></span>US Food and Drug Administration. FDA approves vepdegestrant for ER-positive, HER2-negative, ESR1-mutated advanced or metastatic breast cancer [Internet]. 2026 May 1 [cited 2026 Oct 27]. [Approval announcement](https://www.fda.gov/drugs/resources-information-approved-drugs/fda-approves-vepdegestrant-er-positive-her2-negative-esr1-mutated-advanced-or-metastatic-breast).

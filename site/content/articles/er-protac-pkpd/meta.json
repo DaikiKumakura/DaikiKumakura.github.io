@@ -35,6 +35,7 @@
     "summary": "A review of public ER-PROTAC data and a minimal model of how assumptions about site-of-action exposure and target recovery change comparisons of dosing frequency and PD metrics. The model is not fitted to the actual drug, and no clinical dose is proposed."
   },
   "reviewed": {
-    "en": "a5e702c4636ddecc67ac9e71bc36c462cda481fa309b50fa843f6dc914af3579"
-  }
+    "en": "aa391df0449f954899d2c051693f4875c9a4cab449cec48b7b0c188683d5cc5f"
+  },
+  "updated": "2026-10-27"
 }
