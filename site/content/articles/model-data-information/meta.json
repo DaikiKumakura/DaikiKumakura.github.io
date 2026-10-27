@@ -24,6 +24,7 @@
     "summary": "A Japanese essay on separating limitations of data, models and evaluation in perturbation prediction. Original analytical examples illustrate sampling-time identifiability and signal dilution; recent studies inform a practical measurement audit. This is not a reanalysis of empirical cell data."
   },
   "reviewed": {
-    "en": "166cda6a94e2c0d5eeee8405445c4bae434101960fe3e29f7aaecf7979481fb3"
-  }
+    "en": "ca9ecc212e3ba88c23a1fbe82544b820de9dfe0fb7b9c6bbeb0c623758bbb296"
+  },
+  "updated": "2026-10-28"
 }

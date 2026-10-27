@@ -1,32 +1,44 @@
+## 要旨 {#article-abstract}
+
+8標的の公開済み予測を再集計し、Boltz-2のaffinity headを少数の活性ラベルで調整した後の候補選択を調べた。100ラベル条件で次の100候補に含まれる活性化合物は平均10.75件から20.75件へ増えた。300ラベル条件の一部再採点では全件再採点に近い回収数を得たが、費用全体の削減を測定した結果ではない。類似度検索との比較では総活性数と未知骨格の活性数を区別し、新しい標的への一般化は未検証とした。
+
+## 背景と目的 {#article-introduction}
+
 数万の化合物をAIで順位付けしても、全部を実験に回せるわけではない。次に100個だけ試せるなら、その100個に活性のある化合物がどれだけ含まれるかが問題になる。
 
 Boltz-2はタンパク質と低分子の複合体構造に加え、結合に関するスコアも予測する。では、最初に選んだ100化合物の実験結果が返ってきた後、その結果を使って候補の順番を変えられるだろうか。
 
-FuruiとOhueの[Preprint](https://arxiv.org/abs/2609.24302v1)は、8標的の既存スクリーニングデータでこの問いを検討した。本記事では[Author-released per-compound predictions](https://github.com/ohuelab/BoltzFT/tree/a31c79a8420c1156a876f007dbdc52107cd0e957/data/predictions)を再集計した。100件のラベルで調整した場合、次の100候補に含まれる活性化合物は標的平均で10.75件から20.75件になった。これは新しい実験を行った結果ではなく、公開済みの測定ラベルと予測値を使ったランキングの検証である。
+FuruiとOhueの[Preprint](https://arxiv.org/abs/2609.24302v1) ([1](#ref-1))は、8標的の既存スクリーニングデータでこの問いを検討した。本記事では[Author-released per-compound predictions](https://github.com/ohuelab/BoltzFT/tree/a31c79a8420c1156a876f007dbdc52107cd0e957/data/predictions) ([2](#ref-2))を再集計した。100件のラベルで調整した場合、次の100候補に含まれる活性化合物は標的平均で10.75件から20.75件になった。これは新しい実験を行った結果ではなく、公開済みの測定ラベルと予測値を使ったランキングの検証である。
 
-## 実験結果をどこへ足すのか {#_1}
+## 方法 {#article-methods}
+
+### 調整するモデル部分 {#_1}
 
 ここでの実験結果は、各測定条件における「活性あり／なし」の二値ラベルである。薬の効果量や、結合定数の実測値ではない。
 
-手順は、最初にBoltz-2で化合物を順位付けし、その上位40・100・300件のラベルを使い、スコアを出す部分を調整するというものだった。複合体の情報を作るtrunkと構造生成部分は固定し、二つのaffinity headを更新する。headは、保存された構造・内部表現から結合に関するスコアを出す部分だ。比較する順位には二つのheadの予測確率の平均を使う。([Original paper methods](https://arxiv.org/html/2609.24302v1#S2))と[Public implementation](https://github.com/ohuelab/BoltzFT)に対応する。
+手順は、最初にBoltz-2で化合物を順位付けし、その上位40・100・300件のラベルを使い、スコアを出す部分を調整するというものだった。複合体の情報を作るtrunkと構造生成部分は固定し、二つのaffinity headを更新する。headは、保存された構造・内部表現から結合に関するスコアを出す部分だ。比較する順位には二つのheadの予測確率の平均を使う。([Original paper methods](https://arxiv.org/html/2609.24302v1#S2) ([1](#ref-1)))と[Public implementation](https://github.com/ohuelab/BoltzFT) ([2](#ref-2))に対応する。
 
 この入力の違いは重要である。高い初期スコアを付けたのに不活性だった化合物も、調整の材料になる。活性化合物だけを集めて学習する設計ではない。
 
-Boltz-2の[Official documentation](https://github.com/jwohlwend/boltz/blob/main/docs/prediction.md#output)でも、結合する確率に対応する出力と親和性の値に対応する出力は区別されている。今回の二値ラベルによる調整を、「結合定数の精度が上がった」と読むことはできない。また、調整後のスコアが実際の陽性率に校正されているかは、候補順位の改善とは別に確かめる必要がある。
+Boltz-2の[Official documentation](https://github.com/jwohlwend/boltz/blob/main/docs/prediction.md#output) ([3](#ref-3))でも、結合する確率に対応する出力と親和性の値に対応する出力は区別されている。今回の二値ラベルによる調整を、「結合定数の精度が上がった」と読むことはできない。また、調整後のスコアが実際の陽性率に校正されているかは、候補順位の改善とは別に確かめる必要がある。
 
-## 最初の100件で学習して次の100件で評価する {#100100}
+### 学習用と評価用の化合物 {#100100}
 
-元の測定データはMF-PCBAスクリーニングベンチマークに由来する。([Original paper data section](https://arxiv.org/html/2609.24302v1#S2.SS1))によれば、今回の8標的は先行評価の10アッセイから選ばれたもので、結合部位を指定できなかったものなどが除かれている。任意の標的から無作為に選んだ8件ではない。
+元の測定データはMF-PCBAスクリーニングベンチマークに由来する。([Original paper data section](https://arxiv.org/html/2609.24302v1#S2.SS1) ([1](#ref-1)))によれば、今回の8標的は先行評価の10アッセイから選ばれたもので、結合部位を指定できなかったものなどが除かれている。任意の標的から無作為に選んだ8件ではない。
 
 公開データには、学習に使った化合物と、候補選択を評価する化合物の区別がある。本記事の再集計では、その区別を維持した。
 
-全条件で初期順位の上位300化合物を評価から除く。したがって、40件だけで調整する条件でも、残りの260件は評価へ戻さない。共通の評価集合は標的あたり約4.96万化合物で、陽性率は約0.27〜1.92%だった。調整用100件に含まれる活性化合物は標的によって4〜52件と幅がある。同じ「100件」でも、得られた陽性・陰性の構成は同じではない。[Public data column definitions](https://github.com/ohuelab/BoltzFT/blob/a31c79a8420c1156a876f007dbdc52107cd0e957/data/predictions/README.md)
+全条件で初期順位の上位300化合物を評価から除く。したがって、40件だけで調整する条件でも、残りの260件は評価へ戻さない。共通の評価集合は標的あたり約4.96万化合物で、陽性率は約0.27〜1.92%だった。調整用100件に含まれる活性化合物は標的によって4〜52件と幅がある。同じ「100件」でも、得られた陽性・陰性の構成は同じではない。[Public data column definitions](https://github.com/ohuelab/BoltzFT/blob/a31c79a8420c1156a876f007dbdc52107cd0e957/data/predictions/README.md) ([2](#ref-2))
 
 以下の「次の100候補」は、この共通評価集合から選んだ100化合物を指す。初回の学習用測定で見つかった活性化合物は含めない。100件の調整用測定と、次の100件の測定を合わせれば、予定する測定は少なくとも200件になる。前処理、検証用測定、再測定、活性確認の費用は別に必要である。
 
-## 上位100候補の活性数とAPは別の指標 {#_2}
+## 結果と指標の解釈 {#article-results}
 
-公開予測値からAP、上位1%の濃縮度、上位100候補の活性数を計算し、著者の保存済み結果と照合した。モデル推論やheadの学習は実行していない。
+### 上位100候補の活性数とAP {#_2}
+
+表1と図1の比較では、公開予測値からAP、上位1%の濃縮度、上位100候補の活性数を計算し、著者の保存済み結果と照合した。モデル推論やheadの学習は実行していない。
+
+**表1　調整用ラベル数と候補選択の成績**
 
 | 調整用ラベル数 | AP：未調整→調整後 | 標的ごとのAP比の幾何平均 | 次の100候補の活性数：未調整→調整後 |
 |---:|---:|---:|---:|
@@ -38,7 +50,7 @@ APと活性数は8標的の算術平均。倍率は各標的で比を求めた�
 
 ![ラベル数ごとのAP改善比。点は8標的、ひし形は幾何平均。破線の比1は改善なしを示す](shared/boltz2-assay-finetuning/figures/01-label-budget.png)
 
-図1：点は各標的、ひし形は8標的のAP比の幾何平均。破線の比1は改善なしを示す。
+**図1　ラベル数とAP改善比。** 点は各標的、ひし形は8標的のAP比の幾何平均。破線の比1は改善なしを示す。
 
 precisionは選んだ候補のうち活性だった割合、recallは評価集合にある全活性化合物のうち拾えた割合である。APは、順位の上から候補を増やしていくときのprecisionとrecallをまとめた指標だ。AP 0.0869を「次の100件の8.69%が活性」と読み替えることはできない。測定できる数が100なら、その位置での活性数とprecisionを直接見る。今回の100ラベル条件では、後者は平均20.75/100、つまり20.75%だった。
 
@@ -46,7 +58,7 @@ precisionは選んだ候補のうち活性だった割合、recallは評価集�
 
 図には標的間の違いも残した。同じ予算を足しても効果は一様ではない。8標的での傾向を、新しい標的で確実に同じ改善が得られるという保証へ変えることはできない。
 
-## 全化合物を調整後に採点し直す必要はあるか {#_3}
+### 再採点候補数と活性回収数 {#_3}
 
 もう一つの問いは、未調整のNo-FTスコアで候補を絞った後に、調整済みheadで採点し直す方法である。ここでは採点し直す候補数をM、最終的に選ぶ数を100とする。No-FT順位は、学習候補を選んだ標準推論の初期順位とは区別する。
 
@@ -54,7 +66,7 @@ precisionは選んだ候補のうち活性だった割合、recallは評価集�
 
 ![300ラベル条件での再採点候補数と活性回収数。薄線は各標的、太線は8標的の平均、破線は未調整の平均、点線は全件再採点の平均](shared/boltz2-assay-finetuning/figures/02-rescoring-budget.png)
 
-図2：300ラベル条件。薄線は各標的、太線は8標的の平均。破線は未調整の平均、点線は全件再採点の平均である。横軸は対数目盛。
+**図2　再採点候補数と活性回収数。** 300ラベル条件。薄線は各標的、太線は8標的の平均。破線は未調整の平均、点線は全件再採点の平均である。横軸は対数目盛。
 
 Mを増やせば活性数が必ず増えるわけではない。候補を追加すると、その中に調整後のスコアが高い不活性化合物も入ってくる。5,000件の方が全件よりわずかに高い平均だったことも、「少なく採点すれば有利」という一般則にはならない。
 
@@ -76,11 +88,13 @@ H_{100}(M) \leq \min\{100, A(M)\}
 
 で、C0が大きいほど小さくなる。これは費用の分解を示す式であり、この研究の実測費用を推定したものではない。
 
-## 類似度検索にも同じラベルを渡す {#_4}
+### 同じラベルを使う類似度検索との比較 {#_4}
 
 実験ラベルが手元にあるなら、Boltz-2の調整以外にも使い道がある。その比較で外せないのが、既知の活性化合物に似たものを選ぶ方法だ。
 
-著者が公開した骨格別の集計CSVを、300ラベル・次の100候補の条件に限定して平均すると、以下になる。ここは著者の骨格注釈を集計した値であり、本記事で分子の骨格や類似度を再計算した結果ではない。
+著者が公開した骨格別の集計CSVを、300ラベル・次の100候補の条件に限定して平均すると、表2のようになる。ここは著者の骨格注釈を集計した値であり、本記事で分子の骨格や類似度を再計算した結果ではない。
+
+**表2　同じラベルを用いた候補選択と未知骨格の回収**
 
 | 方法 | 活性化合物数 | 学習集合にない骨格の活性化合物数 |
 |---|---:|---:|
@@ -88,7 +102,7 @@ H_{100}(M) \leq \min\{100, A(M)\}
 | 調整後のhead | 34.38 | 22.13 |
 | 既知の活性化合物への最大類似度 | 34.75 | 13.75 |
 
-出典：[Author-released scaffold-recovery CSV](https://github.com/ohuelab/BoltzFT/blob/a31c79a8420c1156a876f007dbdc52107cd0e957/figures/data/si_analyses/hit_scaffold_recovery.csv)。類似度はMorgan fingerprintのTanimoto係数、骨格はBemis–Murckoの定義に基づく。右列は活性化合物の数であり、骨格の種類数ではない。同じ骨格を持つ複数化合物も数える。
+出典：[Author-released scaffold-recovery CSV](https://github.com/ohuelab/BoltzFT/blob/a31c79a8420c1156a876f007dbdc52107cd0e957/figures/data/si_analyses/hit_scaffold_recovery.csv) ([2](#ref-2))。類似度はMorgan fingerprintのTanimoto係数、骨格はBemis–Murckoの定義に基づく。右列は活性化合物の数であり、骨格の種類数ではない。同じ骨格を持つ複数化合物も数える。
 
 総ヒット数だけなら、類似度検索の平均は調整後headに劣らなかった。一方、学習集合にない骨格の活性化合物は、調整後headで多かった。目的を「活性化合物をできるだけ拾う」と置くか、「異なる骨格の候補も確保する」と置くかで、この比較の意味が変わる。ただし、この平均差だけで統計的な優越性を主張することはしない。
 
@@ -96,7 +110,7 @@ H_{100}(M) \leq \min\{100, A(M)\}
 
 通常の教師ありモデルと比較するときにも、同じ化合物・ラベルを使うことが出発点になる。さらに、モデル選択や反復回数、利用する事前学習情報、計算時間を揃えるか、差を説明する必要がある。調整済みのモデルをラベルなしのモデルとだけ比べても、追加ラベルをどう使うのがよいかは決まらない。
 
-## 再集計の成績が表す範囲 {#_5}
+## 考察 {#_5}
 
 今回の改善は、既存の活性ラベルと保存済みスコアに対するものだ。未調整対照も、調整後headと同じ保存済み構造・内部表現・採点経路を使う。学習候補を選ぶ初期順位は標準推論で作られており、評価時の未調整順位とは異なる。
 
@@ -104,12 +118,18 @@ H_{100}(M) \leq \min\{100, A(M)\}
 
 保存された予測では候補選択が改善した。ただし、その改善が新しい標的でも再現するか、同じラベルを使う類似度検索より有利かは、この再集計の成績だけでは決着しない。
 
-## 再集計のコードと出典 {#_6}
+## 結論 {#article-conclusion}
+
+8標的の保存済み予測では、少数の活性ラベルによるheadの調整で上位候補の活性数が増えた。同じラベルを使う類似度検索との比較では、総活性数と学習集合にない骨格の活性数で異なる傾向があり、候補選択の目的を分けて評価する必要がある。この後ろ向きの再集計から、新しい標的での改善や創薬費用全体の削減率は決められない。
+
+## データとコードの公開状況 {#_6}
 
 入力はBoltzFTのコミット`a31c79a8420c1156a876f007dbdc52107cd0e957`に固定した8標的の予測CSVと、著者の参照集計である。APと上位1%濃縮度を再計算して照合し、追加再採点の回収数も検証した。上位100候補と2段選択の同点は公開データの評価順で解決する。上位1%濃縮度は著者の保存値との照合のためNumPy 1.26.4の既定ソートに合わせる。予測確率の校正、headの再学習、ウェット実験は実施していない。
 
 [再集計コード・結果・図をダウンロード](shared/boltz2-assay-finetuning/boltz2-assay-finetuning.zip)。入力の約98 MBの圧縮CSVは同梱せず、取得スクリプトで固定版をダウンロードする。著者由来の集計データには元のライセンスを添付した。図は公開数値から本記事用に作図した。
 
-- Furui K, Ohue M. [Adapting Boltz-2 with limited experimental activity data improves early enrichment in virtual screening](https://arxiv.org/abs/2609.24302v1). September 21, 2026. Preprint v1; this article examines that version.
-- [BoltzFT： code, per-compound predictions, evaluation splits and reference summaries](https://github.com/ohuelab/BoltzFT/tree/a31c79a8420c1156a876f007dbdc52107cd0e957). MIT License.
-- [Boltz-2 official prediction/output documentation](https://github.com/jwohlwend/boltz/blob/main/docs/prediction.md). See the distinction between binding probability and affinity-value outputs.
+## 参照 {#article-references}
+
+1. <span id="ref-1"></span>Furui K, Ohue M. Adapting Boltz-2 with limited experimental activity data improves early enrichment in virtual screening. arXiv [Preprint]. 2026 Sep 21;2609.24302v1. [Version examined](https://arxiv.org/abs/2609.24302v1).
+2. <span id="ref-2"></span>Furui K, Ohue M. BoltzFT: code, per-compound predictions, evaluation splits and reference summaries [Software and dataset]. Commit a31c79a8420c1156a876f007dbdc52107cd0e957. MIT License. [Fixed repository version](https://github.com/ohuelab/BoltzFT/tree/a31c79a8420c1156a876f007dbdc52107cd0e957).
+3. <span id="ref-3"></span>Boltz developers. Boltz-2 prediction and output documentation [Internet; cited 2026 Oct 28]. [Official documentation](https://github.com/jwohlwend/boltz/blob/main/docs/prediction.md#output).
