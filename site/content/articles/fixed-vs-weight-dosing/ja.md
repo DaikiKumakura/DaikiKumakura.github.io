@@ -1,23 +1,17 @@
+## 要旨 {#article-abstract}
+
+Pembrolizumabとnivolumabの公表母集団PKを一般成人の体重分布へ適用し、固定用量と体重換算用量の曝露を比べた。定めたモデル由来の曝露基準では、固定用量のトラフ下限割れが、pembrolizumab 200 mgの約150 kg以上、nivolumab 240 mgの約100〜120 kg以上で10%を超えた。軽い側では体重換算の初回トラフが低くなりやすかった。延長間隔の評価はトラフか平均濃度かという基準に依存した。基準は試験で検討された投与法のモデル曝露を代理とするもので、有効性・毒性閾値ではない。曝露差から臨床効果差や推奨用量は決められない。
+
+## 背景と目的 {#_1}
+
 抗PD-1抗体のpembrolizumabとnivolumabは、体重換算の用量（2 mg/kg、3 mg/kg）から固定用量（200 mg、240 mg）へ移行し、さらに投与間隔の長い方式（400 mg Q6W、480 mg Q4W）が加わった。体重の中央付近の患者では、どの方式でも曝露はほぼ同じになる。気になるのは分布の両端、つまり非常に軽い患者と非常に重い患者である。
-
-本記事では、公表された母集団PKモデルを再実装し、米国の公開調査（NHANES）の成人の体重分布に当てはめた。そのうえで、体重帯ごとに曝露が「臨床試験で確かめられた範囲」から外れる割合を比べた。
-
-先に結論を述べる。
-
-- **重い側：** 固定用量では、pembrolizumab 200 mgで約150 kg以上、nivolumab 240 mgで約100〜120 kg以上の帯で、トラフ濃度が範囲の下限を下回る患者が10%を超えた。
-- **軽い側：** 体重換算の方が、初回投与間隔のトラフが低くなりやすかった。
-- **間隔の長い方式：** 評価が、トラフと平均濃度のどちらを基準にするかで正反対になった。
-
-いずれも曝露の比較であり、効果の差を示したものではない。
-
-## 先行研究との関係 {#_1}
 
 固定用量への移行は、どちらの薬でも母集団PKモデルによる曝露の比較を根拠に行われた。
 
-- **pembrolizumab 200 mg：** 体重が重い患者（90 kg超）で曝露が最も低くなるが、2 mg/kgで近最大の有効性が示された曝露の範囲には入る、と報告された［Freshwater 2017］。
-- **pembrolizumab 400 mg Q6W：** 200 mg Q3Wと平均濃度がほぼ同じで、Q3W方式で観測されたトラフより低くなる患者は1%未満だった［Lala 2020］。
-- **nivolumab 240 mg：** 3 mg/kgの80 kg相当として選ばれ、曝露の中央値と分布は3 mg/kgと同様だった［Zhao 2017］。
-- **nivolumab 480 mg Q4W：** 3 mg/kgと比べて、平均濃度は同様、トラフは約16%低く、最高濃度は約45%高かった［Long 2018］。
+- **pembrolizumab 200 mg：** 体重が重い患者（90 kg超）で曝露が最も低くなるが、2 mg/kgで近最大の有効性が示された曝露の範囲には入る、と報告された ([1](#ref-1))。
+- **pembrolizumab 400 mg Q6W：** 200 mg Q3Wと平均濃度がほぼ同じで、Q3W方式で観測されたトラフより低くなる患者は1%未満だった ([2](#ref-2))。
+- **nivolumab 240 mg：** 3 mg/kgの80 kg相当として選ばれ、曝露の中央値と分布は3 mg/kgと同様だった ([3](#ref-3))。
+- **nivolumab 480 mg Q4W：** 3 mg/kgと比べて、平均濃度は同様、トラフは約16%低く、最高濃度は約45%高かった ([4](#ref-4))。
 
 これらはいずれも、試験の患者集団全体での比較である。本記事が加えるのは次の3点である。
 
@@ -25,11 +19,15 @@
 2. 試験集団とは別の、一般成人の体重分布（NHANES）を使う。
 3. 「範囲を保てる」を、計算の前に数値の規則として決めておく。
 
-## 体重分布の両端で固定用量を点検する {#_2}
+### 解析の問いと用途 {#_2}
 
-**問い（QOI）：** 固定用量は、体重換算用量と比べて、極端な体重の患者でも曝露を臨床試験で確かめられた範囲に保てるか。
+解析の問い（question of interest、QoI）は、 固定用量は、体重換算用量と比べて、極端な体重の患者でも曝露を試験投与法からモデルで定めた参照範囲に保てるか。
 
-**使いみち（COU）：** 固定用量への切り替えや、新しい抗体の投与方式を検討するとき、どの体重帯で追加の確認（低体重での曝露確認、高体重での安全性・曝露確認）が必要かを絞る。用量の推奨や臨床便益の評価には使わない。
+利用範囲（context of use、CoU）は、 固定用量への切り替えや、新しい抗体の投与方式を検討するとき、どの体重帯で追加の確認（低体重での曝露確認、高体重での安全性・曝露確認）が必要かを絞る。用量の推奨や臨床便益の評価には使わない。
+
+## 方法 {#_3}
+
+### 曝露基準 {#exposure-criteria}
 
 **範囲の定義：** 計算する前に、次のように固定した。
 
@@ -38,38 +36,44 @@
 
 ある体重帯で、下限を下回る患者が10%以下、かつ上限を超える患者が5%以下なら「範囲を保てる」とした。この下限・上限は、試験で使われた曝露の代理であり、効果や毒性の閾値ではない。
 
-## モデルとデータ {#_3}
+### モデルと仮想集団 {#models-and-population}
 
-**Pembrolizumab** は Ahamadi ら（2017）の最終モデル（Table 3）を使った。
+**Pembrolizumab** は Ahamadiらの最終モデルの[原著Table 3](https://doi.org/10.1002/psp4.12139) ([5](#ref-5))を使った。
 
 - 2-compartment、線形、時間不変のCL（典型値0.22 L/day）。
 - 体重の指数：CL・Qに0.595、Vc・Vpに0.489（基準76.8 kg）。
 - 女性はCLが15%、Vcが13%低い。
 - 個体差（IIV）：CLが38%CV、Vが21%CV。
 
-論文の表の脚注には、CL 0.202、体重指数0.578という別の値の式もあった。体重指数0.578は、固定用量を評価した Freshwaterら（2017）が報告した値と同じで、同じモデルの別の版の値と考えられる。表の値を主解析に、脚注の値を感度解析に使った。
+論文の表の脚注には、CL 0.202、体重指数0.578という別の値の式もあった。体重指数0.578は、固定用量を評価した Freshwaterら ([1](#ref-1)) が報告した値と同じで、同じモデルの別の版の値と考えられる。表の値を主解析に、脚注の値を感度解析に使った。
 
-**Nivolumab** は Bajaj ら（2017）の最終モデル（Table 1）を使った。
+**Nivolumab** は Bajajらの最終モデルの[原著Table 1](https://doi.org/10.1002/psp4.12143) ([6](#ref-6))を使った。
 
 - 2-compartment、線形で、CLが時間とともに下がる（最大約26%、sigmoid Emax、T50 1,410時間）。
 - 体重の指数：CLに0.566、VCに0.597（基準80 kg）。
 - 男性はCLが18%高い。
 - CLとVCの個体差は相関している。
 
-**仮想患者：** NHANES 2017〜2020年3月の成人8,811人を、調査重みで復元抽出して20,000人とした。体重と性は実データを使い、それ以外の共変量は各モデルの基準値に置いた。体重の中央値は80.7 kg、1〜99パーセンタイルは45.8〜156.3 kgである。
+**仮想患者：** NHANES 2017〜2020年3月の成人8,811人 ([7](#ref-7)) を、調査重みで復元抽出して20,000人とした。体重と性は実データを使い、それ以外の共変量は各モデルの基準値に置いた。体重の中央値は80.7 kg、1〜99パーセンタイルは45.8〜156.3 kgである。
 
 **計算：**
 - rxode2で30分点滴を反復投与し、投与開始から52週以降の最初の投与間隔で曝露を求めた。
 - 両剤とも線形PKなので、1 mgあたりの濃度を一度計算し、各方式の投与量を掛けた。
 - 実装は10件の検査で確かめた（定常状態の平均濃度が dose/(CL·τ) と一致すること、論文の典型値の再現など）。
 
-## 結果：重い側では固定用量の下限割れが増える {#_4}
+## 結果 {#_4}
 
 ![体重帯別の定常状態トラフ濃度](shared/fixed-vs-weight-dosing/figures/01-trough-by-weight.png)
 
+**図1　**体重帯別の定常トラフ。公表PopPKとNHANES由来の仮想集団の計算で、実測の患者分布ではない。
+
 ![体重帯別に下限を下回る割合](shared/fixed-vs-weight-dosing/figures/02-below-floor-by-weight.png)
 
-下限を下回る割合（%）：
+**図2　**モデルで定めた下限を下回る割合。下限は基準方式の定常トラフの5パーセンタイルで、有効性閾値ではない。
+
+図1は体重帯別のトラフ、図2と表1は下限割れの割合を示す。
+
+**表1　下限を下回る割合（%）**
 
 | 体重 | 2 mg/kg Q3W | 200 mg Q3W | 400 mg Q6W | 3 mg/kg Q2W | 240 mg Q2W | 480 mg Q4W |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
@@ -90,11 +94,11 @@
 
 **軽い側：** 様子が逆になる。体重40 kgの仮想患者では、体重換算の方式で下限割れが12%前後に増えた。初回の投与間隔のトラフに限ると、26%（pembrolizumab）、31%（nivolumab）が、基準方式の初回トラフの5パーセンタイルを下回った。固定用量では、軽い患者の曝露はむしろ高くなる。
 
-## 延長間隔の評価を左右する曝露基準 {#_5}
+### 延長間隔の評価を左右する曝露基準 {#_5}
 
 400 mg Q6Wと480 mg Q4Wは、60〜80 kgの帯から下限割れが10%を超えた。ただしこれは体重のせいではない。投与間隔が2倍になれば、同じ平均濃度でもトラフは下がる。この下限は、Q3W・Q2Wの基準方式のトラフから定めたものである。
 
-これは先行研究と矛盾しない。下限の置き方が違うからである。Lalaら（2020）は、Q3W方式で観測されたトラフ（の最低値の付近）を基準にし、それを下回る患者は1%未満とした。本記事で同じ基準（Q3W方式の仮想患者のトラフの最小値）を使うと、400 mg Q6Wで下回る患者は0.06%だった。本記事の下限は5パーセンタイルと厳しめにとっている。「範囲」を最低値で定義するか5パーセンタイルで定義するかで、間隔の長い方式の評価は大きく変わる。
+これは先行研究と矛盾しない。下限の置き方が違うからである。Lalaら ([2](#ref-2)) は、Q3W方式で観測されたトラフ（の最低値の付近）を基準にし、それを下回る患者は1%未満とした。本記事で同じ基準（Q3W方式の仮想患者のトラフの最小値）を使うと、400 mg Q6Wで下回る患者は0.06%だった。本記事の下限は5パーセンタイルと厳しめにとっている。「範囲」を最低値で定義するか5パーセンタイルで定義するかで、間隔の長い方式の評価は大きく変わる。
 
 解析計画にはない事後の確認として、平均濃度（Cavg,ss）で同じ判定をした。
 - **間隔の長い方式：** 同じ投与速度の200 mg Q3W・240 mg Q2Wと、平均濃度の分布は同一になった。
@@ -102,9 +106,15 @@
 
 つまり、重い側の結論はトラフでも平均濃度でも変わらない。一方、間隔の長い方式の評価は、トラフを重視するか平均濃度を重視するかという、曝露指標の選択そのものに依存する。どちらを採るべきかは曝露反応の関係で決まり、このモデルだけでは決まらない。
 
-## 感度解析 {#_6}
+### 感度解析 {#_6}
 
 ![重い帯（150 kg以上）での判定の安定性](shared/fixed-vs-weight-dosing/figures/03-sensitivity-heavy.png)
+
+**図3　**150 kg以上での下限割れの感度。パラメータと集団の仮定を一つずつ変えた結果である。
+
+図3と表2に高体重帯の感度結果を示す。
+
+**表2　150 kg以上で下限を下回る割合**
 
 | 条件 | pembrolizumab 200 mg、≥150 kg | nivolumab 240 mg、≥150 kg |
 | --- | ---: | ---: |
@@ -121,32 +131,38 @@
 - **体重換算の方式：** すべての条件・帯で判定を満たした。
 - **アルブミン（体重以外の共変量）：** 30 g/Lにすると、pembrolizumabのCLは1.29倍になる。これは体重100 kgと150 kgの差（1.27倍）と同程度で、体重だけが曝露の両端を作るわけではない。
 
-## 実装の確かめ {#_7}
+### 実装の検証 {#_7}
 
 - **独立の再計算：** 計算の中心であるrxode2による曝露を、別の実装で計算し直した。各薬の仮想患者30人 × 4方式 × 4指標、計960の値で、相対差は最大1.1×10⁻⁵だった。別の実装とは、Pythonで投与ごとに微分方程式を直接積分し、1 mgあたりの濃度を掛ける近道を使わない計算である。
 - **集計の再計算：** 下限・上限と体重帯ごとの割合も、曝露のファイルから計算し直し、一致した。
-- **公表値との比較：** nivolumab 480 mg Q4W／3 mg/kgの比は、平均濃度0.98、トラフ0.79、最高濃度1.34で、Longら（2018）の「同様、約16%低い、約45%高い」と近かった。pembrolizumab 400 mg Q6W／200 mg Q3Wの平均濃度の比は1.00（Lalaら：約1%高い）、400 mg Q6Wの最高濃度は10 mg/kg Q2Wの31%（Lalaら：約65%低い）だった。
+- **公表値との比較：** nivolumab 480 mg Q4W／3 mg/kgの比は、平均濃度0.98、トラフ0.79、最高濃度1.34で、Longら ([4](#ref-4)) の「同様、約16%低い、約45%高い」と近かった。pembrolizumab 400 mg Q6W／200 mg Q3Wの平均濃度の比は1.00（Lalaらは約1%高いと報告 ([2](#ref-2))）、400 mg Q6Wの最高濃度は10 mg/kg Q2Wの31%（Lalaらは約65%低いと報告 ([2](#ref-2))）だった。
 - **再現性：** 乱数のseedを固定しており、同じ結果ファイルが再生成される。
 
-## 曝露基準から外れる体重帯と臨床効果の違い {#_8}
+## 考察 {#_8}
 
 本解析のモデルと曝露基準で追加確認を要したのは、固定用量ではpembrolizumab 200 mgの約150 kg以上とnivolumab 240 mgの約100〜120 kg以上、体重換算では40〜50 kgの初回間隔である。
 
-**判断できないこと：**
+
 - **効果の差：** これらの曝露差が効果の差になるかは、判断できない。抗PD-1抗体では曝露反応が平坦と報告されており、範囲の下限を少し下回ることが臨床的に問題になるかは、この解析の外にある。
 - **集団の違い：** NHANESは米国の一般成人で、がん患者や日本人の体重分布ではない。アジア人の体重分布では、固定用量の重い側の帯の結果はむしろ悪くなった。ただし該当する人数は少ない。
 - **共変量の相関：** 体重とアルブミンなど、共変量の間の相関は公開データから同定できないため、入れていない。
 
-## 出典 {#_9}
+## 結論 {#article-conclusion}
 
-- Ahamadi M, et al. Model-based characterization of the pharmacokinetics of pembrolizumab: a humanized anti-PD-1 monoclonal antibody in advanced solid tumors. *CPT Pharmacometrics Syst Pharmacol*. 2017;6:49–57. [doi:10.1002/psp4.12139](https://doi.org/10.1002/psp4.12139)
-- Bajaj G, et al. Model-based population pharmacokinetic analysis of nivolumab in patients with solid tumors. *CPT Pharmacometrics Syst Pharmacol*. 2017;6:58–66. [doi:10.1002/psp4.12143](https://doi.org/10.1002/psp4.12143)
-- Freshwater T, et al. Evaluation of dosing strategy for pembrolizumab for oncology indications. *J Immunother Cancer*. 2017;5:43. [doi:10.1186/s40425-017-0242-5](https://doi.org/10.1186/s40425-017-0242-5)
-- Lala M, et al. A six-weekly dosing schedule for pembrolizumab in patients with cancer based on evaluation using modelling and simulation. *Eur J Cancer*. 2020;131:68–75. [doi:10.1016/j.ejca.2020.02.016](https://doi.org/10.1016/j.ejca.2020.02.016)
-- Zhao X, et al. Assessment of nivolumab benefit–risk profile of a 240-mg flat dose relative to a 3-mg/kg dosing regimen in patients with advanced tumors. *Ann Oncol*. 2017;28:2002–2008. [doi:10.1093/annonc/mdx235](https://doi.org/10.1093/annonc/mdx235)
-- Long GV, et al. Assessment of nivolumab exposure and clinical safety of 480 mg every 4 weeks flat-dosing schedule in patients with cancer. *Ann Oncol*. 2018;29:2208–2213. [doi:10.1093/annonc/mdy408](https://doi.org/10.1093/annonc/mdy408)
-- Centers for Disease Control and Prevention, National Center for Health Statistics. National Health and Nutrition Examination Survey 2017–March 2020 Pre-Pandemic: Body Measures (P_BMX), Demographic Variables (P_DEMO). <https://wwwn.cdc.gov/nchs/nhanes/>
+固定用量の高体重帯と、体重換算の低体重・初回間隔では、本解析のモデル曝露基準から外れる割合が増えた。延長間隔の判断は曝露指標と下限定義にも依存する。一般成人を使ったモデル比較であり、がん患者の効果差や用量変更の根拠を確立したものではない。
+
+## データとコードの公開状況 {#availability}
 
 再実行：`Rscript test_analysis.R && Rscript analysis.R && Rscript figures.R && Rscript export_params.R && python validate.py`（R 4.5.3、rxode2 5.1.8、ggplot2 4.0.2；Python 3.12、scipy、pandas）。
 
 解析計画・コード・集計結果・検証結果は配布資料に含めた（[配布資料](shared/fixed-vs-weight-dosing/fixed-vs-weight-dosing-companion.zip)）
+
+## 参照 {#_9}
+
+1. <span id="ref-1"></span>Freshwater T, Kondic A, Ahamadi M, Li CH, de Greef R, de Alwis D, et al. Evaluation of dosing strategy for pembrolizumab for oncology indications. J Immunother Cancer. 2017;5(1):43. [doi:10.1186/s40425-017-0242-5](https://doi.org/10.1186/s40425-017-0242-5).
+2. <span id="ref-2"></span>Lala M, Li TR, de Alwis DP, Sinha V, Mayawala K, Yamamoto N, et al. A six-weekly dosing schedule for pembrolizumab in patients with cancer based on evaluation using modelling and simulation. Eur J Cancer. 2020;131:68–75. [doi:10.1016/j.ejca.2020.02.016](https://doi.org/10.1016/j.ejca.2020.02.016).
+3. <span id="ref-3"></span>Zhao X, Suryawanshi S, Hruska M, Feng Y, Wang X, Shen J, et al. Assessment of nivolumab benefit–risk profile of a 240-mg flat dose relative to a 3-mg/kg dosing regimen in patients with advanced tumors. Ann Oncol. 2017;28(8):2002–2008. [doi:10.1093/annonc/mdx235](https://doi.org/10.1093/annonc/mdx235).
+4. <span id="ref-4"></span>Long GV, Tykodi SS, Schneider JG, Garbe C, Gravis G, Rashford M, et al. Assessment of nivolumab exposure and clinical safety of 480 mg every 4 weeks flat-dosing schedule in patients with cancer. Ann Oncol. 2018;29(11):2208–2213. [doi:10.1093/annonc/mdy408](https://doi.org/10.1093/annonc/mdy408).
+5. <span id="ref-5"></span>Ahamadi M, Freshwater T, Prohn M, Li C, de Alwis D, de Greef R, et al. Model-Based Characterization of the Pharmacokinetics of Pembrolizumab: A Humanized Anti-PD-1 Monoclonal Antibody in Advanced Solid Tumors. CPT Pharmacometrics Syst Pharmacol. 2017;6(1):49–57. [doi:10.1002/psp4.12139](https://doi.org/10.1002/psp4.12139).
+6. <span id="ref-6"></span>Bajaj G, Wang X, Agrawal S, Gupta M, Roy A, Feng Y. Model-Based Population Pharmacokinetic Analysis of Nivolumab in Patients With Solid Tumors. CPT Pharmacometrics Syst Pharmacol. 2017;6(1):58–66. [doi:10.1002/psp4.12143](https://doi.org/10.1002/psp4.12143).
+7. <span id="ref-7"></span>Centers for Disease Control and Prevention, National Center for Health Statistics. National Health and Nutrition Examination Survey 2017–March 2020 Pre-Pandemic [Dataset]. 2021 May. [Body Measures (P_BMX)](https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2017/DataFiles/P_BMX.htm); [Demographic Variables and Sample Weights (P_DEMO)](https://wwwn.cdc.gov/NCHS/Data/Nhanes/Public/2017/DataFiles/P_DEMO.htm).

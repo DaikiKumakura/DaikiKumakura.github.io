@@ -36,6 +36,7 @@
     "summary": "Re-implemented population PK models for pembrolizumab and nivolumab were applied to a public adult weight distribution. Fixed doses let trough exposure fall below the trial-tested range most often in heavy patients, weight-based doses in the first interval of light patients; the verdict on extended intervals depends on how the range is defined. No dose is recommended."
   },
   "reviewed": {
-    "en": "9cd57cf8caf6a83164b0fda72a5ceb2eb13de165647643bc230e24563441ec41"
-  }
+    "en": "d5467244300f84f92b1320cb293a823c0c4fc27814f7fc4da60132bde1c37698"
+  },
+  "updated": "2026-10-28"
 }

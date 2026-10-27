@@ -24,6 +24,15 @@
         "Plasma half-life alone does not set dosing frequency: distribution, potency, target turnover and the lower tail of exposure decide where splitting matters, and these must be measured for a new RAS inhibitor."
       ],
       "seo_title": "RAS inhibitor dosing: target coverage from public PK/PD data"
+    },
+    "ja": {
+      "title": "RAS阻害薬の分割投与は標的阻害の維持をどれだけ変えるか",
+      "summary": "マウス血液・腫瘍・DUSP6モデルの再構築と、仮想集団でのQD・BID比較を分け、標的turnover、曝露変動、投与負担の影響を検討する。",
+      "seo_title": "RAS阻害薬の分割投与と標的阻害の維持"
     }
+  },
+  "updated": "2026-10-28",
+  "reviewed": {
+    "ja": "63093414c32f9957917d787841188f25a3976f13a5a0398e8bd80752f8fa6dea"
   }
 }

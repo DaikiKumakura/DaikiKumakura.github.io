@@ -17,6 +17,15 @@
         "An observed on-treatment change is pharmacodynamic evidence, not a qualified predictive biomarker. Biopsy timing and selection into a second biopsy limit its interpretation at a fixed information time."
       ],
       "seo_title": "What changes in tumor immune expression during nivolumab?"
+    },
+    "ja": {
+      "title": "治療中の免疫RNA変化は奏効の情報を加えるか",
+      "summary": "公開された治療前後RNAの43組を確認し、固定した免疫指標の変化と、記録された最良奏効への条件付き追加情報を検討した。",
+      "seo_title": "治療中の免疫RNA変化と奏効の関連"
     }
+  },
+  "updated": "2026-10-28",
+  "reviewed": {
+    "ja": "d70d2b714fbc12e33a91e626f3fc9029457c2e38b76d7bcc2a6dd190bda3c0f3"
   }
 }
