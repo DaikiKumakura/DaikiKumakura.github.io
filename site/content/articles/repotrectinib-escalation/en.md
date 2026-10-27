@@ -1,12 +1,20 @@
+## Abstract {#article-abstract}
+
+Published parameters from a repotrectinib autoinduction PopPK model were used to compare hypothetical seven-, 14- and 21-day lead-ins at 160 mg once daily before twice-daily dosing. Relative to 14 days, 28-day AUC ratios were 1.123 and 0.886 for seven and 21 days, while predose Day 29 concentrations were close. AUC directions persisted under the examined conditional-population and sensitivity analyses; peak comparisons depended on food assumptions and observation windows. This compares exposure metrics distinguishing lead-in histories, without refitting patient-level data or validating clinical outcomes.
+
 Literature checked on October 11, 2026. These simulations use published estimated parameters, rather than refitting patient-level data. Reported findings, my calculations and their interpretation are distinguished below.
 
-Repotrectinib is a ROS1/TRK inhibitor used for ROS1 fusion-positive non-small-cell lung cancer and NTRK fusion-positive solid tumors. Treatment starts at 160 mg once daily for 14 days before increasing to twice daily. Clearance increases after treatment begins through CYP3A autoinduction [1,2]. The empirical PopPK model used here represents that change as a function of time and concentration, rather than directly modeling CYP3A enzyme synthesis and degradation. The path to the final dose therefore matters as well as the final dose itself.
+## Introduction {#article-introduction}
+
+Repotrectinib is a ROS1/TRK inhibitor used for ROS1 fusion-positive non-small-cell lung cancer and NTRK fusion-positive solid tumors. Treatment starts at 160 mg once daily for 14 days before increasing to twice daily. Clearance increases after treatment begins through CYP3A autoinduction ([1](#ref-1), [2](#ref-2)). The empirical PopPK model used here represents that change as a function of time and concentration, rather than directly modeling CYP3A enzyme synthesis and degradation. The path to the final dose therefore matters as well as the final dose itself.
 
 Where would differences appear if the lead-in lasted seven or 21 days?
 
 **Under the conditions examined here, cumulative exposure over 28 days differed, while trough concentrations at the end of day 28 were almost identical.** This does not establish a benefit of earlier escalation or the safety of later escalation. It shows how exposure metrics reveal different aspects of a regimen and helps identify observations needed for comparison.
 
 ## Question and scope of use {#_1}
+
+**Table 1　Question and context of use**
 
 | Item | Definition |
 |---|---|
@@ -15,18 +23,22 @@ Where would differences appear if the lead-in lasted seven or 21 days?
 
 The question is **when and with what measurements candidate regimens need to be distinguished**. Without comparative efficacy and safety data, exposure differences do not establish which regimen is preferable.
 
-## Public information used {#_2}
+## Methods {#article-methods}
+
+### Sources and scope of verification {#_2}
+
+**Table 2　Public sources and their uses**
 
 | Material | Use here | Not used |
 |---|---|---|
-| Du et al. 2025 PopPK paper [1], Table 2 | Final estimates and reported interindividual variability | Original individual concentrations or patient-specific estimates |
+| Du et al. 2025 PopPK paper ([1](#ref-1)), [Table 2](https://doi.org/10.1002/psp4.70036) | Final estimates and reported interindividual variability | Original individual concentrations or patient-specific estimates |
 | Data S3 of that paper | Cross-check absorption lag, concentration units, autoinduction and patient/healthy-volunteer distinction | NONMEM refitting |
-| Du et al. 2025 exposure–response analysis [3] | Check original exposure metrics and how extrapolation here differs | Extrapolated ORR, PFS or adverse-event probabilities for other regimens |
-| 2026 TRIDENT-1 safety analysis [4] | Check adverse events and failure to escalate during the lead-in | Reconstruction of individual events from aggregate data |
+| Du et al. 2025 exposure–response analysis ([3](#ref-3)) | Check original exposure metrics and how extrapolation here differs | Extrapolated ORR, PFS or adverse-event probabilities for other regimens |
+| 2026 TRIDENT-1 safety analysis ([4](#ref-4)) | Check adverse events and failure to escalate during the lead-in | Reconstruction of individual events from aggregate data |
 
 Supplements were obtained through Europe PMC's public distribution. Original text and figures are not reproduced; the figures and calculation code below were created independently. Without patient-level data, this is neither new model estimation nor external validation against patient concentrations.
 
-## Calculating autoinduction {#_3}
+### Autoinduction implementation {#_3}
 
 The reference individual is an adult patient weighing 70 kg receiving oral doses. Food is initially fixed to fasted; other categories are compared later. The model has first-order absorption with lag and two distribution compartments:
 
@@ -40,7 +52,7 @@ The reference individual is an adult patient weighing 70 kg receiving oral doses
 
 Fraction F of each dose enters the absorption compartment after the lag. Amounts are in mg and concentrations in ng/mL, so \(C(t)=1000A_c/V_c\).
 
-With predose concentration \(C_{\rm pre}\), autoinduction is calculated as [1]
+With predose concentration \(C_{\rm pre}\), autoinduction is calculated as ([1](#ref-1))
 
 \[
 CL(t)=CL_0\exp\left\{
@@ -50,6 +62,8 @@ I_{\max}\frac{C_{\rm pre}}{EC_{50}+C_{\rm pre}}
 \]
 
 \(C_{\rm pre}\) is updated at each dose event and held until the next dose. Time \(t\) runs from the first dose and does not reset at escalation. Here \(EC_{50}\) is **an autoinduction-model constant, not an antitumor efficacy threshold**.
+
+**Table 3　Typical-patient parameters**
 
 | Parameter | Value | Unit and meaning |
 |---|---|---|
@@ -65,9 +79,13 @@ Values are the final estimates in [original Table 2](https://doi.org/10.1002/psp
 
 I ported the equations into Python and retained predose concentrations at exact event times. The original NONMEM `$PK` block is evaluated per record; its stated order calculates CL before updating the retained concentration at dosing. Without the original observation records or NONMEM execution, **I do not claim complete reproduction of the original program**. The main analysis uses the latest predose concentration and continuously updates the time term. Sensitivity analyses hold CL between dosing events, or use dose records alone with the order “calculate CL using the previous retained concentration, then retain the current concentration.” The latter also does not reproduce an original run containing observation records.
 
-## Three dosing histories {#_4}
+## Results {#article-results}
+
+### Dosing histories and typical-patient exposure {#_4}
 
 The first dose is at time zero. Twice-daily dosing begins at 168, 336 or 504 h after seven-, 14- or 21-day lead-ins, respectively: Days 8, 15 and 22. The 28-day window is 0–672 h; its final trough is **immediately before the Day 29 dose**.
+
+**Table 4　Dosing histories and 28-day exposure**
 
 | Lead-in | Total dose over 28 days (mg) | AUC0–28 days (ng·h/mL) | Predose Day 29 (ng/mL) |
 |---|---:|---:|---:|
@@ -79,9 +97,9 @@ Earlier escalation also increases total 28-day dose. Relative to the 14-day lead
 
 ![Plasma concentration and clearance under different lead-in durations.](shared/repotrectinib-escalation/figures/01-timecourse.png)
 
-Figure 1. Typical fixed-effect predictions for a fasted 70-kg adult. Blue, gray and orange indicate seven-, 14- and 21-day lead-ins. No patient observations or confidence intervals are shown. Outputs: `analysis/run_analysis.py`, `outputs/tables/typical.csv`.
+**Figure 1.** Typical fixed-effect predictions for a fasted 70-kg adult. Blue, gray and orange indicate seven-, 14- and 21-day lead-ins. No patient observations or confidence intervals are shown. Outputs: `analysis/run_analysis.py`, `outputs/tables/typical.csv`.
 
-## Cumulative exposure and later troughs give different answers {#_5}
+### Cumulative exposure and later troughs give different answers {#_5}
 
 The seven-day lead-in gave 1.123 times the 28-day AUC of the 14-day lead-in; the 21-day lead-in gave 0.886 times. Day 29 predose concentration ratios were 1.0002 and 0.9959, respectively. Later twice-daily dosing narrows concentration differences, while AUC retains exposure accumulated earlier.
 
@@ -91,6 +109,8 @@ The peak in the first seven days was identical across schedules. Dosing historie
 
 Comparing only peaks on Days 8–21 excludes post-escalation observations for the 21-day lead-in. That window alone cannot establish that later escalation suppresses peaks. I separately calculated peaks during the 72 h after each escalation.
 
+**Table 5　Calendar- and escalation-aligned peaks**
+
 | Lead-in | Days 8–21 peak (ng/mL) | Peak within 72 h after each escalation (ng/mL) | Maximum over days 0–28 (ng/mL) |
 |---|---:|---:|---:|
 | 7 days | 396.7 | 395.3 | 396.7 |
@@ -99,9 +119,11 @@ Comparing only peaks on Days 8–21 excludes post-escalation observations for th
 
 Event-aligned windows fall on different calendar days, at different stages of autoinduction and accumulation. This is therefore not a dose comparison from the same state either. Calendar-aligned and escalation-aligned metrics both need to be shown.
 
-## Compare within the same virtual patient {#_6}
+### Within-patient comparisons {#_6}
 
 I generated a conditional population of 256 virtual individuals using published variability in CL, central volume, intercompartmental CL, absorption rate and F. Weight and food were fixed; each individual's random effects were shared across schedules. Peripheral-volume random effects were set to zero following the supplement.
+
+**Table 6　Paired exposure ratios within virtual patients**
 
 | Lead-in | Metric | Median ratio | 5th–95th percentiles |
 |---|---|---:|---|
@@ -116,13 +138,15 @@ I generated a conditional population of 256 virtual individuals using published 
 
 ![Paired exposure ratios within virtual patients.](shared/repotrectinib-escalation/figures/02-paired.png)
 
-Figure 2. Ratios against the 14-day lead-in within each virtual patient. The middle panel uses the 72-hour post-escalation peak, avoiding a window that includes only pre-escalation observations. Points are medians and lines 5th–95th percentiles. All panels share the horizontal range. These are neither 95% confidence intervals for parameter estimates nor predictive intervals for an actual patient population. Output: `outputs/tables/paired.csv`.
+**Figure 2.** Ratios against the 14-day lead-in within each virtual patient. The middle panel uses the 72-hour post-escalation peak, avoiding a window that includes only pre-escalation observations. Points are medians and lines 5th–95th percentiles. All panels share the horizontal range. These are neither 95% confidence intervals for parameter estimates nor predictive intervals for an actual patient population. Output: `outputs/tables/paired.csv`.
 
 The direction of the 28-day AUC differences persisted in this conditional population. This depends on fixed food and weight and independent random effects. It does not reconstruct real covariate distributions, changing food conditions, interruptions or reductions. Residual error was not added.
 
-## Which comparisons depend on assumptions? {#_7}
+### Sensitivity to assumptions {#_7}
 
 I moved fixed effects one at a time to the lower and upper limits of their published 95% intervals in [Table 2](https://doi.org/10.1002/psp4.70036). Without estimation covariance, I did not sample these independently and call the result an estimation-uncertainty distribution.
+
+**Table 7　Ratios under one-at-a-time fixed-effect changes**
 
 | Lead-in | Metric | Minimum–maximum ratio against 14 days |
 |---|---|---|
@@ -135,9 +159,11 @@ I moved fixed effects one at a time to the lower and upper limits of their publi
 
 ![Exposure ratios after changing fixed-effect parameters one at a time.](shared/repotrectinib-escalation/figures/03-sensitivity.png)
 
-Figure 3. Points use reference parameters; lines give minima and maxima across 20 one-at-a-time changes. Joint parameter changes are not included, and these are not output confidence intervals. Output: `outputs/tables/sensitivity.csv`.
+**Figure 3.** Points use reference parameters; lines give minima and maxima across 20 one-at-a-time changes. Joint parameter changes are not included, and these are not output confidence intervals. Output: `outputs/tables/sensitivity.csv`.
 
 Food categories required more caution. Using their published F and absorption rates retained the direction of AUC differences, but **changed the Days 8–21 peak comparisons**.
+
+**Table 8　Exposure ratios by model food category**
 
 | Model food category | 7-day AUC ratio | 21-day AUC ratio | 7-day Days 8–21 peak ratio | 21-day Days 8–21 peak ratio |
 |---|---:|---:|---:|---:|
@@ -152,7 +178,9 @@ Holding CL between dose events produced AUC ratios of 1.123 and 0.886 for seven 
 
 These results establish the direction of AUC differences only under the examined conditions. They do not establish robustness to unmeasured PD or alternative mechanistic autoinduction models.
 
-## Later troughs lose distinctions in the lead-in history {#_8}
+### Later troughs lose distinctions in the lead-in history {#_8}
+
+**Table 9　Predicted concentrations at candidate sampling times**
 
 | Candidate sampling time for the typical patient | 7 days (ng/mL) | 14 days (ng/mL) | 21 days (ng/mL) |
 |---|---:|---:|---:|
@@ -164,27 +192,35 @@ The candidate differences look different before doses on Days 15 and 22 than on 
 
 The table gives predose concentrations, not absorption-phase peaks. Sampling counts and times, or required sample sizes, were not optimized. Errors in dosing, food and interruption histories were not included.
 
-Safety timing also matters. In the 2026 TRIDENT-1 analysis, median time to dizziness onset was seven days, and 66 of 472 patients did not escalate from once- to twice-daily dosing [4]. This does not prove earlier escalation harmful, but it demonstrates why events during the lead-in cannot be represented solely by post-escalation steady-state exposure.
-
-The published E–R analysis uses mean exposure over the first 56 days for ORR and time-dependent cumulative mean exposure for PFS and safety [3]. The present 28-day AUC and peak cannot be substituted directly into those prediction equations. I calculated neither response nor adverse-event probabilities.
-
-## Numerical checks and remaining limitations {#_9}
+### Numerical implementation checks {#_9}
 
 Calculations used Python, NumPy, SciPy and Matplotlib. Checks covered dose amounts, nonnegative drug amounts and mass balance across absorption, central, peripheral and eliminated amounts. With autoinduction removed, results were compared with an independently constructed linear-model matrix-exponential solution. The main analysis used fourth-order Runge–Kutta, with SciPy's adaptive solver as a separate check.
 
 Six numerical tests passed. Between solvers, the largest relative difference in reference AUC or final trough was 2.1e-08%; maximum mass-balance error was 4.1e-12 mg. Halving the step also made little difference to either metric. Steps were capped for the whole virtual population to avoid instability with small volumes. Output: `outputs/verification.json`.
 
+## Discussion {#article-discussion}
+
+Safety timing also matters. In the 2026 TRIDENT-1 analysis, median time to dizziness onset was seven days, and 66 of 472 patients did not escalate from once- to twice-daily dosing ([4](#ref-4)). This does not prove earlier escalation harmful, but it demonstrates why events during the lead-in cannot be represented solely by post-escalation steady-state exposure.
+
+The published E–R analysis uses mean exposure over the first 56 days for ORR and time-dependent cumulative mean exposure for PFS and safety ([3](#ref-3)). The present 28-day AUC and peak cannot be substituted directly into those prediction equations. I calculated neither response nor adverse-event probabilities.
+
 These validate numerical implementation, not patient concentrations or clinical events. Original population averages, EBE-derived exposure and prescribing-information reference values have different weight, food and patient conditions. I did not force a typical-patient calculation to match them and call that successful reproduction.
 
 Remaining limitations include absent individual observations and dosing histories, absent estimation covariance, no rerun of the original NONMEM code and no clinical validation of alternative escalation times. Seven- and 21-day lead-ins are hypothetical research conditions, not recommended regimens.
 
-**Reading lead-in differences from later troughs alone misses early cumulative exposure.** Whether more early exposure is worthwhile requires a separate question about efficacy and safety over time. This analysis stops at distinguishing the metrics and observation periods needed for that comparison.
+## Conclusion {#article-conclusion}
+
+Reading lead-in differences from later troughs alone misses early cumulative exposure. Whether more early exposure is worthwhile requires a separate question about efficacy and safety over time. This analysis stops at distinguishing the metrics and observation periods needed for that comparison.
+
+## Data and code availability {#article-availability}
+
+Calculation code, numerical tables and reproduction instructions use public parameter estimates. Patient-level concentration data and an original NONMEM execution are not included.
+
+[Calculation code, numerical tables and reproduction instructions](shared/repotrectinib-escalation/repotrectinib-simulation.zip)
 
 ## References {#_10}
 
-1. Du S, et al. A Novel Empirical Autoinduction Model to Characterize the Population Pharmacokinetics and Recommend Dose for Repotrectinib in Adult and Adolescents With Advanced Solid Tumors Harboring ALK, ROS1, or NTRK1–3 Rearrangements. *CPT: Pharmacometrics & Systems Pharmacology*. 2025;14:1179–1190. [doi:10.1002/psp4.70036](https://doi.org/10.1002/psp4.70036). [Open full text and supplements](https://pmc.ncbi.nlm.nih.gov/articles/PMC12256568/).
-2. [FDA Drug Trials Snapshot: AUGTYRO](https://www.fda.gov/drugs/development-approval-process-drugs/drug-trials-snapshots-augtyro).
-3. Du S, et al. Exposure–Response Analysis of Repotrectinib to Support the Dose Recommendation for Patients With ROS1-Positive NSCLC or NTRK-Positive Solid Tumors. *CPT: Pharmacometrics & Systems Pharmacology*. 2025;14:1993–2005. [doi:10.1002/psp4.70102](https://doi.org/10.1002/psp4.70102). [Open full text](https://pmc.ncbi.nlm.nih.gov/articles/PMC12706408/).
-4. Characterization and clinical management of adverse events following treatment with repotrectinib: a TRIDENT-1 analysis. *The Oncologist*. 2026;31:oyag137. [doi:10.1093/oncolo/oyag137](https://doi.org/10.1093/oncolo/oyag137). [Open full text](https://pmc.ncbi.nlm.nih.gov/articles/PMC13153690/).
-
-[Calculation code, numerical tables and reproduction instructions](shared/repotrectinib-escalation/repotrectinib-simulation.zip)
+1. <span id="ref-1"></span>Du S, Hu Z, Shen J, Hamuro L, Lam J, Lu M, et al. A Novel Empirical Autoinduction Model to Characterize the Population Pharmacokinetics and Recommend Dose for Repotrectinib in Adult and Adolescents With Advanced Solid Tumors Harboring ALK, ROS1, or NTRK1-3 Rearrangements. CPT: Pharmacometrics & Systems Pharmacology. 2025;14(7):1179–1190. [doi:10.1002/psp4.70036](https://doi.org/10.1002/psp4.70036).
+2. <span id="ref-2"></span>US Food and Drug Administration. Drug Trials Snapshots: AUGTYRO [Internet; cited 2026 Oct 28]. [Original-approval snapshot](https://www.fda.gov/drugs/drug-trials-snapshots/drug-trials-snapshots-augtyro).
+3. <span id="ref-3"></span>Du S, Hu Z, Shen J, Zhu L, Roy A, Lam J, et al. Exposure–Response Analysis of Repotrectinib to Support the Dose Recommendation for Patients With ROS1 -Positive NSCLC or NTRK -Positive Solid Tumors. CPT: Pharmacometrics & Systems Pharmacology. 2025;14(12):1993–2005. [doi:10.1002/psp4.70102](https://doi.org/10.1002/psp4.70102).
+4. <span id="ref-4"></span>Drilon A, Cho BC, Camidge DR, Nagasaka M, Besse B, Solomon B, et al. Characterization and clinical management of adverse events following treatment with repotrectinib: a TRIDENT-1 analysis. The Oncologist. 2026;31(6):oyag137. [doi:10.1093/oncolo/oyag137](https://doi.org/10.1093/oncolo/oyag137).

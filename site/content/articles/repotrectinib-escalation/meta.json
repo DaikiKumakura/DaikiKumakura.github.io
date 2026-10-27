@@ -25,6 +25,7 @@
     "summary": "An independent Python implementation of published structural equations compares 7-, 14- and 21-day lead-ins. Conditional paired simulations and sensitivity analyses separate cumulative exposure, peak-window effects and late troughs. No patient refitting, NONMEM equivalence or efficacy/safety prediction is claimed."
   },
   "reviewed": {
-    "en": "39adc31aa07c6395fc6365e41e3c711183570bd7011b5b2d67df10d74bbf101c"
-  }
+    "en": "89c1428f88ca3fe7746980ca3e1ca7524a15a0e85c1bc9cc36c3f348208f3b28"
+  },
+  "updated": "2026-10-28"
 }

@@ -25,7 +25,7 @@
     "summary": "An independent aggregation of released predictions for eight MF-PCBA targets examines affinity-head adaptation, top-100 hit recovery, rescoring budgets and a nearest-active comparison. No model inference, retraining or prospective experiments were performed; scaffold annotations are author supplied."
   },
   "reviewed": {
-    "en": "9d1365db0175a343aff04e394e4d50c8c1c340e597fbe9beb8b14b4e3bf0ac68"
+    "en": "6b7c7e6d29ea4d9698d441d56a1ae38612a6e6e63cbdde5356befa14f52331e1"
   },
   "updated": "2026-10-28"
 }

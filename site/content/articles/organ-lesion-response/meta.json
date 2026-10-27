@@ -12,10 +12,20 @@
       "title": "腫瘍の合計が減っても増える病変はある。公開CTデータを調べる",
       "summary": "公開CTデータの276患者・2,425病変で、患者内の病変変化と集約の限界を調べた。合計体積の減少と一部病変の増加が併存する頻度、除外条件と臓器差の不確実性を示す。薬剤別の因果薬効は評価しない。",
       "seo_title": "腫瘍の合計が減っても増える病変はある。公開CTデータを調べる"
+    },
+    "en": {
+      "title": "When shrinking totals hide growing lesions: an audit of public CT data",
+      "summary": "Two-timepoint lesion volumes from 276 patients reveal heterogeneous changes hidden by aggregation. This analysis examines measurement selection and within-patient organ contrasts, not causal drug effects or RECIST progression.",
+      "seo_title": "Shrinking tumor totals can hide growing lesions",
+      "seo_description": "Public CT volumes from 276 patients show lesion-level heterogeneity hidden by shrinking totals. Selection and organ contrasts limit interpretation."
     }
   },
   "english": {
     "title": "When shrinking totals hide growing lesions: an audit of public CT data",
     "summary": "Two-timepoint lesion volumes from 276 patients reveal heterogeneous changes hidden by aggregation. This analysis examines measurement selection and within-patient organ contrasts, not causal drug effects or RECIST progression."
+  },
+  "updated": "2026-10-28",
+  "reviewed": {
+    "en": "dd2e7cfa1cdded582fe2c702cb5e7274469a42927887ce06415c2ff1112e5edd"
   }
 }

@@ -8,7 +8,7 @@
 
 Boltz-2はタンパク質と低分子の複合体構造に加え、結合に関するスコアも予測する。では、最初に選んだ100化合物の実験結果が返ってきた後、その結果を使って候補の順番を変えられるだろうか。
 
-FuruiとOhueの[Preprint](https://arxiv.org/abs/2609.24302v1) ([1](#ref-1))は、8標的の既存スクリーニングデータでこの問いを検討した。本記事では[Author-released per-compound predictions](https://github.com/ohuelab/BoltzFT/tree/a31c79a8420c1156a876f007dbdc52107cd0e957/data/predictions) ([2](#ref-2))を再集計した。100件のラベルで調整した場合、次の100候補に含まれる活性化合物は標的平均で10.75件から20.75件になった。これは新しい実験を行った結果ではなく、公開済みの測定ラベルと予測値を使ったランキングの検証である。
+FuruiとOhueの[プレプリント](https://arxiv.org/abs/2609.24302v1) ([1](#ref-1))は、8標的の既存スクリーニングデータでこの問いを検討した。本記事では[著者公開の化合物別予測値](https://github.com/ohuelab/BoltzFT/tree/a31c79a8420c1156a876f007dbdc52107cd0e957/data/predictions) ([2](#ref-2))を再集計した。100件のラベルで調整した場合、次の100候補に含まれる活性化合物は標的平均で10.75件から20.75件になった。これは新しい実験を行った結果ではなく、公開済みの測定ラベルと予測値を使ったランキングの検証である。
 
 ## 方法 {#article-methods}
 
@@ -16,19 +16,19 @@ FuruiとOhueの[Preprint](https://arxiv.org/abs/2609.24302v1) ([1](#ref-1))は�
 
 ここでの実験結果は、各測定条件における「活性あり／なし」の二値ラベルである。薬の効果量や、結合定数の実測値ではない。
 
-手順は、最初にBoltz-2で化合物を順位付けし、その上位40・100・300件のラベルを使い、スコアを出す部分を調整するというものだった。複合体の情報を作るtrunkと構造生成部分は固定し、二つのaffinity headを更新する。headは、保存された構造・内部表現から結合に関するスコアを出す部分だ。比較する順位には二つのheadの予測確率の平均を使う。([Original paper methods](https://arxiv.org/html/2609.24302v1#S2) ([1](#ref-1)))と[Public implementation](https://github.com/ohuelab/BoltzFT) ([2](#ref-2))に対応する。
+手順は、最初にBoltz-2で化合物を順位付けし、その上位40・100・300件のラベルを使い、スコアを出す部分を調整するというものだった。複合体の情報を作るtrunkと構造生成部分は固定し、二つのaffinity headを更新する。headは、保存された構造・内部表現から結合に関するスコアを出す部分だ。比較する順位には二つのheadの予測確率の平均を使う。[原著の方法](https://arxiv.org/html/2609.24302v1#S2) ([1](#ref-1))と[公開実装](https://github.com/ohuelab/BoltzFT) ([2](#ref-2))に対応する。
 
 この入力の違いは重要である。高い初期スコアを付けたのに不活性だった化合物も、調整の材料になる。活性化合物だけを集めて学習する設計ではない。
 
-Boltz-2の[Official documentation](https://github.com/jwohlwend/boltz/blob/main/docs/prediction.md#output) ([3](#ref-3))でも、結合する確率に対応する出力と親和性の値に対応する出力は区別されている。今回の二値ラベルによる調整を、「結合定数の精度が上がった」と読むことはできない。また、調整後のスコアが実際の陽性率に校正されているかは、候補順位の改善とは別に確かめる必要がある。
+Boltz-2の[公式文書](https://github.com/jwohlwend/boltz/blob/main/docs/prediction.md#output) ([3](#ref-3))でも、結合する確率に対応する出力と親和性の値に対応する出力は区別されている。今回の二値ラベルによる調整を、「結合定数の精度が上がった」と読むことはできない。また、調整後のスコアが実際の陽性率に校正されているかは、候補順位の改善とは別に確かめる必要がある。
 
 ### 学習用と評価用の化合物 {#100100}
 
-元の測定データはMF-PCBAスクリーニングベンチマークに由来する。([Original paper data section](https://arxiv.org/html/2609.24302v1#S2.SS1) ([1](#ref-1)))によれば、今回の8標的は先行評価の10アッセイから選ばれたもので、結合部位を指定できなかったものなどが除かれている。任意の標的から無作為に選んだ8件ではない。
+元の測定データはMF-PCBAスクリーニングベンチマークに由来する。[原著のデータ記載](https://arxiv.org/html/2609.24302v1#S2.SS1) ([1](#ref-1))によれば、今回の8標的は先行評価の10アッセイから選ばれたもので、結合部位を指定できなかったものなどが除かれている。任意の標的から無作為に選んだ8件ではない。
 
 公開データには、学習に使った化合物と、候補選択を評価する化合物の区別がある。本記事の再集計では、その区別を維持した。
 
-全条件で初期順位の上位300化合物を評価から除く。したがって、40件だけで調整する条件でも、残りの260件は評価へ戻さない。共通の評価集合は標的あたり約4.96万化合物で、陽性率は約0.27〜1.92%だった。調整用100件に含まれる活性化合物は標的によって4〜52件と幅がある。同じ「100件」でも、得られた陽性・陰性の構成は同じではない。[Public data column definitions](https://github.com/ohuelab/BoltzFT/blob/a31c79a8420c1156a876f007dbdc52107cd0e957/data/predictions/README.md) ([2](#ref-2))
+全条件で初期順位の上位300化合物を評価から除く。したがって、40件だけで調整する条件でも、残りの260件は評価へ戻さない。共通の評価集合は標的あたり約4.96万化合物で、陽性率は約0.27〜1.92%だった。調整用100件に含まれる活性化合物は標的によって4〜52件と幅がある。同じ「100件」でも、得られた陽性・陰性の構成は同じではない。[公開データの列定義](https://github.com/ohuelab/BoltzFT/blob/a31c79a8420c1156a876f007dbdc52107cd0e957/data/predictions/README.md) ([2](#ref-2))
 
 以下の「次の100候補」は、この共通評価集合から選んだ100化合物を指す。初回の学習用測定で見つかった活性化合物は含めない。100件の調整用測定と、次の100件の測定を合わせれば、予定する測定は少なくとも200件になる。前処理、検証用測定、再測定、活性確認の費用は別に必要である。
 
@@ -102,7 +102,7 @@ H_{100}(M) \leq \min\{100, A(M)\}
 | 調整後のhead | 34.38 | 22.13 |
 | 既知の活性化合物への最大類似度 | 34.75 | 13.75 |
 
-出典：[Author-released scaffold-recovery CSV](https://github.com/ohuelab/BoltzFT/blob/a31c79a8420c1156a876f007dbdc52107cd0e957/figures/data/si_analyses/hit_scaffold_recovery.csv) ([2](#ref-2))。類似度はMorgan fingerprintのTanimoto係数、骨格はBemis–Murckoの定義に基づく。右列は活性化合物の数であり、骨格の種類数ではない。同じ骨格を持つ複数化合物も数える。
+出典：[著者公開の骨格回収数CSV](https://github.com/ohuelab/BoltzFT/blob/a31c79a8420c1156a876f007dbdc52107cd0e957/figures/data/si_analyses/hit_scaffold_recovery.csv) ([2](#ref-2))。類似度はMorgan fingerprintのTanimoto係数、骨格はBemis–Murckoの定義に基づく。右列は活性化合物の数であり、骨格の種類数ではない。同じ骨格を持つ複数化合物も数える。
 
 総ヒット数だけなら、類似度検索の平均は調整後headに劣らなかった。一方、学習集合にない骨格の活性化合物は、調整後headで多かった。目的を「活性化合物をできるだけ拾う」と置くか、「異なる骨格の候補も確保する」と置くかで、この比較の意味が変わる。ただし、この平均差だけで統計的な優越性を主張することはしない。
 
@@ -130,6 +130,6 @@ H_{100}(M) \leq \min\{100, A(M)\}
 
 ## 参照 {#article-references}
 
-1. <span id="ref-1"></span>Furui K, Ohue M. Adapting Boltz-2 with limited experimental activity data improves early enrichment in virtual screening. arXiv [Preprint]. 2026 Sep 21;2609.24302v1. [Version examined](https://arxiv.org/abs/2609.24302v1).
+1. <span id="ref-1"></span>Furui K, Ohue M. Adapting Boltz-2 with limited experimental activity data improves early enrichment in virtual screening. arXiv [プレプリント]. 2026 Sep 21;2609.24302v1. [Version examined](https://arxiv.org/abs/2609.24302v1).
 2. <span id="ref-2"></span>Furui K, Ohue M. BoltzFT: code, per-compound predictions, evaluation splits and reference summaries [Software and dataset]. Commit a31c79a8420c1156a876f007dbdc52107cd0e957. MIT License. [Fixed repository version](https://github.com/ohuelab/BoltzFT/tree/a31c79a8420c1156a876f007dbdc52107cd0e957).
-3. <span id="ref-3"></span>Boltz developers. Boltz-2 prediction and output documentation [Internet; cited 2026 Oct 28]. [Official documentation](https://github.com/jwohlwend/boltz/blob/main/docs/prediction.md#output).
+3. <span id="ref-3"></span>Boltz developers. Boltz-2 prediction and output documentation [Internet; cited 2026 Oct 28]. [公式文書](https://github.com/jwohlwend/boltz/blob/main/docs/prediction.md#output).

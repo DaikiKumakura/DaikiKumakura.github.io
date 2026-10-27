@@ -25,6 +25,7 @@
     "summary": "A descriptive audit of published MAP scores for 16 held-out drugs and four knowledge-pretraining stages, distinguishing unprofiled compounds from unseen structural or mechanistic groups. No model training or inference was performed."
   },
   "reviewed": {
-    "en": "dfbed559770cca11a9bdd6c56f2b262a0f6cabac1e5bbf8637a5588cee0b860d"
-  }
+    "en": "70ac981a594513eadb753f818585d80c377b75af13f68c6d40c0cc1003fe23ef"
+  },
+  "updated": "2026-10-28"
 }

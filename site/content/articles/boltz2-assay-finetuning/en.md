@@ -16,7 +16,7 @@ A [preprint by Furui and Ohue](https://arxiv.org/abs/2609.24302v1) ([1](#ref-1))
 
 The measurements used here are binary active/inactive labels under each assay's conditions. They are neither drug effect sizes nor measured binding constants.
 
-The procedure first ranks compounds with Boltz-2, then uses labels for the top 40, 100 or 300 to adapt the scoring components. The trunk that produces complex representations and the structure-generation components remain frozen; two affinity heads are updated. These heads produce binding-related scores from saved structures and internal representations. The evaluated ranking uses the mean of the two heads' predicted probabilities ([original paper methods](https://arxiv.org/html/2609.24302v1#S2) ([1](#ref-1)); [public implementation](https://github.com/ohuelab/BoltzFT) ([2](#ref-2))).
+The procedure first ranks compounds with Boltz-2, then uses labels for the top 40, 100 or 300 to adapt the scoring components. The trunk that produces complex representations and the structure-generation components remain frozen; two affinity heads are updated. These heads produce binding-related scores from saved structures and internal representations. The evaluated ranking uses the mean of the two heads' predicted probabilities. This follows the [original paper methods](https://arxiv.org/html/2609.24302v1#S2) ([1](#ref-1)) and [public implementation](https://github.com/ohuelab/BoltzFT) ([2](#ref-2)).
 
 An inactive compound that initially received a high score also contributes a training example. This is not a procedure trained only on active compounds.
 
@@ -28,7 +28,7 @@ The measurements come from the MF-PCBA screening benchmark. According to the [pa
 
 The released data distinguish compounds used for adaptation from compounds used to evaluate candidate selection. I retained that distinction.
 
-The top 300 compounds in the initial ranking are excluded from evaluation in every condition. Even when only 40 labels are used for adaptation, the remaining 260 do not return to the evaluation pool. This common pool contains about 49,600 compounds per target, with positive rates of about 0.27–1.92%. The 100 adaptation labels contain between 4 and 52 active compounds depending on the target. A budget of 100 labels therefore supplies quite different positive/negative compositions ([public data column definitions](https://github.com/ohuelab/BoltzFT/blob/a31c79a8420c1156a876f007dbdc52107cd0e957/data/predictions/README.md) ([2](#ref-2))).
+The top 300 compounds in the initial ranking are excluded from evaluation in every condition. Even when only 40 labels are used for adaptation, the remaining 260 do not return to the evaluation pool. This common pool contains about 49,600 compounds per target, with positive rates of about 0.27–1.92%. The 100 adaptation labels contain between 4 and 52 active compounds depending on the target. A budget of 100 labels therefore supplies quite different positive/negative compositions as described in the [public data column definitions](https://github.com/ohuelab/BoltzFT/blob/a31c79a8420c1156a876f007dbdc52107cd0e957/data/predictions/README.md) ([2](#ref-2)).
 
 The “next 100 candidates” below are 100 compounds selected from this common evaluation pool. They exclude active compounds already discovered in the initial training measurements. A 100-label adaptation batch followed by another 100 measurements requires at least 200 planned measurements, before preprocessing, validation measurements, repeats and hit confirmation.
 

@@ -25,6 +25,7 @@
     "summary": "An audit of sacituzumab govitecan and datopotamab deruxtecan distinguishes measured and derived analytes, label versions, exposure windows and response endpoints. The public summaries do not establish a shared payload target."
   },
   "reviewed": {
-    "en": "81464af308f242016341034cd1adb82c5e8125554802c561cf41b051cb4dc740"
-  }
+    "en": "ae4efec7d8d23874220c8b0b52e74fd3d0745f906b8ac9c87a611c18cdf408e4"
+  },
+  "updated": "2026-10-28"
 }
