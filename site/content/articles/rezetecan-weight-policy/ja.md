@@ -4,7 +4,7 @@ Trastuzumab rezetecanの公表モデルを使って計算したところ、ADC�
 
 ## 対象と比較する条件 {#_1}
 
-Trastuzumab rezetecan（SHR-A1811）は、HER2を標的とするADCで、トポイソメラーゼI阻害ペイロードを持つ。2026年にはHORIZON-Xの長期追跡と、ADC・遊離ペイロードを合わせたPopPK解析が公表された。[HORIZON-X長期追跡](https://www.nature.com/articles/s41392-026-02612-9)、[Gao et al., PopPK解析](https://doi.org/10.1002/psp4.70259)
+Trastuzumab rezetecan（SHR-A1811）は、HER2を標的とするADCで、トポイソメラーゼI阻害ペイロードを持つ。2026年にはHORIZON-Xの長期追跡と、ADC・遊離ペイロードを合わせたPopPK解析が公表された。[HORIZON-X long-term follow-up](https://www.nature.com/articles/s41392-026-02612-9)、[Gao et al., PopPK analysis](https://doi.org/10.1002/psp4.70259)
 
 2026年ASCOのHER2陽性大腸癌試験でも、4.8 mg/kgを3週間ごとに投与する条件が報告されている。本記事では、原著のモデル適用例にもある**4.8 mg/kg Q3W**を比較の出発点とした。臨床成績を用量の変更先へ外挿することはしない。[ASCO 2026 abstract 3505](https://doi.org/10.1200/JCO.2026.44.16_suppl.3505)
 
@@ -51,7 +51,7 @@ k_{rel}&=RAT\times ALPHA \quad(\mathrm{Cycle\ 2以降})
 | log個体間分散：CL、V1、Q、V2 | 0.0591、0.0408、0.0798、0.546 |
 | log個体間分散：RAT、ALPHA、CL3、V3 | 0.0419、0.0692、0.140、0.146 |
 
-数値は原著Table 1を使い、補足コードの `$THETA` に書かれた初期値とは混ぜていない。分散も表の \(\omega^2\) を使い、標準誤差の百分率を個体差と取り違えないようにした。V3の典型値は固定でも、V3の個体間分散はモデルに含まれている。[原著・補足資料](https://pmc.ncbi.nlm.nih.gov/articles/PMC13274680/)
+数値は[Original paper Table 1](https://doi.org/10.1002/psp4.70259)を使い、補足コードの `$THETA` に書かれた初期値とは混ぜていない。分散も表の \(\omega^2\) を使い、標準誤差の百分率を個体差と取り違えないようにした。V3の典型値は固定でも、V3の個体間分散はモデルに含まれている。[Paper and supplementary materials](https://pmc.ncbi.nlm.nih.gov/articles/PMC13274680/)
 
 ほかの条件は、年齢56歳、アルブミン42.5 g/L、標的病変径の合計（SOD）52 mm、AST 25 U/L、NSCLCに固定した。投与は90分の一定速度点滴を仮定し、30分・180分も感度分析した。これは投与時間を揃えるための数値条件で、臨床の全投与手順の再現ではない。
 
@@ -169,7 +169,7 @@ Cycle 2以降の生成速度低下は、腫瘍縮小を個人ごとに予測し�
 
 資料確認日：2026年10月21日。
 
-- Gao X et al. *Population Pharmacokinetics of Trastuzumab Rezetecan in Patients With HER2-Expressing or Mutated Advanced Solid Tumors*. CPT: Pharmacometrics & Systems Pharmacology, 2026;15:e70259. [doi:10.1002/psp4.70259](https://doi.org/10.1002/psp4.70259)。Table 1、§§3.2–3.5、補足Tables S1–S3とFinal model codeを使用。
+- Gao X et al. *Population Pharmacokinetics of Trastuzumab Rezetecan in Patients With HER2-Expressing or Mutated Advanced Solid Tumors*. CPT: Pharmacometrics & Systems Pharmacology, 2026;15:e70259. [doi:10.1002/psp4.70259](https://doi.org/10.1002/psp4.70259). Sources used: Table 1, Sections 3.2–3.5, Supplementary Tables S1–S3 and Final model code.
 - Yao H et al. *SHR-A1811, a novel HER2-targeting antibody-drug conjugate, in advanced solid tumors (HORIZON-X): a global phase 1 trial*. Signal Transduction and Targeted Therapy, 2026;11:104. [doi:10.1038/s41392-026-02612-9](https://doi.org/10.1038/s41392-026-02612-9)
 - *Trastuzumab rezetecan in HER2-positive metastatic colorectal cancer*, ASCO 2026 abstract 3505. [doi:10.1200/JCO.2026.44.16_suppl.3505](https://doi.org/10.1200/JCO.2026.44.16_suppl.3505)
 

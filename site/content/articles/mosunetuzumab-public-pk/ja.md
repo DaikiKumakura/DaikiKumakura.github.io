@@ -8,7 +8,7 @@
 
 ## 背景：段階的増量をPKだけで説明できるか
 
-モスネツズマブはCD20とCD3を標的とする二重特異性抗体である。米国の静注製剤LUNSUMIOの投与法では、Cycle 1のDay 1、8、15にそれぞれ1、2、60 mg、Cycle 2のDay 1に60 mgを投与し、Cycle 3以降は21日ごとに30 mgを投与する。Cycle 1は少なくとも4時間の点滴であり、その後は忍容性に応じて2時間とされる。本解析はこの**静注製剤**を対象とする。[米国の製品情報](https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=2ef0cf38-101c-4681-98fe-c05dc9ead443)
+モスネツズマブはCD20とCD3を標的とする二重特異性抗体である。米国の静注製剤LUNSUMIOの投与法では、Cycle 1のDay 1、8、15にそれぞれ1、2、60 mg、Cycle 2のDay 1に60 mgを投与し、Cycle 3以降は21日ごとに30 mgを投与する。Cycle 1は少なくとも4時間の点滴であり、その後は忍容性に応じて2時間とされる。本解析はこの**静注製剤**を対象とする。[US prescribing information](https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=2ef0cf38-101c-4681-98fe-c05dc9ead443)
 
 初期投与量が小さいと初回の血中濃度ピークが下がる。しかし、「血中濃度が下がる」ことから「CRSがどれだけ減る」かを直ちに計算できるわけではない。本記事では、投与入力からPK、PKからRO、ROからCRSという各段階で、公開情報が支える範囲を切り分ける。
 
@@ -69,7 +69,7 @@ CL(t)=CL_{ss}+(CL_{base}-CL_{ss})\exp\left(-\frac{\ln 2}{HL_{trans}}t\right)
 | V2 | 6.17 | 5.729–6.61 | L |
 | Q | 1.46 | 1.354–1.57 | L/day |
 
-固定効果は[E–R補足資料Table S3](https://ascpt.onlinelibrary.wiley.com/doi/suppl/10.1002/cpt.3445)の最終推定値を使用した。NONMEMコードの初期値を最終推定値として読み込まないようにした。
+固定効果は[E–R Supplementary materials Table S3](https://ascpt.onlinelibrary.wiley.com/doi/suppl/10.1002/cpt.3445)の最終推定値を使用した。NONMEMコードの初期値を最終推定値として読み込まないようにした。
 
 このCLの減少は、元のPopPK解析の時間依存性を再現する経験的な表現である。今回の再実装では病態、腫瘍量や治療反応を時間とともに解く機構モデルにはしていない。したがって、変更レジメンでも同じ時間依存CLが成立するという仮定が含まれる。
 
@@ -123,7 +123,7 @@ ODEは点滴開始・終了時刻に整合した15分刻みの4次Runge–Kutta�
 | AUC 0–42：µg·day/mL | 126 | 125.08 | -0.73 |
 | Cycle 4 AUC：µg·day/mL | 52.9 | 52.70 | -0.38 |
 
-参照値は[製品情報](https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=2ef0cf38-101c-4681-98fe-c05dc9ead443)と[PopPK補足資料Table S2](https://ascpt.onlinelibrary.wiley.com/doi/suppl/10.1111/cts.13825)に基づく。投与間隔末の参照値には、[2025年FDAラベルTable 10](https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/761263s006lbl.pdf)にも記載されている2.6 µg/mLを使用した。
+参照値は[Product information](https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=2ef0cf38-101c-4681-98fe-c05dc9ead443)と[PopPK Supplementary materials Table S2](https://ascpt.onlinelibrary.wiley.com/doi/suppl/10.1111/cts.13825)に基づく。投与間隔末の参照値には、[2025 FDA prescribing information Table 10](https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/761263s006lbl.pdf)にも記載されている2.6 µg/mLを使用した。
 
 AUCと投与間隔末濃度は近かったが、Cycle 1 Cmaxには約−4.0%の差があった。Cmaxは点滴時間にも依存するため、点滴を瞬時投与として扱うことは避けた。
 
@@ -194,7 +194,7 @@ AUCと投与間隔末濃度は近かったが、Cycle 1 Cmaxには約−4.0%の�
 RO(t)=100\frac{C_M(t)}{C_M(t)+K_{D,M}+\frac{K_{D,M}}{K_{D,R}}C_R(t)+\frac{K_{D,M}}{K_{D,G}}C_G(t)}
 \]
 
-ここでMはモスネツズマブ、Rはrituximab（RTX）、Gはobinutuzumab（OBI）である。\(K_{D,M}=10.2\)、\(K_{D,R}=0.675\)、\(K_{D,G}=0.600\) µg/mLとした。RTXとOBIは開始時濃度から、それぞれ半減期24日、28日で減衰させた。開始時濃度を42日間一定に保つ計算ではない。[PopPK補足資料のRO式・実装](https://ascpt.onlinelibrary.wiley.com/doi/suppl/10.1111/cts.13825)
+ここでMはモスネツズマブ、Rはrituximab（RTX）、Gはobinutuzumab（OBI）である。\(K_{D,M}=10.2\)、\(K_{D,R}=0.675\)、\(K_{D,G}=0.600\) µg/mLとした。RTXとOBIは開始時濃度から、それぞれ半減期24日、28日で減衰させた。開始時濃度を42日間一定に保つ計算ではない。[PopPK supplements: RO equations and implementation](https://ascpt.onlinelibrary.wiley.com/doi/suppl/10.1111/cts.13825)
 
 RO式は競合結合に基づくCD20占有の近似である。血中濃度を入力して計算したROを、腫瘍組織内の占有率やT細胞活性化の直接測定と同一視しない。
 
@@ -206,7 +206,7 @@ Study GO29781の再発・難治性非ホジキンリンパ腫に対する段階�
 \operatorname{logit}(p)=-2.64+0.0196\,RO_{max,0-42}
 \]
 
-ROの入力は0–100の**百分率**であり、0–1の割合ではない。また、初回投与の直後の最大ROではなく、**最初の42日間全体の最大RO**である。[E–R補足資料Table S12](https://ascpt.onlinelibrary.wiley.com/doi/suppl/10.1002/cpt.3445)
+ROの入力は0–100の**百分率**であり、0–1の割合ではない。また、初回投与の直後の最大ROではなく、**最初の42日間全体の最大RO**である。[E–R Supplementary materials Table S12](https://ascpt.onlinelibrary.wiley.com/doi/suppl/10.1002/cpt.3445)
 
 Table S12の見出しはGrade 2と記載されているが、論文本文のGrade ≥2という定義に従った。回帰係数のSEは切片0.279、傾き0.00804と公表されているが、両者の共分散がないため、ここではCRS式出力の信頼区間を作っていない。
 
@@ -268,10 +268,10 @@ python run_analysis.py
 
 ## 参考文献・資料
 
-1. Bender B, et al. Population pharmacokinetics and CD20 binding dynamics for mosunetuzumab in relapsed/refractory B-cell non-Hodgkin lymphoma. *Clinical and Translational Science*. 2024;17:e13825. [DOI: 10.1111/cts.13825](https://doi.org/10.1111/cts.13825). [補足資料](https://ascpt.onlinelibrary.wiley.com/doi/suppl/10.1111/cts.13825).
-2. Li CC, et al. A Novel Step-Up Dosage Regimen for Enhancing the Benefit-to-Risk Ratio of Mosunetuzumab in Relapsed or Refractory Follicular Lymphoma. *Clinical Pharmacology & Therapeutics*. 2025;117:465–474（オンライン公開2024年）. [DOI: 10.1002/cpt.3445](https://doi.org/10.1002/cpt.3445). [補足資料](https://ascpt.onlinelibrary.wiley.com/doi/suppl/10.1002/cpt.3445).
+1. Bender B, et al. Population pharmacokinetics and CD20 binding dynamics for mosunetuzumab in relapsed/refractory B-cell non-Hodgkin lymphoma. *Clinical and Translational Science*. 2024;17:e13825. [DOI: 10.1111/cts.13825](https://doi.org/10.1111/cts.13825). [Supplementary materials](https://ascpt.onlinelibrary.wiley.com/doi/suppl/10.1111/cts.13825).
+2. Li CC, et al. A Novel Step-Up Dosage Regimen for Enhancing the Benefit-to-Risk Ratio of Mosunetuzumab in Relapsed or Refractory Follicular Lymphoma. *Clinical Pharmacology & Therapeutics*. 2025;117:465–474 (published online 2024). [DOI: 10.1002/cpt.3445](https://doi.org/10.1002/cpt.3445). [Supplementary materials](https://ascpt.onlinelibrary.wiley.com/doi/suppl/10.1002/cpt.3445).
 3. LUNSUMIO (mosunetuzumab-axgb), intravenous prescribing information. [DailyMed](https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=2ef0cf38-101c-4681-98fe-c05dc9ead443); [FDA 2025 label](https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/761263s006lbl.pdf).
 
-資料確認日：2026年10月2日。解析・執筆：Daiki Kumakura。
+Sources checked: 2026-10-02. Analysis and writing: Daiki Kumakura.
 
 

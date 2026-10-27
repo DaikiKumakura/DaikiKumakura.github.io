@@ -6,7 +6,7 @@ Sevabertinibを20 mgずつ1日2回投与する場合と、40 mgを1日1回投与
 
 ## 比較する問い {#_1}
 
-SevabertinibはHER2変異を持つ非小細胞肺癌を対象とする経口薬で、米国では2026年9月に適応が拡大された。現行の推奨用法は食事とともに20 mgを1日2回である。以下の比較はその変更を勧めるものではない。[FDAの2026年承認情報](https://www.fda.gov/drugs/resources-information-approved-drugs/fda-grants-accelerated-approval-sevabertinib-locally-advanced-or-metastatic-non-squamous-non-small)、[現行USラベル](https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=d7a11334-6e7a-445b-9a16-bdcd9acbe61f)
+SevabertinibはHER2変異を持つ非小細胞肺癌を対象とする経口薬で、米国では2026年9月に適応が拡大された。現行の推奨用法は食事とともに20 mgを1日2回である。以下の比較はその変更を勧めるものではない。[FDA 2026 approval information](https://www.fda.gov/drugs/resources-information-approved-drugs/fda-grants-accelerated-approval-sevabertinib-locally-advanced-or-metastatic-non-squamous-non-small)、[Current US prescribing information](https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=d7a11334-6e7a-445b-9a16-bdcd9acbe61f)
 
 | 項目 | 今回の定義 |
 | --- | --- |
@@ -21,11 +21,11 @@ SevabertinibはHER2変異を持つ非小細胞肺癌を対象とする経口薬�
 
 ## 製剤の違いを先に確認する {#_2}
 
-FDAの心電図評価資料では、20 mg TAB BIDと40 mg LSF QDが近い曝露の群として扱われている。ただし、これは40 mg錠剤を1日1回にしてよいという評価ではない。同じ資料の濃度–QT解析データには40 mg TAB QDも含まれるが、その小集団だけで用法間の臨床的同等性が検証されたわけではない。[FDA Other Reviews、PDF35頁](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/219972Orig1s000OtherR.pdf)
+FDAの心電図評価資料では、20 mg TAB BIDと40 mg LSF QDが近い曝露の群として扱われている。ただし、これは40 mg錠剤を1日1回にしてよいという評価ではない。同じ資料の濃度–QT解析データには40 mg TAB QDも含まれるが、その小集団だけで用法間の臨床的同等性が検証されたわけではない。[FDA Other Reviews / PDF p. 35](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/219972Orig1s000OtherR.pdf)
 
 液剤の相対Fと吸収速度が錠剤と異なるなら、投与回数と製剤を同時に変えた比較には、二つの効果が混ざる。「曝露が近い」と読む場合も、AUC、Cmax、最低濃度のどれを指すのかを確認する必要がある。
 
-そこで、まず報告された製剤間のAUC比を使う。FDA資料の探索的relative bioavailability評価では、錠剤／液剤のAUC0–24の幾何LS平均比は1.5545、90%信頼区間は1.0746–2.2485だった。これは個人別の濃度データではなく、既存解析の集計値である。[FDA多領域審査資料、PDF117–118頁](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/219972Orig1s000MultidisciplineR.pdf)
+そこで、まず報告された製剤間のAUC比を使う。FDA資料の探索的relative bioavailability評価では、錠剤／液剤のAUC0–24の幾何LS平均比は1.5545、90%信頼区間は1.0746–2.2485だった。これは個人別の濃度データではなく、既存解析の集計値である。[FDA multidisciplinary review / PDF117–118 pp.](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/219972Orig1s000MultidisciplineR.pdf)
 
 液剤／錠剤の相対Fを \(r_F\) として、対数比の集計尤度を置く。
 
@@ -43,7 +43,7 @@ y\sim N(-\log r_F,s^2).
 
 ## 公開PopPKをどう計算に使うか {#poppk}
 
-FDA資料には、遅れを持つ吸収と2コンパートメント分布を組み合わせたモデルが記載されている。主解析では、5個の直列吸収区画から中央区画へ流入する形に実装した。元の実行コードの完全な再現ではなく、公表記述と係数を使った再構成である。投与区画を別に数える解釈に対応し、6段の直列吸収も感度分析した。[FDA多領域審査資料、PDF293・300頁](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/219972Orig1s000MultidisciplineR.pdf)
+FDA資料には、遅れを持つ吸収と2コンパートメント分布を組み合わせたモデルが記載されている。主解析では、5個の直列吸収区画から中央区画へ流入する形に実装した。元の実行コードの完全な再現ではなく、公表記述と係数を使った再構成である。投与区画を別に数える解釈に対応し、6段の直列吸収も感度分析した。[FDA multidisciplinary review / PDF293 , 300 pp.](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/219972Orig1s000MultidisciplineR.pdf)
 
 投与時に最初の吸収区画へ \(D F_{rel,i}\) を加える。吸収区画を \(B_1,\ldots,B_m\)、中央・末梢の薬物量を \(A_c,A_p\) とすると、
 
@@ -96,7 +96,7 @@ AUC_{0-24,ss}=\frac{D_{day}F_{rel,i}}{CL_i^*}
 
 なので、20 mg BIDと40 mg QDの24時間AUCが等しいことはモデルの構造から決まる。計算によって初めて見つかる薬理学的な事実ではない。
 
-現行ラベルの20 mg BIDにおけるAUC **6640 ng·h/mLは0–12時間**である。40 mg QDの0–24時間AUCと直接比較すると、評価窓を取り違える。[USラベル12.3節](https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=d7a11334-6e7a-445b-9a16-bdcd9acbe61f)
+現行ラベルの20 mg BIDにおけるAUC **6640 ng·h/mLは0–12時間**である。40 mg QDの0–24時間AUCと直接比較すると、評価窓を取り違える。[US prescribing information 12.3 section](https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=d7a11334-6e7a-445b-9a16-bdcd9acbe61f)
 
 今回の基準個体ではAUC0–12が6472 ng·h/mL、Cmaxが868 ng/mLだった。ラベルの集団幾何平均6640、902に近いが、基準個体と集団平均は異なる量である。Tmaxも主実装では1.25時間で、ラベルの約2時間とは一致しない。
 
@@ -149,7 +149,7 @@ FDA資料には、申請者によるbest tumor response（BTR）のEmax型E–R�
 g(AUC)=\frac{-58.635\ AUC_{0-24,ss}}{4000+AUC_{0-24,ss}}.
 \]
 
-これは既存のD/D1部分集団における探索的な腫瘍径変化とAUCの関係であり、今回推定した関数ではない。同資料でFDAは、ORRについて明確な正のE–Rを認めていない。BTRとORRを同じ結論として扱わない。[FDA多領域審査資料、PDF310・314頁](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/219972Orig1s000MultidisciplineR.pdf)
+これは既存のD/D1部分集団における探索的な腫瘍径変化とAUCの関係であり、今回推定した関数ではない。同資料でFDAは、ORRについて明確な正のE–Rを認めていない。BTRとORRを同じ結論として扱わない。[FDA multidisciplinary review / PDF310 , 314 pp.](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/219972Orig1s000MultidisciplineR.pdf)
 
 ![左に液剤相対Fの集計推定、右に同じAUCでは錠剤QDとBIDの出力が重なるEmax関数を示す。](shared/sevabertinib-dosing-frequency/figures/03-formulation-er.png)
 

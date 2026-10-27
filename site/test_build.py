@@ -270,6 +270,29 @@ class BuildTests(unittest.TestCase):
   p.write_text(json.dumps(site),encoding='utf-8')
   with self.assertRaisesRegex(ValueError,'slug'):build.build(self.root,preview=True)
 
+ def test_language_sitemap_and_live_topic_map(self):
+  p=self.root/'content/site.json';site=build.read_json(p)
+  site['analysis_topics']=[{'label':'Example','slug':'example','description':'Example topic.','articles':['logistic-example','japanese-note']}]
+  p.write_text(json.dumps(site),encoding='utf-8')
+  mp,m=self.meta('logistic-example');m['draft']=False;mp.write_text(json.dumps(m),encoding='utf-8')
+  build.build(self.root)
+  ns={'s':'http://www.sitemaps.org/schemas/sitemap/0.9','x':'http://www.w3.org/1999/xhtml'}
+  rows=ET.fromstring(self.text('sitemap.xml')).findall('s:url',ns)
+  for row in rows:
+   if '/writing/logistic-example' in row.find('s:loc',ns).text:
+    alternatives={a.attrib['hreflang']:a.attrib['href'] for a in row.findall('x:link',ns)}
+    self.assertEqual(set(alternatives),{'ja','en','x-default'})
+    self.assertEqual(alternatives['en'],alternatives['x-default'])
+  page=self.text('writing.html')
+  data=json.loads(re.search(r'id="topic-map-data">(.*?)</script>',page)[1])
+  self.assertEqual(len(data),1)
+  self.assertEqual(len(data[0]['articles']),1)
+  self.assertNotIn('japanese-note',json.dumps(data))
+  original=self.text('writing/logistic-example.html');translated=self.text('writing/logistic-example-en.html')
+  schema=lambda html:json.loads(re.search(r'application/ld\+json">(.*?)</script>',html)[1])
+  self.assertIn('workTranslation',schema(original));self.assertNotIn('translationOfWork',schema(original))
+  self.assertIn('translationOfWork',schema(translated));self.assertNotIn('workTranslation',schema(translated))
+
  def test_software_pages(self):
   build.build(self.root)
   site=build.read_json(self.root/'content/site.json')

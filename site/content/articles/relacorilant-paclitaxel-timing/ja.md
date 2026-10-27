@@ -176,11 +176,11 @@ Relacorilantの公表PopPK係数を使うと、同じ総量の間欠投与でも
 
 元論文・補足資料・審査資料の図や患者データは配布物に含めず、入力係数、計算コード、独自図表、出典とファイルハッシュを収録する。
 
-1. FDA. [Relacorilant with nab-paclitaxel approval, 25 March 2026](https://www.fda.gov/drugs/resources-information-approved-drugs/fda-approves-relacorilant-nab-paclitaxel-platinum-resistant-epithelial-ovarian-fallopian-tube-or). 現行レジメンと適応の確認。
-2. ROSELLA investigators. [Relacorilant plus nab-paclitaxel versus nab-paclitaxel in platinum-resistant ovarian cancer](https://pubmed.ncbi.nlm.nih.gov/40473448/). *Lancet*. 2025. DOI:10.1016/S0140-6736(25)01040-2. [最終OS解析](https://pubmed.ncbi.nlm.nih.gov/41974149/), 2026. 臨床的位置づけとして参照し、本解析のPD係数には使用しない。
-3. Colombo N, et al. [Relacorilant + Nab-Paclitaxel: randomized three-arm phase II study](https://pmc.ncbi.nlm.nih.gov/articles/PMC10602497/). *J Clin Oncol*. 2023. DOI:10.1200/JCO.22.02624. [補足資料PDF](https://scientiasalut.gencat.cat/bitstream/handle/11351/10535/relacorilant_nab_paclitaxel_patients_recurrent_platinum_resistant_ovarian_cancer_a_three_arm_randomized_controlled_oen_label_phase_ii_study_2023_material_suplementari.pdf?isAllowed=y&sequence=2), Table S3, p18。PK集計値の出典。
-4. DailyMed. [LIFYORLI prescribing information](https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=6fcebfb5-19d6-4f63-b852-999d68a13729), March 2026, §§2,12.3。食後投与、親薬物・代謝物PK、相互作用。
-5. FDA. [NDA 220641 multidisciplinary review](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2026/220641Orig1s000MultidisciplineR.pdf), PDF pp280–285、特に283–284（印刷頁282–283）。腫瘍集団のPopPK構造・最終係数・IIV。
+1. FDA. [Relacorilant with nab-paclitaxel approval, 25 March 2026](https://www.fda.gov/drugs/resources-information-approved-drugs/fda-approves-relacorilant-nab-paclitaxel-platinum-resistant-epithelial-ovarian-fallopian-tube-or). Used to check the current regimen and indication.
+2. ROSELLA investigators. [Relacorilant plus nab-paclitaxel versus nab-paclitaxel in platinum-resistant ovarian cancer](https://pubmed.ncbi.nlm.nih.gov/40473448/). *Lancet*. 2025. [doi:10.1016/S0140-6736(25)01040-2](https://doi.org/10.1016/S0140-6736(25)01040-2). [Final OS analysis](https://pubmed.ncbi.nlm.nih.gov/41974149/), 2026. Cited for clinical context, not used for PD coefficients in this analysis.
+3. Colombo N, et al. [Relacorilant + Nab-Paclitaxel: randomized three-arm phase II study](https://pmc.ncbi.nlm.nih.gov/articles/PMC10602497/). *J Clin Oncol*. 2023. [doi:10.1200/JCO.22.02624](https://doi.org/10.1200/JCO.22.02624). [Supplementary materials PDF](https://scientiasalut.gencat.cat/bitstream/handle/11351/10535/relacorilant_nab_paclitaxel_patients_recurrent_platinum_resistant_ovarian_cancer_a_three_arm_randomized_controlled_oen_label_phase_ii_study_2023_material_suplementari.pdf?isAllowed=y&sequence=2), Table S3, p18. Source of aggregate PK values.
+4. DailyMed. [LIFYORLI prescribing information](https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=6fcebfb5-19d6-4f63-b852-999d68a13729), March 2026, §§2,12.3. Fed administration, parent/metabolite PK and interactions.
+5. FDA. [NDA 220641 multidisciplinary review](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2026/220641Orig1s000MultidisciplineR.pdf), PDF pp280–285, especially 283–284 (printed pp. 282–283). Tumor-population PopPK structure, final estimates and IIV.
 
 
 [解析コード・入力値・集計表・再実行手順](shared/relacorilant-paclitaxel-timing/relacorilant-analysis.zip)

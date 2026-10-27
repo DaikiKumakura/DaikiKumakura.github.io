@@ -81,8 +81,8 @@ The companion contains the acquisition and export scripts, the analysis and inde
 ## Sources {#sources}
 
 1. Rondeau V, et al. frailtypack: general frailty models. CRAN package version 3.8.1, datasets `colorectal` and `colorectalLongi`. https://cran.r-project.org/package=frailtypack
-2. Chiou SH, Xu G, Yan J, Huang CY. Regression modeling for recurrent events possibly with an informative terminal event using R package reReg. *J Stat Softw*. 2023;105(5). doi:10.18637/jss.v105.i05 (section 6 uses this FFCD 2000–05 subset)
-3. Ducreux M, et al. Sequential versus combination chemotherapy for the treatment of advanced colorectal cancer (FFCD 2000–05): an open-label, randomised, phase 3 trial. *Lancet Oncol*. 2011;12(11):1032–1044. doi:10.1016/S1470-2045(11)70199-1
+2. Chiou SH, Xu G, Yan J, Huang CY. Regression modeling for recurrent events possibly with an informative terminal event using R package reReg. *J Stat Softw*. 2023;105(5). [doi:10.18637/jss.v105.i05](https://doi.org/10.18637/jss.v105.i05) (section 6 uses this FFCD 2000–05 subset)
+3. Ducreux M, et al. Sequential versus combination chemotherapy for the treatment of advanced colorectal cancer (FFCD 2000–05): an open-label, randomised, phase 3 trial. *Lancet Oncol*. 2011;12(11):1032–1044. [doi:10.1016/S1470-2045(11)70199-1](https://doi.org/10.1016/S1470-2045(11)70199-1)
 4. Pinheiro J, Bates D, R Core Team. nlme: linear and nonlinear mixed effects models. R package version 3.1-168.
 5. Therneau TM. survival: a package for survival analysis in R. R package version 3.8-3.
 

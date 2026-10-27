@@ -21,7 +21,7 @@
 | --- | --- | --- |
 | FDA multidisciplinary review（2024）、Tables 66–67 | 2コンパートメントPK、IIV、固定効果の区間 | 公表されたモデル推定値[2] |
 | PopPK原著（2025） | 420例、8,509検体、モデルと共変量の位置付け | 患者データに基づく原著解析[3] |
-| 曝露反応原著（2025）・FDA Table 71 | Cycle 1 Cavgに対する有効性モデル | 公表された曝露反応推定[2,4] |
+| [Exposure–response paper (2025)](https://pmc.ncbi.nlm.nih.gov/articles/PMC12616239/)・[FDA Table 71](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2024/761344Orig1s000MultidisciplineR.pdf) | Cycle 1 Cavgに対する有効性モデル | 公表された曝露反応推定[2,4] |
 | DeLLphi-301有害事象管理論文、Figure 2 | 133例の期間別CRS人数 | 公表された観察集計[5] |
 | 米国添付文書、Section 12.3、Table 17 | 平均濃度とCV%、投与条件 | モデルに基づく公表集約値[1] |
 
@@ -180,10 +180,10 @@ DeLLphi-301の133例について、Figure 2の期間別集計を用いた[5]。a
 
 ## 参考文献 {#_11}
 
-1. [IMDELLTRA prescribing information, DailyMed, Sections 2・12.3, Table 17](https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1e7b6163-5d83-42ea-82c9-cf7620cdc782)。2026-10-03確認。
-2. [FDA. Tarlatamab multidisciplinary review, 2024](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2024/761344Orig1s000MultidisciplineR.pdf)。Tables 66–67（印刷ページ294–295）、Table 71（310–311）。
-3. [Kong S, et al. Population Pharmacokinetics of Tarlatamab in Patients with Small Cell Lung Cancer. Clin Pharmacokinet. 2025;64:729–741](https://doi.org/10.1007/s40262-025-01499-z)。
-4. [Chen PW, et al. Tarlatamab Exposure–Efficacy and Exposure–Safety Relationships to Inform Dose Selection in Patients with Small Cell Lung Cancer. Clin Cancer Res. 2025;31:4688–4697](https://pmc.ncbi.nlm.nih.gov/articles/PMC12616239/)。
-5. [Practical management of adverse events in patients receiving tarlatamab, a delta-like ligand 3–targeted bispecific T-cell engager immunotherapy, for previously treated small cell lung cancer](https://pmc.ncbi.nlm.nih.gov/articles/PMC11775405/)。Figure 2と投与管理条件。
+1. [IMDELLTRA prescribing information, DailyMed, Sections 2・12.3, Table 17](https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1e7b6163-5d83-42ea-82c9-cf7620cdc782). checked 2026-10-03.
+2. [FDA. Tarlatamab multidisciplinary review, 2024](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2024/761344Orig1s000MultidisciplineR.pdf). Tables 66–67 (printed pp. 294–295) and Table 71 (pp. 310–311).
+3. [Kong S, et al. Population Pharmacokinetics of Tarlatamab in Patients with Small Cell Lung Cancer. Clin Pharmacokinet. 2025;64:729–741](https://doi.org/10.1007/s40262-025-01499-z).
+4. [Chen PW, et al. Tarlatamab Exposure–Efficacy and Exposure–Safety Relationships to Inform Dose Selection in Patients with Small Cell Lung Cancer. Clin Cancer Res. 2025;31:4688–4697](https://pmc.ncbi.nlm.nih.gov/articles/PMC12616239/).
+5. [Practical management of adverse events in patients receiving tarlatamab, a delta-like ligand 3–targeted bispecific T-cell engager immunotherapy, for previously treated small cell lung cancer](https://pmc.ncbi.nlm.nih.gov/articles/PMC11775405/). Figure 2 and administration-management conditions.
 
 <span id="_8"></span>

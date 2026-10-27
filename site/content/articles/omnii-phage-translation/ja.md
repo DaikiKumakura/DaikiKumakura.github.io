@@ -8,15 +8,15 @@ AIが設計したウイルスを、人に投与した。
 
 まず、発表の到達点をそろえておく。一次報告によれば、AI設計ファージの変異体を含むカクテルは、患者から分離された耐性菌を体外試験で除去した。その後、医師主導のcompassionate useの枠組みで患者へ投与された。標準的な治療選択肢が乏しい重篤な患者などを対象に、監督下で未承認の治療を使う仕組みである。
 
-**患者の臨床経過と治療結果は公開されていない。** 体外で菌を除去したことを、患者の感染症が治ったことに置き換えてはいけない。カクテルの結果から、AI設計成分だけの寄与を取り出すこともできない。[Omnii-1の一次報告](https://www.radicalnumerics.ai/blog/omnii-phage)
+**患者の臨床経過と治療結果は公開されていない。** 体外で菌を除去したことを、患者の感染症が治ったことに置き換えてはいけない。カクテルの結果から、AI設計成分だけの寄与を取り出すこともできない。[Omnii-1 primary report](https://www.radicalnumerics.ai/blog/omnii-phage)
 
-「世界初」は発表主体によるAI設計ファージの投与についての主張だ。ファージ療法そのものも、改変したファージを患者へ投与することも、今回が始まりではない。例えば2019年には、薬剤耐性Mycobacterium abscessus感染症に改変ファージを使った症例報告がある。[Dedrickら、Nature Medicine](https://doi.org/10.1038/s41591-019-0437-z)
+「世界初」は発表主体によるAI設計ファージの投与についての主張だ。ファージ療法そのものも、改変したファージを患者へ投与することも、今回が始まりではない。例えば2019年には、薬剤耐性Mycobacterium abscessus感染症に改変ファージを使った症例報告がある。[Dedrick et al. / Nature Medicine](https://doi.org/10.1038/s41591-019-0437-z)
 
 今回の新しさは、治療の全工程をAIで置き換えたことではなく、候補の設計や選別を助けるモデルが、患者への投与につながる開発工程に入ったことだと読む。
 
 ## 「何の菌か」だけでは相手は決まらない {#_2}
 
-ファージは、どんな細菌にも同じように効くわけではない。同じ菌種でも、株によって感受性が異なる。患者から採れた菌に合う候補を探す必要がある。この狭い適合性は、狙った菌を選ぶ利点でもあり、治療候補を準備する難しさでもある。[WHO欧州地域事務局の解説](https://www.who.int/europe/news-room/fact-sheets/item/bacteriophages-and-their-use-in-combating-antimicrobial-resistance)
+ファージは、どんな細菌にも同じように効くわけではない。同じ菌種でも、株によって感受性が異なる。患者から採れた菌に合う候補を探す必要がある。この狭い適合性は、狙った菌を選ぶ利点でもあり、治療候補を準備する難しさでもある。[WHO European Regional Office fact sheet](https://www.who.int/europe/news-room/fact-sheets/item/bacteriophages-and-their-use-in-combating-antimicrobial-resistance)
 
 Omnii-1の公開報告では、設計候補が実験で回収できるかという評価と、特定の菌株で活動性の高い候補を上位に置けるかという評価が分かれている。回収は生存可能性の代理指標であり、患者での薬効ではない。
 
@@ -32,7 +32,7 @@ Omnii-1の公開報告では、設計候補が実験で回収できるかとい�
 
 ## 試験管の活動性と感染部位での曝露は違う {#_3}
 
-通常の薬でも、標的に作用することと、必要な場所へ届くことは別の問題だ。ファージでは、分布や体内からの除去に加え、感受性のある細菌がいる条件での増殖も関わる。免疫系による取り込みや抗体などが体内動態を変え得ることは、2026年9月公開の個別化ファージ療法のコンセンサスでも扱われている。[Nature Medicineのコンセンサス](https://doi.org/10.1038/s41591-026-04654-6)
+通常の薬でも、標的に作用することと、必要な場所へ届くことは別の問題だ。ファージでは、分布や体内からの除去に加え、感受性のある細菌がいる条件での増殖も関わる。免疫系による取り込みや抗体などが体内動態を変え得ることは、2026年9月公開の個別化ファージ療法のコンセンサスでも扱われている。[Nature Medicine consensus](https://doi.org/10.1038/s41591-026-04654-6)
 
 この隔たりを、あえて単純な式で考えてみる。以下は私が作った無次元の説明例だ。Omnii-1の患者にも、特定のファージにも当てはめていない。
 
@@ -70,7 +70,7 @@ E=\int_0^4 a(\tau)\,d\tau
 
 ## 先行試験は血中と感染部位を測っている {#_4}
 
-この問いは、AIの登場を待たずに臨床開発で扱われてきた。2024年に報告されたLBP-EC01のELIMINATE試験の第1部は、ファージ製剤の投与法を検討した非盲検試験で、39人が割り付けられた。主要評価項目は尿と血液でのファージ量だった。[Kimら、ELIMINATE試験](https://pubmed.ncbi.nlm.nih.gov/39134085/)
+この問いは、AIの登場を待たずに臨床開発で扱われてきた。2024年に報告されたLBP-EC01のELIMINATE試験の第1部は、ファージ製剤の投与法を検討した非盲検試験で、39人が割り付けられた。主要評価項目は尿と血液でのファージ量だった。[Kim et al. / ELIMINATE trial](https://pubmed.ncbi.nlm.nih.gov/39134085/)
 
 ここでいう無作為化は投与群間の割付であり、この第1部にはファージを使わない有効性比較群がない。全群で抗菌薬も併用している。規定の条件を満たし、10日目まで評価できた16人では菌量の低下と症状の消失が報告されたが、それをファージ単独の効果としては読めない。
 
@@ -92,7 +92,7 @@ E=\int_0^4 a(\tau)\,d\tau
 
 確認日は2026年10月24日。Omnii-1の主張は10月20日付の公開技術報告を確認日時点の内容で読んだもので、独立した査読済み臨床試験の結果としては扱っていない。原資料の文章・画像・配列は配布物に含めていない。
 
-- Iyengar A, Siranosian B, et al. [Omnii-1のファージ研究報告](https://www.radicalnumerics.ai/blog/omnii-phage), 2026年10月20日。
+- Iyengar A, Siranosian B, et al. [Omnii-1 phage research report](https://www.radicalnumerics.ai/blog/omnii-phage), October 20, 2026.
 - Dedrick RM, et al. [Engineered bacteriophages for treatment of a patient with a disseminated drug-resistant Mycobacterium abscessus](https://doi.org/10.1038/s41591-019-0437-z). Nature Medicine, 2019。
-- Kim P, et al. [ELIMINATE試験第1部](https://pubmed.ncbi.nlm.nih.gov/39134085/). The Lancet Infectious Diseases, 2024。
-- [A consensus-based guideline for personalized bacteriophage therapy](https://doi.org/10.1038/s41591-026-04654-6). Nature Medicine, 2026年9月21日。
+- Kim P, et al. [ELIMINATE trial Part 1](https://pubmed.ncbi.nlm.nih.gov/39134085/). The Lancet Infectious Diseases, 2024。
+- [A consensus-based guideline for personalized bacteriophage therapy](https://doi.org/10.1038/s41591-026-04654-6). Nature Medicine, September 21, 2026.

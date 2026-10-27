@@ -181,9 +181,9 @@ AUC比はほぼ1に集まる一方、最低濃度比は条件により大きく�
 
 ## 参考文献 {#_7}
 
-1. Fernandez-Teruel C, et al. Population Pharmacokinetics of Capivasertib in Patients with Advanced or Metastatic Solid Tumours. *Clinical Pharmacokinetics*. 2024;63:1191–1204. [doi:10.1007/s40262-024-01407-x](https://doi.org/10.1007/s40262-024-01407-x)。[公開本文](https://pmc.ncbi.nlm.nih.gov/articles/PMC11343776/)。
-2. Fernandez Teruel C, et al. Population Pharmacokinetics and Exposure–Response Analyses for Capivasertib in Combination With Fulvestrant in Patients With Breast Cancer. *Clinical and Translational Science*. 2025;18:e70286. [doi:10.1111/cts.70286](https://doi.org/10.1111/cts.70286)。[公開本文・補足資料](https://pmc.ncbi.nlm.nih.gov/articles/PMC12235324/)。
-3. Fernandez-Teruel C, et al. An exposure–safety analysis to support the dosage of the novel AKT inhibitor capivasertib. *Cancer Chemotherapy and Pharmacology*. 2025. [doi:10.1007/s00280-025-04775-8](https://doi.org/10.1007/s00280-025-04775-8)。[公開本文](https://pmc.ncbi.nlm.nih.gov/articles/PMC11953117/)。
+1. Fernandez-Teruel C, et al. Population Pharmacokinetics of Capivasertib in Patients with Advanced or Metastatic Solid Tumours. *Clinical Pharmacokinetics*. 2024;63:1191–1204. [doi:10.1007/s40262-024-01407-x](https://doi.org/10.1007/s40262-024-01407-x). [Open full text](https://pmc.ncbi.nlm.nih.gov/articles/PMC11343776/).
+2. Fernandez Teruel C, et al. Population Pharmacokinetics and Exposure–Response Analyses for Capivasertib in Combination With Fulvestrant in Patients With Breast Cancer. *Clinical and Translational Science*. 2025;18:e70286. [doi:10.1111/cts.70286](https://doi.org/10.1111/cts.70286). [Open full text and supplements](https://pmc.ncbi.nlm.nih.gov/articles/PMC12235324/).
+3. Fernandez-Teruel C, et al. An exposure–safety analysis to support the dosage of the novel AKT inhibitor capivasertib. *Cancer Chemotherapy and Pharmacology*. 2025. [doi:10.1007/s00280-025-04775-8](https://doi.org/10.1007/s00280-025-04775-8). [Open full text](https://pmc.ncbi.nlm.nih.gov/articles/PMC11953117/).
 
 
-[計算コード・数値表・再実行手順](shared/capivasertib-rest-schedule/capivasertib-simulation.zip)
+[Calculation code, numerical tables and reproduction instructions](shared/capivasertib-rest-schedule/capivasertib-simulation.zip)

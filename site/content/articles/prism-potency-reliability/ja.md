@@ -86,9 +86,9 @@ erlotinib–HCC827の約0.01〜0.03 µMには、両screenで遷移が見える�
 
 ## 参考資料 {#_8}
 
-1. Corsello SM et al. Discovering the anticancer potential of non-oncology drugs by systematic viability profiling. *Nature Cancer* 2020;1:235–248. [DOI:10.1038/s43018-019-0018-6](https://doi.org/10.1038/s43018-019-0018-6)。公開資料として[PRISM公式プロジェクトページ](https://depmap.org/repurposing/)を併用。
-2. Broad DepMap et al. [PRISM Repurposing 19Q4 Dataset, version 4](https://figshare.com/articles/dataset/9393293/4)。使用ファイルのREADME・注釈・未集約LFC・公式curve parameters、CC BY 4.0。
-3. Broad Institute. [PRISM secondary screen processing script](https://github.com/broadinstitute/repurposing/blob/master/secondary_processing_script.R)。処理手順の照合に使用。
+1. Corsello SM et al. Discovering the anticancer potential of non-oncology drugs by systematic viability profiling. *Nature Cancer* 2020;1:235–248. [DOI:10.1038/s43018-019-0018-6](https://doi.org/10.1038/s43018-019-0018-6). Also consulted: [Official PRISM project page](https://depmap.org/repurposing/).
+2. Broad DepMap et al. [PRISM Repurposing 19Q4 Dataset, version 4](https://figshare.com/articles/dataset/9393293/4). README, annotations, unaggregated LFC and official curve parameters for the files used; CC BY 4.0.
+3. Broad Institute. [PRISM secondary screen processing script](https://github.com/broadinstitute/repurposing/blob/master/secondary_processing_script.R). Used to check processing procedures.
 
 ## 解析関数と検査コード {#_9}
 

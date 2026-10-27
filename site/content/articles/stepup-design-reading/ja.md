@@ -9,7 +9,7 @@ CD3を介してT細胞を動員する二重特異性抗体は、サイトカイ�
 
 私の読みでは、ステップアップの設計が最適化しているのは薬の濃度だけではない。最初の一歩の濃度、段の数、予防投与を含めた「最初の数回の投与の手順」全体である。曝露反応のモデルで説明できるのは、その一部にとどまる。
 
-読んだのは2本の論文の本文で、どちらもオープンアクセスである。数値は論文の記載の転載である。CRSの重症度は、エプコリタマブの論文では米国移植細胞治療学会（ASTCT）の基準で判定されている。
+読んだのは2本の論文の本文で、どちらもopen accessである。数値は論文の記載の転載である。CRSの重症度は、エプコリタマブの論文では米国移植細胞治療学会（ASTCT）の基準で判定されている。
 
 ## 1. エラナタマブ：最初の一歩の高さ {#1}
 
@@ -71,8 +71,8 @@ CD3を介してT細胞を動員する二重特異性抗体は、サイトカイ�
 
 ## 参考資料 {#_6}
 
-読んだ範囲と転載した数値は [sources.md](shared/stepup-design-reading/sources.md) にまとめた。
+Reading scope and transcribed numbers are documented in [sources.md](shared/stepup-design-reading/sources.md).
 
-1. Elranatamab population pharmacokinetics and exposure–response for cytokine release syndrome in patients with relapsed or refractory multiple myeloma. *Clin Pharmacokinet* 2026. doi:10.1007/s40262-026-01663-z（PMC13461831、オープンアクセス。オッズ比の区間は補足資料Table S2）
-2. Exposure–response analyses to inform the optimal epcoritamab monotherapy dosing regimen in relapsed or refractory follicular lymphoma. *Clin Pharmacokinet* 2026. doi:10.1007/s40262-026-01661-1（PMC13545055、オープンアクセス）
-3. 自分の関連記事：[二重特異性抗体の最初の一歩をどう刻むか：エラナタマブのステップアップ投与とCRSを、公開モデルで比べる](elranatamab-stepup.html)
+1. Elranatamab population pharmacokinetics and exposure–response for cytokine release syndrome in patients with relapsed or refractory multiple myeloma. *Clin Pharmacokinet* 2026. [doi:10.1007/s40262-026-01663-z](https://doi.org/10.1007/s40262-026-01663-z) ([PMC13461831](https://pmc.ncbi.nlm.nih.gov/articles/PMC13461831/), open access; odds-ratio intervals are from supplementary Table S2)
+2. Exposure–response analyses to inform the optimal epcoritamab monotherapy dosing regimen in relapsed or refractory follicular lymphoma. *Clin Pharmacokinet* 2026. [doi:10.1007/s40262-026-01661-1](https://doi.org/10.1007/s40262-026-01661-1) ([PMC13545055](https://pmc.ncbi.nlm.nih.gov/articles/PMC13545055/), open access)
+3. Related articles by the author: [How to take the first step: comparing elranatamab step-up designs and CRS with public models](elranatamab-stepup.html)

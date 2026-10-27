@@ -192,6 +192,8 @@ def render_body(article, lang):
     rendered = parser.convert(body)
     for i, fragment in enumerate(math_fragments):
         rendered = rendered.replace(f'MATHPLACEHOLDER{i}END', '<span class="math">' + fragment + '</span>')
+    from citations import link_numbered_references
+    rendered = link_numbered_references(rendered)
     return rendered, parser.toc
 
 def image_size(path):
@@ -325,7 +327,8 @@ def build(project=BASE, preview=False, strict_translations=False):
     listings=[]
     for a in entries:
         m=a['meta']; language=m['source_language']
-        listings.append(dict(**m['locales'][language],category=m['category'],date=m['date'],draft=m['draft'],lang=language,available='Japanese' if language=='ja' else 'English',href=f"writing/{a['slug']}.html"))
+        versions=[dict(lang=code,href=f"writing/{a['slug']}{'' if code==language else '-'+code}.html") for code in m['locales']]
+        listings.append(dict(**m['locales'][language],category=m['category'],date=m['date'],draft=m['draft'],lang=language,available='Japanese' if language=='ja' else 'English',href=f"writing/{a['slug']}.html",versions=versions))
     # The profile is English: Japanese originals show their English title when one exists.
     def profile_link(a):
         m=a['meta']; english=m.get('english')
@@ -356,7 +359,12 @@ def build(project=BASE, preview=False, strict_translations=False):
         loc=m['locales'][src]; english=m.get('english')
         return dict(title=(english or loc)['title'],summary=(english or loc)['summary'],findings=loc.get('key_findings',[]),href=f"writing/{a['slug']}.html",lang='en' if english else src,findings_lang=src,note='article in Japanese' if src=='ja' else '',date=m['date'],category=m['category'])
     def cite_text(m,title,file):
-        return f"Kumakura, D. ({m['date'][:4]}). {title}. daikikumakura.github.io. {SITE_URL}writing/{file}"
+        english=m['locales'].get('en') or m.get('english')
+        citation_title=english['title'] if english else title
+        language_note=' [Article in Japanese]' if 'en' not in m['locales'] else ''
+        if 'en' in m['locales']:
+            file=file.removesuffix('-ja.html').removesuffix('-en.html').removesuffix('.html')+('' if m['source_language']=='en' else '-en')+'.html'
+        return f"Kumakura, D. ({m['date'][:4]}). {citation_title}{language_note}. daikikumakura.github.io. {SITE_URL}writing/{file}"
     def related(slug, limit=5):
         # Other live articles that share an analysis topic, in topic order.
         seen=[]
@@ -372,7 +380,8 @@ def build(project=BASE, preview=False, strict_translations=False):
         page=page.replace('</head>',f'<link rel="canonical" href="{canonical}">\n</head>')
         outputs[name]=page.encode('utf-8')
     for key,title in NAV.items():
-        page=env.get_template('page.html').render(site=site,lang='en',ui=ui,preview=preview,active=key,root='',alternatives={},title=site['name'] if key=='home' else title,description=site['profile'],math=False,articles=listings,recent=listings[:RECENT_ON_HOME],working_papers=[a for a in listings if a['category']=='paper'],analyses=analyses,hubs=list(hubs.values()),illustration_alt=ILLUSTRATION_ALT[key])
+        topic_map=[dict(label=h['label'],href=h['href'],articles=[dict(title=published[s]['title'],href=published[s]['href'],lang=published[s]['lang']) for s in h['articles']]) for h in hubs.values()]
+        page=env.get_template('page.html').render(site=site,lang='en',ui=ui,preview=preview,active=key,root='',alternatives={},title=site['name'] if key=='home' else title,description=site['profile'],math=False,articles=listings,recent=listings[:RECENT_ON_HOME],working_papers=[a for a in listings if a['category']=='paper'],analyses=analyses,hubs=list(hubs.values()),topic_map=topic_map,illustration_alt=ILLUSTRATION_ALT[key])
         output(key+'.html',page)
         if key=='home':outputs['index.html']=outputs['home.html']
     for a in entries:
@@ -423,7 +432,7 @@ def build(project=BASE, preview=False, strict_translations=False):
     if not preview:
         for old,new in LEGACY_REDIRECTS.items():
             if old in outputs:raise ValueError('Redirect would replace a page: '+old)
-            outputs[old]=env.get_template('redirect.html').render(target=SITE_URL+new).encode('utf-8')
+            outputs[old]=env.get_template('redirect.html').render(target=SITE_URL+new,source=old).encode('utf-8')
     outputs['404.html']=env.get_template('not-found.html').render().encode('utf-8')
     # lastmod only where the date is known: articles (publication or update
     # date) and the pages that list them (newest article). Other pages carry
@@ -444,8 +453,13 @@ def build(project=BASE, preview=False, strict_translations=False):
     def sitemap_url(p):
         tag='<url><loc>'+html.escape(SITE_URL if p=='index.html' else SITE_URL+p)+'</loc>'
         if p in lastmod:tag+='<lastmod>'+lastmod[p]+'</lastmod>'
+        for a in entries:
+            m=a['meta']; files={code:'writing/'+a['slug']+('' if code==m['source_language'] else '-'+code)+'.html' for code in m['locales']}
+            if p not in files.values() or len(files)<2:continue
+            for code,name in files.items():tag+='<xhtml:link rel="alternate" hreflang="'+code+'" href="'+html.escape(SITE_URL+name)+'"/>'
+            if 'en' in files:tag+='<xhtml:link rel="alternate" hreflang="x-default" href="'+html.escape(SITE_URL+files['en'])+'"/>'
         return tag+'</url>'
-    outputs['sitemap.xml']=('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+''.join(sitemap_url(p) for p in canonical_pages if not preview or not p.startswith('writing/'))+'</urlset>').encode('utf-8')
+    outputs['sitemap.xml']=('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">'+''.join(sitemap_url(p) for p in canonical_pages if not preview or not p.startswith('writing/'))+'</urlset>').encode('utf-8')
     if not preview:
         outputs['feed.xml']=atom_feed(site,entries)
     outputs['robots.txt']=('User-agent: *\n'+('Disallow: /\n' if preview else 'Allow: /\nSitemap: '+SITE_URL+'sitemap.xml\nSitemap: '+SITE_URL+'feed.xml\n'+''.join('Sitemap: '+SITE_URL+path+'\n' for path in EXTRA_SITEMAPS))).encode('utf-8')

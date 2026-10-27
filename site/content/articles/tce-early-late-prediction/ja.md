@@ -75,7 +75,7 @@ Yuanらは、5T4×CD3抗体によるT細胞活性化と腫瘍細胞への作用�
 
 ![24・48時間から推定した曲線と72時間の観測値](shared/tce-early-late-prediction/figures/01-early-late-curves.png)
 
-*図1：低濃度・中間濃度・高濃度の例。灰色は推定に使用した観測平均、白抜きは推定に使わない72時間の平均。48時間以降の線は外挿である。上下線は図の±2画素の読取幅であり、原著の変動区間ではない。出典データ：[1] Figure 3。曲線と図は本解析。*
+*図1：低濃度・中間濃度・高濃度の例。灰色は推定に使用した観測平均、白抜きは推定に使わない72時間の平均。48時間以降の線は外挿である。上下線は図の±2画素の読取幅であり、原著の変動区間ではない。出典データ：[original Figure 3](https://doi.org/10.1208/s12248-026-01259-2) [1]。曲線と図は本解析。*
 
 ## まとめた誤差より株ごとの差が大きい {#_2}
 
@@ -146,4 +146,4 @@ MDA-MB-231の遅れモデルのRMSEは約5.1〜9.6 pp、MDA-MB-468では約7.0�
 
 ## 文献 {#_7}
 
-1. Yuan X, Thalhauser C, Afzal N, Kemper K, An G, Li T. An In Vitro Quantitative Systems Pharmacology Platform for Characterizing CD3-Bispecific Antibody-Mediated T-Cell Activation and Tumor Cell Cytotoxicity. *The AAPS Journal*. 2026;28:123. [原著・補足資料](https://link.springer.com/article/10.1208/s12248-026-01259-2) / [DOI:10.1208/s12248-026-01259-2](https://doi.org/10.1208/s12248-026-01259-2)。CC BY 4.0。原著Figure 3の観測平均を数値化し、独自の早期推定・72時間予測・図表を作成した。青い原著モデル曲線はデータとして用いていない。
+1. Yuan X, Thalhauser C, Afzal N, Kemper K, An G, Li T. An In Vitro Quantitative Systems Pharmacology Platform for Characterizing CD3-Bispecific Antibody-Mediated T-Cell Activation and Tumor Cell Cytotoxicity. *The AAPS Journal*. 2026;28:123. [Paper and supplementary materials](https://link.springer.com/article/10.1208/s12248-026-01259-2) / [DOI:10.1208/s12248-026-01259-2](https://doi.org/10.1208/s12248-026-01259-2). CC BY 4.0. Observed means in the original Figure 3 were digitized for original early fitting, 72-hour predictions and figures/tables. Blue original-model curves were not treated as observations.

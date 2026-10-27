@@ -14,7 +14,7 @@ COUは、次の比較PK試験で確かめる条件と測定を絞るための公
 
 ## 使える曲線と使えない情報 {#_2}
 
-PKの入力資料はAACR 2025公開発表資料の8ページである。2026年の新しい臨床成績を、別の時点のPK観測値として混ぜない。[公開資料](https://www.revmed.com/wp-content/uploads/2025/04/AACR-2025-Zoldon-Corporate-Rev.pdf)
+PKの入力資料はAACR 2025公開発表資料の8ページである。2026年の新しい臨床成績を、別の時点のPK観測値として混ぜない。[Public materials](https://www.revmed.com/wp-content/uploads/2025/04/AACR-2025-Zoldon-Corporate-Rev.pdf)
 
 | 資料 | 内容 | 今回の扱い |
 | --- | --- | --- |
@@ -157,8 +157,8 @@ CL_{*,i}=CL_*\exp(\eta_i),\qquad\eta_i\sim N(0,\sigma^2).
 
 ## 出典 {#_8}
 
-1. AACR 2025. Zoldonrasib phase I presentation, page 8, data cutoff 2024-12-02. [公開PDF](https://www.revmed.com/wp-content/uploads/2025/04/AACR-2025-Zoldon-Corporate-Rev.pdf)
-2. AACR 2026 CT021. [更新された臨床成績の抄録](https://aacrjournals.org/cancerres/article/86/8_Supplement/CT021/785173/Abstract-CT021-Preliminary-safety-and-clinical)
+1. AACR 2025. Zoldonrasib phase I presentation, page 8, data cutoff 2024-12-02. [Public PDF](https://www.revmed.com/wp-content/uploads/2025/04/AACR-2025-Zoldon-Corporate-Rev.pdf)
+2. AACR 2026 CT021. [Abstract reporting updated clinical results](https://aacrjournals.org/cancerres/article/86/8_Supplement/CT021/785173/Abstract-CT021-Preliminary-safety-and-clinical)
 3. ClinicalTrials.gov. [NCT06040541](https://clinicaltrials.gov/study/NCT06040541)
 
 

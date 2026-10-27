@@ -8,7 +8,7 @@
 
 Cell Paintingでは細胞内の構造を染め、形や染色の変化から薬剤応答を読む。大量の画像があれば、AIに薬の違いを覚えさせたくなる。ただ、画像には細胞の応答だけでなく、顕微鏡、染色、プレート、実験日の違いも映る。
 
-BatchBenchは、この厄介さを評価の中心に置いた。JUMP Cell Paintingから頻度の高い2,000化合物を選び、ウェルごとに1視野を採用する。入力は5チャンネルの画像。課題は、その細胞に何の化合物が加えられたかを2,000クラスから選ぶことだ。[原著v1](https://arxiv.org/html/2610.30104v1)
+BatchBenchは、この厄介さを評価の中心に置いた。JUMP Cell Paintingから頻度の高い2,000化合物を選び、ウェルごとに1視野を採用する。入力は5チャンネルの画像。課題は、その細胞に何の化合物が加えられたかを2,000クラスから選ぶことだ。([Original paper v1](https://arxiv.org/html/2610.30104v1))
 
 公開側の9施設のうち8施設が訓練、source 2が検証。テストは別の4施設で行う。つまり、同じ施設の画像をランダムに分けて測る正解率とは違う。私は公開ラベル・施設情報を再集計し、訓練81,880画像、検証13,335画像、訓練側2,000クラス、検証側1,877クラスを確認した。検証だけに現れる化合物はなかった。
 
@@ -20,7 +20,7 @@ BatchBenchは、この厄介さを評価の中心に置いた。JUMP Cell Painti
 
 成績は三つの画像群に分かれる。POSCONは8種類の陽性対照薬。多くの訓練画像があり、強い形態変化を示す。TARGETは標的や作用機序を広く含む参照コレクションに由来する画像。RESTはそれ以外の画像だ。
 
-原著Table 1の画像数から比率を計算した。
+[Original paper Table 1](https://arxiv.org/html/2610.30104v1)の画像数から比率を計算した。
 
 | 画像群 | 公開側の画像数 | 公開側の比率 | 非公開テストの比率 |
 | --- | ---: | ---: | ---: |
@@ -32,11 +32,11 @@ BatchBenchは、この厄介さを評価の中心に置いた。JUMP Cell Painti
 
 やや紛らわしい点もあった。公開側の化合物数を群ごとに足すと、8＋293＋1,926で2,000を超える。公開メタデータをラベル単位で調べると、227化合物がTARGETとRESTの両方に現れていた。画像行は別々の群に属するが、群をまたいで同じ化合物が現れる。三群を「重複のない三つの化合物集合」と考えると、集計を間違える。
 
-この照合には、200ピクセル版のCSVと500ピクセル版のNPZ・ラベル配列を使った。画像ID、施設、バッチ、プレート、群、ラベルの行順が一致し、画像IDの重複がないことも確認した。画像本体と非公開テストデータは取得していない。[公開データ](https://huggingface.co/datasets/ai-lab-jku/jumpcp-challenge-datasets)
+この照合には、200ピクセル版のCSVと500ピクセル版のNPZ・ラベル配列を使った。画像ID、施設、バッチ、プレート、群、ラベルの行順が一致し、画像IDの重複がないことも確認した。画像本体と非公開テストデータは取得していない。[Public data](https://huggingface.co/datasets/ai-lab-jku/jumpcp-challenge-datasets)
 
 ## AdaBNの改善を分解する {#adabn}
 
-原著Table 2には、乱数シードを変えた3回の実行の平均と標本標準偏差が載っている。ここでは平均値を使う。単位は正解率の%である。
+[Original paper Table 2](https://arxiv.org/html/2610.30104v1)には、乱数シードを変えた3回の実行の平均と標本標準偏差が載っている。ここでは平均値を使う。単位は正解率の%である。
 
 | 手法 | 総合 | POSCON | TARGET | REST |
 | --- | ---: | ---: | ---: | ---: |
@@ -50,7 +50,7 @@ AdaBNは、適応なしに比べてPOSCONを18.1ポイント改善する。一�
 
 ![画像群ごとの成績とAdaBN改善への寄与](shared/batchbench-score-audit/figures/subgroups-and-gain.png)
 
-図1。左は原著Table 2の平均正解率。配布コードには表の全7手法を収録した。右はAdaBNと適応なしとの差を、非公開テストの画像数比で重み付けしたもの。丸め済みの平均からの記述的な計算であり、改善の有意性を検定した図ではない。
+図1。左は[Original paper Table 2](https://arxiv.org/html/2610.30104v1)の平均正解率。配布コードには表の全7手法を収録した。右はAdaBNと適応なしとの差を、非公開テストの画像数比で重み付けしたもの。丸め済みの平均からの記述的な計算であり、改善の有意性を検定した図ではない。
 
 この分解は、モデルを再学習しなくてもできる。各群の成績を重み付けすると、7手法すべてで総合値と0.043ポイント未満の差に収まった。公表表の丸めと整合する範囲だ。
 
@@ -84,8 +84,8 @@ BatchBenchは、施設をまたぐ評価、群別成績、ラベルを使わな�
 
 [解析コード・入力集計表・結果・図](shared/batchbench-score-audit/batchbench-score-audit.zip)を同梱した。`analysis.py`と`plot.py`で再重み付けと図を再生成できる。`fetch_data.py`と`extract.py`は、リビジョンを固定した公開メタデータを取得し、行対応・施設分割・化合物群の重なりを再確認するためのものだ。元のモデルコードは実行していない。
 
-成績は未査読論文v1のTable 2に固定した。掲載先Spaceの取得時の結果JSONにはexampleのURLを含むサンプル様式の行があり、原著の成績とは対応しなかったため、最新の実測順位として引用していない。ここで示したのは公表値の再集計であり、非公開テストでのモデル再評価ではない。確認日は2026年10月24日。
+成績は[original Table 2 (preprint v1)](https://arxiv.org/html/2610.30104v1)に固定した。掲載先Spaceの取得時の結果JSONにはexampleのURLを含むサンプル様式の行があり、原著の成績とは対応しなかったため、最新の実測順位として引用していない。ここで示したのは公表値の再集計であり、非公開テストでのモデル再評価ではない。確認日は2026年10月24日。
 
-- Topf S, Sanchez-Fernandez A, Klambauer G. [BatchBench: Benchmarking AI Robustness to Batch Effects and Domain Shift in Biomedical Images](https://arxiv.org/abs/2610.30104v1). arXiv, 2026（未査読）。
-- [公式ベースライン実装](https://github.com/ml-jku/batchbench-baselines/tree/df18b76bbf6233a0a8bdb423801c5353e613078f)。
-- [公開データの固定リビジョン](https://huggingface.co/datasets/ai-lab-jku/jumpcp-challenge-datasets/tree/a5c2888d320f57e14d1c7d4dd4374397935ab9a4)。
+- Topf S, Sanchez-Fernandez A, Klambauer G. [BatchBench: Benchmarking AI Robustness to Batch Effects and Domain Shift in Biomedical Images](https://arxiv.org/abs/2610.30104v1). arXiv, 2026. Preprint; not peer-reviewed.
+- [Official baseline implementation](https://github.com/ml-jku/batchbench-baselines/tree/df18b76bbf6233a0a8bdb423801c5353e613078f).
+- [Public dataset: pinned revision](https://huggingface.co/datasets/ai-lab-jku/jumpcp-challenge-datasets/tree/a5c2888d320f57e14d1c7d4dd4374397935ab9a4).

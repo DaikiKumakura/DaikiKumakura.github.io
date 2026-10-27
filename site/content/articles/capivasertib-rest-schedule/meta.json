@@ -12,10 +12,19 @@
       "title": "カピバセルチブの週間投与量を保って休薬の配置を変える",
       "summary": "週間投与量を揃えて休薬配置を比較する。週間AUC・ピーク・最低濃度と、基準濃度によって順位が変わる低濃度時間を計算。PKの差から休薬中の回復や臨床的な優劣までは決まらない。",
       "seo_title": "カピバセルチブの週間投与量を保って休薬の配置を変える"
+    },
+    "en": {
+      "title": "Capivasertib rest-day placement at the same weekly dose: a public PopPK simulation",
+      "summary": "Three equal-dose weekly schedules are compared with an independent implementation of published PK equations. Weekly AUC is nearly unchanged, while minima and cutoff-dependent low-concentration times differ. Conditional sensitivity simulations do not establish clinical equivalence or predict efficacy, toxicity, or recovery.",
+      "seo_title": "Capivasertib rest days at the same weekly dose",
+      "seo_description": "A public PopPK simulation compares equal-dose weekly schedules. Similar AUC conceals different minima and cutoff-dependent low-concentration times."
     }
   },
   "english": {
     "title": "Capivasertib rest-day placement at the same weekly dose: a public PopPK simulation",
     "summary": "Three equal-dose weekly schedules are compared with an independent implementation of published PK equations. Weekly AUC is nearly unchanged, while minima and cutoff-dependent low-concentration times differ. Conditional sensitivity simulations do not establish clinical equivalence or predict efficacy, toxicity, or recovery."
+  },
+  "reviewed": {
+    "en": "6809517bfb89b6c8179cdf9439c963574568ff7c9537c2d7c6ff45ca240e3252"
   }
 }

@@ -56,20 +56,55 @@
         "nimotuzumab-poppk",
         "tarlatamab-summary-pk",
         "tcell-engager-regimen-design",
-        "tcell-engager-decision-framework"
+        "tcell-engager-decision-framework",
+        "amivantamab-iv-sc",
+        "camizestrant-formulation-food",
+        "capivasertib-rest-schedule",
+        "daraxonrasib-dose-fractionation",
+        "dato-dxd-dose-intensity",
+        "fixed-vs-weight-dosing",
+        "gedatolisib-rest-week",
+        "gfh375-dose-fractionation",
+        "inavolisib-renal-dose",
+        "menin-azole-ddi",
+        "olaparib-ddi-transition",
+        "olomorasib-dose-fractionation",
+        "relacorilant-paclitaxel-timing",
+        "repotrectinib-escalation",
+        "rezetecan-weight-policy",
+        "sevabertinib-dosing-frequency",
+        "sunvozertinib-dose-design",
+        "taletrectinib-food",
+        "vepdegestrant-restart",
+        "vopimetostat-daraxonrasib-exposure",
+        "zoldonrasib-qd-bid",
+        "zongertinib-weight-dosing",
+        "er-protac-pkpd"
       ],
       "slug": "population-pk-dosing-interval",
-      "description": "Published population PK models are reconstructed, and summary or individual concentration data are fitted, to compare exposure when the dose, the interval or the step-up schedule changes: the bispecific T-cell engagers mosunetuzumab and tarlatamab, and nimotuzumab. Each note states what public data can and cannot support."
+      "description": "Public population PK and aggregate concentration data used to compare dosing intervals, body-size adjustments, administration routes, food, interactions and interruption or restart. Each analysis states its assumptions and limits."
     },
     {
       "label": "PK/PD and target engagement",
       "articles": [
         "warfarin-pkpd",
         "er-protac-pkpd",
-        "ras-inhibitor-target-coverage"
+        "ras-inhibitor-target-coverage",
+        "6mp-anc-forecast",
+        "daraxonrasib-target",
+        "gemcitabine-infusion",
+        "giredestrant-interval-design",
+        "imlunestrant-tumor-interval",
+        "osimertinib-target-site",
+        "pkpd-pbpk-qsp",
+        "proteome-degrader-toxicity",
+        "tce-affinity-cytokine-window",
+        "tce-antigen-effector-prediction",
+        "tce-early-late-prediction",
+        "tcell-engager-decision-framework"
       ],
       "slug": "pk-pd-target-engagement",
-      "description": "Minimal PK/PD models link concentration to a pharmacodynamic response (warfarin prothrombin complex activity, ER degradation by a PROTAC, RAS-pathway inhibition) and ask how effect delay, target turnover and exposure at the site of action change comparisons of dosing frequency."
+      "description": "Models connecting exposure, target engagement and cellular or biomarker responses: effect delay, turnover, intracellular drug, tissue penetration and T-cell engager assays."
     },
     {
       "label": "Dose selection and benefit–risk",
@@ -77,10 +112,19 @@
         "sotorasib-dose-comparison",
         "b7h3-adc-dose-information",
         "treatment-duration-benefit-risk",
-        "borrowing-prior-dose-selection"
+        "borrowing-prior-dose-selection",
+        "divarasib-dose",
+        "elranatamab-stepup",
+        "furvent-dose-arm",
+        "ivonescimab-dose-evidence",
+        "rentosertib-ph2a",
+        "stepup-design-reading",
+        "telisotuzumab-dose-tradeoff",
+        "trop2-payload-exposure",
+        "tcell-engager-decision-framework"
       ],
       "slug": "dose-selection-benefit-risk",
-      "description": "Dose-comparison and treatment-duration trials read as evidence for choosing a dose: how conclusions change with the weight on benefit and harm, what another comparison would be worth, and how far a prior dose comparison can be borrowed for a new drug."
+      "description": "Dose and treatment-duration comparisons, efficacy–toxicity trade-offs, missing data, uncertainty and the conditional value of additional information."
     },
     {
       "label": "Tumor dynamics and survival",
@@ -88,28 +132,80 @@
         "tumor-dynamics-survival",
         "tumor-kinetics-landmark",
         "tumor-dropout-sensitivity",
-        "psa-early-observation"
+        "psa-early-observation",
+        "cachexia-episode-clock",
+        "organ-lesion-response"
       ],
       "slug": "tumor-dynamics-survival",
-      "description": "Early tumor measurements and PSA kinetics used to predict later outcomes with patients kept apart between training and test data, with attention to dropout, information time and simple benchmarks such as the last observed value."
+      "description": "Longitudinal tumor, lesion, PSA and body-weight measurements: prediction, information time, observation processes and survival."
     },
     {
-      "label": "Immune biomarkers and treatment response",
+      "label": "Cell states and response biomarkers",
       "articles": [
         "on-treatment-immune-change",
-        "immune-outcome-validation"
+        "immune-outcome-validation",
+        "cci-seq-proximity-evidence",
+        "dll3-antigen-coverage",
+        "dll3-ctc-count-precision",
+        "her2-bystander-residual-cells",
+        "holon-spatial-biomarker",
+        "immune-aging-protein-proxy",
+        "iris-signaling-history",
+        "macrophage-program-selection",
+        "menopause-time-deconvolution",
+        "metabolic-state-validation",
+        "rna-protein-perturbation",
+        "sirna-response-selection",
+        "zz-first-repair-function",
+        "virtual-cell-target-evaluation"
       ],
       "slug": "immune-biomarkers-response",
-      "description": "Fixed, low-dimensional immune-expression scores in public checkpoint-inhibitor cohorts: whether they change on treatment, whether they add information about response, and how far predictions transport to another cohort."
+      "description": "Cell states, spatial and molecular measurements, immune biomarkers and treatment response, with attention to measurement validity and independent evaluation."
     },
     {
       "label": "Evaluating AI and virtual-cell claims",
       "articles": [
         "ai-drug-discovery-bottlenecks",
-        "virtual-cell-target-evaluation"
+        "virtual-cell-target-evaluation",
+        "affinity-noise-ceiling",
+        "agent-pkpd-skills",
+        "ai-drug-claim-chain",
+        "ai-enzyme-discovery-evidence",
+        "ai-phase2-sample-size",
+        "alphagenome-target-evidence",
+        "alphaprotein-novo",
+        "aptamer-assay-feedback",
+        "batchbench-score-audit",
+        "beacon2-dose-decomposition",
+        "benchmark-ranking-claims",
+        "biohub-data-design",
+        "boltz2-assay-finetuning",
+        "calibrated-metrics-audit",
+        "carbon-a-candidates",
+        "cellpainting-2d-3d",
+        "combo-perturbation-additivity",
+        "cytovi-batch-conservation",
+        "enchant-half-life",
+        "gems-cell-context-selection",
+        "hidden-mediator-networks",
+        "kaist-reversion-attractor",
+        "labcompass-inverse-design",
+        "map-unprofiled-drugs",
+        "model-data-information",
+        "omnii-phage-translation",
+        "oncologybench-decision-integration",
+        "optimal-transport-cell-distributions",
+        "perturbation-reproducibility-bound",
+        "perturbenergy-representation",
+        "pie-deg-prioritization",
+        "pmx-ai-agents-landscape",
+        "prediction-vs-mechanism",
+        "prism-potency-reliability",
+        "subcellpert-spatial-response",
+        "holon-spatial-biomarker"
       ],
       "slug": "ai-drug-discovery-evidence",
-      "description": "Essays (in Japanese) on which parts of AI drug-discovery and virtual-cell claims rest on measured evidence: separating experimental throughput, published results and clinical transition, and what evaluation metrics reward."
+      "description": "AI drug discovery, virtual cells, foundation models, genetic perturbation and research agents examined through public evidence, reproducible calculations and evaluation design."
     }
   ],
   "thesis": {

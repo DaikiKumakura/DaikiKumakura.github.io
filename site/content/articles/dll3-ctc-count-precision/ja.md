@@ -173,10 +173,10 @@ python -m unittest discover -s tests -v
 
 ## 参考文献 {#_10}
 
-1. Mishra A, et al. [Circulating Tumor Cells Predict Response to the DLL3-Targeting Bispecific Antibody Tarlatamab](https://doi.org/10.1158/2159-8290.CD-25-1483). Cancer Discovery. 2026;16:911–930. 原著本文・Methods・Figures 3/5/6を参照。[公開全文](https://pmc.ncbi.nlm.nih.gov/articles/PMC13067943/)。
-2. Mishra A, et al. [Supplementary Table S3](https://doi.org/10.1158/2159-8290.32728723). AACR Figshare. CC BY. 2026-10-25取得。入力CSVは同表からの転記。
+1. Mishra A, et al. [Circulating Tumor Cells Predict Response to the DLL3-Targeting Bispecific Antibody Tarlatamab](https://doi.org/10.1158/2159-8290.CD-25-1483). Cancer Discovery. 2026;16:911–930. See the main text, Methods and Figures 3/5/6.[Open full text](https://pmc.ncbi.nlm.nih.gov/articles/PMC13067943/).
+2. Mishra A, et al. [Supplementary Table S3](https://doi.org/10.1158/2159-8290.32728723). AACR Figshare. CC BY. accessed 2026-10-25. The input CSV was transcribed from this table.
 3. Clopper CJ, Pearson ES. [The Use of Confidence or Fiducial Limits Illustrated in the Case of the Binomial](https://doi.org/10.1093/biomet/26.4.404). Biometrika. 1934;26:404–413.
-4. Zhang B, et al. [DLL3 expression predicts response and long-term outcome in small cell lung cancer patients treated with tarlatamab](https://doi.org/10.64898/2026.09.03.749238). bioRxiv. 2026-09-07. 査読前プレプリント。[PubMed登録](https://pubmed.ncbi.nlm.nih.gov/42818314/)。
+4. Zhang B, et al. [DLL3 expression predicts response and long-term outcome in small cell lung cancer patients treated with tarlatamab](https://doi.org/10.64898/2026.09.03.749238). bioRxiv. 2026-09-07. non-peer-reviewed preprint. [PubMed record](https://pubmed.ncbi.nlm.nih.gov/42818314/).
 
 [1]: https://doi.org/10.1158/2159-8290.CD-25-1483
 [2]: https://doi.org/10.1158/2159-8290.32728723

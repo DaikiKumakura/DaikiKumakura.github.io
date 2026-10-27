@@ -12,10 +12,19 @@
       "title": "測定していない薬の細胞応答をAIはどう予測するのか",
       "summary": "MAPの未測定薬剤予測を、残した知識と未知にした情報から読む。公開された16薬剤の評価値を再集計し、平均相関の改善、候補ごとのばらつき、知識学習の段階差と次の検証条件を整理する。",
       "seo_title": "測定していない薬の細胞応答をAIはどう予測するのか"
+    },
+    "en": {
+      "title": "How can AI predict cellular responses to drugs that have not been profiled?",
+      "summary": "A descriptive audit of published MAP scores for 16 held-out drugs and four knowledge-pretraining stages, distinguishing unprofiled compounds from unseen structural or mechanistic groups. No model training or inference was performed.",
+      "seo_title": "MAP drug response predictions for unprofiled compounds",
+      "seo_description": "A reanalysis of released MAP predictions examines drug response accuracy, context coverage and what knowledge-informed gains establish."
     }
   },
   "english": {
     "title": "How can AI predict cellular responses to drugs that have not been profiled?",
     "summary": "A descriptive audit of published MAP scores for 16 held-out drugs and four knowledge-pretraining stages, distinguishing unprofiled compounds from unseen structural or mechanistic groups. No model training or inference was performed."
+  },
+  "reviewed": {
+    "en": "207674f6c0e79feb92940d88235bfeffe110ac3c8f580df2af05394059b20b78"
   }
 }

@@ -2,17 +2,17 @@
 
 私はここで、いったん出力まで戻って確認したくなる。名前を区別する情報と、どの遺伝子がどれだけ変わるかを決める情報は、どこまで重なっているのだろう。
 
-2026年10月13日公開のプレプリント、PerturbEnergyは、摂動に対応する潜在表現を明示的に作ろうとする手法だ。本稿ではv1を読む。査読済み論文としては扱わない。[原著](https://arxiv.org/abs/2610.18456)
+2026年10月13日公開のプレプリント、PerturbEnergyは、摂動に対応する潜在表現を明示的に作ろうとする手法だ。本稿ではv1を読む。査読済み論文としては扱わない。([Original paper](https://arxiv.org/abs/2610.18456))
 
 ## エネルギーは細胞の熱力学ではない {#_1}
 
-PerturbEnergyは、基底状態の表現と摂動に関係する表現を分け、後者の事前分布を条件付きエネルギー関数で変える。与えた摂動と相性のよい潜在表現へ、確率を寄せる仕組みである。[原著Eq. 4](https://arxiv.org/html/2610.18456v1#S3.SS2)
+PerturbEnergyは、基底状態の表現と摂動に関係する表現を分け、後者の事前分布を条件付きエネルギー関数で変える。与えた摂動と相性のよい潜在表現へ、確率を寄せる仕組みである。([Original paper Eq. 4](https://arxiv.org/html/2610.18456v1#S3.SS2))
 
 ここでいうエネルギーは、神経ネットワークが出すスコアだ。細胞の自由エネルギーを測った値でも、薬剤と標的の結合自由エネルギーでもない。「低いから生物学的に安定」という解釈はしない。
 
 この仕組みには、なるほどと思うところがある。細胞種や培養条件の違いが大きければ、摂動の効果は潜在空間の中で目立たなくなる。デコーダーを大きくするだけでなく、使ってほしい情報が表現に残るようにする。モデルの容量を増やす方向とは別の工夫だ。
 
-ただし、ここで入力を確かめておきたい。公開実装の `PertEncoder` は基底状態に摂動の埋め込みを加えて表現を作る。したがって、その表現から摂動ラベルを読み戻せたことだけでは、観測された生物応答を再現した証拠としては足りない。摂動ラベルを入力すること自体は、条件付き応答予測では当然の設計である。問題は、何を評価した数字か、ということだ。[確認した実装](https://github.com/BlueWhaleLab/PerturbEnergy/blob/0d0e32e80f0aecb43a439b5ad92bb8e167f73865/perturbenergy/models/encoders.py)
+ただし、ここで入力を確かめておきたい。公開実装の `PertEncoder` は基底状態に摂動の埋め込みを加えて表現を作る。したがって、その表現から摂動ラベルを読み戻せたことだけでは、観測された生物応答を再現した証拠としては足りない。摂動ラベルを入力すること自体は、条件付き応答予測では当然の設計である。問題は、何を評価した数字か、ということだ。[Checked implementation](https://github.com/BlueWhaleLab/PerturbEnergy/blob/0d0e32e80f0aecb43a439b5ad92bb8e167f73865/perturbenergy/models/encoders.py)
 
 ## 同じ識別率で応答誤差は逆に動かせる {#_2}
 
@@ -69,13 +69,13 @@ $$
 
 ## 83.2%は何の改善か {#832}
 
-原著Table 3のReplogleでは、潜在表現からの摂動ラベル識別率がPerturbedVAEの28.6%に対し、PerturbEnergy-Misでは52.4%だった。これを相対変化で計算すると
+[Original paper Table 3](https://arxiv.org/html/2610.18456v1)のReplogleでは、潜在表現からの摂動ラベル識別率がPerturbedVAEの28.6%に対し、PerturbEnergy-Misでは52.4%だった。これを相対変化で計算すると
 
 $$
 100\times\frac{52.4-28.6}{28.6}=83.2\%
 $$
 
-となる。差そのものは23.8パーセントポイントである。[原著Table 3](https://arxiv.org/html/2610.18456v1#S4.T3)
+となる。差そのものは23.8パーセントポイントである。([Original paper Table 3](https://arxiv.org/html/2610.18456v1#S4.T3))
 
 83.2%という数字を、遺伝子発現の予測誤差の減少率や、新薬候補の成功率として読むことはできない。
 
@@ -88,7 +88,7 @@ $$
 | Tahoe100M | 0.3293（stVAE） | 0.3114 | 0.3123 |
 | Norman2019 | 0.1248（PerturbDiff） | 0.1434 | 0.1376 |
 
-この表の範囲では、既存手法の最小値に対し、ReplogleのMisは12.1%、PBMCのLangは12.6%、Tahoe100MのLangは5.4%、RMSEが小さい。一方、Norman2019のMisは10.3%大きい。データセットごとのよい方を示しているので、単一の変種がすべてで最適だと読むものでもない。[元のTable 2](https://arxiv.org/html/2610.18456v1#S4.T2)
+この表の範囲では、既存手法の最小値に対し、ReplogleのMisは12.1%、PBMCのLangは12.6%、Tahoe100MのLangは5.4%、RMSEが小さい。一方、Norman2019のMisは10.3%大きい。データセットごとのよい方を示しているので、単一の変種がすべてで最適だと読むものでもない。[Original Table 2](https://arxiv.org/html/2610.18456v1#S4.T2)
 
 元表の平均値を再計算した結果であり、私がモデルを学習し直した結果ではない。元表にはグループ間の標準誤差もあるが、条件ごとの対応した誤差を持たないので、ここから手法間の有意差検定や差の信頼区間は作っていない。
 
@@ -98,7 +98,7 @@ $$
 
 もう一つ、創薬で使う場面を考えるときに外せないのがデータの分割だ。
 
-原著Appendix A.3.1では、Replogle、PBMC、Tahoe100Mについて、評価用の細胞系・ドナーから摂動の30%を学習側へ戻す。摂動ラベルは学習のどこかで観測され、残る条件への適応を調べる設計である。Norman2019は、個々の遺伝子を既知とし、組合せを未観測にする設定だ。[分割条件](https://arxiv.org/html/2610.18456v1#A1.SS3.SSS1)
+原著Appendix A.3.1では、Replogle、PBMC、Tahoe100Mについて、評価用の細胞系・ドナーから摂動の30%を学習側へ戻す。摂動ラベルは学習のどこかで観測され、残る条件への適応を調べる設計である。Norman2019は、個々の遺伝子を既知とし、組合せを未観測にする設定だ。[Split conditions](https://arxiv.org/html/2610.18456v1#A1.SS3.SSS1)
 
 したがって、この比較をそのまま「まだ測っていない新規化合物の応答を当てた」と言い換えない方がよい。既知薬剤を別の細胞背景へ持っていく場面と、新しい化合物へ外挿する場面では、予測時に渡せる情報が違う。
 
@@ -114,8 +114,8 @@ $$
 
 ## 計算を追うためのファイル {#_5}
 
-[計算コードと入力数値](shared/perturbenergy-representation/perturbenergy-representation.zip)には、原著Table 2から抽出した上位50 DEGのRMSEと標準誤差、比較の再計算、一次元例の解析式・描画・検証テストをまとめた。原著の本文、図、学習済みモデルや細胞データは含めていない。
+[計算コードと入力数値](shared/perturbenergy-representation/perturbenergy-representation.zip)には、[Original paper Table 2](https://arxiv.org/html/2610.18456v1)から抽出した上位50 DEGのRMSEと標準誤差、比較の再計算、一次元例の解析式・描画・検証テストをまとめた。原著の本文、図、学習済みモデルや細胞データは含めていない。
 
 一次元例は数値積分で平均・分散を照合し、乱数による識別率とも比較した。実際のPerturbEnergyの再現実験とは分けている。実行条件と限界は同梱のREPRODUCE.mdを参照。
 
-原著：Yan Y, Bian Y. *Learning Perturbation-Specific Representations through Conditional Energy Prior for Cellular Response Prediction*. [arXiv:2610.18456v1](https://arxiv.org/abs/2610.18456v1), 2026年10月13日。[公開コード](https://github.com/BlueWhaleLab/PerturbEnergy)。コードの確認版は `0d0e32e80f0aecb43a439b5ad92bb8e167f73865`。
+原著：Yan Y, Bian Y. *Learning Perturbation-Specific Representations through Conditional Energy Prior for Cellular Response Prediction*. [arXiv:2610.18456v1](https://arxiv.org/abs/2610.18456v1), 2026年10月13日。[Public code](https://github.com/BlueWhaleLab/PerturbEnergy)。コードの確認版は `0d0e32e80f0aecb43a439b5ad92bb8e167f73865`。

@@ -6,7 +6,7 @@
 
 **観測されない媒介変数は、因果ネットワークから消えてくれない。** 消えるのはデータ表の列であって、その変数を通じた作用ではない。そして、その作用を表すパラメータの一部は、残った列からは決められなくなる。
 
-Eric Kernfeldは、[生物学的ネットワーク推論での未観測層](https://ekernf01.github.io/GRN_missing/)について、RNAだけを測ると、タンパク質、その修飾、複合体、ホルモン、クロマチン状態といった調節の層が抜け落ちる問題を指摘している。本記事では、この問題を、時系列の数理、微生物の化学物質を介した相互作用、single-cellの遺伝子調節ネットワーク、創薬の機序評価へつなげて考える。予測と機序推論の区別そのものは、[前の記事](prediction-vs-mechanism.html)で扱った。本記事はその続きとして、「測っていない変数」が何を決められなくするかに焦点を当てる。
+Eric Kernfeldは、[Unobserved layers in biological network inference](https://ekernf01.github.io/GRN_missing/)について、RNAだけを測ると、タンパク質、その修飾、複合体、ホルモン、クロマチン状態といった調節の層が抜け落ちる問題を指摘している。本記事では、この問題を、時系列の数理、微生物の化学物質を介した相互作用、single-cellの遺伝子調節ネットワーク、創薬の機序評価へつなげて考える。予測と機序推論の区別そのものは、[前の記事](prediction-vs-mechanism.html)で扱った。本記事はその続きとして、「測っていない変数」が何を決められなくするかに焦点を当てる。
 
 ## 1. 直接効果・間接効果・交絡 {#1}
 
@@ -181,7 +181,7 @@ python mediator_demo.py
 
 ## 参考文献 {#_2}
 
-1. Kernfeld E. Coping with missing data in biological network modeling. Blog (2020). [原文](https://ekernf01.github.io/GRN_missing/)
+1. Kernfeld E. Coping with missing data in biological network modeling. Blog (2020). [Original post](https://ekernf01.github.io/GRN_missing/)
 2. Runge J, et al. Inferring causation from time series in Earth system sciences. *Nature Communications* 10, 2553 (2019). [doi:10.1038/s41467-019-10105-3](https://doi.org/10.1038/s41467-019-10105-3)
 3. Sheiner LB, Stanski DR, Vozeh S, Miller RD, Ham J. Simultaneous modeling of pharmacokinetics and pharmacodynamics: application to d-tubocurarine. *Clinical Pharmacology & Therapeutics* 25, 358–371 (1979). [doi:10.1002/cpt1979253358](https://doi.org/10.1002/cpt1979253358)
 4. Dayneka NL, Garg V, Jusko WJ. Comparison of four basic models of indirect pharmacodynamic responses. *Journal of Pharmacokinetics and Biopharmaceutics* 21, 457–478 (1993). [doi:10.1007/BF01061691](https://doi.org/10.1007/BF01061691)

@@ -102,6 +102,6 @@ python phase2_numbers.py
 ## 参考文献 {#_4}
 
 1. Jayatunga MKP, Ayers M, Bruens L, Jayanth D, Meier C. How successful are AI-discovered drugs in clinical trials? A first analysis and emerging lessons. *Drug Discovery Today*. 2024;29(6):104009. [10.1016/j.drudis.2024.104009](https://doi.org/10.1016/j.drudis.2024.104009).
-2. GEN. [Recursion Halts Four Pipeline Programs, Sharpening Cancer, Rare Disease Focus](https://www.genengnews.com/topics/artificial-intelligence/recursion-halts-four-pipeline-programs-sharpening-cancer-rare-disease-focus/)（2025年5月5日）. Recursionの2025年第1四半期の発表に基づく報道.
-3. BIO, Informa Pharma Intelligence, QLS Advisors. [Clinical Development Success Rates and Contributing Factors 2011–2020](https://go.bio.org/rs/490-EHZ-999/images/ClinicalDevelopmentSuccessRates2011_2020.pdf)（2021年）.
-4. IQVIA. [IQVIA Institute's Global R&D Trends 2026 report finds credible signal on AI-enabled programs](https://www.iqvia.com/blogs/2026/05/iqvia-institutes-global-r-and-d-trends-2026-report-finds-credible-signal-on-ai-enabled-programs)（2026年5月）.
+2. GEN. [Recursion Halts Four Pipeline Programs, Sharpening Cancer, Rare Disease Focus](https://www.genengnews.com/topics/artificial-intelligence/recursion-halts-four-pipeline-programs-sharpening-cancer-rare-disease-focus/) (2025-05-05). Reporting based on Recursion's Q1 2025 announcement.
+3. BIO, Informa Pharma Intelligence, QLS Advisors. [Clinical Development Success Rates and Contributing Factors 2011–2020](https://go.bio.org/rs/490-EHZ-999/images/ClinicalDevelopmentSuccessRates2011_2020.pdf) (2021).
+4. IQVIA. [IQVIA Institute's Global R&D Trends 2026 report finds credible signal on AI-enabled programs](https://www.iqvia.com/blogs/2026/05/iqvia-institutes-global-r-and-d-trends-2026-report-finds-credible-signal-on-ai-enabled-programs) (2026-05).

@@ -2,7 +2,7 @@
 
 経口の選択的エストロゲン受容体分解薬（SERD）であるimlunestrantには、血漿PopPK、ヒト腫瘍中濃度、術前生検の薬力学データが公開されている。それらを照合し、同じ1日平均量を分割・隔日投与する計算を行った。**血漿で起きる変化は計算できる一方、腫瘍への集積の報告だけでは、隔日投与の作用維持を予測できなかった。**
 
-文献確認日は2026年10月20日。米国では2025年に特定のESR1変異を持つ進行・転移乳がんに単剤で承認され、2026年にはabemaciclibとの併用も承認された。以下は承認された400 mg 1日1回を比較の基準に置く公開情報の解析であり、実際の投与変更を提案するものではない。[FDA単剤承認](https://www.fda.gov/drugs/resources-information-approved-drugs/fda-approves-imlunestrant-er-positive-her2-negative-esr1-mutated-advanced-or-metastatic-breast)、[2026年の添付文書](https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/218881s001lbl.pdf)
+文献確認日は2026年10月20日。米国では2025年に特定のESR1変異を持つ進行・転移乳がんに単剤で承認され、2026年にはabemaciclibとの併用も承認された。以下は承認された400 mg 1日1回を比較の基準に置く公開情報の解析であり、実際の投与変更を提案するものではない。[FDA monotherapy approval](https://www.fda.gov/drugs/resources-information-approved-drugs/fda-approves-imlunestrant-er-positive-her2-negative-esr1-mutated-advanced-or-metastatic-breast)、[2026 prescribing information](https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/218881s001lbl.pdf)
 
 ## 問いと用途 {#_1}
 
@@ -18,7 +18,7 @@
 | EMBER-2術前試験 | 腫瘍／血漿の比較、生検前後のER・PR・Ki-67 | 投与中断後のヒト腫瘍濃度・ER回復曲線 |
 | 前臨床の機序研究 | 動物での腫瘍曝露・作用の時間経過 | 人の腫瘍からの消失速度や隔日投与の薬効 |
 
-以下では、実測集計値から行った小さな推定、公表PopPKの再構成、未同定の時間定数を置いた感度解析を分ける。[FDA審査資料Table 19.2](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/218881Orig1s000MultidisciplineR.pdf)、[EMA審査資料](https://www.ema.europa.eu/en/documents/assessment-report/inluriyo-epar-public-assessment-report_en.pdf)
+以下では、実測集計値から行った小さな推定、公表PopPKの再構成、未同定の時間定数を置いた感度解析を分ける。([FDA assessment report Table 19.2](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/218881Orig1s000MultidisciplineR.pdf))、[EMA assessment report](https://www.ema.europa.eu/en/documents/assessment-report/inluriyo-epar-public-assessment-report_en.pdf)
 
 ## 用量と曝露の関係を集計値から推定する {#_3}
 
@@ -104,9 +104,9 @@ AUC_{48}=\frac{48}{\tau}\frac{1000D}{CL/F}.
 
 ## ヒト腫瘍中の「約15倍」は何を意味するか {#15}
 
-EMBER-2では、200–800 mg QDで治療された10例のDay 15腫瘍中濃度が、**同日の投与前血漿濃度と比べて約15倍、範囲5–31倍**と報告されている。[EMBER-2原著](https://pmc.ncbi.nlm.nih.gov/articles/PMC11609621/)
+EMBER-2では、200–800 mg QDで治療された10例のDay 15腫瘍中濃度が、**同日の投与前血漿濃度と比べて約15倍、範囲5–31倍**と報告されている。[EMBER-2 Original paper](https://pmc.ncbi.nlm.nih.gov/articles/PMC11609621/)
 
-ここは注意が必要である。対応する図の腫瘍はµg/kg、血漿はµg/Lで示される。報告された集積の目安であって、非結合濃度の平衡分配係数ではない。腫瘍採取の最終投与後時刻も揃った時系列としては分からず、約15という値から腫瘍消失半減期は推定できない。範囲5–31も信頼区間ではない。[前臨床・トランスレーショナル原著Fig. 3E](https://doi.org/10.1158/0008-5472.CAN-24-2608)
+ここは注意が必要である。対応する図の腫瘍はµg/kg、血漿はµg/Lで示される。報告された集積の目安であって、非結合濃度の平衡分配係数ではない。腫瘍採取の最終投与後時刻も揃った時系列としては分からず、約15という値から腫瘍消失半減期は推定できない。範囲5–31も信頼区間ではない。[Preclinical/translational paper Fig. 3E](https://doi.org/10.1158/0008-5472.CAN-24-2608)
 
 術前の生検ではERやKi-67の低下も観察された。
 
@@ -170,7 +170,7 @@ G(T)=\frac{1}{\sqrt{1+(2\pi/(Tk_e))^2}}
 
 ヒトの投与前血漿と手術時腫瘍の測定は、腫瘍への集積を示す情報である。しかし、最終投与後の濃度低下やER回復の速度までは決まらない。総濃度と非結合濃度、ER量と増殖指標も同じ量ではない。
 
-前臨床で最終投与後96時間まで作用が続いたという報告を、ヒトの回復係数へ転用することはしなかった。培養細胞で処理中にER低下が続く結果も、薬剤除去後の回復曲線とは異なる。[前臨床原著](https://doi.org/10.1158/0008-5472.CAN-24-2608)、[独立した機序研究](https://doi.org/10.1172/jci.insight.188051)
+前臨床で最終投与後96時間まで作用が続いたという報告を、ヒトの回復係数へ転用することはしなかった。培養細胞で処理中にER低下が続く結果も、薬剤除去後の回復曲線とは異なる。[Preclinical paper](https://doi.org/10.1158/0008-5472.CAN-24-2608)、[Independent Mechanistic study](https://doi.org/10.1172/jci.insight.188051)
 
 同じ平均量を隔日にまとめたときの血漿のピーク上昇と投与前濃度低下は計算できた。その差が腫瘍内でどれだけ緩衝されるかは公開ヒトデータから決まらず、集積倍率を根拠に隔日投与の作用維持を結論することはできなかった。
 

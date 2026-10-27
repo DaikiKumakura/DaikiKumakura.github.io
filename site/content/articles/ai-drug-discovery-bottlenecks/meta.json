@@ -16,10 +16,19 @@
         "候補の選別とプログラム数の変化によって、総実験数は増える場合も減る場合もある。",
         "候補薬の臨床進展と、AIが臨床成功率を高めたという因果的証拠は区別する。"
       ]
+    },
+    "en": {
+      "title": "Where are the bottlenecks in AI-enabled drug discovery?",
+      "summary": "A Japanese essay reviewing experimental workflows, industry disclosures and clinical progress. It distinguishes experimental throughput from evidence useful for development decisions; revenue growth and individual clinical advances do not establish an AI-driven supply shortage or a causal improvement in clinical success.",
+      "seo_title": "Where AI drug discovery bottlenecks move",
+      "seo_description": "Public research and industry reports separate faster molecular design, experimental demand and evidence for clinical development decisions."
     }
   },
   "english": {
     "title": "Where are the bottlenecks in AI-enabled drug discovery?",
     "summary": "A Japanese essay reviewing experimental workflows, industry disclosures and clinical progress. It distinguishes experimental throughput from evidence useful for development decisions; revenue growth and individual clinical advances do not establish an AI-driven supply shortage or a causal improvement in clinical success."
+  },
+  "reviewed": {
+    "en": "63c0442fddc18463c8a752733094cd65b96f01d77a513d8c609fd620ea810d0e"
   }
 }

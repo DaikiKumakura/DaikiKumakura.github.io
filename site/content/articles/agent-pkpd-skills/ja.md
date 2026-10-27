@@ -116,9 +116,9 @@ turnoverの速度（kout）は4回とも0.050〜0.055 /hで、私の0.0514 /hと
 
 ## 参考文献 {#_4}
 
-1. K-Dense. [Scientific Agent Skills](https://github.com/K-Dense-AI/scientific-agent-skills)（`skills/pkpd-modeling`、コミット a1043ef、2026年10月12日）. MIT License.
-2. Kassis T, Agarwal V, He Y, Patel D, Brueckner AM. Scientific Agent Skills: A Library of Procedural Knowledge for Research Agents. arXiv:2609.00065（2026年）. [10.48550/arXiv.2609.00065](https://doi.org/10.48550/arXiv.2609.00065).
-3. Fidler M, et al. nlmixr2data: Datasets for nlmixr2（`warfarin`）. CRAN, version 2.0.10.
-4. U.S. FDA. Considerations for the Use of Artificial Intelligence to Support Regulatory Decision-Making for Drug and Biological Products. Draft guidance（2025年1月）.
-5. EMA. [Reflection paper on the use of Artificial Intelligence (AI) in the medicinal product lifecycle](https://www.ema.europa.eu/en/news/reflection-paper-use-artificial-intelligence-lifecycle-medicines)（EMA/CHMP/CVMP/83833/2023、2024年）.
-6. ICH. [M15 General principles for model-informed drug development](https://www.ema.europa.eu/en/documents/scientific-guideline/ich-m15-guideline-general-principles-model-informed-drug-development-step-5_en.pdf)（Step 4、2026年1月29日）.
+1. K-Dense. [Scientific Agent Skills](https://github.com/K-Dense-AI/scientific-agent-skills) (`skills/pkpd-modeling`, commit a1043ef, 2026-10-12). MIT License.
+2. Kassis T, Agarwal V, He Y, Patel D, Brueckner AM. Scientific Agent Skills: A Library of Procedural Knowledge for Research Agents. arXiv:2609.00065 (2026). [10.48550/arXiv.2609.00065](https://doi.org/10.48550/arXiv.2609.00065).
+3. Fidler M, et al. nlmixr2data: Datasets for nlmixr2 (`warfarin`). CRAN, version 2.0.10.
+4. U.S. FDA. Considerations for the Use of Artificial Intelligence to Support Regulatory Decision-Making for Drug and Biological Products. Draft guidance (2025-01).
+5. EMA. [Reflection paper on the use of Artificial Intelligence (AI) in the medicinal product lifecycle](https://www.ema.europa.eu/en/news/reflection-paper-use-artificial-intelligence-lifecycle-medicines) (EMA/CHMP/CVMP/83833/2023, 2024).
+6. ICH. [M15 General principles for model-informed drug development](https://www.ema.europa.eu/en/documents/scientific-guideline/ich-m15-guideline-general-principles-model-informed-drug-development-step-5_en.pdf) (Step 4, 2026-01-29).

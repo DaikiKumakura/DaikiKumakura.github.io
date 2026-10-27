@@ -1,4 +1,4 @@
-Daraxonrasib（RMC-6236）は、活性型RASを標的とするRAS(ON) multi-selective inhibitorである。2026年8月の米国承認で、膵癌のRAS阻害は開発段階の話だけではなくなった。承認用量は300 mgを1日1回。ここで考えたいのは、同じ300 mgを150 mgずつ2回に分けたら何が変わるか、という問いである。[FDA承認情報](https://www.fda.gov/drugs/resources-information-approved-drugs/fda-approves-daraxonrasib-metastatic-pancreatic-adenocarcinoma)
+Daraxonrasib（RMC-6236）は、活性型RASを標的とするRAS(ON) multi-selective inhibitorである。2026年8月の米国承認で、膵癌のRAS阻害は開発段階の話だけではなくなった。承認用量は300 mgを1日1回。ここで考えたいのは、同じ300 mgを150 mgずつ2回に分けたら何が変わるか、という問いである。[FDA approval information](https://www.fda.gov/drugs/resources-information-approved-drugs/fda-approves-daraxonrasib-metastatic-pancreatic-adenocarcinoma)
 
 分割すればピークは下がる。しかし、それだけで安全性の改善とは言えない。FDA審査資料では、Grade 3以上の治療下発現有害事象（TEAE）は最低濃度と、Grade 3以上の治療関連有害事象（TRAE）は最高濃度と、それぞれ正の関連を持っていた。分割によってピークと最低濃度が逆方向に動くなら、どちらを見るかで解釈も変わる。
 
@@ -22,7 +22,7 @@ QDは1日1回、BIDは1日2回を指す。BIDと不均等分割は本解析の�
 
 ## 公開資料から何を取り出したか {#_2}
 
-主な出典はFDAのNDA 220910審査資料である。PopPKは720人、8,527点のPK記録に基づく。安全性E–RのPK評価可能集団は膵癌466人で、対象とする集団は同じではない。モデル作成時の投与条件は10–400 mgのQDであり、BIDの直接検証は含まれていない。[FDA審査資料、PopPK節・Table 59・Tables 65–67](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2026/220910Orig1s000MultidisciplineR.pdf)
+主な出典はFDAのNDA 220910審査資料である。PopPKは720人、8,527点のPK記録に基づく。安全性E–RのPK評価可能集団は膵癌466人で、対象とする集団は同じではない。モデル作成時の投与条件は10–400 mgのQDであり、BIDの直接検証は含まれていない。([FDA assessment report / PopPK section , Table 59 , Tables 65–67](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2026/220910Orig1s000MultidisciplineR.pdf))
 
 | 取り出した情報 | 数値・扱い | 出典箇所（PDFページ） |
 | --- | --- | --- |
@@ -77,7 +77,7 @@ C_{avg,ss}=AUC_{24,ss}/24
 
 ## まず絶対曝露のずれを確認する {#_4}
 
-300 mg QDに関連するラベルの集計値を、本実装の定常曝露と並べた。ただしラベル本文ではCmaxの集計時点とAUCの積分区間が明記されていない。公表AUCをAUC24,ssと断定せず、厳密な同一指標の再現試験ではなく整合性の参考にする。[米国添付文書12.3、PDF14ページ](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2026/220910Orig1s000Lbl.pdf)
+300 mg QDに関連するラベルの集計値を、本実装の定常曝露と並べた。ただしラベル本文ではCmaxの集計時点とAUCの積分区間が明記されていない。公表AUCをAUC24,ssと断定せず、厳密な同一指標の再現試験ではなく整合性の参考にする。[US prescribing information 12.3 / PDF14 pages](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2026/220910Orig1s000Lbl.pdf)
 
 | 指標 | 公表幾何平均 | 参照共変量・η=0 | 条件付き4,096人の幾何平均 |
 | --- | ---: | ---: | ---: |
@@ -125,7 +125,7 @@ OR_{TRAE}=\exp\{0.00363(C_{max,alt}-C_{max,300QD})\},
 OR_{modification}=\left(C_{avg,alt}/C_{avg,300QD}\right)^{1.25}.
 \]
 
-最後の指標は、いずれかの投与中断・減量・中止につながる全GradeのTRAEである。TEAEとTRAEは定義が異なり、同じ有害事象を二つの式で独立に説明しているわけではない。オッズ比はリスク比ではなく、1.43を「発生率が43%増える」とは読めない。[FDA審査資料、Tables 65–67](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2026/220910Orig1s000MultidisciplineR.pdf)
+最後の指標は、いずれかの投与中断・減量・中止につながる全GradeのTRAEである。TEAEとTRAEは定義が異なり、同じ有害事象を二つの式で独立に説明しているわけではない。オッズ比はリスク比ではなく、1.43を「発生率が43%増える」とは読めない。([FDA assessment report / Tables 65–67](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2026/220910Orig1s000MultidisciplineR.pdf))
 
 | 条件 | Grade ≥3 TEAEの条件付きOR | Grade ≥3 TRAEの条件付きOR | 投与変更TRAEの条件付きOR |
 | --- | ---: | ---: | ---: |
@@ -165,7 +165,7 @@ OR_{modification}=\left(C_{avg,alt}/C_{avg,300QD}\right)^{1.25}.
 
 同じ1日量を分割すると、ピークは低下し、最低濃度は上昇した。100BIDのように日量も下げる条件では、平均曝露の低下も重なる。これらは異なる曝露変更であり、すべてを「分割の利点」とまとめられない。朝夕の食事や日内変動、服薬負担は今回の計算には含まれていない。
 
-元資料の有効性E–Rで有意な関連が検出されなかったことも、分割や減量で薬効が保たれる証明にはならない。300 mg QD中心の曝露範囲と、比較した仮想条件は異なる。[FDA審査資料の有効性E–R節](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2026/220910Orig1s000MultidisciplineR.pdf)
+元資料の有効性E–Rで有意な関連が検出されなかったことも、分割や減量で薬効が保たれる証明にはならない。300 mg QD中心の曝露範囲と、比較した仮想条件は異なる。([FDA review: efficacy E–R section](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2026/220910Orig1s000MultidisciplineR.pdf))
 
 ピークを下げたという計算結果は得られたが、安全性の改善までは支持されなかった。最低濃度を説明変数とする有害事象では、むしろ反対向きの変化が起こる。
 

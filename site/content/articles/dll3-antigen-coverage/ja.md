@@ -151,10 +151,10 @@ python -m unittest discover -s tests -v
 
 ## 参考文献 {#_9}
 
-1. Mishra A, et al. [Circulating Tumor Cells Predict Response to the DLL3-Targeting Bispecific Antibody Tarlatamab](https://doi.org/10.1158/2159-8290.CD-25-1483). Cancer Discovery. 2026;16:911–930. Figures 7、Supplementary Figures S18–S21、Methodsを参照。
-2. Mishra A, et al. [Supplementary Data S2](https://doi.org/10.1158/2159-8290.32728810). AACR Figshare. CC BY 4.0. Data 2A・2Bと列定義を使用。2026-10-25取得。
-3. Chan JM, et al. [Signatures of plasticity, metastasis, and immunosuppression in an atlas of human small cell lung cancer](https://doi.org/10.1016/j.ccell.2021.09.008). Cancer Cell. 2021;39:1479–1496.e18. コホートCの採取集団の原著。
-4. Lin M, et al. [SCLC_response_to_Tarlatamab](https://github.com/mlin2017/SCLC_response_to_Tarlatamab/tree/c14f343adda1e5c35fc56e8e2b3d9ed2a82e9894). 著者公開解析コード、MIT license。`SCLC_DLL3_scRNA_cohortB.Rmd`・`SCLC_DLL3_scRNA_cohortC.Rmd` の共発現定義とドナーラベルの扱いを参照。2026-10-25確認。
+1. Mishra A, et al. [Circulating Tumor Cells Predict Response to the DLL3-Targeting Bispecific Antibody Tarlatamab](https://doi.org/10.1158/2159-8290.CD-25-1483). Cancer Discovery. 2026;16:911–930. See Figure 7, Supplementary Figures S18–S21 and Methods.
+2. Mishra A, et al. [Supplementary Data S2](https://doi.org/10.1158/2159-8290.32728810). AACR Figshare. CC BY 4.0. Data 2A/2B and column definitions were used.accessed 2026-10-25.
+3. Chan JM, et al. [Signatures of plasticity, metastasis, and immunosuppression in an atlas of human small cell lung cancer](https://doi.org/10.1016/j.ccell.2021.09.008). Cancer Cell. 2021;39:1479–1496.e18. Original report on the population sampled for cohort C.
+4. Lin M, et al. [SCLC_response_to_Tarlatamab](https://github.com/mlin2017/SCLC_response_to_Tarlatamab/tree/c14f343adda1e5c35fc56e8e2b3d9ed2a82e9894). Author-released analysis code, MIT license. `SCLC_DLL3_scRNA_cohortB.Rmd`・`SCLC_DLL3_scRNA_cohortC.Rmd` were consulted for co-expression definitions and donor-label handling.checked 2026-10-25.
 
 [1]: https://doi.org/10.1158/2159-8290.CD-25-1483
 [2]: https://doi.org/10.1158/2159-8290.32728810

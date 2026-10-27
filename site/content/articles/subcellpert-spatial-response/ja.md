@@ -2,13 +2,13 @@ RNAを何分子持っているかが同じでも、それが細胞の中のど�
 
 仮想摂動のモデルが量の予測から配置の予測へ進むなら、何をもって「当たった」とするのかも変わる。重心まで合えばよいだろうか。広がりも合わせれば十分だろうか。
 
-2026年10月17日公開のSubcellPertは、RNAの細胞内配置を評価するベンチマークだ。本稿ではプレプリントv1と公開コードを読み、公開されたアストロサイトのRNA座標を使って、量・重心・分散を合わせたときに何がまだ残るかを調べた。[原著](https://doi.org/10.64898/2026.10.11.758305)、[コード](https://github.com/king159/SubcellPert)
+2026年10月17日公開のSubcellPertは、RNAの細胞内配置を評価するベンチマークだ。本稿ではプレプリントv1と公開コードを読み、公開されたアストロサイトのRNA座標を使って、量・重心・分散を合わせたときに何がまだ残るかを調べた。([Original paper](https://doi.org/10.64898/2026.10.11.758305))、[Code](https://github.com/king159/SubcellPert)
 
 ## 細胞の地図を発現量の表へ潰さない {#_1}
 
 SubcellPertの予測対象は、遺伝子名の付いたRNA分子の二次元座標である。14の成像データセットを集め、細胞背景や介入条件を変えた際の応答を評価する。単に組織中の細胞の並びを予測する話ではなく、一つの細胞の内側へ測定単位が進んでいる。
 
-ただし、画像がそのまま入力されるわけではない。RNA座標は、各細胞の全RNAの重心を原点に移し、RMS半径で割って規格化される。したがって、この座標で見ているのは相対的な配置だ。細胞の絶対的な大きさ、核膜からの距離、三次元の高さまで再現したとはいえない。[原著Section 3、Appendix A.2](https://www.biorxiv.org/content/10.64898/2026.10.11.758305v1)
+ただし、画像がそのまま入力されるわけではない。RNA座標は、各細胞の全RNAの重心を原点に移し、RMS半径で割って規格化される。したがって、この座標で見ているのは相対的な配置だ。細胞の絶対的な大きさ、核膜からの距離、三次元の高さまで再現したとはいえない。([Original paper Section 3 / Appendix A.2](https://www.biorxiv.org/content/10.64898/2026.10.11.758305v1))
 
 原点から遠いRNAを、そのまま「細胞質にある」と呼ぶのも避けたい。原点は核の中心ではなく、全RNAの重心である。核内・核外を論じるなら、核や細胞の境界を別に測った情報が要る。
 
@@ -25,7 +25,7 @@ SubcellPertの予測対象は、遺伝子名の付いたRNA分子の二次元座
 
 Oracleでは数が合っていることが出発点で、量の予測精度を示す試験ではない。また二つは独立に学習されるため、OracleのスコアをJointの厳密な性能上限とみなすこともできない。
 
-原著では、単純な再標本化、古典的な輸送法、凍結した基盤モデルに予測ヘッドを付ける方法を比べている。Gaussian輸送が細胞背景外の11データセット中8つで最小のOracle空間誤差を得た。ただし、これは比較した設定での結果であり、大きなモデルがあらゆる空間課題で不要だと示したものではない。[原著Fig. 4、Section 4.2](https://www.biorxiv.org/content/10.64898/2026.10.11.758305v1)
+原著では、単純な再標本化、古典的な輸送法、凍結した基盤モデルに予測ヘッドを付ける方法を比べている。Gaussian輸送が細胞背景外の11データセット中8つで最小のOracle空間誤差を得た。ただし、これは比較した設定での結果であり、大きなモデルがあらゆる空間課題で不要だと示したものではない。([Original paper Fig. 4 / Section 4.2](https://www.biorxiv.org/content/10.64898/2026.10.11.758305v1))
 
 Gaussian輸送がよかったことから、平均と分散だけを再現すれば配置の問題は片づく、と考えてよいか。ここは実測座標で確かめてみたかった。
 
@@ -88,7 +88,7 @@ $$
 
 量、重心、広がり、半径、方向は、それぞれ別の要約である。一つの数字へまとめる前に、何を失ってよいかを決める必要がある。特定RNAの局在を調べたい実験なら、全体の空間誤差が小さいだけでは、そのRNAの問題が解けたとは限らない。
 
-また、予測から消えた遺伝子の配置を、誤差ゼロとして扱うわけにはいかない。まず予測した遺伝子の被覆率を確かめ、その上で共通の遺伝子集合について配置を比べる。原著の公開コードも、被覆率と共有遺伝子上の空間スコアを分けて読むよう求めている。[評価仕様](https://github.com/king159/SubcellPert#-validation-and-results)
+また、予測から消えた遺伝子の配置を、誤差ゼロとして扱うわけにはいかない。まず予測した遺伝子の被覆率を確かめ、その上で共通の遺伝子集合について配置を比べる。原著の公開コードも、被覆率と共有遺伝子上の空間スコアを分けて読むよう求めている。[Evaluation specification](https://github.com/king159/SubcellPert#-validation-and-results)
 
 ## RNA数と配置の一致は別の性質である {#_5}
 
@@ -104,4 +104,4 @@ SubcellPertが広げたのは空間配置の予測を評価する範囲であり
 
 元データの版、取得ファイルのSHA-256、選択条件は `inputs/provenance.json` に記録した。取得後に同じ診断を作り直す手順と依存関係はREPRODUCE.mdを参照。これは原著608学習実行の再現ではなく、1標本の実測座標を使った独立診断である。
 
-原著：Wang J et al. *SubcellPert: Benchmarking Subcellular Perturbation Prediction*. [bioRxiv v1](https://www.biorxiv.org/content/10.64898/2026.10.11.758305v1), 2026年10月17日公開。[公開データ](https://huggingface.co/datasets/king159/SubcellPert)のPF-Astro再構成版を使用した。測定の出典は原著Appendix C.1と[Perturb-FISHの測定原著（Binan et al., 2025）](https://doi.org/10.1016/j.cell.2025.02.012)を参照。
+原著：Wang J et al. *SubcellPert: Benchmarking Subcellular Perturbation Prediction*. [bioRxiv v1](https://www.biorxiv.org/content/10.64898/2026.10.11.758305v1), 2026年10月17日公開。[Public data](https://huggingface.co/datasets/king159/SubcellPert)のPF-Astro再構成版を使用した。測定の出典は原著Appendix C.1と[Perturb-FISH measurement paper (Binan et al., 2025)](https://doi.org/10.1016/j.cell.2025.02.012)を参照。

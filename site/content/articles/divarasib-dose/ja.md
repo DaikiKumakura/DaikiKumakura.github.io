@@ -107,8 +107,8 @@ $AUC_{\text{ref}}$は400 mgの平均AUCである。$b$が傾きで、0なら曝�
 
 ## 参考資料
 
-1. Sacher A, et al. Single-agent divarasib (GDC-6036) in solid tumors with a KRAS G12C mutation. *N Engl J Med* 2023. doi:10.1056/NEJMoa2303810（本文は未読。数値はOncLiveの報道などによる）
-2. Single-agent divarasib in patients with KRAS G12C-positive non-small cell lung cancer: long-term follow-up of a phase I study. 2025. PMC12527784
-3. Discovery and characterization of divarasib (GDC-6036), a potent covalent inhibitor of KRAS G12C. 2026. PMC12990036
-4. Roche. Krascendo 1のトップライン（2026年7月2日のプレスリリース）と、ESMO 2026での発表の案内（2026年10月19日）
-5. 自分の関連記事：[用量比較試験は用量選択をどこまで支持するか：sotorasib 960 mgと240 mgの群別データから](sotorasib-dose-comparison.html)
+1. Sacher A, et al. Single-agent divarasib (GDC-6036) in solid tumors with a KRAS G12C mutation. *N Engl J Med* 2023. [doi:10.1056/NEJMoa2303810](https://doi.org/10.1056/NEJMoa2303810) (Full text not read; numerical information was obtained from OncLive and other reporting)
+2. Single-agent divarasib in patients with KRAS G12C-positive non-small cell lung cancer: long-term follow-up of a phase I study. 2025. [PMC12527784](https://pmc.ncbi.nlm.nih.gov/articles/PMC12527784/)
+3. Discovery and characterization of divarasib (GDC-6036), a potent covalent inhibitor of KRAS G12C. 2026. [PMC12990036](https://pmc.ncbi.nlm.nih.gov/articles/PMC12990036/)
+4. Roche. Krascendo 1 topline results (2026-07-02 press release) and the ESMO 2026 presentation announcement (2026-10-19)
+5. Related articles by the author: [How far does a dose-comparison trial support dose selection? Arm-level data for sotorasib 960 mg and 240 mg](sotorasib-dose-comparison.html)

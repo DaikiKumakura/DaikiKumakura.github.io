@@ -1,6 +1,6 @@
 「もっと多くの細胞を測れば、細胞への介入を予測できるようになる」。この期待に、測定を始める側から一つ問いを加えたい。増やすのは、同じ条件の細胞数か、独立したドナーか、それともまだ測っていない条件の組合せか。
 
-2026年10月7日、BiohubはVirtual Biology Initiativeの拡張を発表した。DOE・NIHなどとの連携で、介入への細胞応答を予測するモデルの基盤となるデータと測定技術を整備する構想である。共有標準、共通識別子、データへのアクセスも計画に含まれる。[Biohubの一次発表](https://biohub.org/news/virtual-biology-initiative-expansion/)、[DOEの発表](https://www.energy.gov/science/articles/doe-nih-and-biohub-partner-build-foundational-data-predictive-biological-super)
+2026年10月7日、BiohubはVirtual Biology Initiativeの拡張を発表した。DOE・NIHなどとの連携で、介入への細胞応答を予測するモデルの基盤となるデータと測定技術を整備する構想である。共有標準、共通識別子、データへのアクセスも計画に含まれる。[Biohub primary announcement](https://biohub.org/news/virtual-biology-initiative-expansion/)、[DOE announcement](https://www.energy.gov/science/articles/doe-nih-and-biohub-partner-build-foundational-data-predictive-biological-super)
 
 これは、普遍的な細胞モデルが完成したという報告ではない。モデルのためのデータを大規模に作る段階だからこそ、何を測るかという設計が重要になる。本記事では、**同じ28,800細胞を四通りに配分する合成例**を作った。Biohubの実データや予算を再現する解析ではなく、訓練データを作る前に比較したい選択を具体化する計算である。
 
@@ -81,7 +81,7 @@ BreadthとBalancedの線が水平なのは、全条件を直接測る推定規�
 
 ## 測定の深さとドナー数は異なる誤差を減らす {#_5}
 
-Biohub構想で重要なのは、データの量に加えて、介入を測れる技術と、測定を結び付ける基盤を整備する点だ。4月の立ち上げでも、分子・空間・動的な次元の測定を広げる方針が示されていた。[立ち上げ時の発表](https://biohub.org/news/virtual-biology-initiative/)
+Biohub構想で重要なのは、データの量に加えて、介入を測れる技術と、測定を結び付ける基盤を整備する点だ。4月の立ち上げでも、分子・空間・動的な次元の測定を広げる方針が示されていた。[Launch announcement](https://biohub.org/news/virtual-biology-initiative/)
 
 本計算では、深く測ることで小さくなるノイズ、ドナーを増やすことで小さくなるばらつき、条件を増やすことで避けられる補完のバイアスを分けた。どれが律速かによって、同じ細胞数でも予測誤差が異なった。
 

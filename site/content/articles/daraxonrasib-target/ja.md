@@ -99,5 +99,5 @@ $$I=\frac{0.99\,C_t^{\,h}}{EC_{50}^{\,h}+C_t^{\,h}},\quad C_t=R\cdot C_{\text{bl
 
 ## 参考資料
 
-1. U.S. Food and Drug Administration. NDA 220910 Multidisciplinary Review and Evaluation, RASONQUE (daraxonrasib). 2026. accessdata.fda.gov（Table 59、薬理の節のDUSP6の濃度反応、用量選択と曝露反応に関する申請者の記載）
-2. 自分の関連記事：[ダラキソンラシブを分割すると安全になるのか](daraxonrasib-dose-fractionation.html)
+1. U.S. Food and Drug Administration. NDA 220910 Multidisciplinary Review and Evaluation, RASONQUE (daraxonrasib). 2026. accessdata.fda.gov (Table 59, the pharmacology-section DUSP6 concentration response, and applicant statements on dose selection and exposure response)
+2. Related articles by the author: [Daraxonrasib dose fractionation: opposing exposure metrics](daraxonrasib-dose-fractionation.html)

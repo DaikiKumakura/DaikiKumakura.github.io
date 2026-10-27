@@ -157,12 +157,12 @@ python half_life_analysis.py
 
 ## 参考文献 {#_3}
 
-1. Iambic Therapeutics. [Iambic Announces Pricing of Initial Public Offering](https://www.biospace.com/press-releases/iambic-announces-pricing-of-initial-public-offering)（2026年10月14日）、および [SEC Form 424B4](https://www.sec.gov/Archives/edgar/data/0001997038/000119312526422865/iambic_inception_424b4.htm).
-2. Iambic Therapeutics. [Iambic Therapeutics Announces Enchant, an AI Platform that Predicts Clinical Outcomes from the Earliest Stages of Drug Discovery](https://www.businesswire.com/news/home/20241029837875/en/Iambic-Therapeutics-Announces-Enchant-an-AI-Platform-that-Predicts-Clinical-Outcomes-from-the-Earliest-Stages-of-Drug-Discovery)（2024年10月29日）.
-3. Iambic Therapeutics. [Enchant 白書](https://iambic.ai/post/enchant)（2024年10月）.
-4. benchmarklist. [TDC Half_Life_Obach](https://benchmarklist.com/benchmarks/tdc_half_life_obach/)（2026年5月28日の集計）.
+1. Iambic Therapeutics. [Iambic Announces Pricing of Initial Public Offering](https://www.biospace.com/press-releases/iambic-announces-pricing-of-initial-public-offering) (2026-10-14); see also [SEC Form 424B4](https://www.sec.gov/Archives/edgar/data/0001997038/000119312526422865/iambic_inception_424b4.htm).
+2. Iambic Therapeutics. [Iambic Therapeutics Announces Enchant, an AI Platform that Predicts Clinical Outcomes from the Earliest Stages of Drug Discovery](https://www.businesswire.com/news/home/20241029837875/en/Iambic-Therapeutics-Announces-Enchant-an-AI-Platform-that-Predicts-Clinical-Outcomes-from-the-Earliest-Stages-of-Drug-Discovery) (2024-10-29).
+3. Iambic Therapeutics. [Enchant white paper](https://iambic.ai/post/enchant) (2024-10).
+4. benchmarklist. [TDC Half_Life_Obach](https://benchmarklist.com/benchmarks/tdc_half_life_obach/) (2026-05-28 snapshot).
 5. Therapeutics Data Commons. [ADMET benchmark group](https://tdcommons.ai/benchmark/admet_group/overview/).
-6. Therapeutics Data Commons. [ADME datasets（Half_Life_Obach、VDss_Lombardo）](https://tdcommons.ai/single_pred_tasks/adme/). データは Harvard Dataverse（doi:10.7910/DVN/21LKWG）で配布。
+6. Therapeutics Data Commons. [ADME datasets (Half_Life_Obach, VDss_Lombardo)](https://tdcommons.ai/single_pred_tasks/adme/). Data are distributed through Harvard Dataverse ([doi:10.7910/DVN/21LKWG](https://doi.org/10.7910/DVN/21LKWG)).
 7. Obach RS, Lombardo F, Waters NJ. Trend analysis of a database of intravenous pharmacokinetic parameters in humans for 670 drug compounds. *Drug Metabolism and Disposition*. 2008;36(7):1385–1405. [10.1124/dmd.108.020479](https://doi.org/10.1124/dmd.108.020479).
 8. Lombardo F, Berellini G, Obach RS. Trend analysis of a database of intravenous pharmacokinetic parameters in humans for 1352 drug compounds. *Drug Metabolism and Disposition*. 2018;46(11):1466–1477. [10.1124/dmd.118.082966](https://doi.org/10.1124/dmd.118.082966).
 9. Zou GY. Toward using confidence intervals to compare correlations. *Psychological Methods*. 2007;12(4):399–413. [10.1037/1082-989X.12.4.399](https://doi.org/10.1037/1082-989X.12.4.399).

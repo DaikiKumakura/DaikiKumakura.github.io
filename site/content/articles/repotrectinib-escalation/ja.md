@@ -61,7 +61,7 @@ I_{\max}\frac{C_{\rm pre}}{EC_{50}+C_{\rm pre}}
 | \(I_{\max}\) | 1.59 | 無次元、CLの指数に入る値 |
 | \(EC_{50}\)、\(TC_{50}\) | 77、47.2 | ng/mL、h |
 
-値は原著Table 2の最終推定値を使用した。補足のコントロールストリームに書かれた推定開始値とは区別する。\(I_{\max}=1.59\)は「CLが最大1.59倍」の意味ではなく、濃度と時間が十分大きい場合の倍率は\(\exp(1.59)\)となる。
+値は[Original paper Table 2](https://doi.org/10.1002/psp4.70036)の最終推定値を使用した。補足のコントロールストリームに書かれた推定開始値とは区別する。\(I_{\max}=1.59\)は「CLが最大1.59倍」の意味ではなく、濃度と時間が十分大きい場合の倍率は\(\exp(1.59)\)となる。
 
 本文の式をPythonへ移植し、投与直前濃度を正確なイベント時刻で保持した。一方、原著NONMEMの`$PK`はレコードごとに評価され、コードの記載順ではCLを計算してから投与時の濃度保持値を更新する。元の観測レコードとNONMEM実行環境は使用していないため、**元プログラムの完全再現とは主張しない**。主解析では最新の投与直前濃度を使い、時間項を連続的に更新する。感度分析では、CLを投与イベント間で固定する条件と、投与レコードのみを置いて「前回の保持濃度でCL計算→今回の濃度を保持」という順序にした条件を追加した。後者も、観測レコードを含む元の実行の再現ではない。
 
@@ -122,7 +122,7 @@ I_{\max}\frac{C_{\rm pre}}{EC_{50}+C_{\rm pre}}
 
 ## どの比較が仮定に依存するか {#_7}
 
-固定効果を、原著Table 2の公表95%区間の下限・上限へ一つずつ動かした。パラメータ間の推定共分散がないため、これらを独立にサンプリングした「推定不確実性の分布」は作らなかった。
+固定効果を、[Original paper Table 2](https://doi.org/10.1002/psp4.70036)の公表95%区間の下限・上限へ一つずつ動かした。パラメータ間の推定共分散がないため、これらを独立にサンプリングした「推定不確実性の分布」は作らなかった。
 
 | 導入期間 | 指標 | 14日導入に対する比の最小–最大 |
 | --- | --- | --- |
@@ -182,10 +182,10 @@ unknownは食事条件が不明な観測のためのモデルカテゴリーで�
 
 ## 参考文献 {#_10}
 
-1. Du S, et al. A Novel Empirical Autoinduction Model to Characterize the Population Pharmacokinetics and Recommend Dose for Repotrectinib in Adult and Adolescents With Advanced Solid Tumors Harboring ALK, ROS1, or NTRK1–3 Rearrangements. *CPT: Pharmacometrics & Systems Pharmacology*. 2025;14:1179–1190. [doi:10.1002/psp4.70036](https://doi.org/10.1002/psp4.70036)。[公開本文・補足資料](https://pmc.ncbi.nlm.nih.gov/articles/PMC12256568/)。
-2. [FDA：AUGTYROの承認時の投与概要](https://www.fda.gov/drugs/development-approval-process-drugs/drug-trials-snapshots-augtyro)。
-3. Du S, et al. Exposure–Response Analysis of Repotrectinib to Support the Dose Recommendation for Patients With ROS1-Positive NSCLC or NTRK-Positive Solid Tumors. *CPT: Pharmacometrics & Systems Pharmacology*. 2025;14:1993–2005. [doi:10.1002/psp4.70102](https://doi.org/10.1002/psp4.70102)。[公開本文](https://pmc.ncbi.nlm.nih.gov/articles/PMC12706408/)。
-4. Characterization and clinical management of adverse events following treatment with repotrectinib: a TRIDENT-1 analysis. *The Oncologist*. 2026;31:oyag137. [doi:10.1093/oncolo/oyag137](https://doi.org/10.1093/oncolo/oyag137)。[公開本文](https://pmc.ncbi.nlm.nih.gov/articles/PMC13153690/)。
+1. Du S, et al. A Novel Empirical Autoinduction Model to Characterize the Population Pharmacokinetics and Recommend Dose for Repotrectinib in Adult and Adolescents With Advanced Solid Tumors Harboring ALK, ROS1, or NTRK1–3 Rearrangements. *CPT: Pharmacometrics & Systems Pharmacology*. 2025;14:1179–1190. [doi:10.1002/psp4.70036](https://doi.org/10.1002/psp4.70036). [Open full text and supplements](https://pmc.ncbi.nlm.nih.gov/articles/PMC12256568/).
+2. [FDA Drug Trials Snapshot: AUGTYRO](https://www.fda.gov/drugs/development-approval-process-drugs/drug-trials-snapshots-augtyro).
+3. Du S, et al. Exposure–Response Analysis of Repotrectinib to Support the Dose Recommendation for Patients With ROS1-Positive NSCLC or NTRK-Positive Solid Tumors. *CPT: Pharmacometrics & Systems Pharmacology*. 2025;14:1993–2005. [doi:10.1002/psp4.70102](https://doi.org/10.1002/psp4.70102). [Open full text](https://pmc.ncbi.nlm.nih.gov/articles/PMC12706408/).
+4. Characterization and clinical management of adverse events following treatment with repotrectinib: a TRIDENT-1 analysis. *The Oncologist*. 2026;31:oyag137. [doi:10.1093/oncolo/oyag137](https://doi.org/10.1093/oncolo/oyag137). [Open full text](https://pmc.ncbi.nlm.nih.gov/articles/PMC13153690/).
 
 
-[計算コード・数値表・再実行手順](shared/repotrectinib-escalation/repotrectinib-simulation.zip)
+[Calculation code, numerical tables and reproduction instructions](shared/repotrectinib-escalation/repotrectinib-simulation.zip)

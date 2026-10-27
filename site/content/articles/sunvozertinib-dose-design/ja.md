@@ -23,7 +23,7 @@ SunvozertinibはEGFR exon 20 insertion変異を持つ非小細胞肺がんに用
 
 | 資料 | 数値・情報 | 解析での役割 |
 | --- | --- | --- |
-| Wangらの2022年原著・補足Table S6［2］ | 50–400 mgの5用量群の幾何平均AUC・Cmax、CV、群別n | 実測集計値に対するパラメータ推定 |
+| [Wang et al. (2022), Supplementary Table S6](https://doi.org/10.1158/2159-8290.CD-21-1615)［2］ | 50–400 mgの5用量群の幾何平均AUC・Cmax、CV、群別n | 実測集計値に対するパラメータ推定 |
 | FDA審査資料のPopPK表［3］ | CL/F・容積・吸収・初回通過代謝経路・分散共分散 | 親薬物のPopPK実装、仮想患者生成 |
 | WU-KONG1Bの用量比較［3,4］ | ランダム化された有効性評価可能集団の奏効件数 | 用量群別の奏効確率の推定 |
 | FDAの120日安全性更新、Table 62［3］ | 200 mg全投与例と300 mg全投与例のGrade 3–4下痢 | 有害事象の記述的比較 |
@@ -223,11 +223,11 @@ AUCが有害事象の関連指標なら、AUCを保つ分割でそのリスク�
 
 ## 参考文献 {#_7}
 
-1. [FDA：Sunvozertinibの2025年承認](https://www.fda.gov/drugs/resources-information-approved-drugs/fda-grants-accelerated-approval-sunvozertinib-metastatic-non-small-cell-lung-cancer-egfr-exon-20)。承認条件・用量の確認。
-2. Wang M, et al. Sunvozertinib, a Selective EGFR Inhibitor for Previously Treated Non–Small Cell Lung Cancer with EGFR Exon 20 Insertion Mutations. *Cancer Discov*. 2022;12:1676–1689. [原著・補足資料](https://doi.org/10.1158/2159-8290.CD-21-1615)。補足Table S6の集計PKを使用。
-3. [FDA NDA 219839審査資料](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/219839Orig1s000MultidisciplineR.pdf)。PopPK表（PDF 229–230頁）、安全性Table 62（PDF 180頁）、19.4節のE–Rを参照。解析集団・カットオフを区別。
-4. Yang JCH, et al. Phase II Dose-Randomized Study of Sunvozertinib in Platinum-Pretreated Non–Small Cell Lung Cancer With Epidermal Growth Factor Receptor Exon 20 Insertion Mutations (WU-KONG1B). *J Clin Oncol*. 2025. [原著](https://doi.org/10.1200/JCO-25-00788)。ランダム化群と追加群を区別して参照。
-5. Sunvozertinib monotherapy versus platinum-based chemotherapy as first-line treatment for advanced NSCLC with EGFR exon20ins: Primary analysis of WU-KONG28. *J Clin Oncol*. 2026;44(suppl):LBA8500. [ASCO報告](https://doi.org/10.1200/JCO.2026.44.17_suppl.LBA8500)。背景のみ。今回のモデル推定・臨床比較には混合していない。
+1. [FDA sunvozertinib accelerated approval (2025)](https://www.fda.gov/drugs/resources-information-approved-drugs/fda-grants-accelerated-approval-sunvozertinib-metastatic-non-small-cell-lung-cancer-egfr-exon-20). Used to check approval conditions and dosage.
+2. Wang M, et al. Sunvozertinib, a Selective EGFR Inhibitor for Previously Treated Non–Small Cell Lung Cancer with EGFR Exon 20 Insertion Mutations. *Cancer Discov*. 2022;12:1676–1689. [Paper and supplementary materials](https://doi.org/10.1158/2159-8290.CD-21-1615). Aggregate PK from supplementary Table S6 was used.
+3. [FDA NDA 219839 multidisciplinary review](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/219839Orig1s000MultidisciplineR.pdf). See PopPK tables (PDF pp. 229–230), safety Table 62 (PDF p. 180) and Section 19.4 E–R; populations and cutoffs are distinguished.
+4. Yang JCH, et al. Phase II Dose-Randomized Study of Sunvozertinib in Platinum-Pretreated Non–Small Cell Lung Cancer With Epidermal Growth Factor Receptor Exon 20 Insertion Mutations (WU-KONG1B). *J Clin Oncol*. 2025. [Original paper](https://doi.org/10.1200/JCO-25-00788). Randomized and additional cohorts were distinguished.
+5. Sunvozertinib monotherapy versus platinum-based chemotherapy as first-line treatment for advanced NSCLC with EGFR exon20ins: Primary analysis of WU-KONG28. *J Clin Oncol*. 2026;44(suppl):LBA8500. [ASCO abstract](https://doi.org/10.1200/JCO.2026.44.17_suppl.LBA8500). Background only; not pooled into the present model estimation or clinical comparison.
 
 
-[解析コード・入力集計値・結果・再実行手順](shared/sunvozertinib-dose-design/sunvozertinib-analysis.zip)
+[Analysis code, aggregate inputs, results and reproduction instructions](shared/sunvozertinib-dose-design/sunvozertinib-analysis.zip)

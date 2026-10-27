@@ -36,6 +36,6 @@
     "summary": "Borrowing public dose-comparison data from an existing drug through a robust mixture prior helped a new drug's dose selection only slightly when the drugs behaved alike, and cut correct selection sharply when the new drug favored the other dose. With 40 patients per arm the prior-data conflict was hardly detected; a borrowing weight of 0.25 to 0.5 kept the loss within one point."
   },
   "reviewed": {
-    "en": "88f64d5c64c184163d3859a51496ab6e0721aa4029d6fdf7f816342981da8b5e"
+    "en": "f0d9b1c0973f83ca32d8f9d21b8ed3a3e7608cafe366b20d4921cd3df2b3bcdb"
   }
 }

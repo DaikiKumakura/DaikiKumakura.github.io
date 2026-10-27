@@ -17,10 +17,19 @@
         "背景をまたぐ相関には、測定の再現性、多くの摂動に共通する応答、摂動固有の応答が重なる。単純な基準との比較も、利用可能な背景情報に依存する。"
       ],
       "seo_title": "摂動予測の上限はどこか。同じ細胞での再現性から考える"
+    },
+    "en": {
+      "title": "Before evaluating cross-context perturbation prediction: know the reproducibility bound",
+      "summary": "A Japanese essay arguing that cross-cell-line perturbation predictions should be read against within-context reproducibility, using the noise-corrected correlations reported by Nadig et al. (2025). No new analysis.",
+      "seo_title": "How reproducibility bounds perturbation prediction",
+      "seo_description": "Perturbation prediction scores depend on measurement reproducibility, evaluation controls and the distinction between raw and corrected correlations."
     }
   },
   "english": {
     "title": "Before evaluating cross-context perturbation prediction: know the reproducibility bound",
     "summary": "A Japanese essay arguing that cross-cell-line perturbation predictions should be read against within-context reproducibility, using the noise-corrected correlations reported by Nadig et al. (2025). No new analysis."
+  },
+  "reviewed": {
+    "en": "7d029caefbe956b5565849e811b745fa3ef46a9aeeba91e32c1e3e79f23c6c72"
   }
 }

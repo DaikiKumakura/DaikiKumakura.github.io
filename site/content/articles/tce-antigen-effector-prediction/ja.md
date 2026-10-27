@@ -12,7 +12,7 @@
 
 ## 図の点と実線を分ける {#_2}
 
-Yuanらは、抗体の結合、T細胞の活性化・分化、腫瘍細胞傷害をつなぐQSPモデルを報告している。本解析では、その原著の補足図S10と本文Figure 6を用いた。実験法の背景はKemperらの研究にも記載されている。[1,2]
+Yuanらは、抗体の結合、T細胞の活性化・分化、腫瘍細胞傷害をつなぐQSPモデルを報告している。本解析では、[Original paper, Supplementary Fig. S10 and main-text Figure 6](https://doi.org/10.1208/s12248-026-01259-2)を用いた。実験法の背景はKemperらの研究にも記載されている。[1,2]
 
 対象分子はDuoBody-CD3x5T4（原著記載のCD3結合KD=683 nM）に限定した。高親和性変異体（16 nM）のデータは混ぜていない。ここでの殺細胞率は、Alamar Blueによる生存細胞の測定に基づく72時間の指標であり、単一細胞の直接観察による死亡確率とは異なる。[1]
 
@@ -135,5 +135,5 @@ python -m unittest discover -s tests
 
 ## 参考文献 {#_7}
 
-1. Yuan X, et al. An In Vitro Quantitative Systems Pharmacology Platform for Characterizing CD3-Bispecific Antibody-Mediated T-Cell Activation and Tumor Cell Cytotoxicity. *The AAPS Journal*. 2026;28:123. [原著と補足資料](https://doi.org/10.1208/s12248-026-01259-2)
-2. Kemper K, et al. *Life Science Alliance*. 2022. [5T4×CD3抗体の実験研究](https://doi.org/10.26508/lsa.202201481)
+1. Yuan X, et al. An In Vitro Quantitative Systems Pharmacology Platform for Characterizing CD3-Bispecific Antibody-Mediated T-Cell Activation and Tumor Cell Cytotoxicity. *The AAPS Journal*. 2026;28:123. [Paper and supplementary materials](https://doi.org/10.1208/s12248-026-01259-2)
+2. Kemper K, et al. *Life Science Alliance*. 2022. [Experimental study of a 5T4×CD3 antibody](https://doi.org/10.26508/lsa.202201481)

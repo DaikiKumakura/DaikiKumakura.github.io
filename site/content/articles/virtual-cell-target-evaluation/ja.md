@@ -2,7 +2,7 @@
 
 遺伝子を抑えた後の細胞を予測するモデルが、その遺伝子の発現低下を当てた。それだけで、細胞の応答を理解したと言えるだろうか。
 
-Eric Kernfeldの[2025年12月のブログ記事](https://ekernf01.github.io/target_gene_shenanigans)は、この素朴な疑問から、細胞への介入後の応答を計算上で予測するVirtual Cellの評価を問い直している。本記事はその問題提起を出発点に、最近の摂動予測研究と評価仕様を読み、どこまで結論を支持できるかを整理する。検討の中心は、CRISPRiの転写応答と、平均応答を候補へ照合する評価である。Virtual Cell全体の評価ではない。
+Eric Kernfeldの[December 2025 blog post](https://ekernf01.github.io/target_gene_shenanigans)は、この素朴な疑問から、細胞への介入後の応答を計算上で予測するVirtual Cellの評価を問い直している。本記事はその問題提起を出発点に、最近の摂動予測研究と評価仕様を読み、どこまで結論を支持できるかを整理する。検討の中心は、CRISPRiの転写応答と、平均応答を候補へ照合する評価である。Virtual Cell全体の評価ではない。
 
 先に私の判断を書く。**標的遺伝子の直接的な変化を当てる能力と、他の遺伝子の応答を当てる能力は分けて評価したい。さらに、候補と照合する指標では、正解の標的の直接効果だけを除き、不正解候補の標的の直接効果を残す非対称な扱いを避けたい。** ただし、これを理由にsingle-cell foundation model全体の有用性を否定することはできない。
 
@@ -55,7 +55,7 @@ p(X\mid Z,I,c)
 
 を評価する。後者は前者より多くの情報を条件として与えている。
 
-PEREGGRNでは、closest-controlを使う設定で、標的の値を介入後の発現量へ置き換えて予測する。これは、標的の変化を条件として扱う設定の例である。ただし、未知の実験を事前に予測する用途で、その介入後の実測値が入手できるとは限らない。[PEREGGRNの方法](https://link.springer.com/article/10.1186/s13059-025-03840-y)
+PEREGGRNでは、closest-controlを使う設定で、標的の値を介入後の発現量へ置き換えて予測する。これは、標的の変化を条件として扱う設定の例である。ただし、未知の実験を事前に予測する用途で、その介入後の実測値が入手できるとは限らない。[PEREGGRN methods](https://link.springer.com/article/10.1186/s13059-025-03840-y)
 
 | 問題 | 何が起きるか | 確認すること |
 | --- | --- | --- |
@@ -136,7 +136,7 @@ a_{ij}=d_{-(i,j)}(\hat x_i,x_i),\qquad
 b_{ij}=d_{-(i,j)}(\hat x_i,x_j).
 \]
 
-この式と以下の解釈は、[原記事の提案](https://ekernf01.github.io/target_gene_shenanigans)を基にした本記事の整理である。各二者比較では同じ遺伝子を使い、最後に勝率を平均する。候補ごとに違う座標で求めた距離を、そのまま一列に並べて順位付けする方法とは異なる。
+この式と以下の解釈は、[Original post proposal](https://ekernf01.github.io/target_gene_shenanigans)を基にした本記事の整理である。各二者比較では同じ遺伝子を使い、最後に勝率を平均する。候補ごとに違う座標で求めた距離を、そのまま一列に並べて順位付けする方法とは異なる。
 
 AUCに似た勝率と考えると理解しやすいが、通常のROC-AUCや、一つの固定距離から作る順位と同じものではない。比較ごとに座標が変わるため、全候補に共通する距離順序があるとも限らない。
 
@@ -160,9 +160,9 @@ AUCに似た勝率と考えると理解しやすいが、通常のROC-AUCや、�
 | PIE、2026年10月のプレプリント | 生物学的な知識を入力し、集団レベルの摂動効果を予測 | 未知標的・未知文脈・両者が未知の設定を区別する必要がある |
 | Millerら、Nature Biotechnology 2026 | 指標の感度点検と、未知標的・未知組合せのモデル比較 | 高得点・低得点を指標の性質と切り離して解釈できない |
 
-各論文が報告する能力の概要は、[UCE](https://www.nature.com/articles/s41586-026-10689-z)、[State](https://pubmed.ncbi.nlm.nih.gov/42673963/)、[Stack](https://doi.org/10.64898/2026.01.09.698608)、[Millerら](https://www.nature.com/articles/s41587-026-03307-w)を参照した。表の「今回の問題との関係」は本記事の解釈である。Stackは、この調査ではプレプリントとして扱う。
+各論文が報告する能力の概要は、[UCE](https://www.nature.com/articles/s41586-026-10689-z)、[State](https://pubmed.ncbi.nlm.nih.gov/42673963/)、[Stack](https://doi.org/10.64898/2026.01.09.698608)、[Miller et al.](https://www.nature.com/articles/s41587-026-03307-w)を参照した。表の「今回の問題との関係」は本記事の解釈である。Stackは、この調査ではプレプリントとして扱う。
 
-PIEは2026年10月5日に公開された新しい例である。公開READMEと発表資料では、知識源、対象文脈のcontrol、学習データ内の摂動応答を利用すると説明されている。未知条件を予測するという主張も、何も観測せずに予測するという意味ではない。本記事では公開資料で確認できる設計の紹介に留め、詳細な性能値や独立検証を済ませたという主張は採用しない。[PIEの公開実装説明](https://github.com/ArcInstitute/pie)、[原著者による発表](https://arcinstitute.org/news/pie)
+PIEは2026年10月5日に公開された新しい例である。公開READMEと発表資料では、知識源、対象文脈のcontrol、学習データ内の摂動応答を利用すると説明されている。未知条件を予測するという主張も、何も観測せずに予測するという意味ではない。本記事では公開資料で確認できる設計の紹介に留め、詳細な性能値や独立検証を済ませたという主張は採用しない。[PIE public implementation documentation](https://github.com/ArcInstitute/pie)、[Author announcement](https://arcinstitute.org/news/pie)
 
 データ側では、2026年9月のTahoe-100Mが、50のがん細胞株・1,100のdrug-dose条件を含む大規模な薬剤摂動アトラスを報告した。ただし、薬剤によるタンパク質の阻害と、CRISPRiによる標的mRNAの抑制は同じ介入ではない。本記事の標的マスクを、薬剤摂動へそのまま適用する根拠にはならない。[Tahoe-100M](https://www.sciencedirect.com/science/article/pii/S0092867426010081)
 
@@ -195,26 +195,26 @@ Kernfeldの問いは、標的を下げることを当てた得点を、下流の
 
 ## 参考資料 {#_1}
 
-本文中のリンクを一次資料として使用した。原ブログ以外の長い引用や、既存論文の図の転載は行っていない。
+Links in the text identify primary sources. No extended quotations beyond the original blog or figures from existing papers are reproduced.
 
-1. Kernfeld E. ブログ、2025-12-05：[標的遺伝子の予測とretrievalの問題提起](https://ekernf01.github.io/target_gene_shenanigans).
+1. Kernfeld E. Blog, 2025-12-05: [Target-gene prediction and retrieval critique](https://ekernf01.github.io/target_gene_shenanigans).
 2. Theodoris CV et al. *Nature*, 2023. [10.1038/s41586-023-06139-9](https://doi.org/10.1038/s41586-023-06139-9).
 3. Hao M et al. *Nature Methods*, 2024. [10.1038/s41592-024-02305-7](https://doi.org/10.1038/s41592-024-02305-7).
 4. Csendes G et al. Benchmarking foundation cell models for post-perturbation RNA-seq prediction. *BMC Genomics*, 2025. [10.1186/s12864-025-11600-2](https://doi.org/10.1186/s12864-025-11600-2).
 5. Kernfeld E et al. A comparison of computational methods for expression forecasting. *Genome Biology*, 2025. [10.1186/s13059-025-03840-y](https://doi.org/10.1186/s13059-025-03840-y).
 6. Ahlmann-Eltze C et al. Deep-learning-based gene perturbation effect prediction does not yet outperform simple linear baselines. *Nature Methods*, 2025. [10.1038/s41592-025-02772-6](https://doi.org/10.1038/s41592-025-02772-6).
-7. Viñas Torné R et al. Systema. オンライン公開2025-08-25. [10.1038/s41587-025-02777-8](https://doi.org/10.1038/s41587-025-02777-8).
-8. Wei Z et al. *Nature Methods* 23, 2026（オンライン公開2025-12-11）. [10.1038/s41592-025-02980-0](https://doi.org/10.1038/s41592-025-02980-0).
+7. Viñas Torné R et al. Systema. published online 2025-08-25. [10.1038/s41587-025-02777-8](https://doi.org/10.1038/s41587-025-02777-8).
+8. Wei Z et al. *Nature Methods* 23, 2026 (published online 2025-12-11). [10.1038/s41592-025-02980-0](https://doi.org/10.1038/s41592-025-02980-0).
 9. Miller HE et al. Deep learning perturbation models can outperform baselines on calibrated metrics. *Nature Biotechnology*, 2026. [10.1038/s41587-026-03307-w](https://doi.org/10.1038/s41587-026-03307-w).
 10. Rosen Y et al. UCE. *Nature*, 2026. [10.1038/s41586-026-10689-z](https://doi.org/10.1038/s41586-026-10689-z).
 11. Adduri AK et al. State. *Cell*, 2026. [10.1016/j.cell.2026.07.052](https://doi.org/10.1016/j.cell.2026.07.052).
-12. Dong M et al. Stack. *bioRxiv*, 2026、プレプリント. [10.64898/2026.01.09.698608](https://doi.org/10.64898/2026.01.09.698608).
-13. Nicol PB et al. *bioRxiv*, 2026、プレプリント. [10.64898/2026.05.07.723486](https://doi.org/10.64898/2026.05.07.723486).
-14. Arc Institute. [cell-eval2 metrics reference](https://github.com/ArcInstitute/cell-eval2/blob/0ce25cf4c495e76e60dfca4ddc8f822507aa0e18/docs/metrics.md)、[2026-08-19付 competition brief](https://github.com/ArcInstitute/cell-eval2/blob/0ce25cf4c495e76e60dfca4ddc8f822507aa0e18/docs/vcc2026_metrics/vcc2026-metrics-brief.md). 参照先は確認したコミット0ce25cfに固定。競技briefが参照する実装版は0.15.0、rule versionは3。
-15. Verma R et al. PIE. *bioRxiv*, 2026、プレプリント. [10.64898/2026.10.02.756297](https://doi.org/10.64898/2026.10.02.756297). 本記事では原著者の発表・公開READMEを確認。[要旨](https://www.biorxiv.org/content/10.64898/2026.10.02.756297v1)も参照。原著本文の詳細な検証は行っていない。
+12. Dong M et al. Stack. *bioRxiv*, 2026 preprint. [10.64898/2026.01.09.698608](https://doi.org/10.64898/2026.01.09.698608).
+13. Nicol PB et al. *bioRxiv*, 2026 preprint. [10.64898/2026.05.07.723486](https://doi.org/10.64898/2026.05.07.723486).
+14. Arc Institute. [cell-eval2 metrics reference](https://github.com/ArcInstitute/cell-eval2/blob/0ce25cf4c495e76e60dfca4ddc8f822507aa0e18/docs/metrics.md), [competition brief dated 2026-08-19](https://github.com/ArcInstitute/cell-eval2/blob/0ce25cf4c495e76e60dfca4ddc8f822507aa0e18/docs/vcc2026_metrics/vcc2026-metrics-brief.md). Links are pinned to checked commit 0ce25cf. The competition brief refers to implementation 0.15.0 and rule version 3.
+15. Verma R et al. PIE. *bioRxiv*, 2026 preprint. [10.64898/2026.10.02.756297](https://doi.org/10.64898/2026.10.02.756297). The author announcement and public README were checked for this article. [Abstract](https://www.biorxiv.org/content/10.64898/2026.10.02.756297v1)was also consulted. The full paper was not examined in detail.
 16. Zhang J et al. Tahoe-100M. *Cell*, 2026. [10.1016/j.cell.2026.08.035](https://doi.org/10.1016/j.cell.2026.08.035).
-17. Wong DR, Hill AS, Moccia R. *Bioinformatics*, 2025. [10.1093/bioinformatics/btaf317](https://doi.org/10.1093/bioinformatics/btaf317). 要旨はPubMedで確認。
-18. Schäfer PSL et al. scPertEval. *bioRxiv*, 2026、プレプリント. [10.64898/2026.07.23.740433](https://doi.org/10.64898/2026.07.23.740433).
+17. Wong DR, Hill AS, Moccia R. *Bioinformatics*, 2025. [10.1093/bioinformatics/btaf317](https://doi.org/10.1093/bioinformatics/btaf317). The abstract was checked on PubMed.
+18. Schäfer PSL et al. scPertEval. *bioRxiv*, 2026 preprint. [10.64898/2026.07.23.740433](https://doi.org/10.64898/2026.07.23.740433).
 
 ## 計算例の再実行と限界 {#_2}
 

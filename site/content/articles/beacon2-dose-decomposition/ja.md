@@ -145,7 +145,7 @@ InductiveはMac1阻害薬の例で、効力だけを最適化した化合物よ�
 
 ## 再実行と限界 {#_3}
 
-[計算コード](shared/beacon2-dose-decomposition/dose_decomposition.py)は、OpenADMET-ExpansionRxの公開CSV（学習用、評価用、生データ）から、`results/`と図1を生成する（約6分）。データは[Hugging Faceのデータセット](https://huggingface.co/datasets/openadmet/openadmet-expansionrx-challenge-data)（利用条件への同意が必要）から取得し、`data/`に置く。確認した版は`requirements.txt`に固定した。
+[計算コード](shared/beacon2-dose-decomposition/dose_decomposition.py)は、OpenADMET-ExpansionRxの公開CSV（学習用、評価用、生データ）から、`results/`と図1を生成する（約6分）。データは[Hugging Face dataset](https://huggingface.co/datasets/openadmet/openadmet-expansionrx-challenge-data)（利用条件への同意が必要）から取得し、`data/`に置く。確認した版は`requirements.txt`に固定した。
 
 ```sh
 python -m pip install -r requirements.txt
@@ -162,8 +162,8 @@ python dose_decomposition.py
 
 ## 参考文献 {#_4}
 
-1. Inductive Bio. [Beacon-2: predicting human dose](https://www.inductive.bio/news/beacon-2)（2026年9月17日）.
+1. Inductive Bio. [Beacon-2: predicting human dose](https://www.inductive.bio/news/beacon-2) (2026-09-17).
 2. Wang Y, Wang W, Broccatelli F, et al. Human-Focused Multiparameter Optimization Scores for Rank Ordering Compounds during Early Drug Discovery: Validation of PBPK Models Based on Clinical PK Data. *Journal of Medicinal Chemistry*. 2025;68(16):17960–17970. [10.1021/acs.jmedchem.5c01707](https://doi.org/10.1021/acs.jmedchem.5c01707).
 3. Page KM. Validation of Early Human Dose Prediction: A Key Metric for Compound Progression in Drug Discovery. *Molecular Pharmaceutics*. 2016;13(2):609–620. [10.1021/acs.molpharmaceut.5b00840](https://doi.org/10.1021/acs.molpharmaceut.5b00840).
-4. OpenADMET, Expansion Therapeutics. [OpenADMET-ExpansionRx Challenge full dataset](https://huggingface.co/datasets/openadmet/openadmet-expansionrx-challenge-data)（CC BY 4.0）.
+4. OpenADMET, Expansion Therapeutics. [OpenADMET-ExpansionRx Challenge full dataset](https://huggingface.co/datasets/openadmet/openadmet-expansionrx-challenge-data) (CC BY 4.0).
 5. Hallifax D, Houston JB. Binding of drugs to hepatic microsomes: comment and assessment of current prediction methodology with recommendation for improvement. *Drug Metabolism and Disposition*. 2006;34(4):724–726. [10.1124/dmd.105.007658](https://doi.org/10.1124/dmd.105.007658).

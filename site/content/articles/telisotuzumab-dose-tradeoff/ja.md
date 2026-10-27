@@ -2,7 +2,7 @@
 
 c-Met標的ADCのtelisotuzumab vedotinについて、公開されたPKと曝露–反応（E–R）モデルを用い、固定1.9 mg/kg、固定1.6 mg/kg、最初の2回だけ1.6 mg/kgとする条件を比較した。**順次増量は初期と後半の曝露を分けて調整できたが、初期曝露だけを入力するE–R式では、その長期的な利点を判定できなかった。**
 
-資料確認日は2026年10月21日。Telisotuzumab vedotinはc-Met蛋白高発現の既治療非扁平上皮NSCLCを対象に、2025年に米国で迅速承認された。承認用量は1.9 mg/kgを2週ごと、体重100 kg以上では190 mgを上限とする。[FDA承認情報](https://www.fda.gov/drugs/resources-information-approved-drugs/fda-grants-accelerated-approval-telisotuzumab-vedotin-tllv-nsclc-high-c-met-protein-overexpression)
+資料確認日は2026年10月21日。Telisotuzumab vedotinはc-Met蛋白高発現の既治療非扁平上皮NSCLCを対象に、2025年に米国で迅速承認された。承認用量は1.9 mg/kgを2週ごと、体重100 kg以上では190 mgを上限とする。[FDA approval information](https://www.fda.gov/drugs/resources-information-approved-drugs/fda-grants-accelerated-approval-telisotuzumab-vedotin-tllv-nsclc-high-c-met-protein-overexpression)
 
 ## 何を判断するための計算か {#_1}
 
@@ -10,7 +10,7 @@ c-Met標的ADCのtelisotuzumab vedotinについて、公開されたPKと曝露�
 
 **COU**は、次の比較試験で調べる条件と測定項目を整理する研究用途に限る。患者の投与量を選択する解析ではない。ORRとGrade 3以上の末梢神経障害（PN）を扱うが、死亡を含む安全性全体を評価したbenefit–riskモデルとはしない。
 
-2026年の原著は304例のPKとE–R解析を報告している。今回の数値入力は、同じ開発資料を含むFDA審査資料の表47・48・51・54から取得した。新たな個人別NLME推定は行わず、**同じ薬剤の公表済み推定係数を借用した数値解析**である。[Babelらの原著](https://doi.org/10.1002/psp4.70219)、[FDA審査資料](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/761384Orig1s000MultidisciplineR.pdf)
+2026年の原著は304例のPKとE–R解析を報告している。今回の数値入力は、同じ開発資料を含むFDA審査資料の表47・48・51・54から取得した。新たな個人別NLME推定は行わず、**同じ薬剤の公表済み推定係数を借用した数値解析**である。[Babel et al. paper](https://doi.org/10.1002/psp4.70219)、[FDA assessment report](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/761384Orig1s000MultidisciplineR.pdf)
 
 ## 比較する3条件 {#3}
 
@@ -22,7 +22,7 @@ c-Met標的ADCのtelisotuzumab vedotinについて、公開されたPKと曝露�
 | 固定1.6 | 1.6 mg/kg | 1.6 mg/kg |
 | 初期2回1.6 | 1.6 mg/kg | 1.9 mg/kg |
 
-低用量開始後に1.9 mg/kgへ増量する考え方は、FDA審査資料にも前向きに検討すべき案として記載されている。ただし、その期間には非開示部分がある。**「最初の2回」という期間は今回こちらで定義した仮想条件であり、FDA指定のレジメンを復元したものではない。**[FDA審査資料PDF 235ページ](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/761384Orig1s000MultidisciplineR.pdf)
+低用量開始後に1.9 mg/kgへ増量する考え方は、FDA審査資料にも前向きに検討すべき案として記載されている。ただし、その期間には非開示部分がある。**「最初の2回」という期間は今回こちらで定義した仮想条件であり、FDA指定のレジメンを復元したものではない。**[FDA assessment report PDF 235 pages](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/761384Orig1s000MultidisciplineR.pdf)
 
 ## ADCの濃度推移を作る {#adc}
 
@@ -94,7 +94,7 @@ E=C_{\mathrm{avg,C1}}=\frac{AUC_{0-14}}{14}
 
 \(E\)の数値単位はµg/mL、logは自然対数である。別の濃度単位へ変えた値をそのまま代入すると、\(\log(1+E)\)の値が変わってしまう。
 
-ORRモデルの対象はc-Met中間・高発現の193例、PNの安全性解析は別のプール集団である。用量割付も無作為化されていない。したがって、以下は**公表された関連式の条件付き射影**であり、減量による因果効果や、承認対象の高発現患者だけに較正した発現率ではない。初期曝露を使う式でも、予測対象が初回14日間のPN発現率という意味ではなく、今回の84日PK窓の発現確率でもない。[原著の解析対象・曝露定義](https://doi.org/10.1002/psp4.70219)
+ORRモデルの対象はc-Met中間・高発現の193例、PNの安全性解析は別のプール集団である。用量割付も無作為化されていない。したがって、以下は**公表された関連式の条件付き射影**であり、減量による因果効果や、承認対象の高発現患者だけに較正した発現率ではない。初期曝露を使う式でも、予測対象が初回14日間のPN発現率という意味ではなく、今回の84日PK窓の発現確率でもない。([Original paper analysis populations and exposure definitions](https://doi.org/10.1002/psp4.70219))
 
 ### 固定用量の比較 {#_2}
 
@@ -154,7 +154,7 @@ E–R係数の周辺95% CIは公開されているが、切片と傾きの共分
 
 これはCLの共変量式から得た代数的な比である。MMAEの絶対生成量のスケールや、ADCとの個体間依存を十分に確認できなかったため、絶対MMAE濃度や完全な連結モデルとしては再現していない。生成スケールが病状によって変わるなら、この相対比較の仮定も崩れる。
 
-また、今回のPN式はADC曝露の式であり、上のMMAE比をPNリスクへ変換してはいない。FDAは別に、腫瘍量、ADC・MMAEの逆方向の曝露関係、致死的有害事象に関する探索的所見を検討している。**ORRとPNだけで安全性全体を代表させることはできない。**[FDAの独立解析、PDF 227–235ページ](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/761384Orig1s000MultidisciplineR.pdf)
+また、今回のPN式はADC曝露の式であり、上のMMAE比をPNリスクへ変換してはいない。FDAは別に、腫瘍量、ADC・MMAEの逆方向の曝露関係、致死的有害事象に関する探索的所見を検討している。**ORRとPNだけで安全性全体を代表させることはできない。**[FDA independent analysis / PDF 227–235 pages](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/761384Orig1s000MultidisciplineR.pdf)
 
 ## 初期低用量の価値はこのE–R式だけでは決まらない {#er_1}
 

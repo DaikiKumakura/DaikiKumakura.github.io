@@ -106,6 +106,6 @@ $\bar F_{\text{rel}}$は、日ごとの食事の状態の割合で重みづけ�
 
 ## 参考資料 {#_5}
 
-1. U.S. Food and Drug Administration. NDA 219713 Multidisciplinary Review and Evaluation, IBTROZI (taletrectinib). 2025. accessdata.fda.gov（Table 74、Table 77、Table 79、Table 88、Section 19.4、市販後要件の記載）
+1. U.S. Food and Drug Administration. NDA 219713 Multidisciplinary Review and Evaluation, IBTROZI (taletrectinib). 2025. accessdata.fda.gov (Tables 74, 77, 79 and 88, Section 19.4 and postmarketing requirements)
 
 <span id="6"></span>

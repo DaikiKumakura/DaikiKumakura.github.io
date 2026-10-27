@@ -6,7 +6,7 @@
 
 ## 順方向の予測を条件の逆設計へ使う {#_1}
 
-順方向モデルは、培養条件から細胞の分布を予測する。逆設計では、そのモデルが予測する表現型を手掛かりに、目的に合う培養条件を生成する。LabCompassはflow matchingによる条件の生成モデルと、細胞応答の順方向モデルを組み合わせ、学んだ条件の事前分布を利用して候補を探す。[原著・Fig. 1とMethods](https://doi.org/10.64898/2026.10.07.756550)
+順方向モデルは、培養条件から細胞の分布を予測する。逆設計では、そのモデルが予測する表現型を手掛かりに、目的に合う培養条件を生成する。LabCompassはflow matchingによる条件の生成モデルと、細胞応答の順方向モデルを組み合わせ、学んだ条件の事前分布を利用して候補を探す。([Original paper , Fig. 1 and Methods](https://doi.org/10.64898/2026.10.07.756550))
 
 目標細胞型\(t\)の割合を増やす目的だけを簡略に書くと、
 
@@ -20,11 +20,11 @@
 
 ## 既知条件の回収と新しい実験を区別する {#_2}
 
-最初のLoop 1は、既知の培養条件を隠して評価した段階である。巨核球系を強く誘導する条件210を学習から外し、その近くへ逆設計が到達するかなどを調べた。実際にモデルが選んだ新しい条件を培養で評価するのはLoop 2からだ。[原著・Figs. 3–4](https://doi.org/10.64898/2026.10.07.756550)
+最初のLoop 1は、既知の培養条件を隠して評価した段階である。巨核球系を強く誘導する条件210を学習から外し、その近くへ逆設計が到達するかなどを調べた。実際にモデルが選んだ新しい条件を培養で評価するのはLoop 2からだ。([Original paper , Figs. 3–4](https://doi.org/10.64898/2026.10.07.756550))
 
-Loop 2では、巨核球系前駆細胞（MgkPro）、赤血球系前駆細胞（EryPro）、表現型上のHSC（pHSC）、Pre-ProBの4目標に対して3条件ずつを選んでいる。今回の再集計はこの12条件に限定した。各条件の目標と選択時の低・高不確実性は、[著者の解析ノートブック](https://github.com/theislab/LabCompass-reproducibility/blob/0d0ffb093431b2e0a0ff765d0423071aa380c3dc/data_notebooks/loop2/data_analysis/experimental_results_analysis.ipynb)の対応表から読み取った。ただしPre-ProBの条件245は、ノートブックでは高不確実性、原著のLoop 3の説明では低不確実性と記載され、資料間で一致しない。245・246の区分はノートブックに限定して表示し、確定した不確実性順位とは解釈しない。
+Loop 2では、巨核球系前駆細胞（MgkPro）、赤血球系前駆細胞（EryPro）、表現型上のHSC（pHSC）、Pre-ProBの4目標に対して3条件ずつを選んでいる。今回の再集計はこの12条件に限定した。各条件の目標と選択時の低・高不確実性は、[Author analysis notebook](https://github.com/theislab/LabCompass-reproducibility/blob/0d0ffb093431b2e0a0ff765d0423071aa380c3dc/data_notebooks/loop2/data_analysis/experimental_results_analysis.ipynb)の対応表から読み取った。ただしPre-ProBの条件245は、ノートブックでは高不確実性、原著のLoop 3の説明では低不確実性と記載され、資料間で一致しない。245・246の区分はノートブックに限定して表示し、確定した不確実性順位とは解釈しない。
 
-使ったのは[公開データ](https://huggingface.co/datasets/theislab/LabCompass)の`loop2_annotated.h5ad`と`loop2p5_annotated.h5ad`。加工・注釈・サブサンプリング後のデータであり、生の測定全量ではない。2ファイルには合計999,995セルがあり、対象外の条件247に属する55,555セルを除くと、12条件・67ウェル・944,440セルになる。
+使ったのは[Public data](https://huggingface.co/datasets/theislab/LabCompass)の`loop2_annotated.h5ad`と`loop2p5_annotated.h5ad`。加工・注釈・サブサンプリング後のデータであり、生の測定全量ではない。2ファイルには合計999,995セルがあり、対象外の条件247に属する55,555セルを除くと、12条件・67ウェル・944,440セルになる。
 
 両ファイルの実験ID、日付、試料の出所欄は同じで、出所は`pooled`と記載されている。ファイル名に異なるloopが付いていても、同じ条件の独立した追試を二回行ったとは読めない。また、このメタデータから個々のドナーや人数は復元できない。多くのセルがあっても、それだけ独立した生物学的反復があるわけではない。
 
@@ -45,7 +45,7 @@ Loop 2では、巨核球系前駆細胞（MgkPro）、赤血球系前駆細胞�
 
 MgkProでは低不確実性の条件239が高い割合を示す。一方、EryProでは高不確実性の条件242の平均が、低不確実性の条件241より高い。**不確実性が低い順と、実測割合が高い順は同じではない。** 不確実性は予測についての指標であり、測定後の濃縮割合を並べ直した順位ではない。
 
-pHSCやPre-ProBは、選ばれた条件でも割合が低い。HSCという注釈があることから、機能的な自己複製能を確認したことにはならない。原著も、この段階では目標の濃縮が限定的だったと述べ、後の段階でリンパ系・単球系へ作用する新しい条件を設計空間に加えている。今回のコードは、その後の段階の結果を再集計していない。[原著・Loop 3とDiscussion](https://doi.org/10.64898/2026.10.07.756550)
+pHSCやPre-ProBは、選ばれた条件でも割合が低い。HSCという注釈があることから、機能的な自己複製能を確認したことにはならない。原著も、この段階では目標の濃縮が限定的だったと述べ、後の段階でリンパ系・単球系へ作用する新しい条件を設計空間に加えている。今回のコードは、その後の段階の結果を再集計していない。([Original paper , Loop 3 and Discussion](https://doi.org/10.64898/2026.10.07.756550))
 
 ### ウェルを平均するかセルをまとめるか {#_3}
 
@@ -63,7 +63,7 @@ p_{\mathrm{cell}}=\frac{\sum_w k_w}{\sum_w n_w}
 
 ## 濃縮が小さい候補でも更新後に何が変わったか {#_4}
 
-モデルを学び直す価値は、濃縮割合とは別に評価する必要がある。原著では新しく測った一部の条件を学習へ追加し、条件248と249を残して、更新前後の予測を比較している。その後、全条件を取り込む段階もあるため、どのモデルの比較かを区別する。[原著・Loop 2とModel update between loops](https://doi.org/10.64898/2026.10.07.756550)
+モデルを学び直す価値は、濃縮割合とは別に評価する必要がある。原著では新しく測った一部の条件を学習へ追加し、条件248と249を残して、更新前後の予測を比較している。その後、全条件を取り込む段階もあるため、どのモデルの比較かを区別する。([Original paper , Loop 2 and Model update between loops](https://doi.org/10.64898/2026.10.07.756550))
 
 Supplementary Tables 13–14の報告値を転記し、更新前後の変化を計算した。ここは著者のモデル結果の算術再集計であり、今回独立にモデルを動かした結果ではない。
 
@@ -100,6 +100,6 @@ LabCompassは培養条件を提案し、測定結果をモデルへ戻してい�
 
 [再集計コード・入力CSV・図をダウンロード](shared/labcompass-inverse-design/labcompass-inverse-design.zip)。集計と7件の計算テストはPythonの標準ライブラリで実行できる。図の再描画にはmatplotlibが必要だ。実行方法は`REPRODUCE.md`、取得版とハッシュは`input-provenance.json`に記録した。
 
-原著は[10月9日公開のversion 1](https://doi.org/10.64898/2026.10.07.756550)で、査読前のプレプリント。測定入力は[CC BY 4.0の公開データ](https://huggingface.co/datasets/theislab/LabCompass)のrevision `3c5002d8c9af70ad6b728d999719a26bef3dedfc`、対応表は[著者の再現リポジトリ](https://github.com/theislab/LabCompass-reproducibility)のcommit `0d0ffb093431b2e0a0ff765d0423071aa380c3dc`に基づく。元のH5AD、PDF、著者の図・コード・学習済みモデルはZIPに含めていない。図は公開数値から独自に作成した。
+原著は[Version 1 released October 9](https://doi.org/10.64898/2026.10.07.756550)で、査読前のプレプリント。測定入力は[Public data under CC BY 4.0](https://huggingface.co/datasets/theislab/LabCompass)のrevision `3c5002d8c9af70ad6b728d999719a26bef3dedfc`、対応表は[Author reproduction repository](https://github.com/theislab/LabCompass-reproducibility)のcommit `0d0ffb093431b2e0a0ff765d0423071aa380c3dc`に基づく。元のH5AD、PDF、著者の図・コード・学習済みモデルはZIPに含めていない。図は公開数値から独自に作成した。
 
 本解析は公開資料を見た後の探索的な再集計である。保存注釈の妥当性、全量測定からの処理、生成された個々の候補と選択条件の完全な対応、モデル推論、戦略間の最適性、ドナー間の再現性は検証していない。前臨床の培養条件研究を、臨床的な細胞製造や投与条件の推奨へ置き換えていない。

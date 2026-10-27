@@ -1,4 +1,4 @@
-2026年10月、Bindwellは親和性予測モデルAtomwellを発表した。論文と特許からLLMで抽出した7,600万件の測定値で学習したモデルである。[発表のブログ](https://bindwell.com/posts/the-bitter-lesson-for-biology)では、学習に使っていない論文・特許の1,885件のIC50で、3つのモデルを比べている。
+2026年10月、Bindwellは親和性予測モデルAtomwellを発表した。論文と特許からLLMで抽出した7,600万件の測定値で学習したモデルである。[Announcement blog](https://bindwell.com/posts/the-bitter-lesson-for-biology)では、学習に使っていない論文・特許の1,885件のIC50で、3つのモデルを比べている。
 - Atomwell：R² 0.434
 - Nesso-1（Recursion傘下のValence Labsが公開したモデル）：R² 0.237
 - Boltz-2（タンパク質と化合物の複合体の立体構造から親和性を予測する公開モデル）：R² 0.034
@@ -155,9 +155,9 @@ hERGは、どちらの物差しでも上限が低かった。文献間の差の�
 
 ## 出典・データ
 
-1. Bindwell. The Bitter Lesson for Biology. 2026-10-18. <https://bindwell.com/posts/the-bitter-lesson-for-biology>（Atomwell・Nesso-1・Boltz-2の値、スケーリング則、抽出の照合の数値）
-2. Valence Labs. Nesso-1 technical report. 2026. <https://www.valencelabs.com/wp-content/uploads/2026/07/nesso1.pdf>（Nesso-1の概要）
-3. Zdrazil B, et al. The ChEMBL Database in 2023. *Nucleic Acids Res*. 2024;52:D1180–D1192. [doi:10.1093/nar/gkad1004](https://doi.org/10.1093/nar/gkad1004)（データはChEMBL 37、CC BY-SA 3.0）
+1. Bindwell. The Bitter Lesson for Biology. 2026-10-18. <https://bindwell.com/posts/the-bitter-lesson-for-biology> (Atomwell, Nesso-1 and Boltz-2 scores, scaling law and extraction-check figures)
+2. Valence Labs. Nesso-1 technical report. 2026. <https://www.valencelabs.com/wp-content/uploads/2026/07/nesso1.pdf> (Nesso-1 overview)
+3. Zdrazil B, et al. The ChEMBL Database in 2023. *Nucleic Acids Res*. 2024;52:D1180–D1192. [doi:10.1093/nar/gkad1004](https://doi.org/10.1093/nar/gkad1004) (data: ChEMBL 37, CC BY-SA 3.0)
 4. Kramer C, Kalliokoski T, Gedeck P, Vulpetti A. The experimental uncertainty of heterogeneous public Ki data. *J Med Chem*. 2012;55:5165–5173. [doi:10.1021/jm300131x](https://doi.org/10.1021/jm300131x)
 5. Landrum GA, Riniker S. Combining IC50 or Ki values from different sources is a source of significant noise. *J Chem Inf Model*. 2024;64:1560–1567. [doi:10.1021/acs.jcim.4c00049](https://doi.org/10.1021/acs.jcim.4c00049)
 

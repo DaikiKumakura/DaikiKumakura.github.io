@@ -14,6 +14,6 @@
 {% if toc %}<details><summary>{{ ui.toc }}</summary>{{ toc|safe }}</details>{% endif %}
 {{ body|safe }}
 {% if related %}<section class="related" aria-labelledby="related-analyses"><h2 id="related-analyses">{{ '関連する解析' if lang == 'ja' else 'Related analyses' }}</h2><ul>{% for r in related %}<li><a href="{{ r.href }}" lang="{{ r.lang }}">{{ r.title }}</a></li>{% endfor %}</ul><p><a href="{{ root }}writing.html">{{ ui.back }}</a> · {% for h in hubs %}<a href="{{ h.href }}">{{ h.label }}</a>{{ ' · ' if not loop.last }}{% endfor %}</p></section>{% endif %}
-<section class="cite" aria-labelledby="cite-this"><h2 id="cite-this">{{ '引用' if lang == 'ja' else 'Cite this article' }}</h2><p>{{ cite }}</p></section>
+<section class="cite" lang="en" aria-labelledby="cite-this"{% if lang == 'ja' %} aria-label="この記事の引用"{% endif %}><h2 id="cite-this">Cite this article</h2>{% set citation_text, citation_url = cite.rsplit(' ', 1) %}<p>{{ citation_text }} <a href="{{ citation_url }}">{{ citation_url }}</a></p></section>
 </article>
 {% endblock %}

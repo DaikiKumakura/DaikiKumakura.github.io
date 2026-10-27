@@ -6,9 +6,9 @@ Zongertinibの米国での推奨用量は、90 kg未満では120 mg、90 kg以�
 
 ## 90 kgという境界の背景 {#90-kg}
 
-ZongertinibはHER2（ERBB2）TKD活性化変異を持つ非扁平上皮非小細胞肺癌の経口阻害薬である。米国では2025年に承認され、2026年2月には適応が拡大された。体重による120／180 mgの用法は2026年8月更新のラベルでも維持されている。[FDAの2026年承認情報](https://www.fda.gov/drugs/resources-information-approved-drugs/fda-grants-accelerated-approval-zongertinib-unresectable-or-metastatic-non-squamous-non-small-cell)、[現行DailyMedラベル2.2節](https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=d3fabf12-354e-4e5c-b5de-20fdb579b783)
+ZongertinibはHER2（ERBB2）TKD活性化変異を持つ非扁平上皮非小細胞肺癌の経口阻害薬である。米国では2025年に承認され、2026年2月には適応が拡大された。体重による120／180 mgの用法は2026年8月更新のラベルでも維持されている。[FDA 2026 approval information](https://www.fda.gov/drugs/resources-information-approved-drugs/fda-grants-accelerated-approval-zongertinib-unresectable-or-metastatic-non-squamous-non-small-cell)、[Current DailyMed prescribing information 2.2 section](https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=d3fabf12-354e-4e5c-b5de-20fdb579b783)
 
-FDAの初回審査では、低曝露群のORRと高体重患者の曝露低下が論点になり、180 mgへの曝露マッチングと便益・リスクを踏まえて90 kgが選ばれた。以下の計算は、その臨床判断を数学だけで置き換えるものではない。[FDA多領域審査資料、PDF358・361頁](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/219042Orig1s000MultidisciplineR.pdf)
+FDAの初回審査では、低曝露群のORRと高体重患者の曝露低下が論点になり、180 mgへの曝露マッチングと便益・リスクを踏まえて90 kgが選ばれた。以下の計算は、その臨床判断を数学だけで置き換えるものではない。[FDA multidisciplinary review / PDF358 , 361 pp.](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/219042Orig1s000MultidisciplineR.pdf)
 
 | 項目 | 今回の定義 |
 | --- | --- |
@@ -20,7 +20,7 @@ FDAの初回審査では、低曝露群のORRと高体重患者の曝露低下�
 
 ## まず用量比較表を数式に戻す {#_1}
 
-公表PopPKは、零次入力と一次吸収を逐次組み合わせた2コンパートメントモデルである。主な係数は次のとおりだった。[FDA審査資料Table 79、PDF297–298頁](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/219042Orig1s000MultidisciplineR.pdf)
+公表PopPKは、零次入力と一次吸収を逐次組み合わせた2コンパートメントモデルである。主な係数は次のとおりだった。([FDA assessment report Table 79 / PDF297–298 pp.](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/219042Orig1s000MultidisciplineR.pdf))
 
 | 量 | 公表値 | 扱い |
 | --- | ---: | --- |
@@ -55,7 +55,7 @@ FDA Table 89には、体重33.6–122 kgでの120 mgの比13点と、75–122 kg
 \log r_k=-a\log(w_k/70)
 \]
 
-の係数を最小二乗で逆算すると、\(a=0.74796\) だった。120 mg表との最大差は0.495パーセントポイント、照合に残した180 mg表との最大差は0.456ポイントだった。[FDA Table 89、PDF361頁](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/219042Orig1s000MultidisciplineR.pdf)
+の係数を最小二乗で逆算すると、\(a=0.74796\) だった。120 mg表との最大差は0.495パーセントポイント、照合に残した180 mg表との最大差は0.456ポイントだった。[FDA Table 89 / PDF361 pp.](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/219042Orig1s000MultidisciplineR.pdf)
 
 **これはモデル由来の丸められた表の逆算であり、臨床データから0.75乗則を新規推定した結果ではない。** 180 mg表の照合も、同じモデル内部の数値監査であって外部検証ではない。以降の主解析には、公表された固定指数0.75を使う。この逆算に臨床的な信頼区間は付けない。
 
@@ -168,11 +168,11 @@ CL・Qには体重の0.75乗、両容積には1乗を使い、基準の見かけ
 
 **図3**：左は個体差0での補助的な再構成例。公表MATとの時間モーメントの差は未解消。縦軸は70 kg・120 mgの平均濃度で規格化。右は対数AUC距離だけを最小化する切替点で、承認用法変更の提案ではない。
 
-計算上の基準個体のAUCは31.0 µmol·h/L、Cmaxは2.56 µmol/Lだった。ラベルの集団幾何平均34、3.0とは同一ではない。基準共変量の扱い、患者・投与機会の集約、吸収実装も異なるため、この照合を独立した外部検証とは扱わない。[USラベル12.3節](https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/219042s001lbl.pdf)
+計算上の基準個体のAUCは31.0 µmol·h/L、Cmaxは2.56 µmol/Lだった。ラベルの集団幾何平均34、3.0とは同一ではない。基準共変量の扱い、患者・投与機会の集約、吸収実装も異なるため、この照合を独立した外部検証とは扱わない。[US prescribing information 12.3 section](https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/219042s001lbl.pdf)
 
 ## 曝露の比較から臨床的な優劣は決まらない {#_5}
 
-FDA資料にはORRとの正の曝露–反応傾向がある。一方、DORやPFSを含むすべての指標で同じ関係が示されたわけではなく、曝露域の両端は注意して解釈するよう記載されている。[FDA審査資料、PDF317・358・361頁](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/219042Orig1s000MultidisciplineR.pdf)
+FDA資料にはORRとの正の曝露–反応傾向がある。一方、DORやPFSを含むすべての指標で同じ関係が示されたわけではなく、曝露域の両端は注意して解釈するよう記載されている。([FDA assessment report / PDF317 , 358 , 361 pp.](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/219042Orig1s000MultidisciplineR.pdf))
 
 今回のモデル由来AUCを既存E–Rへ代入して、連続補正の方が効く、90 kg直前では効果が足りない、といった予測は行わない。0.8／1.25という便宜的な目盛りを、そのまま奏効・有害事象へ翻訳する根拠もない。
 

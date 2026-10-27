@@ -67,13 +67,13 @@ ProMarketが「これまでで最も明るい結果」と呼ぶのが、Insilico
 
 ## 参考資料 {#_3}
 
-資料の一覧と読んだ範囲は [sources.md](shared/ai-drug-claim-chain/sources.md)、派生した数値は [numbers.py](shared/ai-drug-claim-chain/numbers.py) と [results/summary.json](shared/ai-drug-claim-chain/results/summary.json)。
+The source inventory and reading scope are recorded in [sources.md](shared/ai-drug-claim-chain/sources.md), derived numbers are recorded in [numbers.py](shared/ai-drug-claim-chain/numbers.py) and [results/summary.json](shared/ai-drug-claim-chain/results/summary.json).
 
-1. Jayatunga MKP, Ayers M, Bruens L, Jayanth D, Meier C. How successful are AI-discovered drugs in clinical trials? A first analysis and emerging lessons. *Drug Discov Today* 2024;29(6):104009. doi:10.1016/j.drudis.2024.104009（要旨のみ）
-2. Santoro MA. Pharma's AI Boom Has Bet on the Wrong Bottleneck. ProMarket, 2026年7月2日。
-3. Epstein WN, Niazi SK. AI Can Invent Drugs Faster. It Still Has to Prove They Work. Petrie-Flom Center, Harvard Law School, 2026年8月4日。
-4. Alsumidaie M. AI is clearing Phase I. That's the wrong finish line. The Clinical Trial Vanguard, 2026年8月11日。
-5. Trey. Clinical trials are the new bottleneck. Trey's Thoughts on Healthcare Markets & Technology, 2026年4月1日（一部有料）。
-6. ASCO 2026抄録. *J Clin Oncol* 44(16) suppl. doi:10.1200/jco.2026.44.16_suppl.11072（二次資料IntuitionLabsの解説による）
-7. IQVIA Institute. Global R&D Trends 2026 の紹介ブログ, 2026年5月14日。
-8. 自分の関連記事：[「AI創薬の第2相成功率は40%のまま」は、何件あれば判断できるか](ai-phase2-sample-size.html)、[rentosertibの第2a相](rentosertib-ph2a.html)、[AI創薬のボトルネックはどこにあるか](ai-drug-discovery-bottlenecks.html)
+1. Jayatunga MKP, Ayers M, Bruens L, Jayanth D, Meier C. How successful are AI-discovered drugs in clinical trials? A first analysis and emerging lessons. *Drug Discov Today* 2024;29(6):104009. [doi:10.1016/j.drudis.2024.104009](https://doi.org/10.1016/j.drudis.2024.104009) (abstract only)
+2. Santoro MA. Pharma's AI Boom Has Bet on the Wrong Bottleneck. ProMarket, 2026-07-02.
+3. Epstein WN, Niazi SK. AI Can Invent Drugs Faster. It Still Has to Prove They Work. Petrie-Flom Center, Harvard Law School, 2026-08-04.
+4. Alsumidaie M. AI is clearing Phase I. That's the wrong finish line. The Clinical Trial Vanguard, 2026-08-11.
+5. Trey. Clinical trials are the new bottleneck. Trey's Thoughts on Healthcare Markets & Technology, 2026-04-01 (partly paywalled).
+6. ASCO 2026 abstract. *J Clin Oncol* 44(16) suppl. [doi:10.1200/jco.2026.44.16_suppl.11072](https://doi.org/10.1200/jco.2026.44.16_suppl.11072) (reported via the secondary IntuitionLabs commentary)
+7. IQVIA Institute. Global R&D Trends 2026 report commentary, 2026-05-14.
+8. Related articles by the author: [How many Phase II readouts would it take to judge 'AI drugs still succeed 40% of the time'?](ai-phase2-sample-size.html), [How robust is the FVC signal in the rentosertib phase 2a trial to missing-data assumptions?](rentosertib-ph2a.html), [Where are the bottlenecks in AI-enabled drug discovery?](ai-drug-discovery-bottlenecks.html)

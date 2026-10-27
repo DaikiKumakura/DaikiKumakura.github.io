@@ -1,6 +1,6 @@
 同じ年齢でも、免疫の状態は同じではない。それを採血で測り、将来の健康リスクを知ることはできるだろうか。
 
-2026年10月9日にImmunityで公表されたTerekhovaらの研究は、2,609人の末梢血単核球（PBMC）のデータを統合し、二つのCD8陽性エフェクターメモリーT細胞集団の比に注目した。さらに、その状態を血中蛋白から推定する指標を健康転帰へつないだ。Eric Topolの[X投稿](https://x.com/EricTopol/status/2110067896529605026)でも紹介されている。[原著の公開抄録](https://kclpure.kcl.ac.uk/portal/en/publications/single-cell-analyses-of-global-cohorts-outline-determinants-of-im/)
+2026年10月9日にImmunityで公表されたTerekhovaらの研究は、2,609人の末梢血単核球（PBMC）のデータを統合し、二つのCD8陽性エフェクターメモリーT細胞集団の比に注目した。さらに、その状態を血中蛋白から推定する指標を健康転帰へつないだ。Eric Topolの[X post](https://x.com/EricTopol/status/2110067896529605026)でも紹介されている。([Original paper public abstract](https://kclpure.kcl.ac.uk/portal/en/publications/single-cell-analyses-of-global-cohorts-outline-determinants-of-im/))
 
 この研究で興味深いのは、大きな細胞アトラスを作ったことに加え、そこで見つけた状態を、別の測定で読める形にした点だ。ただし、細胞状態の測定、蛋白による代理推定、将来の疾患との関連は、それぞれ別の検証を必要とする。
 
@@ -8,7 +8,7 @@
 
 ## 年齢の予測と健康の経過は別の問い {#_1}
 
-研究は、七つの既存の単一細胞データセットと新たなコホートを統合し、59の免疫細胞集団を扱った。CD8陽性T細胞のうち、GZMKを発現するエフェクターメモリー集団と、GZMBを発現する集団の比が、健康な経過と病態に関連する経過の違いを特徴づけたという。比にはCMVを含む慢性的なウイルス曝露なども関係し、その主な要因は集団によって異なった。[原著の公開抄録](https://kclpure.kcl.ac.uk/portal/en/publications/single-cell-analyses-of-global-cohorts-outline-determinants-of-im/)
+研究は、七つの既存の単一細胞データセットと新たなコホートを統合し、59の免疫細胞集団を扱った。CD8陽性T細胞のうち、GZMKを発現するエフェクターメモリー集団と、GZMBを発現する集団の比が、健康な経過と病態に関連する経過の違いを特徴づけたという。比にはCMVを含む慢性的なウイルス曝露なども関係し、その主な要因は集団によって異なった。([Original paper public abstract](https://kclpure.kcl.ac.uk/portal/en/publications/single-cell-analyses-of-global-cohorts-outline-determinants-of-im/))
 
 暦年齢によく一致する指標と、同じ年齢の人の将来を区別する指標は、目的が違う。年齢を当てる誤差だけでは、疾患リスクを見分ける能力は分からない。逆に、ある細胞状態が疾患と関連していても、その細胞を変える介入が健康を改善するとはまだ言えない。
 
@@ -16,9 +16,9 @@ GZMK側を常に「良い細胞」、GZMB側を常に「悪い細胞」と呼ぶ
 
 ## 大規模な転帰解析では細胞を直接測っていない {#_2}
 
-研究機関の発表によると、UK Biobankの解析では対象のT細胞数がなかったため、細胞の情報と血中蛋白を持つ別のデータから推定モデルを作り、約５万人のベースラインの蛋白測定へ適用した。その推定指標と、その後の疾患や死亡との関連を調べたという。[WashUの一次発表](https://medicine.washu.edu/news/immune-cell-map-uncovers-how-individual-aging-trajectories-diverge/)
+研究機関の発表によると、UK Biobankの解析では対象のT細胞数がなかったため、細胞の情報と血中蛋白を持つ別のデータから推定モデルを作り、約５万人のベースラインの蛋白測定へ適用した。その推定指標と、その後の疾患や死亡との関連を調べたという。[WashU primary announcement](https://medicine.washu.edu/news/immune-cell-map-uncovers-how-individual-aging-trajectories-diverge/)
 
-公開抄録では、四つのコホートの蛋白解析から得た「Tem GZMB+ plasma signature」が報告されている。細胞比と蛋白署名を、同一の測定値として扱わないことが重要だ。[原著の公開抄録](https://kclpure.kcl.ac.uk/portal/en/publications/single-cell-analyses-of-global-cohorts-outline-determinants-of-im/)
+公開抄録では、四つのコホートの蛋白解析から得た「Tem GZMB+ plasma signature」が報告されている。細胞比と蛋白署名を、同一の測定値として扱わないことが重要だ。([Original paper public abstract](https://kclpure.kcl.ac.uk/portal/en/publications/single-cell-analyses-of-global-cohorts-outline-determinants-of-im/))
 
 つまり、「約５万人のT細胞を直接測り、その比を追った」と読んではいけない。UK Biobank全体の約50万人という規模と、ここで蛋白を使った対象数も別である。
 

@@ -234,11 +234,11 @@ M3の用量比は1人ずつ除外しても約2.19–2.47で、線形の2と異�
 
 解析記録は実行済み`a03-diagnostics.ipynb`に保存した。配布用には、患者別データなしで動く[レビューNotebook](shared/nimotuzumab-poppk/review.ipynb)、[再実行手順](shared/nimotuzumab-poppk/README.md)、モデル定義・R再推定スクリプト、Pythonの独立予測・診断・シミュレーション、集計CSV、図を準備した。レビューNotebookは保存結果から比較と検算を再実行する。長時間のR推定そのものは別コマンドである。配布用資料に患者別データやRDSは含めず、固定版の取得元と原本hashを記載した。コードの利用条件と、元データの利用権限・原論文の著作権は分けて扱う。
 
-1. Rodríguez-Vera L, et al. *Semimechanistic model to characterize nonlinear pharmacokinetics of nimotuzumab in patients with advanced breast cancer.* J Clin Pharmacol. 2015;55:888–898. [DOI:10.1002/jcph.496](https://doi.org/10.1002/jcph.496). [A01で監査した著者公開本文](https://www.researchgate.net/publication/273447355_Semi-Mechanistic_Model_to_Characterize_Non-Linear_Pharmacokinetic_of_Nimotuzumab_in_Patients_with_Advanced_Breast_Cancer).
-2. [nlmixr2data：解析に用いた固定commit](https://github.com/nlmixr2/nlmixr2data/tree/f2cfb01ade88d4d30e66f56b19efce2a2c6e26bd). パッケージ2.0.10、原本hashは本文参照。
-3. [nlmixr2公式Nimotuzumab例](https://nlmixr2.org/articles/nimo.html). データ尺度と原研究モデルへの参照。今回のM3をこのTMDDモデルの再現と呼ばない。
-4. [nlmixr2est公式foceiControlリファレンス](https://nlmixr2.github.io/nlmixr2est/reference/foceiControl.html). optimizerと推定制御。
-5. Savic RM, Karlsson MO. *Importance of shrinkage in empirical Bayes estimates for diagnostics: problems and solutions.* AAPS J. 2009;11:558–569. [DOI:10.1208/s12248-009-9133-0、公開全文](https://pmc.ncbi.nlm.nih.gov/articles/PMC2758126/).
+1. Rodríguez-Vera L, et al. *Semimechanistic model to characterize nonlinear pharmacokinetics of nimotuzumab in patients with advanced breast cancer.* J Clin Pharmacol. 2015;55:888–898. [DOI:10.1002/jcph.496](https://doi.org/10.1002/jcph.496). [Author manuscript audited in the earlier analysis](https://www.researchgate.net/publication/273447355_Semi-Mechanistic_Model_to_Characterize_Non-Linear_Pharmacokinetic_of_Nimotuzumab_in_Patients_with_Advanced_Breast_Cancer).
+2. [nlmixr2data: pinned analysis commit](https://github.com/nlmixr2/nlmixr2data/tree/f2cfb01ade88d4d30e66f56b19efce2a2c6e26bd). Package 2.0.10; see the main text for the source hash.
+3. [nlmixr2 official nimotuzumab example](https://nlmixr2.org/articles/nimo.html). Reference for data scale and the original model. M3 here is not a reproduction of this TMDD model.
+4. [nlmixr2est official foceiControl reference](https://nlmixr2.github.io/nlmixr2est/reference/foceiControl.html). Optimizer and estimation controls.
+5. Savic RM, Karlsson MO. *Importance of shrinkage in empirical Bayes estimates for diagnostics: problems and solutions.* AAPS J. 2009;11:558–569. [DOI:10.1208/s12248-009-9133-0, open full text](https://pmc.ncbi.nlm.nih.gov/articles/PMC2758126/).
 
 本記事の表・図は配布データを用いた本解析から作成した。引用論文の図を転載していない。
 

@@ -30,7 +30,7 @@ Liaoらは、BT474細胞と、ERBB2を欠損させたHER2陰性細胞から3D tu
 
 ![HER2陽性・陰性細胞の5日目／0日目の細胞数比](shared/her2-bystander-residual-cells/figures/01-cell-abundance.png)
 
-*図1：公開図の平均値を再描画した。横線は5日目と0日目の細胞数が同じ位置。上下の線は原画像の±2画素に相当する読取幅であり、原著のSEMではない。横位置を少しずらして二つの処置を示す。出典：LiaoらのFigure 2D・Supplementary Figure 3Cを加工。[1]*
+*図1：公開図の平均値を再描画した。横線は5日目と0日目の細胞数が同じ位置。上下の線は原画像の±2画素に相当する読取幅であり、原著のSEMではない。横位置を少しずらして二つの処置を示す。出典：[Liao et al., Figure 2D and Supplementary Figure 3C](https://doi.org/10.1002/eji.202451589)を加工。[1]*
 
 ## 対照より少ないことと初期より減ることは違う {#_3}
 
@@ -104,7 +104,7 @@ R_-(f)=\frac{F_-^{\mathrm{T+bsAb}}(f)}{F_-^{\mathrm{T\ only}}(f)}
 
 この範囲で \(\beta\) は約2.38〜2.70だった。図2の50%条件は、読取変動で得られる曲線の帯からも離れている。少なくとも、数画素の読み違いだけでモデルと観測のずれがなくなるわけではない。
 
-初期割合にも注意がいる。横軸は仕込み時の名目割合であり、各培養で実測した正確な割合ではない。原著Figure 1Cには初期割合の測定があるが、今回のFigure 2と同一培養の値としては使えない。名目割合を全条件一律に±0.05ずらす仮定を置くと、係数は約2.24〜3.01、条件除外RMSEは約0.13〜0.19に変わった。この幅も測定に基づく信頼区間ではない。
+初期割合にも注意がいる。横軸は仕込み時の名目割合であり、各培養で実測した正確な割合ではない。([Original paper Figure 1C](https://doi.org/10.1002/eji.202451589))には初期割合の測定があるが、今回のFigure 2と同一培養の値としては使えない。名目割合を全条件一律に±0.05ずらす仮定を置くと、係数は約2.24〜3.01、条件除外RMSEは約0.13〜0.19に変わった。この幅も測定に基づく信頼区間ではない。
 
 補足図の対照の代わりに、同じFigure 2内の「陰性細胞のみ」の量で割る計算も添えた。これは混合割合ごとの増殖差を補正できない別の指標なので、RMSEの数値を主解析と直接比較して優劣を決めてはいない。計算結果は配布CSVに残している。
 
@@ -116,7 +116,7 @@ R_-(f)=\frac{F_-^{\mathrm{T+bsAb}}(f)}{F_-^{\mathrm{T\ only}}(f)}
 
 ![細胞塊の距離と陰性細胞の残存量](shared/her2-bystander-residual-cells/figures/03-spatial-challenge.png)
 
-*図3：異なる細胞塊の配置での陰性細胞数。上下の線は±2画素の読取幅。右端の対照は200 µmでのT細胞のみの条件であり、各距離で対応する対照が揃っているわけではない。出典：LiaoらのFigure 3Dを加工。[1]*
+*図3：異なる細胞塊の配置での陰性細胞数。上下の線は±2画素の読取幅。右端の対照は200 µmでのT細胞のみの条件であり、各距離で対応する対照が揃っているわけではない。出典：[Liao et al., Figure 3D](https://doi.org/10.1002/eji.202451589)を加工。[1]*
 
 この図を、混合培養から推定したモデルの外部予測誤差として採点することはしない。培養配置と局所条件が異なり、各培養の実測初期割合もないからである。ただし、陽性率だけを入力すれば配置を問わず同じ結果になる、という使い方は支持できない。
 
@@ -136,4 +136,4 @@ R_-(f)=\frac{F_-^{\mathrm{T+bsAb}}(f)}{F_-^{\mathrm{T\ only}}(f)}
 
 ## 文献 {#_9}
 
-1. Liao CY, Engelberts P, van Dijk M, et al. CD3xHER2 bsAb-Mediated Activation of Resting T-cells at HER2 Positive Tumor Clusters Is Sufficient to Trigger Bystander Eradication of Distant HER2 Negative Clusters Through IFNγ and TNFα. *European Journal of Immunology*. 2025;55:e202451589. [論文・補足資料](https://pmc.ncbi.nlm.nih.gov/articles/PMC11967296/) / [DOI:10.1002/eji.202451589](https://doi.org/10.1002/eji.202451589)。CC BY 4.0。図1〜3は公表平均値を数値化して別の図に描き直し、図2には本解析の推定・予測を加えた。
+1. Liao CY, Engelberts P, van Dijk M, et al. CD3xHER2 bsAb-Mediated Activation of Resting T-cells at HER2 Positive Tumor Clusters Is Sufficient to Trigger Bystander Eradication of Distant HER2 Negative Clusters Through IFNγ and TNFα. *European Journal of Immunology*. 2025;55:e202451589. [Paper and supplements](https://pmc.ncbi.nlm.nih.gov/articles/PMC11967296/) / [DOI:10.1002/eji.202451589](https://doi.org/10.1002/eji.202451589). CC BY 4.0. Published means in Figures 1–3 were digitized and replotted; Figure 2 also includes estimates and predictions from the present analysis.

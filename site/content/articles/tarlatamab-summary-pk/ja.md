@@ -251,7 +251,7 @@ PK指標間の共分散と、同じ患者の投与・採血・CRS時刻は得ら
 
 ## 再実行と解析資料 {#_7}
 
-[解析コード・入力CSV・結果表をダウンロードする](https://daikikumakura.github.io/writing/shared/tarlatamab-summary-pk/tarlatamab-analysis.zip)。乱数seedは20261003。推定、30-start、profile、300回bootstrap、hold-out、共分散の感度分析、独立ODE実装との比較を一つのスクリプトで実行できる。患者レベルデータは含まない。
+[Download analysis code, input CSV and result tables](https://daikikumakura.github.io/writing/shared/tarlatamab-summary-pk/tarlatamab-analysis.zip)。乱数seedは20261003。推定、30-start、profile、300回bootstrap、hold-out、共分散の感度分析、独立ODE実装との比較を一つのスクリプトで実行できる。患者レベルデータは含まない。
 
 ZIPを展開したフォルダで、次を実行する。入力は `data/observations.csv`、出力は `results/`・`figures/` に保存される。
 
@@ -262,12 +262,12 @@ python analysis.py
 
 ## 参考文献 {#_8}
 
-1. [PMDA. イムデトラ電子添文、16.1.1・表1](https://www.pmda.go.jp/PmdaSearch/iyakuDetail/112292_4291477D1029_1_04). 2026年5月改訂版、2026-10-03確認。
-2. [PMDA. イムデトラ審査報告書、表23（PDF 24ページ）](https://www.pmda.go.jp/drugs/2025/P20250114001/112292000_30600AMX00310_A100_1.pdf). 2024-12-27。
+1. [PMDA. IMDELLTRA electronic package insert, Section 16.1.1 and Table 1 [in Japanese]](https://www.pmda.go.jp/PmdaSearch/iyakuDetail/112292_4291477D1029_1_04). May 2026 revision; checked 2026-10-03.
+2. [PMDA. IMDELLTRA assessment report, Table 23 (PDF p. 24) [in Japanese]](https://www.pmda.go.jp/drugs/2025/P20250114001/112292000_30600AMX00310_A100_1.pdf). 2024-12-27.
 3. [Kong S, et al. Population Pharmacokinetics of Tarlatamab. Clin Pharmacokinet. 2025;64:729–741](https://doi.org/10.1007/s40262-025-01499-z).
-4. [FDA. Tarlatamab Multidisciplinary Review、Tables 66・71](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2024/761344Orig1s000MultidisciplineR.pdf). 2024。
+4. [FDA. Tarlatamab Multidisciplinary Review, Tables 66・71](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2024/761344Orig1s000MultidisciplineR.pdf). 2024.
 5. [Chen PW, et al. Tarlatamab Exposure–Efficacy and Exposure–Safety Relationships to Inform Dose Selection. Clin Cancer Res. 2025;31:4688–4697](https://doi.org/10.1158/1078-0432.CCR-25-2134).
-6. [Sands JM, et al. Practical management of adverse events in patients receiving tarlatamab. Cancer. 2025;131:e35738、Figure 2](https://doi.org/10.1002/cncr.35738).
+6. [Sands JM, et al. Practical management of adverse events in patients receiving tarlatamab. Cancer. 2025;131:e35738, Figure 2](https://doi.org/10.1002/cncr.35738).
 
 [1]: https://www.pmda.go.jp/PmdaSearch/iyakuDetail/112292_4291477D1029_1_04
 [2]: https://www.pmda.go.jp/drugs/2025/P20250114001/112292000_30600AMX00310_A100_1.pdf

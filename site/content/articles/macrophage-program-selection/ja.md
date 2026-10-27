@@ -4,13 +4,13 @@
 
 2026年10月16日公開のImmunityのPerspective、[Embracing macrophage complexity for research and translation](https://doi.org/10.1016/j.immuni.2026.09.015)は、マクロファージを固定的な型や単一マーカーで捉える枠組みを見直している。細胞の状態は、発生由来、組織、過去の刺激、局所環境を受けて動く。複数の遺伝子プログラムの活動を組み合わせて記述し、治療ではその組合せや遷移を考える、という提案だ。新薬の効果を検証した試験ではなく、研究と介入をどう組み立てるかを論じた総説である。
 
-M1/M2の限界そのものは新発見ではない。[2014年の実験指針](https://doi.org/10.1016/j.immuni.2014.06.008)でも、細胞の由来と刺激を明記するよう勧めていた。今読む意味は、「分類を増やそう」で止まらず、**何を残し、何を変えたいのかを介入の問いにする**ところにあると思う。
+M1/M2の限界そのものは新発見ではない。[2014 experimental guidelines](https://doi.org/10.1016/j.immuni.2014.06.008)でも、細胞の由来と刺激を明記するよう勧めていた。今読む意味は、「分類を増やそう」で止まらず、**何を残し、何を変えたいのかを介入の問いにする**ところにあると思う。
 
 そこで、公開されたヒトマクロファージの単一細胞RNAデータを再集計した。M2という同じ箱に入る二つの刺激条件を比べ、箱に戻したときに消える情報を調べる。
 
 ## 同じM2でも刺激は違う {#m2}
 
-使ったのは[GSE199378](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE199378)。健常者2人の血液由来単球をマクロファージへ分化させ、次の刺激を与えたデータだ。原著は[Modakらの2022年の研究](https://doi.org/10.1172/jci.insight.155022)であり、2026年の総説が新たに測定したものではない。
+使ったのは[GSE199378](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE199378)。健常者2人の血液由来単球をマクロファージへ分化させ、次の刺激を与えたデータだ。原著は[Modak et al. (2022)](https://doi.org/10.1172/jci.insight.155022)であり、2026年の総説が新たに測定したものではない。
 
 | 本文で使う元データのラベル | 刺激 | ドナー1の細胞数 | ドナー2の細胞数 |
 | --- | --- | ---: | ---: |
@@ -73,7 +73,7 @@ $$
 
 ## RNAの外に機能の測定を置く {#rna}
 
-元の2022年論文は、発現だけでなく抗原の交差提示も調べている。取り込んだ抗原をMHCクラスIを介してT細胞に見せる過程だ。可溶性の長鎖TyrDペプチドを使う条件では、M2aはM1やM2cより強い交差提示と、TyrD特異的T58細胞のIFNγ応答を示した。一方、死細胞に由来する抗原の条件では、同様の応答は明瞭でなかった。[原著Fig. 4](https://insight.jci.org/articles/view/155022)
+元の2022年論文は、発現だけでなく抗原の交差提示も調べている。取り込んだ抗原をMHCクラスIを介してT細胞に見せる過程だ。可溶性の長鎖TyrDペプチドを使う条件では、M2aはM1やM2cより強い交差提示と、TyrD特異的T58細胞のIFNγ応答を示した。一方、死細胞に由来する抗原の条件では、同様の応答は明瞭でなかった。([Original paper Fig. 4](https://insight.jci.org/articles/view/155022))
 
 この条件依存性が大事だと思う。「M2aは抗腫瘍的」と新しいラベルを貼って終えるのでは、元の問題を繰り返す。どの形の抗原を取り込ませ、どの提示過程とT細胞応答を測ったかを残したい。今回のRNAデータの2ドナーは、原著の機能実験のドナー数でもない。RNAの差から、機能差の大きさを回帰した解析ではない。
 
@@ -89,6 +89,6 @@ $$
 
 参考文献：
 
-- Ginhoux et al. [Embracing macrophage complexity for research and translation](https://doi.org/10.1016/j.immuni.2026.09.015). Immunity, 2026年10月16日オンライン公開。総説の公開抄録・概要を枠組みの出典とした。
-- Modak et al. [CD206-positive tumor-associated macrophages cross-present tumor antigen and drive antitumor immunity](https://doi.org/10.1172/jci.insight.155022). JCI Insight, 2022;7(11):e155022. 再解析データ：[GSE199378](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE199378)。
+- Ginhoux et al. [Embracing macrophage complexity for research and translation](https://doi.org/10.1016/j.immuni.2026.09.015). Immunity, Published online October 16, 2026. The public abstract and overview of this review were used as sources for the framework.
+- Modak et al. [CD206-positive tumor-associated macrophages cross-present tumor antigen and drive antitumor immunity](https://doi.org/10.1172/jci.insight.155022). JCI Insight, 2022;7(11):e155022. Data used for reanalysis: [GSE199378](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE199378).
 - Murray et al. [Macrophage activation and polarization: nomenclature and experimental guidelines](https://doi.org/10.1016/j.immuni.2014.06.008). Immunity, 2014;41:14–20。

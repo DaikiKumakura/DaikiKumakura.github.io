@@ -126,7 +126,7 @@ python 06_census.py
 
 ## 参考文献 {#_5}
 
-1. Hugging Face Biology Research. [Carbon-A: Finding genes in known and unknown genomes](https://huggingface.co/blog/HuggingFaceBio/carbon-annotator-genbank-genome-annotation)（2026年10月8日）.
-2. HuggingFaceBio. [genbank-annotations（公開ストレージ）](https://huggingface.co/buckets/HuggingFaceBio/genbank-annotations) と [Carbon-A Database Explorer](https://huggingface.co/spaces/HuggingFaceBio/carbon-a-database-explorer).
-3. Ramachandran R. [Carbon-A's 566 Million Gene Candidates: What the Evidence Supports](https://rohitai.com/blog/huggingface-carbon-a-gene-annotation-database-evaluation-guide). RohitAI（2026年10月9日）.
-4. NCBI. [RefSeq genome annotation and assembly reports](https://ftp.ncbi.nlm.nih.gov/genomes/all/) と [NCBI Datasets API](https://www.ncbi.nlm.nih.gov/datasets/docs/v2/).
+1. Hugging Face Biology Research. [Carbon-A: Finding genes in known and unknown genomes](https://huggingface.co/blog/HuggingFaceBio/carbon-annotator-genbank-genome-annotation) (2026-10-08).
+2. HuggingFaceBio. [genbank-annotations (public storage)](https://huggingface.co/buckets/HuggingFaceBio/genbank-annotations) and [Carbon-A Database Explorer](https://huggingface.co/spaces/HuggingFaceBio/carbon-a-database-explorer).
+3. Ramachandran R. [Carbon-A's 566 Million Gene Candidates: What the Evidence Supports](https://rohitai.com/blog/huggingface-carbon-a-gene-annotation-database-evaluation-guide). RohitAI (2026-10-09).
+4. NCBI. [RefSeq genome annotation and assembly reports](https://ftp.ncbi.nlm.nih.gov/genomes/all/) and [NCBI Datasets API](https://www.ncbi.nlm.nih.gov/datasets/docs/v2/).

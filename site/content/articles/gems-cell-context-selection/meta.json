@@ -16,10 +16,18 @@
         "LDLで最多の肝臓RNA・肝細胞ATACの組合せは、両モダリティに対応が付く変異の78.0%、全候補の15.1%を占める。いずれも正解率ではない。",
         "T2Dの低い両モダリティ対応率は、単独モデル間の不一致率ではない。未付与、組織と細胞の解像度、元データの厚みを実験選択に残す。"
       ]
+    },
+    "en": {
+      "title": "Choosing cell contexts for GWAS experiments with GEMS",
+      "summary": "A Japanese essay audits the denominators in GEMS Table 2 and separates cell annotation coverage from causal validation and experimental cell selection.",
+      "seo_title": "GEMS: choosing cell contexts for GWAS experiments"
     }
   },
   "english": {
     "title": "Choosing cell contexts for GWAS experiments with GEMS",
     "summary": "A Japanese essay audits the denominators in GEMS Table 2 and separates cell annotation coverage from causal validation and experimental cell selection."
+  },
+  "reviewed": {
+    "en": "ef87eb6edbff4b056496fb884b62a403627d4c5807eb6a3fe80ecf3a7d752b42"
   }
 }

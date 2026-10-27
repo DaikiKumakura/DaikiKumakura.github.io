@@ -83,7 +83,7 @@ The companion contains the acquisition and export scripts, the analysis, simulat
 ## Sources {#sources}
 
 1. Rondeau V, et al. frailtypack: general frailty models. CRAN package version 3.8.1, datasets `colorectal` and `colorectalLongi`. https://cran.r-project.org/package=frailtypack
-2. Ducreux M, et al. Sequential versus combination chemotherapy for the treatment of advanced colorectal cancer (FFCD 2000–05): an open-label, randomised, phase 3 trial. *Lancet Oncol*. 2011;12(11):1032–1044. doi:10.1016/S1470-2045(11)70199-1
+2. Ducreux M, et al. Sequential versus combination chemotherapy for the treatment of advanced colorectal cancer (FFCD 2000–05): an open-label, randomised, phase 3 trial. *Lancet Oncol*. 2011;12(11):1032–1044. [doi:10.1016/S1470-2045(11)70199-1](https://doi.org/10.1016/S1470-2045(11)70199-1)
 3. Rizopoulos D, Papageorgiou G, Miranda Afonso P. JMbayes2: extended joint models for longitudinal and time-to-event data. R package version 0.6.0. https://cran.r-project.org/package=JMbayes2
 4. ICH E9(R1). Addendum on estimands and sensitivity analysis in clinical trials to the guideline on statistical principles for clinical trials. 2019.
 5. Pinheiro J, Bates D, R Core Team. nlme: linear and nonlinear mixed effects models. R package version 3.1-168.

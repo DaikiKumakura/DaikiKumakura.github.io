@@ -1,6 +1,6 @@
 Menin阻害剤のrevumenibとziftomenibは、どちらもCYP3Aによる代謝を受ける。では、新しいMenin阻害剤の開発で、既存薬のazole併用時の曝露倍率をそのまま使えるだろうか。
 
-公開資料を読むだけでも、注意すべき点がある。revumenibのラベルにはazole強阻害剤との併用でAUCとCmaxが約2倍になると書かれている。一方、ziftomenibでは強阻害剤によるAUCの増加は「最大3倍」、Cmaxは「最大2倍」という推定表現である。臨床データに基づくラベル記述と推定上限を、同じ種類の数値として比べることはできない。[REVUFORJラベル §12.3](https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=6eb3cdbc-0e74-477d-82d6-3bb172d3f63f&version=5)、[KOMZIFTIラベル §12.3](https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/220305s000lbl.pdf)
+公開資料を読むだけでも、注意すべき点がある。revumenibのラベルにはazole強阻害剤との併用でAUCとCmaxが約2倍になると書かれている。一方、ziftomenibでは強阻害剤によるAUCの増加は「最大3倍」、Cmaxは「最大2倍」という推定表現である。臨床データに基づくラベル記述と推定上限を、同じ種類の数値として比べることはできない。[REVUFORJ prescribing information §12.3](https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=6eb3cdbc-0e74-477d-82d6-3bb172d3f63f&version=5)、[KOMZIFTI prescribing information §12.3](https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/220305s000lbl.pdf)
 
 本解析の結論は、**今回の公開資料だけでは、Menin阻害剤に共通するazole併用倍率を正当化できない**、というものになった。理由は単に数字が違うことではない。ラベルのPK表にはモデル由来の値が含まれ、原著の「検証済み」という評価とFDAの用途別評価も同じではなかった。どの情報が独立した検証に使えるのか、AUCへの適合がCmaxまで説明するのかを分けて調べた。
 
@@ -20,9 +20,9 @@ FDA/NIHラベル、両薬のFDA審査資料、2026年のziftomenib PBPK論文を
 | RevumenibのラベルPK表 | 160 mg BID併用と270 mg BID非併用の集約値 | 用量も患者群も異なる |
 | ZiftomenibのラベルPK表 | 600 mg QD、C2D1のPopPK由来集約値 | 独立観測の検証データではない |
 | ZiftomenibのFDA Table66 | fmを置いた保守的条件の推定 | 患者で検証済みの真値ではない |
-| 原著Table2/3 | 校正用群比への感度結果／条件付きPBPK予測 | 初回投与とDay29、校正と予測を分ける |
+| [Original paper Table2/3](https://doi.org/10.1002/psp4.70327) | 校正用群比への感度結果／条件付きPBPK予測 | 初回投与とDay29、校正と予測を分ける |
 
-例えばrevumenibのラベル行のAUC生比は1.74だが、用量を補正すると2.94になる。ziftomenibのラベル行のAUC比は2.39である。いずれも今回の計算結果だが、同一患者・同じ投与条件でazoleの有無だけを変えたDDI比ではない。用量補正は群間の患者背景や投与履歴の違いを消さない。[REVUFORJ Table9](https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=6eb3cdbc-0e74-477d-82d6-3bb172d3f63f&version=5)、[FDA ziftomenib審査 p133](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/220305Orig1s000MultidisciplineR.pdf)
+例えばrevumenibのラベル行のAUC生比は1.74だが、用量を補正すると2.94になる。ziftomenibのラベル行のAUC比は2.39である。いずれも今回の計算結果だが、同一患者・同じ投与条件でazoleの有無だけを変えたDDI比ではない。用量補正は群間の患者背景や投与履歴の違いを消さない。[REVUFORJ Table9](https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=6eb3cdbc-0e74-477d-82d6-3bb172d3f63f&version=5)、[FDA ziftomenib review p133](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/220305Orig1s000MultidisciplineR.pdf)
 
 ## AUCを合わせてもCmaxが合うとは限らない {#auccmax}
 
@@ -48,14 +48,14 @@ S/Oと予測倍率から元の参照群比を逆算すると、AUCは約2.25–2
 
 ## 別薬から2倍を借りるとずれの向きも同じにならない {#2}
 
-次に、revumenibのazole約2倍をziftomenibのitraconazole条件へ移す、単純な情報借用を計算した。主参照はFDA Table66、感度参照は原著Table3とした。以下はFDAが用いた保守的 $f_m=0.7$ の条件との比較である。
+次に、revumenibのazole約2倍をziftomenibのitraconazole条件へ移す、単純な情報借用を計算した。主参照はFDA Table66、感度参照は[Original paper Table3](https://doi.org/10.1002/psp4.70327)とした。以下はFDAが用いた保守的 $f_m=0.7$ の条件との比較である。
 
 | 指標 | 借用値 | Ziftomenibの条件付きベンチマーク | 借用値の不一致 |
 | --- | ---: | ---: | ---: |
 | AUC倍率 | 2.0 | 2.6 | −23.1% |
 | Cmax倍率 | 2.0 | 1.7 | +17.6% |
 
-計算は $100(R_{borrowed}/R_{benchmark}-1)$。Ziftomenib 600 mg QD、itraconazole 200 mg QDの推定条件に対する不一致であり、患者での予測誤差ではない。[FDA ziftomenib Table66、印字p312](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/220305Orig1s000MultidisciplineR.pdf)
+計算は $100(R_{borrowed}/R_{benchmark}-1)$。Ziftomenib 600 mg QD、itraconazole 200 mg QDの推定条件に対する不一致であり、患者での予測誤差ではない。[FDA ziftomenib Table66 / printed p. 312](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/220305Orig1s000MultidisciplineR.pdf)
 
 ![薬剤間で倍率を借りたときの不一致](shared/menin-azole-ddi/figures/transfer-benchmark-discrepancy.png)
 
@@ -83,11 +83,11 @@ $B$ は経口bioavailabilityの比、$r$ は残存CYP3A活性、$f_m$ は阻害�
 
 ## 「論文で検証済み」と「その用途で十分」は別に読む {#_3}
 
-Ziftomenibの2026年PBPK論文はモデルを検証済みと説明している。一方、FDA審査のPBPK評価では、疎な採血、小さい群、高い変動、併用薬などのため、患者PKによる $f_m$ の検証は不十分と評価されていた。FDAはin vitro、mass balance、絶対bioavailabilityなども使い、保守的条件を検討している。ラベルの記載を支持したことを、すべてのモデル仮定が検証されたことと同一視しない。[原著](https://doi.org/10.1002/psp4.70327)、[FDA ziftomenib審査 pp304/311–313](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/220305Orig1s000MultidisciplineR.pdf)
+Ziftomenibの2026年PBPK論文はモデルを検証済みと説明している。一方、FDA審査のPBPK評価では、疎な採血、小さい群、高い変動、併用薬などのため、患者PKによる $f_m$ の検証は不十分と評価されていた。FDAはin vitro、mass balance、絶対bioavailabilityなども使い、保守的条件を検討している。ラベルの記載を支持したことを、すべてのモデル仮定が検証されたことと同一視しない。([Original paper](https://doi.org/10.1002/psp4.70327))、[FDA ziftomenib review pp304/311–313](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/220305Orig1s000MultidisciplineR.pdf)
 
 なお、FDA審査は2025年、原著は2026年の公表であり、FDAが後年の論文を否定したという意味ではない。資料ごとの時点と評価用途を区別して読む。
 
-Revumenibにも、親薬の適合から代謝物M1の予測性能を導けない問題がある。M1はQTcに関係し、FDAはcobicistat以外の阻害条件でのモデル性能に懸念を示している。親薬AUCを合わせたからQTリスクまで再現できるとは言えない。[FDA revumenib審査 pp287–293](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2024/218944Orig1s000MultidisciplineR.pdf)
+Revumenibにも、親薬の適合から代謝物M1の予測性能を導けない問題がある。M1はQTcに関係し、FDAはcobicistat以外の阻害条件でのモデル性能に懸念を示している。親薬AUCを合わせたからQTリスクまで再現できるとは言えない。[FDA revumenib review pp287–293](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2024/218944Orig1s000MultidisciplineR.pdf)
 
 ## 同じ標的でも相互作用の倍率は共通しない {#_4}
 
@@ -106,10 +106,10 @@ Revumenibにも、親薬の適合から代謝物M1の予測性能を導けない
 ## 参考文献 {#_6}
 
 1. Templeton IE, Litou C, Jones HM, et al. A Practical Alternative to Refine the Estimate of fmCYP3A4 and Evaluate Drug–Drug Interaction Potential for Ziftomenib Using PBPK Modeling to Inform Labeling. *CPT Pharmacometrics Syst Pharmacol.* 2026;15:e70327. [doi:10.1002/psp4.70327](https://doi.org/10.1002/psp4.70327).
-2. FDA. NDA 220305, KOMZIFTI multidisciplinary review. 2025. [審査資料](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/220305Orig1s000MultidisciplineR.pdf).
-3. FDA. NDA 218944, REVUFORJ multidisciplinary review. 2024. [審査資料](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2024/218944Orig1s000MultidisciplineR.pdf).
-4. NIH DailyMed. REVUFORJ prescribing information, revised February 2026. [ラベル](https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=6eb3cdbc-0e74-477d-82d6-3bb172d3f63f&version=5).
-5. FDA. KOMZIFTI prescribing information. 2025. [ラベル](https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/220305s000lbl.pdf).
+2. FDA. NDA 220305, KOMZIFTI multidisciplinary review. 2025. [Assessment report](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/220305Orig1s000MultidisciplineR.pdf).
+3. FDA. NDA 218944, REVUFORJ multidisciplinary review. 2024. [Assessment report](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2024/218944Orig1s000MultidisciplineR.pdf).
+4. NIH DailyMed. REVUFORJ prescribing information, revised February 2026. [Prescribing information](https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=6eb3cdbc-0e74-477d-82d6-3bb172d3f63f&version=5).
+5. FDA. KOMZIFTI prescribing information. 2025. [Prescribing information](https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/220305s000lbl.pdf).
 
 ## 解析関数と検査コード {#_7}
 

@@ -97,8 +97,8 @@ OSのHRは0.75（95% CI 0.53〜1.07）だった。対数スケールの正規近
 
 ## 出典 {#_10}
 
-1. Amgen Inc. Sotorasib. Background Information for the Oncologic Drugs Advisory Committee, 05 October 2023（FDA公開資料）. https://www.fda.gov/media/172698/download （5.2節、Table 20、6.2節、Table 29、7.2節）
-2. Hochmair MJ, et al. Sotorasib (960 mg or 240 mg) once daily in patients with previously treated KRAS G12C-mutated advanced NSCLC. *Eur J Cancer*. 2024;208:114204. doi:10.1016/j.ejca.2024.114204
-3. U.S. FDA. FDA Briefing Document, Oncologic Drugs Advisory Committee Meeting, October 5, 2023, NDA 214665 s005. https://www.fda.gov/media/172696/download （用量比較の市販後要件）
+1. Amgen Inc. Sotorasib. Background Information for the Oncologic Drugs Advisory Committee, 05 October 2023 (public FDA materials). https://www.fda.gov/media/172698/download  (Section 5.2, Table 20, Section 6.2, Table 29 and Section 7.2)
+2. Hochmair MJ, et al. Sotorasib (960 mg or 240 mg) once daily in patients with previously treated KRAS G12C-mutated advanced NSCLC. *Eur J Cancer*. 2024;208:114204. [doi:10.1016/j.ejca.2024.114204](https://doi.org/10.1016/j.ejca.2024.114204)
+3. U.S. FDA. FDA Briefing Document, Oncologic Drugs Advisory Committee Meeting, October 5, 2023, NDA 214665 s005. https://www.fda.gov/media/172696/download  (postmarketing dose-comparison requirement)
 4. Newcombe RG. Interval estimation for the difference between independent proportions: comparison of eleven methods. *Stat Med*. 1998;17:873–890.
 5. Schoenfeld DA. Sample-size formula for the proportional-hazards regression model. *Biometrics*. 1983;39:499–503.

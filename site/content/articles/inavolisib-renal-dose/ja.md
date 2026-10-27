@@ -4,9 +4,9 @@ Inavolisibでは、腎機能に応じて開始用量を下げる。では、用�
 
 ## 背景と今回の問い {#_1}
 
-InavolisibはPI3Kα阻害薬で、変異型p110αの分解も誘導する。PIK3CA変異を持つHR陽性・HER2陰性の進行乳癌に対するpalbociclib・fulvestrantとの併用では、INAVO120の全生存期間の結果が2025年に報告された。ここで行うのは、その臨床効果の再解析ではなく、腎機能別の曝露を公開情報から整理する解析である。[INAVO120全生存期間解析](https://www.nejm.org/doi/full/10.1056/NEJMoa2501796)
+InavolisibはPI3Kα阻害薬で、変異型p110αの分解も誘導する。PIK3CA変異を持つHR陽性・HER2陰性の進行乳癌に対するpalbociclib・fulvestrantとの併用では、INAVO120の全生存期間の結果が2025年に報告された。ここで行うのは、その臨床効果の再解析ではなく、腎機能別の曝露を公開情報から整理する解析である。[INAVO120 overall-survival analysis](https://www.nejm.org/doi/full/10.1056/NEJMoa2501796)
 
-確認した米国添付文書は2026年4月改訂版である。通常は9 mgを1日1回、中等度腎機能障害では6 mgを1日1回、重度では3 mgを1日1回とされている。腎機能の分類はCKD-EPIによるeGFRで、中等度は30以上60未満、重度は30未満（mL/min）である。重度の記載は2024年の初回審査後に更新されているため、古い資料の「重度では未検討」を現在の説明には使わない。[米国添付文書 §§2.3, 2.5](https://www.gene.com/download/pdf/itovebi_prescribing.pdf)、[FDA追加承認通知](https://www.accessdata.fda.gov/drugsatfda_docs/appletter/2026/219249Orig1s004ltr.pdf)
+確認した米国添付文書は2026年4月改訂版である。通常は9 mgを1日1回、中等度腎機能障害では6 mgを1日1回、重度では3 mgを1日1回とされている。腎機能の分類はCKD-EPIによるeGFRで、中等度は30以上60未満、重度は30未満（mL/min）である。重度の記載は2024年の初回審査後に更新されているため、古い資料の「重度では未検討」を現在の説明には使わない。[US prescribing information §§2.3, 2.5](https://www.gene.com/download/pdf/itovebi_prescribing.pdf)、[FDA additional approval notice](https://www.accessdata.fda.gov/drugsatfda_docs/appletter/2026/219249Orig1s004ltr.pdf)
 
 **QOI**は、腎機能別の曝露増加を用量で補正したとき、AUC・ピーク・トラフがどこまで揃うか、さらに同じ1日量の分割で何が変わるかである。**COU**は公開資料を使った研究と、次に比較するPK条件の整理に限る。個人の投与量や臨床試験の用量を決めるためには使わない。
 
@@ -14,7 +14,7 @@ InavolisibはPI3Kα阻害薬で、変異型p110αの分解も誘導する。PIK3
 
 今回使った情報は二つある。
 
-一つは、336人・3,863観測に基づく既存のPopPKモデルである。3コンパートメント、一次吸収・線形消失で、腎機能がCL/F、体重と人種がVc/F、製剤が吸収速度に入る。個人別の濃度を取得して再推定したものではなく、審査資料の推定済み係数を再利用した。[EMA評価報告書 pp32–33](https://www.ema.europa.eu/en/documents/assessment-report/itovebi-epar-public-assessment-report_en.pdf)
+一つは、336人・3,863観測に基づく既存のPopPKモデルである。3コンパートメント、一次吸収・線形消失で、腎機能がCL/F、体重と人種がVc/F、製剤が吸収速度に入る。個人別の濃度を取得して再推定したものではなく、審査資料の推定済み係数を再利用した。[EMA assessment report pp32–33](https://www.ema.europa.eu/en/documents/assessment-report/itovebi-epar-public-assessment-report_en.pdf)
 
 もう一つは、単回6 mgを投与したGP44944試験の集計値である。中等度7人、重度8人、正常腎機能11人の計26人が参加し、腎機能障害群は対応する正常対照と比較されている。二つの比較の対照群を、互いに独立した別集団とは扱わない。[Sutaria et al., 2025 CPDD Abstract Booklet, Poster 108](https://doi.org/10.1002/cpdd.1588)
 
@@ -25,7 +25,7 @@ InavolisibはPI3Kα阻害薬で、変異型p110αの分解も誘導する。PIK3
 
 AUCの増加ほどにはピークが増えていない。この違いを無視して、腎機能の効果を全濃度への一律の掛け算にすると、濃度推移の説明を誤る。
 
-なお、旧モデルの連続共変量は**MDRD式のeGFR**で、観測範囲は41.8–218 mL/minだった。一方、専用試験の分類は**2021 CKD-EPI式**である。旧データの腎障害カテゴリー集計はさらにCrCLに基づく。指標を混ぜて、仮に選んだeGFR 45や20を試験群の平均値としてモデルに代入することはしなかった。専用試験の群平均eGFRも今回の公開情報では確認できていない。[FDA審査資料 Tables 46–48, 印刷pp197–199](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2024/219249Orig1s000MultidisciplineR.pdf)
+なお、旧モデルの連続共変量は**MDRD式のeGFR**で、観測範囲は41.8–218 mL/minだった。一方、専用試験の分類は**2021 CKD-EPI式**である。旧データの腎障害カテゴリー集計はさらにCrCLに基づく。指標を混ぜて、仮に選んだeGFR 45や20を試験群の平均値としてモデルに代入することはしなかった。専用試験の群平均eGFRも今回の公開情報では確認できていない。([FDA assessment report Tables 46–48, printed pp. 197–199](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2024/219249Orig1s000MultidisciplineR.pdf))
 
 ## 3コンパートメントモデルの実装 {#3}
 
@@ -64,7 +64,7 @@ x_{ss}(0^+)=(I-e^{K\tau})^{-1}bD
 
 で求められる。長い期間を細かい刻みで反復計算する代わりに、この式から1投与間隔の濃度を計算した。
 
-参照条件9 mg・24時間間隔の典型値はAUCが**1,019 h·ng/mL**、Cmaxが**66.46 ng/mL**だった。現行米国添付文書の集団幾何平均は1,010 h·ng/mLと69 ng/mLであり、概ね同じ大きさにある。ただし、固定した参照条件の典型値と患者集団の幾何平均は異なる。近さだけをもって外部検証の完了とはしない。[米国添付文書 §12.3](https://www.gene.com/download/pdf/itovebi_prescribing.pdf)
+参照条件9 mg・24時間間隔の典型値はAUCが**1,019 h·ng/mL**、Cmaxが**66.46 ng/mL**だった。現行米国添付文書の集団幾何平均は1,010 h·ng/mLと69 ng/mLであり、概ね同じ大きさにある。ただし、固定した参照条件の典型値と患者集団の幾何平均は異なる。近さだけをもって外部検証の完了とはしない。[US prescribing information §12.3](https://www.gene.com/download/pdf/itovebi_prescribing.pdf)
 
 ## 専用試験から推定できるのは相対的な見かけのCL {#cl}
 
@@ -137,7 +137,7 @@ AUC_{24,ss}=1000\,\frac{24D}{\tau(CL/F)}
 
 ## ピーク低下を高血糖の改善とは呼べない {#_3}
 
-公開審査資料では、幅広い用量を含むPhase IのGO39374でGrade 2以上の高血糖と曝露の関連が報告されている。一方、9 mgを用いたPhase IIIのWO41554では、同じ関連は確認されなかった。曝露範囲、登録時の血糖・HbA1c条件、有害事象管理が異なる。2026年のINAVO120安全性解析でも、開始時の血糖背景と早期の高血糖管理が扱われている。[FDA審査資料 印刷pp211–214](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2024/219249Orig1s000MultidisciplineR.pdf)、[INAVO120安全性解析](https://pmc.ncbi.nlm.nih.gov/articles/PMC13235453/)
+公開審査資料では、幅広い用量を含むPhase IのGO39374でGrade 2以上の高血糖と曝露の関連が報告されている。一方、9 mgを用いたPhase IIIのWO41554では、同じ関連は確認されなかった。曝露範囲、登録時の血糖・HbA1c条件、有害事象管理が異なる。2026年のINAVO120安全性解析でも、開始時の血糖背景と早期の高血糖管理が扱われている。([FDA assessment report printed pp. 211–214](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2024/219249Orig1s000MultidisciplineR.pdf))、[INAVO120 safety analysis](https://pmc.ncbi.nlm.nih.gov/articles/PMC13235453/)
 
 今回確認した公開審査資料には、高血糖の最終回帰係数と共変量を含む完全な式は掲載されず、別報告書の表が参照されている。図から非調整曲線だけを読み取って、BIDで発症率が何%になるかを計算することはしなかった。
 
@@ -157,9 +157,9 @@ AUCを近づけても、ピークとトラフまで一致するわけではな�
 
 - Turner NC et al. *Overall Survival with Inavolisib in PIK3CA-Mutated Advanced Breast Cancer*. NEJM, 2025. [doi:10.1056/NEJMoa2501796](https://doi.org/10.1056/NEJMoa2501796)
 - Sutaria D et al. *Evaluating the Effect of Moderate & Severe Renal Impairment on the Pharmacokinetics & Safety of Inavolisib*. 2025 CPDD Abstract Booklet, Poster 108. [doi:10.1002/cpdd.1588](https://doi.org/10.1002/cpdd.1588)
-- FDA. NDA 219249 multidisciplinary review, Tables 46–48, exposure–response review. [審査資料](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2024/219249Orig1s000MultidisciplineR.pdf)
-- EMA. *Itovebi assessment report*, 2025, Table 6. [評価報告書](https://www.ema.europa.eu/en/documents/assessment-report/itovebi-epar-public-assessment-report_en.pdf)
-- *ITOVEBI US prescribing information*, revised April 2026. [添付文書](https://www.gene.com/download/pdf/itovebi_prescribing.pdf)
+- FDA. NDA 219249 multidisciplinary review, Tables 46–48, exposure–response review. [Assessment report](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2024/219249Orig1s000MultidisciplineR.pdf)
+- EMA. *Itovebi assessment report*, 2025, Table 6. [assessment report](https://www.ema.europa.eu/en/documents/assessment-report/itovebi-epar-public-assessment-report_en.pdf)
+- *ITOVEBI US prescribing information*, revised April 2026. [prescribing information](https://www.gene.com/download/pdf/itovebi_prescribing.pdf)
 - *Safety analyses of the INAVO120 randomised phase III trial*, ESMO Open, 2026. [doi:10.1016/j.esmoop.2026.107735](https://doi.org/10.1016/j.esmoop.2026.107735)
 
 

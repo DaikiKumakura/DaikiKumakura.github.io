@@ -1,4 +1,4 @@
-GedatolisibはPI3KとmTORを阻害する静注薬で、2026年に米国で乳がんに対する併用療法として承認された。推奨用法は180 mgを30分かけて、28日周期のDay 1、8、15に投与する形である。第4週には投与しない。[FDA承認情報](https://www.fda.gov/drugs/resources-information-approved-drugs/fda-approves-gedatolisib-fulvestrant-or-without-palbociclib-hr-positive-her2-negative-locally)
+GedatolisibはPI3KとmTORを阻害する静注薬で、2026年に米国で乳がんに対する併用療法として承認された。推奨用法は180 mgを30分かけて、28日周期のDay 1、8、15に投与する形である。第4週には投与しない。[FDA approval information](https://www.fda.gov/drugs/resources-information-approved-drugs/fda-approves-gedatolisib-fulvestrant-or-without-palbociclib-hr-positive-her2-negative-locally)
 
 この540 mgを135 mgずつ4回に分ければ、点滴直後のピークは下がるだろう。しかし、休薬週に薬を入れる影響を「4週間のAUCが同じ」で片付けてよいだろうか。
 
@@ -20,9 +20,9 @@ COUは、次の比較試験で確認すべきPKの違いを整理するための
 
 ## 添付文書の393 Lを中央容積にしない {#393-l}
 
-添付文書には分布容積393 L、クリアランス8 L/h、半減期36時間とある。これだけで1-compartmentを作ると、点滴直後の濃度を大きく外す。[添付文書12.3](https://www.dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=959d73ef-831f-4005-956c-210702270bda)
+添付文書には分布容積393 L、クリアランス8 L/h、半減期36時間とある。これだけで1-compartmentを作ると、点滴直後の濃度を大きく外す。[prescribing information 12.3](https://www.dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=959d73ef-831f-4005-956c-210702270bda)
 
-FDA審査資料では、4,238点・605人に基づく4-compartmentモデルが公開されている。中央容積は7.31 Lで、三つの末梢容積との合計が392.62 Lになる。393 Lをそのまま中央容積として使うべきではない。[FDA審査資料、PDF 227–236ページ](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2026/219908Orig1s000MultidisciplineR.pdf)
+FDA審査資料では、4,238点・605人に基づく4-compartmentモデルが公開されている。中央容積は7.31 Lで、三つの末梢容積との合計が392.62 Lになる。393 Lをそのまま中央容積として使うべきではない。([FDA assessment report / PDF 227–236 pages](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2026/219908Orig1s000MultidisciplineR.pdf))
 
 ![公表モデルと、393 Lを中央容積にした単純モデルの違い。](shared/gedatolisib-rest-week/figures/model-check.png)
 

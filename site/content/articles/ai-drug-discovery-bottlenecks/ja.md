@@ -10,15 +10,15 @@ AI創薬について気になるのは、どのモデルが最も賢いかより
 
 2026年には、生命科学へ直接取り組むAI開発組織の動きが目立った。OpenAIは4月にGPT-Rosalindを発表し、9月に対象組織向けの提供を拡大した。Microsoft Researchは9月29日にQuineを発表し、生物学の予測モデルと研究を進める仕組みを組み合わせる構想を示した。いずれも、薬の臨床的成功を証明する発表ではない。[OpenAI](https://openai.com/index/introducing-gpt-rosalind/)、[Microsoft Research](https://www.microsoft.com/en-us/research/blog/introducing-quine-an-ai-research-system-designed-for-the-complexity-of-biology/)
 
-実測に接続した例として、Anthropicは8月、Claudeと専門的なタンパク質設計ツールを組み合わせた実験を報告した。複数の設定を合わせた1,320設計から、15標的中14標的に対する354のbinder、つまり標的へ結合するタンパク質が得られた。単純な合算では26.8%だが、これは一つのモデル・一つの48時間実行の成績ではない。設定別の成績も異なる。[Anthropicの実験報告](https://www.anthropic.com/research/Claude-accelerates-protein-design)、[技術報告](https://www-cdn.anthropic.com/30bf50e22a01388bb29bf077ee3f244531594b7a.pdf)
+実測に接続した例として、Anthropicは8月、Claudeと専門的なタンパク質設計ツールを組み合わせた実験を報告した。複数の設定を合わせた1,320設計から、15標的中14標的に対する354のbinder、つまり標的へ結合するタンパク質が得られた。単純な合算では26.8%だが、これは一つのモデル・一つの48時間実行の成績ではない。設定別の成績も異なる。[Anthropic experimental report](https://www.anthropic.com/research/Claude-accelerates-protein-design)、[Technical report](https://www-cdn.anthropic.com/30bf50e22a01388bb29bf077ee3f244531594b7a.pdf)
 
-AdaptyvのTREM2設計イベントでも、人間が設計ツールを運用する10チームと、自律エージェント6チームが候補を提出し、計算上の順位で選んだ100候補を実験した。結合は37件で、人間側25/65、エージェント側12/35だった。差が明確でなかったことを、両者の能力が一般に同等だと読むことはできない。標的は一つで、実験対象は全141候補から選別されている。[Adaptyvの結果と選別条件](https://www.adaptyvbio.com/blog/agents-vs-humans)
+AdaptyvのTREM2設計イベントでも、人間が設計ツールを運用する10チームと、自律エージェント6チームが候補を提出し、計算上の順位で選んだ100候補を実験した。結合は37件で、人間側25/65、エージェント側12/35だった。差が明確でなかったことを、両者の能力が一般に同等だと読むことはできない。標的は一つで、実験対象は全141候補から選別されている。[Adaptyv results and selection criteria](https://www.adaptyvbio.com/blog/agents-vs-humans)
 
 この二つの例から支持できるのは、限定された設計課題でエージェントが実験で結合を確認できる候補を作れる、という点である。結合、機能、体内動態、安全性、患者での便益は、それぞれ検証すべき別の段階になる。
 
 ここで紹介した実験は主にタンパク質・抗体設計であり、その成績を低分子、RNA、細胞治療などの設計全体へ外挿することはできない。また、標的へ作用できることと、その標的への介入がヒトの疾患を改善することは別の問いである。前臨床リードが得られた後も、製造・製剤・品質や非臨床安全性などの検証が残る。
 
-さらに10月2日、XairaはX-Designによる抗体設計の二つの事例を公表した。一つは標的への結合だけでなく、選択性、種間交差反応性、開発に必要な物性を評価し、7週間で前臨床リードへ進めたという報告である。ただし、抗原・試薬や狙うエピトープは事前に用意されていた。これは標的探索から臨床までの7週間ではなく、研究主体による限られた事例の報告でもある。「結合した」から「次の開発へ進める」へ、評価の焦点が移る例として読みたい。[Xairaの10月2日の報告](https://www.xaira.com/news/de-novo-design-of-progressable-antibodies-to-therapeutic-targets)
+さらに10月2日、XairaはX-Designによる抗体設計の二つの事例を公表した。一つは標的への結合だけでなく、選択性、種間交差反応性、開発に必要な物性を評価し、7週間で前臨床リードへ進めたという報告である。ただし、抗原・試薬や狙うエピトープは事前に用意されていた。これは標的探索から臨床までの7週間ではなく、研究主体による限られた事例の報告でもある。「結合した」から「次の開発へ進める」へ、評価の焦点が移る例として読みたい。[Xaira report dated October 2](https://www.xaira.com/news/de-novo-design-of-progressable-antibodies-to-therapeutic-targets)
 
 ## 2. 設計の高速化が開発全体に届く範囲 {#2}
 
@@ -49,7 +49,7 @@ AdaptyvのTREM2設計イベントでも、人間が設計ツールを運用す�
 | Charles River DSA | 2026年第2四半期、Discovery and Safety Assessment部門 | 報告売上−1.9%、organicでは+0.2% | 事業売却・為替調整で見え方が変わる |
 | Evotec | 2026年上期、全体売上 | 3億100万ユーロ、−19.2% | 提携収益の計上時期なども影響する |
 
-出典：[Twistの決算](https://www.sec.gov/Archives/edgar/data/1581280/000158128026000044/twst-2026630xex991.htm)、[GenScriptの決算説明](https://www.genscript.com/genscript-biotech-announces-2026-interim-results.html)、[Tecanの上期決算](https://www.tecan.com/corporate-news/tecan-reports-growth-of-3-4-in-local-currencies-and-adjusted-ebitda-margin-of-15-1-for-the-first-half-of-2026-outlook-confirmed-63595)、[Revvityの四半期決算](https://news.revvity.com/press-announcements/press-releases/press-release-details/2026/Revvity-Announces-Financial-Results-for-the-Second-Quarter-of-2026/default.aspx)、[Charles Riverの決算](https://ir.criver.com/news-releases/news-release-details/charles-river-laboratories-announces-second-quarter-2026-results)、[Evotecの上期報告](https://www.sec.gov/Archives/edgar/data/1412558/000110465926095267/tm2623114d1_ex99-1.htm)。
+出典：[Twist financial results](https://www.sec.gov/Archives/edgar/data/1581280/000158128026000044/twst-2026630xex991.htm)、[GenScript financial-results commentary](https://www.genscript.com/genscript-biotech-announces-2026-interim-results.html)、[Tecan first-half results](https://www.tecan.com/corporate-news/tecan-reports-growth-of-3-4-in-local-currencies-and-adjusted-ebitda-margin-of-15-1-for-the-first-half-of-2026-outlook-confirmed-63595)、[Revvity quarterly results](https://news.revvity.com/press-announcements/press-releases/press-release-details/2026/Revvity-Announces-Financial-Results-for-the-Second-Quarter-of-2026/default.aspx)、[Charles River financial results](https://ir.criver.com/news-releases/news-release-details/charles-river-laboratories-announces-second-quarter-2026-results)、[Evotec first-half report](https://www.sec.gov/Archives/edgar/data/1412558/000110465926095267/tm2623114d1_ex99-1.htm)。
 
 この表を、成長率の順位表やAIの恩恵を受ける企業の順位としては使えない。期間、事業、調整方法が違うからだ。一方、実験・研究サービスがすべて同じ方向へ伸びているわけではないことは分かる。
 
@@ -61,11 +61,11 @@ GenScriptはAI創薬関連事業が前年同期から倍増したとも説明し
 
 ## 4. 実験のAPI化とデータ蓄積による変化 {#4-api}
 
-Adaptyvは4月、標的の照会、実験の注文、費用見積もり、状態確認、構造化結果の取得を可能にするAPIを発表した。これはモデルの出力を実験へ渡し、測定を次の設計へ戻す手間を減らす方向にある。ただし、APIがあることと、実験が無人・即時に完了することは同じではない。[Adaptyv APIの発表](https://www.adaptyvbio.com/blog/adaptyv-api)
+Adaptyvは4月、標的の照会、実験の注文、費用見積もり、状態確認、構造化結果の取得を可能にするAPIを発表した。これはモデルの出力を実験へ渡し、測定を次の設計へ戻す手間を減らす方向にある。ただし、APIがあることと、実験が無人・即時に完了することは同じではない。[Adaptyv API announcement](https://www.adaptyvbio.com/blog/adaptyv-api)
 
 データを作る規模も増している。Illuminaは7月、Billion Cell Atlasで3億5,000万超の細胞を測定し、6ペタバイト超のデータを生成したと報告した。これは進捗の報告であり、名称にある10億細胞がすでに完成したという意味ではない。Lilaも8月、95万のRNA配列を物理的に合成し、細胞で測定した独自データについて説明している。後者は研究主体の発表であり、全データが独立に検証できる形で公開されたことまでは示さない。[Illumina](https://www.illumina.com/company/news-center/press-releases/2026/27191.html)、[Lila](https://www.lila.ai/news/inside-lilas-rna-discovery-engine)
 
-共有の仕方にも変化がある。Lilly TuneLabは、参加者がモデルを利用し、分子情報を直接共有せずに学習へ貢献するfederated learningの仕組みを説明している。これはデータの持ち方を工夫する例であって、誰でも全学習データを使えるという話ではない。[TuneLabの説明](https://tunelab.lilly.com/)
+共有の仕方にも変化がある。Lilly TuneLabは、参加者がモデルを利用し、分子情報を直接共有せずに学習へ貢献するfederated learningの仕組みを説明している。これはデータの持ち方を工夫する例であって、誰でも全学習データを使えるという話ではない。[TuneLab explanation](https://tunelab.lilly.com/)
 
 ここで私が重視したいのは、データ量より、その意味を再現できるかである。例えば、タンパク質の実験で「結合しなかった」と記録された候補が、本当に非結合なのか、そもそも発現しなかったのかでは、次のモデルへ渡す情報が変わる。
 
@@ -113,13 +113,13 @@ E=P\times R\times B
 
 AIを用いた設計の候補が、臨床で検証される段階へ進んでいることは重要である。
 
-Generate:Biomedicinesのパイプラインは、重症喘息を対象とする抗TSLP抗体GB-0895をPhase IIIとして掲載している。Insilicoは9月10日、特発性肺線維症（IPF）を対象とするrentosertibのPhase IIIで最初の患者への投与を発表した。一方、Reutersは1月、Isomorphic Labsの最初の臨床試験開始目標が、前年末から2026年末へ変更されたと報じた。最後の例は予定についての報道であり、試験開始の確認ではない。[Generateのパイプライン](https://generatebiomedicines.com/pipeline/)、[Insilicoの発表](https://insilico.com/news/isn1009261-insilico-medicine-doses-first-patient-genesis-ipf-3)、[Reutersの報道](https://www.investing.com/news/stock-market-news/googlebacked-ai-drug-discovery-startup-isomorphic-labs-delays-clinical-trial-timeline-4456134)
+Generate:Biomedicinesのパイプラインは、重症喘息を対象とする抗TSLP抗体GB-0895をPhase IIIとして掲載している。Insilicoは9月10日、特発性肺線維症（IPF）を対象とするrentosertibのPhase IIIで最初の患者への投与を発表した。一方、Reutersは1月、Isomorphic Labsの最初の臨床試験開始目標が、前年末から2026年末へ変更されたと報じた。最後の例は予定についての報道であり、試験開始の確認ではない。[Generate pipeline](https://generatebiomedicines.com/pipeline/)、[Insilico announcement](https://insilico.com/news/isn1009261-insilico-medicine-doses-first-patient-genesis-ipf-3)、[Reuters reporting](https://www.investing.com/news/stock-market-news/googlebacked-ai-drug-discovery-startup-isomorphic-labs-delays-clinical-trial-timeline-4456134)
 
-同じPhase IIIでも、標的の検証段階は異なる。TSLPには既承認薬tezepelumabによる重症喘息でのヒトの検証がある。一方、rentosertibはIPFでのTNIKへの介入を検証している。前者の進展を新標的の妥当性の証明と読むことはできず、既存薬があることもGB-0895自体の有効性・安全性を保証しない。[FDAのtezepelumab承認説明](https://www.fda.gov/drugs/news-events-human-drugs/fda-approves-maintenance-treatment-severe-asthma)、[rentosertibの原著](https://www.nature.com/articles/s41591-025-03743-2)
+同じPhase IIIでも、標的の検証段階は異なる。TSLPには既承認薬tezepelumabによる重症喘息でのヒトの検証がある。一方、rentosertibはIPFでのTNIKへの介入を検証している。前者の進展を新標的の妥当性の証明と読むことはできず、既存薬があることもGB-0895自体の有効性・安全性を保証しない。[FDA tezepelumab approval explanation](https://www.fda.gov/drugs/news-events-human-drugs/fda-approves-maintenance-treatment-severe-asthma)、[rentosertib paper](https://www.nature.com/articles/s41591-025-03743-2)
 
 rentosertibには、2025年に査読論文として報告されたPhase IIa試験もある。71人を無作為化した12週間の試験で、主要目的は安全性・忍容性、肺機能の変化は副次的評価だった。これは候補薬について患者で得られた証拠である。しかし、非AI設計の候補と同条件で比較した試験ではなく、AIが成功確率を上げたことの直接的な因果証明にはならない。[Xu et al., Nature Medicine](https://www.nature.com/articles/s41591-025-03743-2)
 
-IQVIAは5月、AIの関与を確認した新興バイオ企業のプログラムを、同じ企業区分・規模の非AI群と比較し、直近3年間のPhase I成功率が75%、Phase IIは非AI群と同程度、Phase IIIは分析に十分な件数がないと説明した。小規模なコホートであることも明記している。本記事で利用したのは公開解説であり、有料レポートの全プログラム・分母を独立に再計算したものではない。[IQVIAの公開解説](https://www.iqvia.com/blogs/2026/05/iqvia-institutes-global-r-and-d-trends-2026-report-finds-credible-signal-on-ai-enabled-programs)
+IQVIAは5月、AIの関与を確認した新興バイオ企業のプログラムを、同じ企業区分・規模の非AI群と比較し、直近3年間のPhase I成功率が75%、Phase IIは非AI群と同程度、Phase IIIは分析に十分な件数がないと説明した。小規模なコホートであることも明記している。本記事で利用したのは公開解説であり、有料レポートの全プログラム・分母を独立に再計算したものではない。[IQVIA public commentary](https://www.iqvia.com/blogs/2026/05/iqvia-institutes-global-r-and-d-trends-2026-report-finds-credible-signal-on-ai-enabled-programs)
 
 この結果は前向きな兆候だが、AI使用の有無だけが違う比較ではない。適応疾患、標的、モダリティ、資金、経験、候補の選び方による違いが残る。Phase Iの前進から、患者での有効性や承認までの改善を自動的に推論することもできない。
 
@@ -129,11 +129,11 @@ IQVIAは5月、AIの関与を確認した新興バイオ企業のプログラム
 
 ## 8. 非臨床評価の選択肢と必要な検証 {#8}
 
-FDAは3月、New Approach Methodologies（NAMs）の利用と検証についてドラフトガイダンスを公表した。規制当局への提出に用いる開発段階の評価を対象とし、創薬研究そのもののガイダンスではない。ヒト由来の試験系や計算モデルなどを、どの目的で、どの範囲まで信頼して使うかという問題である。ドラフトを最終的な実施基準として扱うことはできない。[FDAのドラフト](https://www.fda.gov/regulatory-information/search-fda-guidance-documents/general-considerations-use-new-approach-methodologies-drug-development)
+FDAは3月、New Approach Methodologies（NAMs）の利用と検証についてドラフトガイダンスを公表した。規制当局への提出に用いる開発段階の評価を対象とし、創薬研究そのもののガイダンスではない。ヒト由来の試験系や計算モデルなどを、どの目的で、どの範囲まで信頼して使うかという問題である。ドラフトを最終的な実施基準として扱うことはできない。[FDA draft guidance](https://www.fda.gov/regulatory-information/search-fda-guidance-documents/general-considerations-use-new-approach-methodologies-drug-development)
 
-9月には、規則中のanimal等の表現をnonclinicalへ整理するdirect final ruleも公表された。ただし、2026年10月6日時点ですでに施行済みではない。掲載文書では施行日を2027年2月4日とし、重大な反対意見があれば撤回する手続きを定めている。[Federal Register掲載文書](https://www.federalregister.gov/documents/2026/09/22/2026-19350/nonclinical-testing-terminology)
+9月には、規則中のanimal等の表現をnonclinicalへ整理するdirect final ruleも公表された。ただし、2026年10月6日時点ですでに施行済みではない。掲載文書では施行日を2027年2月4日とし、重大な反対意見があれば撤回する手続きを定めている。[Federal Register document](https://www.federalregister.gov/documents/2026/09/22/2026-19350/nonclinical-testing-terminology)
 
-FDAは、この用語変更が特定の方法を要求したり、証拠の基準を変えたりするものではないと説明している。したがって「動物試験が不要になり、計算だけで薬を開発できる」と読むのは誤りである。[FDAのNAMs説明](https://www.fda.gov/science-research/science-and-research-special-topics/new-approach-methodologies-nams)
+FDAは、この用語変更が特定の方法を要求したり、証拠の基準を変えたりするものではないと説明している。したがって「動物試験が不要になり、計算だけで薬を開発できる」と読むのは誤りである。[FDA explanation of NAMs](https://www.fda.gov/science-research/science-and-research-special-topics/new-approach-methodologies-nams)
 
 試験系の選択肢が広がるほど、測定が何を代表しているか、ヒトへの予測にどの程度使えるかの検証が重要になる。実験を減らすことと、必要な証拠を減らすことは別である。
 
@@ -141,7 +141,7 @@ FDAは、この用語変更が特定の方法を要求したり、証拠の基�
 
 分子を提案する計算、細胞での応答、患者での有効性では、失敗の意味も分母も異なる。候補を速く作れたという結果を、そのまま臨床開発の成功確率へ置き換えることはできない。
 
-Virtual Biology Initiativeが掲げる測定とモデルの接続も、この隔たりに関わる構想である。発表された計画と、すでに検証された性能は区別している。[Biohubの発表](https://biohub.org/news/virtual-biology-initiative/)
+Virtual Biology Initiativeが掲げる測定とモデルの接続も、この隔たりに関わる構想である。発表された計画と、すでに検証された性能は区別している。[Biohub announcement](https://biohub.org/news/virtual-biology-initiative/)
 
 今回読んだ資料を一つの「AI創薬の成功率」にまとめなかったのは、その尺度がそろっていないためだ。
 

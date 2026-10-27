@@ -1,4 +1,4 @@
-VepdegestrantはERを分解する経口PROTACで、米国での承認用量は食事とともに200 mgを1日1回である。休薬して同じ用量を再開したとき、血中濃度は何日かけて連続投与の状態へ近づくだろうか。[添付文書](https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/219835Orig1s000lbl.pdf)
+VepdegestrantはERを分解する経口PROTACで、米国での承認用量は食事とともに200 mgを1日1回である。休薬して同じ用量を再開したとき、血中濃度は何日かけて連続投与の状態へ近づくだろうか。[prescribing information](https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/219835Orig1s000lbl.pdf)
 
 公表されたヒトPopPKモデルを使い、2、3、7回の予定投与を見送った後の曝露を計算した。28回の投与歴を置いた代表パラメータでは、再開後最初の24時間AUCは、連続投与した場合の約0.63、0.56、0.50倍だった。その後は速い変化と、ゆっくり残る差に分かれた。
 
@@ -22,9 +22,9 @@ COUは公開モデルを用いた休薬・再開時のPK評価計画の検討で
 
 ## 公開されたヒトモデルを使う {#_2}
 
-2026年の原著は、452人・3,625点のPKを用いた2-compartmentモデルを報告している。個人データは公開されておらず、今回行うのは公表係数の再利用である。[原著](https://pmc.ncbi.nlm.nih.gov/articles/PMC13454499/)
+2026年の原著は、452人・3,625点のPKを用いた2-compartmentモデルを報告している。個人データは公開されておらず、今回行うのは公表係数の再利用である。([Original paper](https://pmc.ncbi.nlm.nih.gov/articles/PMC13454499/))
 
-FDA審査資料Table 75（PDF 234ページ、印刷233ページ）の桁数を使った。原著Table 1の丸められた係数と対応する。[FDA審査資料](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2026/219835Orig1s000MultidisciplineR.pdf)
+FDA審査資料Table 75（PDF 234ページ、印刷233ページ）の桁数を使った。原著Table 1の丸められた係数と対応する。([FDA assessment report](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2026/219835Orig1s000MultidisciplineR.pdf))
 
 | 係数 | 値 | 公表bootstrap 95%区間 | 単位 |
 | --- | ---: | --- | --- |

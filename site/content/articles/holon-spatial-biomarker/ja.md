@@ -6,7 +6,7 @@
 
 ## 何を測って何を推定したのか {#_1}
 
-Holon-S1は、通常のヘマトキシリン・エオジン（H&E）染色病理画像から空間的な遺伝子発現を推定する研究用モデルだ。開発者の技術報告では、複数の組織・空間トランスクリプトーム測定法で検証し、予測が支持される遺伝子を組織別に選んでいる。すべての遺伝子が同じ精度で読めるとはしていない。[Holon-S1技術報告](https://sophont.med/blog/holon/)
+Holon-S1は、通常のヘマトキシリン・エオジン（H&E）染色病理画像から空間的な遺伝子発現を推定する研究用モデルだ。開発者の技術報告では、複数の組織・空間トランスクリプトーム測定法で検証し、予測が支持される遺伝子を組織別に選んでいる。すべての遺伝子が同じ精度で読めるとはしていない。[Holon-S1 Technical report](https://sophont.med/blog/holon/)
 
 また、空間マップの一つの領域を一つの細胞と見なさない。報告の症例では56×56μmの領域ごとに推定しており、単一細胞の発現を一つずつ測った結果ではない。
 
@@ -16,7 +16,7 @@ Holon-S1は、通常のヘマトキシリン・エオジン（H&E）染色病理
 
 ## EREGの発現量に加えて配置を見る {#ereg}
 
-技術報告の乳がん解析の対象はトリプルネガティブ乳がん（TNBC）で、術前化学療法後の病理学的完全奏効（pCR）との関係を調べている。IMPRESSを探索用、TransNEOを独立した評価用とし、予測発現の空間指標からEREGの局所変化を表すgEREGを選んだ。著者らは治療反応との関連を報告している。[技術報告の乳がん解析](https://sophont.med/blog/holon/#spatial-organization-for-biomarker-discovery)
+技術報告の乳がん解析の対象はトリプルネガティブ乳がん（TNBC）で、術前化学療法後の病理学的完全奏効（pCR）との関係を調べている。IMPRESSを探索用、TransNEOを独立した評価用とし、予測発現の空間指標からEREGの局所変化を表すgEREGを選んだ。著者らは治療反応との関連を報告している。([Technical report: breast-cancer analysis](https://sophont.med/blog/holon/#spatial-organization-for-biomarker-discovery))
 
 私が面白いと思ったのは、「EREGが高いか」から「EREGの予測値が場所によってどう変わるか」へ問いが移っている点だ。同じ量の発現でも、まとまっているか、入り交じっているかで指標は変わる。
 
@@ -46,7 +46,7 @@ $$
 
 ## 外部予測と関連の推定を分けて読む {#_3}
 
-Holon-S1の報告では、探索側で学習したモデルをTransNEOへ適用する予測評価と、各コホート内で回帰を当て直して求めるオッズ比が分かれている。後者まで「固定した予測器の外部検証」と読むと、評価の意味が変わる。また比較対象の間質内腫瘍浸潤リンパ球割合（sTIL）は画像解析による自動推定で、病理医が評価したsTILそのものではない。[技術報告の解析手順](https://sophont.med/blog/holon/)
+Holon-S1の報告では、探索側で学習したモデルをTransNEOへ適用する予測評価と、各コホート内で回帰を当て直して求めるオッズ比が分かれている。後者まで「固定した予測器の外部検証」と読むと、評価の意味が変わる。また比較対象の間質内腫瘍浸潤リンパ球割合（sTIL）は画像解析による自動推定で、病理医が評価したsTILそのものではない。([Technical report: analysis procedures](https://sophont.med/blog/holon/))
 
 さらに、たくさんの遺伝子と空間指標を試して選んだ特徴の探索側成績には、選択による楽観が入り得る。候補選択を含む工程全体の評価と、固定した候補の独立評価を分けたい。外部評価を設けた点に意味があるが、そこで得た成績の精度は患者数と奏効数にも左右される。
 
@@ -62,6 +62,6 @@ Holon-S1の報告では、探索側で学習したモデルをTransNEOへ適用�
 
 ## 資料と計算条件 {#_5}
 
-- [Holon-S1公式技術報告](https://sophont.med/blog/holon/)（2026年10月26日確認）。開発者による研究用モデルの報告。この記事は独立した臨床検証ではない。
-- [2026年10月20日の発表](https://www.prnewswire.com/news-releases/sophont-launches-holon-s1-to-reveal-tumor-biology-from-routine-pathology-slides-302914452.html)。発表日と技術報告の初公開日は同一とみなしていない。
+- [Holon-S1 official technical report](https://sophont.med/blog/holon/)（2026年10月26日確認）。開発者による研究用モデルの報告。この記事は独立した臨床検証ではない。
+- [2026-10-20 announcement](https://www.prnewswire.com/news-releases/sophont-launches-holon-s1-to-reveal-tumor-biology-from-routine-pathology-slides-302914452.html)。発表日と技術報告の初公開日は同一とみなしていない。
 - [再実行用ZIP](shared/holon-spatial-biomarker/companion.zip)。Python標準ライブラリのみ。16×16格子、各値128個、非周期境界、上下左右隣接、乱数シード20261026。図・CSV・要約JSONを生成する。生物学的なパラメータ推定や患者の効果量推定には使っていない。

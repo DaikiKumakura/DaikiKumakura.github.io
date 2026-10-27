@@ -158,5 +158,5 @@ python -m unittest discover -s tests
 
 ## 参考文献 {#_8}
 
-1. Abdelmotaleb O, et al. Optimizing efficacy and safety of T cell bispecific antibodies: the interdependence of CD3 and tumor antigen binder affinities in FOLR1 and CEACAM5 2+1 TCBs. *mAbs*. 2025;17:2584374. [原著・補足資料](https://doi.org/10.1080/19420862.2025.2584374)
-2. Van De Vyver A, et al. A Novel Approach for Quantifying the Pharmacological Activity of T-Cell Engagers Utilizing In Vitro Time Course Experiments and Streamlined Data Analysis. *The AAPS Journal*. 2022;24:7. [AUCEの方法](https://doi.org/10.1208/s12248-021-00637-2)
+1. Abdelmotaleb O, et al. Optimizing efficacy and safety of T cell bispecific antibodies: the interdependence of CD3 and tumor antigen binder affinities in FOLR1 and CEACAM5 2+1 TCBs. *mAbs*. 2025;17:2584374. [Paper and supplementary materials](https://doi.org/10.1080/19420862.2025.2584374)
+2. Van De Vyver A, et al. A Novel Approach for Quantifying the Pharmacological Activity of T-Cell Engagers Utilizing In Vitro Time Course Experiments and Streamlined Data Analysis. *The AAPS Journal*. 2022;24:7. [AUCE method](https://doi.org/10.1208/s12248-021-00637-2)

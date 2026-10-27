@@ -174,7 +174,7 @@ Fが0.2を超えた27組を、Fの大きい順に挙げる。
 ## 出典・データ
 
 1. Norman TM, et al. Exploring genetic interaction manifolds constructed from rich single-cell phenotypes. *Science*. 2019;365:786–793. [doi:10.1126/science.aax4438](https://doi.org/10.1126/science.aax4438)
-2. Peidli S, et al. scPerturb: harmonized single-cell perturbation data. *Nat Methods*. 2024;21:531–540. [doi:10.1038/s41592-023-02144-y](https://doi.org/10.1038/s41592-023-02144-y)（データはZenodo [10.5281/zenodo.7041849](https://doi.org/10.5281/zenodo.7041849)、CC BY 4.0）
+2. Peidli S, et al. scPerturb: harmonized single-cell perturbation data. *Nat Methods*. 2024;21:531–540. [doi:10.1038/s41592-023-02144-y](https://doi.org/10.1038/s41592-023-02144-y) (data: Zenodo [10.5281/zenodo.7041849](https://doi.org/10.5281/zenodo.7041849), CC BY 4.0)
 3. Roohani Y, Huang K, Leskovec J. Predicting transcriptional outcomes of novel multigene perturbations with GEARS. *Nat Biotechnol*. 2024;42:927–935. [doi:10.1038/s41587-023-01905-6](https://doi.org/10.1038/s41587-023-01905-6)
 4. Ahlmann-Eltze C, Huber W, Anders S. Deep-learning-based gene perturbation effect prediction does not yet outperform simple linear baselines. *Nat Methods*. 2025;22:1657–1661. [doi:10.1038/s41592-025-02772-6](https://doi.org/10.1038/s41592-025-02772-6)
 

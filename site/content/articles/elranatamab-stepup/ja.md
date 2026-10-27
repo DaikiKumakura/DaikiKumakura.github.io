@@ -45,7 +45,7 @@ $A_1$は中心区画の薬（遊離と複合体の合計）、$A_3$は皮下の�
 
 ### CRSの曝露反応 {#crs}
 
-論文の補足資料（Table S2）にある、最初のステップアップ用量の後のCRS（全グレード）のロジスティック回帰を使った。
+[Supplementary Table S2](https://doi.org/10.1007/s40262-026-01663-z)にある、最初のステップアップ用量の後のCRS（全グレード）のロジスティック回帰を使った。
 
 $$\mathrm{logit}\,P=-7.65+1.14\,[\text{腫瘍量が高い}]+1.35\,\ln C_{\text{4日目}}$$
 
@@ -114,7 +114,7 @@ logitは、確率をオッズ（起きる確率÷起きない確率）の対数�
 
 ## 参考資料 {#_5}
 
-1. Elranatamab population pharmacokinetics and exposure–response for cytokine release syndrome in patients with relapsed or refractory multiple myeloma. *Clin Pharmacokinet* 2026. doi:10.1007/s40262-026-01663-z（PMC13461831、オープンアクセス。補足資料のTable S2とFig. S2を使用）
-2. Exposure–response analyses to inform the optimal epcoritamab monotherapy dosing regimen in relapsed or refractory follicular lymphoma. 2026. PMC13545055（3段階のステップアップの報告）
+1. Elranatamab population pharmacokinetics and exposure–response for cytokine release syndrome in patients with relapsed or refractory multiple myeloma. *Clin Pharmacokinet* 2026. [doi:10.1007/s40262-026-01663-z](https://doi.org/10.1007/s40262-026-01663-z) ([PMC13461831](https://pmc.ncbi.nlm.nih.gov/articles/PMC13461831/), open access; supplementary Table S2 and Fig. S2 were used)
+2. Exposure–response analyses to inform the optimal epcoritamab monotherapy dosing regimen in relapsed or refractory follicular lymphoma. 2026. [PMC13545055](https://pmc.ncbi.nlm.nih.gov/articles/PMC13545055/) (report of three-step step-up dosing)
 
 <span id="6"></span>

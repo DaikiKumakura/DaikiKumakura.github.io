@@ -1,12 +1,12 @@
 摂動後に変わる遺伝子を予測できれば、追試する候補を絞れる。しかし、「差次的発現遺伝子の予測でAUPRCが高い」という結果から、上位50遺伝子のうち何件が当たるかは直接分からない。未知の細胞背景で使うなら、変わる遺伝子の数も背景ごとに違う。
 
-PIE（Perturbation is Everything）は、生物学的な知識と実測の摂動データを使い、細胞集団の発現変化を予測するモデルだ。2026年10月5日公開の[プレプリント](https://doi.org/10.64898/2026.10.02.756297)に対応する公開評価表を、固定版のDEGラベルと照合した。10,335評価行の再集計から、平均性能、DEGの少なさ、限られた候補数での評価を分けて読む。
+PIE（Perturbation is Everything）は、生物学的な知識と実測の摂動データを使い、細胞集団の発現変化を予測するモデルだ。2026年10月5日公開の[Preprint](https://doi.org/10.64898/2026.10.02.756297)に対応する公開評価表を、固定版のDEGラベルと照合した。10,335評価行の再集計から、平均性能、DEGの少なさ、限られた候補数での評価を分けて読む。
 
 ## 一つの細胞を再現するより集団の変化を予測する {#_1}
 
-PIEの出力には、遺伝子ごとのDEG確率、log2 fold change、平均発現の変化がある。個々の細胞の未来を対応付けるのではなく、細胞背景と摂動の組に対して集団レベルの読出しを予測する。[公開モデルカード](https://huggingface.co/arcinstitute/PIE_replogle_wdataset)
+PIEの出力には、遺伝子ごとのDEG確率、log2 fold change、平均発現の変化がある。個々の細胞の未来を対応付けるのではなく、細胞背景と摂動の組に対して集団レベルの読出しを予測する。[Public model card](https://huggingface.co/arcinstitute/PIE_replogle_wdataset)
 
-入力は摂動名だけではない。遺伝子の説明、タンパク質の配列・ネットワーク、依存性プロファイル、細胞株の記述に加え、controlの発現と学習集合内の摂動応答を使う。知識を使うこと自体を漏洩とは呼べないが、未知の背景を予測するときにも何を観測済みとして渡すかが重要になる。ここでの「未知」は、対象背景の摂動応答を学習に入れないという意味で、controlも知識も一切ない状態ではない。[実装と設定](https://github.com/ArcInstitute/pie)、[知識源のデータカード](https://huggingface.co/datasets/arcinstitute/PIE_sources)
+入力は摂動名だけではない。遺伝子の説明、タンパク質の配列・ネットワーク、依存性プロファイル、細胞株の記述に加え、controlの発現と学習集合内の摂動応答を使う。知識を使うこと自体を漏洩とは呼べないが、未知の背景を予測するときにも何を観測済みとして渡すかが重要になる。ここでの「未知」は、対象背景の摂動応答を学習に入れないという意味で、controlも知識も一切ない状態ではない。[Implementation and configuration](https://github.com/ArcInstitute/pie)、[Knowledge-source data card](https://huggingface.co/datasets/arcinstitute/PIE_sources)
 
 今回はReplogle-Nadigの必須遺伝子CRISPRiデータを対象にした。薬剤による細胞応答や患者組織への転用を、この集計から実証したとは扱わない。
 
@@ -88,7 +88,7 @@ E[\text{陽性数}]=50\pi
 
 ## 知識の多さと予測への寄与は分離されていない {#_4}
 
-PIEの入力には、摂動側の知識、予測遺伝子の説明、背景の記述、観測された応答の情報が含まれる。公開データカードには由来、モデル版、ハッシュが記録されている。[公開知識源](https://huggingface.co/datasets/arcinstitute/PIE_sources)
+PIEの入力には、摂動側の知識、予測遺伝子の説明、背景の記述、観測された応答の情報が含まれる。公開データカードには由来、モデル版、ハッシュが記録されている。[Public knowledge sources](https://huggingface.co/datasets/arcinstitute/PIE_sources)
 
 知識が豊富な摂動ほどAPが高くても、その相関だけでは知識の追加が精度を上げたとは結論できない。学習から知識源を除くことと、学習済みモデルの推論時に入力を除くことも、異なる介入になる。今回の公開表の再集計は、いずれのアブレーションも再現していない。
 
@@ -98,6 +98,6 @@ PIEの入力には、摂動側の知識、予測遺伝子の説明、背景の�
 
 [集計コード・監査用入力・図をダウンロード](shared/pie-deg-prioritization/pie-deg-prioritization.zip)。監査用入力は公開スコアと独自に抽出したDEG数を対応させた表である。Python標準ライブラリで集計と9件のテストを実行できる。元データとの照合には取得スクリプト、numpy、約473 MBの公開ラベル等が必要で、図の再描画にはmatplotlibが必要だ。
 
-モデル、データ、分割、実装の版と取得ファイルのSHA-256を`input-provenance.json`に収録した。チェックポイント・埋め込み・元の評価CSV・ラベル配列・第三者コードは同梱していない。PIEのコードとモデルにはそれぞれ利用条件があるため、利用前に[コードのライセンス](https://github.com/ArcInstitute/pie/blob/main/LICENSE.md)と[モデルの利用条件](https://huggingface.co/arcinstitute/PIE_replogle_wdataset/blob/main/MODEL_LICENSE.md)を確認する。
+モデル、データ、分割、実装の版と取得ファイルのSHA-256を`input-provenance.json`に収録した。チェックポイント・埋め込み・元の評価CSV・ラベル配列・第三者コードは同梱していない。PIEのコードとモデルにはそれぞれ利用条件があるため、利用前に[Code license](https://github.com/ArcInstitute/pie/blob/main/LICENSE.md)と[Model terms of use](https://huggingface.co/arcinstitute/PIE_replogle_wdataset/blob/main/MODEL_LICENSE.md)を確認する。
 
 本集計は公開資料を見た後の探索的な監査である。原著は査読前のプレプリントである。本記事の数値とラベル定義の一次資料は、固定版の公開モデルカード・評価CSV・評価実装・加工済みデータであり、論文PDF本文の取得はできなかった。生カウントのDE解析、モデル学習・推論、個々の予測確率の校正、上位遺伝子の適合率、知識源アブレーション、患者への一般化は検証していない。

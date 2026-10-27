@@ -76,6 +76,11 @@ def enrich(page, name, site, site_url, article=None, og_image=None, topics=None)
    schema['datePublished']=article['date'];schema['dateModified']=article.get('updated') or article['date']
    if article.get('english'):schema['alternativeHeadline']=article['english']['title'];schema['abstract']=article['english']['summary']
   hreflangs=dict(re.findall(r'<link rel="alternate" hreflang="([^"]+)" href="([^"]+)"',page))
+  if article:
+   source=article.get('source_language')
+   if source in hreflangs and source!=lang:schema['translationOfWork']={'@type':'Article','@id':hreflangs[source]+'#article','url':hreflangs[source],'inLanguage':source}
+   translated=[{'@type':'Article','@id':url+'#article','url':url,'inLanguage':code} for code,url in hreflangs.items() if code!=lang]
+   if translated and source==lang:schema['workTranslation']=translated
   if {'ja','en'}<=set(hreflangs):metadata.append('<link rel="alternate" hreflang="x-default" href="'+html.escape(hreflangs['en'],quote=True)+'">')
   metadata.append('<meta name="author" content="'+html.escape(site['name'],quote=True)+'">')
   if article:

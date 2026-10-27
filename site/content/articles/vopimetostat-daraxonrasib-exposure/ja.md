@@ -1,4 +1,4 @@
-MTAP欠失を持つ腫瘍でPRMT5を狙うVopimetostatと、RAS(ON)阻害剤Daraxonrasibの併用が開発されている。2026年6月の公開資料で気になったのは、奏効率だけではない。**Daraxonrasib 100 mgの併用時AUCが、単剤300 mgと同程度と説明されている**点である。[公開説明資料、スライド20](https://www.sec.gov/Archives/edgar/data/1819133/000119312526260679/d158334dex992.htm)
+MTAP欠失を持つ腫瘍でPRMT5を狙うVopimetostatと、RAS(ON)阻害剤Daraxonrasibの併用が開発されている。2026年6月の公開資料で気になったのは、奏効率だけではない。**Daraxonrasib 100 mgの併用時AUCが、単剤300 mgと同程度と説明されている**点である。([Public presentation, slide 20](https://www.sec.gov/Archives/edgar/data/1819133/000119312526260679/d158334dex992.htm))
 
 用量は3分の1でも、曝露は3分の1とは限らない。ただし、この記載から「併用で曝露が3倍になる」「低用量でも同じ薬効がある」と直ちに進めることもできない。AUCを比べるには、区間、採血時点、集計方法、対象集団を揃える必要がある。
 
@@ -12,7 +12,7 @@ COU（Context of Use）は、公開資料に基づいてPK比較の仮説と次�
 
 ## 4,106という数値の定義を確認する {#4106}
 
-2026年6月8日の公開資料では、Vopimetostat 200 mg＋Daraxonrasib 100 mg、いずれもQDのdose level 1について、Daraxonrasib AUC 4,106 ng·h/mL、n=13、CV 40.5%が示されている。見出しは膵癌と肺癌を含む集団であり、Vopimetostat 250 mg側の別PK集計ではない。[同資料、スライド13・19・20](https://www.sec.gov/Archives/edgar/data/1819133/000119312526260679/d158334dex992.htm)
+2026年6月8日の公開資料では、Vopimetostat 200 mg＋Daraxonrasib 100 mg、いずれもQDのdose level 1について、Daraxonrasib AUC 4,106 ng·h/mL、n=13、CV 40.5%が示されている。見出しは膵癌と肺癌を含む集団であり、Vopimetostat 250 mg側の別PK集計ではない。[Same presentation, slides 13, 19 and 20](https://www.sec.gov/Archives/edgar/data/1819133/000119312526260679/d158334dex992.htm)
 
 | 項目 | 公開資料で確認できたこと | 確認できないこと |
 | --- | --- | --- |
@@ -22,9 +22,9 @@ COU（Context of Use）は、公開資料に基づいてPK比較の仮説と次�
 | 対象 | 資料の該当欄は膵癌・肺癌 | PK評価13人の内訳・個体別共変量 |
 | 単剤との比較 | 「300 mg単剤と同程度」という記述 | 同じ条件の対照群との個体別比較 |
 
-Daraxonrasibの米国添付文書には、幾何平均Cmax 365 ng/mL、AUC 3,760 ng·h/mLとある。ただし、その段落ではAUCの積分区間や正確な測定時点が明記されていない。したがって、4,106/3,760を確定した曝露比として、さらに用量補正してDDI倍率とすることは避けた。[米国添付文書12.3](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2026/220910Orig1s000Lbl.pdf)
+Daraxonrasibの米国添付文書には、幾何平均Cmax 365 ng/mL、AUC 3,760 ng·h/mLとある。ただし、その段落ではAUCの積分区間や正確な測定時点が明記されていない。したがって、4,106/3,760を確定した曝露比として、さらに用量補正してDDI倍率とすることは避けた。[US prescribing information 12.3](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2026/220910Orig1s000Lbl.pdf)
 
-2026年10月23日朝（JST）の確認時点では、同日米国東部時間7:30の説明会と10月25日のESMO発表が予告されている。以下はそれらの未発表結果を含めない、日付を固定した解析である。[10月16日発表予告](https://tangotx.gcs-web.com/news-releases/news-release-details/tango-therapeutics-present-updated-vopimetostat-rason)
+2026年10月23日朝（JST）の確認時点では、同日米国東部時間7:30の説明会と10月25日のESMO発表が予告されている。以下はそれらの未発表結果を含めない、日付を固定した解析である。[10/16 presentation announcement](https://tangotx.gcs-web.com/news-releases/news-release-details/tango-therapeutics-present-updated-vopimetostat-rason)
 
 ## まず平均の種類だけを変えて計算する {#_2}
 
@@ -39,7 +39,7 @@ GM=\frac{AM}{\sqrt{1+CV^2}}
 
 として幾何平均に変換した。算術平均という仮定では、GMは3,805.7 ng·h/mLになる。これは元データから平均の種類を特定した結果ではなく、未報告の定義を変えた感度解析である。
 
-比較用にはFDA審査資料のヒトPopPK係数を再利用した。参照個体は65歳、70 kg、総ビリルビン8 µmol/L、既治療の膵癌で、CL/Fは53.8 L/h、定常相対Fは1−0.357=0.643とする。[FDA審査資料、Table 59、PDF242ページ](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2026/220910Orig1s000MultidisciplineR.pdf)
+比較用にはFDA審査資料のヒトPopPK係数を再利用した。参照個体は65歳、70 kg、総ビリルビン8 µmol/L、既治療の膵癌で、CL/Fは53.8 L/h、定常相対Fは1−0.357=0.643とする。([FDA assessment report / Table 59 / PDF242 pages](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2026/220910Orig1s000MultidisciplineR.pdf))
 
 このモデルの100 mg QDの参照定常AUCは、
 
@@ -62,7 +62,7 @@ K=\frac{GM_{combo}}{AUC_{100,ss}}
 
 括弧は\(\log GM\pm t_{12,0.975}\sqrt{\log(1+CV^2)/13}\)から計算した近似的な位置の感度範囲である。AMからの変換では分散の推定誤差も単純化しており、原試験の信頼区間ではない。区間・集団・平均定義の不一致は、この範囲では解消されない。
 
-計算上の曝露合わせ量は\(300/K\)である。87.3 mgや94.2 mgは処方量の提案ではない。50 mg、75 mgも仮想量で、承認錠剤を分割して作る指示ではない。添付文書は錠剤の分割を認めていない。[米国添付文書2.2・3](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2026/220910Orig1s000Lbl.pdf)
+計算上の曝露合わせ量は\(300/K\)である。87.3 mgや94.2 mgは処方量の提案ではない。50 mg、75 mgも仮想量で、承認錠剤を分割して作る指示ではない。添付文書は錠剤の分割を認めていない。[US prescribing information 2.2 , 3](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2026/220910Orig1s000Lbl.pdf)
 
 ![集計方法を変えた場合の条件付きスケール。比較可能な定常24時間AUCを仮定する。](shared/vopimetostat-daraxonrasib-exposure/figures/conditional-scale.png)
 
@@ -102,7 +102,7 @@ C(t)=1000A_c/V_c.
 
 どちらでもAUCはK倍になる。しかし後者では消失の時間スケールも変わる。AUC一つからこの二つは区別できない。これは実際のF上昇やCYP阻害を同定したモデルではなく、**AUCだけでは決まらない波形を調べるための仮想構造**である。相対入力の倍率は絶対Fではない。
 
-Vopimetostatの非臨床公開資料は、治療濃度でのCYP・輸送体DDIリスクを低いと予測している。これも臨床DDIがない証明ではないが、今回のAUCから「強いCYP3A阻害」と断定する根拠にもならない。[TNG462非臨床資料、PDF15ページ](https://www.tangotx.com/wp-content/uploads/TNG462-First-time-disclosure-ACS-August-2023.pdf)
+Vopimetostatの非臨床公開資料は、治療濃度でのCYP・輸送体DDIリスクを低いと予測している。これも臨床DDIがない証明ではないが、今回のAUCから「強いCYP3A阻害」と断定する根拠にもならない。[TNG462 nonclinical materials, PDF p. 15](https://www.tangotx.com/wp-content/uploads/TNG462-First-time-disclosure-ACS-August-2023.pdf)
 
 ## 100 mgのAUCが似ていても波形は似るとは限らない {#100-mgauc}
 
@@ -165,7 +165,7 @@ Vopimetostatの非臨床公開資料は、治療濃度でのCYP・輸送体DDI�
 
 公表された4,106には、区間・採血日・平均の定義が未確認という問題がある。今回の計算は、その不確かさを仮定として残したまま行っている。同じAUCに合う二つの構造が異なる波形を作るため、値を合わせても入力と消失のどちらが変わったかは決まらない。
 
-また、200 mg側の情報をVopimetostat 250 mgへ移す根拠はなく、併用開始直後や中止後の回復も定常モデルの対象外である。非対照の早期試験の奏効には未確認奏効も含まれ、今回の曝露合わせから薬理学的な相乗効果や安全性改善は証明できない。[公開説明資料のスライド15](https://www.sec.gov/Archives/edgar/data/1819133/000119312526260679/d158334dex992.htm)
+また、200 mg側の情報をVopimetostat 250 mgへ移す根拠はなく、併用開始直後や中止後の回復も定常モデルの対象外である。非対照の早期試験の奏効には未確認奏効も含まれ、今回の曝露合わせから薬理学的な相乗効果や安全性改善は証明できない。([Public presentation, slide 15](https://www.sec.gov/Archives/edgar/data/1819133/000119312526260679/d158334dex992.htm))
 
 ## 再実行資料 {#_5}
 

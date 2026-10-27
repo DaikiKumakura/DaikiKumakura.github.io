@@ -103,9 +103,9 @@
 
 ## 出典・データ
 
-1. Amgen Inc. Sotorasib. Background Information for the Oncologic Drugs Advisory Committee, 05 October 2023（FDA公開資料）. <https://www.fda.gov/media/172698/download> （Table 20、Table 29）
-2. Rudin CM, et al. OA04.03: interim analysis of IDeate-Lung01. *J Thorac Oncol*. 2024;19:S15–S16. [doi:10.1016/j.jtho.2024.09.033](https://doi.org/10.1016/j.jtho.2024.09.033)。同じデータカットオフの群別集計は、[公開された中間結果の発表](https://www.merck.com/news/ifinatamab-deruxtecan-continues-to-demonstrate-promising-objective-response-rates-in-patients-with-extensive-stage-small-cell-lung-cancer-in-ideate-lung01-phase-2-trial/)から取った。
-3. Schmidli H, et al. Robust meta-analytic-predictive priors in clinical trials with historical control information. *Biometrics*. 2014;70:1023–1032. [doi:10.1111/biom.12242](https://doi.org/10.1111/biom.12242)（頑健な混合事前分布の考え方）
+1. Amgen Inc. Sotorasib. Background Information for the Oncologic Drugs Advisory Committee, 05 October 2023 (public FDA materials). <https://www.fda.gov/media/172698/download>  (Table 20, Table 29)
+2. Rudin CM, et al. OA04.03: interim analysis of IDeate-Lung01. *J Thorac Oncol*. 2024;19:S15–S16. [doi:10.1016/j.jtho.2024.09.033](https://doi.org/10.1016/j.jtho.2024.09.033). Arm-level counts at the same data cutoff were obtained from [Public interim-results announcement](https://www.merck.com/news/ifinatamab-deruxtecan-continues-to-demonstrate-promising-objective-response-rates-in-patients-with-extensive-stage-small-cell-lung-cancer-in-ideate-lung01-phase-2-trial/).
+3. Schmidli H, et al. Robust meta-analytic-predictive priors in clinical trials with historical control information. *Biometrics*. 2014;70:1023–1032. [doi:10.1111/biom.12242](https://doi.org/10.1111/biom.12242) (robust mixture-prior formulation)
 
 再実行：`python test_analysis.py && python analysis.py && python figures.py && Rscript validate.R`（Python 3.12、numpy、scipy、pandas、matplotlib；R 4.5.3、jsonlite）。
 

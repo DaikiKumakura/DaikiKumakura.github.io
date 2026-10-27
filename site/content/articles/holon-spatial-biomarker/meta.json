@@ -18,10 +18,19 @@
         "合成格子では平均と分散を保っても配置によって平均隣接差が変わる。原報のgEREGや患者の性能の再現ではない。",
         "治療反応との関連は比較治療に対する効果差を示すものではなく、今回の格子計算も患者ごとの治療選択の利益を推定していない。"
       ]
+    },
+    "en": {
+      "title": "Can pathology AI replace RNA-seq?",
+      "summary": "A Japanese essay examines Holon-S1 spatial expression predictions and the EREG chemotherapy-response marker, with a reproducible synthetic spatial-layout illustration rather than a model replication.",
+      "seo_title": "Holon spatial biomarkers and patient-level validation",
+      "seo_description": "A spatial biomarker example separates cell patterns from patient-level evidence using synthetic calculations and explicit validation limits."
     }
   },
   "english": {
     "title": "Can pathology AI replace RNA-seq?",
     "summary": "A Japanese essay examines Holon-S1 spatial expression predictions and the EREG chemotherapy-response marker, with a reproducible synthetic spatial-layout illustration rather than a model replication."
+  },
+  "reviewed": {
+    "en": "fcd3faa1b8efa0b73727221ca61af8886898167b880605d98cbf3c9328815107"
   }
 }

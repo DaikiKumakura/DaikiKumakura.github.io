@@ -8,7 +8,7 @@
 
 single-cell RNA-seqなどでは、測定時に細胞を壊すため、介入前と介入後の同じ細胞を通常は一対一で測れない。得られるのは、対照と投与後の別々の細胞集団である。
 
-CellOTは、この対応のない分布の間に、変化のコストを小さくする写像を学ぶ。CMongeは、薬剤や用量などの条件を与えて写像を学ぶ枠組みへ拡張する。個別条件の分布を扱うことと、未測定条件へ予測することは、検証を分ける必要がある。[CellOT原論文](https://www.nature.com/articles/s41592-023-01969-x)、[CMonge原論文](https://www.nature.com/articles/s42256-026-01242-8)
+CellOTは、この対応のない分布の間に、変化のコストを小さくする写像を学ぶ。CMongeは、薬剤や用量などの条件を与えて写像を学ぶ枠組みへ拡張する。個別条件の分布を扱うことと、未測定条件へ予測することは、検証を分ける必要がある。[CellOT Original paper](https://www.nature.com/articles/s41592-023-01969-x)、[CMonge Original paper](https://www.nature.com/articles/s42256-026-01242-8)
 
 最適輸送の「輸送」は、細胞を物理的に動かす意味ではない。発現やマーカー値の空間で、対照の状態を投与後の状態へ対応させる計算である。どの変化を近いと扱うかは、距離、スケール、使う特徴に依存する。
 
@@ -18,7 +18,7 @@ CellOTは、この対応のない分布の間に、変化のコストを小さ�
 
 解析対象は8時間の前処理済み4iファイルの、対照、trametinib、dabrafenib、everolimusである。3薬剤はCellOTのExtended Data Fig. 2で細胞応答の写像を示した例に合わせて選んだ。`intensity-cell-pERK-mean`という一つの特徴を使う。この名前のmeanは、画像内で一細胞の強度を集計した平均であり、この記事が比較する集団平均とは別である。
 
-原配布先は[ETHのデータ記録](https://doi.org/10.3929/ethz-b-000609681)である。取得時にダウンロードが応答制限を返したため、別の最適輸送研究の[公式ベンチマークで配布された4iファイル](https://github.com/ngushchin/EntropicOTBenchmark/tree/db2a4d0888e593659786fa27785c2fe1c82678fc/benchmark_construction_examples/single_cell_drugs/4i)を使用した。取得版とSHA256は配布物に記録したが、原アーカイブとのバイト単位の同一性は未確認である。
+原配布先は[ETH data record](https://doi.org/10.3929/ethz-b-000609681)である。取得時にダウンロードが応答制限を返したため、別の最適輸送研究の[4i files distributed through the official benchmark](https://github.com/ngushchin/EntropicOTBenchmark/tree/db2a4d0888e593659786fa27785c2fe1c82678fc/benchmark_construction_examples/single_cell_drugs/4i)を使用した。取得版とSHA256は配布物に記録したが、原アーカイブとのバイト単位の同一性は未確認である。
 
 取得ファイルは119,479細胞・78特徴。論文が報告する解析版とは細胞数・特徴数が異なり、その解析版を再現したものではない。今回使う4条件は18,899細胞で、各条件のセル行を80%の学習用と20%の評価用に分けた。対照の分割は全薬剤で共有する。
 
@@ -123,4 +123,4 @@ W_1(\mu,\nu)=\int_0^1|F_\mu^{-1}(u)-F_\nu^{-1}(u)|\,du.
 
 解析は探索的で、データの代表値を確認した後に範囲を固定した。3薬剤・一マーカーのセル分割を、未知薬剤・患者・実験系への汎化と解釈しない。
 
-資料は[CellOT](https://www.nature.com/articles/s41592-023-01969-x)、[CMonge](https://www.nature.com/articles/s42256-026-01242-8)、[4iのデータ記録](https://doi.org/10.3929/ethz-b-000609681)、取得に用いた[研究公式ベンチマーク](https://github.com/ngushchin/EntropicOTBenchmark)である。第三者の図・論文・コード・モデル重み・個別セル識別子は配布物に含めていない。
+資料は[CellOT](https://www.nature.com/articles/s41592-023-01969-x)、[CMonge](https://www.nature.com/articles/s42256-026-01242-8)、[4i data record](https://doi.org/10.3929/ethz-b-000609681)、取得に用いた[Official research benchmark](https://github.com/ngushchin/EntropicOTBenchmark)である。第三者の図・論文・コード・モデル重み・個別セル識別子は配布物に含めていない。

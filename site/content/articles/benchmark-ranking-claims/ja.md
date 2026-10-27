@@ -104,12 +104,12 @@ pM（ピコモル）は結合の強さの単位で、小さいほど強く結合
 
 ## 参考資料 {#_3}
 
-数値とその出所、読んだ範囲は [sources.md](shared/benchmark-ranking-claims/sources.md)、派生した数値の計算は [numbers.py](shared/benchmark-ranking-claims/numbers.py) と [results/summary.json](shared/benchmark-ranking-claims/results/summary.json)。
+Numbers, provenance and reading scope are recorded in [sources.md](shared/benchmark-ranking-claims/sources.md), derived calculations are recorded in [numbers.py](shared/benchmark-ranking-claims/numbers.py) and [results/summary.json](shared/benchmark-ranking-claims/results/summary.json).
 
-1. OpenADMET. It's the End of the PXR Challenge as We Know It (and I feel fine). 2026年7月3日。openadmet.ghost.io
-2. Acellera. PXR Blind Challenge に関するブログ記事二つ。acellera.com/blog
-3. OpenAI. LifeSciBench プレプリント（2026年6月）。cdn.openai.com/pdf/b4299379-0a97-4ffa-8b9b-c3fbb299caa9/lifescibench_preprint.pdf
-4. LetsDataScience、GIGAZINEの解説記事（LifeSciBenchの数値の確認）。
-5. Specifica/IQVIA. The AIntibody challenge. *Nature Biotechnology* 2026. doi:10.1038/s41587-026-03238-6（本文は未読）
-6. Sovereign Magazine、The Signal（Buttondown）の解説（AIntibodyの数値）。
-7. Aureka Biotechnologies. プレスリリース（2026年8月26日）。
+1. OpenADMET. It's the End of the PXR Challenge as We Know It (and I feel fine). 2026-07-03. openadmet.ghost.io
+2. Acellera. Two blog posts on the PXR Blind Challenge. acellera.com/blog
+3. OpenAI. LifeSciBench preprint (2026-06). cdn.openai.com/pdf/b4299379-0a97-4ffa-8b9b-c3fbb299caa9/lifescibench_preprint.pdf
+4. LetsDataScience and GIGAZINE commentaries (used to check LifeSciBench figures).
+5. Specifica/IQVIA. The AIntibody challenge. *Nature Biotechnology* 2026. [doi:10.1038/s41587-026-03238-6](https://doi.org/10.1038/s41587-026-03238-6) (full text not read)
+6. Sovereign Magazine and The Signal (Buttondown) commentaries (AIntibody figures).
+7. Aureka Biotechnologies. press release (2026-08-26).

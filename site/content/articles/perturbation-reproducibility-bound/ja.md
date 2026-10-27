@@ -38,9 +38,9 @@ Nadigらは、K562・RPE1・HepG2・Jurkatの必須遺伝子のPerturb-seqを使
 
 ## 参考文献 {#_5}
 
-1. Arc Institute. [The 2026 Virtual Cell Challenge](https://arcinstitute.org/news/virtual-cell-challenge-2026)（2026年8月20日）.
-2. Nadig A, Replogle JM, et al. Transcriptome-wide analysis of differential expression in perturbation atlases. *Nature Genetics*. 2025;57:1228–1237. [10.1038/s41588-025-02169-3](https://doi.org/10.1038/s41588-025-02169-3). 数値は[PMC版の本文](https://pmc.ncbi.nlm.nih.gov/articles/PMC13063516/)で確認.
+1. Arc Institute. [The 2026 Virtual Cell Challenge](https://arcinstitute.org/news/virtual-cell-challenge-2026) (2026-08-20).
+2. Nadig A, Replogle JM, et al. Transcriptome-wide analysis of differential expression in perturbation atlases. *Nature Genetics*. 2025;57:1228–1237. [10.1038/s41588-025-02169-3](https://doi.org/10.1038/s41588-025-02169-3). Numerical results were checked in [PMC full text](https://pmc.ncbi.nlm.nih.gov/articles/PMC13063516/).
 3. Viñas Torné R, et al. Systema: a framework for evaluating genetic perturbation response prediction beyond systematic variation. *Nature Biotechnology*. 2026;44(6):1050–1059. [10.1038/s41587-025-02777-8](https://doi.org/10.1038/s41587-025-02777-8).
-4. Miller HE, et al. Deep learning perturbation models can outperform baselines on calibrated metrics. *Nature Biotechnology*. オンライン公開2026年10月1日. [10.1038/s41587-026-03307-w](https://doi.org/10.1038/s41587-026-03307-w).
+4. Miller HE, et al. Deep learning perturbation models can outperform baselines on calibrated metrics. *Nature Biotechnology*. published online 2026-10-01. [10.1038/s41587-026-03307-w](https://doi.org/10.1038/s41587-026-03307-w).
 
 <span id="_4"></span>

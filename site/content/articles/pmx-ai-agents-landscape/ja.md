@@ -77,21 +77,21 @@ nlmixr2llm（BSD-3）は、nlmixr2用の知識をClaude CodeやCodexのプラグ
 
 ## 参考資料 {#_4}
 
-資料の一覧と読んだ範囲は [sources.md](shared/pmx-ai-agents-landscape/sources.md) に置いた。
+The source inventory and reading scope are recorded in [sources.md](shared/pmx-ai-agents-landscape/sources.md).
 
-1. Kwack et al. PKGPT. *Pharmaceutics* 2026;18(4):501. doi:10.3390/pharmaceutics18040501. コード：github.com/Gumgo91/PKGPT
-2. Pritchard-Bell, Lin, Holmes, Doshi. Context Engineering for AI-Assisted Pharmacometrics: A Practical Tutorial. *CPT Pharmacometrics Syst Pharmacol* 2026. doi:10.1002/psp4.70317
-3. Zheng et al. AI for NONMEM Coding: Shortcut or Pitfall? *CPT Pharmacometrics Syst Pharmacol* 2025;14:1965-1969. doi:10.1002/psp4.70125
-4. Shin et al. *J Pharmacokinet Pharmacodyn* 2024;51:187. doi:10.1007/s10928-024-09921-y（アブストラクトのみ）
-5. Cloesmeijer et al. *Br J Clin Pharmacol* 2024;90:360. doi:10.1111/bcp.15895（アブストラクトのみ）
-6. Cha et al. *J Pharmacokinet Pharmacodyn* 2025. doi:10.1007/s10928-025-09982-7（アブストラクトのみ）
-7. Richardson et al. *Commun Med* 2025;5:327. doi:10.1038/s43856-025-01054-8
-8. Mao et al. *AAPS J* 2025. doi:10.1208/s12248-025-01121-x（アブストラクトのみ）
-9. Ponce-Bobadilla et al. Predictive AI in Clinical Pharmacology: A Call to Action to Develop Robust Benchmarking Practices. *CPT Pharmacometrics Syst Pharmacol* 2026;15(1):e70155. doi:10.1002/psp4.70155
+1. Kwack et al. PKGPT. *Pharmaceutics* 2026;18(4):501. [doi:10.3390/pharmaceutics18040501](https://doi.org/10.3390/pharmaceutics18040501). Code: github.com/Gumgo91/PKGPT
+2. Pritchard-Bell, Lin, Holmes, Doshi. Context Engineering for AI-Assisted Pharmacometrics: A Practical Tutorial. *CPT Pharmacometrics Syst Pharmacol* 2026. [doi:10.1002/psp4.70317](https://doi.org/10.1002/psp4.70317)
+3. Zheng et al. AI for NONMEM Coding: Shortcut or Pitfall? *CPT Pharmacometrics Syst Pharmacol* 2025;14:1965-1969. [doi:10.1002/psp4.70125](https://doi.org/10.1002/psp4.70125)
+4. Shin et al. *J Pharmacokinet Pharmacodyn* 2024;51:187. [doi:10.1007/s10928-024-09921-y](https://doi.org/10.1007/s10928-024-09921-y) (abstract only)
+5. Cloesmeijer et al. *Br J Clin Pharmacol* 2024;90:360. [doi:10.1111/bcp.15895](https://doi.org/10.1111/bcp.15895) (abstract only)
+6. Cha et al. *J Pharmacokinet Pharmacodyn* 2025. [doi:10.1007/s10928-025-09982-7](https://doi.org/10.1007/s10928-025-09982-7) (abstract only)
+7. Richardson et al. *Commun Med* 2025;5:327. [doi:10.1038/s43856-025-01054-8](https://doi.org/10.1038/s43856-025-01054-8)
+8. Mao et al. *AAPS J* 2025. [doi:10.1208/s12248-025-01121-x](https://doi.org/10.1208/s12248-025-01121-x) (abstract only)
+9. Ponce-Bobadilla et al. Predictive AI in Clinical Pharmacology: A Call to Action to Develop Robust Benchmarking Practices. *CPT Pharmacometrics Syst Pharmacol* 2026;15(1):e70155. [doi:10.1002/psp4.70155](https://doi.org/10.1002/psp4.70155)
 10. Sale and Zhao. Announcement of Machine Learning Benchmarking. PAGE 2025 abstract 11658.
 11. Raimúndez, Ponce-Bobadilla, Stodtmann, Knöchel. ISoP AI/ML SIG. PAGE 2026 abstract 11999.
 12. nlmixr2llm: github.com/mattfidler/nlmixr2llm
-13. K-Dense Scientific Agent Skills: arXiv:2609.00065 とリポジトリ
-14. Anthropic Engineering. Equipping agents for the real world with Agent Skills. 2025年10月16日。
-15. Certara. ACoP 2026 のページ。
-16. 自分の関連記事：[AIエージェントに PK/PD 解析を任せられるか](agent-pkpd-skills.html)、[ワルファリンのPK/PD解析](warfarin-pkpd.html)
+13. K-Dense Scientific Agent Skills: arXiv:2609.00065 and repository
+14. Anthropic Engineering. Equipping agents for the real world with Agent Skills. 2025-10-16.
+15. Certara. ACoP 2026 page.
+16. Related articles by the author: [Can an AI agent do a PK/PD analysis? Re-running a warfarin analysis with a public skill library](agent-pkpd-skills.html), [When does individual information improve PK/PD prediction?](warfarin-pkpd.html)

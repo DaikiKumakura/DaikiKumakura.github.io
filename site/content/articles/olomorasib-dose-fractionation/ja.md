@@ -6,13 +6,13 @@ Olomorasibを150 mgずつ1日2回投与する代わりに、100 mgずつ1日3回
 
 QOIは「150 mg BIDと100 mg TIDで、1日AUC・ピーク・最低濃度はどう変わり、その予測は公開データからどこまで支持されるか」。COUは次のPK比較で調べる用量・間隔の仮説形成である。臨床の処方変更、薬効維持、安全性改善の予測には使わない。
 
-対象はKRAS G12C阻害剤olomorasib。2026年の単剤第1相原著では50～200 mg BIDを調べ、150～200 mg付近で曝露分布が重なると報告している。併用開発でも用量検討が続くが、今回は単剤のPKに限定する。[単剤原著](https://doi.org/10.1038/s41467-026-69943-7)、[併用試験原著](https://pubmed.ncbi.nlm.nih.gov/41319864/)
+対象はKRAS G12C阻害剤olomorasib。2026年の単剤第1相原著では50～200 mg BIDを調べ、150～200 mg付近で曝露分布が重なると報告している。併用開発でも用量検討が続くが、今回は単剤のPKに限定する。[Monotherapy paper](https://doi.org/10.1038/s41467-026-69943-7)、[Combination-trial paper](https://pubmed.ncbi.nlm.nih.gov/41319864/)
 
 「頭打ち」という文章だけで吸収飽和を仮定せず、実測のAUCから比例モデルと飽和モデルを比較する。
 
 ## 図の元データを使う {#_1}
 
-原著のSource Dataから、Supplementary Fig. 2Aの平均濃度36点と、Fig. 2Bの定常状態AUC 212件を抽出した。濃度は血漿ng/mL、AUCは12時間のng·h/mLである。目視による図の数値化ではなく、公開された数値を使った。標的抑制の帯は解析に使っていない。[原著・Source DataとSupplementary Information](https://www.nature.com/articles/s41467-026-69943-7#Sec21)
+原著のSource Dataから、Supplementary Fig. 2Aの平均濃度36点と、Fig. 2Bの定常状態AUC 212件を抽出した。濃度は血漿ng/mL、AUCは12時間のng·h/mLである。目視による図の数値化ではなく、公開された数値を使った。標的抑制の帯は解析に使っていない。([Original paper , Source Data and Supplementary Information](https://www.nature.com/articles/s41467-026-69943-7#Sec21))
 
 | 1回量（mg、BID） | AUC件数 | AUC幾何平均 | AUC中央値 | 幾何CV（%） |
 | --- | ---: | ---: | ---: | ---: |
@@ -129,7 +129,7 @@ BIDの用量–AUC関係をTIDへ移す仮定に加え、服薬時刻にも結�
 
 ## 再実行と資料 {#_5}
 
-入力値、原著から抽出したPK数値、6種類の集計表、図3点、再実行コードを配布する。原著の元IDは別のブロック番号へ置き換え、PK以外の個人情報や元の全ワークブック・試験実施計画書は含めない。抽出値は原著のCC BY 4.0に従って出典と変換を明記する。[ライセンス](https://creativecommons.org/licenses/by/4.0/)
+入力値、原著から抽出したPK数値、6種類の集計表、図3点、再実行コードを配布する。原著の元IDは別のブロック番号へ置き換え、PK以外の個人情報や元の全ワークブック・試験実施計画書は含めない。抽出値は原著のCC BY 4.0に従って出典と変換を明記する。[License](https://creativecommons.org/licenses/by/4.0/)
 
 数値検査9件では、独立したODEによる投与イベント計算、周期積分、最小値・ピークの格子幅、比例モデルの収支、倍率の相殺などを確認した。実装の一致はTIDの臨床検証を意味しない。資料確認日は2026年10月24日。
 

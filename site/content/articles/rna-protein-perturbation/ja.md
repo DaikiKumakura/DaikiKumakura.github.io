@@ -169,9 +169,9 @@ Frangiehらは、ヒトのメラノーマ細胞で248遺伝子を1つずつノ�
 ## 出典・データ {#_6}
 
 1. Frangieh CJ, et al. Multimodal pooled Perturb-CITE-seq screens in patient models define mechanisms of cancer immune evasion. *Nat Genet*. 2021;53:332–341. [doi:10.1038/s41588-021-00779-1](https://doi.org/10.1038/s41588-021-00779-1)
-2. Peidli S, et al. scPerturb: harmonized single-cell perturbation data. *Nat Methods*. 2024;21:531–540. [doi:10.1038/s41592-023-02144-y](https://doi.org/10.1038/s41592-023-02144-y)（データはZenodo [10.5281/zenodo.7041849](https://doi.org/10.5281/zenodo.7041849)、CC BY 4.0）
+2. Peidli S, et al. scPerturb: harmonized single-cell perturbation data. *Nat Methods*. 2024;21:531–540. [doi:10.1038/s41592-023-02144-y](https://doi.org/10.1038/s41592-023-02144-y) (data: Zenodo [10.5281/zenodo.7041849](https://doi.org/10.5281/zenodo.7041849), CC BY 4.0)
 3. Ball P. *How Life Works: A User's Guide to the New Biology*. University of Chicago Press; 2023.
-4. Tsour S, et al. Alternate RNA decoding results in stable and abundant proteins in mammals. bioRxiv. 2024. [doi:10.1101/2024.08.26.609665](https://doi.org/10.1101/2024.08.26.609665)（RNAの先でタンパク質の配列や量が変わる例。Slavovの研究室の研究）
+4. Tsour S, et al. Alternate RNA decoding results in stable and abundant proteins in mammals. bioRxiv. 2024. [doi:10.1101/2024.08.26.609665](https://doi.org/10.1101/2024.08.26.609665) (An example of protein sequence and abundance changes beyond RNA, from the Slavov laboratory)
 5. Schwanhäusser B, et al. Global quantification of mammalian gene expression control. *Nature*. 2011;473:337–342. [doi:10.1038/nature10098](https://doi.org/10.1038/nature10098)
 6. Liu Y, Beyer A, Aebersold R. On the dependency of cellular protein levels on mRNA abundance. *Cell*. 2016;165:535–550. [doi:10.1016/j.cell.2016.03.014](https://doi.org/10.1016/j.cell.2016.03.014)
 7. Stoeckius M, et al. Simultaneous epitope and transcriptome measurement in single cells. *Nat Methods*. 2017;14:865–868. [doi:10.1038/nmeth.4380](https://doi.org/10.1038/nmeth.4380)

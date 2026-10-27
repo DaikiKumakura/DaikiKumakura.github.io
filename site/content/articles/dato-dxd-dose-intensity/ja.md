@@ -20,9 +20,9 @@ TROP2を標的とするdatopotamab deruxtecan（Dato-DXd）を例に、公開Pop
 
 | 資料 | 取得したもの | 使用範囲 |
 | --- | --- | --- |
-| Hongらの2025年PopPK原著［1］ | Tables 1–2の推定値・90% CI、式8–15、Figure 4の共変量効果 | 構造・共変量式と、同じモデル内での数値整合 |
+| Hongらの2025年PopPK原著［1］ | [Tables 1–2, Equations 8–15 and Figure 4](https://doi.org/10.1002/psp4.70118)の推定値・90% CI・共変量効果 | 構造・共変量式と、同じモデル内での数値整合 |
 | 同論文の補足NONMEMコード | hour/day変換、生成係数、分子量換算 | Pythonへ独立に実装。原本コードは配布しない |
-| 同論文の補足Table S1 | 初回90分、その後30分の点滴 | 投与イベントの定義 |
+| [Original paper, Supplementary Table S1](https://doi.org/10.1002/psp4.70118) | 初回90分、その後30分の点滴 | 投与イベントの定義 |
 | 2026年NSCLC E–R原著［2］ | 各臨床評価に使った曝露指標、その限界 | 新しい投与間隔に毒性・奏効率を直接外挿しない理由の確認 |
 | 製品情報［3］ | 基準の6 mg/kg・3週間隔と体重による上限 | 本記事の基準条件と臨床レジメンの区別 |
 
@@ -32,7 +32,7 @@ PopPK原著は729例、ADC本体9,036点、DXd 9,012点を用いている［1］
 
 ## 単位を補足コードから確かめる {#_3}
 
-原著の要約にはDXdのCLを2.66 L/dayとする記載があるが、Table 2、式14、補足コードは**2.66 L/h**としている。補足コードではADCのCL、Q、Vmaxだけを24で割り、DXdのCLは割っていない。今回もその組合せに従った。
+原著の要約にはDXdのCLを2.66 L/dayとする記載があるが、[Table 2, Equation 14 and supplementary code](https://doi.org/10.1002/psp4.70118)は**2.66 L/h**としている。補足コードではADCのCL、Q、Vmaxだけを24で割り、DXdのCLは割っていない。今回もその組合せに従った。
 
 時間をh、薬物量をµg、容積をLで統一する。濃度µg/Lはng/mLと数値的に等しい。ADC本体は図表でµg/mLへ換算する。
 
@@ -219,11 +219,11 @@ R_{DXd}^{cohort}(t)=
 
 ## 参考文献 {#_6}
 
-1. Hong Y, et al. Population Pharmacokinetic Analysis of Datopotamab Deruxtecan (Dato-DXd), a TROP2-Directed Antibody-Drug Conjugate, in Patients With Advanced Solid Tumors. *CPT Pharmacometrics Syst Pharmacol*. 2025;14:2149–2160. [原著・補足資料](https://doi.org/10.1002/psp4.70118)。Tables 1–2、式8–15、Figure 4、補足NONMEMコードを使用。
-2. Hong Y, et al. Exposure-Response Analyses of Datopotamab Deruxtecan (Dato-DXd), a TROP2-Directed Antibody-Drug Conjugate, in Advanced Non-small Cell Lung Cancer. *Clin Pharmacol Ther*. 2026. [原著](https://doi.org/10.1002/cpt.70477)。公表E–Rの曝露定義を確認し、新規レジメンの臨床転帰予測には使用していない。
-3. DATROWAY prescribing information. [DailyMed製品情報](https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=2950227c-6230-4ca4-a135-46e44d9424a0)。地域・適応による記載の違いがあるため、本文の比較は指定した公表モデルと条件に限定する。
+1. Hong Y, et al. Population Pharmacokinetic Analysis of Datopotamab Deruxtecan (Dato-DXd), a TROP2-Directed Antibody-Drug Conjugate, in Patients With Advanced Solid Tumors. *CPT Pharmacometrics Syst Pharmacol*. 2025;14:2149–2160. [Paper and supplementary materials](https://doi.org/10.1002/psp4.70118). Tables 1–2, Equations 8–15, Figure 4 and supplementary NONMEM code were used.
+2. Hong Y, et al. Exposure-Response Analyses of Datopotamab Deruxtecan (Dato-DXd), a TROP2-Directed Antibody-Drug Conjugate, in Advanced Non-small Cell Lung Cancer. *Clin Pharmacol Ther*. 2026. [Original paper](https://doi.org/10.1002/cpt.70477). Used to check the published E–R exposure definitions, not to predict clinical outcomes under new regimens.
+3. DATROWAY prescribing information. [DailyMed prescribing information](https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=2950227c-6230-4ca4-a135-46e44d9424a0). Because instructions vary by region and indication, comparisons are restricted to the specified published model and conditions.
 
-図・計算コード・派生集計表は独自に作成した。原著の文章・図・NONMEMコード原本や患者別データは配布しない。
+Figures, calculation code and derived tables are original. Original paper text, figures, NONMEM source and patient-level data are not redistributed.
 
 
-[計算コード・集計表・実行手順](shared/dato-dxd-dose-intensity/dato-dxd-simulation.zip)
+[Calculation code, tables and instructions](shared/dato-dxd-dose-intensity/dato-dxd-simulation.zip)

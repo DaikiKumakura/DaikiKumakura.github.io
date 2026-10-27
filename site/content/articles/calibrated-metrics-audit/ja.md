@@ -143,8 +143,8 @@ $s$ は指標の値（良いほど大きくなる向き）で、理想値は、M
 ## 参考文献 {#_2}
 
 - Ahlmann-Eltze C, Huber W, Anders S. Deep-learning-based gene perturbation effect prediction does not yet outperform simple linear baselines. Nat Methods 2025. [doi:10.1038/s41592-025-02772-6](https://doi.org/10.1038/s41592-025-02772-6)
-- Miller HE, et al. Deep learning perturbation models can outperform baselines on calibrated metrics. Nat Biotechnol 2026. [doi:10.1038/s41587-026-03307-w](https://doi.org/10.1038/s41587-026-03307-w)（2026年10月1日にオンライン公開。プレプリント：bioRxiv 2025.10.20.683304）
+- Miller HE, et al. Deep learning perturbation models can outperform baselines on calibrated metrics. Nat Biotechnol 2026. [doi:10.1038/s41587-026-03307-w](https://doi.org/10.1038/s41587-026-03307-w) (published online 2026-10-01; preprint: bioRxiv 2025.10.20.683304)
 - Wessels HH, et al. Efficient combinatorial targeting of RNA transcripts in single cells with Cas13 RNA Perturb-seq. Nat Methods 2023;20:86-94. [doi:10.1038/s41592-022-01705-x](https://doi.org/10.1038/s41592-022-01705-x)
-- Peidli S, et al. scPerturb: harmonized single-cell perturbation data. Nat Methods 2024;21:531-540. [doi:10.1038/s41592-023-02144-y](https://doi.org/10.1038/s41592-023-02144-y)（データ：Zenodo [13350497](https://doi.org/10.5281/zenodo.13350497)、CC BY 4.0）
+- Peidli S, et al. scPerturb: harmonized single-cell perturbation data. Nat Methods 2024;21:531-540. [doi:10.1038/s41592-023-02144-y](https://doi.org/10.1038/s41592-023-02144-y) (data: Zenodo [13350497](https://doi.org/10.5281/zenodo.13350497), CC BY 4.0)
 
 <span id="_1"></span>

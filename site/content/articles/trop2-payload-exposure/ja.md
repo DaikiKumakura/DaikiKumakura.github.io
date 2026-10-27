@@ -88,7 +88,7 @@ Total antibody、conjugated payload、unconjugated payloadは異なる測定対�
 ## 出典 {#_3}
 
 1. [Sathe et al. SG PopPK, 2024](https://pmc.ncbi.nlm.nih.gov/articles/PMC11106201/).
-2. [EMA Trodelvy variation assessment, 2026](https://www.ema.europa.eu/en/documents/variation-report/trodelvy-vr-0000312649-epar-assessment-report-variation_en.pdf), §2.3.2、§2.3.4.
+2. [EMA Trodelvy variation assessment, 2026](https://www.ema.europa.eu/en/documents/variation-report/trodelvy-vr-0000312649-epar-assessment-report-variation_en.pdf), §2.3.2, §2.3.4.
 3. [TRODELVY US label, version 18](https://dailymed.nlm.nih.gov/dailymed/fda/fdaDrugXsl.cfm?setid=57a597d2-03f0-472e-b148-016d7169169d&version=18), Table9.
 4. [TRODELVY US label, version 20](https://dailymed.nlm.nih.gov/dailymed/fda/fdaDrugXsl.cfm?setid=57a597d2-03f0-472e-b148-016d7169169d&version=20), Table13.
 5. [Dato-DXd PopPK, 2025](https://pmc.ncbi.nlm.nih.gov/articles/PMC12706414/).

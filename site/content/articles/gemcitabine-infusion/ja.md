@@ -151,11 +151,11 @@ E6201試験では、固定速度投与による生存の改善は事前に設定
 
 ## 出典と再実行 {#_7}
 
-1. [Gemcitabine米国製品情報（DailyMed）](https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=d80176fe-3e8b-48be-87c2-9c603013b3fa)。Section 5.1。
-2. Khatri A, et al. SLC28A3 genotype and gemcitabine rate of infusion affect dFdCTP metabolite disposition in patients with solid tumours. *British Journal of Cancer*. 2014;110:304–312. [doi:10.1038/bjc.2013.738](https://doi.org/10.1038/bjc.2013.738)。[公開本文](https://pmc.ncbi.nlm.nih.gov/articles/PMC3899768/)。Tables 2・4、Methods、Results。
-3. Garcia-Cremades M, et al. Mechanistic Multiscale Pharmacokinetic Model for the Anticancer Drug 2’,2’-difluorodeoxycytidine (Gemcitabine) in Pancreatic Cancer. *Clinical and Translational Science*. 2020;13. [doi:10.1111/cts.12747](https://doi.org/10.1111/cts.12747)。[公開本文](https://pmc.ncbi.nlm.nih.gov/articles/PMC7214642/)。
-4. Poplin E, et al. Phase III, Randomized Study of Gemcitabine and Oxaliplatin Versus Gemcitabine (fixed-dose rate infusion) Compared With Gemcitabine (30-minute infusion) in Patients With Pancreatic Carcinoma E6201. *Journal of Clinical Oncology*. 2009;27:3778–3785. [doi:10.1200/JCO.2008.20.9007](https://doi.org/10.1200/JCO.2008.20.9007)。[公開本文](https://pmc.ncbi.nlm.nih.gov/articles/PMC2727286/)。
-5. Novelli PM, et al. Pharmacokinetic and pharmacodynamic sub-study of trans-arterial vs. intravenous gemcitabine in the TIGeR-PaC phase 3 clinical trial. *Cancer Chemotherapy and Pharmacology*. 2026;96:91. [doi:10.1007/s00280-026-04939-0](https://doi.org/10.1007/s00280-026-04939-0)。[公開本文](https://link.springer.com/article/10.1007/s00280-026-04939-0)。
+1. [Gemcitabine US prescribing information (DailyMed)](https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=d80176fe-3e8b-48be-87c2-9c603013b3fa). Section 5.1.
+2. Khatri A, et al. SLC28A3 genotype and gemcitabine rate of infusion affect dFdCTP metabolite disposition in patients with solid tumours. *British Journal of Cancer*. 2014;110:304–312. [doi:10.1038/bjc.2013.738](https://doi.org/10.1038/bjc.2013.738).([Open full text](https://pmc.ncbi.nlm.nih.gov/articles/PMC3899768/)). Tables 2・4, Methods, Results.
+3. Garcia-Cremades M, et al. Mechanistic Multiscale Pharmacokinetic Model for the Anticancer Drug 2’,2’-difluorodeoxycytidine (Gemcitabine) in Pancreatic Cancer. *Clinical and Translational Science*. 2020;13. [doi:10.1111/cts.12747](https://doi.org/10.1111/cts.12747).([Open full text](https://pmc.ncbi.nlm.nih.gov/articles/PMC7214642/)).
+4. Poplin E, et al. Phase III, Randomized Study of Gemcitabine and Oxaliplatin Versus Gemcitabine (fixed-dose rate infusion) Compared With Gemcitabine (30-minute infusion) in Patients With Pancreatic Carcinoma E6201. *Journal of Clinical Oncology*. 2009;27:3778–3785. [doi:10.1200/JCO.2008.20.9007](https://doi.org/10.1200/JCO.2008.20.9007).([Open full text](https://pmc.ncbi.nlm.nih.gov/articles/PMC2727286/)).
+5. Novelli PM, et al. Pharmacokinetic and pharmacodynamic sub-study of trans-arterial vs. intravenous gemcitabine in the TIGeR-PaC phase 3 clinical trial. *Cancer Chemotherapy and Pharmacology*. 2026;96:91. [doi:10.1007/s00280-026-04939-0](https://doi.org/10.1007/s00280-026-04939-0).([Open full text](https://link.springer.com/article/10.1007/s00280-026-04939-0)).
 
 図、数値表、コードは独自に作成した。原著の図、患者データ、補足資料は配布物に含めていない。
 
