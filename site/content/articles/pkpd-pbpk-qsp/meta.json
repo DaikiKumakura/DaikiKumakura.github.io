@@ -12,10 +12,19 @@
       "title": "PK/PD・PopPK・PBPK・QSPの使い分けを目的とデータから考える",
       "summary": "PK/PD、母集団PK、PBPK、QSPの目的、入力データ、解析対象、結果の読み方、判断の限界を比較する。架空のPK/PDと集団分布の例を使い、個人差・診断・外挿を考える。",
       "seo_title": "PK/PD・PopPK・PBPK・QSPの使い分けを目的とデータから考える"
+    },
+    "en": {
+      "title": "PK/PD, population PK, PBPK and QSP: purposes, data and interpretation",
+      "summary": "A Japanese guide comparing purposes, input data, model development, diagnostics and limits of PK/PD, population PK, PBPK and QSP. Three original figures include hypothetical PK/PD dynamics and analytical conditional population distributions. No empirical model estimation or real-drug validation is claimed.",
+      "seo_title": "PK/PD, PopPK, PBPK and QSP: questions and evidence",
+      "seo_description": "Compare model purposes, data, variability, outputs and validation. Synthetic examples separate shared PK from different PD and conditional population spread."
     }
   },
   "english": {
     "title": "PK/PD, population PK, PBPK and QSP: purposes, data and interpretation",
     "summary": "A Japanese guide comparing purposes, input data, model development, diagnostics and limits of PK/PD, population PK, PBPK and QSP. Three original figures include hypothetical PK/PD dynamics and analytical conditional population distributions. No empirical model estimation or real-drug validation is claimed."
+  },
+  "reviewed": {
+    "en": "0caac236cedcd4db930ce922e726a1b0521bf4ae011d5495640415809aaaeb09"
   }
 }

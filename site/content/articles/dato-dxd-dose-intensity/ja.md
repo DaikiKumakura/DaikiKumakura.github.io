@@ -1,12 +1,22 @@
+## 要旨 {#article-abstract}
+
+Dato-DXdの公開PopPK式を独立実装し、84日間の総投与量を揃えた三つの投与間隔を比較した。6 mg/kg・21日間隔に対し4 mg/kg・14日間隔では、後半のADC平均0.972倍、DXd平均1.004倍、DXdピーク0.770倍となった。有限期間AUCは後半平均と異なり、未推定の生成時刻拡張ではADC合計PKを保ったままDXd予測が変わった。条件付き外挿の結果であり、有効性維持や毒性低下を示すものではない。
+
 文献確認日：2026年10月18日。公開PopPKモデルの式と推定済みパラメータを用いた独立の数値計算であり、患者別濃度の再推定ではない。臨床で検証された投与法と、ここで置く数理的な比較条件を区別する。
+
+## 背景と目的 {#article-introduction}
 
 抗体薬物複合体（ADC）では、ADC本体と、そこから遊離したpayloadの両方を測定する。同じ量を同じ期間に投与しても、この二つの濃度推移が同じように変わるとは限らない。
 
-TROP2を標的とするdatopotamab deruxtecan（Dato-DXd）を例に、公開PopPKモデル［1］から6 mg/kg・21日間隔、4 mg/kg・14日間隔、2 mg/kg・7日間隔を計算した。後二つは本記事の数理的な比較であり、推奨する治療法ではない。
+TROP2を標的とするdatopotamab deruxtecan（Dato-DXd）を例に、公開PopPKモデル ([1](#ref-1))から6 mg/kg・21日間隔、4 mg/kg・14日間隔、2 mg/kg・7日間隔を計算した。後二つは本記事の数理的な比較であり、推奨する治療法ではない。
 
 **4 mg/kg・14日間隔では、6 mg/kg・21日間隔に対してADCの後半平均濃度が0.972倍、DXdの平均濃度が1.004倍、DXdのピークが0.770倍となった。** 平均を近づけても、ピークや投与前濃度まで揃うわけではない。この違いを毒性・薬効へ読み替える前に、モデルの生成項と比較期間を確認する。
 
-## 問いと結果を使う範囲 {#_1}
+## 方法 {#article-methods}
+
+### 問いと使用範囲 {#_1}
+
+**表1　解析の問いと使用範囲**
 
 | 項目 | 定義 |
 | --- | --- |
@@ -16,25 +26,29 @@ TROP2を標的とするdatopotamab deruxtecan（Dato-DXd）を例に、公開Pop
 
 誤った外挿をすると、ある濃度指標の低下を安全性改善と取り違えるおそれがある。そのため、共通の比較期間、量の収支、単位、生成項の意味を先に確認する。
 
-## 使った公開情報 {#_2}
+### 公開資料と確認範囲 {#_2}
+
+**表2　公表資料と使用範囲**
 
 | 資料 | 取得したもの | 使用範囲 |
 | --- | --- | --- |
-| Hongらの2025年PopPK原著［1］ | [Tables 1–2, Equations 8–15 and Figure 4](https://doi.org/10.1002/psp4.70118)の推定値・90% CI・共変量効果 | 構造・共変量式と、同じモデル内での数値整合 |
+| Hongらの2025年PopPK原著 ([1](#ref-1)) | [Tables 1–2, Equations 8–15 and Figure 4](https://doi.org/10.1002/psp4.70118)の推定値・90% CI・共変量効果 | 構造・共変量式と、同じモデル内での数値整合 |
 | 同論文の補足NONMEMコード | hour/day変換、生成係数、分子量換算 | Pythonへ独立に実装。原本コードは配布しない |
-| [Original paper, Supplementary Table S1](https://doi.org/10.1002/psp4.70118) | 初回90分、その後30分の点滴 | 投与イベントの定義 |
-| 2026年NSCLC E–R原著［2］ | 各臨床評価に使った曝露指標、その限界 | 新しい投与間隔に毒性・奏効率を直接外挿しない理由の確認 |
-| 製品情報［3］ | 基準の6 mg/kg・3週間隔と体重による上限 | 本記事の基準条件と臨床レジメンの区別 |
+| [原著Supplementary Table S1](https://doi.org/10.1002/psp4.70118) | 初回90分、その後30分の点滴 | 投与イベントの定義 |
+| 2026年NSCLC E–R原著 ([2](#ref-2)) | 各臨床評価に使った曝露指標、その限界 | 新しい投与間隔に毒性・奏効率を直接外挿しない理由の確認 |
+| 製品情報 ([3](#ref-3)) | 基準の6 mg/kg・3週間隔と体重による上限 | 本記事の基準条件と臨床レジメンの区別 |
 
-PopPK原著は729例、ADC本体9,036点、DXd 9,012点を用いている［1］。本記事が取得したのは公表モデルと集計結果であり、この患者別測定値ではない。元の患者背景の同時分布も再現していない。モデル開発データの投与間隔は全て3週間隔であり、今回の14日・7日間隔は投与間隔について開発範囲外である（補足Table S1）。
+PopPK原著は729例、ADC本体9,036点、DXd 9,012点を用いている ([1](#ref-1))。本記事が取得したのは公表モデルと集計結果であり、この患者別測定値ではない。元の患者背景の同時分布も再現していない。モデル開発データの投与間隔は全て3週間隔であり、今回の14日・7日間隔は投与間隔について開発範囲外である（[原著Supplementary Table S1](https://doi.org/10.1002/psp4.70118)）。
 
 ここでのDXdは、ADCに結合していない遊離DXd、すなわち**unconjugated DXd**である。血漿蛋白に結合していない濃度という意味のunboundとは異なる。また、血漿DXdを腫瘍内や細胞内の活性薬物濃度と同一視しない。
 
-## 単位を補足コードから確かめる {#_3}
+### 単位とパラメータ {#_3}
 
 原著の要約にはDXdのCLを2.66 L/dayとする記載があるが、[Table 2, Equation 14 and supplementary code](https://doi.org/10.1002/psp4.70118)は**2.66 L/h**としている。補足コードではADCのCL、Q、Vmaxだけを24で割り、DXdのCLは割っていない。今回もその組合せに従った。
 
 時間をh、薬物量をµg、容積をLで統一する。濃度µg/Lはng/mLと数値的に等しい。ADC本体は図表でµg/mLへ換算する。
+
+**表3　モデルパラメータと実装単位**
 
 | パラメータ | 採用値 | 単位 |
 | --- | ---: | --- |
@@ -51,7 +65,7 @@ PopPK原著は729例、ADC本体9,036点、DXd 9,012点を用いている［1］
 
 基準背景は66 kg、男性、62歳、albumin 38 g/L、腫瘍径合計66 mm、AST 22 U/L、総bilirubin 0.4 mg/dL、地域USとした。個体間変動ηは0である。これは試験集団の平均的な曲線ではない。主解析は体重90 kg未満なので、臨床の540 mg上限は作用しない。
 
-## ADC本体とDXdをつなぐ {#adcdxd}
+### ADC本体とDXdのモデル {#adcdxd}
 
 ADCの中央量をA₁、末梢量をA₂、DXd量をA₃とする。
 
@@ -89,7 +103,11 @@ CL_{DXd}\propto(WT/66)^{0.298}(ALB/38)^{0.343}
 
 となる。両方の曝露を同じ方向に動かす共変量式ではない。共変量との関連を、albuminを操作したときの因果効果とは解釈しない。
 
-## 84日間の総投与量を揃える {#84}
+## 結果 {#article-results}
+
+### 同じ総投与量による84日比較 {#84}
+
+**表4　84日未満の投与と総量**
 
 | 比較条件 | 84日未満の投与回数 | 総投与量 |
 | --- | ---: | ---: |
@@ -103,6 +121,10 @@ CL_{DXd}\propto(WT/66)^{0.298}(ALB/38)^{0.343}
 
 ![同じ総投与量でのADC本体と遊離DXdの濃度推移。基準背景、η=0、投与ごとに時間因子を更新した条件。](shared/dato-dxd-dose-intensity/figures/01-profiles.png)
 
+**図1　代表条件の濃度推移。** 個体間変動ηは0。投与ごとに生成の時間因子を更新した。
+
+**表5　後半曝露と84日投与前濃度の比**
+
 | 比較条件 | ADC平均42–84日 | DXd平均42–84日 | ADCピーク42–84日 | DXdピーク42–84日 | ADC投与前84日 | DXd投与前84日 |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | 6 mg/kg q21d | 1.000 | 1.000 | 1.000 | 1.000 | 1.000 | 1.000 |
@@ -110,6 +132,8 @@ CL_{DXd}\propto(WT/66)^{0.298}(ALB/38)^{0.343}
 | 2 mg/kg q7d | 0.944 | 1.026 | 0.431 | 0.566 | 3.025 | 1.943 |
 
 全て同じ背景条件の6 mg/kg・21日間隔に対する比。母集団平均比や臨床的な同等性の検定ではない。
+
+**表6　84日までの累積AUC比**
 
 | 条件 | ADC AUC₀–₈₄比 | DXd AUC₀–₈₄比 |
 | --- | ---: | ---: |
@@ -121,7 +145,7 @@ CL_{DXd}\propto(WT/66)^{0.298}(ALB/38)^{0.343}
 
 投与を小分けにすると両分析対象のピークが下がり、投与前濃度は上がった。一方、ADC本体の平均濃度は14日間隔で2.8%、7日間隔で5.6%低下したのに対し、DXd平均はそれぞれ0.4%、2.6%増えた。『小分けにすれば全ての曝露が下がる』という結果ではない。
 
-## 期間内AUCの差を消失と残量に分ける {#auc}
+### 有限期間AUCの量的な分解 {#auc}
 
 総投与量が同じでも、84日までに体から消失した量は同じとは限らない。7日間隔では最後の投与から84日までの時間が短く、体内に残るADCも多い。
 
@@ -142,6 +166,10 @@ D_{total}=CL\,AUC_{0-84}+M_{nonlinear,0-84}
 
 ![ADCの有限期間AUC差を、非線形消失量の差と84日時点の残量の差に分解した結果。](shared/dato-dxd-dose-intensity/figures/03-auc-accounting.png)
 
+**図2　ADC AUC差の分解。** 非線形消失量と84日時点の残量による成分を区別した。
+
+**表7　有限期間ADC AUC差の構成成分**
+
 | 条件 | ADC AUC₀–₈₄の差 | 非線形消失量の差による成分 | 84日残量の差による成分 |
 | --- | ---: | ---: | ---: |
 | 6 mg/kg q21d | 0.0 | -0.0 | -0.0 |
@@ -152,7 +180,7 @@ D_{total}=CL\,AUC_{0-84}+M_{nonlinear,0-84}
 
 これらは84日までの積分値であり、最後の投与後に残る曝露を全て含むAUC∞ではない。線形消失だけの対照では、残量に対応する将来AUCを加えると、全条件で総投与量/CLに一致することも検査した。
 
-## 新しい投与で残っているADCまで若返るのか {#adc}
+### 残存ADCと生成時刻の扱い {#adc}
 
 公表式は患者内で一つのTSLDを使う。新しく投与すると、残存ADCからのDXd生成にも同じ投与直後の因子が適用される。21日間隔のデータに適合した式であっても、残存ADCの重なりが大きい7日間隔で、同じ近似が保たれるかは別の問題である。
 
@@ -169,6 +197,10 @@ R_{DXd}^{cohort}(t)=
 
 ![公表式に沿った投与ごとの更新と、投与由来別の時間を保持する未検証拡張の比較。各方式はその方式自身の21日間隔で規格化した。](shared/dato-dxd-dose-intensity/figures/02-clock-ratios.png)
 
+**図3　生成時刻の扱いによる曝露比。** 各方式自身の21日間隔を基準に規格化した。
+
+**表8　生成時刻の扱いによる後半DXd曝露比**
+
 | 条件 | DXd平均比：公表式の更新 | DXd平均比：投与由来別 | DXdピーク比：公表式の更新 | DXdピーク比：投与由来別 |
 | --- | ---: | ---: | ---: | ---: |
 | 6 mg/kg q21d | 1.000 | 1.000 | 1.000 | 1.000 |
@@ -181,18 +213,22 @@ R_{DXd}^{cohort}(t)=
 
 2方式の差を患者の予測区間や、生物学的に妥当な上下限とは呼ばない。低ピークという方向が同じでも、その低下率を臨床毒性の低下率へ読み替えない。
 
-## どこまで計算を確認したか {#_4}
+### 数値検算と感度分析 {#_4}
+
+**表9　数値実装と原著結果の照合**
 
 | 確認 | 結果 |
 | --- | --- |
 | hourとdayで同じ式を解く | 主要指標の最大相対差6.3e-11 |
 | 積分精度・最大刻み幅を変更 | 主要指標の最大相対差2.3e-10 |
 | ADCとpayloadの量の収支 | 最大相対差3e-15 |
-| 公表Figure 4の体重・albumin両端の4条件との照合 | 相対効果の最大差はADC0.51%、DXd3.23% |
+| [原著Figure 4](https://doi.org/10.1002/psp4.70118)の体重・albumin両端の4条件との照合 | 相対効果の最大差はADC0.51%、DXd3.23% |
 
-公表Figure 4の値は、固定効果の分散共分散から抽出したパラメータによる予測の中央値であり、今回の単一固定効果の計算と厳密に同じ対象ではない。この照合は公表モデルとの実装上の整合性確認であって、患者濃度を用いた独立の外部検証ではない。
+[原著Figure 4](https://doi.org/10.1002/psp4.70118)の値は、固定効果の分散共分散から抽出したパラメータによる予測の中央値であり、今回の単一固定効果の計算と厳密に同じ対象ではない。この照合は公表モデルとの実装上の整合性確認であって、患者濃度を用いた独立の外部検証ではない。
 
 10の構造・生成パラメータを公表90% CIの上下限へ一つずつ動かした。共分散を用いた同時変動ではないため、得られた範囲は予測の90%区間ではない。
+
+**表10　固定効果を一つずつ変えた曝露比の範囲**
 
 | 条件 | ADC平均比42–84日の範囲 | DXd平均比42–84日の範囲 | DXdピーク比42–84日の範囲 |
 | --- | --- | --- | --- |
@@ -203,27 +239,28 @@ R_{DXd}^{cohort}(t)=
 
 体重45・66・85 kg、albumin 28・38・45 g/Lの9背景でも同じ比較を行い、CSVへ保存した。これは患者の共同分布を模した仮想集団ではない。個体間変動を都合のよい独立分布で補って、目標達成率や毒性確率を算出することはしていない。
 
-## 2026年のE–R式へそのまま代入しない {#2026er}
+## 考察 {#2026er}
 
-2026年のNSCLC解析では、OSに初回cycleのAUC、PFSにcycleごとのAUCτ、ORRにCavが用いられた。安全性でも、事象によってADCのAUC₁、ADCのCav、DXdのCavが異なっていた［2］。
+2026年のNSCLC解析では、OSに初回cycleのAUC、PFSにcycleごとのAUCτ、ORRにCavが用いられた。安全性でも、事象によってADCのAUC₁、ADCのCav、DXdのCavが異なっていた ([2](#ref-2))。
 
 今回の42–84日平均は、事象が起きたcycleまでの平均曝露と同じではない。また、投与間隔を変えると1 cycleの長さも変わる。異なる期間のAUCを直接E–R式へ入れれば、単なる期間の違いを曝露効果と取り違える可能性がある。
 
 したがって、ここから「口内炎が何%減る」「有効性が維持される」とは計算しない。血漿DXdのピーク低下が、どの有害事象のどの曝露指標に対応するかも、別途確認が必要である。
 
-## 平均曝露が近くても生成項の外挿は残る {#_5}
+## 結論 {#_5}
 
 同じ投与強度で小分けにすると、後半42–84日の平均曝露を大きく変えずにピークと投与前濃度が変わった。ただし、ADCとDXdの平均は同じ割合で動かず、DXdのピーク変化率は生成項の扱いにも依存した。
 
 頻回投与では、残存ADCに投与直後の因子を適用する近似が入る。この近似を頻回投与の観測で検証したわけではない。したがって、今回得られたのは公表式を投与間隔の異なる条件へ外挿した結果であり、有効性維持や安全性改善の証拠ではない。
 
-## 参考文献 {#_6}
+## データとコードの公開状況 {#article-availability}
 
-1. Hong Y, et al. Population Pharmacokinetic Analysis of Datopotamab Deruxtecan (Dato-DXd), a TROP2-Directed Antibody-Drug Conjugate, in Patients With Advanced Solid Tumors. *CPT Pharmacometrics Syst Pharmacol*. 2025;14:2149–2160. [Paper and supplementary materials](https://doi.org/10.1002/psp4.70118). Tables 1–2, Equations 8–15, Figure 4 and supplementary NONMEM code were used.
-2. Hong Y, et al. Exposure-Response Analyses of Datopotamab Deruxtecan (Dato-DXd), a TROP2-Directed Antibody-Drug Conjugate, in Advanced Non-small Cell Lung Cancer. *Clin Pharmacol Ther*. 2026. [Original paper](https://doi.org/10.1002/cpt.70477). Used to check the published E–R exposure definitions, not to predict clinical outcomes under new regimens.
-3. DATROWAY prescribing information. [DailyMed prescribing information](https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=2950227c-6230-4ca4-a135-46e44d9424a0). Because instructions vary by region and indication, comparisons are restricted to the specified published model and conditions.
+図・計算コード・派生数値表は独自に作成した。原著本文・図・NONMEM原本・患者別データは再配布しない。
 
-Figures, calculation code and derived tables are original. Original paper text, figures, NONMEM source and patient-level data are not redistributed.
+[計算コード・数値表・再実行手順](shared/dato-dxd-dose-intensity/dato-dxd-simulation.zip)
 
+## 参照 {#_6}
 
-[Calculation code, tables and instructions](shared/dato-dxd-dose-intensity/dato-dxd-simulation.zip)
+1. <span id="ref-1"></span>Hong Y, Peigné S, Pan Υ, Friberg Hietala S, McLaughlin A, Tajima N, et al. Population Pharmacokinetic Analysis of Datopotamab Deruxtecan (Dato- DXd ), a TROP2 -Directed Antibody-Drug Conjugate, in Patients With Advanced Solid Tumors. CPT: Pharmacometrics & Systems Pharmacology. 2025;14(12):2149–2160. [doi:10.1002/psp4.70118](https://doi.org/10.1002/psp4.70118).
+2. <span id="ref-2"></span>Hong Y, Mc Laughlin AM, Pan Y, Hietala SF, Peigné S, Chargualaf M, et al. Exposure-Response Analyses of Datopotamab Deruxtecan (Dato- DXd ), a TROP2 -Directed Antibody-Drug Conjugate, in Advanced Non-small Cell Lung Cancer. Clinical Pharmacology & Therapeutics. 2026 [published online 2026 Sep 13]. [doi:10.1002/cpt.70477](https://doi.org/10.1002/cpt.70477).
+3. <span id="ref-3"></span>DailyMed. DATROWAY (datopotamab deruxtecan-dlnk): US prescribing information [Internet; cited 2026 Oct 18]. [Prescribing information](https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=2950227c-6230-4ca4-a135-46e44d9424a0).

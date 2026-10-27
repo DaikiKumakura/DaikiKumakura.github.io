@@ -1,4 +1,10 @@
+## 要旨 {#article-abstract}
+
+PK/PD、PopPK、PBPK、QSPは重なりを持つ異なる着眼点であり、高度さの四段階ではない。基礎文献、総説、公的資料を、問い・入力・出力・解釈の違いから比較した。架空の計算例では同じPKに異なる応答を接続し、仮定したCL分布から条件付きの濃度のばらつきを示した。モデル構造、個人差、推定法は別の選択であり、信頼性は名称ではなく観測・仮定・使用目的で評価する必要がある。
+
 文献確認日：2026年10月9日。定義の基礎となる文献と、最近の総説・ガイドラインを読み、使い分けを整理する。図は本記事で作成したもので、数値例は架空の薬物を用いた説明用のシミュレーションである。
+
+## 背景と目的 {#article-introduction}
 
 薬のモデルについて調べると、PK/PD、PopPK、PBPK、QSPという言葉が出てくる。どれも投与量や効果を考えるために使われ、微分方程式で書かれることも多い。そのため、似たモデルに違う名前を付けているように見えるかもしれない。
 
@@ -6,13 +12,15 @@
 
 本稿では、定義だけでなく、何を判断するために使い、どのデータを入力し、結果のどこを見るかまで整理する。実装の全手順を網羅するマニュアルではなく、解析計画や報告を読むための見取り図である。
 
-## まずPKとPDを分ける {#pkpd}
+## PKとPDとモデル分類の重なり {#pkpd}
 
 **PK（pharmacokinetics、薬物動態）**は、投与した薬物の濃度が、時間とともにどう変わるかを扱う。吸収、分布、代謝、排泄をまとめたADMEがその背景にある。測る濃度も、血漿中、全血中、組織中、非結合型など、問いによって違う。
 
 **PD（pharmacodynamics、薬力学）**は、薬物への曝露と作用・応答の関係を扱う。受容体の占有、バイオマーカーの変化、腫瘍の変化、副作用などが対象になる。ただし、標的に結合した割合と、患者の臨床的利益は同じものではない。
 
-「体が薬に何をするか」がPK、「薬が体に何をするか」がPDという言い方は入口として便利だ。ただし、実際には薬が生体の状態を変え、その状態が薬物動態を変えることもある。PKとPDの間に一方向の矢印しかないとは限らない。[Jusko on mechanism-based PK/PD models](https://doi.org/10.1002/jps.23590)は、その接続を考える基礎になる。
+「体が薬に何をするか」がPK、「薬が体に何をするか」がPDという言い方は入口として便利だ。ただし、実際には薬が生体の状態を変え、その状態が薬物動態を変えることもある。PKとPDの間に一方向の矢印しかないとは限らない。Juskoの機序に基づくPK/PD総説 ([1](#ref-1))は、その接続を考える基礎になる。
+
+**表1　モデル名称と主な着眼点**
 
 | 名前 | 何を表す言葉か | 主に詳しくする部分 |
 |---|---|---|
@@ -22,6 +30,8 @@
 | QSP | quantitative systems pharmacology：定量的システム薬理学 | 薬物作用、経路、細胞、生体の調節、疾患の相互作用 |
 
 この表は主な着眼点を整理したもので、排他的な分類ではない。PBPKにPDをつなげることも、QSPの曝露を通常のPKモデルで計算することもある。
+
+**表2　目的・入力・解析結果の比較**
 
 | 方法 | 主な目的 | 入力データの例 | 解析結果の例 |
 |---|---|---|---|
@@ -60,7 +70,7 @@ C(t)=\frac{D}{V}\exp\left(-\frac{CL}{V}t\right)
 E(C)=\frac{C}{EC_{50}+C}.
 \]
 
-この説明例では最大応答を1とし、\(EC_{50}\)は最大応答の半分となる濃度だ。応答が濃度にすぐ追従するなら、\(E(C(t))\)がそのまま応答になる。一方、応答する物質の生成・消失に時間がかかるなら、濃度が下がってから応答が最大になることもある。[Upton and Mould on PD models](https://doi.org/10.1038/psp.2013.71)では、このような直接作用、遅延、turnoverなどが扱われている。
+この説明例では最大応答を1とし、\(EC_{50}\)は最大応答の半分となる濃度だ。応答が濃度にすぐ追従するなら、\(E(C(t))\)がそのまま応答になる。一方、応答する物質の生成・消失に時間がかかるなら、濃度が下がってから応答が最大になることもある。UptonとMouldのPDモデル解説 ([2](#ref-2))では、このような直接作用、遅延、turnoverなどが扱われている。
 
 簡単な遅延の例として、ベースラインからの変化を正規化した\(R\)を
 
@@ -77,6 +87,8 @@ E(C)=\frac{C}{EC_{50}+C}.
 ![一つの架空のPK曲線に、濃度へ直ちに追従する応答と、turnoverによる遅延を持つ応答をつないだ時間経過。](shared/pkpd-pbpk-qsp/figures/same-pk-different-pd.png)
 
 **図2．同じPK、異なるPDの仮定。** 単回投与後0–48時間、1本のPK曲線に二つのPDを接続したシミュレーション。応答は正規化した任意単位。観測データへの推定や実薬の予測ではない。図・数値は`model_demo.py`、出力は`results/trajectories.csv`と`results/summary.json`。
+
+**表3　架空のPK/PD例での応答ピーク**
 
 | 応答の仮定 | 最大応答の時刻 | 最大応答（任意単位） |
 |---|---:|---:|
@@ -97,9 +109,11 @@ E(C)=\frac{C}{EC_{50}+C}.
 
 ### 目的と使うデータ {#_4}
 
-PopPKでは、集団の典型的な薬物動態と、その周りにある個人差を推定する。「体重や臓器機能で曝露がどれだけ変わるか」「同じ投与条件で、どの程度のばらつきが予測されるか」「個別の採血結果からその人のPKをどこまで推定できるか」が問いになる。方法の基礎は[Mould and Upton on PK models](https://doi.org/10.1038/psp.2013.14)を参照できる。
+PopPKでは、集団の典型的な薬物動態と、その周りにある個人差を推定する。「体重や臓器機能で曝露がどれだけ変わるか」「同じ投与条件で、どの程度のばらつきが予測されるか」「個別の採血結果からその人のPKをどこまで推定できるか」が問いになる。方法の基礎はMouldとUptonのPKモデル解説 ([3](#ref-3))を参照できる。
 
 濃度だけを集めればよいわけではない。濃度が、誰の、どの投与に対して、いつ測られたかを結び付ける。
+
+**表4　PopPK解析に用いるデータ**
 
 | データ | 解析前に見ること |
 |---|---|
@@ -129,6 +143,8 @@ CL_i=CL_{70}\left(\frac{WT_i}{70\ \mathrm{kg}}\right)^\theta\exp(\eta_i),\qquad 
 
 **図3．典型値と集団内のばらつき。** 線は体重を条件とした濃度の中央値、帯は条件付き分布の中央80%。対数正規のクリアランス分布から解析的に計算した。推定したパラメータの信頼区間でも、観測を含むVPCでもない。残差誤差、体重によるVの変化、パラメータ推定の不確実性は入れていない。実測患者数はなく、実薬の体重補正を支持する例でもない。
 
+**表5　仮定したCL分布による濃度分布**
+
 | 固定した体重 | 典型CL（L/h） | 投与24時間後の濃度中央値（mg/L） | 同時点の10–90パーセンタイル（mg/L） |
 |---|---:|---:|---:|
 | 50 kg | 0.777 | 1.549 | 0.766–2.583 |
@@ -139,7 +155,9 @@ CL_i=CL_{70}\left(\frac{WT_i}{70\ \mathrm{kg}}\right)^\theta\exp(\eta_i),\qquad 
 
 ### 結果の読み方 {#_6}
 
-[Nguyen et al. on model evaluation](https://doi.org/10.1002/psp4.12161)を踏まえると、次の観点を組み合わせたい。一つのきれいな図や目的関数の改善だけで判断しない。
+Nguyenらのモデル評価総説 ([4](#ref-4))を踏まえると、次の観点を組み合わせたい。一つのきれいな図や目的関数の改善だけで判断しない。
+
+**表6　PopPKの結果と解釈上の注意**
 
 | 結果 | 読みたいこと | 読み違えやすいこと |
 |---|---|---|
@@ -153,7 +171,7 @@ shrinkageが大きい場合は、個人推定値を使った相関や診断が�
 
 ### 判断できることと限界 {#_7}
 
-対象集団での曝露分布や、投与条件・患者背景による曝露の変化を評価する根拠になる。ただし、用量変更が必要かを判断するには、曝露の変化だけでなく有効性・安全性との関係や許容範囲が必要だ。未測定の集団や背景範囲への外挿も別途検討する。[FDA PopPK guidance](https://www.fda.gov/regulatory-information/search-fda-guidance-documents/population-pharmacokinetics)も、用途に沿ったデータ収集と解析を扱っている。
+対象集団での曝露分布や、投与条件・患者背景による曝露の変化を評価する根拠になる。ただし、用量変更が必要かを判断するには、曝露の変化だけでなく有効性・安全性との関係や許容範囲が必要だ。未測定の集団や背景範囲への外挿も別途検討する。FDAのPopPKガイダンス ([5](#ref-5))も、用途に沿ったデータ収集と解析を扱っている。
 
 濃度が高い人を見つけること、その理由を説明すること、その人の用量を変えるべきだと判断することは、三つの別の段階になる。
 
@@ -162,6 +180,8 @@ shrinkageが大きい場合は、個人推定値を使った相関や診断が�
 ### 目的と使うデータ {#_8}
 
 薬物の性質と生体の性質を組み合わせ、未測定の条件で濃度がどう変わるかを検討する。薬物の物性・結合、代謝・輸送の実験値、臓器容積・血流・酵素量などに、利用可能な臨床PKを接続する。
+
+**表7　PBPKで用いる情報の層**
 
 | 情報の層 | データの例 | 実践的に見ること |
 |---|---|---|
@@ -183,9 +203,9 @@ V_T\frac{dC_T}{dt}=Q_T\left(C_A-\frac{C_T}{K_{p,T}}\right)
 
 PBPKの狙いは、薬物の性質と生体の性質を区別し、条件が変わったときに何が変わるかを考えることだ。例えば酵素阻害薬との併用、小児の生理学、臓器機能の変化などが濃度へ及ぼす影響を検討する。ただし、その用途に必要な機序とデータが入っていることが前提になる。
 
-[FDA PBPK reporting guidance](https://www.fda.gov/regulatory-information/search-fda-guidance-documents/physiologically-based-pharmacokinetic-analyses-format-and-content-guidance-industry)は、生理学、集団、薬物の特性を組み合わせる解析として説明し、臨床PKデータの代わりに受け入れるかは用途と結果の質に応じた個別判断としている。PBPKという名前があるだけで外挿が保証されるわけではない。
+FDAのPBPK報告ガイダンス ([6](#ref-6))は、生理学、集団、薬物の特性を組み合わせる解析として説明し、臨床PKデータの代わりに受け入れるかは用途と結果の質に応じた個別判断としている。PBPKという名前があるだけで外挿が保証されるわけではない。
 
-また、PBPKは全臓器を細かく書くことが必須ではない。問いに必要な部分を残す簡略化もあるし、未知のパラメータを実測データから推定することもある。「PBPKは全て文献値で決める」「普通のPKは全て臨床データで決める」という分け方も正確ではない。[Jusko overview](https://doi.org/10.1002/jps.23590)と[Report on PBPK qualification](https://doi.org/10.1002/cpt.1013)が、こうした構造と評価を考える参考になる。
+また、PBPKは全臓器を細かく書くことが必須ではない。問いに必要な部分を残す簡略化もあるし、未知のパラメータを実測データから推定することもある。「PBPKは全て文献値で決める」「普通のPKは全て臨床データで決める」という分け方も正確ではない。Juskoの総説 ([1](#ref-1))とPBPKの適格性評価に関する総説 ([7](#ref-7))が、こうした構造と評価を考える参考になる。
 
 PBPKが組織濃度を計算できても、その濃度から有効性や安全性が自動的に決まるわけではない。必要ならPDや病態のモデルを接続する。これがPBPK/PDやPBPKとQSPの統合につながる。
 
@@ -193,7 +213,7 @@ PBPKが組織濃度を計算できても、その濃度から有効性や安全�
 
 血中濃度の時間経過だけでなく、AUC（濃度–時間曲線下面積）、最大濃度\(C_{\max}\)、併用前後の比、対象集団の分布を用途に合わせて見る。例えば酵素阻害の外挿なら、関係する代謝経路と阻害機序が表現されているか、検証した併用条件が予測したい条件に近いかを問う。単一の「予測が何倍以内」という基準を、全用途へ機械的に当てはめない。
 
-使う計算基盤の性能と、個別の薬物モデルの性能、さらに今回の用途への適用性は分けて考える。血中濃度に合っても、観測のない組織濃度や代謝経路の内訳が一意に決まるとは限らない。影響の大きい未知パラメータについて、感度と不確実性を調べる。ここまでを支える公開文献は、[PBPK model qualification and reporting overview](https://doi.org/10.1002/cpt.1013)を参照できる。
+使う計算基盤の性能と、個別の薬物モデルの性能、さらに今回の用途への適用性は分けて考える。血中濃度に合っても、観測のない組織濃度や代謝経路の内訳が一意に決まるとは限らない。影響の大きい未知パラメータについて、感度と不確実性を調べる。ここまでを支える公開文献は、PBPKの適格性評価・報告に関する総説 ([7](#ref-7))を参照できる。
 
 ## QSP：薬が入ると生体の仕組みがどう変わるか {#qsp}
 
@@ -207,9 +227,11 @@ PBPKが組織濃度を計算できても、その濃度から有効性や安全�
 
 QSPは、薬理作用と生体の機序を定量的に組み合わせ、経路・細胞・組織・病態などの相互作用を扱う。例えば、薬が標的に作用した後、シグナルが変わり、細胞の状態が変わり、疾患の応答へつながる過程を考える。
 
-2026年9月の[Wang et al. review](https://doi.org/10.1002/jcph.70289)は、機序に基づく生物学と定量薬理学の統合としてQSPを整理し、用量・投与条件、併用、バイオマーカーによる層別化などの用途を紹介している。QSPは一つの決まった方程式や推定アルゴリズムの名前ではない。
+2026年9月のWangらの総説 ([8](#ref-8))は、機序に基づく生物学と定量薬理学の統合としてQSPを整理し、用量・投与条件、併用、バイオマーカーによる層別化などの用途を紹介している。QSPは一つの決まった方程式や推定アルゴリズムの名前ではない。
 
 例えば、T細胞を介する薬物作用を考えるなら、次のような関係がモデルの候補になる。
+
+**表8　T細胞を介する薬物作用の概念例**
 
 | 表す関係の例 | 問いへの役割 | 確かめたい情報 |
 |---|---|---|
@@ -220,7 +242,7 @@ QSPは、薬理作用と生体の機序を定量的に組み合わせ、経路�
 
 これは本記事の概念例であり、特定の薬剤について検証されたQSPモデルではない。挙げた全ての機序を必ず入れる必要もない。機序を増やすほど、パラメータ、データの整合、識別可能性の問題も増える。
 
-QSPに何を含めるかには、研究者間で幅がある。[2019 QSP perspective](https://doi.org/10.1002/psp4.12463)も、PK/PDやPBPKとの重なりと定義の幅を論じている。分子の変数が一定数以上あればQSP、という境界はない。説明したい相互作用と、評価可能な仮説が何かを示す方が有用だ。
+QSPに何を含めるかには、研究者間で幅がある。2019年のQSP論考 ([9](#ref-9))も、PK/PDやPBPKとの重なりと定義の幅を論じている。分子の変数が一定数以上あればQSP、という境界はない。説明したい相互作用と、評価可能な仮説が何かを示す方が有用だ。
 
 そのため、QSPは計算だけで完結するとは限らない。モデルから仮説や追加実験を考え、得られた測定で機序やパラメータを見直す、計算と実験の往復も重要になる。
 
@@ -230,7 +252,7 @@ QSPに何を含めるかには、研究者間で幅がある。[2019 QSP perspec
 
 較正（calibration）は、使ったデータに合わせてパラメータや仮想集団を調整することだ。同じデータへの再現は、独立した検証とは区別する。候補の機序を減らしても判断が変わらないか、別の構造や許容されるパラメータでも同じ結論か、観測していない応答だけが大きく変わらないかを調べたい。
 
-仮想集団の割合を臨床の反応率として読むなら、集団の構成や重みを根拠あるデータに対応させる必要がある。仮想患者数を増やすだけでは、この問題もモデルの誤りも解消しない。最近の実例として、[elranatamab QSP study](https://doi.org/10.1038/s41540-025-00585-z)は仮想集団を用いて臨床の応答へ接続しているが、そこでの設定や評価を別薬剤へそのまま適用できるわけではない。
+仮想集団の割合を臨床の反応率として読むなら、集団の構成や重みを根拠あるデータに対応させる必要がある。仮想患者数を増やすだけでは、この問題もモデルの誤りも解消しない。最近の実例として、elranatamabのQSP研究 ([10](#ref-10))は仮想集団を用いて臨床の応答へ接続しているが、そこでの設定や評価を別薬剤へそのまま適用できるわけではない。
 
 機序仮説や未測定条件での違いを検討し、次に集めるデータを絞る材料になる。一方、臨床結果の数値を意思決定に使うには、その用途での検証が要る。「生物学的に詳しい」ことを、そのまま臨床予測の正確さと同一視しない。
 
@@ -238,15 +260,17 @@ QSPに何を含めるかには、研究者間で幅がある。[2019 QSP perspec
 
 ここまでの四つを、一つの排他的な分類にすると混乱しやすい。
 
-**PopPK（population pharmacokinetics、母集団薬物動態）**は、集団における薬物動態とその個人差、共変量との関係などを扱う。**NLME（nonlinear mixed-effects model、非線形混合効果モデル）**は、集団のパラメータと個体のランダム効果などを組み合わせる統計的なモデルの枠組みだ。濃度や応答をどう表現するかと、個人差をどう扱い推定するかは、関連するが別の問いである。[Mould and Upton](https://doi.org/10.1038/psp.2012.4)、[FDA PopPK guidance](https://www.fda.gov/regulatory-information/search-fda-guidance-documents/population-pharmacokinetics)が基礎になる。
+**PopPK（population pharmacokinetics、母集団薬物動態）**は、集団における薬物動態とその個人差、共変量との関係などを扱う。**NLME（nonlinear mixed-effects model、非線形混合効果モデル）**は、集団のパラメータと個体のランダム効果などを組み合わせる統計的なモデルの枠組みだ。濃度や応答をどう表現するかと、個人差をどう扱い推定するかは、関連するが別の問いである。Mould and Upton ([11](#ref-11))、FDAのPopPKガイダンス ([5](#ref-5))が基礎になる。
 
 1コンパートメントのPK/PDをNLMEで推定することもできる。PBPKのパラメータに集団の分布を与えることも、QSPを集団データに合わせることもできる。ただし、仮想集団をシミュレーションすることと、個人別データから混合効果モデルを推定することは同義ではない。
 
-**Pharmacometrics**は、薬物や疾患、個人差を定量的に扱い、解析・シミュレーションを判断へつなげる広い領域であり、NLMEやPopPKだけの別名ではない。分野や組織ごとの呼び方には幅がある。QSPとpharmacometricsの接続を論じる[Recent perspective](https://doi.org/10.1002/cpt.70191)もあり、固定された職種やモデル名で分断するより、データと問いを接続することが重要になる。
+**Pharmacometrics**は、薬物や疾患、個人差を定量的に扱い、解析・シミュレーションを判断へつなげる広い領域であり、NLMEやPopPKだけの別名ではない。分野や組織ごとの呼び方には幅がある。QSPとpharmacometricsの接続を論じる最近の論考 ([12](#ref-12))もあり、固定された職種やモデル名で分断するより、データと問いを接続することが重要になる。
 
-## 実際には問いから組み合わせる {#_15}
+## 考察 {#_15}
 
 どれを使うかは、複雑さへの好みより、何を判断したいかで決めたい。
+
+**表9　問いに応じたモデルの組合せ**
 
 | 問いの例 | 出発点になりやすい方法 | 追加で必要になる確認 |
 |---|---|---|
@@ -258,19 +282,38 @@ QSPに何を含めるかには、研究者間で幅がある。[2019 QSP perspec
 
 これは唯一の正解表ではない。例えば薬物相互作用を実測した集団ではPopPKから情報が得られるし、投与間隔の比較をQSPで行うこともある。同じ薬剤でも、問いが変われば適切なモデルは変わる。
 
-## 濃度の一致は応答の一致を保証しない {#_16}
+### 用途に見合う検証 {#_16}
 
-2026年1月29日にStep 4で採択された[ICH M15 final guideline](https://database.ich.org/sites/default/files/ICH_M15_Step4_Final_Guideline_2026_0129.pdf)は、モデルに基づく医薬品開発（model-informed drug development、MIDD）に用いる方法として母集団PK/PD、PBPK、QSPなどを挙げ、単独でも組み合わせてもよいとしている。各地域での実施状況は別に確認する必要があるが、共通の考え方として、問いとモデルの役割・範囲を明確にし、判断への影響と誤った判断の結果に見合う評価を行うことが示されている。
+2026年1月29日にStep 4で採択されたICH M15最終ガイドライン ([13](#ref-13))は、モデルに基づく医薬品開発（model-informed drug development、MIDD）に用いる方法として母集団PK/PD、PBPK、QSPなどを挙げ、単独でも組み合わせてもよいとしている。各地域での実施状況は別に確認する必要があるが、共通の考え方として、問いとモデルの役割・範囲を明確にし、判断への影響と誤った判断の結果に見合う評価を行うことが示されている。
 
-QSPの報告については、2026年4月の[ISoP QSP SIG preprint](https://arxiv.org/abs/2604.07811)が、透明性と用途に応じた報告の枠組みを提案している。これは規制当局の新しい公式ガイダンスではない。最新資料でも、モデル名だけで信頼性を決めず、何を判断するためのモデルかを説明する点が中心になる。
+QSPの報告については、2026年4月のISoP QSP SIGのプレプリント ([14](#ref-14))が、透明性と用途に応じた報告の枠組みを提案している。これは規制当局の新しい公式ガイダンスではない。最新資料でも、モデル名だけで信頼性を決めず、何を判断するためのモデルかを説明する点が中心になる。
+
+## 結論 {#article-conclusion}
 
 図2の計算例では、同じ濃度推移に異なる応答が対応した。臓器や経路を詳しく書くことだけでも、その応答が正しくなるわけではない。PK/PD、PBPK、QSPという名前の違いより、各構造がどの観測で支えられているかが、この例での予測の範囲を決めている。
 
-## 図表の再実行と範囲 {#_17}
+## データとコードの公開状況 {#_17}
 
 `python model_demo.py`で図とCSVを生成し、`python -m unittest test_demo.py -q`で検査する。Python、NumPy、SciPy、Matplotlibを使用した。乱数や患者データは使わない。計算例はPK/PDの基本的な接続を説明するもので、PBPKやQSPの実薬モデルの構築・推定・validationを行った解析ではない。薬剤の用量や治療判断の根拠にはならない。
 
-図3とその表は`python population_demo.py`で生成し、全検査は`python -m unittest discover -p 'test_*.py' -q`で実行する。ここでは集団分布を仮定して計算しただけで、個人別データからNLMEを推定していない。実装の練習へ進むなら、入力データの監査、モデル推定、診断、用途に沿った比較を別途行う必要がある。
+図3とその表は`python population_demo.py`で生成し、全検査は`python -m unittest discover -p 'test_*.py' -q`で実行する。ここでは集団分布を仮定して計算しただけで、個人別データからNLMEを推定していない。
 
 
 [図表と計算コードをダウンロード](shared/pkpd-pbpk-qsp/model-demo.zip)
+
+## 参照 {#article-references}
+
+1. <span id="ref-1"></span>Jusko WJ. Moving from Basic Toward Systems Pharmacodynamic Models. Journal of Pharmaceutical Sciences. 2013;102(9):2930–2940. [doi:10.1002/jps.23590](https://doi.org/10.1002/jps.23590).
+2. <span id="ref-2"></span>Upton RN, Mould DR. Basic Concepts in Population Modeling, Simulation, and Model-Based Drug Development: Part 3—Introduction to Pharmacodynamic Modeling Methods. CPT: Pharmacometrics & Systems Pharmacology. 2014;3(1):e88. [doi:10.1038/psp.2013.71](https://doi.org/10.1038/psp.2013.71).
+3. <span id="ref-3"></span>Mould DR, Upton RN. Basic Concepts in Population Modeling, Simulation, and Model-Based Drug Development—Part 2: Introduction to Pharmacokinetic Modeling Methods. CPT: Pharmacometrics & Systems Pharmacology. 2013;2(4):e38. [doi:10.1038/psp.2013.14](https://doi.org/10.1038/psp.2013.14).
+4. <span id="ref-4"></span>Nguyen THT, Mouksassi MS, Holford N, Al‐Huniti N, Freedman I, Hooker AC, et al. Model Evaluation of Continuous Data Pharmacometric Models: Metrics and Graphics. CPT: Pharmacometrics & Systems Pharmacology. 2017;6(2):87–109. [doi:10.1002/psp4.12161](https://doi.org/10.1002/psp4.12161).
+5. <span id="ref-5"></span>US Food and Drug Administration. Population Pharmacokinetics: Guidance for Industry. 2022 Feb. [Final guidance](https://www.fda.gov/regulatory-information/search-fda-guidance-documents/population-pharmacokinetics).
+6. <span id="ref-6"></span>US Food and Drug Administration. Physiologically Based Pharmacokinetic Analyses: Format and Content. Guidance for Industry. 2018 Sep. [Final guidance](https://www.fda.gov/regulatory-information/search-fda-guidance-documents/physiologically-based-pharmacokinetic-analyses-format-and-content-guidance-industry).
+7. <span id="ref-7"></span>Shebley M, Sandhu P, Emami Riedmaier A, Jamei M, Narayanan R, Patel A, et al. Physiologically Based Pharmacokinetic Model Qualification and Reporting Procedures for Regulatory Submissions: A Consortium Perspective. Clinical Pharmacology & Therapeutics. 2018;104(1):88–110. [doi:10.1002/cpt.1013](https://doi.org/10.1002/cpt.1013).
+8. <span id="ref-8"></span>Wang W, Ratushny AV, Chang S, Cheng Y, Gong JQX, Gulati A, et al. Quantitative Systems Pharmacology (QSP): Bridging Biology and Mechanism with Clinical Drug Development Decisions. The Journal of Clinical Pharmacology. 2026;66(9):e70289. [doi:10.1002/jcph.70289](https://doi.org/10.1002/jcph.70289).
+9. <span id="ref-9"></span>Bradshaw EL, Spilker ME, Zang R, Bansal L, He H, Jones RDO, et al. Applications of Quantitative Systems Pharmacology in Model-Informed Drug Discovery: Perspective on Impact and Opportunities. CPT: Pharmacometrics & Systems Pharmacology. 2019;8(11):777–791. [doi:10.1002/psp4.12463](https://doi.org/10.1002/psp4.12463).
+10. <span id="ref-10"></span>Poels KE, Elmeliegy M, Hibma J, Wang D, Musante CJ, Shtylla B. Leveraging quantitative systems pharmacology modeling for elranatamab regimen optimization in relapsed or refractory multiple myeloma. npj Systems Biology and Applications. 2025;11(1):102. [doi:10.1038/s41540-025-00585-z](https://doi.org/10.1038/s41540-025-00585-z).
+11. <span id="ref-11"></span>Mould DR, Upton RN. Basic Concepts in Population Modeling, Simulation, and Model-Based Drug Development. CPT: Pharmacometrics & Systems Pharmacology. 2012;1(9):e6. [doi:10.1038/psp.2012.4](https://doi.org/10.1038/psp.2012.4).
+12. <span id="ref-12"></span>Kapitanov GI, Earp JC, Gadkar K, Jin JY, Joshi A, Kondic AG, et al. Bridging the Gap: Integrating Quantitative Systems Pharmacology and Pharmacometrics in Drug Development. Clinical Pharmacology & Therapeutics. 2026;119(4):830–833. [doi:10.1002/cpt.70191](https://doi.org/10.1002/cpt.70191).
+13. <span id="ref-13"></span>International Council for Harmonisation. General Principles for Model-Informed Drug Development: M15. Step 4 final guideline. 2026 Jan 29. [Final guideline](https://database.ich.org/sites/default/files/ICH_M15_Step4_Final_Guideline_2026_0129.pdf).
+14. <span id="ref-14"></span>Zaph S, Shtylla B, Chang S, Cheng Y, Gong JQX, Gulati A, et al. Best Practices on QSP Model Reporting for Regulatory Use: perspectives from ISoP QSP SIG Working Group. arXiv [Preprint]. 2026 Apr 9;2604.07811v1. [Preprint](https://arxiv.org/abs/2604.07811v1).
