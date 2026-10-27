@@ -9,8 +9,6 @@
 {% elif active == 'profile' %}
 <p class="meta">{{ site.name }} · {{ site.alternate_names|join(' · ') }}</p><p>{{ site.profile }}</p><h2>{{ ui.expertise }}</h2><p>{{ site.expertise }}</p>
 {% for r in site.research_background %}<section class="record"><h3>{{ r.title }}</h3><p>{{ r.body }}</p></section>{% endfor %}
-{% if analyses %}<h2 id="selected-analyses">Selected analyses</h2><p>{{ site.analysis_note }}</p>
-{% for t in analyses %}<section class="record"><h3>{% if t.href %}<a href="{{ t.href }}">{{ t.label }}</a>{% else %}{{ t.label }}{% endif %}</h3><ul>{% for a in t.articles %}<li><a href="{{ a.href }}" lang="{{ a.lang }}">{{ a.title }}</a>{% if a.note %} <span class="meta">({{ a.note }})</span>{% endif %}</li>{% endfor %}</ul></section>{% endfor %}{% endif %}
 <h2>{{ ui.background }}</h2>
 {% for c in site.career %}<div class="record timeline"><span class="meta">{{ c.date }}</span><span>{{ c.text }}</span></div>{% endfor %}
 <h2>{{ ui.education }}</h2>
@@ -34,14 +32,12 @@
 {% endfor %}</section>{% endfor %}
 {% elif active == 'writing' %}
 {% if not articles %}<p>{{ ui.empty }}</p>{% endif %}
-{% if hubs %}<section class="writing-topics" aria-labelledby="by-topic">
-<h2 id="by-topic">By topic</h2>
-<ul class="topic-index">{% for h in topic_sections %}<li><a href="#{{ h.slug }}">{{ h.label }}</a> <span class="meta">({{ h['items']|length }})</span></li>{% endfor %}</ul>
-{% for h in topic_sections %}<section class="writing-topic" aria-labelledby="{{ h.slug }}">
-<h3 id="{{ h.slug }}">{{ h.label }}</h3>
-<ul class="topic-articles">{% for a in h['items'] %}<li data-topic-article="{{ a.slug }}"><a href="{{ a.href }}" lang="{{ a.lang }}">{{ a.title }}</a><span class="topic-article-meta"><time datetime="{{ a.date }}">{{ a.date }}</time>{% for version in a.versions %}{% if version.lang != a.lang %} · <a href="{{ version.href }}" lang="{{ version.lang }}">{{ 'English' if version.lang == 'en' else '日本語' }}</a>{% endif %}{% endfor %}</span></li>{% endfor %}</ul>
-</section>{% endfor %}
-<details class="topic-method" lang="ja"><summary>分類について</summary><p>公開済み記事の英語タイトルと概要を固定版の文埋め込みモデル（all-MiniLM-L6-v2）で数値化し、コサイン距離による平均連結法で階層クラスタリングしています。分類数は2〜10の候補から平均シルエット係数で選び、見出しには、そのグループの平均的な意味に近い語句を記事タイトルから選んで使います。予約記事は公開時に加わり、分類も再計算されます。</p><p>タイトルと概要に基づく大まかな分類です。記事の内容をすべて正しく分類できるという意味ではありません。<a href="assets/article-topics.json">分類データと設定</a> · <a href="https://github.com/DaikiKumakura/DaikiKumakura.github.io/blob/main/site/article_topics.py">計算コード</a></p></details>
-</section>{% endif %}
+<p><a href="reference.html">Tools, glossary and model catalog</a></p>
+{% for a in articles %}<article class="record" data-article="{{ a.slug }}">
+<p class="meta"><time datetime="{{ a.date }}">{{ a.date }}</time>{% if a.draft %} · Draft{% endif %}</p>
+<h2 class="record-title"><a href="{{ a.href }}" lang="{{ a.lang }}">{{ a.title }}</a></h2>
+<p lang="{{ a.lang }}">{{ a.summary }}</p>
+{% for version in a.versions %}{% if version.lang != a.lang %}<p class="meta"><a href="{{ version.href }}" lang="{{ version.lang }}">{{ 'English' if version.lang == 'en' else '日本語' }}</a></p>{% endif %}{% endfor %}
+</article>{% endfor %}
 {% endif %}
 {% endblock %}
