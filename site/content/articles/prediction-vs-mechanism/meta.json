@@ -17,10 +17,19 @@
         "k_outの違いは週1回投与の予測をほとんど変えなかったが、投与6時間後の応答は約41〜77と大きく変えた。投与3・6時間後の採血を加えると、k_outは約1.5〜4.1/日に決まった。"
       ],
       "seo_title": "予測精度は機序理解をどこまで支持するか"
+    },
+    "en": {
+      "title": "Does a model that predicts well understand the mechanism? Separating prediction from mechanistic inference",
+      "summary": "A Japanese essay distinguishing observational prediction, prediction under intervention and mechanistic claims, drawing on recent perturbation-prediction benchmarks and ICH M15. A reproducible synthetic indirect-response example shows that parameter sets compatible with the same data agree on a slowly varying regimen but diverge in the unobserved early hours, and that early sampling resolves the practical non-identifiability. It makes no claim about any real drug.",
+      "seo_title": "Does prediction accuracy establish biological mechanisms?",
+      "seo_description": "A synthetic PK/PD example and perturbation studies separate predictive accuracy, parameter identifiability and evidence for mechanisms."
     }
   },
   "english": {
     "title": "Does a model that predicts well understand the mechanism? Separating prediction from mechanistic inference",
     "summary": "A Japanese essay distinguishing observational prediction, prediction under intervention and mechanistic claims, drawing on recent perturbation-prediction benchmarks and ICH M15. A reproducible synthetic indirect-response example shows that parameter sets compatible with the same data agree on a slowly varying regimen but diverge in the unobserved early hours, and that early sampling resolves the practical non-identifiability. It makes no claim about any real drug."
+  },
+  "reviewed": {
+    "en": "ea47a9589b57a9cf9e0f99353448097748eb18fcbbe4e6c61e1691183cdacec2"
   }
 }

@@ -68,7 +68,7 @@ Input and aggregation consistency matter when tiny score differences are used to
 
 ## Knowledge-learning increments are not isolated mechanism contributions {#_4}
 
-I also read unprofiled-drug correlations in `Fig_5a`. PrimeKG is an existing biomedical knowledge graph; MAP-KG integrates drugs, genes and their relationships for this study. Published means are 0.321 with random initialization, 0.734 after adding MoleculeSTM, 0.747 with PrimeKG and 0.822 with MAP-KG.
+I also read unprofiled-drug correlations in the [Fig_5a Source Data sheet](https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs42256-026-01286-w/MediaObjects/42256_2026_1286_MOESM4_ESM.xlsx). PrimeKG is an existing biomedical knowledge graph; MAP-KG integrates drugs, genes and their relationships for this study. Published means are 0.321 with random initialization, 0.734 after adding MoleculeSTM, 0.747 with PrimeKG and 0.822 with MAP-KG.
 
 ![Knowledge-learning stages and unprofiled-drug correlations](shared/map-unprofiled-drugs/figures/02-knowledge-stages.png)
 

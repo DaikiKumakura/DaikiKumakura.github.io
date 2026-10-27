@@ -12,10 +12,19 @@
       "title": "レポトレクチニブの増量時点を変えると何が変わるか",
       "summary": "レポトレクチニブの公開PopPK式と推定済みパラメータから、7・14・21日導入の曝露を比較する。累積曝露と後半トラフ、食事条件、イベント相対時間の違いを調べ、採血期間と解釈の限界を整理する。",
       "seo_title": "レポトレクチニブの増量時点を変えると何が変わるか"
+    },
+    "en": {
+      "title": "Repotrectinib escalation timing: exploring lead-in regimens with a public population PK model",
+      "summary": "An independent Python implementation of published structural equations compares 7-, 14- and 21-day lead-ins. Conditional paired simulations and sensitivity analyses separate cumulative exposure, peak-window effects and late troughs. No patient refitting, NONMEM equivalence or efficacy/safety prediction is claimed.",
+      "seo_title": "Repotrectinib escalation timing in a public PK model",
+      "seo_description": "A public autoinduction model compares 7-, 14- and 21-day lead-ins, separating cumulative exposure, event-aligned peaks and late troughs."
     }
   },
   "english": {
     "title": "Repotrectinib escalation timing: exploring lead-in regimens with a public population PK model",
     "summary": "An independent Python implementation of published structural equations compares 7-, 14- and 21-day lead-ins. Conditional paired simulations and sensitivity analyses separate cumulative exposure, peak-window effects and late troughs. No patient refitting, NONMEM equivalence or efficacy/safety prediction is claimed."
+  },
+  "reviewed": {
+    "en": "39adc31aa07c6395fc6365e41e3c711183570bd7011b5b2d67df10d74bbf101c"
   }
 }

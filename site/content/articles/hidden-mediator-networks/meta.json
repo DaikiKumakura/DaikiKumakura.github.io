@@ -17,11 +17,20 @@
       ],
       "seo_title": "観測されない媒介変数はネットワークから消えてくれない",
       "seo_description": "観測データから推定したネットワークのエッジと実際の分子の作用を区別する。媒介変数を消去した数理と合成データで、当てはまっても媒介物のパラメータが決まらないことを示す。"
+    },
+    "en": {
+      "title": "Unobserved mediators do not disappear from a network",
+      "summary": "A Japanese essay on the difference between edges inferred from observed variables and the molecular interactions behind them. It links the mathematics of eliminating a mediator, a reproducible synthetic example, chemical-mediated microbial interactions, single-cell gene regulatory networks and mechanism assessment in drug discovery. It makes no claim about any real organism or drug.",
+      "seo_title": "Hidden mediators do not disappear from biological networks",
+      "seo_description": "Equations and synthetic data show why effective network edges and good fits do not identify mediator-specific interventions."
     }
   },
   "english": {
     "title": "Unobserved mediators do not disappear from a network",
     "summary": "A Japanese essay on the difference between edges inferred from observed variables and the molecular interactions behind them. It links the mathematics of eliminating a mediator, a reproducible synthetic example, chemical-mediated microbial interactions, single-cell gene regulatory networks and mechanism assessment in drug discovery. It makes no claim about any real organism or drug."
   },
-  "publish_at": "2026-10-26T18:00:00+09:00"
+  "publish_at": "2026-10-26T18:00:00+09:00",
+  "reviewed": {
+    "en": "3aceb5cd42903564fc16d8e4edbbec6f73354d36559c62720e4e95a0f01d3491"
+  }
 }

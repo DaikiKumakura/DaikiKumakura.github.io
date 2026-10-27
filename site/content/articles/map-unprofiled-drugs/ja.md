@@ -68,7 +68,7 @@ d_{j,e}=r_{\mathrm{MAP},j,e}-r_{\mathrm{comparison},j,e}.
 
 ## 知識を増やした段階差を作用機序の寄与と呼ばない {#_4}
 
-もう一つ、`Fig_5a`の未測定薬剤に対する相関を読んだ。PrimeKGは既存の生物医学知識グラフ、MAP-KGは本研究で薬剤・遺伝子とその関係を統合した知識グラフである。掲載平均は、ランダム初期化の条件0.321、MoleculeSTMを加えた条件0.734、PrimeKGまで0.747、MAP-KGまで0.822である。
+もう一つ、[Fig_5a Source Data sheet](https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs42256-026-01286-w/MediaObjects/42256_2026_1286_MOESM4_ESM.xlsx)の未測定薬剤に対する相関を読んだ。PrimeKGは既存の生物医学知識グラフ、MAP-KGは本研究で薬剤・遺伝子とその関係を統合した知識グラフである。掲載平均は、ランダム初期化の条件0.321、MoleculeSTMを加えた条件0.734、PrimeKGまで0.747、MAP-KGまで0.822である。
 
 ![知識学習の段階と未測定薬剤の相関](shared/map-unprofiled-drugs/figures/02-knowledge-stages.png)
 

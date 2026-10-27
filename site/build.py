@@ -361,19 +361,26 @@ def build(project=BASE, preview=False, strict_translations=False):
     def cite_text(m,title,file):
         english=m['locales'].get('en') or m.get('english')
         citation_title=english['title'] if english else title
+        citation_title=citation_title.rstrip('. ')
         language_note=' [Article in Japanese]' if 'en' not in m['locales'] else ''
         if 'en' in m['locales']:
             file=file.removesuffix('-ja.html').removesuffix('-en.html').removesuffix('.html')+('' if m['source_language']=='en' else '-en')+'.html'
-        return f"Kumakura, D. ({m['date'][:4]}). {citation_title}{language_note}. daikikumakura.github.io. {SITE_URL}writing/{file}"
-    def related(slug, limit=5):
+        punctuation='' if not language_note and citation_title.endswith(('?', '!')) else '.'
+        return f"Kumakura, D. ({m['date'][:4]}). {citation_title}{language_note}{punctuation} daikikumakura.github.io. {SITE_URL}writing/{file}"
+    def related(slug, language, limit=5):
         # Other live articles that share an analysis topic, in topic order.
         seen=[]
         for t in site.get('analysis_topics',[]):
             if slug in t['articles']:
                 seen+=[s for s in t['articles'] if s!=slug and s in published and s not in seen]
-        # Related links point to each original article, titled in its own language.
+        # Keep readers in their chosen language when a complete version exists.
         source={a['slug']:a['meta'] for a in entries}
-        return [dict(href=f"{s}.html",title=source[s]['locales'][source[s]['source_language']]['title'],lang=source[s]['source_language']) for s in seen[:limit]]
+        result=[]
+        for s in seen[:limit]:
+            m=source[s];lang=language if language in m['locales'] else m['source_language']
+            suffix='' if lang==m['source_language'] else '-'+lang
+            result.append(dict(href=f"{s}{suffix}.html",title=m['locales'][lang]['title'],lang=lang))
+        return result
     def output(name,page,lang='en',article=None,og_image=None,topics=None):
         canonical=SITE_URL if name in ('index.html','home.html') else SITE_URL+name
         page=enrich(page,name,site,SITE_URL,article,og_image,topics)
@@ -395,7 +402,7 @@ def build(project=BASE, preview=False, strict_translations=False):
         for language in m['locales']:
             body,toc=render_body(a,language)
             body=add_image_attributes(body,a)
-            page=env.get_template('article.html').render(site=site,lang=language,ui=ui,preview=preview,active='writing',root='../',alternatives=alternatives,title=m['locales'][language]['title'],description=m['locales'][language]['summary'],math=m.get('math',False),author=m.get('author',site['name']),date=m['date'],category=m['category'],version=m.get('version',''),draft=m['draft'],stale=a['stale'][language],body=body,toc=toc,key_findings=m['locales'][language].get('key_findings',[]),english=m.get('english') if language!='en' and 'en' not in m['locales'] else None,related=related(a['slug']),hubs=article_hubs(a['slug']),cite=cite_text(m,m['locales'][language]['title'],alternatives[language]))
+            page=env.get_template('article.html').render(site=site,lang=language,ui=ui,preview=preview,active='writing',root='../',alternatives=alternatives,title=m['locales'][language]['title'],description=m['locales'][language]['summary'],math=m.get('math',False),author=m.get('author',site['name']),date=m['date'],category=m['category'],version=m.get('version',''),draft=m['draft'],stale=a['stale'][language],body=body,toc=toc,key_findings=m['locales'][language].get('key_findings',[]),english=m.get('english') if language!='en' and 'en' not in m['locales'] else None,related=related(a['slug'],language),hubs=article_hubs(a['slug']),cite=cite_text(m,m['locales'][language]['title'],alternatives[language]))
             output('writing/'+alternatives[language],page,language,m,og_card,article_topics(a['slug']))
         for asset in (a['folder']/'shared').rglob('*'):
             if asset.is_file():outputs[f"writing/shared/{a['slug']}/{asset.relative_to(a['folder']/'shared').as_posix()}"]=asset.read_bytes()

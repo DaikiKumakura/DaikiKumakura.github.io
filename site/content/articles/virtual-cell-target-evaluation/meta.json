@@ -17,10 +17,19 @@
         "pairwise方式の実データでの優越性やscFM全体の有用性は、この計算例だけでは判断できない。"
       ],
       "seo_title": "Virtual Cellは何を当てたのか：標的遺伝子と評価指標"
+    },
+    "en": {
+      "title": "What did the Virtual Cell predict? Target genes and evaluation shortcuts",
+      "summary": "A Japanese review of perturbation forecasting, target-gene masking and recent benchmarks, with a reproducible synthetic example distinguishing evaluation shortcuts from downstream prediction. The example does not establish real-data performance or the superiority of pairwise masking.",
+      "seo_title": "Virtual Cell evaluation and target-gene shortcuts",
+      "seo_description": "A three-perturbation example examines target masks and retrieval shortcuts, distinguishing downstream prediction from direct target effects."
     }
   },
   "english": {
     "title": "What did the Virtual Cell predict? Target genes and evaluation shortcuts",
     "summary": "A Japanese review of perturbation forecasting, target-gene masking and recent benchmarks, with a reproducible synthetic example distinguishing evaluation shortcuts from downstream prediction. The example does not establish real-data performance or the superiority of pairwise masking."
+  },
+  "reviewed": {
+    "en": "360708a51f0a1f3f84cc89b43111997e2d916d7fabfb73020a7edc3a95f2d37d"
   }
 }
