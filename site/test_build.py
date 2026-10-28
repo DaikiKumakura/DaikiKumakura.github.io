@@ -375,6 +375,21 @@ class BuildTests(unittest.TestCase):
   self.publish_fixtures();build.build(self.root)
   self.assertIn('Plotting logistic growth in R (sample)',self.text('index.html'))
 
+ def test_language_feeds_carry_one_language_each(self):
+  self.publish_fixtures();build.build(self.root)
+  ns={'a':'http://www.w3.org/2005/Atom'}
+  def titles(name):
+   feed=ET.fromstring(self.text(name));return {e.find('a:id',ns).text.rsplit('/',1)[-1]:e.find('a:title',ns).text for e in feed.findall('a:entry',ns)}
+  en=titles('feed-en.xml');ja=titles('feed-ja.xml')
+  self.assertEqual(en['logistic-example.html'.replace('.html','-en.html')],'Plotting logistic growth in R (sample)')
+  self.assertEqual(ja['logistic-example.html'],'Rでロジスティック増殖を描く（見本）')
+  # An article without an English version stays in the English feed, in its original language.
+  self.assertEqual(en['japanese-note.html'],'日本語だけの技術メモ（見本）')
+  self.assertIn('Sitemap: '+build.SITE_URL+'feed-en.xml',self.text('robots.txt'))
+  self.assertIn('href="feed-ja.xml"',self.text('index.html'))
+  build.build(self.root,preview=True)
+  for name in ('feed-en.xml','feed-ja.xml'):self.assertFalse((self.root/'dist'/name).exists())
+
 if __name__=='__main__':unittest.main()
 
 

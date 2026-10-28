@@ -448,7 +448,8 @@ def build(project=BASE, preview=False, strict_translations=False):
     outputs['sitemap.xml']=('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">'+''.join(sitemap_url(p) for p in canonical_pages if not preview or not p.startswith('writing/'))+'</urlset>').encode('utf-8')
     if not preview:
         outputs['feed.xml']=atom_feed(site,entries)
-    outputs['robots.txt']=('User-agent: *\n'+('Disallow: /\n' if preview else 'Allow: /\nSitemap: '+SITE_URL+'sitemap.xml\nSitemap: '+SITE_URL+'feed.xml\n'+''.join('Sitemap: '+SITE_URL+path+'\n' for path in EXTRA_SITEMAPS))).encode('utf-8')
+        for code in ('en','ja'):outputs[f'feed-{code}.xml']=atom_feed(site,entries,code)
+    outputs['robots.txt']=('User-agent: *\n'+('Disallow: /\n' if preview else 'Allow: /\nSitemap: '+SITE_URL+'sitemap.xml\nSitemap: '+SITE_URL+'feed.xml\nSitemap: '+SITE_URL+'feed-en.xml\nSitemap: '+SITE_URL+'feed-ja.xml\n'+''.join('Sitemap: '+SITE_URL+path+'\n' for path in EXTRA_SITEMAPS))).encode('utf-8')
     if not preview:
         outputs['llms.txt']=llms_txt(site,entries,reference=reference)
     outputs['.nojekyll'] = b''
@@ -521,19 +522,39 @@ def atom_time(meta):
         return datetime.fromisoformat(meta['publish_at']).isoformat()
     return meta['date']+'T00:00:00+09:00'
 
-def atom_feed(site, entries):
-    """Atom feed of published articles (also accepted by search engines as a sitemap)."""
+def feed_entry_text(meta, language):
+    """Title, summary, language and file of an article for one feed language (None: the original).
+
+    An article without a version in that language is listed in its original language, using the
+    English summary of a Japanese original in the English feed."""
+    original = meta['source_language']
+    if language is None or language == original:
+        return meta['locales'][original], original, ''
+    if language in meta['locales']:
+        return meta['locales'][language], language, '-' + language
+    if language == 'en' and meta.get('english'):
+        return meta['english'], 'en', ''
+    return meta['locales'][original], original, ''
+
+def atom_feed(site, entries, language=None):
+    """Atom feed of published articles (also accepted by search engines as a sitemap).
+
+    Without a language the entries keep the language of the original (feed.xml). With 'en' or 'ja'
+    every title and summary is in that language where the article has it (feed-en.xml, feed-ja.xml)."""
+    name = 'feed.xml' if language is None else f'feed-{language}.xml'
+    index = 'writing.html' if language in (None, 'en') else 'writing-ja.html'
+    label = {None: 'Writing', 'en': 'Writing (English)', 'ja': '記事（日本語）'}[language]
     items=[]
     for a in entries[:FEED_SIZE]:
-        m=a['meta']; lang=m['source_language']; loc=m['locales'][lang]
-        url=SITE_URL+'writing/'+a['slug']+'.html'
+        m=a['meta']; loc, lang, suffix = feed_entry_text(m, language)
+        url=SITE_URL+'writing/'+a['slug']+suffix+'.html'
         published=datetime.fromisoformat(m['publish_at']).isoformat() if m.get('publish_at') else m['date']+'T00:00:00+09:00'
         items.append('<entry><title>'+html.escape(loc['title'])+'</title><link rel="alternate" type="text/html" href="'+url+'"/><id>'+url+'</id>'
                      '<published>'+published+'</published><updated>'+atom_time(m)+'</updated><summary xml:lang="'+lang+'">'+html.escape(loc['summary'])+'</summary></entry>')
     updated=max((atom_time(a['meta']) for a in entries),default='2026-01-01T00:00:00+09:00')
-    head=('<?xml version="1.0" encoding="UTF-8"?>\n<feed xmlns="http://www.w3.org/2005/Atom"><title>Writing | '+html.escape(site['name'])+'</title>'
-          '<link rel="self" type="application/atom+xml" href="'+SITE_URL+'feed.xml"/><link rel="alternate" type="text/html" href="'+SITE_URL+'writing.html"/>'
-          '<id>'+SITE_URL+'feed.xml</id><updated>'+updated+'</updated><author><name>'+html.escape(site['name'])+'</name><uri>'+SITE_URL+'</uri></author>')
+    head=('<?xml version="1.0" encoding="UTF-8"?>\n<feed xmlns="http://www.w3.org/2005/Atom"'+(f' xml:lang="{language}"' if language else '')+'><title>'+html.escape(label)+' | '+html.escape(site['name'])+'</title>'
+          '<link rel="self" type="application/atom+xml" href="'+SITE_URL+name+'"/><link rel="alternate" type="text/html" href="'+SITE_URL+index+'"/>'
+          '<id>'+SITE_URL+name+'</id><updated>'+updated+'</updated><author><name>'+html.escape(site['name'])+'</name><uri>'+SITE_URL+'</uri></author>')
     return (head+''.join(items)+'</feed>').encode('utf-8')
 
 def new_article(slug, language, title):
