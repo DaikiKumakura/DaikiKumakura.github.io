@@ -1,0 +1,44 @@
+{
+  "kind": "term",
+  "updated": "2026-10-28",
+  "math": false,
+  "related_articles": [
+    "sotorasib-dose-comparison",
+    "b7h3-adc-dose-information",
+    "borrowing-prior-dose-selection"
+  ],
+  "locales": {
+    "en": {
+      "title": "Project Optimus and dose optimization in oncology",
+      "summary": "Project Optimus is an initiative of the US FDA Oncology Center of Excellence to improve dose selection in oncology drug development, moving beyond the maximum tolerated dose to doses with the best benefit–risk, supported by randomized dose comparisons.",
+      "seo_title": "Project Optimus: dose optimization in oncology",
+      "seo_description": "What FDA's Project Optimus is, why oncology moved from the maximum tolerated dose to dose optimization, and what public dose comparisons can support.",
+      "faq": [
+        {
+          "q": "Why is the maximum tolerated dose not always the right dose?",
+          "a": "For targeted therapies and antibodies, higher doses may add toxicity without more benefit, so the dose with the best benefit–risk can be lower."
+        },
+        {
+          "q": "Does this site say which dose is right?",
+          "a": "No. The analyses use public data to show what a dose comparison can and cannot support, and none recommends a dose."
+        }
+      ]
+    },
+    "ja": {
+      "title": "Project Optimusと、がん領域の用量最適化",
+      "summary": "Project Optimusは、米FDAのOncology Center of Excellenceによる、がんの医薬品開発での用量選択を改善する取り組みである。最大耐用量から、最良のベネフィット–リスクを与える用量へ移ることを目指し、無作為化した用量比較を支えにする。",
+      "seo_title": "Project Optimusとは：がん領域の用量最適化",
+      "seo_description": "Project Optimus（FDA）とは何か、がん領域が最大耐用量から用量最適化へ移った理由、公開された用量比較データが支えられること・支えられないことを説明する。",
+      "faq": [
+        {
+          "q": "最大耐用量が、いつも適切な用量とは限らないのはなぜですか。",
+          "a": "分子標的薬や抗体では、用量を上げても、ベネフィットが増えずに毒性だけが増えることがあり、ベネフィットとリスクが最良の用量は、より低いことがあるからです。"
+        },
+        {
+          "q": "このサイトは、どの用量が正しいと言っていますか。",
+          "a": "言っていません。公開データから、用量比較が支えられること・支えられないことを示すもので、どの解析も用量を勧めません。"
+        }
+      ]
+    }
+  }
+}

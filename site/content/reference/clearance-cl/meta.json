@@ -1,0 +1,43 @@
+{
+  "kind": "term",
+  "updated": "2026-10-28",
+  "math": false,
+  "related_articles": [
+    "fixed-vs-weight-dosing",
+    "mosunetuzumab-public-pk"
+  ],
+  "locales": {
+    "en": {
+      "title": "Clearance (CL)",
+      "summary": "Clearance is the volume of plasma from which a drug is completely removed per unit time. It sets the average concentration for a given dose rate and is the parameter most tied to exposure.",
+      "seo_title": "Clearance (CL) in pharmacokinetics: definition",
+      "seo_description": "What clearance (CL) means in pharmacokinetics, its units, how it sets AUC and the average concentration, and why antibody clearance can change over time.",
+      "faq": [
+        {
+          "q": "What are the units of clearance?",
+          "a": "Volume per time, for example L/h or L/day."
+        },
+        {
+          "q": "Why can the clearance of an antibody change over time?",
+          "a": "In the models used here the decrease is an empirical description that reproduces the observed time course; it is not a mechanistic model of disease or treatment response."
+        }
+      ]
+    },
+    "ja": {
+      "title": "クリアランス（CL）とは",
+      "summary": "クリアランスは、単位時間に薬物が完全に除かれる血漿の体積である。投与速度が決まったときの平均濃度を決め、曝露に最も関わるパラメータである。",
+      "seo_title": "クリアランス（CL）とは：薬物動態の基本",
+      "seo_description": "薬物動態のクリアランス（CL）の意味と単位、AUCや平均濃度を決める関係、抗体のクリアランスが時間で変わることがある理由を説明する。",
+      "faq": [
+        {
+          "q": "クリアランスの単位は何ですか。",
+          "a": "時間あたりの体積です。たとえばL/hやL/dayです。"
+        },
+        {
+          "q": "抗体のクリアランスが時間で変わることがあるのはなぜですか。",
+          "a": "ここで使ったモデルでは、観測された時間経過を再現する経験的な記述で、疾患や治療反応の機序のモデルではありません。"
+        }
+      ]
+    }
+  }
+}

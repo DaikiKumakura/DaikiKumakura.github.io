@@ -1,0 +1,42 @@
+{
+  "kind": "term",
+  "updated": "2026-10-28",
+  "math": false,
+  "related_articles": [
+    "mosunetuzumab-public-pk"
+  ],
+  "locales": {
+    "en": {
+      "title": "Receptor occupancy (RO)",
+      "summary": "Receptor occupancy is the fraction of target receptors bound by a drug. For simple binding it follows RO = C / (C + Kd), and it is a step between drug concentration and pharmacological effect.",
+      "seo_title": "Receptor occupancy (RO): meaning and calculation",
+      "seo_description": "What receptor occupancy (RO) means, the simple binding formula RO = C/(C+Kd), how competitive binding changes it, and its role in step-up dosing models.",
+      "faq": [
+        {
+          "q": "What does Kd mean?",
+          "a": "The dissociation constant, the concentration at which half of the receptors are occupied at equilibrium."
+        },
+        {
+          "q": "Is high occupancy the same as a strong effect?",
+          "a": "Not necessarily. The effect depends on what the occupancy triggers, and the relationship between occupancy and effect has to be established separately."
+        }
+      ]
+    },
+    "ja": {
+      "title": "受容体占有率（RO）とは",
+      "summary": "受容体占有率は、標的の受容体のうち、薬物が結合している割合である。単純な結合ではRO = C / (C + Kd)で表され、薬物濃度と薬理作用の間の一段階になる。",
+      "seo_title": "受容体占有率（RO）とは：意味と計算式",
+      "seo_description": "受容体占有率（RO）の意味、単純な結合の式RO = C/(C+Kd)、競合結合で変わる仕組み、ステップアップ投与のモデルでの役割を説明する。",
+      "faq": [
+        {
+          "q": "Kdとは何ですか。",
+          "a": "解離定数で、平衡で受容体の半分が占有される濃度です。"
+        },
+        {
+          "q": "占有率が高ければ、効果も強いのですか。",
+          "a": "そうとは限りません。効果は、占有が何を引き起こすかによるので、占有率と効果の関係は、別に確かめる必要があります。"
+        }
+      ]
+    }
+  }
+}

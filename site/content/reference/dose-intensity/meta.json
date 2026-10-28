@@ -1,0 +1,43 @@
+{
+  "kind": "term",
+  "updated": "2026-10-28",
+  "math": false,
+  "related_articles": [
+    "tcell-engager-regimen-design",
+    "tarlatamab-summary-pk"
+  ],
+  "locales": {
+    "en": {
+      "title": "Dose intensity",
+      "summary": "Dose intensity is the amount of drug given per unit time, for example mg per week. Changing the interval while keeping dose intensity constant preserves the average concentration but changes the peak and the trough.",
+      "seo_title": "Dose intensity: meaning and effect on peak and trough",
+      "seo_description": "What dose intensity (dose per unit time) means, and why a constant dose intensity keeps the average exposure but changes the peak and the trough.",
+      "faq": [
+        {
+          "q": "Does the same dose intensity mean the same effect?",
+          "a": "It means the same average exposure for linear PK, but not the same peak or trough, and whether the effect is the same depends on the exposure–response relationship."
+        },
+        {
+          "q": "What is relative dose intensity?",
+          "a": "The dose intensity actually delivered divided by the planned dose intensity, often expressed as a percentage."
+        }
+      ]
+    },
+    "ja": {
+      "title": "用量強度（Dose intensity）とは",
+      "summary": "用量強度は、単位時間あたりに投与する量（たとえばmg/週）である。用量強度を一定にして間隔を変えると、平均濃度は保たれ、ピークとトラフが変わる。",
+      "seo_title": "用量強度とは：ピークとトラフへの影響",
+      "seo_description": "用量強度（単位時間あたりの用量）と相対用量強度の意味、用量強度が一定なら平均曝露は同じで、ピークとトラフが変わる理由を説明する。",
+      "faq": [
+        {
+          "q": "用量強度が同じなら、効果も同じですか。",
+          "a": "線形のPKでは、平均曝露が同じということです。ピークやトラフは違い、効果が同じかは、曝露反応の関係で決まります。"
+        },
+        {
+          "q": "相対用量強度とは何ですか。",
+          "a": "実際に投与した用量強度を、予定した用量強度で割った値で、百分率で表すことが多いです。"
+        }
+      ]
+    }
+  }
+}

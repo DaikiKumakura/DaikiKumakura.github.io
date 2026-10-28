@@ -1,0 +1,43 @@
+{
+  "kind": "term",
+  "updated": "2026-10-28",
+  "math": false,
+  "related_articles": [
+    "fixed-vs-weight-dosing",
+    "tcell-engager-regimen-design"
+  ],
+  "locales": {
+    "en": {
+      "title": "AUC (area under the concentration–time curve)",
+      "summary": "AUC is the area under the drug concentration–time curve over a period, a measure of total exposure. Divided by the length of a dosing interval it gives the average concentration.",
+      "seo_title": "AUC (area under the curve) in pharmacokinetics",
+      "seo_description": "What AUC (area under the concentration–time curve) means, how it gives the average concentration over a dosing interval, and how it differs from Cmax.",
+      "faq": [
+        {
+          "q": "How is AUC related to the average concentration?",
+          "a": "The average concentration over a dosing interval is the AUC over that interval divided by its length."
+        },
+        {
+          "q": "Does the same AUC mean the same trough?",
+          "a": "No. Regimens with the same dose rate have the same average concentration, but a longer interval gives a higher peak and a lower trough."
+        }
+      ]
+    },
+    "ja": {
+      "title": "AUC（濃度–時間曲線下面積）とは",
+      "summary": "AUCは、薬物濃度–時間曲線の下の面積で、曝露の総量を表す。投与間隔の長さで割ると、平均濃度になる。",
+      "seo_title": "AUC（濃度–時間曲線下面積）とは：薬物動態の基本",
+      "seo_description": "AUC（濃度–時間曲線下面積）の意味、投与間隔のAUCから平均濃度が得られる関係、CmaxやCtroughとの違いを説明する。",
+      "faq": [
+        {
+          "q": "AUCと平均濃度は、どう関係しますか。",
+          "a": "投与間隔の平均濃度は、その間隔のAUCを間隔の長さで割った値です。"
+        },
+        {
+          "q": "AUCが同じなら、トラフも同じですか。",
+          "a": "いいえ。投与速度が同じ方式は平均濃度が同じですが、間隔が長いほど、ピークは高く、トラフは低くなります。"
+        }
+      ]
+    }
+  }
+}

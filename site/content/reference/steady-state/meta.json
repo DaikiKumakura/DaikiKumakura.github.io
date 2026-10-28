@@ -1,0 +1,43 @@
+{
+  "kind": "term",
+  "updated": "2026-10-28",
+  "math": false,
+  "related_articles": [
+    "fixed-vs-weight-dosing",
+    "tcell-engager-regimen-design"
+  ],
+  "locales": {
+    "en": {
+      "title": "Steady state in repeated dosing",
+      "summary": "At steady state the amount of drug entering the body per interval equals the amount leaving it, so the concentration profile repeats from dose to dose. Summary measures such as Ctrough,ss and Cavg,ss are taken at this point.",
+      "seo_title": "Steady state in pharmacokinetics: meaning and measures",
+      "seo_description": "What steady state means in repeated dosing, how long it takes, and why Cmax,ss, Ctrough,ss and Cavg,ss are the measures used to compare dosing regimens.",
+      "faq": [
+        {
+          "q": "Why are regimens compared at steady state?",
+          "a": "Because the profile no longer changes from dose to dose, so Cmax,ss, Ctrough,ss and Cavg,ss describe the long-term exposure that a regimen delivers."
+        },
+        {
+          "q": "Does a higher dose reach steady state sooner?",
+          "a": "No. For linear PK the time to steady state depends on the half-life, not on the dose."
+        }
+      ]
+    },
+    "ja": {
+      "title": "定常状態とは（繰り返し投与）",
+      "summary": "定常状態では、1回の投与間隔に体内へ入る薬物量と出ていく量が等しく、濃度の形が投与ごとに繰り返される。Ctrough,ssやCavg,ssなどの指標は、この状態で求める。",
+      "seo_title": "定常状態とは：薬物動態の意味と指標",
+      "seo_description": "繰り返し投与での定常状態の意味、到達までの時間、投与方式の比較にCmax,ss・Ctrough,ss・Cavg,ssを使う理由を説明する。",
+      "faq": [
+        {
+          "q": "なぜ定常状態で投与方式を比べるのですか。",
+          "a": "濃度の形が投与ごとに変わらなくなるので、Cmax,ss、Ctrough,ss、Cavg,ssが、その方式が長期に与える曝露を表すからです。"
+        },
+        {
+          "q": "用量が高いと、定常状態に早く達しますか。",
+          "a": "いいえ。線形のPKでは、定常状態に達する時間は用量ではなく、半減期で決まります。"
+        }
+      ]
+    }
+  }
+}

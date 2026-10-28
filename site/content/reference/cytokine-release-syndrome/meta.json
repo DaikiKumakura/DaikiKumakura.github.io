@@ -1,0 +1,43 @@
+{
+  "kind": "term",
+  "updated": "2026-10-28",
+  "math": false,
+  "related_articles": [
+    "mosunetuzumab-public-pk",
+    "tcell-engager-regimen-design"
+  ],
+  "locales": {
+    "en": {
+      "title": "Cytokine release syndrome (CRS)",
+      "summary": "Cytokine release syndrome is a systemic inflammatory reaction after strong immune-cell activation, for example by T-cell engaging antibodies or CAR-T cells. It is graded by severity and is the reason for step-up dosing.",
+      "seo_title": "Cytokine release syndrome (CRS): meaning and dosing",
+      "seo_description": "What cytokine release syndrome (CRS) is, why T-cell engagers can cause it, how step-up dosing relates to it, and what PK alone can and cannot say about it.",
+      "faq": [
+        {
+          "q": "Does a lower first peak mean less CRS?",
+          "a": "It is the intention of step-up dosing, but PK alone does not show how much less CRS occurs; that needs validated links from PK to receptor occupancy and from occupancy to CRS."
+        },
+        {
+          "q": "How is CRS graded?",
+          "a": "By severity, commonly with the ASTCT consensus grading, which uses fever, blood pressure and oxygen requirement."
+        }
+      ]
+    },
+    "ja": {
+      "title": "サイトカイン放出症候群（CRS）とは",
+      "summary": "サイトカイン放出症候群は、T細胞誘導抗体やCAR-T細胞などによる、免疫細胞の強い活性化の後に起こる全身性の炎症反応である。重症度で分類し、ステップアップ投与の理由になっている。",
+      "seo_title": "サイトカイン放出症候群（CRS）とは：意味と投与方法",
+      "seo_description": "サイトカイン放出症候群（CRS）の意味、T細胞誘導抗体で起こる理由、ステップアップ投与との関係、PKだけで言えること・言えないことを説明する。",
+      "faq": [
+        {
+          "q": "最初のピークが低ければ、CRSは少なくなりますか。",
+          "a": "ステップアップ投与のねらいはそこですが、PKだけでは、CRSがどれだけ減るかは分かりません。PKから受容体占有率、占有率からCRSへの、検証された結びつきが必要です。"
+        },
+        {
+          "q": "CRSの重症度は、どう分類しますか。",
+          "a": "重症度で分類します。発熱、血圧、酸素の必要性を使う、ASTCTのコンセンサス分類がよく使われます。"
+        }
+      ]
+    }
+  }
+}

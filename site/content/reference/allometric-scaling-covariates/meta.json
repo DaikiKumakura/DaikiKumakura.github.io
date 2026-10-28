@@ -1,0 +1,42 @@
+{
+  "kind": "term",
+  "updated": "2026-10-28",
+  "math": false,
+  "related_articles": [
+    "fixed-vs-weight-dosing"
+  ],
+  "locales": {
+    "en": {
+      "title": "Body weight as a covariate (allometric scaling)",
+      "summary": "A PK parameter is often scaled as typical value × (weight / reference weight)^exponent. Fitted exponents for antibodies are usually below one, which is why fixed and weight-based dosing give different exposure at the extremes.",
+      "seo_title": "Body weight as a PK covariate: allometric scaling",
+      "seo_description": "How body weight enters population PK models as a covariate through an allometric exponent, and why that decides exposure under fixed and weight-based dosing.",
+      "faq": [
+        {
+          "q": "Is clearance proportional to body weight?",
+          "a": "No. Fitted exponents are typically below one, for example about 0.6 for the antibodies here, so clearance rises less than in proportion to weight."
+        },
+        {
+          "q": "Why not simply dose by weight?",
+          "a": "With exponents below one, weight-based dosing over-corrects: exposure then rises with weight. Neither approach equalizes exposure at the extremes, which is the point of comparing them."
+        }
+      ]
+    },
+    "ja": {
+      "title": "共変量としての体重（アロメトリック・スケーリング）",
+      "summary": "PKパラメータは、典型値 ×（体重 / 基準体重）^指数、の形でスケールされることが多い。抗体で当てはめた指数は通常1より小さく、固定用量と体重換算用量で、両端の曝露が違う理由になる。",
+      "seo_title": "共変量としての体重：アロメトリック・スケーリング",
+      "seo_description": "母集団PKモデルで、体重がアロメトリックな指数を通じて共変量として入る仕組みと、それが固定用量と体重換算用量の曝露を決める理由を説明する。",
+      "faq": [
+        {
+          "q": "クリアランスは、体重に比例しますか。",
+          "a": "いいえ。当てはめた指数は通常1より小さく、ここで扱う抗体では約0.6です。クリアランスは、体重に比例するほどは増えません。"
+        },
+        {
+          "q": "体重で用量を決めればよいのでは。",
+          "a": "指数が1より小さいと、体重換算用量は補正しすぎになり、曝露が体重とともに上がります。どちらの方式も両端の曝露を均一にはできず、そこが比較の要点です。"
+        }
+      ]
+    }
+  }
+}

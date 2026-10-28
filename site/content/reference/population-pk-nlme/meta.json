@@ -1,0 +1,44 @@
+{
+  "kind": "term",
+  "updated": "2026-10-28",
+  "math": false,
+  "related_articles": [
+    "nimotuzumab-poppk",
+    "warfarin-pkpd",
+    "mosunetuzumab-public-pk"
+  ],
+  "locales": {
+    "en": {
+      "title": "Population PK and nonlinear mixed-effects (NLME) models",
+      "summary": "A population PK model describes the typical concentration–time profile and how it varies between and within patients, estimated from the pooled, often sparse data of many patients with a nonlinear mixed-effects model.",
+      "seo_title": "Population PK and nonlinear mixed-effects (NLME) models",
+      "seo_description": "What population PK (PopPK) and nonlinear mixed-effects (NLME) models are: fixed and random effects, covariates, residual error, and common software.",
+      "faq": [
+        {
+          "q": "What is the difference between fixed and random effects?",
+          "a": "Fixed effects are the typical parameter values and covariate effects shared by the population; random effects are the deviations of individuals from them, described by a distribution."
+        },
+        {
+          "q": "Why can a population model use sparse data?",
+          "a": "Because the data of all patients are analyzed together, so the typical profile and the variability are informed by the whole population, even if each patient has few samples."
+        }
+      ]
+    },
+    "ja": {
+      "title": "母集団PKモデルと非線形混合効果モデル（NLME）",
+      "summary": "母集団PKモデルは、典型的な濃度–時間の形と、患者間・患者内のばらつきを表す。多くの患者の、1人あたりは疎なこともあるデータを合わせ、非線形混合効果モデルで推定する。",
+      "seo_title": "母集団PKと非線形混合効果モデル（NLME）とは",
+      "seo_description": "母集団PK（PopPK）と非線形混合効果モデル（NLME）の、固定効果、変量効果、共変量、残差誤差の意味と、推定に使うソフトウェアを説明する。",
+      "faq": [
+        {
+          "q": "固定効果と変量効果は、どう違いますか。",
+          "a": "固定効果は、集団で共有されるパラメータの典型値と共変量の効果です。変量効果は、個人のそこからのずれで、分布で表します。"
+        },
+        {
+          "q": "母集団モデルは、なぜ疎なデータでも使えますか。",
+          "a": "全員のデータをまとめて解析するので、1人あたりのサンプルが少なくても、典型的な形とばらつきを、集団全体から決められるからです。"
+        }
+      ]
+    }
+  }
+}

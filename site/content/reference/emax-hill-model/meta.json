@@ -1,0 +1,43 @@
+{
+  "kind": "term",
+  "updated": "2026-10-28",
+  "math": false,
+  "related_articles": [
+    "warfarin-pkpd",
+    "ras-inhibitor-target-coverage"
+  ],
+  "locales": {
+    "en": {
+      "title": "Emax and Hill models (EC50)",
+      "summary": "The Emax model describes an effect that rises with concentration to a maximum. EC50 is the concentration giving half of the maximum effect, and the Hill exponent sets the steepness.",
+      "seo_title": "Emax and Hill models: EC50 and the Hill exponent",
+      "seo_description": "What the Emax model and the Hill equation are, what EC50, Emax and the Hill exponent mean, and how they are used in PK/PD, with a warfarin example.",
+      "faq": [
+        {
+          "q": "What is the difference between EC50 and IC50?",
+          "a": "EC50 is the concentration giving half of the maximum effect when the effect is stimulatory; IC50 is the concentration giving half-maximal inhibition. The functional form is the same."
+        },
+        {
+          "q": "What does a Hill exponent above one mean?",
+          "a": "The concentration–effect curve is steeper than the simple Emax model around the EC50, so the effect switches on over a narrower concentration range."
+        }
+      ]
+    },
+    "ja": {
+      "title": "EmaxモデルとHillモデル（EC50）とは",
+      "summary": "Emaxモデルは、濃度とともに効果が最大まで増える関係を表す。EC50は最大効果の半分を与える濃度、Hill指数は曲線の急さを決める。",
+      "seo_title": "Emax・Hillモデル：EC50とHill指数の意味",
+      "seo_description": "EmaxモデルとHill式の意味、EC50、Emax、Hill指数が何を表すか、PK/PDでの使い方を、warfarinの例で説明する。",
+      "faq": [
+        {
+          "q": "EC50とIC50は、どう違いますか。",
+          "a": "EC50は、促す効果で最大効果の半分を与える濃度、IC50は、最大の抑制の半分を与える濃度です。関数の形は同じです。"
+        },
+        {
+          "q": "Hill指数が1より大きいと、何を意味しますか。",
+          "a": "EC50のまわりで、単純なEmaxモデルより濃度–効果の曲線が急で、効果が、より狭い濃度の範囲で立ち上がります。"
+        }
+      ]
+    }
+  }
+}

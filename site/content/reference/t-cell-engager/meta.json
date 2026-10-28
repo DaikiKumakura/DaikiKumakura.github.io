@@ -1,0 +1,45 @@
+{
+  "kind": "term",
+  "updated": "2026-10-28",
+  "math": false,
+  "related_articles": [
+    "tcell-engager-regimen-design",
+    "mosunetuzumab-public-pk",
+    "tarlatamab-summary-pk",
+    "tcell-engager-decision-framework"
+  ],
+  "locales": {
+    "en": {
+      "title": "T-cell engaging bispecific antibodies (T-cell engagers)",
+      "summary": "A T-cell engager is a bispecific antibody that binds a tumor-surface antigen on one arm and CD3 on T cells on the other, bringing T cells to the tumor cell. Examples are mosunetuzumab (CD20) and tarlatamab (DLL3).",
+      "seo_title": "T-cell engagers (bispecific antibodies): how they work",
+      "seo_description": "What T-cell engaging bispecific antibodies are, examples (mosunetuzumab, tarlatamab) and their dosing issues: CRS and step-up dosing.",
+      "faq": [
+        {
+          "q": "How does a T-cell engager differ from CAR-T therapy?",
+          "a": "A T-cell engager is an off-the-shelf antibody that redirects the patient’s own T cells; CAR-T therapy uses T cells that are collected, engineered and given back."
+        },
+        {
+          "q": "Why are T-cell engagers started at low doses?",
+          "a": "To lower the first concentration peak and the risk of cytokine release syndrome, then increase to the target dose (step-up dosing)."
+        }
+      ]
+    },
+    "ja": {
+      "title": "T細胞誘導二重特異性抗体（T-cell engager）とは",
+      "summary": "T細胞誘導二重特異性抗体は、片方の腕で腫瘍表面の抗原、もう片方の腕でT細胞のCD3に結合し、T細胞を腫瘍細胞へ引き寄せる抗体である。例は、mosunetuzumab（CD20）とtarlatamab（DLL3）。",
+      "seo_title": "T細胞誘導二重特異性抗体とは：仕組みと投与の課題",
+      "seo_description": "T細胞誘導二重特異性抗体の仕組み、mosunetuzumab（CD20×CD3）とtarlatamab（DLL3×CD3）などの例、CRSとステップアップ投与という投与の課題を説明する。",
+      "faq": [
+        {
+          "q": "T細胞誘導抗体は、CAR-T療法とどう違いますか。",
+          "a": "T細胞誘導抗体は既製の抗体で、患者自身のT細胞を誘導します。CAR-T療法は、採取したT細胞を改変して戻します。"
+        },
+        {
+          "q": "T細胞誘導抗体を少量から始めるのは、なぜですか。",
+          "a": "最初の濃度ピークとサイトカイン放出症候群のリスクを下げ、その後に目標の用量へ増やすためです（ステップアップ投与）。"
+        }
+      ]
+    }
+  }
+}

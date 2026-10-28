@@ -1,0 +1,43 @@
+{
+  "kind": "term",
+  "updated": "2026-10-28",
+  "math": false,
+  "related_articles": [
+    "tarlatamab-summary-pk",
+    "nimotuzumab-poppk"
+  ],
+  "locales": {
+    "en": {
+      "title": "Volume of distribution (V)",
+      "summary": "The volume of distribution relates the amount of drug in the body to its plasma concentration. In compartment models, V1 is the central volume and V2 the peripheral volume. It is a proportionality, not a physical volume.",
+      "seo_title": "Volume of distribution (V) in pharmacokinetics",
+      "seo_description": "What the volume of distribution (V, V1, V2, Vss) means in pharmacokinetics, why it is not a physical volume, and typical values for monoclonal antibodies.",
+      "faq": [
+        {
+          "q": "Is the volume of distribution a real volume?",
+          "a": "No. It is a proportionality between amount and concentration, and it can exceed the volume of the body for drugs that bind tissue extensively."
+        },
+        {
+          "q": "What is the difference between V1 and Vss?",
+          "a": "V1 is the central volume of a compartment model; Vss is the total volume at steady state, V1 + V2 in a two-compartment model."
+        }
+      ]
+    },
+    "ja": {
+      "title": "分布容積（V）とは",
+      "summary": "分布容積は、体内の薬物量と血漿中濃度を結びつける比例定数である。コンパートメントモデルでは、V1が中心、V2が末梢の分布容積。物理的な体積ではない。",
+      "seo_title": "分布容積（V）とは：薬物動態の基本",
+      "seo_description": "薬物動態の分布容積（V、V1、V2、Vss）の意味、物理的な体積ではない理由、モノクローナル抗体の典型的な値を説明する。",
+      "faq": [
+        {
+          "q": "分布容積は、実際の体積ですか。",
+          "a": "いいえ。量と濃度の比例定数で、組織に広く結合する薬物では、体の体積を超えることもあります。"
+        },
+        {
+          "q": "V1とVssは、どう違いますか。",
+          "a": "V1はコンパートメントモデルの中心の分布容積、Vssは定常状態の全体の分布容積で、2-compartmentモデルではV1 + V2です。"
+        }
+      ]
+    }
+  }
+}

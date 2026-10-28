@@ -1,0 +1,43 @@
+{
+  "kind": "term",
+  "updated": "2026-10-28",
+  "math": false,
+  "related_articles": [
+    "psa-early-observation",
+    "nimotuzumab-poppk"
+  ],
+  "locales": {
+    "en": {
+      "title": "Profile likelihood",
+      "summary": "A profile likelihood shows how the likelihood changes when one parameter is fixed at a range of values and the others are re-estimated. A bounded profile means the data determine the parameter; a flat one means they do not.",
+      "seo_title": "Profile likelihood: confidence intervals and flat profiles",
+      "seo_description": "What a likelihood profile is, how it gives confidence intervals, and what a flat or one-sided profile says about practical identifiability in PK/PD models.",
+      "faq": [
+        {
+          "q": "What does a flat likelihood profile mean?",
+          "a": "The data do not distinguish between a wide range of values of that parameter, so it is not practically identifiable from them."
+        },
+        {
+          "q": "How is a confidence interval taken from a profile?",
+          "a": "It is the range of parameter values where twice the difference in log-likelihood from the maximum is below the chi-square threshold, 3.84 for 95% with one parameter."
+        }
+      ]
+    },
+    "ja": {
+      "title": "プロファイル尤度とは",
+      "summary": "プロファイル尤度は、1つのパラメータをさまざまな値に固定し、ほかを再推定したときに、尤度がどう変わるかを示す。有界ならデータがそのパラメータを決めており、平らなら決めていない。",
+      "seo_title": "プロファイル尤度とは：信頼区間と平らな尤度",
+      "seo_description": "プロファイル尤度の意味、信頼区間の読み方、PK/PDモデルで平らな、または片側だけのプロファイルが実用的識別可能性について示すことを説明する。",
+      "faq": [
+        {
+          "q": "平らな尤度プロファイルは、何を意味しますか。",
+          "a": "そのパラメータの広い範囲の値を、データが区別できないことを意味し、データからは実用的に識別できません。"
+        },
+        {
+          "q": "プロファイルから、信頼区間はどう読みますか。",
+          "a": "最大からの対数尤度の差の2倍が、カイ二乗の閾値（パラメータ1つの95%では3.84）を下回る、パラメータ値の範囲です。"
+        }
+      ]
+    }
+  }
+}

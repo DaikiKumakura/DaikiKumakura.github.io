@@ -1,0 +1,42 @@
+{
+  "kind": "term",
+  "updated": "2026-10-28",
+  "math": false,
+  "related_articles": [
+    "nimotuzumab-poppk"
+  ],
+  "locales": {
+    "en": {
+      "title": "Target-mediated drug disposition (TMDD)",
+      "summary": "In target-mediated drug disposition, binding to the pharmacological target contributes to the drug’s distribution and elimination. Because the target can saturate, clearance falls at higher concentrations and PK is nonlinear.",
+      "seo_title": "Target-mediated drug disposition (TMDD): meaning",
+      "seo_description": "What target-mediated drug disposition (TMDD) means for antibodies, why it makes PK nonlinear at low doses, and nonlinear-elimination models.",
+      "faq": [
+        {
+          "q": "Why does TMDD make PK nonlinear?",
+          "a": "The target can saturate. At low concentrations the target-mediated route clears a large share of the drug; at high concentrations it is saturated, so clearance falls."
+        },
+        {
+          "q": "Is a nonlinear elimination model the same as a TMDD model?",
+          "a": "No. A Michaelis–Menten elimination term approximates the saturable route, but a TMDD model describes the binding explicitly, with free drug, free target and complex."
+        }
+      ]
+    },
+    "ja": {
+      "title": "標的介在性薬物動態（TMDD）とは",
+      "summary": "標的介在性薬物動態では、薬理学的な標的への結合が、薬物の分布と消失に寄与する。標的が飽和するため、濃度が高いとクリアランスが下がり、PKは非線形になる。",
+      "seo_title": "標的介在性薬物動態（TMDD）とは：抗体医薬のPK",
+      "seo_description": "抗体医薬の標的介在性薬物動態（TMDD）の意味、低用量でPKが非線形になる理由、非線形消失を持つモデルとの関係を説明する。",
+      "faq": [
+        {
+          "q": "TMDDで、なぜPKが非線形になりますか。",
+          "a": "標的が飽和するためです。濃度が低いと標的を介した経路が薬物の大きな割合を除き、濃度が高いとその経路が飽和して、クリアランスが下がります。"
+        },
+        {
+          "q": "非線形消失のモデルは、TMDDモデルと同じですか。",
+          "a": "いいえ。ミカエリス・メンテン型の消失項は、飽和する経路の近似です。TMDDモデルは、遊離の薬物、遊離の標的、複合体を使って、結合を明示的に記述します。"
+        }
+      ]
+    }
+  }
+}

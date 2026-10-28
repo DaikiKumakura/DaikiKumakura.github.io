@@ -1,0 +1,43 @@
+{
+  "kind": "term",
+  "updated": "2026-10-28",
+  "math": false,
+  "related_articles": [
+    "fixed-vs-weight-dosing",
+    "mosunetuzumab-public-pk"
+  ],
+  "locales": {
+    "en": {
+      "title": "Inter-individual variability (IIV)",
+      "summary": "Inter-individual variability is the spread of a PK parameter between patients, usually modeled as log-normal. Its variance ω² on the log scale corresponds to a coefficient of variation of about √(exp(ω²) − 1).",
+      "seo_title": "Inter-individual variability (IIV) in PK models",
+      "seo_description": "What inter-individual variability (IIV, ω²) means in population PK models, how the variance converts to a percent CV, and how it differs from residual error.",
+      "faq": [
+        {
+          "q": "How do I convert ω² to a percent CV?",
+          "a": "CV ≈ √(exp(ω²) − 1). For ω² = 0.134 this gives about 38%."
+        },
+        {
+          "q": "Is IIV the same as variability in the measurements?",
+          "a": "No. IIV is the spread of the true parameter between patients; measurement and model misfit are the residual error."
+        }
+      ]
+    },
+    "ja": {
+      "title": "個体間変動（IIV）とは",
+      "summary": "個体間変動は、PKパラメータの患者間のばらつきで、通常は対数正規分布でモデル化する。対数尺度の分散ω²は、変動係数約√(exp(ω²) − 1)に相当する。",
+      "seo_title": "個体間変動（IIV）とは：母集団PKモデルでの意味",
+      "seo_description": "母集団PKモデルの個体間変動（IIV、ω²）の意味、分散を変動係数（%CV）に換算する式、残差誤差との違いを説明する。",
+      "faq": [
+        {
+          "q": "ω²を%CVに換算するには、どうしますか。",
+          "a": "CV ≈ √(exp(ω²) − 1)です。ω² = 0.134なら、約38%になります。"
+        },
+        {
+          "q": "IIVは、測定のばらつきと同じですか。",
+          "a": "いいえ。IIVは真のパラメータの患者間のばらつきで、測定やモデルの当てはまりの差は、残差誤差です。"
+        }
+      ]
+    }
+  }
+}

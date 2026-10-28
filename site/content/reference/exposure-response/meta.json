@@ -1,0 +1,44 @@
+{
+  "kind": "term",
+  "updated": "2026-10-28",
+  "math": false,
+  "related_articles": [
+    "fixed-vs-weight-dosing",
+    "sotorasib-dose-comparison",
+    "ras-inhibitor-target-coverage"
+  ],
+  "locales": {
+    "en": {
+      "title": "Exposure–response analysis",
+      "summary": "Exposure–response analysis relates an exposure measure such as AUC or Ctrough to an efficacy or safety endpoint. It is used to justify a dose, but confounding can make the relationship look steeper than it is.",
+      "seo_title": "Exposure–response (E–R) analysis: meaning and pitfalls",
+      "seo_description": "What exposure–response (E–R) analysis is, how it supports dose selection, and why confounding by disease severity can bias the relationship for antibodies.",
+      "faq": [
+        {
+          "q": "Why can an exposure–response relationship be misleading?",
+          "a": "Because exposure and outcome can share a cause, for example disease severity affects both clearance and survival, so the association is not the effect of changing the dose."
+        },
+        {
+          "q": "Does a flat exposure–response relationship mean the dose does not matter?",
+          "a": "Only within the range of exposures studied; outside that range, or for safety, the relationship may not be flat."
+        }
+      ]
+    },
+    "ja": {
+      "title": "曝露反応解析（Exposure–Response）とは",
+      "summary": "曝露反応解析は、AUCやCtroughなどの曝露の指標を、有効性や安全性の転帰と結びつける。用量の根拠に使うが、交絡によって、関係が実際より急に見えることがある。",
+      "seo_title": "曝露反応（E–R）解析とは：意味と落とし穴",
+      "seo_description": "曝露反応（E–R）解析の意味、用量選択をどう支えるか、抗体で疾患の重さによる交絡が関係を偏らせうる理由を説明する。",
+      "faq": [
+        {
+          "q": "曝露反応の関係が、誤解を招くことがあるのはなぜですか。",
+          "a": "曝露と転帰に共通の原因があるためです。たとえば疾患の重さは、クリアランスと生存の両方に影響するので、関連は、用量を変えたときの効果ではありません。"
+        },
+        {
+          "q": "曝露反応が平坦なら、用量は関係ないのですか。",
+          "a": "調べた曝露の範囲に限った話です。その範囲の外や安全性では、平坦とは限りません。"
+        }
+      ]
+    }
+  }
+}

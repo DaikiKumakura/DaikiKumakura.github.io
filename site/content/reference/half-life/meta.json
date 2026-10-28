@@ -1,0 +1,43 @@
+{
+  "kind": "term",
+  "updated": "2026-10-28",
+  "math": false,
+  "related_articles": [
+    "tcell-engager-regimen-design",
+    "tarlatamab-summary-pk"
+  ],
+  "locales": {
+    "en": {
+      "title": "Half-life (t½)",
+      "summary": "The half-life is the time for a drug concentration to fall by half during elimination. It sets how long a drug takes to reach steady state and to wash out, and links clearance with volume of distribution.",
+      "seo_title": "Half-life (t½) in pharmacokinetics: definition and use",
+      "seo_description": "What half-life (t½) means in pharmacokinetics, how it follows from clearance and volume, and why steady state takes about four to five half-lives.",
+      "faq": [
+        {
+          "q": "How long does it take to reach steady state?",
+          "a": "For linear PK, roughly four to five half-lives of repeated dosing."
+        },
+        {
+          "q": "Does a longer half-life mean a longer dosing interval is possible?",
+          "a": "It makes it possible to keep the trough within range with a longer interval, but whether a longer interval is acceptable depends on the peak, the trough and the exposure–response relationship."
+        }
+      ]
+    },
+    "ja": {
+      "title": "半減期（t½）とは",
+      "summary": "半減期は、消失の間に薬物濃度が半分になるまでの時間である。定常状態に達する時間や洗い流される時間を決め、クリアランスと分布容積を結ぶ。",
+      "seo_title": "半減期（t½）とは：薬物動態の基本と使い方",
+      "seo_description": "薬物動態の半減期（t½）の意味、クリアランスと分布容積から決まる関係、定常状態に4〜5半減期かかる理由を説明する。",
+      "faq": [
+        {
+          "q": "定常状態に達するまで、どのくらいかかりますか。",
+          "a": "線形のPKでは、繰り返し投与して、おおよそ4〜5半減期です。"
+        },
+        {
+          "q": "半減期が長ければ、投与間隔を長くできますか。",
+          "a": "トラフを範囲内に保ったまま間隔を長くしやすくなります。ただし、間隔を長くしてよいかは、ピーク、トラフ、曝露反応の関係で決まります。"
+        }
+      ]
+    }
+  }
+}

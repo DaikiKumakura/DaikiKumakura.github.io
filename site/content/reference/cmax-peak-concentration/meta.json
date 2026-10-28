@@ -1,0 +1,43 @@
+{
+  "kind": "term",
+  "updated": "2026-10-28",
+  "math": false,
+  "related_articles": [
+    "fixed-vs-weight-dosing",
+    "tcell-engager-regimen-design"
+  ],
+  "locales": {
+    "en": {
+      "title": "Cmax (peak concentration)",
+      "summary": "Cmax is the highest drug concentration reached after a dose. At steady state it is written Cmax,ss. It matters for effects that depend on the peak, such as the first peak after a first dose.",
+      "seo_title": "Cmax (peak concentration) in pharmacokinetics",
+      "seo_description": "What Cmax (peak concentration) means, how it relates to dose, volume and infusion time, and how it differs from Ctrough and the average concentration.",
+      "faq": [
+        {
+          "q": "Why does a longer infusion lower Cmax?",
+          "a": "The drug enters more slowly while elimination continues, so the highest concentration reached is lower."
+        },
+        {
+          "q": "Is a high Cmax always a safety problem?",
+          "a": "No. Whether a peak matters depends on the toxicity concerned and the drug; it has to be established separately from the exposure comparison."
+        }
+      ]
+    },
+    "ja": {
+      "title": "Cmax（最高濃度）とは",
+      "summary": "Cmaxは、投与後に到達する最も高い薬物濃度である。定常状態ではCmax,ssと書く。最初の投与後のピークなど、ピークに依存する作用で重要になる。",
+      "seo_title": "Cmax（最高濃度）とは：薬物動態の基本",
+      "seo_description": "Cmax（最高濃度）の意味、用量・分布容積・点滴時間との関係、Ctroughや平均濃度との違いを説明する。",
+      "faq": [
+        {
+          "q": "点滴を長くすると、なぜCmaxが下がりますか。",
+          "a": "薬物がゆっくり入る間も消失が進むため、到達する最高の濃度が低くなります。"
+        },
+        {
+          "q": "Cmaxが高いと、いつも安全性の問題になりますか。",
+          "a": "いいえ。ピークが問題になるかは、対象の毒性と薬によります。曝露の比較とは別に確かめる必要があります。"
+        }
+      ]
+    }
+  }
+}

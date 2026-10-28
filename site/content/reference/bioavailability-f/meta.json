@@ -1,0 +1,42 @@
+{
+  "kind": "term",
+  "updated": "2026-10-28",
+  "math": false,
+  "related_articles": [
+    "warfarin-pkpd"
+  ],
+  "locales": {
+    "en": {
+      "title": "Bioavailability (F)",
+      "summary": "Bioavailability is the fraction of a dose that reaches the systemic circulation. With only oral data, F cannot be separated from clearance and volume; only CL/F and V/F can be estimated.",
+      "seo_title": "Bioavailability (F) in pharmacokinetics and CL/F",
+      "seo_description": "What bioavailability (F) means, how it is measured, and why oral-only data give apparent clearance CL/F and volume V/F rather than CL and V.",
+      "faq": [
+        {
+          "q": "Why does oral-only data give CL/F and not CL?",
+          "a": "The concentration depends on dose × F, so a change in F is indistinguishable from the same change in CL and V; only the ratios CL/F and V/F are determined."
+        },
+        {
+          "q": "How is absolute bioavailability measured?",
+          "a": "By comparing the AUC after an oral dose with the AUC after an intravenous dose in the same subjects, with a correction for the dose."
+        }
+      ]
+    },
+    "ja": {
+      "title": "バイオアベイラビリティ（F）とは",
+      "summary": "バイオアベイラビリティは、投与した量のうち、全身循環に届く割合である。経口のデータだけでは、Fをクリアランスと分布容積から分けられず、CL/FとV/Fだけが推定できる。",
+      "seo_title": "バイオアベイラビリティ（F）とCL/Fとは",
+      "seo_description": "バイオアベイラビリティ（F）の意味と測り方、経口のデータだけではCL、VではなくCL/F、V/Fが得られる理由を説明する。",
+      "faq": [
+        {
+          "q": "経口のデータだけだと、なぜCLではなくCL/Fになるのですか。",
+          "a": "濃度は用量×Fに依存するので、Fの変化は、CLとVの同じ変化と区別できません。決まるのは、CL/FとV/Fの比だけです。"
+        },
+        {
+          "q": "絶対的バイオアベイラビリティは、どう測りますか。",
+          "a": "同じ被験者で、経口投与後のAUCと静注後のAUCを、用量で補正して比べます。"
+        }
+      ]
+    }
+  }
+}

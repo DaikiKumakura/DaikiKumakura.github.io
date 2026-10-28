@@ -1,0 +1,42 @@
+{
+  "kind": "term",
+  "updated": "2026-10-28",
+  "math": false,
+  "related_articles": [
+    "tumor-dynamics-survival"
+  ],
+  "locales": {
+    "en": {
+      "title": "C-index (concordance index)",
+      "summary": "The C-index is the probability that, for two comparable patients, the one with the higher predicted risk has the shorter survival. 0.5 is chance and 1 is perfect ordering. A gain in C-index is not by itself clinical usefulness.",
+      "seo_title": "C-index (concordance index) for survival prediction",
+      "seo_description": "What the C-index (concordance index) measures, how to read values such as 0.53 and 0.58, how censoring is handled, and why a gain is not clinical usefulness.",
+      "faq": [
+        {
+          "q": "Is a C-index of 0.58 good?",
+          "a": "It is a little better than chance (0.5). Whether it is useful depends on the question, the baseline and the uncertainty; in the analysis here, the improvement over the baseline was not distinguishable from zero."
+        },
+        {
+          "q": "Does a higher C-index mean the predicted risks are accurate?",
+          "a": "No. The C-index measures ordering only; calibration has to be checked separately."
+        }
+      ]
+    },
+    "ja": {
+      "title": "C-index（一致指数）とは",
+      "summary": "C-indexは、比較できる2人の患者で、予測リスクが高い方が、生存期間が短い確率である。0.5は偶然、1は完全な順序づけを表す。C-indexの向上は、それだけでは臨床での有用性ではない。",
+      "seo_title": "C-index（一致指数）とは：生存予測の評価指標",
+      "seo_description": "C-index（一致指数）が測るもの、0.53や0.58のような値の読み方、打ち切りの扱い、向上が臨床での有用性ではない理由を説明する。",
+      "faq": [
+        {
+          "q": "C-indexが0.58なら、良いのですか。",
+          "a": "偶然（0.5）より少し良い程度です。有用かどうかは、問い、基準のモデル、不確かさによります。ここでの解析では、基準に対する向上は、ゼロと区別できませんでした。"
+        },
+        {
+          "q": "C-indexが高ければ、予測リスクは正確ですか。",
+          "a": "いいえ。C-indexは順序づけだけを測ります。較正は別に確かめる必要があります。"
+        }
+      ]
+    }
+  }
+}

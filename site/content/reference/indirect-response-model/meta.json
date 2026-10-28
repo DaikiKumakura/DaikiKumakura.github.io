@@ -1,0 +1,43 @@
+{
+  "kind": "term",
+  "updated": "2026-10-28",
+  "math": false,
+  "related_articles": [
+    "warfarin-pkpd",
+    "er-protac-pkpd"
+  ],
+  "locales": {
+    "en": {
+      "title": "Indirect response (turnover) models",
+      "summary": "An indirect response model describes an effect that arises when a drug changes the production or loss of a response variable that turns over in the body, so the effect lags behind the plasma concentration.",
+      "seo_title": "Indirect response (turnover) models in PK/PD",
+      "seo_description": "What indirect response (turnover) models are in PK/PD, the four basic types, and why the effect lags behind the concentration, with a warfarin example.",
+      "faq": [
+        {
+          "q": "Why does the effect peak after the plasma concentration?",
+          "a": "The response variable must change through its own production and loss, so the drug effect on its level builds up gradually."
+        },
+        {
+          "q": "Which of the four types applies to warfarin?",
+          "a": "Warfarin reduces the synthesis of vitamin K-dependent clotting factors, which is an inhibition of production."
+        }
+      ]
+    },
+    "ja": {
+      "title": "間接反応（ターンオーバー）モデルとは",
+      "summary": "間接反応モデルは、体内で入れ替わる反応変数の産生や消失を、薬物が変えることで効果が生じ、効果が血漿中濃度より遅れる現象を記述する。",
+      "seo_title": "間接反応（ターンオーバー）モデルとは：PK/PD",
+      "seo_description": "PK/PDの間接反応（ターンオーバー）モデルの意味、4つの基本型、効果が濃度より遅れる理由を、warfarinの例で説明する。",
+      "faq": [
+        {
+          "q": "効果が、血漿中濃度より遅れてピークになるのはなぜですか。",
+          "a": "反応変数は、自らの産生と消失を通じてしか変わらないため、薬物による水準への作用が、徐々に積み上がるからです。"
+        },
+        {
+          "q": "warfarinは、4つの型のどれですか。",
+          "a": "warfarinは、ビタミンK依存性の凝固因子の合成を減らすので、産生を抑える型です。"
+        }
+      ]
+    }
+  }
+}
