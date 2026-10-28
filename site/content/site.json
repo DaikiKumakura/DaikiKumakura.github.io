@@ -610,6 +610,14 @@
       "featured": true,
       "links": [
         {
+          "url": "https://daikikumakura.github.io/pkident/",
+          "label": "Documentation"
+        },
+        {
+          "url": "https://daikikumakura.github.io/pkident/reference/",
+          "label": "Function reference"
+        },
+        {
           "url": "https://github.com/DaikiKumakura/pkident#readme",
           "label": "Usage"
         },
@@ -709,6 +717,10 @@
       "description": "A small, dependency-free R companion to reticulate that reports Python selection overrides and project markers before Python starts, for diagnosing why managed requirements from py_require() are not used.",
       "featured": false,
       "links": [
+        {
+          "url": "https://daikikumakura.github.io/retiaudit/",
+          "label": "Documentation"
+        },
         {
           "url": "https://github.com/DaikiKumakura/retiaudit#readme",
           "label": "Usage"
