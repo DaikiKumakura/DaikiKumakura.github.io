@@ -8,7 +8,7 @@
 site/
   content/site.json    Profile, software, publications and activities
   content/articles/   Your Markdown articles (created when needed)
-  assets/             Shared CSS, favicon and licensed SVG illustrations
+  assets/             Shared CSS and favicon
   templates/          Shared page layouts
   static/             Legacy resources and Google verification file
   fixtures/           Article samples used only by tests
@@ -77,7 +77,7 @@ The sitemap contains canonical content pages only. Keep the Bing verification ta
 
 ## Third-party artwork
 
-The favicon and page illustrations are downloaded, self-hosted assets with commercial-use permissions. Their exact sources, file mapping, and license terms are recorded in [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md). Keep that file with the assets when replacing or redistributing them.
+The favicon is a downloaded, self-hosted asset with a permissive license. Its exact source and license terms are recorded in [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md). Keep that file with the asset when replacing or redistributing it.
 
 ## Restore an earlier version
 

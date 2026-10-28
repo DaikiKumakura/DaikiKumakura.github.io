@@ -57,7 +57,7 @@ class BuildTests(unittest.TestCase):
   self.assertEqual(home,self.text('home.html'))
   self.assertNotIn('id="growth-2023"',home);self.assertNotIn('software-RLR',home)
   self.assertIn('favicon.svg',home);self.assertIn('msvalidate.01',home)
-  self.assertIn('alt="Data processing and quantitative modeling illustration"',home)
+  self.assertNotIn('isometric',home)
   self.assertNotIn('aria-hidden="true"',home)
   profile=self.text('profile.html')
   self.assertNotIn('Best Award',profile);self.assertNotIn('Functional Specialization',profile)
@@ -82,9 +82,7 @@ class BuildTests(unittest.TestCase):
   self.assertIn('rel="canonical" href="'+build.SITE_URL+'"',self.text('index.html'))
   for key in build.NAV:
    self.assertNotIn('noindex',self.text(key+'.html'))
-   # Every top-level page carries one illustration of the same size, in the heading.
-   self.assertIn('alt="'+build.ILLUSTRATION_ALT[key]+'"',self.text(key+'.html'))
-   self.assertIn('class="page-illustration"',self.text(key+'.html'));self.assertIn('width="144" height="112"',self.text(key+'.html'))
+   self.assertNotIn('isometric',self.text(key+'.html'))
  def test_profile_has_no_topic_collections(self):
   build.build(self.root)
   self.assertNotIn('Selected analyses',self.text('profile.html'))
@@ -144,7 +142,7 @@ class BuildTests(unittest.TestCase):
     if path.suffix in ('.pdf','.png','.ipynb'):self.assertEqual(path.read_bytes(),output.read_bytes())
   self.assertNotIn('site/',self.text('sitemap.xml'))
  def test_svg_assets_are_safe_and_well_formed(self):
-  expected={'favicon.svg','model-isometric.svg','profile-isometric.svg','writing-isometric.svg','software-isometric.svg','publication-isometric.svg','activity-isometric.svg'}
+  expected={'favicon.svg'}
   self.assertEqual(expected,{p.name for p in (self.root/'assets').glob('*.svg')})
   forbidden=('script','foreignobject')
   external=('http://','https://','//','data:','javascript:')

@@ -12,14 +12,6 @@ from urllib.parse import urljoin
 
 SITE_URL = 'https://daikikumakura.github.io/'
 NAV = dict(home='Home', profile='Profile', writing='Writing', software='Software', publication='Publication', activity='Activity')
-ILLUSTRATION_ALT = {
-    'home': 'Data processing and quantitative modeling illustration',
-    'profile': 'Professional research discussion illustration',
-    'writing': 'Report analysis and technical writing illustration',
-    'software': 'Scientific software development illustration',
-    'publication': 'Research presentation illustration',
-    'activity': 'Scientific conference illustration',
-}
 # Retired URLs that still receive search traffic. GitHub Pages cannot send
 # HTTP 301, so each becomes an instant meta refresh with a canonical link.
 LEGACY_PAGES = {'index':'index.html', 'about':'profile.html', 'publications':'publication.html', 'activities':'activity.html', 'writing':'writing.html', 'software':'software.html'}
@@ -351,7 +343,7 @@ def build(project=BASE, preview=False, strict_translations=False):
         page=page.replace('</head>',f'<link rel="canonical" href="{canonical}">\n</head>')
         outputs[name]=page.encode('utf-8')
     for key,title in NAV.items():
-        page=env.get_template('page.html').render(site=site,lang='en',ui=ui,preview=preview,active=key,root='',alternatives={},title=site['name'] if key=='home' else title,description=site['profile'],math=False,articles=listings,recent=listings[:RECENT_ON_HOME],working_papers=[a for a in listings if a['category']=='paper'],illustration_alt=ILLUSTRATION_ALT[key])
+        page=env.get_template('page.html').render(site=site,lang='en',ui=ui,preview=preview,active=key,root='',alternatives={},title=site['name'] if key=='home' else title,description=site['profile'],math=False,articles=listings,recent=listings[:RECENT_ON_HOME],working_papers=[a for a in listings if a['category']=='paper'])
         output(key+'.html',page)
         if key=='home':outputs['index.html']=outputs['home.html']
     for a in entries:

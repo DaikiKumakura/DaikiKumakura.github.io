@@ -1,34 +1,8 @@
 # Third-party artwork
 
-This repository self-hosts the following downloaded vector artwork. The files are used as decorative interface assets; they are not redistributed as an illustration pack or offered as a competing asset service.
+This repository self-hosts the following downloaded artwork. The file is used as a decorative interface asset; it is not redistributed as an illustration pack or offered as a competing asset service.
 
-## ManyPixels illustrations
-
-Copyright 2020 MANYPIXELS PTE LTD.
-
-ManyPixels permits its images, assets, and vectors to be downloaded, copied, modified, distributed, performed, and used for commercial and noncommercial purposes without permission, payment, or attribution. Its license excludes compiling the assets to replicate a similar or competing service or redistributing them as packs.
-
-License and gallery: <https://www.manypixels.co/gallery>
-
-Downloaded on 2026-09-28 from the official ManyPixels CDN:
-
-| Local file | Illustration | Original file |
-| --- | --- | --- |
-| `site/assets/model-isometric.svg` | Data Processing | <https://cdn.prod.website-files.com/69b15b68fb5a0ea0e6ef48b6/69b15b68fb5a0ea0e6ef706e_Y-D4c_9zBYX05Vo3hj9qVvliUapxMMRCPdhBLJe8d2I.svg> |
-| `site/assets/profile-isometric.svg` | Team Presentation 1 | <https://cdn.prod.website-files.com/69b15b68fb5a0ea0e6ef48b6/69b15b68fb5a0ea0e6ef75e5_lAe6FeuHytVKXhtE4NIyU0CTyhlGYMzSYfxr9sSs6AM.svg> |
-| `site/assets/software-isometric.svg` | Coding | <https://cdn.prod.website-files.com/69b15b68fb5a0ea0e6ef48b6/69b15b68fb5a0ea0e6ef6f77_vRJksXSqYwiYzWnIqyK2B_YzhSDZxSQ6JhsflGl8HTM.svg> |
-| `site/assets/publication-isometric.svg` | Presentation 5 | <https://cdn.prod.website-files.com/69b15b68fb5a0ea0e6ef48b6/69b15b68fb5a0ea0e6ef73b8_dck0Z5qxxKkbUPvxHR3DaYM5BAgOW-z5bHoi5gsuSMY.svg> |
-| `site/assets/activity-isometric.svg` | Conference | <https://cdn.prod.website-files.com/69b15b68fb5a0ea0e6ef48b6/69b15b68fb5a0ea0e6ef6fae_GqOkilDyouZ2_LLMqcD0oSSkV4BCUQv7s8UFvWzl78M.svg> |
-
-## Isometric Lab (アイソメラボ) illustration
-
-Copyright is retained by Isometric Lab. Its terms of use (<https://isome-lab.com/terms>) allow free use, including commercial use and websites, with editing and processing within the terms, and prohibit selling or redistributing the illustration itself, hot-linking and trademark registration. The file is self-hosted, not linked.
-
-Downloaded on 2026-10-28 from <https://isome-lab.com/isometric/70432> ("開いた本", open book) as SVG with the color set to `#25577B`. Only the inline `class` attribute, the pixel `width`/`height` and the `id` of the root element were removed; the drawing is unchanged.
-
-| Local file | Illustration |
-| --- | --- |
-| `site/assets/writing-isometric.svg` | 開いた本 (open book) |
+The page illustrations (ManyPixels and Isometric Lab) were removed on 2026-10-28 and are no longer part of the site; they remain in the Git history.
 
 ## Tabler icon
 
