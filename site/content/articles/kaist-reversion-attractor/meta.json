@@ -17,11 +17,20 @@
       ],
       "seo_title": "がん細胞を正常に戻すという主張を公開RNA-seqで確かめる",
       "seo_description": "ブールネットワークで選んだ3遺伝子の同時ノックダウンで大腸がん細胞が正常様に戻るという報告を、公開RNA-seqで読み直す。標的の操作、特異性、増殖への影響を事前計画で調べた。"
+    },
+    "en": {
+      "title": "What can public RNA-seq say about \"reverting cancer cells to normal\"?",
+      "summary": "A Japanese note re-reading a reported reversion of colorectal cancer cells after triple knockdown of three genes chosen by a Boolean network model, using the public RNA-seq data and a pre-fixed analysis plan. It checks whether the targets were expressed and knocked down, how specific the enterocyte program was, and how consistent the lines were. It does not evaluate the paper's other experiments or any therapy.",
+      "seo_title": "KAIST cancer reversion and public RNA-seq evidence",
+      "seo_description": "A three-cell-line RNA-seq audit separates Boolean attractors, target mRNA changes and partial enterocyte-like expression from normal-cell restoration."
     }
   },
   "english": {
     "title": "What can public RNA-seq say about \"reverting cancer cells to normal\"?",
     "summary": "A Japanese note re-reading a reported reversion of colorectal cancer cells after triple knockdown of three genes chosen by a Boolean network model, using the public RNA-seq data and a pre-fixed analysis plan. It checks whether the targets were expressed and knocked down, how specific the enterocyte program was, and how consistent the lines were. It does not evaluate the paper's other experiments or any therapy."
   },
-  "publish_at": "2026-11-06T09:00:00+09:00"
+  "publish_at": "2026-11-06T09:00:00+09:00",
+  "reviewed": {
+    "en": "3bdda3c8841b6d6bc15df560198c89d721f193136edbd535fbb1f34d6d23d2f2"
+  }
 }
