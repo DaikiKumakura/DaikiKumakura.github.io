@@ -1,0 +1,52 @@
+{
+  "kind": "term",
+  "updated": "2026-10-28",
+  "math": false,
+  "related_articles": [
+    "fixed-vs-weight-dosing",
+    "mosunetuzumab-public-pk",
+    "tcell-engager-regimen-design"
+  ],
+  "locales": {
+    "en": {
+      "title": "Dosing interval notation: Q2W, Q3W, Q4W and QD",
+      "summary": "Q2W means every 2 weeks, Q3W every 3 weeks and Q4W every 4 weeks; QD means once daily. The Q comes from the Latin quaque, \"every\".",
+      "seo_title": "Q2W, Q3W, Q4W: what the dosing notation means",
+      "seo_description": "What Q2W, Q3W, Q4W, Q6W, QD and BID mean in dosing regimens such as 200 mg Q3W or 480 mg Q4W, with examples from antibody dosing.",
+      "faq": [
+        {
+          "q": "Does Q2W mean twice a week?",
+          "a": "No. Q2W means every 2 weeks. Twice a week is written BIW or twice weekly."
+        },
+        {
+          "q": "What does the Q stand for?",
+          "a": "It comes from the Latin quaque, meaning \"every\", as in Q8H for every 8 hours."
+        },
+        {
+          "q": "Is 240 mg Q2W the same dose rate as 480 mg Q4W?",
+          "a": "Yes: both deliver 120 mg per week on average. The longer interval gives a higher peak and a lower trough."
+        }
+      ]
+    },
+    "ja": {
+      "title": "投与間隔の表記：Q2W、Q3W、Q4W、QD",
+      "summary": "Q2Wは2週ごと、Q3Wは3週ごと、Q4Wは4週ごと、QDは1日1回の意味である。Qはラテン語のquaque（毎）に由来する。",
+      "seo_title": "Q2W・Q3W・Q4Wとは：投与間隔の表記の意味",
+      "seo_description": "200 mg Q3Wや480 mg Q4Wのような投与方式の、Q2W、Q3W、Q4W、Q6W、QD、BIDの意味を、抗体医薬の投与方式の例で説明する。",
+      "faq": [
+        {
+          "q": "Q2Wは、週に2回という意味ですか。",
+          "a": "いいえ。Q2Wは2週ごとです。週に2回は、BIWまたはtwice weeklyと書きます。"
+        },
+        {
+          "q": "Qは何の略ですか。",
+          "a": "ラテン語のquaque（毎）に由来します。Q8Hなら8時間ごとです。"
+        },
+        {
+          "q": "240 mg Q2Wと480 mg Q4Wは、投与速度が同じですか。",
+          "a": "同じです。どちらも平均して1週あたり120 mgです。間隔が長い方が、ピークは高く、トラフは低くなります。"
+        }
+      ]
+    }
+  }
+}

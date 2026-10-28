@@ -14,3 +14,5 @@ In a simulation of published models for pembrolizumab and nivolumab on an adult 
 ## Try it
 
 The [exposure explorer](../tools/anti-pd1-exposure.html) looks up these numbers by body weight, and the [article](../writing/fixed-vs-weight-dosing-en.html) gives the methods and limits.
+
+See also: [Ctrough (trough concentration)](ctrough-trough-concentration.html) and [dosing interval notation (Q2W, Q3W, Q4W)](dosing-interval-notation.html).

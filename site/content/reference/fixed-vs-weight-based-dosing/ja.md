@@ -14,3 +14,5 @@ pembrolizumabとnivolumabの公表モデルを、成人の体重分布に当て�
 ## 試す
 
 [曝露エクスプローラー](../tools/anti-pd1-exposure-ja.html)で、これらの数値を体重別に調べられる。方法と限界は[記事](../writing/fixed-vs-weight-dosing.html)にある。
+
+関連：[Ctrough（トラフ濃度）](ctrough-trough-concentration-ja.html)、[投与間隔の表記（Q2W、Q3W、Q4W）](dosing-interval-notation-ja.html)。

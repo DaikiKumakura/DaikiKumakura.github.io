@@ -16,13 +16,14 @@
         "3摂動の合成例では、下流応答を予測しない標的spikeがrow-maskで1.00、panel-maskとpairwise-maskでは0.50となった。",
         "pairwise方式の実データでの優越性やscFM全体の有用性は、この計算例だけでは判断できない。"
       ],
-      "seo_title": "Virtual Cellは何を当てたのか：標的遺伝子と評価指標"
+      "seo_title": "Virtual Cellは何を当てたのか：標的遺伝子と評価指標",
+      "seo_description": "摂動予測の評価を点検する。Miller（Nature Biotechnology 2026）、Systema、Arcのcell-eval2・VCC2026の指標を扱い、標的マスクと評価の近道を合成例で確かめる。"
     },
     "en": {
       "title": "What did the Virtual Cell predict? Target genes and evaluation shortcuts",
       "summary": "A Japanese review of perturbation forecasting, target-gene masking and recent benchmarks, with a reproducible synthetic example distinguishing evaluation shortcuts from downstream prediction. The example does not establish real-data performance or the superiority of pairwise masking.",
       "seo_title": "Virtual Cell evaluation and target-gene shortcuts",
-      "seo_description": "A three-perturbation example examines target masks and retrieval shortcuts, distinguishing downstream prediction from direct target effects."
+      "seo_description": "Perturbation-forecast evaluation (Miller et al. 2026, Systema, Arc cell-eval2, VCC2026) with a synthetic example of target masks and shortcuts."
     }
   },
   "english": {

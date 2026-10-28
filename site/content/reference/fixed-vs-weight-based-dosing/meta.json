@@ -1,6 +1,6 @@
 {
   "kind": "term",
-  "updated": "2026-10-22",
+  "updated": "2026-10-28",
   "math": false,
   "related_articles": [
     "fixed-vs-weight-dosing",
@@ -14,6 +14,10 @@
       "seo_title": "Fixed (flat) dosing versus weight-based dosing",
       "seo_description": "What fixed (flat) and weight-based dosing mean for monoclonal antibodies, and why exposure differs at extreme body weights (pembrolizumab, nivolumab).",
       "faq": [
+        {
+          "q": "Is there a body-weight threshold above which flat dosing stops working?",
+          "a": "There is no clinical threshold. In a simulation of published models on an adult weight distribution, the share of patients whose trough fell below the lower limit of the trial-tested range exceeded 10% at about 150 kg and above for pembrolizumab 200 mg (13.3%) and at about 100 kg and above for nivolumab 240 mg. That is a comparison of exposure under assumptions, not a point at which efficacy is lost."
+        },
         {
           "q": "Does fixed dosing give the same exposure as weight-based dosing?",
           "a": "Near the middle of the weight distribution, almost. At the extremes they differ: in the simulation, trough exposure fell below the trial range more often in heavy patients with fixed doses and in light patients with weight-based doses."
@@ -30,6 +34,10 @@
       "seo_title": "固定用量と体重換算用量の違い（抗体医薬）",
       "seo_description": "抗体医薬の固定用量と体重換算用量の違い、体重の両端で曝露が変わる理由を、pembrolizumabとnivolumabの例で説明する。",
       "faq": [
+        {
+          "q": "固定用量が成り立たなくなる、体重の閾値はありますか。",
+          "a": "臨床での閾値はありません。公表モデルを成人の体重分布に当てはめたシミュレーションでは、トラフが試験の範囲の下限を下回る患者が10%を超えたのは、pembrolizumab 200 mgで約150 kg以上（13.3%）、nivolumab 240 mgで約100 kg以上でした。これは仮定のもとでの曝露の比較であり、効果が失われる点ではありません。"
+        },
         {
           "q": "固定用量と体重換算用量で、曝露は同じになりますか。",
           "a": "体重の中央付近ではほぼ同じです。両端では違い、シミュレーションでは、固定用量で重い患者、体重換算用量で軽い患者のトラフが、試験の範囲を下回りやすくなりました。"

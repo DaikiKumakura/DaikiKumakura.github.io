@@ -16,12 +16,14 @@
         "Adding the change to baseline expression raised held-out response AUC from 0.599 to 0.673, but the interval (−0.084 to +0.269) included no improvement, with only nine responders.",
         "An observed on-treatment change is pharmacodynamic evidence, not a qualified predictive biomarker. Biopsy timing and selection into a second biopsy limit its interpretation at a fixed information time."
       ],
-      "seo_title": "What changes in tumor immune expression during nivolumab?"
+      "seo_title": "What changes in tumor immune expression during nivolumab?",
+      "seo_description": "Public GEO series GSE91061: 43 paired pre- and on-nivolumab tumor RNA samples, fixed immune scores, paired change and response-association diagnostics."
     },
     "ja": {
       "title": "治療中の免疫RNA変化は奏効の情報を加えるか",
       "summary": "公開された治療前後RNAの43組を確認し、固定した免疫指標の変化と、記録された最良奏効への条件付き追加情報を検討した。",
-      "seo_title": "治療中の免疫RNA変化と奏効の関連"
+      "seo_title": "治療中の免疫RNA変化と奏効の関連",
+      "seo_description": "公開GEOシリーズGSE91061の、nivolumab治療前後のRNA 43組で、固定した免疫指標の変化と、記録された最良奏効への追加情報を検討する。"
     }
   },
   "updated": "2026-10-28",

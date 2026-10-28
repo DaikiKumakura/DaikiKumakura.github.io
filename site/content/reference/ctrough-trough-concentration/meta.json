@@ -1,0 +1,52 @@
+{
+  "kind": "term",
+  "updated": "2026-10-28",
+  "math": false,
+  "related_articles": [
+    "fixed-vs-weight-dosing",
+    "tcell-engager-regimen-design",
+    "tarlatamab-summary-pk"
+  ],
+  "locales": {
+    "en": {
+      "title": "Ctrough (trough concentration)",
+      "summary": "Ctrough is the drug concentration measured just before the next dose, the lowest level within a dosing interval at steady state. It is used to compare dosing regimens, but a trough alone does not describe the whole exposure.",
+      "seo_title": "Ctrough (trough concentration): definition and use",
+      "seo_description": "What Ctrough (trough concentration) means, how it differs from Cmin, Cavg and Cmax, and why longer dosing intervals lower it at the same average exposure.",
+      "faq": [
+        {
+          "q": "Are Ctrough and Cmin the same?",
+          "a": "Usually nearly. Ctrough is the concentration measured just before the next dose, and Cmin is the lowest concentration in the interval. After an intravenous dose with a steadily falling concentration they coincide."
+        },
+        {
+          "q": "Why does a longer dosing interval lower the trough at the same average exposure?",
+          "a": "The same total dose is spread over a longer time, so the concentration falls further before the next dose and rises higher after it. The average is unchanged, but the trough is lower and the peak is higher."
+        },
+        {
+          "q": "Is a low Ctrough always a problem?",
+          "a": "Not by itself. Whether a trough below a reference value matters depends on the exposure–response relationship of the drug, which has to be established separately; a trough comparison shows exposure, not effect."
+        }
+      ]
+    },
+    "ja": {
+      "title": "Ctrough（トラフ濃度）とは",
+      "summary": "Ctroughは、次の投与の直前に測る薬物濃度で、定常状態での投与間隔の中で最も低い濃度である。投与方式の比較に使うが、トラフだけでは曝露の全体は分からない。",
+      "seo_title": "Ctrough（トラフ濃度）とは：定義と使い方",
+      "seo_description": "Ctrough（トラフ濃度）の意味、Cmin・Cavg・Cmaxとの違い、平均曝露が同じでも投与間隔を延ばすとトラフが下がる理由を説明する。",
+      "faq": [
+        {
+          "q": "CtroughとCminは同じですか。",
+          "a": "通常はほぼ同じです。Ctroughは次の投与の直前に測った濃度、Cminは投与間隔の中で最も低い濃度です。静注の後で濃度が一様に下がる場合は一致します。"
+        },
+        {
+          "q": "平均曝露が同じでも、投与間隔を延ばすとなぜトラフが下がるのですか。",
+          "a": "同じ総量を長い時間にまたいで投与するため、次の投与までに濃度がより下がり、投与後にはより高く上がります。平均は変わりませんが、トラフは下がり、ピークは上がります。"
+        },
+        {
+          "q": "Ctroughが低いことは、いつも問題ですか。",
+          "a": "それだけでは問題と言えません。基準値より低いトラフが問題になるかは、その薬の曝露反応の関係で決まり、別に確かめる必要があります。トラフの比較は曝露を示すもので、効果を示すものではありません。"
+        }
+      ]
+    }
+  }
+}
