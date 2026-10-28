@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2026-12-02",
+  "publish_at": "2026-12-02T18:00:00+09:00",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "早期PETからTCEの翌日の病変内残留を予測できるか",
+      "summary": "AMG 211の公開PET表を再解析。4患者16病変で早期傾きの延長と患者を除いた残留予測を比較する。",
+      "seo_title": "早期PETからTCEの翌日の病変内残留を予測できるか",
+      "seo_description": "AMG 211の公開PET表を再解析。4患者16病変で早期傾きの延長と患者を除いた残留予測を比較する。"
+    },
+    "en": {
+      "title": "Can early PET predict next-day lesion retention of a T-cell engager?",
+      "summary": "Public AMG 211 PET data compare early-slope extrapolation and held-out-patient retention predictions in 16 lesions from four participants.",
+      "seo_title": "Can early PET predict next-day TCE retention?",
+      "seo_description": "Public AMG 211 PET data compare early-slope extrapolation and held-out-patient retention predictions in 16 lesions from four participants."
+    }
+  },
+  "reviewed": {
+    "en": "ec9235797cafd0269fba3aa330220a75a52b78ea81aca939d97f41acf287da94"
+  }
+}

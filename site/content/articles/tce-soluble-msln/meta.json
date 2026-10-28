@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2026-12-03",
+  "publish_at": "2026-12-03T09:00:00+09:00",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "可溶性MSLNはTCEの必要濃度をどこまで変えるか",
+      "summary": "H226細胞の公開実験で、可溶性MSLNが0・50 ng/mLの濃度反応から500 ng/mLを予測。2分子のEC50移動モデルを比較し、予測誤差と外挿のずれを示す。",
+      "seo_title": "可溶性MSLNとTCE濃度反応の予測",
+      "seo_description": "MSLN標的TCEの公開実験を数値化。低い可溶性抗原条件から500 ng/mLの反応を予測し、EC50移動モデルの誤差と読み取り感度を検証する。"
+    },
+    "en": {
+      "title": "How much does soluble MSLN shift the concentration needed for a TCE response?",
+      "summary": "Public H226 assay means test whether soluble-MSLN conditions at 0 and 50 ng/mL predict the withheld 500 ng/mL TCE response for two molecules.",
+      "seo_title": "Predicting soluble-MSLN effects on TCE response",
+      "seo_description": "A public assay reanalysis tests an empirical EC50-shift model against a withheld soluble-MSLN condition, with reading sensitivity and potency-error checks."
+    }
+  },
+  "reviewed": {
+    "en": "3c0da7426c126a57f695a9dc019af205644d61a06ad25d167da45cb006d8298a"
+  }
+}

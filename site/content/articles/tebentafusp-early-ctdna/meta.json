@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2026-11-30",
+  "publish_at": "2026-11-30T18:00:00+09:00",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "3週のctDNAから12週の残存シグナルを予測できるか",
+      "summary": "テベンタフスプ治療中の公開ctDNAデータを患者単位で再解析。54人の完全例で治療前と3週の検出状態から12週を予測し、欠測による選択と改善量の不確実性を検討する。",
+      "seo_title": "テベンタフスプ治療中のctDNA予測",
+      "seo_description": "公開ctDNAデータ54人を用い、3週の検出状態が12週の予測に加える情報を検証。患者除外予測、Brier score、早期進行後の欠測と検出限界を扱う。"
+    },
+    "en": {
+      "title": "Predicting week-12 ctDNA detection from a week-3 measurement",
+      "summary": "A participant-level reanalysis of public tebentafusp data compares baseline and early detection states for predicting recorded week-12 ctDNA detection in 54 complete cases.",
+      "seo_title": "Early ctDNA prediction during tebentafusp treatment",
+      "seo_description": "Public data from 54 participants compare early ctDNA predictors using held-out Brier scores, with assay detection limits and missingness after progression."
+    }
+  },
+  "reviewed": {
+    "en": "3d1684c420378acd3aca57d2278ba286e811db59465aaf06af0e63382d9cd431"
+  }
+}

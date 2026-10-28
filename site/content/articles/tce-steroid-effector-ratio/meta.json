@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2026-12-02",
+  "publish_at": "2026-12-02T09:00:00+09:00",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "ステロイド併用によるTCEの薬効低下はE:T比で変わるか",
+      "summary": "公開実験の10平均値から二つの曲線モデルを比較。PBMC比を丸ごと除いた予測と読取感度を検証する。",
+      "seo_title": "ステロイド併用によるTCEの薬効低下はE:T比で変わるか",
+      "seo_description": "公開実験の10平均値から二つの曲線モデルを比較。PBMC比を丸ごと除いた予測と読取感度を検証する。"
+    },
+    "en": {
+      "title": "Does the steroid effect on TCE cytotoxicity depend on the effector-to-target ratio?",
+      "summary": "Ten published aggregate assay means compare horizontal shifts with ceiling changes using held-out PBMC ratios and reading sensitivity.",
+      "seo_title": "Steroids and effector ratio in TCE cytotoxicity",
+      "seo_description": "Ten published aggregate assay means compare horizontal shifts with ceiling changes using held-out PBMC ratios and reading sensitivity."
+    }
+  },
+  "reviewed": {
+    "en": "2e7600488904f51476fb8bd5583b72bfb3c0017444fe8e81b876c553f05cb5c2"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2026-12-01",
+  "publish_at": "2026-12-01T18:00:00+09:00",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "pH依存の結合選択性からT細胞の活性化を予測できるか",
+      "summary": "二価anti-CD3抗体の公表EC50から親抗体で変換係数を校正し、未使用の改変体のCD69活性化EC50を予測する。",
+      "seo_title": "pH依存の結合とT細胞活性化",
+      "seo_description": "Jurkat結合と初代T細胞CD69活性化の公表EC50を再解析。親抗体だけで校正した変換式を改変体に適用し、予測の誤差を調べる。"
+    },
+    "en": {
+      "title": "Can pH-selective binding predict primary T-cell activation?",
+      "summary": "A parent-calibrated EC50 transfer rule is tested on engineered bivalent anti-CD3 variants using published binding and CD69 summaries.",
+      "seo_title": "Can binding selectivity predict T-cell activation?",
+      "seo_description": "Published anti-CD3 EC50 summaries test whether a parent-calibrated binding-to-activation rule predicts engineered variants in two primary T-cell donors."
+    }
+  },
+  "reviewed": {
+    "en": "30a57bccfa8f3315dc0fb2234fc38d4f0d507f24b41255a416dbed520a492eee"
+  }
+}
