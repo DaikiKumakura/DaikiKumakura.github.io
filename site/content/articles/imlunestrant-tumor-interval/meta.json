@@ -12,10 +12,19 @@
       "title": "Imlunestrantの血漿濃度と腫瘍内作用から投与間隔を考える",
       "seo_title": "Imlunestrantの投与間隔と腫瘍内作用 | Daiki Kumakura",
       "summary": "実測集計PKへの回帰と公表PopPKで分割・隔日投与を比較。ヒト腫瘍濃度・生検データを照合し、集積の倍率と作用の時間情報を分けて考える。"
+    },
+    "en": {
+      "title": "Imlunestrant plasma exposure, tumor evidence and dosing intervals",
+      "summary": "Observed aggregate PK fitting and a public PopPK reconstruction compare equal-average schedules. Hypothetical delayed filters show why tumor enrichment alone does not identify interval-dependent target effects.",
+      "seo_title": "Imlunestrant plasma, tumor evidence and dosing intervals",
+      "seo_description": "Public PK and tumor biopsies separate enrichment from persistence. Delayed-filter scenarios do not establish alternate-day efficacy."
     }
   },
   "english": {
     "title": "Imlunestrant plasma exposure, tumor evidence and dosing intervals",
     "summary": "Observed aggregate PK fitting and a public PopPK reconstruction compare equal-average schedules. Hypothetical delayed filters show why tumor enrichment alone does not identify interval-dependent target effects."
+  },
+  "reviewed": {
+    "en": "5508a51a380716ca463a4fce393cd6e0184cc7179491c515118e8766933a0b0a"
   }
 }

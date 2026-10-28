@@ -1,12 +1,16 @@
+## 背景と目的 {#article-introduction}
+
 文献確認日：2026年10月14日。公開された推定済みPopPKパラメータを用いた条件付き数値計算であり、患者別データの再推定ではない。臨床試験の報告と本記事の計算を区別する。
 
 抗体薬の静脈内投与（IV）を皮下投与（SC）へ変更するとき、投与量をバイオアベイラビリティで補正すれば十分だろうか。
 
-EGFRとMETを標的とする二重特異性抗体アミバンタマブでは、PALOMA-3でSCとIVのPKが比較された［1］。SCでは投与量が増える一方、投与部位からの吸収に時間がかかる。したがって、体内に入る量が近くても、濃度の時間推移まで同じになるとは限らない。
+EGFRとMETを標的とする二重特異性抗体アミバンタマブでは、PALOMA-3でSCとIVのPKが比較された ([1](#ref-1))。SCでは投与量が増える一方、投与部位からの吸収に時間がかかる。したがって、体内に入る量が近くても、濃度の時間推移まで同じになるとは限らない。
 
-この記事では、EMAの審査資料にあるIV・SC共通PopPKモデル［2］を独立に実装した。**基準条件のSC/IV比はCycle 2のAUCで1.079、同Cycle開始前のトラフで1.191だった。曝露を一つの比で代表させると、比較する指標の違いが隠れる。** ただし、この計算だけでPK非劣性を示したことにはならない。
+この記事では、EMAの審査資料にあるIV・SC共通PopPKモデル ([2](#ref-2))を独立に実装した。**基準条件のSC/IV比はCycle 2のAUCで1.079、同Cycle開始前のトラフで1.191だった。曝露を一つの比で代表させると、比較する指標の違いが隠れる。** ただし、この計算だけでPK非劣性を示したことにはならない。
 
 ## 問いと計算の使い方 {#_1}
+
+**表1．** 問いと使用範囲。
 
 | 項目 | 定義 |
 | --- | --- |
@@ -18,14 +22,16 @@ EGFRとMETを標的とする二重特異性抗体アミバンタマブでは、P
 
 ## 資料をどうつないだか {#_2}
 
+**表2．** 公開資料と利用範囲。
+
 | 公開資料 | 取得した情報 | 注意点 |
 | --- | --- | --- |
-| PALOMA-3原著［1］ | 観測PK指標、SC/IVの幾何平均比（GMR）と90% CI | 投与開始から異なる経路を比較した試験。既にIVを受けた個人をSCへ切り替える解析ではない。 |
-| EMA/61503/2025、pp.28–31、39、48–49［2］ | 構造、最終パラメータ、共変量式、試験日程、モデル診断 | 本文が指すTable 3ではなく、実際のパラメータ表はp.30のTable 4。表が画像なので目視照合した。 |
-| IV製剤のSmPC［3］ | 初回350 mgと翌日の残量、点滴速度 | 他の適応・地域の現行日程を混ぜず、PALOMA-3の日程を優先した。 |
-| 2026年PALOMA原著［4］ | SC製剤の開発と複数投与間隔の背景 | 本記事ではQ3W・Q4Wへの拡張計算はしない。 |
+| PALOMA-3原著 ([1](#ref-1)) | 観測PK指標、SC/IVの幾何平均比（GMR）と90% CI | 投与開始から異なる経路を比較した試験。既にIVを受けた個人をSCへ切り替える解析ではない。 |
+| EMA/61503/2025、pp.28–31、39、48–49 ([2](#ref-2)) | 構造、最終パラメータ、共変量式、試験日程、モデル診断 | 本文が指すTable 3ではなく、実際のパラメータ表はp.30のTable 4。表が画像なので目視照合した。 |
+| IV製剤のSmPC ([3](#ref-3)) | 初回350 mgと翌日の残量、点滴速度 | 他の適応・地域の現行日程を混ぜず、PALOMA-3の日程を優先した。 |
+| 2026年PALOMA原著 ([4](#ref-4)) | SC製剤の開発と複数投与間隔の背景 | 本記事ではQ3W・Q4Wへの拡張計算はしない。 |
 
-EMAのモデルはIV・SCを含む1,026人、21,860件の測定可能濃度から構築されている［2］。ただし、元の患者別濃度と共変量の同時分布は今回の公開資料から取得していない。公表モデルに含まれる試験と、照合するPALOMA-3は重なるため、**以下の照合は独立データによる外部検証ではない**。
+EMAのモデルはIV・SCを含む1,026人、21,860件の測定可能濃度から構築されている ([2](#ref-2))。ただし、元の患者別濃度と共変量の同時分布は今回の公開資料から取得していない。公表モデルに含まれる試験と、照合するPALOMA-3は重なるため、**以下の照合は独立データによる外部検証ではない**。
 
 また、SmPCに記載されたSCのFの幾何平均0.666は、患者別推定値の集約である。構造モデルの基準F=0.683と同じ種類の値ではなく、置き換えない。
 
@@ -54,6 +60,8 @@ C_1=A_1/V_1,\qquad C_2=A_2/V_2
 
 吸収区画には既にFを掛けた量が入るので、微分式で再度Fを掛けない。消失は線形とMichaelis–Menten型の並列である。
 
+**表3．** 基準の構造パラメータ。
+
 | パラメータ | 基準値 | 単位 |
 | --- | ---: | --- |
 | F | 0.683 | — |
@@ -65,7 +73,7 @@ C_1=A_1/V_1,\qquad C_2=A_2/V_2
 | \(V_{max}\) | 0.751 | mg/h |
 | \(K_m\) | 18.4 | µg/mL |
 
-出典はEMA Table 4［2］。これらは個人の推定値の平均ではなく、共変量の基準条件における固定効果パラメータである。
+出典は[EMA Table 4](https://www.ema.europa.eu/en/documents/variation-report/rybrevant-h-c-005454-x-0014-epar-assessment-report-variation_en.pdf) ([2](#ref-2))。これらは個人の推定値の平均ではなく、共変量の基準条件における固定効果パラメータである。
 
 BMI、年齢、体重、アルブミン、性別を次の公表式で反映する。男性をS=1、女性をS=0とする。
 
@@ -91,7 +99,9 @@ WTはkg、ALBはg/L、Ageは年。基準は60 kg、BMI 24、63歳、女性、ALB
 
 ## 投与日程と評価区間 {#_4}
 
-PALOMA-3の28日Cycleを使う［2］。両群ともlazertinibを併用した臨床試験だが、本計算で扱う濃度はアミバンタマブだけである。
+PALOMA-3の28日Cycleを使う ([2](#ref-2))。両群ともlazertinibを併用した臨床試験だが、本計算で扱う濃度はアミバンタマブだけである。
+
+**表4．** PALOMA-3の体重別用量。
 
 | 体重 | IV | SC |
 | --- | --- | --- |
@@ -114,6 +124,8 @@ AUCの単位はmg·h/L（µg·h/mLと数値的に等しい）とする。トラ�
 
 ![公表構造モデルの基準条件におけるIVとSCの濃度推移。下段は初回投与後の拡大。](shared/amivantamab-iv-sc/figures/01-profiles.png)
 
+**図1．** 基準背景のIV・SC濃度。
+
 SC 1600 mgとIV 1050 mgの、1回当たりのモデル上の全身流入量の比は1.041だった。これはF×1600/1050の計算であり、有限期間AUCの比そのものではない。吸収の遅れと非線形消失、過去の投与から残る薬物があるため、同じ入力量から同じトラフが得られるとは限らない。
 
 全身流入量を一致させたSC 1050/F mgの対照でも、Cycle 2 AUC比は1.031、Cycle 2トラフ比は1.139、Cycle 4トラフ比は1.169だった。入力の量を揃える補正と、濃度推移を揃える比較は異なる。数値は`outputs/tables/input-controls.csv`に保存した。
@@ -124,7 +136,11 @@ SC 1600 mgとIV 1050 mgの、1回当たりのモデル上の全身流入量の�
 
 ![PALOMA-3の幾何平均比と90% CI、本計算の基準条件比。両者は異なる推定対象である。](shared/amivantamab-iv-sc/figures/02-endpoints.png)
 
-| 指標 | 本計算：SC/IV条件付き比 | PALOMA-3：観測値のGMR（90% CI）［2, Table 11］ | SC / IVの観測数 |
+**図2．** 条件付き比と観測GMR。推定対象は異なる。
+
+**表5．** 条件付き比と試験の集団GMR。
+
+| 指標 | 本計算：SC/IV条件付き比 | PALOMA-3：観測値のGMR（90% CI） ([2](#ref-2))（Table 11） | SC / IVの観測数 |
 | --- | ---: | --- | ---: |
 | Cycle 2 AUC Day 1–15 | 1.079 | 1.032（0.976–1.090） | 140 / 132 |
 | Cycle 2 Day 1トラフ | 1.191 | 1.145（1.040–1.261） | 160 / 142 |
@@ -134,9 +150,9 @@ SC 1600 mgとIV 1050 mgの、1回当たりのモデル上の全身流入量の�
 
 Cycle 4の差は大きく、**試験集団のPKを完全に再現できたとは言えない**。一つの固定背景・η=0の比と、異なる参加者から推定した集団GMRは一致する必要がない。共変量分布、個体間変動、実際の投与履歴、評価可能患者の選択、モデルの不完全性が関係し得るが、今回の資料だけでは差の原因を分解できない。比の差を観測データに対する予測誤差率とは呼ばない。
 
-Cycle 4の観測トラフを評価できたのは各群98例で、EMAが記す評価可能割合は46.7–47.6%だった。審査資料には、観測にモデル予測を加えたhybrid評価もある。こちらはSC 157例／IV 134例、GMR 1.417（90% CI 1.294–1.551）で、SC 59例／IV 36例がモデル予測で補われている［2, Table 11］。上の表・図は観測値のみを用いた評価であり、hybrid評価と混ぜない。
+Cycle 4の観測トラフを評価できたのは各群98例で、EMAが記す評価可能割合は46.7–47.6%だった。審査資料には、観測にモデル予測を加えたhybrid評価もある。こちらはSC 157例／IV 134例、GMR 1.417（90% CI 1.294–1.551）で、SC 59例／IV 36例がモデル予測で補われている ([2](#ref-2))（Table 11）。上の表・図は観測値のみを用いた評価であり、hybrid評価と混ぜない。
 
-PALOMA-3のPK非劣性は、指定されたGMRの90% CI下限が0.80以上という基準で評価された［1,2］。0.80は個人の濃度下限でも、本計算の合格ラインでもない。EUと非EUで主要トラフ評価時点が異なることも審査資料に記載されている。条件付き比が1を超えるだけでは、この試験の非劣性検証を再現したことにならない。
+PALOMA-3のPK非劣性は、指定されたGMRの90% CI下限が0.80以上という基準で評価された ([1](#ref-1), [2](#ref-2))。0.80は個人の濃度下限でも、本計算の合格ラインでもない。EUと非EUで主要トラフ評価時点が異なることも審査資料に記載されている。条件付き比が1を超えるだけでは、この試験の非劣性検証を再現したことにならない。
 
 ## 患者背景を変えるとどの比が動くか {#_6}
 
@@ -144,13 +160,17 @@ PALOMA-3のPK非劣性は、指定されたGMRの90% CI下限が0.80以上とい
 
 ![体重・BMIを変えた条件付きSC/IV比。80 kgで公表用量区分が変わる。](shared/amivantamab-iv-sc/figures/03-covariates.png)
 
-60 kg・BMI 35では、SC/IV比がCycle 2 AUCで0.915、Cycle 2トラフで1.011、Cycle 4トラフで1.015となった。AUCとトラフが同じ方向・同じ幅で動くわけではない。これはBMIに基づく投与変更を支持する結果ではない。EMAも、BMIと年齢の吸収への影響を臨床的に重要なものとは判断していない［2］。
+**図3．** 体重・BMI格子での条件付き比。
+
+60 kg・BMI 35では、SC/IV比がCycle 2 AUCで0.915、Cycle 2トラフで1.011、Cycle 4トラフで1.015となった。AUCとトラフが同じ方向・同じ幅で動くわけではない。これはBMIに基づく投与変更を支持する結果ではない。EMAも、BMIと年齢の吸収への影響を臨床的に重要なものとは判断していない ([2](#ref-2))。
 
 体重とBMIは実際には独立でなく、同じBMIでも身長が違う。今回の格子から「何%の患者が曝露不足になるか」は求められない。そこには実際の同時分布と個体間変動が必要である。
 
 ## 数値精度とモデルの不確実性は別に確認する {#_7}
 
 基準背景の9つの構造パラメータを一つずつ、公表RSEから作った推定値±1.96×SEへ動かした。他のパラメータは固定した。共変量係数の推定不確実性は今回の範囲に含めていない。全パラメータの共分散を使った共同信頼領域ではないので、この範囲を予測の95% CIと呼ばない。
+
+**表6．** 一因子ずつの固定効果感度解析。
 
 | 指標 | 基準比 | 一つずつパラメータを変えた比の範囲 |
 | --- | ---: | ---: |
@@ -166,20 +186,21 @@ PALOMA-3のPK非劣性は、指定されたGMRの90% CI下限が0.80以上とい
 
 点滴時間、非線形消失を除いた場合、週ごとの導入投与を省いた場合も`outputs/tables/sensitivity.csv`に記録した。後二つはモデル構造と投与履歴の寄与を見る対照であり、別の治療法の利益・安全性を評価したものではない。
 
-## AUCとトラフが異なる比較結果を与える {#pk}
+## 考察 {#pk}
 
-曝露を一つの数字で表すと、AUCの一致とトラフの一致の違いが隠れる。今回の比較でも、サイクル4の対応がそろわないままでは、同じ時点の曝露を比べたことにならなかった。
+曝露を一つの数字で表すと、AUCの一致とトラフの一致の違いが隠れる。今回のCycle 4トラフでは、固定した基準個体の比と試験集団のGMRの差が大きかった。同じ時点を比べても、推定対象と集団の違いが残る。
 
 集団の代表値が近いことは、個人別の濃度推移が再現できることを意味しない。公開された要約値が支持するのは特定の指標・時点での比較であり、投与法全体の同等性ではない。
 
-## 参考文献 {#_8}
+## データとコードの公開 {#article-availability}
 
-1. Leighl NB, et al. Subcutaneous Versus Intravenous Amivantamab, Both in Combination With Lazertinib, in Refractory EGFR-Mutated NSCLC: Primary Results From the Phase III PALOMA-3 Study. *J Clin Oncol*. 2024. [Open full text](https://pmc.ncbi.nlm.nih.gov/articles/PMC11469630/).
-2. EMA. Rybrevant assessment report. EMA/61503/2025, EMEA/H/C/005454/X/0014. 30 January 2025. [Assessment report](https://www.ema.europa.eu/en/documents/variation-report/rybrevant-h-c-005454-x-0014-epar-assessment-report-variation_en.pdf).
-3. Rybrevant 350 mg concentrate for solution for infusion. Summary of Product Characteristics. [Product information](https://www.medicines.org.uk/emc/product/13084/smpc).
-4. Subcutaneous Delivery of Amivantamab in Patients With Advanced Solid Malignancies: The Phase Ib PALOMA Study. 2026. [PubMed](https://pubmed.ncbi.nlm.nih.gov/41807198/).
+図・数値表・コードは本記事の計算による。原著の図表画像と患者別データは再配布していない。
 
-All figures were generated by the calculations in this article. Original figure/table images and patient-level data are not redistributed.
+[計算コード・数値表・再実行手順](shared/amivantamab-iv-sc/amivantamab-simulation.zip)
 
+## 参照 {#_8}
 
-[Calculation code, numerical tables and reproduction instructions](shared/amivantamab-iv-sc/amivantamab-simulation.zip)
+1. <span id="ref-1"></span>Leighl NB, Akamatsu H, Lim SM, Cheng Y, Minchom AR, Marmarelis ME, et al. Subcutaneous Versus Intravenous Amivantamab, Both in Combination With Lazertinib, in Refractory Epidermal Growth Factor Receptor–Mutated Non–Small Cell Lung Cancer: Primary Results From the Phase III PALOMA-3 Study. Journal of Clinical Oncology. 2024;42(30):3593–3605. [doi:10.1200/JCO.24.01001](https://doi.org/10.1200/JCO.24.01001).
+2. <span id="ref-2"></span> European Medicines Agency. Rybrevant assessment report. EMA/61503/2025; EMEA/H/C/005454/X/0014. 2025 Jan 30. [Assessment report](https://www.ema.europa.eu/en/documents/variation-report/rybrevant-h-c-005454-x-0014-epar-assessment-report-variation_en.pdf).
+3. <span id="ref-3"></span> Janssen-Cilag Ltd. Rybrevant 350 mg concentrate for solution for infusion: Summary of Product Characteristics. [Product information](https://www.medicines.org.uk/emc/product/13084/smpc). Accessed 2026 Oct 14.
+4. <span id="ref-4"></span> Subcutaneous Delivery of Amivantamab in Patients With Advanced Solid Malignancies: The Phase Ib PALOMA Study. 2026. PMID: 41807198. [PubMed record](https://pubmed.ncbi.nlm.nih.gov/41807198/).

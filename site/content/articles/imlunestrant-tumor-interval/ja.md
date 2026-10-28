@@ -1,8 +1,10 @@
+## 背景と目的 {#article-introduction}
+
 血漿中の薬物濃度が下がっても、腫瘍内の作用が同じ速さで弱くなるとは限らない。ただし、「腫瘍に多く入る薬だから投与間隔を延ばせる」ともいえない。必要なのは、腫瘍にどれだけ分布するかに加えて、濃度や作用がどの速さで変わるかという情報である。
 
 経口の選択的エストロゲン受容体分解薬（SERD）であるimlunestrantには、血漿PopPK、ヒト腫瘍中濃度、術前生検の薬力学データが公開されている。それらを照合し、同じ1日平均量を分割・隔日投与する計算を行った。**血漿で起きる変化は計算できる一方、腫瘍への集積の報告だけでは、隔日投与の作用維持を予測できなかった。**
 
-文献確認日は2026年10月20日。米国では2025年に特定のESR1変異を持つ進行・転移乳がんに単剤で承認され、2026年にはabemaciclibとの併用も承認された。以下は承認された400 mg 1日1回を比較の基準に置く公開情報の解析であり、実際の投与変更を提案するものではない。[FDA monotherapy approval](https://www.fda.gov/drugs/resources-information-approved-drugs/fda-approves-imlunestrant-er-positive-her2-negative-esr1-mutated-advanced-or-metastatic-breast)、[2026 prescribing information](https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/218881s001lbl.pdf)
+文献確認日は2026年10月20日。米国では2025年に特定のESR1変異を持つ進行・転移乳がんに単剤で承認され、2026年にはabemaciclibとの併用も承認された。以下は承認された400 mg 1日1回を比較の基準に置く公開情報の解析であり、実際の投与変更を提案するものではない。([1](#ref-1))、([2](#ref-2))
 
 ## 問いと用途 {#_1}
 
@@ -12,17 +14,21 @@
 
 ## 血漿と腫瘍で公開されているものは異なる {#_2}
 
+**表1．** 公開資料の範囲。
+
 | 資料 | 使える情報 | ここからは分からないこと |
 |---|---|---|
 | FDA・EMA審査資料 | 血漿PopPKの係数・個体差、用量別集計PK | 個人別濃度データからの新たなNLME推定 |
 | EMBER-2術前試験 | 腫瘍／血漿の比較、生検前後のER・PR・Ki-67 | 投与中断後のヒト腫瘍濃度・ER回復曲線 |
 | 前臨床の機序研究 | 動物での腫瘍曝露・作用の時間経過 | 人の腫瘍からの消失速度や隔日投与の薬効 |
 
-以下では、実測集計値から行った小さな推定、公表PopPKの再構成、未同定の時間定数を置いた感度解析を分ける。([FDA assessment report Table 19.2](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/218881Orig1s000MultidisciplineR.pdf))、[EMA assessment report](https://www.ema.europa.eu/en/documents/assessment-report/inluriyo-epar-public-assessment-report_en.pdf)
+以下では、実測集計値から行った小さな推定、公表PopPKの再構成、未同定の時間定数を置いた感度解析を分ける。([FDA assessment report Table 19.2](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/218881Orig1s000MultidisciplineR.pdf) ([3](#ref-3)))、([4](#ref-4))
 
 ## 用量と曝露の関係を集計値から推定する {#_3}
 
-まずEMA資料Table 8のDay 15の実測集計PKを使った。AUCとCmaxでは評価人数が異なる。
+まず[EMA審査資料のTable 8](https://www.ema.europa.eu/en/documents/assessment-report/inluriyo-epar-public-assessment-report_en.pdf)のDay 15の実測集計PKを使った。AUCとCmaxでは評価人数が異なる。
+
+**表2．** Day 15の実測集計PK。
 
 | QD用量 | AUC0–24の幾何平均（ng·h/mL、n） | Cmaxの幾何平均（ng/mL、n） |
 |---|---:|---:|
@@ -48,6 +54,8 @@
 \]
 
 とする。EMA資料にもこの集団で約4,310 Lと記載されている。
+
+**表3．** 再構成に使った係数。
 
 | 係数 | 使用値 |
 |---|---:|
@@ -82,6 +90,8 @@
 
 ![用量別の実測集計PK、記述的回帰、公表PKモデル再構成の比較](shared/imlunestrant-tumor-interval/figures/01-exposure-check.png)
 
+**図1．** 実測集計PKと回帰・再構成モデルの比較。
+
 200 mgと800 mgのAUCは実測集計値に対してそれぞれ1.35倍、1.31倍となり、すべての群の幾何平均を同じ精度で再現してはいない。また、公表モデルの推定には元の試験データも使われている。これは独立した外部検証ではなく、今回の実装と集計値の記述的な点検である。添付文書の集団平均や異なる群の幾何平均に近いことも、個人のPKが検証できた証拠にはしない。
 
 ## 同じ平均量のまま間隔を変える {#_5}
@@ -94,6 +104,8 @@ AUC_{48}=\frac{48}{\tau}\frac{1000D}{CL/F}.
 
 線形・時間非依存PKで\(D/\tau\)が同じなら、48時間AUCは同じになる。これはモデルの性質であり、臨床的な同等性を示すものではない。
 
+**表4．** 同じ平均量の周期定常状態。
+
 | 計算上の条件 | 血漿Cmax（ng/mL） | 血漿投与前濃度（ng/mL） | AUC48（ng·h/mL） |
 |---|---:|---:|---:|
 | 200 mg Q12h | 114.3 | 86.0 | 4,819.3 |
@@ -104,11 +116,13 @@ AUC_{48}=\frac{48}{\tau}\frac{1000D}{CL/F}.
 
 ## ヒト腫瘍中の「約15倍」は何を意味するか {#15}
 
-EMBER-2では、200–800 mg QDで治療された10例のDay 15腫瘍中濃度が、**同日の投与前血漿濃度と比べて約15倍、範囲5–31倍**と報告されている。[EMBER-2 Original paper](https://pmc.ncbi.nlm.nih.gov/articles/PMC11609621/)
+EMBER-2では、200–800 mg QDで治療された10例のDay 15腫瘍中濃度が、**同日の投与前血漿濃度と比べて約15倍、範囲5–31倍**と報告されている。([5](#ref-5))
 
-ここは注意が必要である。対応する図の腫瘍はµg/kg、血漿はµg/Lで示される。報告された集積の目安であって、非結合濃度の平衡分配係数ではない。腫瘍採取の最終投与後時刻も揃った時系列としては分からず、約15という値から腫瘍消失半減期は推定できない。範囲5–31も信頼区間ではない。[Preclinical/translational paper Fig. 3E](https://doi.org/10.1158/0008-5472.CAN-24-2608)
+ここは注意が必要である。対応する図の腫瘍はµg/kg、血漿はµg/Lで示される。報告された集積の目安であって、非結合濃度の平衡分配係数ではない。腫瘍採取の最終投与後時刻も揃った時系列としては分からず、約15という値から腫瘍消失半減期は推定できない。範囲5–31も信頼区間ではない。[Preclinical/translational paper Fig. 3E](https://doi.org/10.1158/0008-5472.CAN-24-2608) ([6](#ref-6))
 
 術前の生検ではERやKi-67の低下も観察された。
+
+**表5．** 術前生検のERとKi-67変化。
 
 | QD用量 | ER評価人数 | ERの幾何平均変化（90% CI） | 全評価例のKi-67幾何平均変化 |
 |---|---:|---:|---:|
@@ -116,7 +130,7 @@ EMBER-2では、200–800 mg QDで治療された10例のDay 15腫瘍中濃度�
 | 400 mg | 27 | −82%（−91～−60） | −71% |
 | 800 mg | 26 | −70%（−78～−59） | −72% |
 
-ERの低下は用量と単調に並ばず、200 mg群は後から追加された非無作為化コホートである。ここから低用量の優越性や濃度–作用のEC50を推定しない。また、これは未治療の早期乳がんでの約2週間の投与前後比較であり、承認対象の進行乳がんと同じ集団ではない。[EMBER-2 Table 2](https://pmc.ncbi.nlm.nih.gov/articles/PMC11609621/)
+ERの低下は用量と単調に並ばず、200 mg群は後から追加された非無作為化コホートである。ここから低用量の優越性や濃度–作用のEC50を推定しない。また、これは未治療の早期乳がんでの約2週間の投与前後比較であり、承認対象の進行乳がんと同じ集団ではない。[EMBER-2 Table 2](https://pmc.ncbi.nlm.nih.gov/articles/PMC11609621/) ([5](#ref-5))
 
 これらは「人の腫瘍へ薬物が到達し、生物学的変化が起きる」という裏付けになる。しかし、投与間隔を延ばしたときにERや増殖指標が戻る速さを測ったデータではない。
 
@@ -134,6 +148,8 @@ ERの低下は用量と単調に並ばず、200 mg群は後から追加された
 
 ![血漿濃度と、48時間の平衡化半時間を仮定した濃度指標](shared/imlunestrant-tumor-interval/figures/02-plasma-filter.png)
 
+**図2．** 血漿濃度と仮想の遅れ指標。腫瘍PKの予測ではない。
+
 遅い指標では血漿のピークと谷が平滑化される。この図の右側はヒト腫瘍PKの予測ではなく、仮定を変えると解釈が変わることを示す対照である。
 
 ### 公表された個体差も残す {#_7}
@@ -141,6 +157,8 @@ ERの低下は用量と単調に並ばず、200 mg群は後から追加された
 CL/F、Vc/F、MTTの公表個体間CVは50.5%、69.1%、47.7%だった。これを\(\omega^2=\log(1+CV^2)\)で対数正規分布へ変換し、CLとVcの対数ランダム効果の相関0.618を残して1,024人を生成した。同じ仮想患者で全投与条件を比較する。
 
 体重は68.2 kg、集団効果はmBCに固定した条件付き分布である。公表されたFの機会間変動35.4%と残差誤差は再現していない。MTTと他のランダム効果は独立とし、固定効果の推定不確実性も伝播していない。実際の患者集団全体を代表する分布とは扱わない。
+
+**表6．** 条件付き仮想患者の用法比。
 
 | 800 mg Q48h／同じ患者の400 mg Q24h | 中央値 | 仮想患者の5–95百分位 |
 |---|---:|---:|
@@ -151,6 +169,8 @@ CL/F、Vc/F、MTTの公表個体間CVは50.5%、69.1%、47.7%だった。これ�
 | 同：48 h | 0.947 | 0.911–0.972 |
 
 ![仮定する平衡化半時間による最低値の条件間比の変化](shared/imlunestrant-tumor-interval/figures/03-minimum-sensitivity.png)
+
+**図3．** 平衡化半時間を変えた最低値の感度解析。
 
 この百分位は条件付きの患者間範囲であり、信頼区間や臨床の薬効予測区間ではない。仮想指標の比0.947も、ER分解や薬効を94.7%維持できるという意味ではない。
 
@@ -166,17 +186,29 @@ G(T)=\frac{1}{\sqrt{1+(2\pi/(Tk_e))^2}}
 
 この計算が示すのは、集積の倍率とは別に、比較したい投与間隔に対する時間尺度を知らなければならないという点である。
 
-## 腫瘍への集積倍率から作用の持続時間は決まらない {#_9}
+## 考察 {#_9}
 
 ヒトの投与前血漿と手術時腫瘍の測定は、腫瘍への集積を示す情報である。しかし、最終投与後の濃度低下やER回復の速度までは決まらない。総濃度と非結合濃度、ER量と増殖指標も同じ量ではない。
 
-前臨床で最終投与後96時間まで作用が続いたという報告を、ヒトの回復係数へ転用することはしなかった。培養細胞で処理中にER低下が続く結果も、薬剤除去後の回復曲線とは異なる。[Preclinical paper](https://doi.org/10.1158/0008-5472.CAN-24-2608)、[Independent Mechanistic study](https://doi.org/10.1172/jci.insight.188051)
+前臨床で最終投与後96時間まで作用が続いたという報告を、ヒトの回復係数へ転用することはしなかった。培養細胞で処理中にER低下が続く結果も、薬剤除去後の回復曲線とは異なる。([6](#ref-6))、([7](#ref-7))
 
 同じ平均量を隔日にまとめたときの血漿のピーク上昇と投与前濃度低下は計算できた。その差が腫瘍内でどれだけ緩衝されるかは公開ヒトデータから決まらず、集積倍率を根拠に隔日投与の作用維持を結論することはできなかった。
 
-## 再実行資料
+## データとコードの公開 {#article-availability}
 
 解析はPython、NumPy、SciPy、pandas、Matplotlibで実行した。0.25 h刻みで周期解を評価し、細かい刻みと独立ODE解でも点検した。原著図や個人データは再配布せず、入力値・原コード・生成図表を配布する。
 
 
 [解析コード・入力値・集計表・再実行手順](shared/imlunestrant-tumor-interval/imlunestrant-analysis.zip)
+
+## 参照 {#article-references}
+
+1. <span id="ref-1"></span>US Food and Drug Administration. FDA approves imlunestrant for ER-positive, HER2-negative, ESR1-mutated advanced or metastatic breast cancer. 2025. [Approval announcement](https://www.fda.gov/drugs/resources-information-approved-drugs/fda-approves-imlunestrant-er-positive-her2-negative-esr1-mutated-advanced-or-metastatic-breast).
+2. <span id="ref-2"></span>Eli Lilly and Company. INLURIYO (imlunestrant) tablets: US prescribing information. Revised 2026 Sep. [FDA label](https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/218881s001lbl.pdf).
+3. <span id="ref-3"></span>US Food and Drug Administration. INLURIYO (imlunestrant), NDA 218881: Multi-Discipline Review. 2025. Table 19.2, PDF pp. 242–243. [Review](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/218881Orig1s000MultidisciplineR.pdf).
+4. <span id="ref-4"></span>European Medicines Agency. Inluriyo: EPAR public assessment report. 2025. Tables 8–9 and population PK assessment. [Report](https://www.ema.europa.eu/en/documents/assessment-report/inluriyo-epar-public-assessment-report_en.pdf).
+5. <span id="ref-5"></span>Neven P, Stahl N, Vidal M, Martín M, Kaufman PA, Harbeck N, et al. A Preoperative Window-of-Opportunity Study of Oral SERD, Imlunestrant, in Newly Diagnosed ER-Positive, HER2-Negative Early Breast Cancer: Results from the EMBER-2 Study. Clinical Cancer Research. 2024;30(23):5304–5313. [doi:10.1158/1078-0432.CCR-24-2113](https://doi.org/10.1158/1078-0432.CCR-24-2113).
+6. <span id="ref-6"></span>Bhagwat SV, Mur C, Vandekopple M, Zhao B, Shen W, Marugán C, et al. Imlunestrant Is an Oral, Brain-Penetrant Selective Estrogen Receptor Degrader with Potent Antitumor Activity in ESR1 Wild-Type and Mutant Breast Cancer. Cancer Research. 2025;85(4):777–790. [doi:10.1158/0008-5472.CAN-24-2608](https://doi.org/10.1158/0008-5472.CAN-24-2608).
+7. <span id="ref-7"></span>Sherman S, Sandusky ZM, Russo D, Zak D, Nardone A, Friel D, et al. Imlunestrant a next-generation oral SERD overcomes ESR1 mutant resistance in estrogen receptor–positive breast cancer. JCI Insight. 2025;10(12):e188051. [doi:10.1172/jci.insight.188051](https://doi.org/10.1172/jci.insight.188051).
+
+<span id="_10"></span>

@@ -12,10 +12,19 @@
       "title": "同じ細胞塊にいることは通信の証拠になるか。CCI-seqを再集計する",
       "summary": "マウス腎臓の公開注釈から共存塊数とFrequencyを再計算する。希少なPST–B細胞の実数、反復別の母数、帰無と塊サイズによる濃縮比の違いを調べ、近接と因果的な通信を分ける。",
       "seo_title": "同じ細胞塊にいるだけで通信と言えるか：CCI-seq"
+    },
+    "en": {
+      "title": "Co-clump proximity versus cellular communication: auditing CCI-seq",
+      "summary": "Public mouse-kidney metadata reproduces heterotypic Frequency scores while separating co-clump counts, cell pairs and random-label enrichment. Rare-pair denominators, replicate structure and recovered clump sizes define what proximity evidence can support.",
+      "seo_title": "CCI-seq: co-clump proximity and cellular communication",
+      "seo_description": "A mouse-kidney metadata audit separates co-clump counts, Frequency, rare-pair denominators and causal evidence for cellular communication."
     }
   },
   "english": {
     "title": "Co-clump proximity versus cellular communication: auditing CCI-seq",
     "summary": "Public mouse-kidney metadata reproduces heterotypic Frequency scores while separating co-clump counts, cell pairs and random-label enrichment. Rare-pair denominators, replicate structure and recovered clump sizes define what proximity evidence can support."
+  },
+  "reviewed": {
+    "en": "b33e9f4fee12588e613e78e4afe974854946cabc52dd890ebb5a187740737d8c"
   }
 }

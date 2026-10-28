@@ -12,10 +12,19 @@
       "title": "アミバンタマブの静注・皮下注製剤のPKブリッジング：AUCだけで比較してよいか",
       "summary": "公開PopPK式からアミバンタマブIV・SCのAUCとトラフを計算し、F補正、導入投与、BMIの影響を比較する。条件付き計算とPALOMA-3の集団PK非劣性を区別し、観測値とモデル補完値の違いを整理する。",
       "seo_title": "アミバンタマブ静注・皮下注のPKブリッジング：AUCで足りるか"
+    },
+    "en": {
+      "title": "Amivantamab IV/SC PK bridging: is matching AUC sufficient?",
+      "summary": "Conditional numerical simulations of the public EMA model distinguish systemic input, finite-window AUC and predose concentration. Reference profiles are contrasted with observed PALOMA-3 geometric mean ratios without claiming clinical noninferiority, population reproduction or individual switching predictions.",
+      "seo_title": "Amivantamab IV/SC bridging: AUC and troughs",
+      "seo_description": "Public PopPK separates systemic input, AUC and predose concentrations from population GMRs and clinical PK noninferiority."
     }
   },
   "english": {
     "title": "Amivantamab IV/SC PK bridging: is matching AUC sufficient?",
     "summary": "Conditional numerical simulations of the public EMA model distinguish systemic input, finite-window AUC and predose concentration. Reference profiles are contrasted with observed PALOMA-3 geometric mean ratios without claiming clinical noninferiority, population reproduction or individual switching predictions."
+  },
+  "reviewed": {
+    "en": "36fd544c0de328eb7eb735dafeb6196ed746fd4a08de3337a4d3256f537d91ed"
   }
 }
