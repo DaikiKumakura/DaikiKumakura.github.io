@@ -1,0 +1,20 @@
+{
+  "kind": "policy",
+  "updated": "2026-10-28",
+  "math": false,
+  "related_articles": ["fixed-vs-weight-dosing", "mosunetuzumab-public-pk", "borrowing-prior-dose-selection", "tumor-dynamics-survival"],
+  "locales": {
+    "en": {
+      "title": "How the analyses on this site are made, checked and corrected",
+      "summary": "Scope, sources, reproducibility, verification, limits and correction practice of the public-data analyses on this site, with how to report an error.",
+      "seo_title": "How these analyses are made, checked and corrected",
+      "seo_description": "Scope, sources, reproducibility, independent checks, limits and corrections of the public-data PK/PD analyses by Daiki Kumakura, and how to report errors."
+    },
+    "ja": {
+      "title": "このサイトの解析の進め方、検証、訂正の方針",
+      "summary": "このサイトの公開データ解析について、範囲、出典、再現性、検証、限界、訂正の方法と、誤りの連絡先を説明する。",
+      "seo_title": "解析の進め方・検証・訂正の方針",
+      "seo_description": "熊倉大騎による公開データのPK/PD解析の、範囲、出典、再現性、独立の確認、限界、訂正の方針と、誤りの連絡方法を説明する。"
+    }
+  }
+}

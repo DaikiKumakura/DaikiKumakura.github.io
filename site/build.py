@@ -21,9 +21,9 @@ LEGACY_REDIRECTS.update({f'{language}/{old}.html':new for language in ('ja','en'
 EXTRA_SITEMAPS = ('rsemflow/sitemap.xml',)
 # Reference pages (tools, glossary terms, catalogs): one folder per page in content/reference,
 # written in both languages. English is the default file name, Japanese ends in -ja.
-REFERENCE_KINDS = {'tool': 'tools', 'term': 'glossary', 'catalog': 'catalog'}
-REFERENCE_HEADINGS = {'tool': 'Tools', 'term': 'Glossary', 'catalog': 'Catalogs'}
-REFERENCE_LABELS = {'tool': 'Tool', 'term': 'Glossary term', 'catalog': 'Catalog'}
+REFERENCE_KINDS = {'policy': 'about', 'tool': 'tools', 'term': 'glossary', 'catalog': 'catalog'}
+REFERENCE_HEADINGS = {'policy': 'About these analyses', 'tool': 'Tools', 'term': 'Glossary', 'catalog': 'Catalogs'}
+REFERENCE_LABELS = {'policy': 'About page', 'tool': 'Tool', 'term': 'Glossary term', 'catalog': 'Catalog'}
 # The Writing index exists once per language so that every title on a page is in that page's language.
 WRITING_ALTERNATIVES = {'en': 'writing.html', 'ja': 'writing-ja.html'}
 WRITING_TITLE_JA = '記事一覧'
@@ -312,6 +312,8 @@ def build(project=BASE, preview=False, strict_translations=False):
         raise ValueError('\n'.join(warnings))
     env = Environment(loader=FileSystemLoader(project / 'templates'), autoescape=select_autoescape(['html']), undefined=StrictUndefined)
     outputs = {}
+    # The footer links to the page on how the analyses are made once it exists.
+    env.globals['about_page'] = 'about/about-these-analyses.html' if any(e['slug'] == 'about-these-analyses' for e in reference) else None
     # Retain the public paths of legacy resources and verification files.
     for asset in (project / 'static').rglob('*'):
         if asset.is_file():
@@ -418,7 +420,7 @@ def build(project=BASE, preview=False, strict_translations=False):
     groups=[dict(heading=REFERENCE_HEADINGS[kind],items=[dict(en=e['meta']['locales']['en'],ja=e['meta']['locales']['ja'],en_href=reference_file(e,'en'),ja_href=reference_file(e,'ja')) for e in reference if e['kind']==kind]) for kind in REFERENCE_KINDS]
     groups=[g for g in groups if g['items']]
     output('reference.html',env.get_template('reference-index.html').render(site=site,lang='en',ui=ui,preview=preview,active='writing',root='',alternatives={},title='Tools and reference',description='Interactive tools, a glossary of pharmacometrics terms and catalogs that accompany the analyses by Daiki Kumakura, in Japanese and English.',math=False,groups=groups))
-    canonical_pages=['index.html']+[key+'.html' for key in NAV if key!='home']+['writing-ja.html']+[name for name in outputs if name.startswith(('writing/','topics/','software/','tools/','glossary/','catalog/','reference.html')) and name.endswith('.html')]
+    canonical_pages=['index.html']+[key+'.html' for key in NAV if key!='home']+['writing-ja.html']+[name for name in outputs if name.startswith(('writing/','topics/','software/','about/','tools/','glossary/','catalog/','reference.html')) and name.endswith('.html')]
     if not preview:
         redirects=dict(LEGACY_REDIRECTS)
         redirects.update({path:'writing.html' for path in site.get('legacy_topic_paths',[])})
@@ -444,6 +446,10 @@ def build(project=BASE, preview=False, strict_translations=False):
     def sitemap_url(p):
         tag='<url><loc>'+html.escape(SITE_URL if p=='index.html' else SITE_URL+p)+'</loc>'
         if p in lastmod:tag+='<lastmod>'+lastmod[p]+'</lastmod>'
+        if p.startswith('writing/') and p in outputs:
+            # Figures of the article, so that they can appear in image search (relative to the article's folder).
+            for src in dict.fromkeys(re.findall(r'<img[^>]+src="(shared/[^"]+\.(?:png|jpe?g))"',outputs[p].decode('utf-8'))):
+                tag+='<image:image><image:loc>'+html.escape(SITE_URL+'writing/'+src)+'</image:loc></image:image>'
         if p in WRITING_ALTERNATIVES.values():
             tag+=''.join('<xhtml:link rel="alternate" hreflang="'+code+'" href="'+html.escape(SITE_URL+name)+'"/>' for code,name in WRITING_ALTERNATIVES.items())+'<xhtml:link rel="alternate" hreflang="x-default" href="'+html.escape(SITE_URL+WRITING_ALTERNATIVES['en'])+'"/>'
         for a in entries:
@@ -452,7 +458,7 @@ def build(project=BASE, preview=False, strict_translations=False):
             for code,name in files.items():tag+='<xhtml:link rel="alternate" hreflang="'+code+'" href="'+html.escape(SITE_URL+name)+'"/>'
             if 'en' in files:tag+='<xhtml:link rel="alternate" hreflang="x-default" href="'+html.escape(SITE_URL+files['en'])+'"/>'
         return tag+'</url>'
-    outputs['sitemap.xml']=('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">'+''.join(sitemap_url(p) for p in canonical_pages if not preview or not p.startswith('writing/'))+'</urlset>').encode('utf-8')
+    outputs['sitemap.xml']=('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">'+''.join(sitemap_url(p) for p in canonical_pages if not preview or not p.startswith('writing/'))+'</urlset>').encode('utf-8')
     if not preview:
         outputs['feed.xml']=atom_feed(site,entries)
         for code in ('en','ja'):outputs[f'feed-{code}.xml']=atom_feed(site,entries,code)

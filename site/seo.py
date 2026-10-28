@@ -108,12 +108,14 @@ def enrich(page, name, site, site_url, article=None, og_image=None, topics=None,
  elif name.startswith('software/'):
   sw=next((x for x in site['software'] if x.get('slug')==key.split('/',1)[1]),None)
   if sw:schema={'@context':'https://schema.org','@type':'SoftwareSourceCode','@id':canonical+'#software','url':canonical,'name':sw['id'],'description':sw['summary'],'codeRepository':sw['url'],'programmingLanguage':sw['tech'],'author':person,'isAccessibleForFree':True}
- elif name.startswith(('tools/','glossary/','catalog/')):
+ elif name.startswith(('about/','tools/','glossary/','catalog/')):
   entry=article or {}
   hub=site_url+'reference.html'
   base={'@context':'https://schema.org','url':canonical,'inLanguage':lang,'isAccessibleForFree':True,'author':person,'dateModified':entry.get('updated'),'isPartOf':{'@type':'WebSite','@id':site_url+'#website','url':site_url}}
   if name.startswith('tools/'):
    schema=dict(base,**{'@type':'WebApplication','name':headline,'description':description,'applicationCategory':'ScientificApplication','operatingSystem':'Any (web browser)','browserRequirements':'JavaScript','offers':{'@type':'Offer','price':'0','priceCurrency':'USD'}})
+  elif name.startswith('about/'):
+   schema=dict(base,**{'@type':'AboutPage','name':headline,'description':description,'about':person})
   elif name.startswith('glossary/'):
    schema=dict(base,**{'@type':'DefinedTerm','name':headline,'description':description,'inDefinedTermSet':{'@type':'DefinedTermSet','name':'Pharmacometrics terms | '+site['name'],'url':site_url+'reference.html#glossary'}})
   else:
@@ -138,7 +140,7 @@ def enrich(page, name, site, site_url, article=None, og_image=None, topics=None,
  if name.startswith('topics/'):
   crumbs={'@context':'https://schema.org','@type':'BreadcrumbList','itemListElement':[{'@type':'ListItem','position':1,'name':'Home','item':site_url},{'@type':'ListItem','position':2,'name':'Writing','item':site_url+'writing.html'},{'@type':'ListItem','position':3,'name':headline,'item':canonical}]}
   metadata.append('<script type="application/ld+json">'+json.dumps(crumbs,ensure_ascii=False).replace('<','\\u003c')+'</script>')
- if name.startswith(('tools/','glossary/','catalog/')) and schema:
+ if name.startswith(('about/','tools/','glossary/','catalog/')) and schema:
   crumbs={'@context':'https://schema.org','@type':'BreadcrumbList','itemListElement':[{'@type':'ListItem','position':1,'name':'Home','item':site_url},{'@type':'ListItem','position':2,'name':'Tools and reference','item':site_url+'reference.html'},{'@type':'ListItem','position':3,'name':headline,'item':canonical}]}
   metadata.append('<script type="application/ld+json">'+json.dumps(crumbs,ensure_ascii=False).replace('<','\\u003c')+'</script>')
  if name.startswith('software/') and schema:

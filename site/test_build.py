@@ -404,6 +404,26 @@ class BuildTests(unittest.TestCase):
   # Pages that are not articles carry no citation tags.
   self.assertNotIn('citation_title',self.text('writing.html'))
 
+ def test_sitemap_lists_article_figures_for_image_search(self):
+  import struct,zlib
+  self.publish_fixtures()
+  folder=self.root/'content/articles/logistic-example'
+  def chunk(kind,data):return struct.pack('>I',len(data))+kind+data+struct.pack('>I',zlib.crc32(kind+data)&0xffffffff)
+  png=bytes([137,80,78,71,13,10,26,10])+chunk(b'IHDR',struct.pack('>IIBBBBB',1,1,8,2,0,0,0))+chunk(b'IDAT',zlib.compress(bytes([0,255,0,0])))+chunk(b'IEND',b'')
+  (folder/'shared/figure.png').write_bytes(png)
+  for lang in ('en','ja'):
+   md=folder/(lang+'.md');md.write_text(md.read_text(encoding='utf-8')+chr(10)*2+'![A figure](shared/logistic-example/figure.png)'+chr(10),encoding='utf-8')
+  build.build(self.root)
+  sitemap=self.text('sitemap.xml')
+  self.assertIn('xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"',sitemap)
+  self.assertIn('<image:loc>'+build.SITE_URL+'writing/shared/logistic-example/figure.png</image:loc>',sitemap)
+  self.assertTrue((self.root/'dist/writing/shared/logistic-example/figure.png').is_file())
+ def test_about_page_is_listed_first_and_is_an_about_page(self):
+  self.add_term('about-these-analyses','policy');build.build(self.root)
+  self.assertIn('AboutPage',self.text('about/about-these-analyses.html'));self.assertIn('about/about-these-analyses-ja.html',self.text('sitemap.xml'))
+  self.assertIn('About these analyses',self.text('reference.html'))
+  self.assertIn('about/about-these-analyses.html',self.text('index.html'))
+
 if __name__=='__main__':unittest.main()
 
 
