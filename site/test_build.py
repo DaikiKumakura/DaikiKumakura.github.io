@@ -82,8 +82,9 @@ class BuildTests(unittest.TestCase):
   self.assertIn('rel="canonical" href="'+build.SITE_URL+'"',self.text('index.html'))
   for key in build.NAV:
    self.assertNotIn('noindex',self.text(key+'.html'))
-   if key!='writing':self.assertIn('alt="'+build.ILLUSTRATION_ALT[key]+'"',self.text(key+'.html'))
-   else:self.assertNotIn('writing-isometric.svg',self.text('writing.html'))
+   # Every top-level page carries one illustration of the same size, in the heading.
+   self.assertIn('alt="'+build.ILLUSTRATION_ALT[key]+'"',self.text(key+'.html'))
+   self.assertIn('class="page-illustration"',self.text(key+'.html'));self.assertIn('width="144" height="112"',self.text(key+'.html'))
  def test_profile_has_no_topic_collections(self):
   build.build(self.root)
   self.assertNotIn('Selected analyses',self.text('profile.html'))

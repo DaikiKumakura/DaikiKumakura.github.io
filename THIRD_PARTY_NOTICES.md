@@ -16,10 +16,19 @@ Downloaded on 2026-09-28 from the official ManyPixels CDN:
 | --- | --- | --- |
 | `site/assets/model-isometric.svg` | Data Processing | <https://cdn.prod.website-files.com/69b15b68fb5a0ea0e6ef48b6/69b15b68fb5a0ea0e6ef706e_Y-D4c_9zBYX05Vo3hj9qVvliUapxMMRCPdhBLJe8d2I.svg> |
 | `site/assets/profile-isometric.svg` | Team Presentation 1 | <https://cdn.prod.website-files.com/69b15b68fb5a0ea0e6ef48b6/69b15b68fb5a0ea0e6ef75e5_lAe6FeuHytVKXhtE4NIyU0CTyhlGYMzSYfxr9sSs6AM.svg> |
-| `site/assets/writing-isometric.svg` | Report Analysis 4 | <https://cdn.prod.website-files.com/69b15b68fb5a0ea0e6ef48b6/69b15b68fb5a0ea0e6ef745a_b1s15g3ouMqiaS-58RbiOxCrvK-NzMDy3OU3FRRzxz0.svg> |
 | `site/assets/software-isometric.svg` | Coding | <https://cdn.prod.website-files.com/69b15b68fb5a0ea0e6ef48b6/69b15b68fb5a0ea0e6ef6f77_vRJksXSqYwiYzWnIqyK2B_YzhSDZxSQ6JhsflGl8HTM.svg> |
 | `site/assets/publication-isometric.svg` | Presentation 5 | <https://cdn.prod.website-files.com/69b15b68fb5a0ea0e6ef48b6/69b15b68fb5a0ea0e6ef73b8_dck0Z5qxxKkbUPvxHR3DaYM5BAgOW-z5bHoi5gsuSMY.svg> |
 | `site/assets/activity-isometric.svg` | Conference | <https://cdn.prod.website-files.com/69b15b68fb5a0ea0e6ef48b6/69b15b68fb5a0ea0e6ef6fae_GqOkilDyouZ2_LLMqcD0oSSkV4BCUQv7s8UFvWzl78M.svg> |
+
+## Isometric Lab (アイソメラボ) illustration
+
+Copyright is retained by Isometric Lab. Its terms of use (<https://isome-lab.com/terms>) allow free use, including commercial use and websites, with editing and processing within the terms, and prohibit selling or redistributing the illustration itself, hot-linking and trademark registration. The file is self-hosted, not linked.
+
+Downloaded on 2026-10-28 from <https://isome-lab.com/isometric/70432> ("開いた本", open book) as SVG with the color set to `#25577B`. Only the inline `class` attribute, the pixel `width`/`height` and the `id` of the root element were removed; the drawing is unchanged.
+
+| Local file | Illustration |
+| --- | --- |
+| `site/assets/writing-isometric.svg` | 開いた本 (open book) |
 
 ## Tabler icon
 
