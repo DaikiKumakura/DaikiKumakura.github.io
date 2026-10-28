@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2026-12-01",
+  "publish_at": "2026-12-01T13:00:00+09:00",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "正常腸管へのTCEの作用を別のドナーで予測できるか",
+      "summary": "正常腸管オルガノイド14ドナーの公開数値を再解析。CEA陽性面積と組織部位を使う小さな回帰をドナー除外予測で比較し、固定濃度のcaspase応答を平均値だけで要約する影響を調べる。",
+      "seo_title": "正常腸管TCE応答のドナー別予測",
+      "seo_description": "CEA標的TCEによる正常腸管オルガノイドの48時間応答を14ドナーで再解析。平均・組織部位・IHC発現量を比較し、別ドナーへの予測誤差とデータ対応の限界を示す。"
+    },
+    "en": {
+      "title": "Predicting intestinal T-cell engager responses across organoid donors",
+      "summary": "A donor-level reanalysis of public normal intestinal organoid data compares mean, tissue-region and CEA-area regressions using held-out donor prediction at a fixed TCE concentration.",
+      "seo_title": "Predicting intestinal TCE responses across donors",
+      "seo_description": "Public CEA TCE data from 14 organoid donors support a small prediction benchmark with donor-exclusion validation, source-sheet audits and sensitivity analysis."
+    }
+  },
+  "reviewed": {
+    "en": "9bcce1406994d3984b33408ed1f7c8627d750bd6754aa59c454d4ea50ef498ca"
+  }
+}

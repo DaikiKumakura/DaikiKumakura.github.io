@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2026-12-01",
+  "publish_at": "2026-12-01T09:00:00+09:00",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "DLL3 TCEとIL-2の併用効果を単剤から予測できるか",
+      "summary": "SCLCの公開腫瘍増殖曲線から単剤の正味増殖速度を推定し、推定に使わないTCE・IL2REH併用群を予測する。",
+      "seo_title": "DLL3 TCEとIL-2の併用効果を単剤から予測できるか",
+      "seo_description": "SCLCの公開腫瘍増殖曲線から単剤の正味増殖速度を推定し、推定に使わないTCE・IL2REH併用群を予測する。"
+    },
+    "en": {
+      "title": "Can monotherapy tumor growth predict the effect of a DLL3 T-cell engager combined with IL-2?",
+      "summary": "Monotherapy tumor growth rates predict a withheld DLL3 TCE and IL2REH combination trajectory in a public SCLC experiment.",
+      "seo_title": "DLL3 TCE and IL-2 combination prediction",
+      "seo_description": "Monotherapy tumor growth rates predict a withheld DLL3 TCE and IL2REH combination trajectory in a public SCLC experiment."
+    }
+  },
+  "reviewed": {
+    "en": "e21e69f008a3007364ec0bb3dea86fe1acc179e58dc5a702d8f7ca002a565e9d"
+  }
+}

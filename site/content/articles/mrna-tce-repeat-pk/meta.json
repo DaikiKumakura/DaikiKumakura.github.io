@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2026-11-30",
+  "publish_at": "2026-11-30T09:00:00+09:00",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "初回投与のPKからmRNA型TCEの反復投与を予測できるか",
+      "summary": "MTS105の公開個体別データ210件を再解析し、初回だけで推定した二状態モデルと曲線の繰り返しから4回目の曝露を予測する。",
+      "seo_title": "mRNA型TCEの初回PKと反復投与予測",
+      "seo_description": "GPC3標的MTS105の公開個体別PKを再解析。10頭の初回から4回目を予測し、単純な曲線の繰り返しとの誤差、ゼロの扱い、個体差を検証した。"
+    },
+    "en": {
+      "title": "Predicting repeat-dose exposure of an mRNA-encoded T-cell engager from first-dose PK",
+      "summary": "An individual-animal reanalysis of 210 public MTS105 concentrations compares two-state first-dose fitting with replay when forecasting the fourth dosing occasion.",
+      "seo_title": "First-dose PK and repeat-dose forecasts for an mRNA TCE",
+      "seo_description": "Public MTS105 data from ten monkeys test first-to-fourth-occasion PK prediction, empirical replay, reported zeros and between-occasion differences."
+    }
+  },
+  "reviewed": {
+    "en": "b4371644bc55ba5ba3aa872b6cc7687f998abaea644804fe03926c1c477766e8"
+  }
+}

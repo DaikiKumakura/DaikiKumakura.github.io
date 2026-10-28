@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2026-11-30",
+  "publish_at": "2026-11-30T13:00:00+09:00",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "T細胞の機能低下はTCEの増量で補えるか",
+      "summary": "TYRP1 TCEの実測濃度反応を再解析し、慢性刺激T細胞の信号上限と高濃度予測の不安定性を調べる。",
+      "seo_title": "T細胞の機能低下はTCEの増量で補えるか",
+      "seo_description": "TYRP1 TCEの実測濃度反応を再解析し、慢性刺激T細胞の信号上限と高濃度予測の不安定性を調べる。"
+    },
+    "en": {
+      "title": "Can increasing TCE concentration compensate for impaired T-cell function?",
+      "summary": "Reanalysis of human TYRP1 TCE assay means distinguishes low response ceilings from unstable high-concentration extrapolation.",
+      "seo_title": "TCE response ceilings",
+      "seo_description": "Reanalysis of human TYRP1 TCE assay means distinguishes low response ceilings from unstable high-concentration extrapolation."
+    }
+  },
+  "reviewed": {
+    "en": "980f51fae68b6edf7b29e8cb1b83d5d74ade84fef685baa294df11ee33088d76"
+  }
+}

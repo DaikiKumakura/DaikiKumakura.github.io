@@ -1,0 +1,115 @@
+[English version](intestinal-tce-donor-prediction-en.html)
+
+正常組織への作用を少数の培養モデルで調べるとき、平均値が低いだけでは安心できない。反応の大きいドナーが測定対象に入っていない可能性がある。一方、ドナーを増やすだけでなく、標的の発現量が反応の違いを説明するなら、測定値の解釈は変わる。
+
+正常腸管オルガノイド14ドナーの公開データを使い、CEAを標的とするT-cell engager（TCE）の48時間後の作用を予測した。ドナー平均だけを使う方法の誤差は0.519、CEAのIHC陽性面積を使う回帰では0.253だった。ただし、これは固定濃度での培養実験を同じ研究内の別ドナーへ当てはめた結果である。患者の有害事象や臨床用量を予測した値ではない。
+
+## 予測するのは48時間後のcaspase信号
+
+**QOI：正常腸管のCEA発現量を使うと、未使用ドナーのTCE応答をドナー平均より小さい誤差で予測できるか。**
+
+**COU：正常組織の非臨床評価で、ドナー差を平均値だけで要約することの影響を調べる。**
+
+Harterらは正常腸管オルガノイドとPBMCの共培養を用いて、TCEによる正常組織への作用を調べた。今回の入力は原著Figure 5のSource Dataである。高親和性CEA標的分子であるCEA(hi) TCBを0.5 µg/mLで処置した14ドナーを対象とする（[Harter et al., 2024](https://doi.org/10.1038/s41551-023-01156-5)）。
+
+目的変数は、48時間のcaspase-3/7蛍光信号を、同時点のnon-targeting TCB対照の平均信号で割った値とした。単位のない信号比であり、死細胞率でも、治療に伴う腸炎の発症確率でもない。
+
+| 項目 | 解析に使った情報 |
+| --- | --- |
+| 予測の単位 | オルガノイドのドナー14人 |
+| 組織部位 | 小腸7・大腸7 |
+| 分子と条件 | CEA(hi) TCB・0.5 µg/mL・48時間 |
+| 標的の指標 | IHCでのCEA陽性面積のドナー平均 |
+| 目的変数 | non-targeting TCBで正規化したcaspase-3/7信号 |
+| 原データ | Figure 5 Source Dataのb・d_CEA・e・f |
+
+IHCではドナーごとに複数のオルガノイドが測定されている。その数を独立したドナー数として回帰に投入しなかった。評価するのはオルガノイドの由来が異なる場合の予測であり、PBMCドナーを交換した場合の予測ではない。
+
+## EpCAMの値は混ぜない
+
+取得したSource Dataでは、EpCAMについてシート間の対応が一致しなかった。Figure 5fのドナーラベルに従った反応値を5bと比較すると14件中9件、IHC平均を5dと比較すると14件中13件で差があった。例えばDonor 40の反応は5bでは1.980381、5fでは2.732068446だった。どちらのラベルが正しいかをこちらで決めて修正することはしない。
+
+CEA(hi)では、5fの14反応が5bの同じドナーとすべて一致し、5dから計算したCEA面積平均も5fの丸め値と整合した。そのため今回の回帰はCEA(hi)に限定した。CEA(lo)も独自の対応表を仮定して追加していない。品質監査の差分は配布資料の`excluded_epcam_audit.csv`に残した（[original Figure 5 and Source Data](https://www.nature.com/articles/s41551-023-01156-5#Fig5)）。
+
+## 4つの小さなモデルを比べる
+
+ドナー \(i\) のCEA陽性面積を \(A_i\)、大腸なら1・小腸なら0を取る指標を \(R_i\)、正規化caspase信号を \(y_i\) とする。比較した式は次の4つである。
+
+\[
+\begin{aligned}
+M_0 &: y_i=\beta_0+\epsilon_i\\
+M_R &: y_i=\beta_0+\beta_R R_i+\epsilon_i\\
+M_A &: y_i=\beta_0+\beta_A A_i+\epsilon_i\\
+M_{AR} &: y_i=\beta_0+\beta_A A_i+\beta_R R_i+\epsilon_i
+\end{aligned}
+\]
+
+等しい重みの最小二乗で推定した。14ドナーしかないため、交互作用、二次項、閾値探索は加えなかった。これは後ろ向きの探索的な4モデル比較であり、事前登録した検証ではない。
+
+予測評価では1ドナーを除いて残る13ドナーで係数を推定し、その1ドナーを予測する。これを14回繰り返した。平均だけのモデルも、全14ドナーの平均ではなく、その回の学習ドナー13人の平均を使う。標的発現量は予測時点で測定できていると仮定する。
+
+\[
+\mathrm{RMSE}=\sqrt{\frac{1}{14}\sum_{i=1}^{14}(y_i-\widehat y_{i,-i})^2}
+\]
+
+## 発現量を使うと平均より誤差が小さい
+
+![CEA陽性面積と48時間後のcaspase信号](shared/intestinal-tce-donor-prediction/figures/cea-response.svg)
+
+CEA陽性面積は1.789〜46.862%、正規化caspase信号は1.246〜2.978だった。図の直線は全14ドナーへの当てはまりを示す線で、未使用ドナーへの予測線ではない。数字は公開資料のオルガノイドドナーIDである。
+
+| モデル | 係数数 | 学習内RMSE | ドナー除外RMSE | ドナー除外MAE |
+| --- | ---: | ---: | ---: | ---: |
+| 平均 | 1 | 0.482 | 0.519 | 0.408 |
+| 組織部位 | 2 | 0.298 | 0.348 | 0.270 |
+| CEA陽性面積 | 2 | 0.206 | 0.253 | 0.214 |
+| CEA陽性面積と組織部位 | 3 | 0.201 | 0.283 | 0.230 |
+
+CEA陽性面積を使うモデルのドナー除外RMSEは、平均モデルより51.3%小さかった。最大の絶対予測誤差は、平均モデルの1.237に対してCEAモデルで0.526だった。これは信号比の誤差であり、百分率ポイントではない。
+
+![除外したドナーへの予測と4モデルの誤差](shared/intestinal-tce-donor-prediction/figures/heldout-prediction.svg)
+
+組織部位をCEAに加えると、学習内の誤差はわずかに小さくなったが、未使用ドナーへの誤差は大きくなった。説明変数を増やせば予測もよくなるわけではなかった。小腸・大腸の違いを入れるだけでも平均より改善したため、CEAとの関連を組織部位から独立した因果効果とは解釈しない。
+
+## 1人のドナーだけで改善が生じたのか
+
+全14ドナーを使ったCEAモデルは次式になった。
+
+\[
+\widehat y=1.2542+0.02894 A
+\]
+
+\(A\) は百分率の数値である。例えば10 percentage pointsの違いは、この直線上では0.2894の信号比の違いに対応する。濃度を変えたときの傾きや、細胞表面の分子数に対する傾きではない。
+
+| 係数 | 推定値 | ドナー単位bootstrapの2.5〜97.5%点 |
+| --- | ---: | ---: |
+| 切片 | 1.2542 | 1.0635〜1.4267 |
+| CEA陽性面積1 percentage point当たり | 0.02894 | 0.01754〜0.03638 |
+
+bootstrapは14ドナーを復元抽出して2,000回再推定したものである。小規模な観測標本と線形モデルに条件付けた係数の不確実性であり、臨床反応の区間や新規患者の予測区間ではない。
+
+さらに1ドナーをデータ全体から取り除き、残る13ドナーの内部で再び1ドナー除外予測を行った。14通りすべてでCEAモデルのRMSEは平均モデルより小さかった。これは特定の1人を含むことだけで改善が生じていないという感度分析であり、14回の独立した外部検証ではない。
+
+![1ドナーを除いてから再評価した誤差](shared/intestinal-tce-donor-prediction/figures/donor-sensitivity.svg)
+
+## 正常組織の平均値が隠すもの
+
+今回の固定濃度では、標的発現の低い正常組織で得た反応を、そのまま別ドナーへ使うよりも、CEAのIHC情報を使う方が予測誤差は小さかった。平均応答だけで要約すると、正常組織の標的発現の分布が変わった場合の応答差を取りこぼす。
+
+ただし、IHC陽性面積は細胞表面の抗原密度ではない。caspase信号の上昇も、組織全体の死細胞割合や患者の腸炎リスクではない。画像処理、対照信号、オルガノイド分化状態、免疫細胞との相互作用も値に影響する。今回の回帰はそれらの機序を分離しない。
+
+同じ研究内の14ドナーを使った内部検証で、モデル間の順位を確認した。別の施設、PBMCドナー、分子、濃度への移行は検証していない。とくに、この固定濃度の直線から安全な投与量や治療域を計算することはできない。ここで支持されたのは、CEA(hi) TCBのこの実験条件において、正常組織のドナー差を平均だけで捨てずに扱えるという範囲である。
+
+## 解析資料
+
+[解析コード・加工データ・結果表](shared/intestinal-tce-donor-prediction/intestinal-tce-donor-prediction-analysis.zip)
+
+`analysis/run.py`が入力表の対応検査、回帰、ドナー除外予測、bootstrap、図表を再生成する。`outputs/summary.json`に本文の数値、`outputs/tables/heldout_predictions.csv`に全予測値がある。元のXLSXは公開APIから取得し、SHA-256を確認する。再実行手順と依存バージョンはREADMEに記載した。原図を転載せず、公開数値から新しい図を作成した。
+
+## References
+
+1. Harter MF, Recaldin T, Gerard R, et al. Analysis of off-tumour toxicities of T-cell-engaging bispecific antibodies via donor-matched intestinal organoids and tumouroids. *Nature Biomedical Engineering*. 2024;8:345–360. Published online December 19, 2023. [doi:10.1038/s41551-023-01156-5](https://doi.org/10.1038/s41551-023-01156-5). Source Data for Figure 5, CC BY 4.0. Changes: donor-level table extraction, source-sheet concordance checks, regression, cross-validation, bootstrap and new figures.
+
+## Cite this article
+
+Kumakura D. Predicting intestinal T-cell engager responses across organoid donors. Personal research article. 2026. Exploratory reanalysis of public experimental data.
