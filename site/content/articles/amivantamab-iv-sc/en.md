@@ -25,7 +25,7 @@ The model helps explain existing bridging evidence. Units, dosing events, mass b
 | Source | Information used | Limitation |
 | --- | --- | --- |
 | PALOMA-3 ([1](#ref-1)) | Observed PK and geometric mean ratios, GMRs, with 90% CIs | Routes compared from treatment initiation, not switching an existing IV-treated individual |
-| EMA/61503/2025, pp. 28–31, 39, 48–49 ([2](#ref-2)) | Structure, coefficients, covariates, schedule and diagnostics | Parameter table is Table 4 on p. 30, rather than Table 3 named in the text; image checked visually |
+| EMA/61503/2025, pp. 28–31, 39, 48–49 ([2](#ref-2)) | Structure, coefficients, covariates, schedule and diagnostics | Not Table 3 as named in the text: p. 30 contains the actual Table 4; image checked visually |
 | IV SmPC ([3](#ref-3)) | Initial 350 mg, next-day remainder and infusion rates | PALOMA-3 schedule takes priority over other indications or regions |
 | 2026 PALOMA report ([4](#ref-4)) | SC development and alternative-interval context | No Q3W or Q4W simulation here |
 
@@ -188,4 +188,3 @@ Figures, tables and code derive from this article's calculations. Original figur
 2. <span id="ref-2"></span> European Medicines Agency. Rybrevant assessment report. EMA/61503/2025; EMEA/H/C/005454/X/0014. 2025 Jan 30. [Assessment report](https://www.ema.europa.eu/en/documents/variation-report/rybrevant-h-c-005454-x-0014-epar-assessment-report-variation_en.pdf).
 3. <span id="ref-3"></span> Janssen-Cilag Ltd. Rybrevant 350 mg concentrate for solution for infusion: Summary of Product Characteristics. [Product information](https://www.medicines.org.uk/emc/product/13084/smpc). Accessed 2026 Oct 14.
 4. <span id="ref-4"></span> Subcutaneous Delivery of Amivantamab in Patients With Advanced Solid Malignancies: The Phase Ib PALOMA Study. 2026. PMID: 41807198. [PubMed record](https://pubmed.ncbi.nlm.nih.gov/41807198/).
-

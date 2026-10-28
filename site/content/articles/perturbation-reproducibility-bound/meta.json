@@ -20,9 +20,9 @@
     },
     "en": {
       "title": "Before evaluating cross-context perturbation prediction: know the reproducibility bound",
-      "summary": "A Japanese essay arguing that cross-cell-line perturbation predictions should be read against within-context reproducibility, using the noise-corrected correlations reported by Nadig et al. (2025). No new analysis.",
-      "seo_title": "How reproducibility bounds perturbation prediction",
-      "seo_description": "Perturbation prediction scores depend on measurement reproducibility, evaluation controls and the distinction between raw and corrected correlations."
+      "summary": "Noise-corrected Perturb-seq correlations clarify what cross-context virtual-cell prediction scores can and cannot show.",
+      "seo_title": "Before evaluating cross-context perturbation prediction: know the",
+      "seo_description": "Noise-corrected Perturb-seq correlations clarify what cross-context virtual-cell prediction scores can and cannot show."
     }
   },
   "english": {
@@ -30,6 +30,6 @@
     "summary": "A Japanese essay arguing that cross-cell-line perturbation predictions should be read against within-context reproducibility, using the noise-corrected correlations reported by Nadig et al. (2025). No new analysis."
   },
   "reviewed": {
-    "en": "7d029caefbe956b5565849e811b745fa3ef46a9aeeba91e32c1e3e79f23c6c72"
+    "en": "273fc5b88f357379adb5f66220d448b9873a5486329dae1952454921407b4b38"
   }
 }

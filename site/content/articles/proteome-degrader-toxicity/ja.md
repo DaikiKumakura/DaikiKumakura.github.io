@@ -1,6 +1,6 @@
 タンパク質をよく分解する薬が、よい候補とは限らない。標的への作用を保ちながら、標的以外の細胞機能への影響を減らす必要がある。PROTACのような分解薬では、標的に結合する部分に加え、分解装置を呼び込む部分や、それらをつなぐリンカーも設計の対象になる。
 
-2026年10月9日公開の[Proteome-guided drug discovery maps and mitigates therapeutic degrader toxicity](https://www.nature.com/articles/s41589-026-02347-2)は、アンドロゲン受容体（AR）を分解する化合物について、プロテオームの変化からミトコンドリアへの影響を探り、構造変更へつなげた研究だ。深層学習の基盤モデルを使う研究ではなく、タンパク質の測定値と勾配ブースティング木を結び付けている。
+2026年10月9日公開のBasuらの論文 ([1](#ref-1)) は、アンドロゲン受容体（AR）を分解する化合物について、プロテオームの変化からミトコンドリアへの影響を探り、構造変更へつなげた研究だ。深層学習の基盤モデルを使う研究ではなく、タンパク質の測定値と勾配ブースティング木を結び付けている。
 
 この研究で注目したいのは、予測スコアの高さより、**タンパク質の変化を見て、別の実験で作用を確かめ、分子の設計を変える**流れである。公開された補足表を使い、化合物1〜3のスコア、呼吸鎖活性、AR分解の指標を再集計した。改善が見える一方で、濃度を上げると残る影響や、モデル評価の制約も見える。
 
@@ -8,17 +8,19 @@
 
 AR分解薬は、ARに結合する部分と、E3ユビキチンリガーゼを呼び込む部分をリンカーでつなぐ。両者の近接を促し、ARを分解へ導く。この設計が意図した標的で働いても、ほかのタンパク質や代謝系への作用がなくなるわけではない。
 
-研究ではARを発現しないHepG2細胞を使い、薬剤処理後のプロテオームを測定している。この系で見る変化は、AR分解の効き目ではなく、主に標的以外への応答である。ミトコンドリアの呼吸鎖、特に複合体Iに関係するタンパク質の変化が、毒性表現型と結び付いた。([Original paper , Results and Methods](https://www.nature.com/articles/s41589-026-02347-2))
+研究ではARを発現しないHepG2細胞を使い、薬剤処理後のプロテオームを測定している。この系で見る変化は、AR分解の効き目ではなく、主に標的以外への応答である。ミトコンドリアの呼吸鎖、特に複合体Iに関係するタンパク質の変化が、毒性表現型と結び付いた。([1](#ref-1))
 
 モデルの目的変数は、ガラクトース培地のHepG2細胞で測定したATP量のIC50が10 µM未満かどうかだ。ガラクトース培地では、グルコース培地より酸化的リン酸化への依存を高めて、ミトコンドリアへの影響を検出しやすくする。ここでの「毒性スコア」は、この実験条件の分類に結び付いた値であり、患者で肝障害が起こる確率ではない。
 
-SHAPで複合体Iのタンパク質が重要と分かっても、薬がそのタンパク質に直接結合したとは決まらない。細胞の応答として量が変わった可能性もある。次に必要なのは、予測に使った測定とは異なる角度から、その機能への影響を調べることだ。
+SHAPで複合体Iのタンパク質が重要と分かっても、薬がそのタンパク質に直接結合したとは決まらない。細胞の応答として量が変わった可能性もある。著者らは別の機能実験を加え、プロテオームの関連だけでは決まらない作用を調べている。
 
 ## 構造を変えると呼吸鎖への影響はどれだけ変わるか {#_2}
 
-化合物2と3では、化合物1のCRBNリクルーターであるレナリドミド部分に7-メトキシ基を加えている。化合物3ではさらに、リンカーのエーテル鎖をピペリジンに置き換えている。ARに結合する部分は共通だが、変更はリンカーだけではない。([Original paper , Fig. 5e](https://www.nature.com/articles/s41589-026-02347-2))
+化合物2と3では、化合物1のCRBNリクルーターであるレナリドミド部分に7-メトキシ基を加えている。化合物3ではさらに、リンカーのエーテル鎖をピペリジンに置き換えている。ARに結合する部分は共通だが、変更はリンカーだけではない。([1](#ref-1))
 
 最終論文のSupplementary Dataset 5から保存スコアを取り出し、化合物に対応する基礎IDごとに平均した。化合物1は2行、化合物2は1行、化合物3は3行に基づく。これは保存値の集約であり、再学習や新しい化合物の予測ではない。
+
+表1　基礎ID単位で集約した保存スコア。
 
 | 化合物 | 保存スコアの平均 | 集約した行数 |
 | --- | ---: | ---: |
@@ -32,6 +34,8 @@ SHAPで複合体Iのタンパク質が重要と分かっても、薬がそのタ
 
 図1。[Source Data Fig. 6C of the final paper](https://www.nature.com/articles/s41589-026-02347-2)の公開測定値45点を再描画した。各点は同じ濃度の3測定値の平均、誤差棒は標本標準偏差。線は測定点を結んだもので、濃度応答曲線の推定ではない。化合物2・3で存在しない低濃度の値は補っていない。
 
+表2　濃度別のNADH依存呼吸鎖活性。公開値の平均。
+
 | 濃度（µM） | 化合物1の活性（%） | 化合物2の活性（%） | 化合物3の活性（%） |
 | --- | ---: | ---: | ---: |
 | 0.1 | 43.4 | 103.8 | 88.0 |
@@ -40,11 +44,11 @@ SHAPで複合体Iのタンパク質が重要と分かっても、薬がそのタ
 
 活性は対照に対する割合で、100%は対照と同程度を表す。0.1 µMでは化合物1の活性が43.4%まで下がる一方、化合物2・3は高い値を保つ。1 µMでも差は残る。しかし20 µMでは、化合物2・3も約38%まで低下する。**作用は弱まったが、全濃度でなくなったわけではない。** 表は公開値の平均で、差の統計的有意性を検定した結果ではない。
 
-このNADH依存の測定は、複合体IからIII・IVへ続く呼吸鎖の機能を調べるものだ。単離した複合体Iへの直接結合を測っているわけではない。論文では、複合体Iを迂回するコハク酸依存のII–III–IV系との比較も行い、複合体Iに関係する影響を支持している。プロテオームの関連から機能実験へ進むことで、構造変更の狙いが具体的になっている。([Original paper, Fig. 6 and respiratory-chain assay Methods](https://www.nature.com/articles/s41589-026-02347-2))
+このNADH依存の測定は、複合体IからIII・IVへ続く呼吸鎖の機能を調べるものだ。単離した複合体Iへの直接結合を測っているわけではない。論文では、複合体Iを迂回するコハク酸依存のII–III–IV系との比較も行い、複合体Iに関係する影響を支持している。プロテオームの関連から機能実験へ進むことで、構造変更の狙いが具体的になっている。([1](#ref-1))
 
 ## 標的分解は残る。ただし「同じ強さ」とは限らない {#_3}
 
-標的以外への影響を減らしても、ARを分解する能力まで失えば設計の目的を満たさない。Source Data Fig. 5CにあるAR分解EC50と、同じ表のスコアを並べると、その関係を確認できる。
+標的以外への影響を減らしても、ARを分解する能力まで失えば設計の目的を満たさない。[原著のSource Data Fig. 5C](https://www.nature.com/articles/s41589-026-02347-2)にあるAR分解EC50と、同じ表のスコアを並べると、その関係を確認できる。
 
 ![公開された5候補のAR分解EC50とモデルスコア](shared/proteome-degrader-toxicity/figures/02-potency-score.png)
 
@@ -52,13 +56,15 @@ SHAPで複合体Iのタンパク質が重要と分かっても、薬がそのタ
 
 化合物1のAR分解EC50は約9.50 nM、化合物3は約27.3 nMで、比は約2.88だ。化合物3にはナノモル濃度域の分解活性が残るが、この点推定だけから同等の分解活性だとは言えない。EC50が高くなったことと、呼吸鎖への影響が弱まったことを、両方とも評価に残す必要がある。
 
-また、呼吸鎖活性、HepG2のATP量、AR分解は同じ測定ではない。細胞や条件が違う値を割り算して、患者での治療域に置き換えることもできない。論文には初代ヒト肝細胞やAR陽性細胞、動物での追加実験もあるが、ここで再集計した値は前臨床の測定である。([Original paper , Figs. 5–6 and Source Data](https://www.nature.com/articles/s41589-026-02347-2))
+また、呼吸鎖活性、HepG2のATP量、AR分解は同じ測定ではない。細胞や条件が違う値を割り算して、患者での治療域に置き換えることもできない。論文には初代ヒト肝細胞やAR陽性細胞、動物での追加実験もあるが、ここで再集計した値は前臨床の測定である。([1](#ref-1))
 
-この段階で判断できるのは、化合物3が「標的分解を残しつつ、特定の呼吸鎖測定で影響を弱めた候補」だということだ。次の比較では、標的分解に必要な濃度と、呼吸鎖への影響が出る濃度を、対応する曝露条件で測る必要がある。薬剤処理時間や細胞内濃度も揃えて初めて、設計変更による余裕を定量的に評価できる。
+この段階で判断できるのは、化合物3が「標的分解を残しつつ、特定の呼吸鎖測定で影響を弱めた候補」だということだ。標的分解と呼吸鎖への影響の間にどれほどの余裕があるかは、処理時間や細胞内濃度を対応させた曝露条件がないと定量できない。今回の再集計から、その余裕を数値で確定することはできない。
 
 ## 保存スコアの精度をそのまま新規化合物へ持ち出せない {#_4}
 
-モデルの評価は、何を新しく予測するかに依存する。公開スコア表213行を[Figshare split metadata (version 1)](https://doi.org/10.6084/m9.figshare.28578113)にIDで照合すると、学習170行、評価43行に一致した。最終論文のスコア表を基準とし、値の異なる旧figshare TableS3とは混ぜていない。
+モデルの評価は、何を新しく予測するかに依存する。公開スコア表213行をFigshareの分割メタデータ（version 1）([2](#ref-2))にIDで照合すると、学習170行、評価43行に一致した。最終論文のスコア表を基準とし、値の異なる旧figshare TableS3とは混ぜていない。
+
+表3　保存スコアと公開分割の照合結果。APは独立評価性能ではない。
 
 | 再集計した項目 | 結果 |
 | --- | ---: |
@@ -71,7 +77,7 @@ SHAPで複合体Iのタンパク質が重要と分かっても、薬がそのタ
 
 AP（average precision）は、スコアが高い順に並べたときの適合率を、再現率の増分で重み付けして足した指標だ。同点はまとめて計算した。しかし、この0.847を独立した評価性能として読んではいけない。論文Methodsには、**最終モデルの校正に評価用のtest setを使った**と明記されている。保存スコアでのAPには、その校正に使ったラベルが再登場する。
 
-これは論文が報告した個別モデルのAUPRC（narrow search 0.79、wide search 0.78）の再現でもない。ここで計算したのは、校正後に平均された保存スコアの記述的な値である。新規データでの性能を測るなら、学習・モデル選択・校正に使わない評価データを別に用意する必要がある。([Original paper , Model calibration and toxicity scoring](https://www.nature.com/articles/s41589-026-02347-2))
+これは論文が報告した個別モデルのAUPRC（narrow search 0.79、wide search 0.78）の再現でもない。ここで計算したのは、校正後に平均された保存スコアの記述的な値である。新規データでの性能を測るなら、学習・モデル選択・校正に使わない評価データを別に用意する必要がある。([1](#ref-1))
 
 分割の単位にも制約がある。基礎IDは公式のスコア集約と同様に末尾の接尾辞を取り除いて作った識別子で、分子構造の同一性を別途検証したものではない。それでも5つが両側に現れ、化学系列は評価側の12系列すべてが学習側にもある。この分割は既知系列内の測定を評価するもので、新しい系列への一般化を直接示すものではない。新規系列を選別する用途なら、系列ごとに分割した上で、校正用と最終評価用も分ける設計が必要になる。
 
@@ -83,10 +89,17 @@ AP（average precision）は、スコアが高い順に並べたときの適合�
 
 ただし、呼吸鎖への影響が減ったこととAR分解が同じ強さで保たれたことは別である。異なる細胞・測定条件の値から患者での治療域を作ることはできず、低い毒性スコアだけで候補の安全性が確定するわけではない。
 
-## データと再実行 {#_6}
+## データとコードの公開 {#_6}
 
 [再集計コード・入力CSV・図をダウンロード](shared/proteome-degrader-toxicity/proteome-degrader-toxicity.zip)。Pythonの標準ライブラリだけで集計と6件の計算テストを実行できる。図の再描画にはmatplotlibが必要だ。ZIPの`REPRODUCE.md`に実行手順、`input-provenance.json`に出典URLと元ファイルのハッシュを収録した。
 
-入力は最終論文の[Supplementary Dataset 5](https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41589-026-02347-2/MediaObjects/41589_2026_2347_MOESM7_ESM.csv)、[Source Data Fig. 5](https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41589-026-02347-2/MediaObjects/41589_2026_2347_MOESM12_ESM.xlsx)、[Source Data Fig. 6](https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41589-026-02347-2/MediaObjects/41589_2026_2347_MOESM13_ESM.xlsx)、および[Public split metadata](https://doi.org/10.6084/m9.figshare.28578113)。解析に必要な数値を抽出し、元の表・図・モデルは再配布していない。元論文の図を転載せず、公開数値から独自に描画した。公式コードは[Public repository](https://github.com/Ralser-Lab/Proteomic-drug-discovery)のcommit `1caec1e916a770d04c316f0aa913c1e39e31f4ec`を静的に確認した。
+入力は最終論文の補足データ ([3](#ref-3)) から得た[Supplementary Dataset 5](https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41589-026-02347-2/MediaObjects/41589_2026_2347_MOESM7_ESM.csv)、[Source Data Fig. 5](https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41589-026-02347-2/MediaObjects/41589_2026_2347_MOESM12_ESM.xlsx)、[Source Data Fig. 6](https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41589-026-02347-2/MediaObjects/41589_2026_2347_MOESM13_ESM.xlsx)、および[Public split metadata](https://doi.org/10.6084/m9.figshare.28578113)。解析に必要な数値を抽出し、元の表・図・モデルは再配布していない。元論文の図を転載せず、公開数値から独自に描画した。公式コードは公開リポジトリ ([4](#ref-4)) のcommit `1caec1e916a770d04c316f0aa913c1e39e31f4ec`を静的に確認した。
 
 本解析は公開資料を見た後の探索的な再集計である。生のプロテオーム処理、モデルの再学習・校正、系列を除外した評価、臨床安全性の検証は行っていない。
+
+## 参照 {#article-references}
+
+1. <span id="ref-1"></span>Basu S, Yu JSL, Bosak J, Bagal SK, Crafter C, Fallan C, et al. Proteome-guided drug discovery maps and mitigates therapeutic degrader toxicity. Nature Chemical Biology. 2026 Oct 9. Published online. [doi:10.1038/s41589-026-02347-2](https://doi.org/10.1038/s41589-026-02347-2).
+2. <span id="ref-2"></span>Ralser Laboratory. Proteomic drug discovery: split metadata, version 1. Figshare. 2025. [doi:10.6084/m9.figshare.28578113](https://doi.org/10.6084/m9.figshare.28578113).
+3. <span id="ref-3"></span>Basu S, Yu JSL, Bosak J, Bagal SK, Crafter C, Fallan C, et al. Supplementary Dataset 5 and Source Data for Figures 5 and 6. Supplement to: Proteome-guided drug discovery maps and mitigates therapeutic degrader toxicity. Nature Chemical Biology. 2026. [Supplementary files](https://www.nature.com/articles/s41589-026-02347-2).
+4. <span id="ref-4"></span>Ralser Laboratory. Proteomic-drug-discovery [source code]. Commit 1caec1e916a770d04c316f0aa913c1e39e31f4ec. [GitHub repository](https://github.com/Ralser-Lab/Proteomic-drug-discovery/tree/1caec1e916a770d04c316f0aa913c1e39e31f4ec).

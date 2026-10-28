@@ -12,10 +12,19 @@
       "title": "Inavolisibの腎機能別用量をAUCとピーク・トラフから考える",
       "seo_title": "Inavolisibの腎機能別用量とPK | Daiki Kumakura",
       "summary": "公表3コンパートメントモデルと腎機能試験のAUC比で、用量補正と同一日量の分割を比較。4096組の条件付き解析からピーク・トラフの違いと臨床予測の限界を整理する。"
+    },
+    "en": {
+      "title": "Inavolisib renal dosing: AUC, peaks and troughs",
+      "summary": "Published inavolisib PK separates renal dose adjustment, AUC matching and concentration shape without predicting clinical benefit.",
+      "seo_title": "Inavolisib renal dosing: AUC, peaks and troughs",
+      "seo_description": "Published inavolisib PK separates renal dose adjustment, AUC matching and concentration shape without predicting clinical benefit."
     }
   },
   "english": {
     "title": "Inavolisib renal dosing: AUC, peaks and troughs",
     "summary": "Public three-compartment PK and aggregate renal study ratios support conditional exposure comparisons. Equal daily dose does not imply equal peaks or troughs; clinical benefit is not predicted."
+  },
+  "reviewed": {
+    "en": "b824f80e47844545df4808e03c30a6f4ff0bd642f9709799045c57742517c945"
   }
 }

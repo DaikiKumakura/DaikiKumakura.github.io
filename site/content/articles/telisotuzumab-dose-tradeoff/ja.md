@@ -2,19 +2,21 @@
 
 c-Met標的ADCのtelisotuzumab vedotinについて、公開されたPKと曝露–反応（E–R）モデルを用い、固定1.9 mg/kg、固定1.6 mg/kg、最初の2回だけ1.6 mg/kgとする条件を比較した。**順次増量は初期と後半の曝露を分けて調整できたが、初期曝露だけを入力するE–R式では、その長期的な利点を判定できなかった。**
 
-資料確認日は2026年10月21日。Telisotuzumab vedotinはc-Met蛋白高発現の既治療非扁平上皮NSCLCを対象に、2025年に米国で迅速承認された。承認用量は1.9 mg/kgを2週ごと、体重100 kg以上では190 mgを上限とする。[FDA approval information](https://www.fda.gov/drugs/resources-information-approved-drugs/fda-grants-accelerated-approval-telisotuzumab-vedotin-tllv-nsclc-high-c-met-protein-overexpression)
+資料確認日は2026年10月21日。Telisotuzumab vedotinはc-Met蛋白高発現の既治療非扁平上皮NSCLCを対象に、2025年に米国で迅速承認された。承認用量は1.9 mg/kgを2週ごと、体重100 kg以上では190 mgを上限とする。([1](#ref-1))
 
 ## 何を判断するための計算か {#_1}
 
-**QOI**は、固定用量の変更と初期低用量の導入が、初期・後半のADC曝露、および公表E–R式による有効性・毒性の関連にどう現れるか、である。
+この計算で問うのは、固定用量の変更と初期低用量の導入が、初期・後半のADC曝露、および公表E–R式による有効性・毒性の関連にどう現れるか、である。
 
-**COU**は、次の比較試験で調べる条件と測定項目を整理する研究用途に限る。患者の投与量を選択する解析ではない。ORRとGrade 3以上の末梢神経障害（PN）を扱うが、死亡を含む安全性全体を評価したbenefit–riskモデルとはしない。
+解析の用途は、用量条件と測定項目の関係を整理する研究に限る。患者の投与量を選択する解析ではない。ORRとGrade 3以上の末梢神経障害（PN）を扱うが、死亡を含む安全性全体を評価したbenefit–riskモデルとはしない。
 
-2026年の原著は304例のPKとE–R解析を報告している。今回の数値入力は、同じ開発資料を含むFDA審査資料の表47・48・51・54から取得した。新たな個人別NLME推定は行わず、**同じ薬剤の公表済み推定係数を借用した数値解析**である。[Babel et al. paper](https://doi.org/10.1002/psp4.70219)、[FDA assessment report](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/761384Orig1s000MultidisciplineR.pdf)
+2026年の原著は304例のPKとE–R解析を報告している。今回の数値入力は、同じ開発資料を含むFDA審査資料の表47・48・51・54から取得した。新たな個人別NLME推定は行わず、**同じ薬剤の公表済み推定係数を借用した数値解析**である。([2](#ref-2), [3](#ref-3))
 
 ## 比較する3条件 {#3}
 
 いずれも2週間隔、84日間を計算する。点滴時間は全条件で30分に標準化した仮想計算条件であり、承認投与手順や前投薬を完全に再現するものではない。体重68.9 kgを用量計算上の基準とし、100 kgの上限処理も実装した。
+
+表1　投与条件。全条件で投与間隔は2週間とした。
 
 | 条件 | Day 0・14 | Day 28以降 |
 |---|---|---|
@@ -22,7 +24,7 @@ c-Met標的ADCのtelisotuzumab vedotinについて、公開されたPKと曝露�
 | 固定1.6 | 1.6 mg/kg | 1.6 mg/kg |
 | 初期2回1.6 | 1.6 mg/kg | 1.9 mg/kg |
 
-低用量開始後に1.9 mg/kgへ増量する考え方は、FDA審査資料にも前向きに検討すべき案として記載されている。ただし、その期間には非開示部分がある。**「最初の2回」という期間は今回こちらで定義した仮想条件であり、FDA指定のレジメンを復元したものではない。**[FDA assessment report PDF 235 pages](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/761384Orig1s000MultidisciplineR.pdf)
+低用量開始後に1.9 mg/kgへ増量する考え方は、FDA審査資料にも前向きに検討すべき案として記載されている。ただし、その期間には非開示部分がある。**「最初の2回」という期間は今回こちらで定義した仮想条件であり、FDA指定のレジメンを復元したものではない。**([3](#ref-3), p. 235)
 
 ## ADCの濃度推移を作る {#adc}
 
@@ -37,6 +39,8 @@ ADCは線形の2コンパートメントで記述する。
 \]
 
 時間はday、量はmg、容積はLとし、濃度mg/Lは数値としてµg/mLと等しい。
+
+表2　ADCモデルの係数。FDA審査資料の表47・48に基づく ([3](#ref-3))。
 
 | パラメータ | 使用値 |
 |---|---:|
@@ -62,6 +66,8 @@ V_{c,i}=3.44\,r^{-0.464}e^{\eta_{V,i}}.
 
 アルブミン比1で、固定1.9に対する患者内AUC比を計算した。
 
+表3　固定1.9に対する患者内AUC比の中央値。
+
 | 期間 | 固定1.6 | 初期2回1.6 |
 |---|---:|---:|
 | Day 0–14 | 0.8421 | 0.8421 |
@@ -72,6 +78,8 @@ V_{c,i}=3.44\,r^{-0.464}e^{\eta_{V,i}}.
 数値は4096組の患者内比の中央値である。固定1.6は線形性からすべての窓で1.6/1.9倍になる。一方、初期2回1.6では後半の曝露がほぼ戻った。Day 56–84の比の5–95百分位は0.99948–1.00000だった。この範囲は条件付き仮想患者間のばらつきであり、信頼区間ではない。
 
 ![固定用量と初期低用量条件のADC濃度、期間別のAUC比](shared/telisotuzumab-dose-tradeoff/figures/01-pk-regimens.png)
+
+図1　投与条件ごとのADC濃度と期間別AUC比。著者による数値計算。
 
 84日全体でのAUC低下は約5%でも、最初の28日では約16%低い。総AUCだけを見れば、この時間配分の違いを見落とす。もっとも、これは線形・時間非依存モデルでの結果であり、腫瘍量の変化に伴う脱抱合やクリアランスの変化は再現していない。
 
@@ -94,11 +102,13 @@ E=C_{\mathrm{avg,C1}}=\frac{AUC_{0-14}}{14}
 
 \(E\)の数値単位はµg/mL、logは自然対数である。別の濃度単位へ変えた値をそのまま代入すると、\(\log(1+E)\)の値が変わってしまう。
 
-ORRモデルの対象はc-Met中間・高発現の193例、PNの安全性解析は別のプール集団である。用量割付も無作為化されていない。したがって、以下は**公表された関連式の条件付き射影**であり、減量による因果効果や、承認対象の高発現患者だけに較正した発現率ではない。初期曝露を使う式でも、予測対象が初回14日間のPN発現率という意味ではなく、今回の84日PK窓の発現確率でもない。([Original paper analysis populations and exposure definitions](https://doi.org/10.1002/psp4.70219))
+ORRモデルの対象はc-Met中間・高発現の193例、PNの安全性解析は別のプール集団である。用量割付も無作為化されていない。したがって、以下は**公表された関連式の条件付き射影**であり、減量による因果効果や、承認対象の高発現患者だけに較正した発現率ではない。初期曝露を使う式でも、予測対象が初回14日間のPN発現率という意味ではなく、今回の84日PK窓の発現確率でもない。([2](#ref-2))
 
 ### 固定用量の比較 {#_2}
 
 アルブミン比1の条件付き集団では、モデル確率を患者間で平均すると次の値になった。
+
+表4　条件付き仮想集団における平均モデル確率。
 
 | 条件 | ORRモデル確率 | Grade 3以上PNモデル確率 |
 |---|---:|---:|
@@ -111,6 +121,8 @@ ORRモデルの対象はc-Met中間・高発現の193例、PNの安全性解析�
 また、元のCavgC1の観測支持域を数値範囲として確認できていない。対数正規分布の裾を含め、全仮想患者がその支持域内にあるとは保証できない。別の平均曝露指標の範囲を流用して範囲外率を計算することはせず、今回生成したCavgC1の最小・最大と百分位を配布表に残した。
 
 ![アルブミン比を変えた固定用量のORR・PN関連モデルの射影](shared/telisotuzumab-dose-tradeoff/figures/02-er-tradeoff.png)
+
+図2　アルブミン比別の固定用量とORR・PNモデル確率。著者による数値計算。
 
 この図を「アルブミンが低ければ低リスク」と読んではいけない。モデルに入れたPK経路だけを変化させており、栄養状態、病勢、合併症などの転帰への経路は含めていない。
 
@@ -140,11 +152,15 @@ E–R係数の周辺95% CIは公開されているが、切片と傾きの共分
 
 ![毒性への重みと、E–R係数の格子感度によるスコア差](shared/telisotuzumab-dose-tradeoff/figures/03-preference-sensitivity.png)
 
+図3　毒性への重みとE–R係数の有限格子による感度。帯は信頼区間ではない。
+
 図の帯は**有限個の係数シナリオの範囲**であり、結合95% CIでも、連続した係数領域全体を保証する上下限でもない。実際には相関の強い係数の組合せを含む可能性があり、確率的な重みも付けていない。この帯から各投与量を選ぶべき確率は求められない。必要なのは、元の係数共分散や患者別の曝露・転帰を含む情報である。
 
 ## ADCとMMAEは同じ方向に動くとは限らない {#adcmmae}
 
 公表モデルでは、アルブミンのCLへの係数はADCで−0.970、遊離MMAEで1.99と異なる。投与量と生成スケールを同じと仮定した定常状態AUCの相対値は、比0.75で次のようになる。
+
+表5　アルブミン比0.75での代数的な相対曝露。
 
 | 成分・条件 | 基準に対する定常状態AUC比 |
 |---|---:|
@@ -154,7 +170,7 @@ E–R係数の周辺95% CIは公開されているが、切片と傾きの共分
 
 これはCLの共変量式から得た代数的な比である。MMAEの絶対生成量のスケールや、ADCとの個体間依存を十分に確認できなかったため、絶対MMAE濃度や完全な連結モデルとしては再現していない。生成スケールが病状によって変わるなら、この相対比較の仮定も崩れる。
 
-また、今回のPN式はADC曝露の式であり、上のMMAE比をPNリスクへ変換してはいない。FDAは別に、腫瘍量、ADC・MMAEの逆方向の曝露関係、致死的有害事象に関する探索的所見を検討している。**ORRとPNだけで安全性全体を代表させることはできない。**[FDA independent analysis / PDF 227–235 pages](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/761384Orig1s000MultidisciplineR.pdf)
+また、今回のPN式はADC曝露の式であり、上のMMAE比をPNリスクへ変換してはいない。FDAは別に、腫瘍量、ADC・MMAEの逆方向の曝露関係、致死的有害事象に関する探索的所見を検討している。**ORRとPNだけで安全性全体を代表させることはできない。**([3](#ref-3), pp. 227–235)
 
 ## 初期低用量の価値はこのE–R式だけでは決まらない {#er_1}
 
@@ -164,7 +180,15 @@ E–R係数の周辺95% CIは公開されているが、切片と傾きの共分
 
 公開モデルで支持できたのは、初期の曝露低下と後半の回復を分けて設計できること、固定用量のE–R比較は価値づけと係数の扱いに依存すること、そして静的なE–R式を順次増量の転帰予測に流用できないことだった。新しいレジメンの安全性・有効性の確立は、この計算の先に残る。
 
+## データとコードの公開 {#article-availability}
+
 解析はPythonで実行し、独立ODE解、有限点滴の積分、量収支、用量比例性、初回曝露の同一性を点検した。原著図や個票は再配布せず、数値入力・原コード・生成図表を配布する。
 
 
 [解析コード・入力値・集計表・再実行手順](shared/telisotuzumab-dose-tradeoff/telisotuzumab-analysis.zip)
+
+## 参照 {#article-references}
+
+1. <span id="ref-1"></span>US Food and Drug Administration. FDA grants accelerated approval to telisotuzumab vedotin-tllv for NSCLC with high c-Met protein overexpression. 2025 May 14. [Approval information](https://www.fda.gov/drugs/resources-information-approved-drugs/fda-grants-accelerated-approval-telisotuzumab-vedotin-tllv-nsclc-high-c-met-protein-overexpression).
+2. <span id="ref-2"></span>Babel H, Brunsdon P, Engelhardt B, Schmitt V, Ratajczak C, Mensing S, et al. Population Pharmacokinetics and Exposure‐Response Analyses for Telisotuzumab Vedotin in Patients With c‐Met Protein Overexpressing Tumors. CPT: Pharmacometrics & Systems Pharmacology. 2026;15(3):e70219. [doi:10.1002/psp4.70219](https://doi.org/10.1002/psp4.70219).
+3. <span id="ref-3"></span>US Food and Drug Administration. Telisotuzumab vedotin-tllv: multidisciplinary review, application 761384. 2025. Tables 47, 48, 51 and 54; pp. 227–235. [Review report](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/761384Orig1s000MultidisciplineR.pdf).

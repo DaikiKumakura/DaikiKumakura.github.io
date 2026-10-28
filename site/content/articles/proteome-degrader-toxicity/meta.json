@@ -12,10 +12,19 @@
       "title": "標的を消せても毒性は残る。プロテオームを手掛かりに分解薬を変える",
       "summary": "AR分解薬の公開データを再集計し、プロテオーム由来スコア、呼吸鎖活性、標的分解を比較する。設計変更で改善した測定と残る作用を分け、校正データの再使用と化学系列の重複が評価に与える制約を確認する。",
       "seo_title": "標的を消せても毒性は残る。プロテオームで分解薬を変える"
+    },
+    "en": {
+      "title": "Proteome-guided degrader design: separating target degradation from mitochondrial effects",
+      "summary": "Public proteomics and respiratory-chain data reveal the gains and limits of redesigning an androgen-receptor degrader.",
+      "seo_title": "Proteome-guided degrader design: separating target degradation fr",
+      "seo_description": "Public proteomics and respiratory-chain data reveal the gains and limits of redesigning an androgen-receptor degrader."
     }
   },
   "english": {
     "title": "Proteome-guided degrader design: separating target degradation from mitochondrial effects",
     "summary": "Published AR-degrader data connect protein signatures, respiratory-chain assays and target degradation. A descriptive recalculation distinguishes retained activity from equivalence and audits test-set calibration and shared chemical series."
+  },
+  "reviewed": {
+    "en": "57a01607d6a820e87179f5a202a53c5a78d7da83fce5ae549468705891d4890b"
   }
 }

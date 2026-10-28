@@ -4,19 +4,21 @@ Inavolisibでは、腎機能に応じて開始用量を下げる。では、用�
 
 ## 背景と今回の問い {#_1}
 
-InavolisibはPI3Kα阻害薬で、変異型p110αの分解も誘導する。PIK3CA変異を持つHR陽性・HER2陰性の進行乳癌に対するpalbociclib・fulvestrantとの併用では、INAVO120の全生存期間の結果が2025年に報告された。ここで行うのは、その臨床効果の再解析ではなく、腎機能別の曝露を公開情報から整理する解析である。[INAVO120 overall-survival analysis](https://www.nejm.org/doi/full/10.1056/NEJMoa2501796)
+InavolisibはPI3Kα阻害薬で、変異型p110αの分解も誘導する。PIK3CA変異を持つHR陽性・HER2陰性の進行乳癌に対するpalbociclib・fulvestrantとの併用では、INAVO120の全生存期間の結果が2025年に報告された。ここで行うのは、その臨床効果の再解析ではなく、腎機能別の曝露を公開情報から整理する解析である。([1](#ref-1))
 
-確認した米国添付文書は2026年4月改訂版である。通常は9 mgを1日1回、中等度腎機能障害では6 mgを1日1回、重度では3 mgを1日1回とされている。腎機能の分類はCKD-EPIによるeGFRで、中等度は30以上60未満、重度は30未満（mL/min）である。重度の記載は2024年の初回審査後に更新されているため、古い資料の「重度では未検討」を現在の説明には使わない。[US prescribing information §§2.3, 2.5](https://www.gene.com/download/pdf/itovebi_prescribing.pdf)、[FDA additional approval notice](https://www.accessdata.fda.gov/drugsatfda_docs/appletter/2026/219249Orig1s004ltr.pdf)
+確認した米国添付文書は2026年4月改訂版である。通常は9 mgを1日1回、中等度腎機能障害では6 mgを1日1回、重度では3 mgを1日1回とされている。腎機能の分類はCKD-EPIによるeGFRで、中等度は30以上60未満、重度は30未満（mL/min）である。重度の記載は2024年の初回審査後に更新されているため、古い資料の「重度では未検討」を現在の説明には使わない。([2](#ref-2))、([3](#ref-3))
 
-**QOI**は、腎機能別の曝露増加を用量で補正したとき、AUC・ピーク・トラフがどこまで揃うか、さらに同じ1日量の分割で何が変わるかである。**COU**は公開資料を使った研究と、次に比較するPK条件の整理に限る。個人の投与量や臨床試験の用量を決めるためには使わない。
+ここで問うのは、腎機能別の曝露増加を用量で補正したとき、AUC・ピーク・トラフがどこまで揃うか、さらに同じ1日量の分割で何が変わるかである。解析は公開資料を使った研究とPK条件の比較に限る。個人の投与量や臨床試験の用量を決めるためには使わない。
 
 ## 公表モデルと専用試験を分けて読む {#_2}
 
 今回使った情報は二つある。
 
-一つは、336人・3,863観測に基づく既存のPopPKモデルである。3コンパートメント、一次吸収・線形消失で、腎機能がCL/F、体重と人種がVc/F、製剤が吸収速度に入る。個人別の濃度を取得して再推定したものではなく、審査資料の推定済み係数を再利用した。[EMA assessment report pp32–33](https://www.ema.europa.eu/en/documents/assessment-report/itovebi-epar-public-assessment-report_en.pdf)
+一つは、336人・3,863観測に基づく既存のPopPKモデルである。3コンパートメント、一次吸収・線形消失で、腎機能がCL/F、体重と人種がVc/F、製剤が吸収速度に入る。個人別の濃度を取得して再推定したものではなく、審査資料の推定済み係数を再利用した。([4](#ref-4))
 
-もう一つは、単回6 mgを投与したGP44944試験の集計値である。中等度7人、重度8人、正常腎機能11人の計26人が参加し、腎機能障害群は対応する正常対照と比較されている。二つの比較の対照群を、互いに独立した別集団とは扱わない。[Sutaria et al., 2025 CPDD Abstract Booklet, Poster 108](https://doi.org/10.1002/cpdd.1588)
+もう一つは、単回6 mgを投与したGP44944試験の集計値である。中等度7人、重度8人、正常腎機能11人の計26人が参加し、腎機能障害群は対応する正常対照と比較されている。二つの比較の対照群を、互いに独立した別集団とは扱わない。([5](#ref-5))
+
+表1　専用腎機能障害試験の集計値 ([5](#ref-5))。
 
 | 専用試験の比較 | AUC₀–∞の幾何平均比（90% CI） | Cmaxの幾何平均比（90% CI） |
 |---|---:|---:|
@@ -25,7 +27,7 @@ InavolisibはPI3Kα阻害薬で、変異型p110αの分解も誘導する。PIK3
 
 AUCの増加ほどにはピークが増えていない。この違いを無視して、腎機能の効果を全濃度への一律の掛け算にすると、濃度推移の説明を誤る。
 
-なお、旧モデルの連続共変量は**MDRD式のeGFR**で、観測範囲は41.8–218 mL/minだった。一方、専用試験の分類は**2021 CKD-EPI式**である。旧データの腎障害カテゴリー集計はさらにCrCLに基づく。指標を混ぜて、仮に選んだeGFR 45や20を試験群の平均値としてモデルに代入することはしなかった。専用試験の群平均eGFRも今回の公開情報では確認できていない。([FDA assessment report Tables 46–48, printed pp. 197–199](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2024/219249Orig1s000MultidisciplineR.pdf))
+なお、旧モデルの連続共変量は**MDRD式のeGFR**で、観測範囲は41.8–218 mL/minだった。一方、専用試験の分類は**2021 CKD-EPI式**である。旧データの腎障害カテゴリー集計はさらにCrCLに基づく。指標を混ぜて、仮に選んだeGFR 45や20を試験群の平均値としてモデルに代入することはしなかった。専用試験の群平均eGFRも今回の公開情報では確認できていない ([6](#ref-6))。
 
 ## 3コンパートメントモデルの実装 {#3}
 
@@ -43,6 +45,8 @@ C(t)&=1000\,A_c(t)/V_c.
 \]
 
 投与時に \(A_g\) へmg単位の用量を加える。量はmg、時間はh、容積はLとし、最後の1,000倍で濃度をng/mLに変換する。以下のCL・容積・分布クリアランスは、経口投与の**見かけの値**を表す。絶対バイオアベイラビリティ0.76を、さらに用量へ掛けることはしない。
+
+表2　PopPKモデルの再利用係数 ([4](#ref-4), [6](#ref-6))。
 
 | 再利用した係数 | 値 |
 |---|---:|
@@ -64,7 +68,7 @@ x_{ss}(0^+)=(I-e^{K\tau})^{-1}bD
 
 で求められる。長い期間を細かい刻みで反復計算する代わりに、この式から1投与間隔の濃度を計算した。
 
-参照条件9 mg・24時間間隔の典型値はAUCが**1,019 h·ng/mL**、Cmaxが**66.46 ng/mL**だった。現行米国添付文書の集団幾何平均は1,010 h·ng/mLと69 ng/mLであり、概ね同じ大きさにある。ただし、固定した参照条件の典型値と患者集団の幾何平均は異なる。近さだけをもって外部検証の完了とはしない。[US prescribing information §12.3](https://www.gene.com/download/pdf/itovebi_prescribing.pdf)
+参照条件9 mg・24時間間隔の典型値はAUCが**1,019 h·ng/mL**、Cmaxが**66.46 ng/mL**だった。現行米国添付文書の集団幾何平均は1,010 h·ng/mLと69 ng/mLであり、概ね同じ大きさにある。ただし、固定した参照条件の典型値と患者集団の幾何平均は異なる。近さだけをもって外部検証の完了とはしない。([2](#ref-2))
 
 ## 専用試験から推定できるのは相対的な見かけのCL {#cl}
 
@@ -80,13 +84,15 @@ x_{ss}(0^+)=(I-e^{K\tau})^{-1}bD
 
 ![専用試験のAUC・Cmax比と、CLのみ変更したモデルのCmax比](shared/inavolisib-renal-dose/figures/01-renal-ratios.png)
 
-**図1。** 点と区間は専用試験の集計値と90% CI、×はAUC比だけで校正したモデルの典型Cmax比。中等度では1.048、重度では1.065となった。観測Cmax比の点推定とは異なるが、いずれも公表90% CI内に入る。ただし比較しているのは条件付き典型値と調整された集団比であり、吸収や分布が不変だと立証できたわけではない。Cmaxを合わせるための追加パラメータは推定していない。
+**図1．** 点と区間は専用試験の集計値と90% CI、×はAUC比だけで校正したモデルの典型Cmax比。中等度では1.048、重度では1.065となった。観測Cmax比の点推定とは異なるが、いずれも公表90% CI内に入る。ただし比較しているのは条件付き典型値と調整された集団比であり、吸収や分布が不変だと立証できたわけではない。Cmaxを合わせるための追加パラメータは推定していない。
 
 ## 用量補正後もAUC・ピーク・トラフは一致しない {#auc}
 
 公表された個体間分散・共分散から4,096組の乱数を生成し、同じ組を各条件に使った。これは実患者のマッチングではなく、仮定したPK個体差を揃えるpaired simulationである。腎障害群でも同じ分散構造が使えると仮定し、残差誤差、腎機能の時間変化、服薬忘れは含めていない。
 
 以下は、参照9 mg QD、中等度6 mg QD、重度3 mg QDを比較した結果である。専用試験の単回投与比を反復投与へ運ぶため、線形性と腎機能効果の時間不変性を仮定した。3 mgは現行用量であるが、添付文書に記載された用量比例性の範囲は6–12 mgであり、低用量での線形性も今回の仮定に含まれる。
+
+表3　用量補正後の仮想集団の曝露。区間は信頼区間ではない。
 
 | 条件 | AUC₂₄中央値［5–95パーセンタイル］、h·ng/mL | Cmax、ng/mL | Cmin、ng/mL |
 |---|---:|---:|---:|
@@ -98,11 +104,13 @@ x_{ss}(0^+)=(I-e^{K\tau})^{-1}bD
 
 ![腎機能別の補正用量におけるAUC・ピーク・トラフのpaired比](shared/inavolisib-renal-dose/figures/02-adjusted-exposure.png)
 
-**図2。** 同じ乱数の参照9 mg QDに対する比。AUC比は中等度1.153、重度0.743となる。個人のCL乱数を両条件で共通にしたため、AUC比の個体差は式の上で相殺される。区間が狭いことは、臨床的な不確実性が小さいという意味ではない。
+**図2．** 同じ乱数の参照9 mg QDに対する比。AUC比は中等度1.153、重度0.743となる。個人のCL乱数を両条件で共通にしたため、AUC比の個体差は式の上で相殺される。区間が狭いことは、臨床的な不確実性が小さいという意味ではない。
 
 重度3 mgでは、AUCは参照より低い一方、トラフのpaired中央値は**1.009倍**だった。中等度6 mgではピークが**0.973倍**でも、トラフは**1.458倍**となる。CLの低下によって濃度の下がり方が緩やかになるため、総曝露と投与直前濃度が同じ比率にはならない。
 
 専用試験の推定誤差も別に示す。用量補正後のAUC比は単に \(R\times D/9\) で求められる。
+
+表4　単回試験のAUC比と90% CIを用量補正した値。
 
 | 条件 | 用量補正後AUC比 | 公表GMRの90% CIを変換した区間 |
 |---|---:|---:|
@@ -125,7 +133,9 @@ AUC_{24,ss}=1000\,\frac{24D}{\tau(CL/F)}
 
 ![同じ6 mg/日の1日1回と2回分割の定常状態濃度とpaired比](shared/inavolisib-renal-dose/figures/03-equal-intensity.png)
 
-**図3。** 左は典型条件の濃度、右は4,096組での3 mg BID / 6 mg QDの比。BIDは12時間間隔を厳密に守った仮定であり、実際の服薬可能性は評価していない。
+**図3．** 左は典型条件の濃度、右は4,096組での3 mg BID / 6 mg QDの比。BIDは12時間間隔を厳密に守った仮定であり、実際の服薬可能性は評価していない。
+
+表5　中等度腎機能障害の条件付きモデルでの等日量比較。
 
 | 指標 | 3 mg BID / 6 mg QDの中央値［5–95パーセンタイル］ |
 |---|---:|
@@ -137,7 +147,7 @@ AUC_{24,ss}=1000\,\frac{24D}{\tau(CL/F)}
 
 ## ピーク低下を高血糖の改善とは呼べない {#_3}
 
-公開審査資料では、幅広い用量を含むPhase IのGO39374でGrade 2以上の高血糖と曝露の関連が報告されている。一方、9 mgを用いたPhase IIIのWO41554では、同じ関連は確認されなかった。曝露範囲、登録時の血糖・HbA1c条件、有害事象管理が異なる。2026年のINAVO120安全性解析でも、開始時の血糖背景と早期の高血糖管理が扱われている。([FDA assessment report printed pp. 211–214](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2024/219249Orig1s000MultidisciplineR.pdf))、[INAVO120 safety analysis](https://pmc.ncbi.nlm.nih.gov/articles/PMC13235453/)
+公開審査資料では、幅広い用量を含むPhase IのGO39374でGrade 2以上の高血糖と曝露の関連が報告されている。一方、9 mgを用いたPhase IIIのWO41554では、同じ関連は確認されなかった。曝露範囲、登録時の血糖・HbA1c条件、有害事象管理が異なる。2026年のINAVO120安全性解析でも、開始時の血糖背景と早期の高血糖管理が扱われている ([6](#ref-6), [7](#ref-7))。
 
 今回確認した公開審査資料には、高血糖の最終回帰係数と共変量を含む完全な式は掲載されず、別報告書の表が参照されている。図から非調整曲線だけを読み取って、BIDで発症率が何%になるかを計算することはしなかった。
 
@@ -149,18 +159,20 @@ AUCを近づけても、ピークとトラフまで一致するわけではな�
 
 重度腎機能障害での3 mgの計算には、非透析の専用試験で得た集計比をがん患者のPopPKへ移す仮定がある。元のPopPKには重度群が含まれていない。透析や腎機能の急変、吸収・分布まで変わる場合を表すモデルではなく、承認用量を置き換える根拠にはならない。
 
-## 再実行と出典 {#_5}
+## データとコードの公開状況 {#_5}
 
 計算は `analysis/run_analysis.py`、数値は `outputs/results.json` と `outputs/tables/` に保存した。乱数シードは20261021、4,096組。係数は再利用、相対CL/Fは集計AUC比からの変換であり、個人別濃度のNLME推定は行っていない。線形モデルの行列解を独立のODE・数値積分と照合し、用量比例性、定常状態AUC、分割条件の等日量を検査した。原資料の画像・論文本文は配布物へ含めていない。
 
 資料確認日：2026年10月21日。
 
-- Turner NC et al. *Overall Survival with Inavolisib in PIK3CA-Mutated Advanced Breast Cancer*. NEJM, 2025. [doi:10.1056/NEJMoa2501796](https://doi.org/10.1056/NEJMoa2501796)
-- Sutaria D et al. *Evaluating the Effect of Moderate & Severe Renal Impairment on the Pharmacokinetics & Safety of Inavolisib*. 2025 CPDD Abstract Booklet, Poster 108. [doi:10.1002/cpdd.1588](https://doi.org/10.1002/cpdd.1588)
-- FDA. NDA 219249 multidisciplinary review, Tables 46–48, exposure–response review. [Assessment report](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2024/219249Orig1s000MultidisciplineR.pdf)
-- EMA. *Itovebi assessment report*, 2025, Table 6. [assessment report](https://www.ema.europa.eu/en/documents/assessment-report/itovebi-epar-public-assessment-report_en.pdf)
-- *ITOVEBI US prescribing information*, revised April 2026. [prescribing information](https://www.gene.com/download/pdf/itovebi_prescribing.pdf)
-- *Safety analyses of the INAVO120 randomised phase III trial*, ESMO Open, 2026. [doi:10.1016/j.esmoop.2026.107735](https://doi.org/10.1016/j.esmoop.2026.107735)
-
-
 [解析コード・入力値・集計表・再実行手順](shared/inavolisib-renal-dose/inavolisib-analysis.zip)
+
+## 参照 {#article-references}
+
+1. <span id="ref-1"></span>Jhaveri KL, Im SA, Saura C, Loibl S, Kalinsky K, Schmid P, et al. Overall Survival with Inavolisib in PIK3CA-Mutated Advanced Breast Cancer. New England Journal of Medicine. 2025;393(2):151–161. [doi:10.1056/NEJMoa2501796](https://doi.org/10.1056/NEJMoa2501796).
+2. <span id="ref-2"></span>Genentech. ITOVEBI (inavolisib) US prescribing information. Revised 2026 Apr. Sections 2.3, 2.5 and 12.3. [Prescribing information](https://www.gene.com/download/pdf/itovebi_prescribing.pdf).
+3. <span id="ref-3"></span>US Food and Drug Administration. Supplemental approval letter for NDA 219249, supplement 004. 2026. [Approval letter](https://www.accessdata.fda.gov/drugsatfda_docs/appletter/2026/219249Orig1s004ltr.pdf).
+4. <span id="ref-4"></span>European Medicines Agency. Itovebi: public assessment report. 2025. Table 6; pp. 32–33. [Assessment report](https://www.ema.europa.eu/en/documents/assessment-report/itovebi-epar-public-assessment-report_en.pdf).
+5. <span id="ref-5"></span>Sutaria D, Huang W, Clark T, Yang T, Shankar N, Stout T, et al. Evaluating the effect of moderate & severe renal impairment on the pharmacokinetics & safety of inavolisib [poster 108]. In: 2025 CPDD Abstract Booklet. Clinical Pharmacology in Drug Development. 2025;14(S1):1–140. [doi:10.1002/cpdd.1588](https://doi.org/10.1002/cpdd.1588).
+6. <span id="ref-6"></span>US Food and Drug Administration. Inavolisib: multidisciplinary review, NDA 219249. 2024. Tables 46–48; pp. 197–199, 211–214. [Review report](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2024/219249Orig1s000MultidisciplineR.pdf).
+7. <span id="ref-7"></span>Im SA, Kalinsky K, Jhaveri KL, Loibl S, Turner N, Saura C, et al. Safety analyses of the INAVO120 randomised phase III trial of inavolisib or placebo with palbociclib–fulvestrant in patients with PIK3CA-mutated, hormone receptor-positive, HER2-negative, endocrine-resistant advanced breast cancer. ESMO Open. 2026;11(6):107735. [doi:10.1016/j.esmoop.2026.107735](https://doi.org/10.1016/j.esmoop.2026.107735).

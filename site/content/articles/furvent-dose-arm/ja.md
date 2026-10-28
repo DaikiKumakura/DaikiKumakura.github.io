@@ -1,18 +1,14 @@
 資料の確認日：2026年10月14日。FURVENTについて公表されているのは、企業のトップライン発表と試験登録情報だけであり、論文・学会発表の全データではない。報告値、報告値から近似計算した値、本記事の解釈を区別して書く。
 
-2026年10月6日、EGFR exon 20挿入変異を持つ非小細胞肺がんの一次治療で、firmonertinibの第3相試験FURVENTが主要評価項目を達成しなかったと発表された。[1] この試験は、firmonertinib 240 mg、160 mg、化学療法の3群比較である。X上では、FDAの用量最適化の方針（Project Optimus）に沿って低用量群を加えたことで高用量群の例数が減り、検出力が足りなくなったのではないか、という指摘も見られた。
+2026年10月6日、EGFR exon 20挿入変異を持つ非小細胞肺がんの一次治療で、firmonertinibの第3相試験FURVENTが主要評価項目を達成しなかったと発表された。([1](#ref-1)) この試験は、firmonertinib 240 mg、160 mg、化学療法の3群比較である。X上では、FDAの用量最適化の方針（Project Optimus）に沿って低用量群を加えたことで高用量群の例数が減り、検出力が足りなくなったのではないか、という指摘も見られた。
 
-この指摘は、ある程度まで数字で確かめられる。先に要点を書く。
+公開値から、イベント数と固定登録数の下での検出力の差を近似した。3群化による代償は数値化できるが、それが試験失敗の原因だったかを判定するための設計情報は公表されていない。
 
-- 報告されたハザード比の信頼区間から逆算すると、240 mg対化学療法の比較に使われたイベント数は約160（丸めを考えると約154〜169）である。
-- 同じ398例を2群に割り付けていた場合、イベント数は約1.5倍になる。真のハザード比が0.65なら検出力は約78%から約92%に、0.75なら約45%から約61%に上がる。3群にしたことの代償は小さくない。
-- ただし、160 mg群を加えたのがFDAの要請によるものかは、公開資料からは確認できない。試験は最終ガイダンスより前に始まっている。
-- 同じ対象・ほぼ同じ対照の2群の第3相試験WU-KONG28は、ほぼ同じ規模でハザード比0.65を示し、主要評価項目を達成した。FURVENTの化学療法群の中央判定によるPFS中央値（9.5か月）は、PAPILLON・WU-KONG28より長く、mobocertinibのEXCLAIM-2とほぼ同じだった。
-- 中央判定と治験医師判定のずれは240 mg群で大きいが、過去の試験の分布から見て珍しい値ではない。原因はトップラインからは分からない。
+## 何が報告されたか {#1}
 
-## 1. 何が報告されたか {#1}
+試験登録情報によれば、FURVENTは非盲検・無作為化の第3相試験で、約375例を1:1:1に割り付ける計画だった。試験は2023年6月に始まった。主要評価項目は、盲検下の中央判定（BICR）による無増悪生存期間（PFS）である。([2](#ref-2)) 企業発表では398例が登録された。([1](#ref-1))
 
-試験登録情報によれば、FURVENTは非盲検・無作為化の第3相試験で、約375例を1:1:1に割り付ける計画だった。試験は2023年6月に始まった。主要評価項目は、盲検下の中央判定（BICR）による無増悪生存期間（PFS）である。[2] 企業発表では398例が登録された。[1]
+表1　FURVENTの企業トップライン発表値 ([1](#ref-1))。
 
 | | 240 mg | 160 mg | 化学療法 |
 | --- | --- | --- | --- |
@@ -24,19 +20,19 @@
 | Grade 3以上の有害事象（因果関係を問わない） | 52% | 53% | 55% |
 | Grade 3以上の治療関連有害事象 | 26% | 22% | 40% |
 
-出典は企業発表である。[1] 全生存期間は未成熟とされ、数値は示されていない。どの比較にどれだけのαを割り当てたか、事前に想定したハザード比、計画したイベント数は公表されていない。この点は、以下の計算すべてに効く限界である。なお、p=0.0654はαを2つの用量群に分けなくても0.05を超えている。
+出典は企業発表である。([1](#ref-1)) 全生存期間は未成熟とされ、数値は示されていない。どの比較にどれだけのαを割り当てたか、事前に想定したハザード比、計画したイベント数は公表されていない。この点は、以下の計算すべてに効く限界である。なお、p=0.0654はαを2つの用量群に分けなくても0.05を超えている。
 
-## 2. 報告値から使われたイベント数を逆算する {#2}
+## 報告値から使われたイベント数を逆算する {#2}
 
 ハザード比の95%信頼区間は、対数スケールで推定値 ± 1.96 × 標準誤差である。240 mg対化学療法の区間0.55–1.02から、対数ハザード比の標準誤差は約0.158となる。p値0.0654から逆算しても約0.156で、両者はほぼ一致する。
 
-1:1の比較では、対数ハザード比の分散はおよそ \(4/D\)（\(D\) はイベント数）と近似できる（Schoenfeldの近似）。[3] ここから、240 mg対化学療法の比較に使われたイベント数は約161と推定される。信頼区間の上下限は小数2桁に丸められているので、その丸めだけで推定は約154〜169の幅を持つ。160 mg対化学療法も約158で、同程度だった。
+1:1の比較では、対数ハザード比の分散はおよそ \(4/D\)（\(D\) はイベント数）と近似できる（Schoenfeldの近似）。([3](#ref-3)) ここから、240 mg対化学療法の比較に使われたイベント数は約161と推定される。信頼区間の上下限は小数2桁に丸められているので、その丸めだけで推定は約154〜169の幅を持つ。160 mg対化学療法も約158で、同程度だった。
 
 この規模の比較で両側α 0.05の有意になるのは、観測されたハザード比がおよそ0.734を下回るときである。観測値0.75は、そのわずかに外側だった。また、約161イベントで検出力80%を確保できる真のハザード比は約0.64、90%なら約0.60である。
 
 これは企業が公表した数値だけからの近似である。実際の解析が層別ログランク検定とCox回帰で行われていれば、厳密なイベント数とは少しずれる。
 
-## 3. 2群だったら検出力はどれだけ違ったか {#3-2}
+## 2群だったら検出力はどれだけ違ったか {#3-2}
 
 同じ398例を240 mgと化学療法の2群だけに割り付けていたとする。患者1人あたりのイベントの起こりやすさと追跡期間が同じなら、比較に使えるイベント数は3群のときの1.5倍、約242になる。
 
@@ -45,6 +41,8 @@
 ![240 mg対化学療法の比較の検出力。実際の3群試験と、同じ登録数の仮想2群試験を比べる。](shared/furvent-dose-arm/figures/power.png)
 
 **図1.** 真のハザード比を仮定したときの、240 mg対化学療法の比較の検出力（Schoenfeldの近似、両側検定）。青の実線は実際の3群試験（イベント約161、α 0.05）、青の破線はαを2つの用量群に分けた場合（各0.025）、橙は同じ登録数の仮想2群試験（イベント約242、α 0.05）。点線は検出力80%。縦線はFURVENT（実線）で観測されたハザード比と、参考として別の薬剤の試験WU-KONG28（破線）で観測されたハザード比。試験の実際の多重性の扱いは公表されていない。
+
+表2　固定登録数での近似検出力。実際のα配分は非公開。
 
 | 真のハザード比 | 3群（α 0.05） | 3群（α 0.025） | 仮想2群（α 0.05） |
 | --- | --- | --- | --- |
@@ -58,44 +56,46 @@
 
 ただし、観測されたハザード比0.75は真の値ではない。観測値そのものでの検出力は、p値からほぼ機械的に決まる量であり、それだけでは何も教えない。「真の値が0.75なら2群で成功していた」とも言えない。2群試験でも観測値は真の値の周りでばらつき、成功するかどうかは確率的に決まる。上の表は、事前に検出力を見積もるときの比較として読むべきである。
 
-## 4. 同じ対象の第3相試験と並べる {#4-3}
+## 同じ対象の第3相試験と並べる {#4-3}
 
-2026年5月、同じ一次治療のEGFR exon 20挿入変異を対象に、sunvozertinibと化学療法を比べた2群の第3相試験WU-KONG28の結果が報告された。[4] 324例を1:1に割り付け、BICRによるPFS中央値は10.3か月対7.5か月、ハザード比0.65（95%CI 0.50–0.85）、p=0.0008（学会報告・報道の値。論文ではP<0.001）で、主要評価項目を達成した。
+2026年5月、同じ一次治療のEGFR exon 20挿入変異を対象に、sunvozertinibと化学療法を比べた2群の第3相試験WU-KONG28の結果が報告された。([4](#ref-4)) 324例を1:1に割り付け、BICRによるPFS中央値は10.3か月対7.5か月、ハザード比0.65（95%CI 0.50–0.85）、p=0.0008（学会報告・報道の値。論文ではP<0.001）で、主要評価項目を達成した。
 
 同じ近似で逆算すると、WU-KONG28の比較に使われたイベント数は約218〜242である（信頼区間とp値で値が少し異なる）。これは、FURVENTの仮想2群試験（約242）とほぼ同じ規模である。
 
 注目したいのは、化学療法群の成績である。
 
+表3　一次治療の試験別PFS中央値。試験間差の調整はしていない。
+
 | 試験 | 実薬群のPFS中央値（BICR） | 化学療法群のPFS中央値（BICR） |
 | --- | --- | --- |
-| PAPILLON（amivantamab＋化学療法）[5] | 11.4か月 | 6.7か月 |
-| WU-KONG28（sunvozertinib）[4] | 10.3か月 | 7.5か月 |
-| EXCLAIM-2（mobocertinib）[9] | 9.6か月 | 9.6か月 |
-| FURVENT（firmonertinib 240 mg）[1] | 11.0か月 | 9.5か月（治験医師判定では7.1か月） |
+| PAPILLON（amivantamab＋化学療法）([5](#ref-5)) | 11.4か月 | 6.7か月 |
+| WU-KONG28（sunvozertinib）([4](#ref-4)) | 10.3か月 | 7.5か月 |
+| EXCLAIM-2（mobocertinib）([6](#ref-6)) | 9.6か月 | 9.6か月 |
+| FURVENT（firmonertinib 240 mg）([1](#ref-1)) | 11.0か月 | 9.5か月（治験医師判定では7.1か月） |
 
 FURVENTの240 mg群の中央値は、成功した2試験の実薬群と大きくは違わない。化学療法群のBICRによる中央値は、PAPILLON・WU-KONG28より2〜3か月長いが、EXCLAIM-2（9.6か月）とはほぼ同じである。同じ化学療法でも、試験によって中央値は6.7〜9.6か月と幅がある。EXCLAIM-2は中間解析で無益性の境界を越えて中止された試験であり、化学療法群が長いことだけで失敗が決まるわけではない。
 
 試験の間の比較には限界がある。患者背景、化学療法のレジメン、画像評価の間隔、打ち切りの規則が違えば中央値は変わる。中央値は生存曲線の一点にすぎない。それでも、FURVENTのハザード比がはっきり1を下回らなかった理由の候補として、実薬の効果だけでなく、**化学療法群がBICRで良く見えたこと**も並べて検討する必要がある。その化学療法群の値は、この領域の過去の試験の範囲の上端にある。「効果の想定が楽観的だった」と結論づけるのは、後知恵になりやすい。
 
-## 5. 第2の用量群は何をもたらしたか {#5-2}
+## 第2の用量群は何をもたらしたか {#5-2}
 
-用量群を加えることには目的がある。FDAが2024年8月に最終化したガイダンスは、承認申請の前に、最適化した用量を特定することを推奨している（法的拘束力のない推奨である）。[6] ただし、FURVENTは2023年6月に始まっており、160 mg群を加えたことがFDAの要請によるものかは、公開資料からは確認できなかった。以下では、動機を問わず、160 mg群が結果として何をもたらしたかを見る。
+用量群を加えることには目的がある。FDAが2024年8月に最終化したガイダンスは、承認申請の前に、最適化した用量を特定することを推奨している（法的拘束力のない推奨である）。([7](#ref-7)) ただし、FURVENTは2023年6月に始まっており、160 mg群を加えたことがFDAの要請によるものかは、公開資料からは確認できなかった。以下では、動機を問わず、160 mg群が結果として何をもたらしたかを見る。
 
-第1b相のFAVOUR試験では、一次治療で評価されたのは240 mgだけで、確定奏効率は78.6%（28例）だった。既治療例では160 mgと240 mgが評価され、奏効率は38.5%と46.2%（各26例）だった。[7] 一次治療での160 mgの成績は、FURVENTで初めて無作為化比較の形で得られたことになる。
+第1b相のFAVOUR試験では、一次治療で評価されたのは240 mgだけで、確定奏効率は78.6%（28例）だった。既治療例では160 mgと240 mgが評価され、奏効率は38.5%と46.2%（各26例）だった。([8](#ref-8)) 一次治療での160 mgの成績は、FURVENTで初めて無作為化比較の形で得られたことになる。
 
 同じ化学療法群を共有しているので、240 mgと160 mgのハザード比の比は、2つの報告値の比として近似できる。BICRで0.75/0.91 ≈ 0.82、95%CIは約0.60–1.12である（各群のイベントを均等と仮定した近似）。PFSでは、2つの用量の差ははっきりしない。
 
 一方、BICRの確定奏効率は240 mgで60%、160 mgで35%だった。各群を均等（約133例）と仮定すると、差は25ポイント（95%CI 約13–37ポイント）になる。奏効では、240 mgの方が明らかに上回った。
 
-安全性では、Grade 3以上の有害事象（因果関係を問わない）は52%、53%、55%と群間でほぼ同じだった。治療関連の有害事象は240 mg 26%、160 mg 22%、化学療法40%だったが、非盲検試験では治験医師による関連性の判定に偏りが入りうる。曝露期間も群ごとに違う可能性がある。[1] 用量間の安全性の差は、このトップラインからは判断しにくい。
+安全性では、Grade 3以上の有害事象（因果関係を問わない）は52%、53%、55%と群間でほぼ同じだった。治療関連の有害事象は240 mg 26%、160 mg 22%、化学療法40%だったが、非盲検試験では治験医師による関連性の判定に偏りが入りうる。曝露期間も群ごとに違う可能性がある。([1](#ref-1)) 用量間の安全性の差は、このトップラインからは判断しにくい。
 
-つまり、第2の用量群は「一次治療でも低い用量で足りるか」という問いに、「奏効では足りない」という答えを返した。その答えの代償として、主要比較の検出力の一部を払った。この取引が見合っていたかは、同じ情報を第3相より前（第2相の無作為化用量比較）で得られたかどうかによる。本記事の資料からは判断できない。
+つまり、第2の用量群は「一次治療でも低い用量で足りるか」という問いに、「240 mgより奏効率が低い」という結果を返した。その答えの代償として、主要比較の検出力の一部を払った。この取引が見合っていたかは、同じ情報を第3相より前（第2相の無作為化用量比較）で得られたかどうかによる。本記事の資料からは判断できない。
 
-## 6. 中央判定と治験医師判定のずれ {#6}
+## 中央判定と治験医師判定のずれ {#6}
 
 240 mg対化学療法のハザード比は、BICRで0.75、治験医師判定で0.61だった。比（BICR/治験医師）は約1.23である。160 mgでは0.91と0.86で、比は約1.06だった。
 
-Rocheが支援した49試験のメタ解析では、非盲検試験でのこの比の統合値は1.062（95%CI 1.016–1.110）だった。[8] 治験医師の判定は平均してやや有利に出る。ただし、この信頼区間は平均の精度を表すもので、個々の試験のばらつきの範囲ではない。同じ論文では、55の比較のうち17で比が1.15を超えていた。1.23は平均より大きいが、個々の試験としては珍しい値ではない。
+Rocheが支援した49試験のメタ解析では、非盲検試験でのこの比の統合値は1.062（95%CI 1.016–1.110）だった。([9](#ref-9)) 治験医師の判定は平均してやや有利に出る。ただし、この信頼区間は平均の精度を表すもので、個々の試験のばらつきの範囲ではない。同じ論文では、55の比較のうち17で比が1.15を超えていた。1.23は平均より大きいが、個々の試験としては珍しい値ではない。
 
 ![報告されたPFSのハザード比と中央値を、中央判定と治験医師判定で比べる。](shared/furvent-dose-arm/figures/assessment.png)
 
@@ -103,28 +103,21 @@ Rocheが支援した49試験のメタ解析では、非盲検試験でのこの�
 
 中央値を見ると、2つの判定で大きく違うのは化学療法群（9.5か月と7.1か月）だけで、240 mg群と160 mg群はほとんど変わらない（図2b）。しかし、「ずれは化学療法群に集中している」とは言えない。160 mg群も同じ化学療法群を対照にしているのに、160 mgのハザード比は判定によってほとんど変わらないからである。ハザード比は生存曲線全体から決まり、中央値の差だけでずれの大きさは読めない。
 
-ずれの原因として、よく知られた仕組みが一つある。治験医師が増悪と判定すると、その患者は治療を変更し、画像評価が止まることが多い。BICRがその時点で増悪を確認しなければ、BICRの解析ではその患者が打ち切りとして扱われる。これは判定に依存した、情報を持つ打ち切りであり、BICRの中央値を長く見せうる。[8] ほかにも、画像評価の時点の違いや、非盲検下での判定の偏りが考えられる。どれが当てはまるかは、症例ごとの判定の一致率と、打ち切りの理由が公表されるまで分からない。主要評価項目がBICRである以上、試験の結論は変わらない。
+ずれの原因として、よく知られた仕組みが一つある。治験医師が増悪と判定すると、その患者は治療を変更し、画像評価が止まることが多い。BICRがその時点で増悪を確認しなければ、BICRの解析ではその患者が打ち切りとして扱われる。これは判定に依存した、情報を持つ打ち切りであり、BICRの中央値を長く見せうる。([9](#ref-9)) ほかにも、画像評価の時点の違いや、非盲検下での判定の偏りが考えられる。どれが当てはまるかは、症例ごとの判定の一致率と、打ち切りの理由が公表されるまで分からない。主要評価項目がBICRである以上、試験の結論は変わらない。
 
-## 7. 標準治療の文脈 {#7}
+## 標準治療の文脈 {#7}
 
-この領域の一次治療は、FURVENTが計画された時期から変わっている。米国では、PAPILLON試験（amivantamab＋化学療法、PFSのハザード比0.40）の結果に基づき、2024年3月にamivantamabと化学療法の併用が一次治療として承認された。[5] 化学療法単独を対照とする試験の位置づけ自体も、議論の対象になりうる。経口単剤では、sunvozertinib（300 mg）がWU-KONG28で化学療法に勝った。[4] ただし確認日時点で、sunvozertinibは一次治療としては未承認である（米国の承認は化学療法後の例への加速承認、用量200 mg）。 FURVENTの結果は、こうした治療選択の中で読む必要がある。
+この領域の一次治療は、FURVENTが計画された時期から変わっている。米国では、PAPILLON試験（amivantamab＋化学療法、PFSのハザード比0.40）の結果に基づき、2024年3月にamivantamabと化学療法の併用が一次治療として承認された。([5](#ref-5)) 化学療法単独を対照とする試験の位置づけ自体も、議論の対象になりうる。経口単剤では、sunvozertinib（300 mg）がWU-KONG28で化学療法に勝った。([4](#ref-4)) ただし確認日時点で、sunvozertinibは一次治療としては未承認である（米国の承認は化学療法後の例への加速承認、用量200 mg）。 FURVENTの結果は、こうした治療選択の中で読む必要がある。
 
-## 8. 3群比較で得た情報と検出力の代償 {#8}
+## 3群比較で得た情報と検出力の代償 {#8}
 
-**言えること。**
-- 報告値と標準的な近似から、240 mg対化学療法の比較は約160イベントに基づいていた。
-- 同じ登録数の2群試験なら、真のハザード比0.65〜0.75の範囲で、検出力は約14〜17ポイント高かった。登録数を固定して考えれば、3群にしたことには無視できない代償があった。
-- 同じ規模の2群試験WU-KONG28は、ハザード比0.65で成功した。FURVENTの化学療法群のBICRによる中央値は、この領域の試験の範囲（6.7〜9.6か月）の上端にあった。
-- 160 mg群は、一次治療では奏効で240 mgに劣るという用量の情報をもたらした。
+報告値から推定した約160イベントの比較では、同じ登録数の仮想2群試験に比べ、真のハザード比0.65〜0.75で検出力が約14〜17ポイント低かった。一方、160 mg群は一次治療での奏効の用量差を示した。主要比較だけに人数を集めた場合には得られない情報である。
 
-**言えないこと。**
-- 試験が想定した効果の大きさ、αの配分、計画イベント数は公表されていない。そのため、「Project Optimusのせいで失敗した」とも「無関係だった」とも断定できない。160 mg群を加えた理由も確認できない。
-- 観測されたハザード比を真の値とみなして、「2群なら成功していた」とは言えない。
-- 化学療法群がBICRで長く見えた理由や、判定のずれの原因は、全データが出るまで分からない。
+160 mg群の追加理由、想定効果、α配分、計画イベント数が分からない以上、Project Optimusが失敗を招いたとは断定できない。観測HRを真値として2群なら成功したとする反実仮想も成り立たない。化学療法群のBICR成績と判定差の原因も、トップラインだけでは特定できない。
 
 用量最適化のための群を第3相に入れるかどうかは、得られる用量の情報と、主要比較の検出力（あるいは必要な例数と時間）の取引である。図1の計算では、想定した効果の大きさによって、その検出力の代償が変わった。
 
-## 再実行と限界 {#_1}
+## データとコードの公開状況 {#_1}
 
 [再実行資料ZIP](shared/furvent-dose-arm/furvent-dose-arm.zip)を展開し、展開先のフォルダで実行する。[計算コード](shared/furvent-dose-arm/furvent_power.py)は、報告値だけを入力として、`results/summary.json`、`results/power_curves.csv`、図1・2を生成する。確認したNumPy・SciPy・Matplotlibの版は`requirements.txt`に固定した。
 
@@ -138,16 +131,18 @@ python furvent_power.py
 - イベント数はSchoenfeldの近似（1:1、比例ハザード）による逆算である。層別解析や中間解析の調整は反映していない。
 - 仮想2群試験は、登録数と患者1人あたりのイベントの起こりやすさが同じと仮定した。イベント数を先に決める設計なら、代償は検出力ではなく例数と時間に現れる。
 - 240 mgと160 mgの比較、奏効率の差は、各群の例数・イベント数を均等とした近似である。
-- 試験の間の比較（第4節）は、患者背景や評価方法の違いを調整していない。
+- 試験の間の比較は、患者背景や評価方法の違いを調整していない。
 
-## 参考文献 {#_2}
+## 参照 {#article-references}
 
-1. ArriVent BioPharma. [ArriVent Announces Program Update from the Phase 3 FURVENT Trial of Firmonertinib in First-Line EGFR Exon 20 Insertion Mutant NSCLC](https://www.biospace.com/press-releases/arrivent-announces-program-update-from-the-phase-3-furvent-trial-of-firmonertinib-in-first-line-egfr-exon-20-insertion-mutant-nsclc) (company announcement, 2026-10-06).
-2. ClinicalTrials.gov. [NCT05607550](https://clinicaltrials.gov/study/NCT05607550) (checked 2026-10-14).
-3. Schoenfeld DA. Sample-size formula for the proportional-hazards regression model. *Biometrics*. 1983;39(2):499–503. [10.2307/2531021](https://doi.org/10.2307/2531021).
-4. Zhou C, et al. First-line sunvozertinib in NSCLC with EGFR exon 20 insertion mutations. *N Engl J Med*. 2026;395(8):765–775. [10.1056/NEJMoa2604461](https://doi.org/10.1056/NEJMoa2604461). Volume and issue checked against Crossref; numerical results checked in [OncLive report (2026-05-29)](https://www.onclive.com/view/sunvozertinib-shows-superior-efficacy-vs-chemo-in-frontline-advanced-egfr-exon-20-nsclc).
-5. Zhou C, et al. Amivantamab plus chemotherapy in NSCLC with EGFR exon 20 insertions. *N Engl J Med*. 2023;389(22):2039–2051. [10.1056/NEJMoa2306441](https://doi.org/10.1056/NEJMoa2306441).
-6. U.S. FDA. [Optimizing the Dosage of Human Prescription Drugs and Biological Products for the Treatment of Oncologic Diseases, final guidance](https://www.fda.gov/regulatory-information/search-fda-guidance-documents/optimizing-dosage-human-prescription-drugs-and-biological-products-treatment-oncologic-diseases) (2024-08).
-7. Report on FAVOUR (phase 1b firmonertinib). [J Thorac Oncol abstract](https://www.jto.org/article/S1556-0864(24)00475-1/fulltext).
-8. Lian Q, Fredrickson J, Boudier K, et al. Meta-analysis of 49 Roche oncology trials comparing blinded independent central review (BICR) and local evaluation to assess the value of BICR. *The Oncologist*. 2024;29(8):e1073–e1081. [10.1093/oncolo/oyad012](https://doi.org/10.1093/oncolo/oyad012).
-9. Jänne PA, et al. First-line mobocertinib versus platinum-based chemotherapy in patients with EGFR exon 20 insertion-positive metastatic non-small cell lung cancer in the phase III EXCLAIM-2 trial. *J Clin Oncol*. 2025;43(13):1553–1563. [10.1200/JCO-24-01269](https://doi.org/10.1200/JCO-24-01269).
+1. <span id="ref-1"></span>ArriVent BioPharma. ArriVent announces program update from the phase 3 FURVENT trial of firmonertinib in first-line EGFR exon 20 insertion mutant NSCLC. 2026 Oct 6. [Company announcement](https://www.biospace.com/press-releases/arrivent-announces-program-update-from-the-phase-3-furvent-trial-of-firmonertinib-in-first-line-egfr-exon-20-insertion-mutant-nsclc).
+2. <span id="ref-2"></span>ClinicalTrials.gov. NCT05607550: FURVENT. [Trial registration](https://clinicaltrials.gov/study/NCT05607550). Accessed 2026 Oct 14.
+3. <span id="ref-3"></span>Schoenfeld DA. Sample-Size Formula for the Proportional-Hazards Regression Model. Biometrics. 1983;39(2):499–503. [doi:10.2307/2531021](https://doi.org/10.2307/2531021).
+4. <span id="ref-4"></span>Zhou C, Greillier L, Liu G, John T, Xing L, Kowalski D, et al. First-Line Sunvozertinib in NSCLC with EGFR Exon 20 Insertion Mutations. New England Journal of Medicine. 2026;395(8):765–775. [doi:10.1056/NEJMoa2604461](https://doi.org/10.1056/NEJMoa2604461).
+5. <span id="ref-5"></span>Zhou C, Tang KJ, Cho BC, Liu B, Paz-Ares L, Cheng S, et al. Amivantamab plus Chemotherapy in NSCLC with EGFR Exon 20 Insertions. New England Journal of Medicine. 2023;389(22):2039–2051. [doi:10.1056/NEJMoa2306441](https://doi.org/10.1056/NEJMoa2306441).
+6. <span id="ref-6"></span>Jänne PA, Wang BC, Cho BC, Zhao J, Li J, Hochmair M, et al. First-Line Mobocertinib Versus Platinum-Based Chemotherapy in Patients With EGFR Exon 20 Insertion–Positive Metastatic Non–Small Cell Lung Cancer in the Phase III EXCLAIM-2 Trial. Journal of Clinical Oncology. 2025;43(13):1553–1563. [doi:10.1200/JCO-24-01269](https://doi.org/10.1200/JCO-24-01269).
+7. <span id="ref-7"></span>US Food and Drug Administration. Optimizing the dosage of human prescription drugs and biological products for the treatment of oncologic diseases. Final guidance. 2024 Aug. [FDA guidance](https://www.fda.gov/regulatory-information/search-fda-guidance-documents/optimizing-dosage-human-prescription-drugs-and-biological-products-treatment-oncologic-diseases).
+8. <span id="ref-8"></span>Allist Pharmaceuticals and ArriVent BioPharma. Interim results from the phase Ib FAVOUR trial presented at the 2023 World Conference on Lung Cancer. 2023 Sep 10. [Sponsor announcement](https://www.allist.com.cn/en/newsd/102/1052.html).
+9. <span id="ref-9"></span>Lian Q, Fredrickson J, Boudier K, Rothkegel C, Hilton M, Hillebrecht A, et al. Meta-Analysis of 49 Roche Oncology Trials Comparing Blinded Independent Central Review (BICR) and Local Evaluation to Assess the Value of BICR. The Oncologist. 2024;29(8):e1073–e1081. [doi:10.1093/oncolo/oyad012](https://doi.org/10.1093/oncolo/oyad012).
+
+<span id="_2"></span>
