@@ -13,10 +13,19 @@
       "summary": "FOLR1・CEACAM5の親和性系列を公開図から数値化。背景差分後の薬効AUCEとTNFαを比較し、候補濃度域が境界・補間・モデルでどう変わるかを調べる。",
       "seo_title": "TCEのCD3親和性と薬効・TNFαの分離を公開実験で比べる",
       "seo_description": "FOLR1・CEACAM5 TCEの公開AUCEを再解析。CD3親和性の異なる分子で薬効保持とTNFα低減を比較。閾値と疎な測定点に候補の判定が依存する範囲を示す。"
+    },
+    "en": {
+      "title": "How far can CD3 affinity tuning separate efficacy and cytokine responses?",
+      "summary": "Digitized FOLR1 and CEACAM5 experiments separate retained activity from low TNFα and test sensitivity to reference choice, sparse observations and curve assumptions.",
+      "seo_title": "TCE affinity: activity and cytokine screening windows",
+      "seo_description": "FOLR1 and CEACAM5 TCE experiments test whether weaker CD3 binding retains activity with less TNFα, given sparse measurements and model assumptions."
     }
   },
   "english": {
     "title": "How far can CD3 affinity tuning separate efficacy and cytokine responses?",
     "summary": "Assay-relative screening of baseline-adjusted TDCC and TNF-alpha AUCE in FOLR1 and CEACAM5 constructs. Digitization, threshold and model sensitivity inform follow-up experiments, not clinical dosing or CRS prediction."
+  },
+  "reviewed": {
+    "en": "bac494d4a59de4fdcdaf8112b0dcfec7f88419f393866a05dc213cadc4bb618d"
   }
 }

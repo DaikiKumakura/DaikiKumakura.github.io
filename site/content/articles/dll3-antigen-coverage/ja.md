@@ -1,4 +1,4 @@
-DLL3が検出されない細胞を、B7-H3とSEZ6のどちらが多く補うのか。SCLCの公開シングルセル共発現表を使い、標本ごとの追加被覆率を比較した。
+DLL3が検出されない細胞を、B7-H3とSEZ6のどちらが多く補うのか。小細胞肺癌（SCLC）の公開シングルセル共発現表を使い、標本ごとの追加被覆率を比較した。
 
 平均では両コホートともSEZ6が大きかった。しかし差のブートストラップ区間は0をまたぎ、B7-H3の追加被覆が大きい標本もほぼ半数あった。コホートの平均順位だけでは、各標本で何が残るかを説明しきれなかった。
 
@@ -6,25 +6,27 @@ DLL3が検出されない細胞を、B7-H3とSEZ6のどちらが多く補うの�
 
 ## 問いと用途 {#_1}
 
-**QOI：DLL3に追加する標的として、B7-H3とSEZ6のどちらが各標本で多くの細胞を補うか。**
+解析の問いは、DLL3に追加する標的として、B7-H3とSEZ6のどちらが各標本で多くの細胞を補うか、である。
 
-**COU：次のタンパク質測定や薬効実験で調べる標的を検討するための記述的解析。** 治療薬の選択や投与順序・用量の決定には使わない。
+利用範囲は、次のタンパク質測定や薬効実験で調べる標的を検討するための記述的解析に限る。治療薬の選択や投与順序・用量の決定には使わない。
 
-Mishraらの原著[1]は、DLL3・SEZ6・B7-H3の発現が細胞ごとに完全には重複しないことを既に示している。本稿は、新しい標的の発見を主張するものではない。公開された標本別集計から「どれだけ追加されるか」「標本によって順位が変わるか」「三標的でも何が残るか」を同じ分母で計算する。
+Mishraらの原著 ([1](#ref-1))は、DLL3・SEZ6・B7-H3の発現が細胞ごとに完全には重複しないことを既に示している。本稿は、新しい標的の発見を主張するものではない。公開された標本別集計から「どれだけ追加されるか」「標本によって順位が変わるか」「三標的でも何が残るか」を同じ分母で計算する。
 
 ## 公開表と解析対象 {#_2}
 
-入力は原著のSupplementary Data S2[2]である。Data 2A・2Bには、各標本のDLL3・SEZ6・B7-H3陽性割合、DLL3陽性細胞内での共陽性割合、三標的いずれかの陽性割合が収録されている。原著の悪性細胞注釈とRNA検出の判定をそのまま用い、生の発現行列から再解析したとは扱わない。
+入力は原著の[Supplementary Data S2](https://doi.org/10.1158/2159-8290.32728810) ([2](#ref-2))である。Data 2A・2Bには、各標本のDLL3・SEZ6・B7-H3陽性割合、DLL3陽性細胞内での共陽性割合、三標的いずれかの陽性割合が収録されている。原著の悪性細胞注釈とRNA検出の判定をそのまま用い、生の発現行列から再解析したとは扱わない。
+
+**表1．** 解析コホートの構成と除外行。
 
 | 解析対象 | 主解析の単位数 | 構成と扱い |
 | --- | ---: | --- |
 | コホートB | 10標本 | 原著で10患者由来。すべてSCLC-A。未治療6・既治療4 |
-| コホートC | 18ドナーラベル行 | Chanらの別研究[3]由来。SCLC-A 12・SCLC-N 5・SCLC-P 1。未治療7・既治療11 |
+| コホートC | 18ドナーラベル行 | Chanらの別研究 ([3](#ref-3))由来。SCLC-A 12・SCLC-N 5・SCLC-P 1。未治療7・既治療11 |
 | Cの胸水行 | 主解析から1行除外 | 公開コードで既存患者との対応が不明とされており、含める場合は感度分析 |
 
 S2には計29行があり、主解析には28行を用いた。Cの残る18行は互いに異なるRUドナーラベルである。胸水の `PleuralEffusion` 行は、患者の重複を独立した観測として数えないために除外した。原著の19行全体と本稿の主解析18行を混同しない。
 
-コホートCは、ChanらのSCLCアトラス[3]に由来する独立した採取集団だが、今回用いる共発現割合はMishraらが既に処理した表である。生データ処理の独立再現や、治療反応の外部検証を行ったわけではない。
+コホートCは、ChanらのSCLCアトラス ([3](#ref-3))に由来する独立した採取集団だが、今回用いる共発現割合はMishraらが既に処理した表である。生データ処理の独立再現や、治療反応の外部検証を行ったわけではない。
 
 ## 追加被覆率の計算 {#_3}
 
@@ -38,7 +40,7 @@ DLL3・SEZ6・B7-H3のRNAが検出された事象を、それぞれ \(D,S,B\) �
 \Delta_S=P(D^-\cap S^+)=P(S^+)-P(D^+)P(S^+\mid D^+).
 \]
 
-S2の `Pbind` は \(P(B^+\mid D^+)\)、`Psind` は \(P(S^+\mid D^+)\) である。この分母は全悪性細胞ではなくDLL3陽性細胞であり、そのまま全体の共陽性率として引くと計算を誤る。表の脚注と公開コード[4]の定義を照合した。
+S2の `Pbind` は \(P(B^+\mid D^+)\)、`Psind` は \(P(S^+\mid D^+)\) である。この分母は全悪性細胞ではなくDLL3陽性細胞であり、そのまま全体の共陽性率として引くと計算を誤る。表の脚注と公開コード ([4](#ref-4))の定義を照合した。
 
 例えば、DLL3単独の被覆率に \(\Delta_B\) を足せばDLL3＋B7-H3の和集合が得られる。B7-H3の単独陽性割合を丸ごと足すと、両方で検出された細胞を二重に数える。
 
@@ -50,7 +52,11 @@ S2の `Pbind` は \(P(B^+\mid D^+)\)、`Psind` は \(P(S^+\mid D^+)\) である�
 
 ![標本ごとのB7-H3とSEZ6の追加被覆率。各点は同一標本の悪性細胞に占める割合の増分。胸水行は主解析から除外した。](shared/dll3-antigen-coverage/figures/additional-coverage.png)
 
+**図1．** 標本ごとのB7-H3とSEZ6の追加被覆率。各点は同一標本の悪性細胞に占める割合の増分。胸水行は主解析から除外した。
+
 以下は `analysis/run.py` と `outputs/tables/group_summaries.csv` の出力である。ppはパーセントポイントで、例えば10 ppは悪性細胞全体に対して10ポイント追加されることを表す。
+
+**表2．** コホート別のRNA被覆と追加被覆。
 
 | コホート | n | DLL3 | 追加B7-H3 | 追加SEZ6 | 三標的非検出 |
 | --- | ---: | ---: | ---: | ---: | ---: |
@@ -58,6 +64,8 @@ S2の `Pbind` は \(P(B^+\mid D^+)\)、`Psind` は \(P(S^+\mid D^+)\) である�
 | C | 18 | 65.13% | 4.53 pp | 6.53 pp | 24.96% |
 
 平均の追加被覆率は両コホートでSEZ6が上回った。ただし、標本内差の区間は以下のようになった。
+
+**表3．** 標本内の追加被覆率差と区間。
 
 | コホート | 平均差 B7-H3−SEZ6 | 行単位ブートストラップ95%区間 |
 | --- | ---: | ---: |
@@ -71,6 +79,8 @@ B7-H3の追加被覆が大きい標本はBで5/10、Cで8/18だった。残り�
 ただし、標本内のRNA検出誤差を評価していないため、個々の標本で見えた順位差が安定した生物学的差を示すとは限らない。
 
 比較のため、Bの平均追加被覆が大きかったSEZ6を全標本へ一律に選ぶ規則を作り、同じ規則をCにも適用した。これは既知の公開表を使った記述比較であり、未閲覧データによる事前検証ではない。
+
+**表4．** 一律SEZ6と同じ表を見た後の標本別選択。
 
 | コホート | 一律SEZ6 | 標本別に大きい方 | 差 |
 | --- | ---: | ---: | ---: |
@@ -96,9 +106,13 @@ P(S^+\cap B^+) &= P(D^+)+P(S^+)+P(B^+)\\
 
 ![3標的の検出・非検出を8つの重複しない状態へ分けた図。各コホート内の標本を同じ重みで平均しており、全細胞を一つにプールした割合ではない。](shared/dll3-antigen-coverage/figures/detection-states.png)
 
+**図2．** 3標的の検出・非検出を8つの重複しない状態へ分けた図。各コホート内の標本を同じ重みで平均しており、全細胞を一つにプールした割合ではない。
+
 図2の灰色は三標的ともRNAが検出されなかった細胞の割合である。これは三標的のタンパク質が欠如している割合でも、治療抵抗性細胞の割合でもない。遺伝子の検出漏れ、発現量、細胞状態などの影響を分ける情報は、この集計表にはない。
 
 第三の標的を加える場合の増分も、重複を除いた割合として計算できる。
+
+**表5．** 第三標的の増分と三標的の平均被覆。
 
 | コホート | DLL3＋SEZ6へB7-H3を追加 | DLL3＋B7-H3へSEZ6を追加 | 三標的の平均被覆率 |
 | --- | ---: | ---: | ---: |
@@ -111,6 +125,8 @@ P(S^+\cap B^+) &= P(D^+)+P(S^+)+P(B^+)\\
 
 コホート間では分子サブタイプと治療歴の構成が違う。Cについて胸水行を含めた場合と、Bと同じSCLC-Aだけへ限定した場合を比較した。
 
+**表6．** 胸水行とサブタイプ構成の感度分析。
+
 | Cの対象 | 行数 | 平均差 B7-H3−SEZ6 |
 | --- | ---: | ---: |
 | 胸水行を除外 | 18 | -1.99 pp |
@@ -119,9 +135,13 @@ P(S^+\cap B^+) &= P(D^+)+P(S^+)+P(B^+)\\
 
 ![主解析と胸水行・サブタイプ構成による感度分析。同じ標本内の追加被覆率差を比較し、行単位のブートストラップ区間を示した。](shared/dll3-antigen-coverage/figures/ranking-uncertainty.png)
 
+**図3．** 主解析と胸水行・サブタイプ構成による感度分析。同じ標本内の追加被覆率差を比較し、行単位のブートストラップ区間を示した。
+
 SCLC-Aへ限定すると平均差は小さくなった。この比較だけでサブタイプが差の原因だとは言えないが、コホートの平均順位をそのまま疾患全体の性質として読むことには注意が必要である。
 
 一標本ずつ外した平均差の範囲も調べた。
+
+**表7．** 一標本除外による平均差の範囲。
 
 | コホート | 一標本除外時の平均差の最小〜最大 |
 | --- | ---: |
@@ -132,11 +152,11 @@ Bでは一標本を外すと平均順位が逆になる場合があった。平�
 
 ## RNA被覆率は表面抗原の被覆率ではない {#_7}
 
-この集計が数えたのはRNAの判定条件に合う細胞である。表面抗原の密度、抗体が結合できる割合、TCEやADCの殺細胞効果は推定していない。RNA非検出と表面抗原陰性も区別できず、細胞数を増やすだけではこの差は埋まらない。
+この集計が数えたのはRNAの判定条件に合う細胞である。表面抗原の密度、抗体が結合できる割合、T細胞エンゲージャー（TCE）や抗体薬物複合体（ADC）の殺細胞効果は推定していない。RNA非検出と表面抗原陰性も区別できず、細胞数を増やすだけではこの差は埋まらない。
 
-CTCの治療反応集団と、今回の組織シングルセル集団は対応する患者集団ではない。元のCTC研究の奏効率をこの被覆率に当てはめても、個人の治療反応モデルにはならない。複数標的のRNAが相補的に見えることは、併用効果や抗原逃避の抑制を示した結果ではない。
+原著 ([1](#ref-1))は循環腫瘍細胞（CTC）を用いてタルラタマブへの反応を調べた研究であり、その治療反応集団と今回の組織シングルセル集団は対応する患者集団ではない。原著の奏効率をこの被覆率に当てはめても、個人の治療反応モデルにはならない。複数標的のRNAが相補的に見えることは、併用効果や抗原逃避の抑制を示した結果ではない。
 
-## 再実行 {#_8}
+## データとコードの公開状況 {#_8}
 
 [解析一式](shared/dll3-antigen-coverage/dll3-antigen-coverage-analysis.zip)に、CC BYの入力表、出典・ハッシュ、抽出CSV、解析コード、結果表、検査コードを収録した。
 
@@ -149,14 +169,11 @@ python -m unittest discover -s tests -v
 
 元のワークシートの行番号は抽出CSVに保持する。`sample_coverage.csv` に全29行と除外フラグ、`group_summaries.csv` に主解析と感度分析、`frozen_rule_comparison.csv` に一律標的と同じ表を見た後の選択を保存した。乱数seedは2026102502、再標本化は10,000回で固定する。原表の丸めにより8状態に生じる絶対値 \(10^{-7}\) 未満の微小な負値は図のみ0として扱い、計算出力には元の値を保持した。
 
-## 参考文献 {#_9}
+## 参照 {#article-references}
 
-1. Mishra A, et al. [Circulating Tumor Cells Predict Response to the DLL3-Targeting Bispecific Antibody Tarlatamab](https://doi.org/10.1158/2159-8290.CD-25-1483). Cancer Discovery. 2026;16:911–930. See Figure 7, Supplementary Figures S18–S21 and Methods.
-2. Mishra A, et al. [Supplementary Data S2](https://doi.org/10.1158/2159-8290.32728810). AACR Figshare. CC BY 4.0. Data 2A/2B and column definitions were used.accessed 2026-10-25.
-3. Chan JM, et al. [Signatures of plasticity, metastasis, and immunosuppression in an atlas of human small cell lung cancer](https://doi.org/10.1016/j.ccell.2021.09.008). Cancer Cell. 2021;39:1479–1496.e18. Original report on the population sampled for cohort C.
-4. Lin M, et al. [SCLC_response_to_Tarlatamab](https://github.com/mlin2017/SCLC_response_to_Tarlatamab/tree/c14f343adda1e5c35fc56e8e2b3d9ed2a82e9894). Author-released analysis code, MIT license. `SCLC_DLL3_scRNA_cohortB.Rmd`・`SCLC_DLL3_scRNA_cohortC.Rmd` were consulted for co-expression definitions and donor-label handling.checked 2026-10-25.
+1. <span id="ref-1"></span>Mishra A, Meador CB, Kikkeri K, Cunneely Q, Lin M, Carmona-LaSalle TJ, et al. Circulating Tumor Cells Predict Response to the DLL3-Targeting Bispecific Antibody Tarlatamab. Cancer Discov. 2026;16(5):911–930. [doi:10.1158/2159-8290.CD-25-1483](https://doi.org/10.1158/2159-8290.CD-25-1483).
+2. <span id="ref-2"></span>Mishra A, Meador CB, Kikkeri K, Cunneely Q, Lin M, Carmona-LaSalle TJ, et al. Supplementary Data S2 from Circulating Tumor Cells Predict Response to the DLL3-Targeting Bispecific Antibody Tarlatamab [dataset]. AACR Figshare. 2026. CC BY 4.0. [doi:10.1158/2159-8290.32728810](https://doi.org/10.1158/2159-8290.32728810). Accessed 2026 Oct 25.
+3. <span id="ref-3"></span>Chan JM, Quintanal-Villalonga Á, Gao VR, Xie Y, Allaj V, Chaudhary O, et al. Signatures of plasticity, metastasis, and immunosuppression in an atlas of human small cell lung cancer. Cancer Cell. 2021;39(11):1479–1496.e18. [doi:10.1016/j.ccell.2021.09.008](https://doi.org/10.1016/j.ccell.2021.09.008).
+4. <span id="ref-4"></span>Lin M and contributors. SCLC_response_to_Tarlatamab [source code]. Commit c14f343adda1e5c35fc56e8e2b3d9ed2a82e9894. MIT License. [Repository](https://github.com/mlin2017/SCLC_response_to_Tarlatamab/tree/c14f343adda1e5c35fc56e8e2b3d9ed2a82e9894). Accessed 2026 Oct 25.
 
-[1]: https://doi.org/10.1158/2159-8290.CD-25-1483
-[2]: https://doi.org/10.1158/2159-8290.32728810
-[3]: https://doi.org/10.1016/j.ccell.2021.09.008
-[4]: https://github.com/mlin2017/SCLC_response_to_Tarlatamab/tree/c14f343adda1e5c35fc56e8e2b3d9ed2a82e9894
+<span id="_9"></span>

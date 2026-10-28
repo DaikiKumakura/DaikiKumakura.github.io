@@ -13,10 +13,19 @@
       "summary": "HER2陽性・陰性細胞の混合培養を再解析。1係数の終点モデルで未使用の混合割合を予測し、細胞塊の距離が変わると陽性率だけの説明が通用しないことを調べる。",
       "seo_title": "TCEの抗原陰性細胞を陽性率から予測する",
       "seo_description": "HER2×CD3 TCEの公開実験から陰性細胞の5日目の量を再解析。混合条件の除外予測と読取感度を調べ、初期割合だけでは残存量を説明できない範囲を示す。"
+    },
+    "en": {
+      "title": "Can antigen-positive fractions predict residual antigen-negative cells after a TCE?",
+      "summary": "A one-parameter model predicts held-out HER2-positive mixture fractions, while separated tumoroids expose the limits of a fraction-only explanation.",
+      "seo_title": "TCE bystander effects and residual antigen-negative cells",
+      "seo_description": "HER2/CD3 tumoroid means test whether positive-cell fractions predict residual negative cells, with mixture holdouts, reading sensitivity and spatial limits."
     }
   },
   "english": {
     "title": "Can antigen-positive fractions predict residual antigen-negative cells after a TCE?",
     "summary": "Aggregate reanalysis of HER2/CD3 mixed tumoroids. A one-parameter endpoint model undergoes exploratory mixture-condition holdout and reading sensitivity; separated clusters expose limits of a fraction-only explanation. Not clinical dosing or donor-level validation."
+  },
+  "reviewed": {
+    "en": "2be5169815aceca1a13d0597dfb8c9227c7409444eddd5264a0da0cc5f4807a5"
   }
 }

@@ -11,11 +11,20 @@
     "ja": {
       "title": "GFH375の分割投与でピークは下がるか。公開PK予測を実測BIDと比べる",
       "seo_title": "GFH375の分割投与と実測PK | Daiki Kumakura",
-      "summary": "公開平均PKを推定し、2,048組の仮想個体で600 mg QDと300 mg BIDを比較。実測BIDとの不一致から、分割投与の予測をどこまで使えるか検討する。"
+      "summary": "公開平均PK曲線にモデルを当てはめ、仮想個体2,048組で600 mg QDと300 mg BIDを比較する。推定に使わなかった公開BID曲線との不一致から、分割投与の予測の限界を検討する。"
+    },
+    "en": {
+      "title": "GFH375 dose fractionation versus observed BID pharmacokinetics",
+      "summary": "A model fitted to the public 600 mg QD mean profile predicts a lower peak with 300 mg BID in 2,048 virtual individuals, but the public BID mean at 2 h is well above the prediction.",
+      "seo_title": "GFH375 split dosing versus observed BID pharmacokinetics",
+      "seo_description": "A model fitted to the public 600 mg QD mean profile predicts a lower peak with 300 mg BID in 2,048 virtual individuals, but the public BID mean at 2 h is well above the prediction."
     }
   },
   "english": {
     "title": "GFH375 dose fractionation: prediction versus observed BID PK",
     "summary": "Public aggregate PK fitting and conditional paired simulations are checked against an observed BID cohort. The peak mismatch limits regimen conclusions."
+  },
+  "reviewed": {
+    "en": "06d16b81ea515f976b407f23e52ca0f23cf8b83c73799f4ce18666b938a309d5"
   }
 }

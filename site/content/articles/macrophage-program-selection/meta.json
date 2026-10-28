@@ -11,16 +11,16 @@
     "ja": {
       "title": "M2マクロファージを一括りにすると何を見落とすか",
       "summary": "最新のマクロファージ総説を起点に、2ドナー・21,229細胞の公開RNAデータを再集計する。M2aとM2cをまとめると消える情報と、介入評価に残したい機能を考える。",
-      "key_findings": [
-        "M2aとM2cは同じM2ラベルでも、共刺激リガンドなどのRNAパネルが異なる。今回の記述対象は2ドナーの培養系である。",
-        "仮想的に二条件の構成比だけを変えても、M2というラベルを保ったまま平均パネルスコアが変わる。薬による状態遷移の推定ではない。",
-        "RNAパネル、表面マーカー、抗原提示やT細胞応答は別の測定である。細胞の減少と機能の変化を分けて介入を評価する。"
-      ],
       "seo_title": "M2マクロファージの分類で消える細胞応答"
+    },
+    "en": {
+      "title": "What an M2 macrophage label conceals",
+      "summary": "Two-donor single-cell RNA data reveal differences between M2a and M2c stimulation conditions that disappear under a shared M2 label.",
+      "seo_title": "M2 macrophages: gene programs beyond a shared label",
+      "seo_description": "A two-donor RNA reanalysis compares M2a and M2c gene panels, static mixtures and functional evidence without treating RNA scores as validated cell functions."
     }
   },
-  "english": {
-    "title": "What is lost when macrophages share an M2 label?",
-    "summary": "A Japanese essay reanalyzes a fixed expression panel in 21,229 cells from two donors and distinguishes macrophage labels, functional programs, mixture effects and experimental intervention readouts."
+  "reviewed": {
+    "en": "89b428f9448a99e11495209bf4789fbaa9891d14cf67669a441ae6e8fc39765b"
   }
 }

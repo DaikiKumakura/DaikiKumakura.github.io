@@ -9,13 +9,23 @@
   "author": "Daiki Kumakura",
   "locales": {
     "ja": {
-      "title": "Gedatolisibの休薬週を毎週投与に変えると何が変わるか",
+      "title": "Gedatolisibの休薬週に投与を移すと曝露はどう変わるか",
       "seo_title": "Gedatolisibの休薬週とPK | Daiki Kumakura",
-      "summary": "公開PopPKモデルで同じ540 mgを3回または4回に配分。2,048組の仮想個体から、ピークと第4週の曝露の違いを検討する。"
+      "summary": "公表PopPKモデルで同じ540 mg/28日を3回または4回に配分し、ピークと第4週の曝露を比較。2,048組の条件付き仮想個体で検討した。効果・毒性・回復は計算していない。",
+      "seo_description": "公表された4-compartment PopPKモデルを用い、gedatolisibの540 mg/28日を3回または4回に配分した仮想条件を比較する。ピークは下がるが、第4週の曝露は増える。臨床上の優劣は結論しない。"
+    },
+    "en": {
+      "title": "Gedatolisib: how redistributing a 540 mg cycle shifts exposure into the rest week",
+      "seo_title": "Gedatolisib rest-week exposure | Daiki Kumakura",
+      "summary": "A public four-compartment PopPK model compares 540 mg per 28 days given as 3 or 4 doses. Conditional simulations in 2,048 virtual individuals separate a lower peak from higher week-4 exposure, without efficacy, toxicity or recovery claims.",
+      "seo_description": "A published four-compartment PopPK model is used to compare gedatolisib 540 mg per 28 days as 3 or 4 doses. The peak falls while week-4 exposure rises; no clinical superiority is concluded."
     }
   },
   "english": {
     "title": "Gedatolisib: redistributing exposure into the rest week",
     "summary": "A public four-compartment PK model compares equal 540 mg cycle amounts. Conditional paired simulations separate lower peaks from increased last-week exposure, without clinical benefit claims."
+  },
+  "reviewed": {
+    "en": "71656fde2ca8130a67b3c38924992215f500d809f95b285bb24ec61de0582c0b"
   }
 }

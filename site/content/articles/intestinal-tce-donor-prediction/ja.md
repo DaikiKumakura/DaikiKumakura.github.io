@@ -2,17 +2,17 @@
 
 正常組織への作用を少数の培養モデルで調べるとき、平均値が低いだけでは安心できない。反応の大きいドナーが測定対象に入っていない可能性がある。一方、ドナーを増やすだけでなく、標的の発現量が反応の違いを説明するなら、測定値の解釈は変わる。
 
-正常腸管オルガノイド14ドナーの公開データを使い、CEAを標的とするT-cell engager（TCE）の48時間後の作用を予測した。ドナー平均だけを使う方法の誤差は0.519、CEAのIHC陽性面積を使う回帰では0.253だった。ただし、これは固定濃度での培養実験を同じ研究内の別ドナーへ当てはめた結果である。患者の有害事象や臨床用量を予測した値ではない。
+正常腸管オルガノイド14ドナーの公開データを使い、癌胎児性抗原（CEA）を標的とするT-cell engager（TCE）の48時間後の作用を予測した。1ドナー除外予測の二乗平均平方根誤差（RMSE）は、ドナー平均だけを使う場合に0.519、CEAの免疫組織化学染色（IHC）陽性面積を使う回帰で0.253だった。ただし、これは固定濃度での培養実験を同じ研究内の別ドナーへ当てはめた結果である。患者の有害事象や臨床用量を予測した値ではない。
 
 ## 予測するのは48時間後のcaspase信号
 
-**QOI：正常腸管のCEA発現量を使うと、未使用ドナーのTCE応答をドナー平均より小さい誤差で予測できるか。**
+正常腸管のCEA発現量を使うと、未使用ドナーのTCE応答をドナー平均より小さい誤差で予測できるかを調べる。正常組織の非臨床評価で、ドナー差を平均値だけへ集約することの影響を検討する。
 
-**COU：正常組織の非臨床評価で、ドナー差を平均値だけで要約することの影響を調べる。**
-
-Harterらは正常腸管オルガノイドとPBMCの共培養を用いて、TCEによる正常組織への作用を調べた。今回の入力は原著Figure 5のSource Dataである。高親和性CEA標的分子であるCEA(hi) TCBを0.5 µg/mLで処置した14ドナーを対象とする（[Harter et al., 2024](https://doi.org/10.1038/s41551-023-01156-5)）。
+Harterらは正常腸管オルガノイドと末梢血単核球（PBMC）の共培養を用いて、TCEによる正常組織への作用を調べた。今回の入力は[原著のFigure 5のSource Data](https://www.nature.com/articles/s41551-023-01156-5#Fig5)である。高親和性CEA標的T cell bispecific抗体（TCB）であるCEA(hi) TCBを0.5 µg/mLで処置した14ドナーを対象とする([1](#ref-1))。
 
 目的変数は、48時間のcaspase-3/7蛍光信号を、同時点のnon-targeting TCB対照の平均信号で割った値とした。単位のない信号比であり、死細胞率でも、治療に伴う腸炎の発症確率でもない。
+
+**表1．** 入力データと予測の単位。
 
 | 項目 | 解析に使った情報 |
 | --- | --- |
@@ -27,7 +27,7 @@ IHCではドナーごとに複数のオルガノイドが測定されている�
 
 ## EpCAMの値は混ぜない
 
-取得したSource Dataでは、EpCAMについてシート間の対応が一致しなかった。Figure 5fのドナーラベルに従った反応値を5bと比較すると14件中9件、IHC平均を5dと比較すると14件中13件で差があった。例えばDonor 40の反応は5bでは1.980381、5fでは2.732068446だった。どちらのラベルが正しいかをこちらで決めて修正することはしない。
+取得したSource Dataでは、上皮細胞接着分子（EpCAM）についてシート間の対応が一致しなかった。[原著のFigure 5f](https://www.nature.com/articles/s41551-023-01156-5#Fig5)のドナーラベルに従った反応値を5bと比較すると14件中9件、IHC平均を5dと比較すると14件中13件で差があった。例えばDonor 40の反応は5bでは1.980381、5fでは2.732068446だった。どちらのラベルが正しいかをこちらで決めて修正することはしない。
 
 CEA(hi)では、5fの14反応が5bの同じドナーとすべて一致し、5dから計算したCEA面積平均も5fの丸め値と整合した。そのため今回の回帰はCEA(hi)に限定した。CEA(lo)も独自の対応表を仮定して追加していない。品質監査の差分は配布資料の`excluded_epcam_audit.csv`に残した（[original Figure 5 and Source Data](https://www.nature.com/articles/s41551-023-01156-5#Fig5)）。
 
@@ -54,9 +54,13 @@ M_{AR} &: y_i=\beta_0+\beta_A A_i+\beta_R R_i+\epsilon_i
 
 ## 発現量を使うと平均より誤差が小さい
 
+予測誤差にはRMSEと平均絶対誤差（MAE）を用いる。いずれも正規化信号比の単位である。
+
 ![CEA陽性面積と48時間後のcaspase信号](shared/intestinal-tce-donor-prediction/figures/cea-response.svg)
 
-CEA陽性面積は1.789〜46.862%、正規化caspase信号は1.246〜2.978だった。図の直線は全14ドナーへの当てはまりを示す線で、未使用ドナーへの予測線ではない。数字は公開資料のオルガノイドドナーIDである。
+**図1．** CEA陽性面積と48時間の正規化caspase信号。CEA陽性面積は1.789〜46.862%、正規化caspase信号は1.246〜2.978だった。図の直線は全14ドナーへの当てはまりを示す線で、未使用ドナーへの予測線ではない。数字は公開資料のオルガノイドドナーIDである。
+
+**表2．** 学習内とドナー除外予測の誤差。
 
 | モデル | 係数数 | 学習内RMSE | ドナー除外RMSE | ドナー除外MAE |
 | --- | ---: | ---: | ---: | ---: |
@@ -68,6 +72,8 @@ CEA陽性面積は1.789〜46.862%、正規化caspase信号は1.246〜2.978だっ
 CEA陽性面積を使うモデルのドナー除外RMSEは、平均モデルより51.3%小さかった。最大の絶対予測誤差は、平均モデルの1.237に対してCEAモデルで0.526だった。これは信号比の誤差であり、百分率ポイントではない。
 
 ![除外したドナーへの予測と4モデルの誤差](shared/intestinal-tce-donor-prediction/figures/heldout-prediction.svg)
+
+**図2．** 除外したドナーの予測と4モデルの誤差。各予測はそのドナーを使わずに推定した係数による。誤差は無次元の信号比の単位である。
 
 組織部位をCEAに加えると、学習内の誤差はわずかに小さくなったが、未使用ドナーへの誤差は大きくなった。説明変数を増やせば予測もよくなるわけではなかった。小腸・大腸の違いを入れるだけでも平均より改善したため、CEAとの関連を組織部位から独立した因果効果とは解釈しない。
 
@@ -81,6 +87,8 @@ CEA陽性面積を使うモデルのドナー除外RMSEは、平均モデルよ�
 
 \(A\) は百分率の数値である。例えば10 percentage pointsの違いは、この直線上では0.2894の信号比の違いに対応する。濃度を変えたときの傾きや、細胞表面の分子数に対する傾きではない。
 
+**表3．** CEAモデルの係数とbootstrap区間。
+
 | 係数 | 推定値 | ドナー単位bootstrapの2.5〜97.5%点 |
 | --- | ---: | ---: |
 | 切片 | 1.2542 | 1.0635〜1.4267 |
@@ -92,24 +100,26 @@ bootstrapは14ドナーを復元抽出して2,000回再推定したものであ�
 
 ![1ドナーを除いてから再評価した誤差](shared/intestinal-tce-donor-prediction/figures/donor-sensitivity.svg)
 
+**図3．** 全体から1ドナーを除いた後、残る13ドナー内でドナー除外予測を繰り返したRMSE。14通りは重複するデータの感度分析であり、独立した外部検証ではない。
+
 ## 正常組織の平均値が隠すもの
 
-今回の固定濃度では、標的発現の低い正常組織で得た反応を、そのまま別ドナーへ使うよりも、CEAのIHC情報を使う方が予測誤差は小さかった。平均応答だけで要約すると、正常組織の標的発現の分布が変わった場合の応答差を取りこぼす。
+今回の固定濃度では、ドナー平均の反応を別ドナーへそのまま使うよりも、CEAのIHC情報を使う方が予測誤差は小さかった。平均応答だけで要約すると、正常組織の標的発現の分布が変わった場合の応答差を取りこぼしうる。
 
 ただし、IHC陽性面積は細胞表面の抗原密度ではない。caspase信号の上昇も、組織全体の死細胞割合や患者の腸炎リスクではない。画像処理、対照信号、オルガノイド分化状態、免疫細胞との相互作用も値に影響する。今回の回帰はそれらの機序を分離しない。
 
-同じ研究内の14ドナーを使った内部検証で、モデル間の順位を確認した。別の施設、PBMCドナー、分子、濃度への移行は検証していない。とくに、この固定濃度の直線から安全な投与量や治療域を計算することはできない。ここで支持されたのは、CEA(hi) TCBのこの実験条件において、正常組織のドナー差を平均だけで捨てずに扱えるという範囲である。
+同じ研究内の14ドナーを使った内部検証で、モデル間の順位を確認した。別の施設、PBMCドナー、分子、濃度への移行は検証していない。とくに、この固定濃度の直線から安全な投与量や治療域を計算することはできない。支持されたのは、CEA(hi) TCBのこの実験条件で、ドナー単位のCEA陽性面積を使うと、平均値だけを使う場合より未使用ドナーの予測誤差が小さかったことまでである。
 
-## 解析資料
+## データとコードの公開状況
 
 [解析コード・加工データ・結果表](shared/intestinal-tce-donor-prediction/intestinal-tce-donor-prediction-analysis.zip)
 
 `analysis/run.py`が入力表の対応検査、回帰、ドナー除外予測、bootstrap、図表を再生成する。`outputs/summary.json`に本文の数値、`outputs/tables/heldout_predictions.csv`に全予測値がある。元のXLSXは公開APIから取得し、SHA-256を確認する。再実行手順と依存バージョンはREADMEに記載した。原図を転載せず、公開数値から新しい図を作成した。
 
-## References
+## 参照
 
-1. Harter MF, Recaldin T, Gerard R, et al. Analysis of off-tumour toxicities of T-cell-engaging bispecific antibodies via donor-matched intestinal organoids and tumouroids. *Nature Biomedical Engineering*. 2024;8:345–360. Published online December 19, 2023. [doi:10.1038/s41551-023-01156-5](https://doi.org/10.1038/s41551-023-01156-5). Source Data for Figure 5, CC BY 4.0. Changes: donor-level table extraction, source-sheet concordance checks, regression, cross-validation, bootstrap and new figures.
+1. <span id="ref-1"></span>Harter MF, Recaldin T, Gerard R, Avignon B, Bollen Y, Esposito C, et al. Analysis of off-tumour toxicities of T-cell-engaging bispecific antibodies via donor-matched intestinal organoids and tumouroids. Nat Biomed Eng. 2024;8(4):345–360. Published online December 19, 2023. [doi:10.1038/s41551-023-01156-5](https://doi.org/10.1038/s41551-023-01156-5). Source Data for Figure 5, CC BY 4.0. Changes: donor-level table extraction, source-sheet concordance checks, regression, cross-validation, bootstrap and new figures.
 
-## Cite this article
 
-Kumakura D. Predicting intestinal T-cell engager responses across organoid donors. Personal research article. 2026. Exploratory reanalysis of public experimental data.
+<span id="cite-this-article"></span>
+<span id="references"></span>

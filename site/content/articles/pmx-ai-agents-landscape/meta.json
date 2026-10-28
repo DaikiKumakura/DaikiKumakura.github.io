@@ -11,16 +11,20 @@
     "ja": {
       "title": "ファーマコメトリクスにAIエージェントは入ったか：論文・チュートリアル・OSSを横断して読む",
       "summary": "LLMエージェントによる母集団PKモデリングについて、論文、チュートリアル、OSS、会議のページを読み、何が評価され、何が評価されていないかを整理する短い論考。",
-      "key_findings": [
-        "コードが書ける、収束する、専門家のモデルに近い、決定が変わらない、は別の水準で、資料ごとに評価の単位が違うため結果を横に並べられない。",
-        "実行まで行った二つの資料は、動く・自己検証を通ることと妥当であることの間に距離があると報告している。PKGPTは各3回でOFVが484〜1621に散り、チュートリアルでは自己検証を通ったままPDモデルが4種類に割れた。",
-        "評価の物差し作りは始まったばかりでLLMエージェントは対象外であり、導入の部品（OSS、スキル）は評価の部品より先に揃っている。"
-      ],
       "seo_title": "母集団PK解析でAIエージェントは何ができるか"
+    },
+    "en": {
+      "title": "AI agents in pharmacometrics: execution and validity",
+      "summary": "A review of LLM-agent papers, a tutorial and software distinguishes code execution, model convergence and scientific validity. No new experiments were performed.",
+      "seo_title": "AI agents in pharmacometrics: execution and validity",
+      "seo_description": "A review of LLM-agent papers, a tutorial and software distinguishes code execution, model convergence and scientific validity. No new experiments were performed."
     }
   },
   "english": {
     "title": "Has the AI agent entered pharmacometrics? Not yet trusted: reading papers, tutorials and open-source tools side by side",
     "summary": "A short Japanese reading essay that surveys papers, a tutorial, open-source tools and conference pages on LLM agents for population PK modeling, separating what each source evaluated from what it did not."
+  },
+  "reviewed": {
+    "en": "0c2d09dec027d28ddf9956b65257f027f18f07c3d08c16b618b1cef7c1f59536"
   }
 }

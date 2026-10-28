@@ -11,11 +11,17 @@
     "ja": {
       "title": "Camizestrantの製剤と食事条件で75 mgの曝露はどう変わるか",
       "seo_title": "Camizestrantの製剤・食事とPK | Daiki Kumakura",
-      "summary": "公開クロスオーバー試験の集計PKを再解析。調整済み比、単純モデルの不適合、条件付き仮想ペアから、製剤・食事の比較と個人予測を区別する。"
+      "summary": "公開クロスオーバー試験の集計PKを再解析。調整済み比、単純モデルの不適合、条件付き仮想ペアから、製剤・食事の比較と個人予測を区別する。",
+      "seo_description": "Camizestrant 75 mgの公開クロスオーバー試験の集計値から、製剤と食事条件の集団比較は読めても、個人の曝露変化や吸収速度は追加の仮定なしには決まらないことを示す。"
+    },
+    "en": {
+      "title": "Camizestrant formulation and food effects at 75 mg",
+      "summary": "Public crossover summaries separate adjusted exposure contrasts from individual changes and show why a simple concentration model fails its adequacy check.",
+      "seo_title": "Camizestrant formulation, food and individual exposure",
+      "seo_description": "Crossover summaries support population exposure comparisons but do not identify individual changes or absorption rates without further assumptions."
     }
   },
-  "english": {
-    "title": "Camizestrant formulations and food: aggregate PK reanalysis",
-    "summary": "Public crossover summaries separate adjusted exposure contrasts from individual predictions. Conditional endpoint pairs and a failed trajectory adequacy check show the limits."
+  "reviewed": {
+    "en": "88c83bddd36d71d58aaf81fb242e31f008ae287593a69689995f571fe08f1b8e"
   }
 }

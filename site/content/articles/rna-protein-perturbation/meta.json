@@ -8,20 +8,24 @@
   "author": "Daiki Kumakura",
   "locales": {
     "ja": {
-      "title": "RNAで摂動の効果を読む限界：同じ細胞の表面タンパク質で確かめる",
-      "summary": "同じ細胞でRNAと表面タンパク質を測ったCRISPRノックアウトの公開データで、RNAの変化がタンパク質の変化をどこまで代弁するかを調べた。ノイズを補正しても相関は0.42で、標的のmRNAがほぼ下がらないままタンパク質が大きく下がる例もあった。",
-      "key_findings": [
-        "ノックアウトでタンパク質がはっきり下がった16組（遺伝子×条件）のうち5組で、その遺伝子のmRNAの低下は0.1未満だった。PD-L1（CD274）は3条件すべてでそうだった。",
-        "他の遺伝子を壊したときの間接の効果では、RNAとタンパク質の変化の相関は0.26で、測定ノイズを補正しても0.42（感度解析で0.40〜0.52）にとどまった。",
-        "B2Mを壊すとHLA-Aのタンパク質は大きく下がったがmRNAはほぼ変わらず、RNAだけを見る予測では見えない効果があった。"
-      ],
-      "seo_title": "RNAは摂動後のタンパク質変化を代弁するか",
-      "seo_description": "同じ細胞のRNAと表面タンパク質を測った公開CRISPRデータを再解析。ノイズ補正後の相関と標的ごとの違いから、RNAで効果を読む限界を調べる。"
+      "title": "RNAの変化はタンパク質の変化をどこまで反映するか：同じ細胞の表面タンパク質で確かめる",
+      "summary": "同じ細胞でRNAと表面タンパク質を測ったCRISPRノックアウトの公開データを再集計し、RNAの変化がタンパク質の変化をどこまで反映するかを調べた。ノイズを補正した相関は0.42で、標的のmRNAがほぼ下がらないままタンパク質が下がる組もあった。",
+      "seo_title": "RNAは摂動後のタンパク質変化を反映するか",
+      "seo_description": "同じ細胞のRNAと表面タンパク質を測った公開CRISPRデータを再集計。ノイズ補正後の相関と標的ごとの違いから、RNAだけで摂動の効果を読む限界を調べる。"
+    },
+    "en": {
+      "title": "How far RNA changes reflect protein changes after perturbation: a check with surface proteins in the same cells",
+      "summary": "Public CRISPR knockout data with RNA and surface proteins measured in the same cells were recomputed. The noise-corrected correlation between RNA and protein changes was 0.42, and for some knocked-out genes the protein fell while the gene's own mRNA barely changed.",
+      "seo_title": "Does RNA reflect protein changes after perturbation?",
+      "seo_description": "Recomputation of public CRISPR data with RNA and surface proteins in the same cells: the noise-corrected correlation and gene-level differences show the limits of reading perturbation effects from RNA alone."
     }
   },
   "publish_at": "2026-11-21T18:00:00+09:00",
   "english": {
     "title": "Limits of reading perturbation effects from RNA: a check against surface proteins in the same cells",
     "summary": "In public Perturb-CITE-seq data with CRISPR knockouts, RNA and surface proteins measured in the same cells agreed partly: the correlation of their changes was 0.42 after correcting for measurement noise, and some knockouts lowered the protein markedly while the gene's mRNA barely changed."
+  },
+  "reviewed": {
+    "en": "db618c44766d0c87057af177c4e01832994c14344f59e0e0d560477078f8f327"
   }
 }

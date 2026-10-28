@@ -12,16 +12,16 @@
       "title": "創薬AIの正解率はどの薬で改善したのか",
       "summary": "BatchBenchの公開成績と95,215画像分のメタデータを再集計。AdaBNの改善の約94.5%が陽性対照画像に由来することから、未知施設での創薬AI評価と集計重みを考える。",
       "seo_title": "創薬AIのバッチ効果。BatchBenchの正解率を分解する",
-      "seo_description": "細胞画像AIの正解率は、どの薬で改善したのか。BatchBenchの公開成績と約9.5万行のメタデータを再集計し、陽性対照への偏りと未知施設評価を検証する。",
-      "key_findings": [
-        "AdaBNの総合正解率の改善を群別に分解すると、丸め済みの公表平均による計算では約94.5%が陽性対照画像に由来した。",
-        "TARGETとRESTを元のテスト画像比で集計すると、AdaBNは約1.66%、deepCORALは約3.02%。これは重みを変えた計算であり、新しいモデル評価ではない。",
-        "公開95,215行では2,000化合物を確認し、227化合物がTARGETとRESTの両方に現れた。画像群と化合物集合の区別が必要である。"
-      ]
+      "seo_description": "細胞画像AIの正解率は、どの薬で改善したのか。BatchBenchの公開成績と約9.5万行のメタデータを再集計し、陽性対照への偏りと未知施設評価を検証する。"
+    },
+    "en": {
+      "title": "Where BatchBench accuracy gains come from",
+      "summary": "Reweighting reported BatchBench subgroup scores shows why an aggregate gain can be dominated by eight positive-control compounds.",
+      "seo_title": "BatchBench accuracy gains and positive-control images",
+      "seo_description": "An audit of published scores and 95,215 metadata rows separates positive-control gains, cross-source evaluation and claims about unfamiliar compounds."
     }
   },
-  "english": {
-    "title": "Which compounds account for an improvement in image AI accuracy?",
-    "summary": "A Japanese audit of BatchBench decomposes reported accuracy gains and checks public metadata, distinguishing positive-control performance, source generalization and descriptive mixture sensitivity."
+  "reviewed": {
+    "en": "852e7eecea0bfbc50974917ce50d98b9e650ab7c2f01cf98638a4aed062b008b"
   }
 }

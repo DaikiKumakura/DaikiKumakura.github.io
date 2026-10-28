@@ -1,19 +1,21 @@
 [English](dll3-il2-combination-prediction-en.html)
 
-DLL3を標的とするTCEとIL-2変異体の併用で、腫瘍の増殖が単剤より抑えられた。この結果を見たとき、「二つの単剤の作用を足せば説明できる」という仮定は、どこまで成り立つのか。
+デルタ様リガンド3（DLL3）を標的とするT-cell engager（TCE）とIL-2変異体の併用で、腫瘍の増殖が単剤より抑えられた。この結果を見たとき、「二つの単剤の作用を足せば説明できる」という仮定は、どこまで成り立つのか。
 
-SCLCのKP1モデルについて、対照と各単剤の公開平均曲線から増殖速度を推定し、併用群の結果を使わずに予測した。Day 22の併用群の腫瘍体積は読み取り値で約385 mm³、独立した作用を仮定した予測は約810 mm³だった。予測は観測値の約2.10倍になった。ただし、この乖離だけで薬理学的相乗作用や、その原因を証明することはできない。
+小細胞肺癌（SCLC）のKP1モデルについて、対照と各単剤の公開平均曲線から増殖速度を推定し、併用群の結果を使わずに予測した。Day 22の併用群の腫瘍体積は読み取り値で約385 mm³、独立した作用を仮定した予測は約810 mm³だった。予測は観測値の約2.10倍になった。ただし、この乖離だけで薬理学的相乗作用や、その原因を証明することはできない。
 
 ## 同じ実験の四つの群を比較する
 
-原著は2026年1月27日版のプレプリントであり、査読前の研究である。Figure 3HとIには、HBS対照、TCE、IL2REH、併用の四群が示されている。IL2REHはCD25依存性を高めたIL-2変異体であり、野生型IL-2の群とは区別した（[Obenaus et al., 2026, Figure 3](https://pmc.ncbi.nlm.nih.gov/articles/PMC12822708/#F3)）。
+原著は2026年1月27日版のプレプリントであり、査読前の研究である。[原著のFigure 3HとI](https://pmc.ncbi.nlm.nih.gov/articles/PMC12822708/#F3)には、HBS対照、TCE、IL2REH、併用の四群が示されている。HBSは溶媒対照である。IL2REHは原著が「CD25 biased」と記載するIL-2変異体であり、野生型IL-2の群とは区別した([1](#ref-1))。
+
+**表1．** 解析対象と投与条件。
 
 | モデル | TCE | TCEの投与 | IL2REHの投与 | 群別の報告n |
 | --- | --- | --- | --- | --- |
 | B16メラノーマ | TRP2 TCE | 5 mg/kg・6日ごと | IL-2成分として3 µg・2日ごと | 対照5・TCE11・IL2REH5・併用11 |
 | KP1 SCLC | DLL3 TCE | 5 mg/kg・4日ごと | IL-2成分として3 µg・2日ごと | 各群10 |
 
-報告nはマウス数である。今回再取得したのは49個の図上の平均記号であり、個体別の49例ではない。群ごとの脱落、測定値の相関、個体別のばらつきは再構成していない。B16のTRP2とKP1のDLL3を一つの薬剤としてまとめず、別々のベンチマークとして計算した。
+報告nはマウス数である。今回再取得したのは49個の図上の平均記号であり、個体別の49例ではない。群ごとの脱落、測定値の相関、個体別のばらつきは再構成していない。B16の標的であるTRP2（チロシナーゼ関連タンパク質2）のTCEとKP1のDLL3 TCEを一つの薬剤としてまとめず、別々のベンチマークとして計算した。
 
 解析の問いは、単剤の腫瘍増殖への作用がそのまま併用群に重なると仮定した場合、平均曲線を再現できるか、である。用途は、この非臨床データに対する単純な仮説の検証であり、ヒトの併用量や投与順序を選ぶものではない。
 
@@ -48,7 +50,9 @@ V_{TI}^{\mathrm{point}}(t)=V_{TI}(t_0)
 
 ![Figure 1. 対照・単剤の平均曲線と推定に使用しなかった併用群](shared/dll3-il2-combination-prediction/figures/combination-prediction.svg)
 
-点線は指数近似による併用予測、黒い×は同時点の実測平均比による予測。縦の点線までの期間で三群の速度を推定し、同じ期間の併用群を照合した。縦軸は対数表示である。
+**図1．** 対照・単剤の平均曲線と推定に使わなかった併用群。点線は指数近似による併用予測、黒い×は同時点の実測平均比による予測。縦の点線までの期間で三群の速度を推定し、同じ期間の併用群を照合した。縦軸は対数表示である。
+
+**表2．** 対照・単剤から推定した増殖速度。
 
 | モデル | 対照の速度 | TCEの速度 | IL2REHの速度 | 予測した併用速度 |
 | --- | ---: | ---: | ---: | ---: |
@@ -57,14 +61,18 @@ V_{TI}^{\mathrm{point}}(t)=V_{TI}(t_0)
 
 速度の単位はday⁻¹。丸め前の値と入力期間は`outputs/tables/net-growth.csv`に記録した。
 
+**表3．** 併用群の観測平均と予測。
+
 | モデル・評価日 | 併用群の観測平均 | 指数近似による予測 | 実測平均比による予測 | 指数予測/観測 |
 | --- | ---: | ---: | ---: | ---: |
 | B16/TRP2・Day 19 | 22.7 | 122.4 | 144.8 | 5.39 |
 | KP1/DLL3・Day 22 | 384.8 | 809.8 | 761.7 | 2.10 |
 
-体積の単位はmm³。出力は`outputs/tables/comparison.csv`。指数近似を外しても、KP1では予測値が観測の約1.98倍だった。したがって、この差を指数増殖の形だけに帰すことはできない。
+体積の単位はmm³。出力は`outputs/tables/comparison.csv`。KP1の比較点はDay 18とDay 22の2点だけで、Day 22の指数予測/観測は2.10、Day 18は1.63である。指数近似を外しても、Day 22の予測値は観測の約1.98倍だった。したがって、この差を指数増殖の形だけに帰すことはできない。
 
 ![Figure 2. 単剤から予測した併用体積と観測値の比](shared/dll3-il2-combination-prediction/figures/prediction-discrepancy.svg)
+
+**図2．** 単剤から予測した併用体積と観測平均の比。B16とKP1は別々の実験モデルである。読み取り感度の幅はマウス間の信頼区間ではない。
 
 ## B16の小さな体積は読み取りに敏感
 
@@ -74,18 +82,18 @@ B16では開始時と併用後の体積がゼロ目盛に近く、1ピクセル�
 
 ## モデルから外れた部分は機序そのものではない
 
-原著は、TCEによるT細胞の補充とIL2REHによるエフェクター分化を、単一細胞解析などと併せて論じている（[Obenaus et al., 2026](https://doi.org/10.64898/2025.12.04.692214)）。本解析は、その機序を腫瘍体積から独立に証明したものではない。免疫細胞の動態、効果の遅れ、時間とともに変わる増殖速度、群平均の構成の変化も、単純な速度加算からの乖離を生む。
+原著は、TCEによるT細胞の補充とIL2REHによるエフェクター分化を、単一細胞解析などと併せて論じている([1](#ref-1))。本解析は、その機序を腫瘍体積から独立に証明したものではない。免疫細胞の動態、効果の遅れ、時間とともに変わる増殖速度、群平均の構成の変化も、単純な速度加算からの乖離を生む。
 
 今回支持されたのは、KP1/DLL3のこの条件では、単剤から推定した一定速度の独立作用モデルが併用群の増殖抑制を過小評価したということである。正味の増殖速度だけで併用条件を評価すると、単剤では現れなかった抑制を説明から落とす。逆に、この結果だけで用量反応、投与順序、治療間隔を最適化することもできない。比較されたのは原著の一つの投与条件である。
 
-## 再実行資料
+## データとコードの公開状況
 
 [解析コード・読み取り座標・出力表](shared/dll3-il2-combination-prediction/dll3-il2-combination-prediction-analysis.zip)。`analysis/download_sources.py`で公開図を取得し、`analysis/run.py`で全図表を再生成する。`python -m unittest discover -s tests`で単剤だけを使う推定と独立作用式を検査できる。原図は配布物に含めず、取得URL・SHA-256・読み取り規則を保存した。
 
-## References
+## 参照
 
-Obenaus M, Poupault CL, McGinnis CS, et al. T cell engagers control solid tumors through clonal replacement and IL2-driven effector differentiation of CD8 T cells. *bioRxiv*. Version 2, January 27, 2026. Preprint. [doi:10.64898/2025.12.04.692214](https://doi.org/10.64898/2025.12.04.692214).
+1. <span id="ref-1"></span>Obenaus M, Poupault CL, McGinnis CS, Prange C, Jiang H, Su LL, et al. T cell engagers control solid tumors through clonal replacement and IL2-driven effector differentiation of CD8 T cells [Preprint]. bioRxiv; 2026. Version 2, posted 2026 Jan 27. [Version 2](https://www.biorxiv.org/content/10.64898/2025.12.04.692214v2). [doi:10.64898/2025.12.04.692214](https://doi.org/10.64898/2025.12.04.692214).
 
-## Cite this article
 
-Kumakura D. Can monotherapy tumor growth predict the effect of a DLL3 T-cell engager combined with IL-2? 2026. Independent aggregate-mean benchmark.
+<span id="cite-this-article"></span>
+<span id="references"></span>

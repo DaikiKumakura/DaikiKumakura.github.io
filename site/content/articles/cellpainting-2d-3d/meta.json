@@ -9,19 +9,19 @@
   "author": "Daiki Kumakura",
   "locales": {
     "ja": {
-      "title": "2Dでは似ていた抗がん剤が3Dでは違って見える理由",
+      "title": "2Dで似ていた抗がん剤が3Dで離れる例：Cell Painting公開データの再集計",
       "summary": "5-FUとオラパリブのCell Painting公開データを再集計する。濃度と416の共通画像特徴をそろえ、2D・3D培養で変わる薬剤の近さを、DNA合成・損傷応答・RNAの測定と照らし合わせる。",
       "seo_title": "抗がん剤の反応は2D・3D培養でどう変わる？",
-      "seo_description": "5-FUとオラパリブの公開Cell Paintingデータを再解析。共通416特徴と固定濃度で画像の類似度を比べ、DNA損傷応答・EdU・RNAの測定から、創薬AIが学ぶ薬剤応答の条件依存性を考える。",
-      "key_findings": [
-        "HCT116の公開36薬剤パネルでは、5-FUに対するオラパリブの類似度順位は2Dで1位、3Dで20位となる。濃度最大集約に基づく記述である。",
-        "5-FU 10 µM、オラパリブ3 µMを固定し、共通416特徴の中央値で比べても、コサイン類似度は2Dの0.808から3Dの0.354へ下がった。",
-        "画像・DNA合成・損傷応答・RNAは異なる測定であり、この比較は3Dの臨床薬効予測での優越性を示していない。"
-      ]
+      "seo_description": "5-FUとオラパリブの公開Cell Paintingデータを再解析。共通416特徴と固定濃度で画像の類似度を比べ、DNA損傷応答・EdU・RNAの測定から、創薬AIが学ぶ薬剤応答の条件依存性を考える。"
+    },
+    "en": {
+      "title": "Two drugs similar in 2D and separated in 3D Cell Painting profiles",
+      "summary": "A reanalysis of public Cell Painting profiles for 5-FU and olaparib compares fixed doses and shared features with DNA synthesis, damage-response and RNA measurements.",
+      "seo_title": "Cell Painting drug similarity in 2D and 3D culture",
+      "seo_description": "Public profiles for 5-FU and olaparib show how dose, shared image features and culture format change drug similarity without establishing clinical superiority."
     }
   },
-  "english": {
-    "title": "Why two cancer drugs look different in 3D culture",
-    "summary": "A Japanese essay reanalyzes public Cell Painting profiles for 5-FU and olaparib, comparing fixed doses and shared features while separating morphology, DNA-synthesis, damage-response and transcriptomic readouts."
+  "reviewed": {
+    "en": "0f6a0b042faea05b9de4f854e692646abb04b2301674a40f412336d81b1aafcd"
   }
 }

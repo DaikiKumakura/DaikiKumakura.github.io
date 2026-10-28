@@ -13,10 +13,19 @@
       "summary": "Tarlatamab研究の公開CTC表20患者を再集計。20 mL換算数と実測分母を区別し、25%判定の条件付き精度と固定測定数の設計計算を示す。",
       "seo_title": "DLL3陽性CTCの判定と必要な測定細胞数",
       "seo_description": "Tarlatamab研究の公開CTC表を再集計。正規化数と実測分母を区別し、DLL3陽性割合25%の判定に対する測定数と過分散の影響を計算する。"
+    },
+    "en": {
+      "title": "How many CTCs are needed to classify DLL3 positivity?",
+      "summary": "Public tarlatamab CTC data distinguish normalized counts from unknown denominators and quantify conditional precision around a 25% positivity threshold.",
+      "seo_title": "DLL3-positive CTCs: counts and classification precision",
+      "seo_description": "Public tarlatamab CTC data distinguish normalized counts from unknown denominators and quantify conditional precision around a 25% positivity threshold."
     }
   },
   "english": {
     "title": "How many CTCs are needed to classify DLL3 positivity?",
     "summary": "Reanalysis of a public 20-patient tarlatamab CTC table. Conditional count-precision bounds and fixed-count design calculations separate normalized counts from unavailable raw denominators."
+  },
+  "reviewed": {
+    "en": "915487fbbe4a9c448c1c6e2b61caa063e9fcdfcb7822fdf0400ca74caa1028f1"
   }
 }

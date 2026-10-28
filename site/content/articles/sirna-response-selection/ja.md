@@ -1,6 +1,6 @@
 標的を約8割抑えるsiRNAがある。図で数えられた変動遺伝子は十数個だった。もう少し強く抑える別のsiRNAでは、変動遺伝子が二十数個に増える。次に残すなら、どちらだろう。
 
-Ginkgo Datapointsの2026年OTSポスターを見て、気になったのはこの散布図だった。横軸は変動した遺伝子の数、縦軸は標的の平均ノックダウン率。同じ標的を狙う候補でも、点は一か所に集まらない。標的の発現量を測るだけでは見えない差がある。[Public poster ( PDF )](https://euphsfcyogalqiqsawbo.supabase.co/storage/v1/object/public/admin-dynamic/uploads/1791896492506-Ginkgo%20Datapoints_2026%20OTS%20Poster_smarter%20siRNA%20candidate%20profiling.pdf)
+Ginkgo Datapointsの2026年OTSポスターを見て、気になったのはこの散布図だった。横軸は変動した遺伝子の数、縦軸は標的の平均ノックダウン率。同じ標的を狙う候補でも、点は一か所に集まらない。標的の発現量を測るだけでは見えない差がある。[公開ポスターPDF](https://euphsfcyogalqiqsawbo.supabase.co/storage/v1/object/public/admin-dynamic/uploads/1791896492506-Ginkgo%20Datapoints_2026%20OTS%20Poster_smarter%20siRNA%20candidate%20profiling.pdf) ([1](#ref-1))
 
 ただ、横軸をそのまま「オフターゲットの数」と読んでしまうのも早い。標的を抑えた結果として変わる遺伝子まで、そこには入っているかもしれない。
 
@@ -10,7 +10,7 @@ Ginkgo Datapointsの2026年OTSポスターを見て、気になったのはこ�
 
 ## 80本を6濃度で測った実験 {#806}
 
-発表は、4標的に対する80本のsiRNAをHepG2細胞へ導入し、DRUG-seqで転写応答を測ったものだ。濃度は0.1、0.316、1、3.16、10、31.6 nM。実験表にはライブラリ条件の反復数が6とあり、未処置、導入試薬、非標的siRNA、PPIBを狙う陽性対照も置いている。14枚の384ウェルプレートを用いたと説明されている。[Poster section 2 section](https://datapoints.ginkgo.bio/publications)
+発表は、4標的に対する80本のsiRNAをHepG2細胞へ導入し、DRUG-seqで転写応答を測ったものだ。濃度は0.1、0.316、1、3.16、10、31.6 nM。実験表にはライブラリ条件の反復数が6とあり、未処置、導入試薬、非標的siRNA、PPIBを狙う陽性対照も置いている。14枚の384ウェルプレートを用いたと説明されている。[ポスター第2節](https://euphsfcyogalqiqsawbo.supabase.co/storage/v1/object/public/admin-dynamic/uploads/1791896492506-Ginkgo%20Datapoints_2026%20OTS%20Poster_smarter%20siRNA%20candidate%20profiling.pdf)
 
 標的への効果は、同じプレートの導入試薬対照に対するDESeq2のlog2 fold changeで示される。DRUG-seqは標的と同時に多数の遺伝子を測るため、標的だけを測定した場合には同程度に見える候補を、転写応答でも比べられる。
 
@@ -20,9 +20,11 @@ Ginkgo Datapointsの2026年OTSポスターを見て、気になったのはこ�
 
 ## 変わった遺伝子を全部捨てたいわけではない {#_1}
 
-siRNAは、意図した標的以外の転写産物にも作用しうる。Jacksonらは、ガイド鎖のseed領域との部分的な相補性を介した抑制を実験的に示した。同じ標的へのsiRNAを複数使うことは、標的に共通する作用と配列に依存する作用を見分ける手がかりになる。[Jackson et al., RNA, 2006](https://doi.org/10.1261/rna.25706)
+siRNAは、意図した標的以外の転写産物にも作用しうる。Jacksonらは、ガイド鎖のseed領域との部分的な相補性を介した抑制を実験的に示した。同じ標的へのsiRNAを複数使うことは、標的に共通する作用と配列に依存する作用を見分ける手がかりになる ([2](#ref-2))。
 
 それでも、siRNA間で異なる発現変化が、すべて直接的なオフターゲットとは限らない。少なくとも、次の可能性を考えたい。
+
+表1．転写変化の由来と対応する比較。
 
 | 転写変化の由来 | 確認したい比較 |
 | --- | --- |
@@ -45,7 +47,9 @@ siRNAは、意図した標的以外の転写産物にも作用しうる。Jackso
 
 ![ポスターから読み取った10本のsiRNAの比較。青緑は読み取り幅を含めると優越されない候補。](shared/sirna-response-selection/figures/candidate-tradeoffs.png)
 
-図は筆者作成。座標はポスター第4節Bからの概数。棒は読み取り幅の仮定で、標準誤差や信頼区間ではない。
+図1．筆者作成。座標はポスター第4節Bからの概数。棒は読み取り幅の仮定で、標準誤差や信頼区間ではない。
+
+表2．読取幅によるPareto優越判定の変化。
 
 | 座標の扱い | 比較上後回しにできる点 | その判定がつかない点 |
 | --- | ---: | ---: |
@@ -65,7 +69,7 @@ siRNAは、意図した標的以外の転写産物にも作用しうる。Jackso
 
 元の散布図には、平均ノックダウン率という縦軸がある。平均の取り方が分からない以上、それを特定の濃度や同じ標的作用での比較に読み替えることはできない。
 
-次に実験を組むなら、先に必要な標的作用を決めたい。例えば、機能的な根拠のある抑制水準に達する濃度を候補ごとに求め、その近傍で転写応答を比べる。到達していない候補を、濃度範囲の外へ大きく外挿して並べるのは避ける。mRNAだけでなく、タンパク質と機能の測定も合わせる。
+候補ごとに、機能的な根拠のある標的抑制水準へ達する濃度が分かれば、その近傍の転写応答を比較できる。しかし本資料では、その水準も対応濃度も確定していない。濃度範囲の外への外挿や、mRNA抑制だけでは、同じタンパク質作用・機能を持つ候補を比べたことにはならない。
 
 そのうえで、複数配列に共通する標的由来の応答と、候補ごとに残る変化を調べる。レスキューや別方式の介入も手がかりになるが、ノックアウトと部分的な抑制は同じ条件ではない。比較対象を増やすだけで作用機序が確定するわけではない。
 
@@ -75,7 +79,7 @@ siRNAは、意図した標的以外の転写産物にも作用しうる。Jackso
 
 もう一つ、数字を確認しておきたい。ポスター第7節の概算では、同じスクリーニング規模に対してRT-qPCRが約4万ドル、DRUG-seqが約5万ドル、bulk RNA-seqが約36万ドルとされる。期間は前二者が3週、bulk RNA-seqが7週。処置、調製、測定、解析を含むと説明されている。
 
-この条件では、DRUG-seqの総額はqPCRより約1万ドル、25%高い。「1遺伝子あたり」で安くても、総予算が小さくなるわけではない。対して全条件をbulk RNA-seqで測る見積もりの約14%ではある。[Poster section 7 section](https://datapoints.ginkgo.bio/publications)
+この条件では、DRUG-seqの総額はqPCRより約1万ドル、25%高い。「1遺伝子あたり」で安くても、総予算が小さくなるわけではない。対して全条件をbulk RNA-seqで測る見積もりの約14%ではある。[ポスター第7節](https://euphsfcyogalqiqsawbo.supabase.co/storage/v1/object/public/admin-dynamic/uploads/1791896492506-Ginkgo%20Datapoints_2026%20OTS%20Poster_smarter%20siRNA%20candidate%20profiling.pdf)
 
 ただし、実際の比較相手が「qPCRで全候補を見て、数本だけRNA-seqする」なら、この3つの総額だけでは損得を決められない。少数サンプルの追加費用は、全条件の見積もりを本数で割って推定できるとは限らない。追加の約1万ドルで、候補の選び直しや追試がどれだけ変わるかを知りたい。見積もりは発表者の条件付きの数字で、市場価格として一般化しない。
 
@@ -87,8 +91,14 @@ siRNAは、意図した標的以外の転写産物にも作用しうる。Jackso
 
 HepG2への導入条件で得た応答は、送達、体内動態、作用持続、他組織への影響を含む薬剤としての性能とは区別される。
 
-## 計算を再実行する {#_3}
+## データとコードの公開状況 {#_3}
 
 [読み取り座標・計算コード・実行手順](shared/sirna-response-selection/sirna-response-selection.zip)をまとめた。Pythonで`analysis.py`を実行すると、各候補の優越関係、読み取り幅を変えた結果、費用比がJSONに出る。`plot.py`で図を再生成できる。元のポスター、生の発現データ、配列は同梱していない。
 
-参考資料：Cox et al.「Smarter siRNA Candidate Selection Through Scalable DRUG-seq Profiling」（OTS 2026、[Official publications listing](https://datapoints.ginkgo.bio/publications)）。seed依存性の実験的根拠は[Jackson et al., RNA 2006](https://doi.org/10.1261/rna.25706)。化学修飾による抑制の違いは[Jackson et al., RNA 2006](https://doi.org/10.1261/rna.30706)も参照。
+化学修飾による意図しない転写抑制の変化についてはJacksonらの研究 ([3](#ref-3)) を参照した。この追加資料も抄録を確認した範囲である。
+
+## 参照 {#article-references}
+
+1. <span id="ref-1"></span>Cox K, Rudibaugh T, Vigneau S, Riccardi A, Dedic C, Roach K, et al. Smarter siRNA Candidate Selection Through Scalable DRUG-seq Profiling. Oligonucleotide Therapeutics Society meeting poster. 2026. [Poster](https://euphsfcyogalqiqsawbo.supabase.co/storage/v1/object/public/admin-dynamic/uploads/1791896492506-Ginkgo%20Datapoints_2026%20OTS%20Poster_smarter%20siRNA%20candidate%20profiling.pdf); [official publications listing](https://datapoints.ginkgo.bio/publications).
+2. <span id="ref-2"></span>Jackson AL, Burchard J, Schelter J, Chau BN, Cleary M, Lim L, et al. Widespread siRNA “off-target” transcript silencing mediated by seed region sequence complementarity. RNA. 2006;12(7):1179-1187. [doi:10.1261/rna.25706](https://doi.org/10.1261/rna.25706).
+3. <span id="ref-3"></span>Jackson AL, Burchard J, Leake D, Reynolds A, Schelter J, Guo J, et al. Position-specific chemical modification of siRNAs reduces “off-target” transcript silencing. RNA. 2006;12(7):1197-1205. [doi:10.1261/rna.30706](https://doi.org/10.1261/rna.30706).

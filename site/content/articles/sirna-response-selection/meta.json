@@ -11,16 +11,20 @@
     "ja": {
       "title": "同じ遺伝子を抑えるsiRNAでも同じ薬にはならない",
       "summary": "80本のsiRNAを測ったOTSポスターを読み、標的抑制と転写応答で候補をどう選ぶかを考える。図の10点からの判断例と読み取り幅への感度分析、qPCRとの費用比較を添える。",
-      "key_findings": [
-        "変動遺伝子数は直接的なオフターゲットや毒性の数とは限らず、標的由来の下流応答と区別する必要がある。",
-        "二軸の選好を仮定した図の再計算では、後回しにできる点は概数で6点、読み取り幅を含めると5点または4点になった。統計的な信頼区間ではない。",
-        "ポスターの条件付き見積もりではDRUG-seq総額はqPCRより25%高く、測定遺伝子あたりの安さと総予算を分けて判断する。"
-      ],
       "seo_title": "同じ標的のsiRNAを転写応答で比べる"
+    },
+    "en": {
+      "title": "siRNA selection: target knockdown and transcriptional changes",
+      "summary": "Approximate poster coordinates illustrate siRNA candidate tradeoffs, reading uncertainty and why changed-gene counts do not directly measure off-target effects.",
+      "seo_title": "siRNA selection: knockdown and transcriptional changes",
+      "seo_description": "Approximate poster coordinates illustrate siRNA candidate tradeoffs, reading uncertainty and why changed-gene counts do not directly measure off-target effects."
     }
   },
   "english": {
     "title": "Choosing between siRNAs that silence the same target",
     "summary": "A Japanese technical essay audits an OTS poster on 80 siRNAs, distinguishes transcriptional effects from off-target liability, and explores conditional candidate selection using approximate coordinates from ten plotted points."
+  },
+  "reviewed": {
+    "en": "d4197a8f34ba6c6b99cc484aa6c3d9368850b84b4f6cf443903818b5bb78be57"
   }
 }

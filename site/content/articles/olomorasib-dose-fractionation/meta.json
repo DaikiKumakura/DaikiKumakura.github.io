@@ -11,11 +11,21 @@
     "ja": {
       "title": "Olomorasibの曝露の頭打ちは少量分割で変わるか",
       "seo_title": "Olomorasibの少量分割とPK | Daiki Kumakura",
-      "summary": "公開実測PKから用量–曝露と吸収を推定し、150 mg BIDと100 mg TIDを比較。飽和モデルの不確実性と投与時刻が予測に与える影響を検討する。"
+      "summary": "公開実測PKから用量–曝露と吸収を推定し、150 mg BIDと100 mg TIDを比較。飽和モデルの不確実性と投与時刻が予測に与える影響を検討する。",
+      "seo_description": "公開された実測PKから用量–曝露と吸収を推定し、150 mg BIDと100 mg TIDを比較する。総曝露の増加は飽和モデルの仮定に依存し、最低濃度は投与時刻で変わった。"
+    },
+    "en": {
+      "title": "Olomorasib dose fractionation: saturation versus timing",
+      "summary": "Published olomorasib PK compares proportional and saturating exposure models. Splitting 300 mg/day changes minimum concentration through dosing times, not through a supported gain in total exposure.",
+      "seo_title": "Olomorasib divided dosing and PK | Daiki Kumakura",
+      "seo_description": "Published olomorasib PK compare 150 mg BID with 100 mg TID. A small AUC gain depends on a saturating model, and minimum concentration depends on dosing times."
     }
   },
   "english": {
     "title": "Olomorasib dose fractionation: saturation versus timing",
-    "summary": "Public measured PK compares proportional and saturating exposure models. Conditional simulations distinguish daily exposure from peaks, troughs and uneven dosing times."
+    "summary": "Published olomorasib PK compares proportional and saturating exposure models. Splitting 300 mg/day changes minimum concentration through dosing times, not through a supported gain in total exposure."
+  },
+  "reviewed": {
+    "en": "66bdb042510ae1fd7b5f6e5f43071a7313a419c869d9b10afe539a124a309162"
   }
 }

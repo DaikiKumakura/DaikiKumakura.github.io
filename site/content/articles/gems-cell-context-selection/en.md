@@ -1,72 +1,72 @@
-A variant looks relevant to a disease, and a sequence model predicts an effect. Which cells should be used to test it?
+A disease-associated variant and a sequence model predicting an effect still leave a practical question: which cells should be used to test it? A gene name alone does not identify the cellular state in which its response matters. That choice also precedes a virtual perturbation.
 
-That is often still unresolved. A gene name is not enough: the cell type and state change the response worth measuring. The same ambiguity carries into virtual perturbation if the input cells are poorly specified.
+GEMS, released as a preprint on October 16, 2026, links candidate variants from genome-wide association studies (GWAS) to potentially relevant cells and tissues ([1](#ref-1)). I examine its contribution to choosing experimental systems rather than treating it as a device that identifies a therapeutic target at once. The fraction receiving a cell annotation can overstate the strength of that evidence.
 
-The [GEMS preprint](https://doi.org/10.64898/2026.10.14.759213), released on October 16, 2026, addresses this preceding question by associating GWAS candidate variants with potentially relevant cells and tissues. It has not yet been peer reviewed.
+## Reinterpreting sequence predictions through disease association
 
-I find it more interesting as evidence for choosing an experimental system than as a tool that identifies a drug target outright. But the fraction of variants assigned a cell context can make that evidence look stronger than it is.
+GEMS uses Borzoi predictions of ATAC-seq (chromatin accessibility) and RNA-seq (gene expression) signals. Features are z-standardized absolute log2 fold changes between reference and alternate sequences. A trait-specific random forest distinguishes fine-mapped candidates with posterior inclusion probability, PIP, above 0.1 from nearby controls below 0.01 ([1](#ref-1)). Because signs are discarded before classification, feature contributions do not identify expression increases or decreases. PIP itself depends on fine-mapping assumptions; exceeding 0.1 does not establish causality.
 
-## Reading sequence predictions through disease association {#_1}
+The traits are asthma, LDL cholesterol, multiple sclerosis (MS), and type 2 diabetes (T2D). After quality control there are 111 ATAC and 160 RNA tracks. Separate models use ATAC, RNA, or both ([1](#ref-1)). Some RNA tracks represent bulk tissues, so “cell-type prediction” encompasses different resolutions.
 
-GEMS uses Borzoi to predict ATAC-seq and RNA-seq signals from sequence. It compares reference and alternate sequences and uses z-standardized absolute log2 fold changes as features. A disease-specific Random Forest distinguishes candidate variants with fine-mapping posterior inclusion probability (PIP) above 0.1 from nearby controls with PIP below 0.01. Because the input discards the effect sign, a contribution to this classifier does not reveal whether expression rises or falls. PIP also depends on fine-mapping assumptions; a value above 0.1 does not establish causality.
+SHAP (Shapley-value-based feature attribution) quantifies feature contributions. One hundred repeated models are compared with label-permuted null models, retaining variant-specific associations with multiple-testing-adjusted false discovery rate (FDR) below 0.05 ([1](#ref-1)). This identifies the cell or tissue prediction features used by a model to distinguish candidates, not experimentally measured effects of cell-specific genetic interventions.
 
-The traits are asthma, LDL cholesterol, multiple sclerosis (MS) and type 2 diabetes (T2D). After quality control there are 111 ATAC tracks and 160 RNA tracks. ATAC-only, RNA-only and multimodal models are trained separately. The RNA tracks include bulk tissues, a resolution difference hidden by the shorthand “cell-type prediction.”
+The paper also tests enrichment of ATAC variant–cell-type associations in independent experimental cis-regulatory regions ([1](#ref-1)). Enrichment persists after removing variants overlapping training-source ATAC peaks, supporting information beyond lookup of existing peaks. Regional enrichment nevertheless differs from identifying the causal cellular context of each variant.
 
-SHAP is then used to examine feature contributions. The authors compare 100 repeated models with label-permuted null models and retain associations with variant-wise multiple-testing-adjusted FDR below 0.05. These are statistical assignments of the predicted cell/tissue features used to distinguish candidate variants. They are not measurements of the effect of manipulating a gene in those cells.
+## The denominator behind 78%
 
-The paper also reports enrichment in experimentally identified cis-regulatory elements not used for training. Enrichment remains after variants overlapping training ATAC peaks are excluded, supporting more than a lookup of existing peaks. Regional enrichment still differs from establishing the causal cell context of an individual variant.
+The abstract reports median candidate-annotation fractions across four traits of 58.7% for ATAC and 65.9% for RNA in single-modality analyses ([1](#ref-1)). Multiplying or subtracting these medians cannot establish agreement on the same variants. Variant overlap is unknown, and [original Table 2](https://doi.org/10.64898/2026.10.14.759213) ([1](#ref-1), Table 2), transcribed below, concerns a separately trained multimodal model.
 
-## The denominator behind “78%” {#78}
+**Table 1.** Candidate variants and denominators for the most frequent multimodal cell combination.
 
-The abstract reports that, in single-modality analyses, the median fractions of candidate variants assigned at least one cell/tissue context across four traits are 58.7% for ATAC and 65.9% for RNA. This is an expansion of annotation coverage.
-
-These percentages cannot be multiplied or subtracted to obtain agreement for the same variants. They are medians across traits, and their overlap is unknown. Moreover, Table 2 below concerns a **separately trained multimodal model**.
-
-I transcribed the four rows of [the original Table 2](https://doi.org/10.64898/2026.10.14.759213) and used two denominators:
-
-| Trait | All candidate variants N | Significant associations in both modalities B | Largest pair K | K / B | K / N |
+| Trait | All candidates N | Significant associations in both modalities B | Largest combination K | K / B | K / N |
 | --- | ---: | ---: | ---: | ---: | ---: |
 | Asthma | 547 | 167 | 100 | 59.9% | 18.3% |
 | LDL | 985 | 191 | 149 | 78.0% | 15.1% |
 | MS | 273 | 80 | 50 | 62.5% | 18.3% |
 | T2D | 497 | 10 | 3 | 30.0% | 0.6% |
 
-B counts variants with at least one significant ATAC association and at least one significant RNA association. Following Table 2, RNA mononuclear-cell features are excluded. This does not require the two modalities to identify biologically identical cells. K is the largest shared-variant count among RNA-tissue/ATAC-cell-type pairs. It does not mean that each variant is assigned exclusively to one cell type.
+B counts variants with at least one significant association in each modality, excluding RNA mononuclear-cell features as specified in the original table. This alone does not mean both modalities indicate the same biological cells. K is the largest shared-variant count among RNA-tissue/ATAC-cell-type combinations. Variants are not necessarily assigned uniquely.
 
-For LDL, the leading pair is liver RNA and hepatocyte ATAC. Its 149 / 191 = 78.0% indicates strong concentration among variants assigned contexts in both modalities. Relative to all 985 candidates, however, it is 149 / 985 = 15.1%.
+For LDL, the leading combination is liver RNA and hepatocyte ATAC: 149/191=78.0% among dual-associated variants, but 149/985=15.1% among all candidates.
 
 $$
 \frac{K}{N}=\frac{B}{N}\times\frac{K}{B}
 $$
 
-For LDL, 19.4% × 78.0% = 15.1%. Concentration within the selected subset and coverage of the entire candidate set are different quantities. The 15.1% is not accuracy: it is the fraction of the reported candidate set covered by the leading pair with significant associations in both modalities.
+Here 19.4% × 78.0% = 15.1%. Concentration within the selected subset and coverage of all candidates answer different questions. The latter is neither accuracy nor a success probability: it describes the fraction of the reported candidate set captured by the most frequent combination.
 
-![Recalculation of GEMS Table 2 with a common denominator; dark color is the leading pair, light blue the remaining variants assigned in both modalities, and gray the variants without assignments in both](shared/gems-cell-context-selection/figures/denominators.png)
+![Denominator-standardized aggregation of original Table 2](shared/gems-cell-context-selection/figures/denominators.png)
 
-This original figure uses public aggregates; it is not a retrained-model comparison. Gray includes both variants assigned in only one modality and variants assigned in neither. It does not mean that the variants have no effect. Other cells outside the dark segment may also be worth investigating. The plot cannot estimate the success rate of a hepatocyte experiment.
+**Figure 1.** Independent redrawing of public aggregates, not a retrained GEMS performance comparison. Dark color denotes the leading combination; light blue denotes other dual-associated variants; gray denotes variants lacking significant associations in both modalities. Gray includes single-modality and unannotated candidates, not demonstrated absence of biological effects. Other combinations can remain experimentally useful, and this figure cannot estimate hepatocyte-experiment success.
 
-## T2D's 2% is not simply a failure rate {#t2d2}
+## The 2% for T2D is not automatically failure
 
-For T2D, 10 / 497 = 2.0% of variants are assigned in both modalities. The leading pair contains only three variants. Pancreas RNA with delta+gamma-cell ATAC is not the sole leader: colon and colon mucosa RNA each pair with the same ATAC cell type for three variants. Their overlap is unknown, so 3 + 3 + 3 is invalid.
+Only 10/497=2.0% of T2D candidates have associations in both modalities. The largest combination contains three variants. Pancreas RNA with delta+gamma-cell ATAC is tied with colon and colonic-mucosa RNA paired with the same ATAC cell type, each involving three variants. Their overlap is unknown, so they cannot be added as 3+3+3.
 
-It would also be wrong to read 2.0% as an agreement or disagreement rate after seeing the single-modality pancreatic-islet ATAC assignment of 26.0% and pancreas RNA assignment of 51.5%. These use different models and conditions. For the multimodal T2D model, the paper reports only 21 / 497 variants with a significant ATAC association, compared with 63.4% for RNA.
+The single-modality islet-ATAC annotation rate of 26.0% and pancreas-RNA rate of 51.5% cannot turn 2.0% into a disagreement rate: models and selection conditions differ. In the multimodal T2D model, only 21/497 variants have significant ATAC associations, whereas the reported RNA fraction is 63.4% ([1](#ref-1)).
 
-The authors suggest limited pancreatic-islet training data as one explanation. The islet ATAC tracks represent about 15,000 nuclei; rare endocrine types such as delta+gamma represent about 710. This explanation was not itself tested by an intervention that increased cell numbers. Missing assignments cannot be separated into biological irrelevance versus insufficient measurement or model sensitivity.
+The authors suggest limited islet-cell training data as one contributor: approximately 15,000 nuclei for islet ATAC tracks and approximately 710 for rare endocrine cells such as delta+gamma ([1](#ref-1)). They did not establish that explanation by experimentally increasing cell counts. Biological irrelevance and insufficient measurement/model sensitivity remain inseparable explanations of missing annotations.
 
-I would hesitate to make agreement on a biologically identical experimental system a universal requirement across traits. Poorly represented cells would become easier to exclude from research. Conversely, a pancreas assignment from RNA alone does not establish a particular islet cell type.
+Requiring matching ATAC and RNA contexts universally could exclude underrepresented cells. Conversely, a pancreas RNA association does not identify a specific islet cell type.
 
-## A cell assignment is not functional validation {#_2}
+## Cell assignment does not establish experimental validity
 
-GEMS assignments combine the variant's own PIP, the ATAC/RNA distinction and the resolution of tissues and cell types. Reporting only the top cell name hides alternative contexts, unassigned variants and modality disagreements.
+Interpretation depends jointly on candidate PIP, modality, and tissue-versus-cell-type resolution. Reporting only the leading cell name conceals multiple candidates, unassigned variants, and modality differences. This aggregation does not validate a rule for selecting cells or estimate functional-experiment success. An assigned candidate context is not confirmation of a variant's action or a drug intervention in that context. The aggregates therefore cannot decide the next experimental cell for LDL (hepatocytes) or T2D (a specific islet cell type). GEMS associations are one clue for choosing an experimental system, and their validity must be tested in separate experiments.
 
-This recalculation does not demonstrate that a particular cell-selection rule improves experiments. The fraction assigned in both modalities is not the success rate of functional experiments in selected cells. Assignment does not establish that the variant's action, or the result of a drug intervention, has been verified there.
+## Data and code availability
 
-## Scope and sources {#_3}
+The calculation re-expresses denominators and set partitions for four rows of [original Table 2, version 1](https://doi.org/10.64898/2026.10.14.759213). These describe a candidate collection, so no sampling-based confidence interval is added. Linkage disequilibrium (LD) also prevents treating variants as independent trials.
 
-The analysis recalculates denominators and set partitions for four rows of Table 2 in preprint v1. It describes a candidate set, so no sampling-based confidence interval is attached. Linkage disequilibrium among variants also makes an independent-trial interval inappropriate.
+The paper's [Figshare DOI](https://doi.org/10.6084/m9.figshare.34511559) did not resolve and its public API returned 404 when checked on October 20, 2026. This records availability then, not subsequent status. I therefore did not reanalyze variant-level rankings, candidate multiplicity, or PIP-weighted coverage.
 
-The [Figshare DOI](https://doi.org/10.6084/m9.figshare.34511559) given in the paper did not resolve when checked on 2026-10-20; the public API also returned 404. Variant-level ranks, candidate counts and PIP-weighted coverage were therefore not reanalyzed. This records the state on that date, not the subsequent availability of the resource.
+The [code, aggregate inputs, and reproduction instructions](shared/gems-cell-context-selection/gems-cell-context-selection.zip) are provided without original figures or PDF. Reading covers Table 2, the multimodal Results, and variant–cell-type association Methods.
 
-[Recalculation code, numerical inputs and reproduction instructions](shared/gems-cell-context-selection/gems-cell-context-selection.zip) are provided. Original figures and PDFs are not redistributed.
+## References
 
-Source: Xie et al. [GEMS (GWAS Effect Mechanisms via Sequence-to-Function): Unveiling cell type-specific mechanisms for GWAS variants](https://doi.org/10.64898/2026.10.14.759213). bioRxiv v1, released 2026-10-16. See Table 2, the multimodal Results analysis and the variant–cell-type association Methods.
+1. <span id="ref-1"></span>Xie X, Qian S, Chang D, Bhangale T, McCarthy MI, Eraslan G, et al. GEMS (GWAS Effect Mechanisms via Sequence-to-Function): Unveiling cell type-specific mechanisms for GWAS variants [Preprint]. bioRxiv; 2026. Version 1, posted 2026 Oct 16. [doi:10.64898/2026.10.14.759213](https://doi.org/10.64898/2026.10.14.759213). Not peer reviewed.
+
+<span id="78"></span>
+<span id="_1"></span>
+<span id="_2"></span>
+<span id="_3"></span>
+<span id="t2d2"></span>

@@ -4,25 +4,29 @@
 
 読んだ日は2026年10月。実験はしていない。公開された論文、チュートリアル、GitHub、会議のページを読んだ短い論考で、数値はすべて各資料の記載の転載であり、私は再計算していない。X（旧Twitter）と掲示板は読めなかったので、現場の反応は入っていない。
 
-## 1. 「AI」は三つの別のものを指す {#1-ai}
+## 「AI」は三つの別のものを指す {#1-ai}
+
+表1．予測器・探索の自動化・LLMエージェントの違い。
 
 | 意味 | 何をするか | 代表例 |
 |---|---|---|
-| 予測器としての機械学習 | 濃度や薬効を直接予測し、従来の非線形混合効果モデル（NLME）の代わりにする | Mao et al. 2025 |
-| モデル探索の自動化 | 探索空間を決め、最適化アルゴリズムでモデルを選ぶ（LLMではない） | Richardson et al. 2025（pyDarwin） |
+| 予測器としての機械学習 | 濃度や薬効を直接予測し、従来の非線形混合効果モデル（NLME）の代わりにする | Mao et al. 2025 ([1](#ref-1)) |
+| モデル探索の自動化 | 探索空間を決め、最適化アルゴリズムでモデルを選ぶ（LLMではない） | Richardson et al. 2025（pyDarwin） ([2](#ref-2)) |
 | LLMがモデラーの役をする | コードを書き、実行し、結果を見て直す | PKGPT、文脈工学のチュートリアル、nlmixr2llm |
 
 本記事は三つ目を扱う。ただし三つ目の中にも、コードを書くだけで実行しない評価（Zhengら）と、実行して直すループを持つ評価（PKGPT、チュートリアル）がある。
 
-## 2. 何が評価されたのか {#2}
+## 何が評価されたのか {#2}
+
+表2．資料の種類と評価対象。
 
 | 資料 | 種類 | 評価したもの | 規模 | 実行 |
 |---|---|---|---|---|
-| Zheng et al. 2025 | 論文 | LLMが書くNONMEMコードの採点 | 7つのLLM、13課題 | なし（コードを採点） |
-| PKGPT（Kwack et al. 2026） | 論文とOSS | NONMEMを実行して直し続けるエージェント | 3データ、各3回 | あり |
-| Pritchard-Bell et al. 2026 | チュートリアル | 36課題に分けた解析を一つの合成PK/PDシナリオで | 6回（Claude Code 3、Codex 3） | あり |
-| Ponce-Bobadilla et al. 2026 | 展望 | 予測AIの評価の慣行 | 評価はしていない | 対象外 |
-| nlmixr2llm | OSS | R用の支援ツール | 検証の記載を見つけられなかった | 対象外 |
+| Zheng et al. 2025 ([3](#ref-3)) | 論文 | LLMが書くNONMEMコードの採点 | 7つのLLM、13課題 | なし（コードを採点） |
+| PKGPT（Kwack et al. 2026） ([4](#ref-4)) | 論文とOSS | NONMEMを実行して直し続けるエージェント | 3データ、各3回 | あり |
+| Pritchard-Bell et al. 2026 ([5](#ref-5)) | チュートリアル | 36課題に分けた解析を一つの合成PK/PDシナリオで | 6回（Claude Code 3、Codex 3） | あり |
+| Ponce-Bobadilla et al. 2026 ([6](#ref-6)) | 展望 | 予測AIの評価の慣行 | 評価はしていない | 対象外 |
+| nlmixr2llm ([7](#ref-7)) | OSS | R用の支援ツール | 検証の記載を見つけられなかった | 対象外 |
 
 「コードが書ける」「モデルが収束する」「専門家が見て妥当である」は別の水準で、資料ごとにどれを見たかが違う。
 
@@ -30,7 +34,7 @@
 
 Zhengらは7つのLLMに13のNONMEM課題を与え、実行せずにコードを最大6点で採点した。最適化したプロンプトでは、o1とgpt-4.1が全13課題で6点だった（元のプロンプトでは中央値5）。苦手とされたのは間接反応モデル（薬効が、薬が作用する先の物質の産生や消失を変える形のモデル）などの複雑なPK/PDで、ラグタイムは最適化したプロンプトで改善した例として挙がっている。著者は「ユーザーによる確認は引き続き必須」とまとめている。短い課題を、実行せず、論文側の基準で採点した結果であることは、点数の読み方に影響する。
 
-2024年の別の研究（Shin et al.、Cloesmeijer et al.）は、当時の一般向けのChatGPTやGeminiのコードに構造や文法の誤りがあり、出力が再現しなかったと報告している。この二つはアブストラクトしか読んでいない。
+2024年の別の研究（Shinら ([8](#ref-8)) とCloesmeijerら ([9](#ref-9))）は、当時の一般向けのChatGPTやGeminiのコードに構造や文法の誤りがあり、出力が再現しなかったと報告している。この二つはアブストラクトしか読んでいない。
 
 ### PKGPT：実行できることと妥当であることの距離 {#pkgpt}
 
@@ -48,21 +52,21 @@ Pritchard-Bellらのチュートリアル（CPT: PSP 2026）は、解析を36の
 
 この規則の効果の読み方には注意が要る。規則は、真値が分かっている同じ合成シナリオで調整されたもので、別のシナリオでの性能は示されていない。規則を足した後も、EC50/IC50は約5倍（0.56〜2.80 mg/L）の幅で残っていた。著者自身も、合成シナリオが一つ、プラットフォームごとにN=3、ハーネス（LLMを動かす外側の仕組み）とモデルが交絡していること、レビューした専門家4人が開発チームの人であることを限界に挙げている。代表的な1回の実行は約4時間、API費用は約70ドルだった。
 
-## 3. 資料から見えること（ここからは私の解釈） {#3}
+## 考察 {#3}
 
 **成功の単位が揃っていない。** 「コードが動く」「収束する」「専門家のモデルに近い」「決定が変わらない」は別の水準である。薬理学の意思決定に最も近いのは最後だが、評価されたのはチュートリアルの一つの合成シナリオだけである。
 
-**実行ごとの違いを見る必要がある。** PKGPTの3回の実行はOFVが484から1621まで散り、チュートリアルでは最初のPDの形が4種類に割れた。ただし各3回のため、ばらつきの大きさ自体は推定できない。テオフィリンのように安定したデータもあり、ばらつきの一部は、段階を前にしか進められない設計にも由来する。最良の1回や平均は実行ごとの違いを隠すので、同じ条件で何回走らせて何回同じ構造になるかを見るのが、評価の最低条件だと私は考える。
+**実行ごとの違いを見る必要がある。** PKGPTの3回の実行はOFVが484から1621まで散り、チュートリアルでは最初のPDの形が4種類に割れた。ただし各3回のため、ばらつきの大きさを精密には推定できない。テオフィリンのように安定したデータもあり、ばらつきの一部は、段階を前にしか進められない設計にも由来する。最良の1回や平均は実行ごとの違いを隠すので、同じ条件で何回走らせて何回同じ構造になるかを見るのが、評価の最低条件だと私は考える。
 
 **自己検証が見ないところに誤りが残る。** PKGPTでは、収束や共分散ステップの失敗として一部は見えた。チュートリアルでは、自己検証を通ったままPDの形が割れた。同じ現象ではないが、「報告された確認」と「妥当性」が別であることを、どちらも示している。私が公開のスキル集でワルファリンの解析を4回やらせた[別の記事](agent-pkpd-skills.html)でも、ラグタイムが実際にはモデルに入っていない比較や、交差検証の推定し直しが初期値から動いていない回が、レポートではなくコードを読んで見つかった。LLM、ソフトウェア、ワークフローが違うので、三者の結果を同じ尺度で並べることはできない。
 
-**評価の物差しはこれからである。** Ponce-Bobadillaらの展望は、予測AIの評価で、指標の不一致、合成データと実データの混在、論文と実装のずれ、評価手順の不一致（MLは検証用に取り分けたデータでの評価、NLMEは同じデータでの診断が多い）という4つの問題を挙げ、全手法で取り分けたデータでの評価と、公開の基準データの整備を提案している。PAGE 2025ではSale and Zhaoが、ブラインドの年次ベンチマーク（最大3つのデータ、公開の探索空間、6か月）の構想を示し、PAGE 2026のISoP AI/ML SIGは基準データの整備を重点に挙げている。これらはLLMエージェントを対象にした議論ではない。
+**評価の物差しはこれからである。** Ponce-Bobadillaらの展望は、予測AIの評価で、指標の不一致、合成データと実データの混在、論文と実装のずれ、評価手順の不一致（MLは検証用に取り分けたデータでの評価、NLMEは同じデータでの診断が多い）という4つの問題を挙げ、全手法で取り分けたデータでの評価と、公開の基準データの整備を提案している。PAGE 2025ではSale and Zhao ([10](#ref-10)) が、ブラインドの年次ベンチマーク（最大3つのデータ、公開の探索空間、6か月）の構想を示し、PAGE 2026のISoP AI/ML SIG ([11](#ref-11)) は基準データの整備を重点に挙げている。これらはLLMエージェントを対象にした議論ではない。
 
-## 4. OSSと技術ブログ {#4-oss}
+## OSSと技術ブログ {#4-oss}
 
-nlmixr2llm（BSD-3）は、nlmixr2用の知識をClaude CodeやCodexのプラグインとして入れるRパッケージである。K-Dense Scientific Agent Skillsには `pkpd-modeling` を含む多数のスキルがあり、Anthropicのエンジニアリングブログ（2025年10月）はスキルを「SKILL.mdを含むフォルダ」と説明し、信頼できるスキルだけを使うことと、評価から始めることを勧めている。私が読んだ範囲では、nlmixr2llmのREADMEに検証の指針はなく、K-Denseの論文の概要にも課題ごとの評価は見当たらなかった。導入の部品は、評価の部品より先に公開されているように見える（READMEと概要を読んだ範囲での印象で、リポジトリ全体は精査していない）。
+nlmixr2llm（BSD-3）は、nlmixr2用の知識をClaude CodeやCodexのプラグインとして入れるRパッケージである。K-Dense Scientific Agent Skills ([12](#ref-12)) には `pkpd-modeling` を含む多数のスキルがあり、Anthropicのエンジニアリングブログ（2025年10月） ([13](#ref-13)) はスキルを「SKILL.mdを含むフォルダ」と説明し、信頼できるスキルだけを使うことと、評価から始めることを勧めている。私が読んだ範囲では、nlmixr2llmのREADMEに検証の指針はなく、K-Denseの論文の概要にも課題ごとの評価は見当たらなかった。導入の部品は、評価の部品より先に公開されているように見える（READMEと概要を読んだ範囲での印象で、リポジトリ全体は精査していない）。
 
-## 5. 実行の成功と解析の妥当性は異なる {#5}
+## 実行の成功と解析の妥当性は異なる {#5}
 
 読んだ資料の「成功」は同じ意味ではない。コードが実行できたこと、推定が動いたこと、構造の指定が意図と一致したこと、未使用データで予測できたことは、別々の結果である。最良の1回のレポートだけでは、同条件での構造選択のばらつきも分からない。
 
@@ -70,28 +74,30 @@ nlmixr2llm（BSD-3）は、nlmixr2用の知識をClaude CodeやCodexのプラグ
 
 ## 未読の資料と確認できない情報 {#_3}
 
-- 本文を読んだのは、PKGPT、文脈工学のチュートリアル、Zheng、Richardson、Ponce-Bobadilla、Anthropicのブログ。Shin 2024、Cloesmeijer 2024、Cha 2025、Mao 2025はアブストラクト、nlmixr2llmとK-DenseはREADMEや概要だけである。
+- 本文を読んだのは、PKGPT、文脈工学のチュートリアル、Zheng、Richardson、Ponce-Bobadilla、Anthropicのブログ。Shin 2024、Cloesmeijer 2024、Cha 2025 ([14](#ref-14))、Mao 2025はアブストラクト、nlmixr2llmとK-DenseはREADMEや概要だけである。
 - PKGPTとチュートリアルの数値は転載で、再現していない。二つとも開発者自身による評価である。
-- XとRedditは読めなかった。企業の製品（Certaraのワークショップなど）は案内のページを見ただけで、性能は確認していない。
+- XとRedditは読めなかった。企業の製品（Certaraのワークショップなど ([15](#ref-15))）は案内のページを見ただけで、性能は確認していない。
 - FDA・EMAのAIの原則やICH M15などの規制文書は対象にしていない。
 
-## 参考資料 {#_4}
 
-The source inventory and reading scope are recorded in [sources.md](shared/pmx-ai-agents-landscape/sources.md).
+資料ごとの読了範囲は [sources.md](shared/pmx-ai-agents-landscape/sources.md) に記録されている。
 
-1. Kwack et al. PKGPT. *Pharmaceutics* 2026;18(4):501. [doi:10.3390/pharmaceutics18040501](https://doi.org/10.3390/pharmaceutics18040501). Code: github.com/Gumgo91/PKGPT
-2. Pritchard-Bell, Lin, Holmes, Doshi. Context Engineering for AI-Assisted Pharmacometrics: A Practical Tutorial. *CPT Pharmacometrics Syst Pharmacol* 2026. [doi:10.1002/psp4.70317](https://doi.org/10.1002/psp4.70317)
-3. Zheng et al. AI for NONMEM Coding: Shortcut or Pitfall? *CPT Pharmacometrics Syst Pharmacol* 2025;14:1965-1969. [doi:10.1002/psp4.70125](https://doi.org/10.1002/psp4.70125)
-4. Shin et al. *J Pharmacokinet Pharmacodyn* 2024;51:187. [doi:10.1007/s10928-024-09921-y](https://doi.org/10.1007/s10928-024-09921-y) (abstract only)
-5. Cloesmeijer et al. *Br J Clin Pharmacol* 2024;90:360. [doi:10.1111/bcp.15895](https://doi.org/10.1111/bcp.15895) (abstract only)
-6. Cha et al. *J Pharmacokinet Pharmacodyn* 2025. [doi:10.1007/s10928-025-09982-7](https://doi.org/10.1007/s10928-025-09982-7) (abstract only)
-7. Richardson et al. *Commun Med* 2025;5:327. [doi:10.1038/s43856-025-01054-8](https://doi.org/10.1038/s43856-025-01054-8)
-8. Mao et al. *AAPS J* 2025. [doi:10.1208/s12248-025-01121-x](https://doi.org/10.1208/s12248-025-01121-x) (abstract only)
-9. Ponce-Bobadilla et al. Predictive AI in Clinical Pharmacology: A Call to Action to Develop Robust Benchmarking Practices. *CPT Pharmacometrics Syst Pharmacol* 2026;15(1):e70155. [doi:10.1002/psp4.70155](https://doi.org/10.1002/psp4.70155)
-10. Sale and Zhao. Announcement of Machine Learning Benchmarking. PAGE 2025 abstract 11658.
-11. Raimúndez, Ponce-Bobadilla, Stodtmann, Knöchel. ISoP AI/ML SIG. PAGE 2026 abstract 11999.
-12. nlmixr2llm: github.com/mattfidler/nlmixr2llm
-13. K-Dense Scientific Agent Skills: arXiv:2609.00065 and repository
-14. Anthropic Engineering. Equipping agents for the real world with Agent Skills. 2025-10-16.
-15. Certara. ACoP 2026 page.
-16. Related articles by the author: [Can an AI agent do a PK/PD analysis? Re-running a warfarin analysis with a public skill library](agent-pkpd-skills.html), [When does individual information improve PK/PD prediction?](warfarin-pkpd.html)
+## 参照 {#article-references}
+
+1. <span id="ref-1"></span>Mao B, Gao Y, Xu C, Macha S, Shao S, Ahamadi M. Opportunities for AI-based Model-informed Drug Development: A Comparative Analysis of NONMEM and AI-based Models for Population Pharmacokinetic Prediction. The AAPS Journal. 2026;28(1):21. [doi:10.1208/s12248-025-01121-x](https://doi.org/10.1208/s12248-025-01121-x).
+2. <span id="ref-2"></span>Richardson S, Irurzun Arana I, Nowojewski A, Zhou D, Leander J, Tang W, et al. A machine learning approach to population pharmacokinetic modelling automation. Communications Medicine. 2025;5(1):327. [doi:10.1038/s43856-025-01054-8](https://doi.org/10.1038/s43856-025-01054-8).
+3. <span id="ref-3"></span>Zheng W, Wang W, Kirkpatrick CMJ, Landersdorfer CB, Yao H, Zhou J. AI for NONMEM Coding in Pharmacometrics Research and Education: Shortcut or Pitfall? CPT: Pharmacometrics & Systems Pharmacology. 2025;14(12):1965-1969. [doi:10.1002/psp4.70125](https://doi.org/10.1002/psp4.70125).
+4. <span id="ref-4"></span>Kwack H, Kong H, Lim J, Zhang BT, Hahn J, Chang MJ. PKGPT: Expert-Orchestrated Recursive LLM Agent for Automated NONMEM PopPK Modeling with Human Benchmarking. Pharmaceutics. 2026;18(4):501. [doi:10.3390/pharmaceutics18040501](https://doi.org/10.3390/pharmaceutics18040501).
+5. <span id="ref-5"></span>Pritchard‐Bell A, Lin CW, Holmes W, Doshi S. Context Engineering for AI ‐Assisted Pharmacometrics: A Practical Tutorial. CPT: Pharmacometrics & Systems Pharmacology. 2026;15(8):e70317. [doi:10.1002/psp4.70317](https://doi.org/10.1002/psp4.70317).
+6. <span id="ref-6"></span>Ponce‐Bobadilla AV, Bräm D, Farnoud A, Fröhlich H, Janssen A, Korsbo N, et al. Predictive AI in Clinical Pharmacology: A Call to Action to Develop Robust Benchmarking Practices. CPT: Pharmacometrics & Systems Pharmacology. 2026;15(1):e70155. [doi:10.1002/psp4.70155](https://doi.org/10.1002/psp4.70155).
+7. <span id="ref-7"></span>Fidler M and contributors. nlmixr2llm [software]. [Repository](https://github.com/mattfidler/nlmixr2llm). README consulted.
+8. <span id="ref-8"></span>Shin E, Yu Y, Bies RR, Ramanathan M. Evaluation of ChatGPT and Gemini large language models for pharmacometrics with NONMEM. Journal of Pharmacokinetics and Pharmacodynamics. 2024;51(3):187-197. [doi:10.1007/s10928-024-09921-y](https://doi.org/10.1007/s10928-024-09921-y).
+9. <span id="ref-9"></span>Cloesmeijer ME, Janssen A, Koopman SF, Cnossen MH, Mathôt RAA, for the SYMPHONY consortium. ChatGPT in pharmacometrics? Potential opportunities and limitations. British Journal of Clinical Pharmacology. 2024;90(1):360-365. [doi:10.1111/bcp.15895](https://doi.org/10.1111/bcp.15895).
+10. <span id="ref-10"></span>Sale M, Zhao L. Announcement of Machine Learning Benchmarking. PAGE 2025; abstract 11658. [Abstract](https://www.page-meeting.org/Abstracts/announcement-of-machine-learning-benchmarking/).
+11. <span id="ref-11"></span>Raimúndez E, Ponce-Bobadilla AV, Stodtmann S, Knöchel J. Shaping the future of AI/ML in pharmacometrics through collaboration, education and best practices. PAGE 2026; abstract 11999. [Abstract](https://www.page-meeting.org/Abstracts/shaping-the-future-of-ai-ml-in-pharmacometrics-through-collaboration-education-and-best-practices/).
+12. <span id="ref-12"></span>K-Dense. Scientific Agent Skills [software and preprint]. 2026. [Repository](https://github.com/K-Dense-AI/scientific-agent-skills); [arXiv:2609.00065](https://arxiv.org/abs/2609.00065). README and abstract consulted.
+13. <span id="ref-13"></span>Anthropic. Equipping agents for the real world with Agent Skills. Anthropic Engineering. 2025 Oct 16. [Article](https://www.anthropic.com/engineering/equipping-agents-for-the-real-world-with-agent-skills).
+14. <span id="ref-14"></span>Cha HJ, Choe K, Shin E, Ramanathan M, Han S. Leveraging large language models in pharmacometrics: evaluation of NONMEM output interpretation and simulation capabilities. Journal of Pharmacokinetics and Pharmacodynamics. 2025;52(3):34. [doi:10.1007/s10928-025-09982-7](https://doi.org/10.1007/s10928-025-09982-7).
+15. <span id="ref-15"></span>Certara. ACoP 2026. [Event page](https://www.certara.com/conference/acop/). Announcement only; performance not evaluated.
+
+<span id="_4"></span>

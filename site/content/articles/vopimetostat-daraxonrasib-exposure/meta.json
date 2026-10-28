@@ -12,10 +12,19 @@
       "title": "Daraxonrasib併用の100 mgを単剤300 mgと比べる前に",
       "seo_title": "Vopimetostat併用のDaraxonrasib曝露 | Daiki Kumakura",
       "summary": "PRMT5・RAS阻害の併用集計PKを監査。条件付きの曝露合わせと4,096組の仮想個体から、同じAUCでもピーク・最低濃度が異なる理由を検討する。"
+    },
+    "en": {
+      "title": "Vopimetostat and daraxonrasib: what AUC matching leaves unknown",
+      "summary": "Public PK summaries and conditional simulations separate AUC matching from concentration profiles, clinical interactions and combination-dose optimization.",
+      "seo_title": "Vopimetostat and daraxonrasib: limits of AUC matching",
+      "seo_description": "Public PK summaries and conditional simulations separate AUC matching from concentration profiles, clinical interactions and combination-dose optimization."
     }
   },
   "english": {
     "title": "Vopimetostat plus daraxonrasib: before matching exposure",
     "summary": "A public aggregate PK audit and conditional paired simulations show why AUC matching does not identify peak or minimum concentrations, a clinical interaction, or an optimal combination dose."
+  },
+  "reviewed": {
+    "en": "ee0eb22f1ee5e292bb1b585dc8c8ec9acf29879d2a17d8bba3509a78e8e3ee3e"
   }
 }

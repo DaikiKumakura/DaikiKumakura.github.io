@@ -11,16 +11,20 @@
     "ja": {
       "title": "ダイバラシブ400 mgの減量を肺がんと大腸がんの公開奏効データから考える",
       "summary": "KRAS G12C阻害薬ダイバラシブについて、第1相の公開された用量群の奏効と400 mgの定常状態の薬物動態から曝露反応を推定し、仮想患者4,096人で200 mgと400 mgを肺がんと大腸がんで比べる。",
-      "key_findings": [
-        "肺がんでは曝露反応がほぼ平坦で、200 mgの予測奏効率51%、400 mgは57%、差の中央値6ポイント（95%区間−11〜23）だった。",
-        "大腸がんの単剤では曝露反応が右上がりと推定され、200 mgは13%、400 mgは37%、差の中央値24ポイント（3〜43）だった。根拠は低用量群の16人中2人で、探索的である。",
-        "肺がんで約6ポイントの差を見分けるにはランダム化試験で1群約1,200人が要る計算で、用量最適化の比較は奏効率より忍容性と用量強度を主な評価にするのが現実的である。"
-      ],
       "seo_title": "ダイバラシブ200 mgと400 mgの曝露比較"
+    },
+    "en": {
+      "title": "Divarasib 200 versus 400 mg from grouped response data",
+      "summary": "Exploratory exposure–response modeling contrasts divarasib doses in lung and colorectal cancer, with uncertain dose mixtures and no dose-specific safety model.",
+      "seo_title": "Divarasib 200 vs 400 mg: grouped response data",
+      "seo_description": "Exploratory exposure–response modeling contrasts divarasib doses in lung and colorectal cancer, with uncertain dose mixtures and no dose-specific safety model."
     }
   },
   "english": {
     "title": "Can divarasib 400 mg be lowered? Estimating exposure-response in lung and colorectal cancer from published dose-group responses",
     "summary": "A Japanese technical note that combines published phase I dose-group response counts with 400 mg steady-state PK of the KRAS G12C inhibitor divarasib to estimate exposure-response and compare 200 and 400 mg in 4,096 virtual patients for NSCLC and CRC."
+  },
+  "reviewed": {
+    "en": "3c9bc1f4fd73ae2eea1383b57d75968a5960181707ff35ea6a1043131d491926"
   }
 }
