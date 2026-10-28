@@ -12,10 +12,19 @@
       "title": "PIEの平均AUPRCから追試する遺伝子を選べるか",
       "summary": "公開評価10,335行をDEGラベルと照合し、背景別の陽性率とAUPRCを再集計する。平均性能、同じ摂動の背景差、限られた追試件数での精度を区別し、候補選びに必要な追加評価を示す。",
       "seo_title": "PIEの平均AUPRCから追試する遺伝子を選べるか"
+    },
+    "en": {
+      "title": "Before choosing DEG candidates with PIE: average precision versus a follow-up budget",
+      "summary": "An audit of 10,335 released evaluation rows joins processed DEG labels to average-precision scores. Context-dependent prevalence and paired perturbations clarify what aggregate performance can establish about a limited follow-up budget.",
+      "seo_title": "PIE evaluation: average precision and candidate selection",
+      "seo_description": "An audit of 10,335 released PIE scores separates average precision, DEG prevalence and accuracy at a fixed follow-up budget."
     }
   },
   "english": {
     "title": "Before choosing DEG candidates with PIE: average precision versus a follow-up budget",
     "summary": "An audit of 10,335 released evaluation rows joins processed DEG labels to average-precision scores. Context-dependent prevalence and paired perturbations clarify what aggregate performance can establish about a limited follow-up budget."
+  },
+  "reviewed": {
+    "en": "1567a6ad32cc2d398ed6c24f5341764992109b09b57a6c5a8b236fec0b7c4c93"
   }
 }
