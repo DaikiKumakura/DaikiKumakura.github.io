@@ -1,3 +1,5 @@
+## 背景と目的 {#article-introduction}
+
 文献・表示情報の確認日：2026年10月12日。
 
 オラパリブはPARP阻害薬で、CYP3A阻害薬との併用によって曝露が増える。一時的な併用を考えると、「併用中に何mgへ減らすか」に加えて、「併用薬をやめた後、いつ元へ戻すか」という問題がある。
@@ -8,9 +10,11 @@
 
 ## 既に示されている投与上の扱い {#_1}
 
-米国の錠剤製品情報では、強い・中程度のCYP3A阻害薬との併用を避けることが基本である。避けられない場合は、強い阻害薬では100 mgを1日2回、中程度では150 mgを1日2回とし、阻害薬中止後に**阻害薬の消失半減期3～5回分**が経過してから、併用前の用量へ戻すと記載されている［1］。これは本記事の解析による提案ではなく、製品情報の記述である。日本の治療上の判断は、国内の最新添付文書などによる。
+米国の錠剤製品情報では、強い・中程度のCYP3A阻害薬との併用を避けることが基本である。避けられない場合は、強い阻害薬では100 mgを1日2回、中程度では150 mgを1日2回とし、阻害薬中止後に**阻害薬の消失半減期3～5回分**が経過してから、併用前の用量へ戻すと記載されている ([1](#ref-1))。これは本記事の解析による提案ではなく、製品情報の記述である。日本の治療上の判断は、国内の最新添付文書などによる。
 
-イトラコナゾールの米国カプセル製品情報にある反復投与時の親薬物半減期34～42時間を使うと、単純な時間換算は次のようになる［2］。
+イトラコナゾールの米国カプセル製品情報にある反復投与時の親薬物半減期34～42時間を使うと、単純な時間換算は次のようになる ([2](#ref-2))。
+
+**表1．製品情報の親薬物半減期による単純な時間換算。**
 
 | 親薬物半減期の回数 | 34–42時間を掛けた値 | 日数換算 |
 | --- | --- | --- |
@@ -21,11 +25,13 @@
 
 ## 公開PBPK研究が扱ったことと今回の問い {#pbpk}
 
-2019年の研究はSimcypを用い、錠剤・カプセルの製剤差、CYP3A阻害・誘導薬との相互作用などを検討している［3］。Table 2では、イトラコナゾール開始96時間後にオラパリブ錠100 mgを単回投与した条件について、観測AUC倍率2.70、観測Cmax倍率1.42、PBPK予測AUC倍率3.55が報告されている。観測値とモデル予測値は別の列である。
+2019年の研究はSimcypを用い、錠剤・カプセルの製剤差、CYP3A阻害・誘導薬との相互作用などを検討している ([3](#ref-3))。[原論文のTable 2](https://doi.org/10.1002/cpt.1103)では、イトラコナゾール開始96時間後にオラパリブ錠100 mgを単回投与した条件について、観測AUC倍率2.70、観測Cmax倍率1.42、PBPK予測AUC倍率3.55が報告されている。観測値とモデル予測値は別の列である。
 
 これは300 mgを1日2回投与した定常状態の実測倍率ではない。単回投与時の倍率を、反復投与中の任意の日や、中止後へそのまま移すことはできない。原著はオラパリブ自身による可逆的阻害、時間依存的阻害、誘導も扱っている。
 
-2023年にはPK-Simを使う別の研究も公開されている［4］。2026年のPBPK研究は製剤ブリッジングを扱っている［5］。新しい論文があることと、阻害薬中止後の予測が検証済みであることは分けて考える必要がある。
+2023年にはPK-Simを使う別の研究も公開されている ([4](#ref-4))。2026年のPBPK研究は製剤ブリッジングを扱っている ([5](#ref-5))。新しい論文があることと、阻害薬中止後の予測が検証済みであることは分けて考える必要がある。
+
+**表2．公開資料の範囲と今回の問いへの制約。**
 
 | 確認した資料 | 今回利用できる情報 | 今回の問いに不足するもの |
 |---|---|---|
@@ -36,7 +42,7 @@
 
 公開情報が少ないから、単純なCL補正をPBPKと呼び替える、という進め方はしない。**原著PBPKを再現して復量条件を選ぶ解析は、今回の資料では保留**とした。以下は、別の狭い問いに答えるための縮約モデルである。
 
-## 今回のQOIとCOU {#qoicou}
+## 問いと使用範囲 {#qoicou}
 
 **QOI：** 一つの併用時AUC倍率が同じでも、中止後の阻害消失を表す曲線は異なり得るか。仮想的な復量時点を比較するとき、追加で何を知る必要があるか。
 
@@ -76,6 +82,8 @@ s=1-\frac{1}{R_0},\qquad x_0=\frac{s}{f-s}
 
 ## 初期値だけでは中止後の曲線が決まらない {#_3}
 
+**表3．同じ初期倍率に校正した数式例。**
+
 | 仮定f | 校正したx₀ | R(0) | R(3) | R(5) | R=1.10までのn |
 | --- | --- | --- | --- | --- | --- |
 | 0.75 | 5.231 | 2.70 | 1.421 | 1.118 | 5.25 |
@@ -84,7 +92,7 @@ s=1-\frac{1}{R_0},\qquad x_0=\frac{s}{f-s}
 
 ![同じ初期倍率に合わせた三つの条件付き曲線](shared/olaparib-ddi-transition/figures/01-matched-anchors.png)
 
-*図1。横軸は仮定した半減期の回数、縦軸は条件をその時点で固定した倍率R。三つの初期倍率とxの仮定した減衰速度は同じだが、消失能力の分解が異なるため中止後の曲線は一致しない。破線R=1.10は計算上の近さを調べる線であり、安全域ではない。図・表は`analysis/run_analysis.py`から生成。*
+**図1．** 横軸は仮定した半減期の回数、縦軸は条件をその時点で固定した倍率R。三つの初期倍率とxの仮定した減衰速度は同じだが、消失能力の分解が異なるため中止後の曲線は一致しない。破線R=1.10は計算上の近さを調べる線であり、安全域ではない。図・表は`analysis/run_analysis.py`から生成。
 
 三つとも初期値は一致している。それでも、阻害が薄くなった後の比は異なる。これは「真の寄与率がどれか分かった」という結果ではなく、**一つの倍率だけでは \(f\) と \(x_0\) を別々に決められない**ことを示す反例である。
 
@@ -102,7 +110,7 @@ B(n)=\frac{D(n)}{300}\,R(n)
 
 ![仮想的な切り替え時点別の代数的指標](shared/olaparib-ddi-transition/figures/02-dose-index.png)
 
-*図2。減量側から元用量側への切り替えを、仮定した半減期0・3・5回に置いた数式例。縦軸B=1は単剤・元用量を正規化した基準で、治療域ではない。切り替え時の跳びは用量を掛け替えた計算上の不連続であり、濃度が瞬時に跳ぶ予測ではない。*
+**図2．** 減量側から元用量側への切り替えを、仮定した半減期0・3・5回に置いた数式例。縦軸B=1は単剤・元用量を正規化した基準で、治療域ではない。切り替え時の跳びは用量を掛け替えた計算上の不連続であり、濃度が瞬時に跳ぶ予測ではない。
 
 初期の100/300×2.70は0.90になる。しかし「0.90だから曝露はほぼ適切」とは判断できない。2.70は単回投与時の観測に基づく基準であり、今回の仮想条件への臨床的な移行は検証していない。図の上下を、過剰・不足曝露や毒性・薬効の判断へ置き換えることもできない。
 
@@ -114,38 +122,39 @@ R=1.10へ近づくまでの回数は、初期倍率にも \(f\) にも依存す�
 
 ![初期倍率と仮定した寄与割合による診断上の到達時点の違い](shared/olaparib-ddi-transition/figures/03-sensitivity.png)
 
-*図3。青はTable 2の観測値2.70と同表記載の幾何平均AUC倍率の95%信頼区間2.44–2.97を大きさの基準にした数式例。金は同表のPBPK予測3.55を別の基準にした例。曲線間を信頼区間や患者間分布として扱わない。R=1.10も臨床的な復量基準ではない。*
+**図3．** 青は[原論文のTable 2](https://doi.org/10.1002/cpt.1103)の観測値2.70と同表記載の幾何平均AUC倍率の95%信頼区間2.44–2.97を大きさの基準にした数式例。金は同表のPBPK予測3.55を別の基準にした例。曲線間を信頼区間や患者間分布として扱わない。R=1.10も臨床的な復量基準ではない。
 
 基準をR=1.05・1.10・1.25として同じ計算を行い、252条件をCSVに保存した。条件の幅は、選んだ仮定への感度であり、真の回復時期の確率分布ではない。原著の予測値3.55を観測値2.70と混ぜて平均したり、両者の差を中止後の予測誤差として扱ったりもしていない。
 
 この例では、判断基準と機序の両方を指定して初めて「何回分」という値が出る。製品情報の3～5消失半減期という扱いを、図3の診断線で再検証したことにはならない。
 
-## 併用時の倍率から中止後の波形は復元できない {#_6}
+## 考察 {#_6}
 
-今回の反例では、初期のAUC倍率と消失時間を揃えても、中止後の曝露比が一致しなかった。倍率への校正と、過渡期を予測できることは異なる。
+今回の反例では、初期のAUC倍率と消失時間を揃えても、中止後の条件付き倍率が一致しなかった。倍率への校正と、過渡期を予測できることは異なる。
 
-イトラコナゾールの機序的PBPK研究には親薬物とヒドロキシ代謝物の区別があるが、今回の\(x\)一つには含まれない［6］。酵素の生成・分解やオラパリブ自体の蓄積も表しておらず、親薬物濃度の減衰だけで阻害の回復を説明するモデルではない。
+イトラコナゾールの機序的PBPK研究には親薬物とヒドロキシ代謝物の区別があるが、今回の\(x\)一つには含まれない ([6](#ref-6))。酵素の生成・分解やオラパリブ自体の蓄積も表しておらず、親薬物濃度の減衰だけで阻害の回復を説明するモデルではない。
 
 半減期3・5回の数式例は、この非一意性を示すためのものだ。製品情報にある復量手順の変更や、臨床の採血日を支持する計算ではない。
 
-## この解析から言える範囲 {#_7}
+## 計算の検査と限界 {#_7}
 
 今回実行したのは、公開PBPK研究と製品情報の監査、および一つの併用時倍率に一致する複数モデルの計算である。指数減衰を独立のODE解と照合し、診断線への到達点は独立の数値求根と比較した。初期値、極限、単調性、入力条件、用量比の切り替えを含む6件のテストは成功した。ただし、数値実装の検査は臨床的な検証を代替しない。
 
 **併用時に何倍になるかと、中止後にいつ戻るかは、同じ情報では決まらない。** これは製品情報の復量手順を変更する根拠ではなく、それと異なる候補をモデルで比較する際に必要な情報を整理する結果である。
 
-公開データで進める場合も、PBPKの名前や整った曲線だけで予測可能な範囲を広げない。今回、具体的な復量条件を選ぶところには進まず、阻害薬・代謝物とオラパリブの中止後時系列を、次の検証に必要な情報として残した。
+阻害薬・代謝物とオラパリブの中止後時系列は、この縮約例に含まれていない。具体的な復量条件の比較には、その経過を扱うモデルと独立した観測による検証が必要である。
 
-## 出典と再実行 {#_8}
-
-1. [LYNPARZA US prescribing information (DailyMed, revised 2025-07)](https://dailymed.nlm.nih.gov/dailymed/fda/fdaDrugXsl.cfm?setid=741ff3e3-dc1a-45a6-84e5-2481b27131aa&type=display). Section 2.4.
-2. [SPORANOX capsules US prescribing information (DailyMed, updated 2026-07)](https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=a4d555fa-787c-40fb-bb7d-b0d4f7318fd0&version=31). Pharmacokinetics and Metabolism.
-3. Pilla Reddy V, et al. Physiologically Based Pharmacokinetic Modeling for Olaparib Dosing Recommendations: Bridging Formulations, Drug Interactions, and Patient Populations. *Clinical Pharmacology & Therapeutics*. 2019;105:229–241. [doi:10.1002/cpt.1103](https://doi.org/10.1002/cpt.1103).([Open full text](https://pmc.ncbi.nlm.nih.gov/articles/PMC6585620/)). Table 2, Table 5, Methods.
-4. Gao D, et al. Physiologically-based pharmacokinetic modeling for optimal dosage prediction of olaparib when co-administered with CYP3A4 modulators and in patients with hepatic/renal impairment. *Scientific Reports*. 2023;13:16027. [doi:10.1038/s41598-023-43258-9](https://doi.org/10.1038/s41598-023-43258-9).([Open full text](https://www.nature.com/articles/s41598-023-43258-9)).
-5. Dong J, et al. Is a Clinical Trial With a Non-Bioequivalent Batch Necessary? The Critical Role of Intrasubject Variability in Olaparib Formulation Bridging by PBPK. *Clinical Pharmacology & Therapeutics*. 2026;120:203–213. [doi:10.1002/cpt.70284](https://doi.org/10.1002/cpt.70284).([Open full text](https://pmc.ncbi.nlm.nih.gov/articles/PMC13264455/)).
-6. Chen Y, et al. Recommendations for the Design of Clinical Drug–Drug Interaction Studies With Itraconazole Using a Mechanistic Physiologically-Based Pharmacokinetic Model. *CPT: Pharmacometrics & Systems Pharmacology*. 2019;8:685–695. [doi:10.1002/psp4.12449](https://doi.org/10.1002/psp4.12449).([Open full text](https://pmc.ncbi.nlm.nih.gov/articles/PMC6765698/)).
+## データとコードの公開 {#_8}
 
 本文の数式例、図、CSV、コードは独自に作成した。原著の図・補足資料・患者データは配布物に含めていない。
 
-
 [計算コード・数値表・再実行手順](shared/olaparib-ddi-transition/olaparib-counterexample.zip)
+
+## 参照 {#article-references}
+
+1. <span id="ref-1"></span> AstraZeneca Pharmaceuticals LP. LYNPARZA (olaparib) tablets: US prescribing information. Revised 2025 Jul. Section 2.4. [DailyMed](https://dailymed.nlm.nih.gov/dailymed/fda/fdaDrugXsl.cfm?setid=741ff3e3-dc1a-45a6-84e5-2481b27131aa&type=display).
+2. <span id="ref-2"></span> Janssen Pharmaceuticals Inc. SPORANOX (itraconazole) capsules: US prescribing information. Updated 2026 Jul 13. Pharmacokinetics and Metabolism. [DailyMed, version 31](https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=a4d555fa-787c-40fb-bb7d-b0d4f7318fd0&version=31).
+3. <span id="ref-3"></span>Pilla Reddy V, Bui K, Scarfe G, Zhou D, Learoyd M. Physiologically Based Pharmacokinetic Modeling for Olaparib Dosing Recommendations: Bridging Formulations, Drug Interactions, and Patient Populations. Clinical Pharmacology & Therapeutics. 2019;105(1):229–241. [doi:10.1002/cpt.1103](https://doi.org/10.1002/cpt.1103).
+4. <span id="ref-4"></span>Gao D, Wang G, Wu H, Ren J. Physiologically-based pharmacokinetic modeling for optimal dosage prediction of olaparib when co-administered with CYP3A4 modulators and in patients with hepatic/renal impairment. Scientific Reports. 2023;13(1):16027. [doi:10.1038/s41598-023-43258-9](https://doi.org/10.1038/s41598-023-43258-9).
+5. <span id="ref-5"></span>Dong J, Moir A, Pepin X, Lowe E, Hopkins S, Tang W, et al. Is a Clinical Trial With a Non‐Bioequivalent Batch Necessary? The Critical Role of Intrasubject Variability in Olaparib Formulation Bridging by PBPK. Clinical Pharmacology & Therapeutics. 2026;120(1):203–213. [doi:10.1002/cpt.70284](https://doi.org/10.1002/cpt.70284).
+6. <span id="ref-6"></span>Chen Y, Cabalu TD, Callegari E, Einolf H, Liu L, Parrott N, et al. Recommendations for the Design of Clinical Drug–Drug Interaction Studies With Itraconazole Using a Mechanistic Physiologically‐Based Pharmacokinetic Model. CPT: Pharmacometrics & Systems Pharmacology. 2019;8(9):685–695. [doi:10.1002/psp4.12449](https://doi.org/10.1002/psp4.12449).
