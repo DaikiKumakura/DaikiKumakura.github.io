@@ -18,10 +18,19 @@
       ],
       "seo_title": "Beacon-2の「ヒトの用量予測」は何を当てているのか",
       "seo_description": "Beacon-2が示したSpearman 0.79・誤差2.4倍を、公開ADMEデータと透明な薬物動態の式で「実測値からの用量」を作り直して確かめ、用量の順位を決める入力を調べる。"
+    },
+    "en": {
+      "title": "What does Beacon-2's human dose prediction actually predict? Decomposing dose projections with public ADME data",
+      "summary": "A Japanese technical note that rebuilds 'doses from measured in vitro ADME' for the 325 OpenADMET-ExpansionRx compounds with transparent PK equations, showing that dose ranks are driven mainly by HLM CLint, that a constant-dose baseline already reaches a 2.4-2.8-fold error, and that the benchmark excludes potency and clinical doses.",
+      "seo_title": "Beacon-2 dose prediction and ADME assumptions",
+      "seo_description": "Public ADME data separate clearance-driven dose rankings, constant baselines and potency assumptions without reproducing Beacon-2."
     }
   },
   "english": {
     "title": "What does Beacon-2's human dose prediction actually predict? Decomposing dose projections with public ADME data",
     "summary": "A Japanese technical note that rebuilds 'doses from measured in vitro ADME' for the 325 OpenADMET-ExpansionRx compounds with transparent PK equations, showing that dose ranks are driven mainly by HLM CLint, that a constant-dose baseline already reaches a 2.4-2.8-fold error, and that the benchmark excludes potency and clinical doses."
+  },
+  "reviewed": {
+    "en": "53d0c78602984d851db2b1b22e8a4f05426635e54d9c982861ef0d31334edd15"
   }
 }

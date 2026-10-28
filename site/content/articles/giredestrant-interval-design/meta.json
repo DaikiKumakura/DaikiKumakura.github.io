@@ -12,10 +12,19 @@
       "title": "Giredestrantの投与間隔を変えると何が変わるか",
       "seo_title": "Giredestrantの投与間隔と濃度変動 | Daiki Kumakura",
       "summary": "公開集計PKからモデルを推定し、未使用の反復投与値で点検。分割・隔日投与を条件付き仮想患者で比較し、PKから徐脈や標的作用へ外挿できる範囲を考える。"
+    },
+    "en": {
+      "title": "Giredestrant dosing intervals, aggregate PK and limits of translation",
+      "summary": "An aggregate PK surrogate is fitted and checked against unused repeated-dose summaries. Conditional virtual patients compare equal-average-dose schedules without claiming heart-rate benefit or preserved efficacy.",
+      "seo_title": "Giredestrant dosing intervals and aggregate PK",
+      "seo_description": "A summary-PK model compares equal-average-dose schedules while retaining holdout overprediction and uncertainty about heart rate and target effects."
     }
   },
   "english": {
     "title": "Giredestrant dosing intervals, aggregate PK and limits of translation",
     "summary": "An aggregate PK surrogate is fitted and checked against unused repeated-dose summaries. Conditional virtual patients compare equal-average-dose schedules without claiming heart-rate benefit or preserved efficacy."
+  },
+  "reviewed": {
+    "en": "e2bb2937cfbb64be7caa482031990d2d273a839be12f0cf72c291e9f44b00d17"
   }
 }

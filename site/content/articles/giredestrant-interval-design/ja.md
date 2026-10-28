@@ -1,8 +1,10 @@
+## 背景と目的 {#article-introduction}
+
 同じ1日平均量を投与すれば、薬物動態が線形である限り、定常状態の平均濃度は変わらない。しかし、ピークと投与直前濃度は変わる。その違いを薬効や有害事象の改善に結びつけられるかは、別に確かめる必要がある。
 
 経口の選択的エストロゲン受容体分解薬（SERD）であるgiredestrantを例に、公開された単回投与の集計PKから小さなモデルを推定し、反復投与の集計値で点検した。続いて15 mgを12時間ごと、30 mgを24時間ごと、60 mgを48時間ごとに投与する仮想条件を比べた。**分割投与でピークが下がるという計算結果は得られたが、徐脈が減るとは結論できなかった。**
 
-文献・開発状況の確認日は2026年10月19日。Giredestrantはこの時点で開発中の薬剤であり、2026年10月にはevERAの第III相結果の論文化が発表されている。ここでは臨床成績の再解析や実際の用量変更を目的としない。[Primary development announcement](https://www.roche.com/media/releases/med-cor-2026-10-01)
+文献・開発状況の確認日は2026年10月19日。Giredestrantはこの時点で開発中の薬剤であり、2026年10月にはevERAの第III相結果の論文化が発表されている。ここでは臨床成績の再解析や実際の用量変更を目的としない。([1](#ref-1))
 
 ## 何を比較するか {#_1}
 
@@ -12,7 +14,9 @@
 
 ## 単回投与で推定し反復投与を残す {#_2}
 
-入力はMalhiらの[Original paper Table 1](https://pmc.ncbi.nlm.nih.gov/articles/PMC10722959/)とTable 2である。個人別の濃度データではなく、進行乳がん患者の集計NCA値を用いる。推定には30 mg単回投与6例の4指標だけを使った。他の用量および反復投与の値は推定に入れていない。[PK Original paper](https://pmc.ncbi.nlm.nih.gov/articles/PMC10722959/)
+入力はMalhiらの[Original paper Table 1](https://pmc.ncbi.nlm.nih.gov/articles/PMC10722959/) ([2](#ref-2))と[原論文のTable 2](https://pmc.ncbi.nlm.nih.gov/articles/PMC10722959/)である。個人別の濃度データではなく、進行乳がん患者の集計NCA値を用いる。推定には30 mg単回投与6例の4指標だけを使った。他の用量および反復投与の値は推定に入れていない。([2](#ref-2))
+
+**表1．** 単回30 mgの入力集計値。
 
 | 30 mg単回投与の入力 | 幾何平均 | 幾何CV |
 |---|---:|---:|
@@ -43,6 +47,8 @@
 
 \(k_a=1\ \mathrm{h}^{-1}\)を固定し、CL/F、Vc/F、Q/F、Vp/Fを対数スケールの最小二乗で求めた。重みには各集計値の\(\sqrt{\log(1+CV^2)/n}\)を用いる。式のCVは百分率を100で割った割合である。ただし同じ患者由来の指標間の共分散が不明なため、これは作業用の重みである。尤度に基づく信頼区間やモデル選択検定には使わない。
 
+**表2．** 集計値から推定した係数。
+
 | パラメータ | 今回の推定値 |
 |---|---:|
 | CL/F | 5.894 L/h |
@@ -55,11 +61,15 @@
 
 ![単回30 mgの観測集計値と1・2コンパートメントの比較](shared/giredestrant-interval-design/figures/01-fit.png)
 
+**図1．** 単回投与集計値への適合。4指標への4係数の適合は独立検証ではない。
+
 **2コンパートメントの4指標が一致すること自体は、検証の成功ではない。** 4個の自由パラメータを4個の集計値に合わせており、残差の自由度がない。図は4指標のうちCmax、AUC0–24、半減期を表示しており、AUC0–∞は上記の入力表と本文に示した。これはピークと長い尾を両立する候補構造の構成である。吸収速度も集計値だけから一意に決まらない。
 
 ## 使わなかった反復投与値では過大予測が残った {#_4}
 
-[Original paper Table 2](https://pmc.ncbi.nlm.nih.gov/articles/PMC10722959/)の30 mg反復投与10例と比較する。
+[Original paper Table 2](https://pmc.ncbi.nlm.nih.gov/articles/PMC10722959/) ([2](#ref-2))の30 mg反復投与10例と比較する。
+
+**表3．** 推定に使わなかった反復投与値との比較。
 
 | 指標 | 公表幾何平均 | モデル | モデル／公表値 |
 |---|---:|---:|---:|
@@ -70,6 +80,8 @@
 30 mg付近でも16–21%の過大予測が残る。さらに10、90、250 mgの反復投与で、Cmaxの比はそれぞれ1.48、1.35、1.98だった。単回30 mgからの単純な用量比例外挿は、高用量まで十分に再現できていない。
 
 ![推定に使わなかった反復投与の公表値に対する予測比](shared/giredestrant-interval-design/figures/02-holdout.png)
+
+**図2．** 未使用の反復投与集計値に対するモデル比。
 
 原著は概ね用量比例性を報告しているが、それは全用量でこの簡略モデルの絶対値が正確という意味ではない。群の違い、少数例、集計方法、個体差、モデル構造などが差に寄与し得る。ここで原因を時間依存CLや非線形吸収に決めつけることはしない。
 
@@ -84,6 +96,8 @@ AUC_{48}=\frac{48}{\tau}\frac{1000D}{CL/F}.
 \]
 
 平均投与量\(D/\tau\)が等しければAUC48も等しい。これはモデルの代数的な性質であり、シミュレーションから得た新しい臨床的知見ではない。
+
+**表4．** 同じ平均量の周期定常状態比較。
 
 | 計算上の投与条件 | Cmax（ng/mL） | 投与直前濃度（ng/mL） | AUC48（ng·h/mL） |
 |---|---:|---:|---:|
@@ -104,6 +118,8 @@ AUC_{48}=\frac{48}{\tau}\frac{1000D}{CL/F}.
 
 CVは30%または60%という仮定である。集計PKのばらつきをそのまま個体間変動へ置き換えた値ではない。CLの中央値を推定値に置き、同じ患者へ全投与条件を与えるpaired比較とした。容積、吸収、共変量、測定誤差は変動させていない。
 
+**表5．** CLのみを変動させた仮想患者の用法比。
+
 | CLのCV=60%での患者内比（対30 mg Q24h） | 中央値 | 仮想患者の5–95百分位 |
 |---|---:|---:|
 | 15 mg Q12h：Cmax | 0.787 | 0.651–0.891 |
@@ -113,13 +129,17 @@ CVは30%または60%という仮定である。集計PKのばらつきをその�
 
 ![定常状態の濃度曲線と、同じ仮想患者内での投与条件の比較](shared/giredestrant-interval-design/figures/03-regimens.png)
 
+**図3．** 周期定常状態の濃度と条件付き仮想患者内の用法比。
+
 この範囲は患者間の仮定上の分布であり、推定値の信頼区間でも実患者に対する予測区間でもない。CV30%の結果も配布表に収録した。集計値からのパラメータ推定不確実性は分布として伝播していない。したがって、この分布幅に推定不確実性が含まれるとは解釈しない。
 
 別に\(k_a=0.5,2,4\ \mathrm{h}^{-1}\)へ固定し直して、同じ4指標から再推定した。30 mg Q24hのCmaxは320.9–326.2 ng/mLと近い一方、単回Tmaxは0.92–2.74 hとなった。公表中央値1.75 hと比較しても、吸収の時間形状は十分に特定できていない。投与間隔による変化の方向はこの感度範囲で共通だったが、これで全構造の不確実性を覆ったとはいえない。
 
 ## ピークが下がれば徐脈も減るのか {#_7}
 
-臨床原著では、単剤の治療中に徐脈が記録された患者は以下の通りだった。薬剤との因果関係を問わない発現数である。[Clinical paper Table 2](https://pmc.ncbi.nlm.nih.gov/articles/PMC10870118/)
+臨床原著では、単剤の治療中に徐脈が記録された患者は以下の通りだった。薬剤との因果関係を問わない発現数である。[Clinical paper Table 2](https://pmc.ncbi.nlm.nih.gov/articles/PMC10870118/) ([3](#ref-3))
+
+**表6．** 単剤群で記録された徐脈。
 
 | QD用量群 | 徐脈の記録 |
 |---|---:|
@@ -130,25 +150,36 @@ CVは30%または60%という仮定である。集計PKのばらつきをその�
 
 この非無作為化の少数例集計を、個人の濃度に対応させたE–R曲線としては使えない。30 mg群には併用のβ遮断薬・digoxinに起因すると判断されたGrade 2事象も含まれる。観察期間や背景の違いもあり、用量群の比較から新しい投与間隔の発現率を予測しない。
 
-心電図解析の原著では、初回投与後の心拍変化には明確な用量・曝露依存性がなく、定常状態では曝露に関連した低下があり、Day 15以降に安定した。つまり急性のピークだけでは説明しにくい遅れがある。[Brooks et al. ECG analysis](https://pmc.ncbi.nlm.nih.gov/articles/PMC10175970/)
+心電図解析の原著では、初回投与後の心拍変化には明確な用量・曝露依存性がなく、定常状態では曝露に関連した低下があり、Day 15以降に安定した。つまり急性のピークだけでは説明しにくい遅れがある。([4](#ref-4))
 
-この論文のQTcモデルの係数は公開されているが、それを心拍数モデルの係数として代用することはできない。今回確認した公開資料からは、心拍低下のEC50や遅延速度を推定できる個人別時系列と係数が揃わなかった。2026年の機序研究も、ゼブラフィッシュで核内ERシグナルの関与を支持するものであり、人で分割投与が徐脈を減らすことの証明ではない。[2026 mechanistic study](https://pubmed.ncbi.nlm.nih.gov/41512566/)
+この論文のQTcモデルの係数は公開されているが、それを心拍数モデルの係数として代用することはできない。今回確認した公開資料からは、心拍低下のEC50や遅延速度を推定できる個人別時系列と係数が揃わなかった。2026年の機序研究も、ゼブラフィッシュで核内ERシグナルの関与を支持するものであり、人で分割投与が徐脈を減らすことの証明ではない。([5](#ref-5))
 
 したがって、**Cmaxが下がることと、徐脈が減ることは切り離す。** 遅い反応が平均曝露に強く支配されるなら、同じ平均曝露のままピークだけを動かしても、心拍への影響はほとんど変わらない可能性もある。これは検証すべき仮説であり、今回のPK計算が示した事実ではない。
 
 ## 標的作用が維持されるともまだいえない {#_8}
 
-エストロゲン受容体へのトレーサー取り込みを測るFES-PETでは評価可能14例のうち11例で90%を超える取り込み低下が報告されている。しかし、これだけでは濃度と作用の関係の傾きやEC50を推定できない。まして、隔日投与の48時間目に十分な作用が残るという根拠にはならない。FES取り込みの抑制は、臨床効果の閾値でもない。[Clinical paper](https://pmc.ncbi.nlm.nih.gov/articles/PMC10870118/)、[Dose-selection review](https://www.tandfonline.com/doi/full/10.1080/13543784.2026.2613290)
+エストロゲン受容体へのトレーサー取り込みを測るFES-PETでは評価可能14例のうち11例で90%を超える取り込み低下が報告されている。しかし、これだけでは濃度と作用の関係の傾きやEC50を推定できない。まして、隔日投与の48時間目に十分な作用が残るという根拠にはならない。FES取り込みの抑制は、臨床効果の閾値でもない。([3](#ref-3))、([6](#ref-6))
 
 今回の公開集計では、濃度と心拍の個人内の対応や、Day 15頃までの適応過程を同時に推定できない。したがって、ピークへの反応と遅い平均曝露への反応のどちらが支配的か、谷の低下が標的作用を変えるかは、今回のモデルでは分離されていない。
 
-## この解析で支持できる範囲 {#_9}
+## 考察 {#_9}
 
 単回投与の集計値から、ピークと終末相を両立する簡略モデルは構成できた。ただし、未使用の反復投与値には過大予測があり、絶対濃度の精密な予測としては不十分だった。その限界を残した条件付き比較では、同じ平均量の分割投与でピークが下がり、隔日投与では谷が下がった。
 
 一方で、分割投与による徐脈の減少、隔日投与の作用維持、臨床的に最適なレジメンは示していない。公開集計値から進める計算と、個人別PK/PDがなければ進めない判断の境界が、この例では明確になる。
 
+## データとコードの公開 {#article-availability}
+
 解析はPython、NumPy、SciPy、pandas、Matplotlibで実行した。入力値・コード・集計表・図の生成手順を配布する。原著の図、個票、条件付きアクセス資料は再配布しない。
 
 
 [解析コード・入力値・集計表・再実行手順](shared/giredestrant-interval-design/giredestrant-analysis.zip)
+
+## 参照 {#article-references}
+
+1. <span id="ref-1"></span>Roche. Roche’s giredestrant combination significantly improved progression-free survival in ER-positive advanced breast cancer in phase III evERA data published in The New England Journal of Medicine. 2026 Oct 1. [Announcement](https://www.roche.com/media/releases/med-cor-2026-10-01).
+2. <span id="ref-2"></span>Malhi V, Agarwal P, Gates MR, Liu L, Wang J, De Bruyn T, et al. Optimizing Early-stage Clinical Pharmacology Evaluation to Accelerate Clinical Development of Giredestrant in Advanced Breast Cancer. Cancer Research Communications. 2023;3(12):2551–2559. [doi:10.1158/2767-9764.CRC-23-0324](https://doi.org/10.1158/2767-9764.CRC-23-0324).
+3. <span id="ref-3"></span>Jhaveri KL, Bellet M, Turner NC, Loi S, Bardia A, Boni V, et al. Phase Ia/b Study of Giredestrant ± Palbociclib and ± Luteinizing Hormone-Releasing Hormone Agonists in Estrogen Receptor–Positive, HER2-Negative, Locally Advanced/Metastatic Breast Cancer. Clinical Cancer Research. 2024;30(4):754–766. [doi:10.1158/1078-0432.CCR-23-1796](https://doi.org/10.1158/1078-0432.CCR-23-1796).
+4. <span id="ref-4"></span>Brooks L, Dolton M, Langenhorst J, Yoshida K, Lien YTK, Malhi V, et al. Concentration QTc analysis of giredestrant: Overcoming QT/heart rate confounding in the presence of drug‐induced heart rate changes. Clinical and Translational Science. 2023;16(5):823–834. [doi:10.1111/cts.13491](https://doi.org/10.1111/cts.13491).
+5. <span id="ref-5"></span>Basu S, Rosas Diaz AN, Narvaez-Paliza JM, Curtin C, Kurella S, Urias M, et al. Selective Estrogen Receptor Degraders Induce Bradycardia by Modulating Nuclear Estrogen Signaling. JACC: Basic to Translational Science. 2026;11(2):101454. [doi:10.1016/j.jacbts.2025.101454](https://doi.org/10.1016/j.jacbts.2025.101454).
+6. <span id="ref-6"></span>Lim E, Yu J, Li C, Shah MD, Eng-Wong J, Pérez-Moreno PD, et al. Optimizing dose selection in oncology: the rationale for the clinical dose selection of giredestrant, an oral selective estrogen receptor degrader. Expert Opinion on Investigational Drugs. 2026;35(1):19–28. [doi:10.1080/13543784.2026.2613290](https://doi.org/10.1080/13543784.2026.2613290).

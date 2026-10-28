@@ -1,24 +1,19 @@
+## 背景と目的 {#article-introduction}
+
 資料の確認日：2026年10月14日。公開データと教科書的な薬物動態の式だけを使う。
 
-2026年9月17日、Inductive Bioは、化合物の構造からヒトの1日用量を予測するBeacon-2を発表した。[1] 予測した性質を一つずつ見るのではなく、「1日に何mg飲めば効くか」という一つの数字にまとめる、という触れ込みである。性能の根拠として、次の数字が示された。
+2026年9月17日、Inductive Bioは、化合物の構造からヒトの1日用量を予測するBeacon-2を発表した。([1](#ref-1)) 予測した性質を一つずつ見るのではなく、「1日に何mg飲めば効くか」という一つの数字にまとめる、という触れ込みである。性能の根拠として、次の数字が示された。
 
 - 公開データ（OpenADMET-ExpansionRx）の325化合物で、予測用量と「実測のin vitro ADMEから計算した用量」とのSpearman相関が0.79、average fold error が2.4倍。
 - 提携先の20の創薬プログラムで、同じ比べ方の平均Spearman相関が0.61。測定値からの用量が3倍以上違う化合物の組では、用量の低い方を81%超の割合で正しく選んだ。
 
 用量は、クリアランス、タンパク結合、分布容積、吸収、効力、必要な曝露の掛け算と割り算で決まる。用量の予測が当たったというとき、**どの入力を当てたことになるのか**を、公開データで分解してみた。
 
-先に結論を書く。
+## 公開資料に書かれていること {#1}
 
-- 比べる相手は臨床の用量ではない。実測のADMEを同じ用量の式に入れた値で、効力は全化合物で10 nMに固定されている。これはInductive自身が明記している。
-- 私が組んだ透明な式では、どの設定でも、用量の順位の大部分はヒト肝ミクロソームの固有クリアランス（HLM CLint）で決まった（HLM CLintとのSpearman相関 0.80〜1.00）。
-- 2.4倍という誤差は、基準の用量のばらつきと並べないと読めない。平均濃度を目標にする設定では、全化合物に同じ用量を答えるだけで2.4〜2.8倍になる。
-- 効力を固定した評価は、ADMEから用量への部分の評価であって、用量全体の予測の評価ではない。
+Inductiveの解説によれば、Beacon-2は三つの部分からなる。([1](#ref-1)) ADMETと薬物動態の予測、効力の予測（FEPまたはコフォールディングによる親和性モデル）、それらを用量に変換する薬物動態・薬力学の部分である。代替の設定（ラットのクリアランスと分布容積からのアロメトリー）の説明から、既定の設定はヒト肝ミクロソームのin vitroクリアランスとØie–Tozer法の分布容積だと読める。用量の計算の根拠としては、Wangら（2025）とPage（2016）が挙げられている。([2](#ref-2))([3](#ref-3))
 
-## 1. 公開資料に書かれていること {#1}
-
-Inductiveの解説によれば、Beacon-2は三つの部分からなる。[1] ADMETと薬物動態の予測、効力の予測（FEPまたはコフォールディングによる親和性モデル）、それらを用量に変換する薬物動態・薬力学の部分である。代替の設定（ラットのクリアランスと分布容積からのアロメトリー）の説明から、既定の設定はヒト肝ミクロソームのin vitroクリアランスとØie–Tozer法の分布容積だと読める。用量の計算の根拠としては、Wangら（2025）とPage（2016）が挙げられている。[2][3]
-
-ExpansionRxでの評価は次の設計である。[1]
+ExpansionRxでの評価は次の設計である。([1](#ref-1))
 
 - 対象は、チャレンジの評価用データのうち、ADMEの実測値がそろった325化合物。
 - 公開データには効力がないので、効力は10 nMと仮定した。
@@ -28,11 +23,11 @@ ExpansionRxでの評価は次の設計である。[1]
 
 そこで、Page（2016）を簡略化した透明な式を自分で組み、実測値から「正解の用量」を作り直した。Inductiveの式と同じではない。
 
-## 2. データと式 {#2}
+## データと式 {#2}
 
-データは、OpenADMET-ExpansionRxの全データ（CC BY 4.0）である。[4] 評価用2,282化合物のうち、HLM CLintとマウス血漿タンパク結合（MPPB）の両方が測定範囲内にある化合物は335だった。CLintが0の9化合物（対数が取れない）を除き、LogDとCaco-2（透過性と排出比）がそろう化合物に絞ると、**ちょうど325**になった。Inductiveの325と同じ集合である可能性が高いが、確かめる手段はない。もしそうなら、Inductiveの用量は透過性（吸収）にも依存していると考えられる。
+データは、OpenADMET-ExpansionRxの全データ（CC BY 4.0）である。([4](#ref-4)) 評価用2,282化合物のうち、HLM CLintとマウス血漿タンパク結合（MPPB）の両方が測定範囲内にある化合物は335だった。CLintが0の9化合物（対数が取れない）を除き、LogDとCaco-2（透過性と排出比）がそろう化合物に絞ると、**ちょうど325**になった。Inductiveの325と同じ集合である可能性が高いが、確かめる手段はない。集合の一致も、Inductiveが透過性を用量計算に使ったかも、公開情報からは確定できない。
 
-評価用の化合物のうち、HLM CLintが測定範囲外の化合物は228あった（「< 4.5」が213、「> 252.5」が15）。ほかの入力もそろうものは「< 4.5」が59、「> 252.5」が2で、除外は**代謝の遅い側、つまり用量の低い側に偏っている**。
+評価用の化合物のうち、HLM CLintが測定範囲外の化合物は228あった（「< 4.5」が213、「> 252.5」が15）。ほかの入力もそろうものは「< 4.5」が59、「> 252.5」が2で、除外は**代謝の遅い側に偏っている**。CLintが低いほど用量が低いという関係は、設定Aなどの仮定に依存する。
 
 式の基本形は次のとおりである。
 
@@ -43,16 +38,18 @@ ExpansionRxでの評価は次の設計である。[1]
 
 これをもとに、目標の曝露と補正の有無を変えた設定を比べた。
 
+**表1．** 曝露目標と補正の設定。
+
 | 設定 | 目標 | 補正など |
 | --- | --- | --- |
 | A | 非結合型の平均濃度（Cavg,u） | 最小の形（Fa = 1、ミクロソーム結合の補正なし） |
-| A + fu,mic | 同上 | LogDからミクロソーム結合を補正（Hallifax–Houstonの式[5]） |
+| A + fu,mic | 同上 | LogDからミクロソーム結合を補正（Hallifax–Houstonの式([5](#ref-5))） |
 | A 結合補正なし | 同上 | well-stirred モデルに血漿結合を入れない（Page 2016の塩基の扱い） |
 | A + Fa | 同上 | Caco-2透過性から吸収率を与える（例示の式） |
 | A′ | 同上 | fu,mic と Fa の両方 |
 | B | 非結合型の最低濃度（Cmin,u） | 1次吸収（ka 1/h）、分布容積 1 L/kg（感度分析で 3 L/kg） |
 
-## 3. 用量の順位は主にHLM CLintで決まる {#3-hlm-clint}
+## 用量の順位は主にHLM CLintで決まる {#3-hlm-clint}
 
 設定Aでは、式の上で次のことが成り立つ。well-stirred モデルで肝の初回通過だけを考えると、経口のクリアランス（CL/F）は fu × CLint になる。非結合型の濃度を目標にすると、用量はさらに fu で割った分だけ増えるので、fu は消える。
 
@@ -61,6 +58,8 @@ ExpansionRxでの評価は次の設計である。[1]
 これは非結合型の経口AUCについてよく知られた関係で、新しい発見ではない。ただ、この関係が成り立つ設定で効力を固定すると、用量の順位を当てることは、HLM CLintの順位を当てることと同じになる。計算でも、設定Aの用量とHLM CLintのSpearman相関は1.000だった。
 
 補正を加えても、順位の大部分はHLM CLintで決まった。
+
+**表2．** 用量とHLM CLintの関係。
 
 | 設定 | HLM CLintとのSpearman | 用量の対数の標準偏差 | 中央値（mg/日、分子量450） |
 | --- | ---: | ---: | ---: |
@@ -76,11 +75,11 @@ ExpansionRxでの評価は次の設計である。[1]
 
 ![上段左：実測値から計算した用量とHLM CLint。上段右と下段左：CLintの予測誤差と、用量の順位・倍率誤差。下段右：効力を固定したことの影響。](shared/beacon2-dose-decomposition/figures/dose_decomposition.png)
 
-**図1.** (a) 実測値から計算した用量（縦軸、分子量450としてmg/日に換算）とHLM CLint（横軸）。青は設定A、緑は設定A′、橙は設定B（分布容積1 L/kg）。破線は1 g/日。n = 325。(b) CLintに対数正規の予測誤差を加えたときの、予測用量と実測値からの用量のSpearman相関。横軸は誤差の標準偏差（log10）。帯は誤差の500回の繰り返しの95%範囲で、化合物の抽出による不確実性は含まない。横線はBeacon-2の報告値0.79。(c) 同じ条件での絶対平均倍率誤差（AAFE）。設定AとA′だけを示す（両者はほぼ重なる。設定Bは値が桁違いに大きいので本文に書いた）。実線は偏りなし、点線は全化合物で2倍の偏り（log10で0.3）を加えた場合。青の破線は、設定Aで全化合物に学習用データの中央値の用量を答えた場合。(d) 化合物ごとに効力（log10 IC50）がばらつくとき、効力を固定した用量と効力を含めた用量のSpearman相関（どちらも実測値からの用量で、Beacon-2の性能ではない）。誤差棒は500回の繰り返しの95%範囲。
+**図1．** (a) 実測値から計算した用量（縦軸、分子量450としてmg/日に換算）とHLM CLint（横軸）。青は設定A、緑は設定A′、橙は設定B（分布容積1 L/kg）。破線は1 g/日。n = 325。(b) CLintに対数正規の予測誤差を加えたときの、予測用量と実測値からの用量のSpearman相関。横軸は誤差の標準偏差（log10）。帯は誤差の500回の繰り返しの95%範囲で、化合物の抽出による不確実性は含まない。横線はBeacon-2の報告値0.79。(c) 同じ条件での絶対平均倍率誤差（AAFE）。設定AとA′だけを示す（両者はほぼ重なる。設定Bは値が桁違いに大きいので本文に書いた）。実線は偏りなし、点線は全化合物で2倍の偏り（log10で0.3）を加えた場合。青の破線は、設定Aで全化合物に学習用データの中央値の用量を答えた場合。(d) 化合物ごとに効力（log10 IC50）がばらつくとき、効力を固定した用量と効力を含めた用量のSpearman相関（どちらも実測値からの用量で、Beacon-2の性能ではない）。誤差棒は500回の繰り返しの95%範囲。
 
 （出力：`results/summary.json`、`results/error_propagation.csv`、`results/potency_sweep.csv`）
 
-## 4. 0.79と2.4倍をどう読むか {#4-07924}
+## 0.79と2.4倍をどう読むか {#4-07924}
 
 ### 順位 {#_1}
 
@@ -91,6 +90,8 @@ CLintに対数正規の予測誤差を入れ、予測用量と実測値からの
 設定Bでは、**HLM CLintを完全に当てても**Spearman相関は0.80にとどまる。用量の順位が分布容積やタンパク結合にも依存するからである。
 
 比較のために、用量の計算に使っていない実測値を、そのまま順位の予測に使った場合も計算した。これらは予測モデルの基準ではなく、同じ化合物の集合で別の測定値がどれだけ用量の順位と揃うかの参考である。
+
+**表3．** 別の実測値と用量順位の相関。
 
 | 実測値をそのまま使う | 設定A | 設定A′ | 設定B |
 | --- | ---: | ---: | ---: |
@@ -105,7 +106,9 @@ CLintに対数正規の予測誤差を入れ、予測用量と実測値からの
 
 AAFE 2.4倍は、実測値からの用量そのものがどれだけばらついているかと並べて読む必要がある。**全化合物に同じ用量を答える**と、次のようになった。
 
-| 設定 | 学習用データの中央値を答える | 評価用データの中央値を答える（事後に知る値、下限） |
+**表4．** 定数予測によるAAFE。
+
+| 設定 | 学習用データの中央値を答える | 評価用データの中央値を答える（事後に知る最良の定数予測） |
 | --- | ---: | ---: |
 | A | 2.77倍 | 2.38倍 |
 | A′ | 3.02倍 | 2.47倍 |
@@ -117,7 +120,7 @@ AAFE 2.4倍は、実測値からの用量そのものがどれだけばらつい
 
 ここから言えるのは、二つの数字の組み合わせが、基準の定義と、予測の偏りや縮みの両方に依存するということである。設定Aに近い定義なら、2.4倍は予測の順位の誤差だけでなく、全体の偏りも含んでいる可能性がある。どちらの読み方が正しいかは、基準の用量のばらつきと誤差の分布が公開されれば確かめられる。
 
-## 5. 効力を固定すると何が抜け落ちるか {#5}
+## 効力を固定すると何が抜け落ちるか {#5}
 
 効力を全化合物で同じ値にすると、用量は全体に同じ倍率がかかるだけである。そのため、**Spearman相関もAAFEも、10 nMという値には依存しない**。10 nMが影響するのは、mg/日の絶対値だけである。
 
@@ -127,30 +130,24 @@ AAFE 2.4倍は、実測値からの用量そのものがどれだけばらつい
 
 実務では、効力は合成後に測定することが多い。その場合、効力を固定したADMEの部分の評価で足りる場面も多い。Inductiveの評価は、この「ADMEから用量へ」の部分を評価していると読めば、筋が通っている。効力を当てる力はこの評価の対象外であり、これは評価設計の範囲の問題で、誤りではない。ただし、合成前に効力も予測して用量を比べるなら、効力の予測誤差（Inductiveの例では、微調整したコフォールディングのモデルで Spearman 0.72）が用量の不確かさに加わる。
 
-## 6. 「実測値からの用量」は臨床の用量ではない {#6}
+## 「実測値からの用量」は臨床の用量ではない {#6}
 
-もう一つの前提は、正解が実測のin vitroデータから計算した用量であることである。in vitroからヒトへの外挿の誤差は、予測側と正解側の両方に同じように入るので、この評価では見えない。Inductiveも、この評価がin vitroの実測値に対するものだと明記している。[1]
+もう一つの前提は、正解が実測のin vitroデータから計算した用量であることである。in vitroからヒトへの外挿の誤差は、予測側と正解側の両方に同じように入るので、この評価では見えない。Inductiveも、この評価がin vitroの実測値に対するものだと明記している。([1](#ref-1))
 
-Inductiveが根拠に挙げたPage（2016）は、in vitroのデータと予測値から薬物動態のモデルでヒトの用量を予測し、市販薬と開発化合物で、Cmin または Cmax で正規化した実際の用量と比べた。[3] 予測が実際の用量の3倍以内に入ったのは、データセットによって45〜68%、10倍以内は82〜92%だった。Wangら（2025）は、初期のin vitroデータだけを使う汎用のPBPKモデルで、Genentechの18化合物について、非結合型の Cmin・Cmax・AUC による順位付けができたと報告している。一つのin vitroの値だけで順位付けするより良かったという。[2]
+Inductiveが根拠に挙げたPage（2016）は、in vitroのデータと予測値から薬物動態のモデルでヒトの用量を予測し、市販薬と開発化合物で、Cmin または Cmax で正規化した実際の用量と比べた。([3](#ref-3)) 予測が実際の用量の3倍以内に入ったのは、データセットによって45〜68%、10倍以内は82〜92%だった。Wangら（2025）は、初期のin vitroデータだけを使う汎用のPBPKモデルで、Genentechの18化合物について、非結合型の Cmin・Cmax・AUC による順位付けができたと報告している。一つのin vitroの値だけで順位付けするより良かったという。([2](#ref-2))
 
 Beacon-2の評価が測っているのは、「予測したADMEで計算した用量が、実測のADMEで計算した用量にどれだけ近いか」である。その先にある「実測のADMEで計算した用量が、ヒトで実際に必要な用量にどれだけ近いか」は、Page（2016）のような別の検証に頼っている。Page（2016）の数字では、3倍以内に入るのは半分程度だった。
 
-## 7. 用量順位のどこまでが代謝の順位なのか {#7}
+## 考察 {#7}
 
-用量の予測という枠組みそのものには意味がある。性質をばらばらに見るより、用量という一つの単位にまとめる方が、トレードオフ（代謝の安定性を上げると溶解度が下がる、など）を比べやすい。Wangら（2025）も、単一のin vitroの値より、薬物動態のモデルでまとめた方が順位付けに良いと報告している。[2]
+用量の予測という枠組みそのものには意味がある。性質をばらばらに見るより、用量という一つの単位にまとめる方が、トレードオフ（代謝の安定性を上げると溶解度が下がる、など）を比べやすい。Wangら（2025）も、単一のin vitroの値より、薬物動態のモデルでまとめた方が順位付けに良いと報告している。([2](#ref-2))
 
-InductiveはMac1阻害薬の例で、効力だけを最適化した化合物より、用量で最適化した化合物の方が予測用量が低かったと示している。[1] この比較は同じモデルの予測で評価したもので、実測による確認ではない。一方でInductiveは、薬らしさの指標（QED）、医薬化学者の盲検での選好（87%）、ラットのデータに基づく別の薬物動態の設定でも同じ方向の結果を示している。
+InductiveはMac1阻害薬の例で、効力だけを最適化した化合物より、用量で最適化した化合物の方が予測用量が低かったと示している。([1](#ref-1)) この比較は同じモデルの予測で評価したもので、実測による確認ではない。一方でInductiveは、薬らしさの指標（QED）、医薬化学者の盲検での選好（87%）、ラットのデータに基づく別の薬物動態の設定でも同じ方向の結果を示している。
 
 本記事の透明な式で読み替えると、ExpansionRxでのSpearman 0.79は主にHLM CLintを当てる力を反映している可能性がある。ただしInductiveの式と入力が公開されていないため、その寄与は分離できていない。効力を固定した用量の順位と、効力も含めて予測する臨床用量の精度は同じ評価ではない。
 
-## 再実行と限界 {#_3}
+## 限界 {#_3}
 
-[計算コード](shared/beacon2-dose-decomposition/dose_decomposition.py)は、OpenADMET-ExpansionRxの公開CSV（学習用、評価用、生データ）から、`results/`と図1を生成する（約6分）。データは[Hugging Face dataset](https://huggingface.co/datasets/openadmet/openadmet-expansionrx-challenge-data)（利用条件への同意が必要）から取得し、`data/`に置く。確認した版は`requirements.txt`に固定した。
-
-```sh
-python -m pip install -r requirements.txt
-python dose_decomposition.py
-```
 
 
 - 式はInductiveの式ではない。本記事の数字は、Beacon-2の数字を再現したものではない。
@@ -160,10 +157,19 @@ python dose_decomposition.py
 - 測定範囲外の値を除いたので、主に代謝の非常に遅い化合物が含まれていない。範囲外の値を境界値で戻すと、設定Aの用量の対数の標準偏差は0.48から0.51に、評価用データの中央値を答えたときのAAFEは2.38倍から2.66倍になった（n = 386）。
 - ExpansionRxの全データは2026年1月に公開されており、Beacon-2のADMETモデルの学習に評価用の化合物が含まれていないかは、公開資料からは分からない。
 
-## 参考文献 {#_4}
+## データとコードの公開 {#article-availability}
 
-1. Inductive Bio. [Beacon-2: predicting human dose](https://www.inductive.bio/news/beacon-2) (2026-09-17).
-2. Wang Y, Wang W, Broccatelli F, et al. Human-Focused Multiparameter Optimization Scores for Rank Ordering Compounds during Early Drug Discovery: Validation of PBPK Models Based on Clinical PK Data. *Journal of Medicinal Chemistry*. 2025;68(16):17960–17970. [10.1021/acs.jmedchem.5c01707](https://doi.org/10.1021/acs.jmedchem.5c01707).
-3. Page KM. Validation of Early Human Dose Prediction: A Key Metric for Compound Progression in Drug Discovery. *Molecular Pharmaceutics*. 2016;13(2):609–620. [10.1021/acs.molpharmaceut.5b00840](https://doi.org/10.1021/acs.molpharmaceut.5b00840).
-4. OpenADMET, Expansion Therapeutics. [OpenADMET-ExpansionRx Challenge full dataset](https://huggingface.co/datasets/openadmet/openadmet-expansionrx-challenge-data) (CC BY 4.0).
-5. Hallifax D, Houston JB. Binding of drugs to hepatic microsomes: comment and assessment of current prediction methodology with recommendation for improvement. *Drug Metabolism and Disposition*. 2006;34(4):724–726. [10.1124/dmd.105.007658](https://doi.org/10.1124/dmd.105.007658).
+[計算コード](shared/beacon2-dose-decomposition/dose_decomposition.py)は、OpenADMET-ExpansionRxの公開CSV（学習用、評価用、生データ）から、`results/`と図1を生成する（約6分）。データは[Hugging Face dataset](https://huggingface.co/datasets/openadmet/openadmet-expansionrx-challenge-data)（利用条件への同意が必要）から取得し、`data/`に置く。確認した版は`requirements.txt`に固定した。
+
+```sh
+python -m pip install -r requirements.txt
+python dose_decomposition.py
+```
+
+## 参照 {#_4}
+
+1. <span id="ref-1"></span>Rich A. Beacon-2: Completing the reward function for chemical optimization in drug discovery. Inductive Bio; 2026 Sep 17. [Announcement](https://www.inductive.bio/news/beacon-2).
+2. <span id="ref-2"></span>Wang Y, Wang W, Broccatelli F, Kenny JR, Wright MR, Sorenson J, et al. Human-Focused Multiparameter Optimization Scores for Rank Ordering Compounds during Early Drug Discovery: Validation of PBPK Models Based on Clinical PK Data. Journal of Medicinal Chemistry. 2025;68(16):17960–17970. [doi:10.1021/acs.jmedchem.5c01707](https://doi.org/10.1021/acs.jmedchem.5c01707).
+3. <span id="ref-3"></span>Page KM. Validation of Early Human Dose Prediction: A Key Metric for Compound Progression in Drug Discovery. Molecular Pharmaceutics. 2016;13(2):609–620. [doi:10.1021/acs.molpharmaceut.5b00840](https://doi.org/10.1021/acs.molpharmaceut.5b00840).
+4. <span id="ref-4"></span>OpenADMET, Expansion Therapeutics. OpenADMET-ExpansionRx Challenge full dataset [Dataset]. CC BY 4.0. [Hugging Face](https://huggingface.co/datasets/openadmet/openadmet-expansionrx-challenge-data). Accessed 2026 Oct 14.
+5. <span id="ref-5"></span>Hallifax D, Houston JB. BINDING OF DRUGS TO HEPATIC MICROSOMES: COMMENT AND ASSESSMENT OF CURRENT PREDICTION METHODOLOGY WITH RECOMMENDATION FOR IMPROVEMENT. Drug Metabolism and Disposition. 2006;34(4):724–726. [doi:10.1124/dmd.105.007658](https://doi.org/10.1124/dmd.105.007658).
