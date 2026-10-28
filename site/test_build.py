@@ -424,6 +424,14 @@ class BuildTests(unittest.TestCase):
   self.assertIn('About these analyses',self.text('reference.html'))
   self.assertIn('about/about-these-analyses.html',self.text('index.html'))
 
+ def test_profile_links_are_in_the_body_of_home_profile_and_publication(self):
+  build.build(self.root)
+  site=build.read_json(self.root/'content/site.json')
+  def body(name):
+   page=self.text(name);return page[page.index('<main'):page.index('</main>')]
+  for name,links in (('index.html',('orcid','scholar','linkedin','github')),('profile.html',('orcid','scholar','linkedin','github')),('publication.html',('orcid','scholar'))):
+   for key in links:self.assertIn('href="'+site[key]+'" rel="me"',body(name),(name,key))
+
 if __name__=='__main__':unittest.main()
 
 

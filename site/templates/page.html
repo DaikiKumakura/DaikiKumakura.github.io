@@ -1,19 +1,22 @@
 {% extends 'base.html' %}
 {% macro paper(p) %}<article class="record" id="{{ p.id }}"><p class="meta">{{ p.year }}</p><h3><a href="https://doi.org/{{ p.doi }}">{{ p.title_translation if p.title_translation is defined else p.title }}</a></h3><p>{% for a in p.author_list %}{% if a.self %}<strong>{{ a.name }}</strong>{% else %}{{ a.name }}{% endif %}{{ ', ' if not loop.last }}{% endfor %}</p><p class="meta">{{ p.venue }}{% if p.online_date is defined %} · {{ ui.online }}: {{ p.online_date }}{% endif %}</p>{% for link in p.links %}<a class="meta" href="{{ link.url }}">{{ link.label }}</a>{{ ' · ' if not loop.last }}{% endfor %}</article>{% endmacro %}
 {% macro software(s, full=false) %}{% set heading = 'h3' %}<article class="record" id="software-{{ s.id }}"><{{ heading }} class="record-title"><a href="{{ s.url }}">{{ s.id }}</a></{{ heading }}><p class="meta">{{ s.tech }} · {{ s.status }}</p><p>{{ s.description }}</p>{% if full %}<p class="meta">{{ s.note }}</p><p><a href="{{ s.url }}">GitHub</a>{% if s.slug %} · <a href="software/{{ s.slug }}.html">Details</a>{% endif %}{% for link in s.links %} · <a href="{{ link.url }}">{{ link.label }}</a>{% endfor %}</p>{% endif %}</article>{% endmacro %}
+{% macro profile_links(site) %}<p class="profile-links" aria-label="Profiles"><a href="{{ site.orcid }}" rel="me">ORCID</a><a href="{{ site.scholar }}" rel="me">Google Scholar</a><a href="{{ site.linkedin }}" rel="me">LinkedIn</a><a href="{{ site.github }}" rel="me">GitHub</a></p>{% endmacro %}
 {% block content %}
 <div class="page-heading"><h1>{% if active in ['home'] %}{{ site.display_name }}{% else %}{{ title }}{% endif %}</h1></div>
 {% if active == 'home' %}
 <div class="home-intro"><div><p class="meta" lang="ja">{{ site.alternate_name }}</p><p>{{ site.profile }}</p><p>I study biological dynamics using mathematical models and data analysis, with an interest in pharmacometrics and systems biology.</p></div></div>
+{{ profile_links(site) }}
 {% if recent %}<section class="home-recent" aria-labelledby="recent-writing"><h2 id="recent-writing">Recent writing</h2>{% for a in recent %}<article class="record"><p class="meta">{{ ui.categories[a.category] }} · {{ a.date }} · {{ a.available }}</p><h3 class="record-title"><a href="{{ a.href }}" lang="{{ a.lang }}">{{ a.title }}</a></h3><p lang="{{ a.lang }}">{{ a.summary }}</p></article>{% endfor %}<p><a href="writing.html">All writing</a> · <a href="reference.html">Tools and glossary</a></p></section>{% endif %}
 {% elif active == 'profile' %}
-<p class="meta">{{ site.name }} · {{ site.alternate_name }}</p><p>{{ site.profile }}</p><h2>{{ ui.expertise }}</h2><p>{{ site.expertise }}</p>
+<p class="meta">{{ site.name }} · {{ site.alternate_name }}</p><p>{{ site.profile }}</p>{{ profile_links(site) }}<h2>{{ ui.expertise }}</h2><p>{{ site.expertise }}</p>
 {% for r in site.research_background %}<section class="record"><h3>{{ r.title }}</h3><p>{{ r.body }}</p></section>{% endfor %}
 <h2>{{ ui.background }}</h2>
 {% for c in site.career %}<div class="record timeline"><span class="meta">{{ c.date }}</span><span>{{ c.text }}</span></div>{% endfor %}
 <h2>{{ ui.education }}</h2>
 {% for e in site.education %}<div class="record {% if e.date %}timeline{% endif %}">{% if e.date %}<span class="meta">{{ e.date }}</span>{% endif %}<span>{{ e.text }}</span></div>{% endfor %}
 {% elif active == 'publication' %}
+<p>The complete, regularly updated list of works is on <a href="{{ site.scholar }}" rel="me">Google Scholar</a> and <a href="{{ site.orcid }}" rel="me">ORCID</a>.</p>
 <nav class="section-links" aria-label="{{ ui.toc }}">{% for kind,label in ui.publication_types.items() %}<a href="#{{ kind }}">{{ label }}</a>{% endfor %}</nav>
 {% for kind,label in ui.publication_types.items() %}<section id="{{ kind }}"><h2>{{ label }}</h2>{% for p in site.publications|sort(attribute='year',reverse=true) if p.kind == kind %}{{ paper(p) }}{% endfor %}</section>{% endfor %}
 {% if working_papers %}<h2>{{ ui.working_papers }}</h2>{% for a in working_papers %}<article class="record"><h3><a href="{{ a.href }}" lang="{{ a.lang }}">{{ a.title }}</a></h3><p class="meta">{{ ui.unreviewed }} · {{ a.available }}</p></article>{% endfor %}{% endif %}
