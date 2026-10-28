@@ -12,10 +12,19 @@
       "title": "OncologyBenchでは解析が正しくても判断の採点で落ちる",
       "summary": "OncologyBenchの公開例題２件を点検し、証拠の対応関係と追加実験の価値を独自に計算する。解析の正しさを、開発判断へ接続するための条件を示す。",
       "seo_title": "OncologyBenchでは解析が正しくても判断の採点で落ちる"
+    },
+    "en": {
+      "title": "From correct analyses to decisions: reading OncologyBench",
+      "summary": "An audit of two public examples, seven original metadata fixtures and a hypothetical value-of-information calculation distinguish evidence scope from project decisions.",
+      "seo_title": "OncologyBench: from analysis to decisions",
+      "seo_description": "Two public examples, evidence metadata checks and a hypothetical value-of-information model examine the gap between analysis and project decisions."
     }
   },
   "english": {
     "title": "From correct analyses to decisions: reading OncologyBench",
     "summary": "An audit of two public examples, seven original metadata fixtures and a hypothetical value-of-information calculation distinguish evidence scope from project decisions."
+  },
+  "reviewed": {
+    "en": "2aeb57df4a6353087ea4fa9ad4695927970b2d6729835f700b8132dc65700ee4"
   }
 }

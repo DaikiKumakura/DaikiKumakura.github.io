@@ -9,19 +9,28 @@
   "locales": {
     "ja": {
       "title": "同じ摂動の別の半分を評価指標は見分けられるか",
-      "summary": "遺伝子摂動の予測で、評価指標を較正すると深層学習がベースラインを上回るという主張の前提の一部を、公開Perturb-seqデータで確かめる。同じ摂動の半分の細胞（陽性対照）を、平均ベースライン（陰性対照）より良いと判定できる指標はどれか、を事前に固定した計画で調べた。1つのデータセットの結果で、モデルの優劣は評価しない。",
+      "summary": "公開Perturb-seqデータ3件で、技術的な重複と平均ベースラインを5指標が区別できるか点検する。MSEの勝率の違いを期待誤差と照合し、モデル評価とは分けて論じる。",
       "key_findings": [
-        "5つの指標のうち、重みつきMSE、上位遺伝子のPearson、順位は、同じ摂動の半分の細胞を平均ベースラインより良いと、ほぼ常に判定した。MSEは約2割（95%区間で約14〜25%）で判定できなかった。",
-        "MSEの勝率は、摂動の効果が小さいほど低く（下位3分の1で0.73、上位3分の1で0.88）、勝敗は「ずれの二乗」と「半分の細胞の平均の分散」の大小と整合した（探索的）。",
-        "指標が区別できることは、モデルの優劣や生物学的な妥当性の証拠ではない。この解析は深層学習モデルを評価していない。"
+        "MSEの勝率はWesselsで0.804、Normanで0.933、Replogle K562 essentialで0.262だった。上位50遺伝子のPearson、重みつきMSE、順位は3件とも事前の区切り0.90を超えた。",
+        "MSEの期待誤差の比較は摂動特異的な信号と半分の細胞の平均の分散に依存し、各分割の勝敗を保証しない。探索的な照合は同じ細胞を再利用している。",
+        "技術的な重複は独立の生物学的反復ではなく、指標の区別能力もモデルの優劣や生物学的妥当性を保証しない。"
       ],
       "seo_title": "同じ摂動の別の半分を評価指標は見分けられるか",
       "seo_description": "公開Perturb-seqデータで、較正した評価指標が「同じ摂動の半分の細胞」を平均ベースラインより良いと判定できるかを、事前に固定した計画で確かめた。モデルの優劣は評価しない。"
+    },
+    "en": {
+      "title": "Can evaluation metrics distinguish a technical duplicate from a mean baseline?",
+      "summary": "An independent audit of five metrics on three public Perturb-seq datasets, comparing technical duplicates with a mean baseline without evaluating predictive models.",
+      "seo_title": "Perturb-seq metrics: duplicate versus mean baseline",
+      "seo_description": "Five metrics on three Perturb-seq datasets show how finite-cell variance affects duplicate-versus-mean comparisons. No predictive model is evaluated."
     }
   },
   "english": {
     "title": "Can an evaluation metric tell a technical duplicate from a mean baseline? Checking on public Perturb-seq data",
     "summary": "A Japanese note that independently tests the premise of the rebuttal that deep models do lose to linear baselines only because of poorly calibrated metrics: can a metric tell a technical duplicate of the same perturbation from a mean baseline? A pre-fixed plan on public Cas13 Perturb-seq data. It does not evaluate any model."
   },
-  "publish_at": "2026-11-01T18:00:00+09:00"
+  "publish_at": "2026-11-01T18:00:00+09:00",
+  "reviewed": {
+    "en": "c160dfbb348c9f47d17272abddf178ff1017a4a9c58bceb27410809e548a2a50"
+  }
 }

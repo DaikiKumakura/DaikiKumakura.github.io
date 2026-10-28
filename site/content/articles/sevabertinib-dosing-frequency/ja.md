@@ -1,12 +1,16 @@
+## 背景と目的 {#article-introduction}
+
 Sevabertinibを20 mgずつ1日2回投与する場合と、40 mgを1日1回投与する場合。1日量は同じだが、濃度の推移まで同じとは限らない。さらに、この薬では初期開発の液剤と錠剤の違いも重なる。
 
 公開資料を使って比較すると、錠剤の1日2回から1日1回への変更では、定常状態の24時間AUCは変わらず、ピークは高く、最低濃度は低くなった。一方、40 mg液剤の1日1回では、ピークが20 mg錠剤の1日2回に近くても、24時間AUCは低くなった。
 
 この記事では、その違いを公開PopPKの再構成と条件付き仮想患者で調べる。新たに行う推定は、報告済みの製剤間AUC比からの相対バイオアベイラビリティである。**1日1回投与で臨床効果が維持される、安全になるという結論は出さない。**
 
-## 比較する問い {#_1}
+## 比較条件 {#_1}
 
-SevabertinibはHER2変異を持つ非小細胞肺癌を対象とする経口薬で、米国では2026年9月に適応が拡大された。現行の推奨用法は食事とともに20 mgを1日2回である。以下の比較はその変更を勧めるものではない。[FDA 2026 approval information](https://www.fda.gov/drugs/resources-information-approved-drugs/fda-grants-accelerated-approval-sevabertinib-locally-advanced-or-metastatic-non-squamous-non-small)、[Current US prescribing information](https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=d7a11334-6e7a-445b-9a16-bdcd9acbe61f)
+SevabertinibはHER2変異を持つ非小細胞肺癌を対象とする経口薬で、米国では2026年9月に適応が拡大された。現行の推奨用法は食事とともに20 mgを1日2回である。以下の比較はその変更を勧めるものではない。([1](#ref-1))、([2](#ref-2))
+
+**表1．比較の問いと条件。**
 
 | 項目 | 今回の定義 |
 | --- | --- |
@@ -21,11 +25,11 @@ SevabertinibはHER2変異を持つ非小細胞肺癌を対象とする経口薬�
 
 ## 製剤の違いを先に確認する {#_2}
 
-FDAの心電図評価資料では、20 mg TAB BIDと40 mg LSF QDが近い曝露の群として扱われている。ただし、これは40 mg錠剤を1日1回にしてよいという評価ではない。同じ資料の濃度–QT解析データには40 mg TAB QDも含まれるが、その小集団だけで用法間の臨床的同等性が検証されたわけではない。[FDA Other Reviews / PDF p. 35](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/219972Orig1s000OtherR.pdf)
+FDAの心電図評価資料では、20 mg TAB BIDと40 mg LSF QDが近い曝露の群として扱われている。ただし、これは40 mg錠剤を1日1回にしてよいという評価ではない。同じ資料の濃度–QT解析データには40 mg TAB QDも含まれるが、その小集団だけで用法間の臨床的同等性が検証されたわけではない。([3](#ref-3))（PDF  35頁）
 
 液剤の相対Fと吸収速度が錠剤と異なるなら、投与回数と製剤を同時に変えた比較には、二つの効果が混ざる。「曝露が近い」と読む場合も、AUC、Cmax、最低濃度のどれを指すのかを確認する必要がある。
 
-そこで、まず報告された製剤間のAUC比を使う。FDA資料の探索的relative bioavailability評価では、錠剤／液剤のAUC0–24の幾何LS平均比は1.5545、90%信頼区間は1.0746–2.2485だった。これは個人別の濃度データではなく、既存解析の集計値である。[FDA multidisciplinary review / PDF117–118 pp.](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/219972Orig1s000MultidisciplineR.pdf)
+そこで、まず報告された製剤間のAUC比を使う。FDA資料の探索的relative bioavailability評価では、錠剤／液剤のAUC0–24の幾何LS平均比は1.5545、90%信頼区間は1.0746–2.2485だった。これは個人別の濃度データではなく、既存解析の集計値である。([4](#ref-4))（PDF 117–118 頁）
 
 液剤／錠剤の相対Fを \(r_F\) として、対数比の集計尤度を置く。
 
@@ -43,7 +47,7 @@ y\sim N(-\log r_F,s^2).
 
 ## 公開PopPKをどう計算に使うか {#poppk}
 
-FDA資料には、遅れを持つ吸収と2コンパートメント分布を組み合わせたモデルが記載されている。主解析では、5個の直列吸収区画から中央区画へ流入する形に実装した。元の実行コードの完全な再現ではなく、公表記述と係数を使った再構成である。投与区画を別に数える解釈に対応し、6段の直列吸収も感度分析した。[FDA multidisciplinary review / PDF293 , 300 pp.](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/219972Orig1s000MultidisciplineR.pdf)
+FDA資料には、遅れを持つ吸収と2コンパートメント分布を組み合わせたモデルが記載されている。主解析では、5個の直列吸収区画から中央区画へ流入する形に実装した。元の実行コードの完全な再現ではなく、公表記述と係数を使った再構成である。投与区画を別に数える解釈に対応し、6段の直列吸収も感度分析した。([4](#ref-4))（PDF 293・300 頁）
 
 投与時に最初の吸収区画へ \(D F_{rel,i}\) を加える。吸収区画を \(B_1,\ldots,B_m\)、中央・末梢の薬物量を \(A_c,A_p\) とすると、
 
@@ -62,6 +66,8 @@ FDA資料には、遅れを持つ吸収と2コンパートメント分布を組�
 \]
 
 星印は基準の錠剤Fで規格化した見かけの係数を表す。絶対Fを既知としたモデルではない。投与量mg、時間h、体積Lで計算し、濃度をng/mLへ換算する。
+
+**表2．再構成に使った公表係数。**
 
 | 係数 | 公表値 | 計算での役割 |
 | --- | ---: | --- |
@@ -96,9 +102,9 @@ AUC_{0-24,ss}=\frac{D_{day}F_{rel,i}}{CL_i^*}
 
 なので、20 mg BIDと40 mg QDの24時間AUCが等しいことはモデルの構造から決まる。計算によって初めて見つかる薬理学的な事実ではない。
 
-現行ラベルの20 mg BIDにおけるAUC **6640 ng·h/mLは0–12時間**である。40 mg QDの0–24時間AUCと直接比較すると、評価窓を取り違える。[US prescribing information 12.3 section](https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=d7a11334-6e7a-445b-9a16-bdcd9acbe61f)
+現行ラベルの20 mg BIDにおけるAUC **6640 ng·h/mLは0–12時間**に対応する。評価窓はFDA審査資料の記載で照合した ([4](#ref-4))。40 mg QDの0–24時間AUCと直接比較すると、評価窓を取り違える。([2](#ref-2))
 
-今回の基準個体ではAUC0–12が6472 ng·h/mL、Cmaxが868 ng/mLだった。ラベルの集団幾何平均6640、902に近いが、基準個体と集団平均は異なる量である。Tmaxも主実装では1.25時間で、ラベルの約2時間とは一致しない。
+今回の基準個体ではAUC0–12が6472 ng·h/mL、Cmaxが868 ng/mLだった。ラベルの集団平均6640、902に近いが、基準個体と集団平均は異なる量である。Tmaxは主実装の定常状態で1.25時間だった。ラベルの約2時間は単回投与後の中央値であり、条件が異なるため直接の一致を求める比較ではない。
 
 さらに、F推定に使用しなかった製剤間Cmax比も確認した。基準個体への同量20 mg単回投与を仮定した再構成では、錠剤／液剤のAUC0–24比は1.562だったが、Cmax比は1.519で、公表集計値2.2699の90%区間1.5822–3.2563も下回った。この区間は集計LS平均比の不確実性であり、基準個体のモデル予測を正式に検定する適合基準ではない。それでも、AUCだけの照合では見えない不一致である。吸収を6段としても解消しない。元の集計比較の投与・背景条件を完全には再現できないため、差の原因を吸収区画数だけに帰すことはできない。
 
@@ -106,7 +112,9 @@ AUC_{0-24,ss}=\frac{D_{day}F_{rel,i}}{CL_i^*}
 
 ![同じ40 mg/日について、錠剤BID、錠剤QD、液剤QDの定常状態親薬物濃度を比較する。](shared/sevabertinib-dosing-frequency/figures/01-profiles.png)
 
-**図1**：公表係数から再構成した基準個体の24時間プロファイル。TABは錠剤、LSFは液剤、BIDは12時間ごと、QDは24時間ごと。実測濃度曲線ではない。基準61 kg、ALB/PROT=0.56、個体差0。以下の数値もこの実行結果による。
+**図1．** 公表係数から再構成した基準個体の24時間プロファイル。TABは錠剤、LSFは液剤、BIDは12時間ごと、QDは24時間ごと。実測濃度曲線ではない。基準61 kg、ALB/PROT=0.56、個体差0。以下の数値もこの実行結果による。
+
+**表3．基準個体における定常状態の曝露。**
 
 | 用法 | AUC0–24（ng·h/mL） | Cmax（ng/mL） | Cmin（ng/mL） | Cmax/Cmin |
 | --- | ---: | ---: | ---: | ---: |
@@ -122,7 +130,9 @@ Cminは各投与周期内の最低濃度である。吸収の遅れがあるた�
 
 ![4096人の同一仮想患者内で、錠剤QDと液剤QDを錠剤BIDに対する比で比較する。](shared/sevabertinib-dosing-frequency/figures/02-paired-ratios.png)
 
-**図2**：4096人の条件付き仮想患者。点は個人内比の中央値、横線は5–95パーセンタイルで、推定値の信頼区間ではない。全例で同じ共変量を使う。液剤Fの推定不確実性はこの横線には含まれない。
+**図2．** 4096人の条件付き仮想患者。点は個人内比の中央値、横線は5–95パーセンタイルで、推定値の信頼区間ではない。全例で同じ共変量を使う。液剤Fの推定不確実性はこの横線には含まれない。
+
+**表4．同じ仮想患者内の用法比。**
 
 | 20 mg TAB BIDに対する比 | 中央値 | 個人内比の5–95%範囲 |
 | --- | ---: | ---: |
@@ -149,23 +159,23 @@ FDA資料には、申請者によるbest tumor response（BTR）のEmax型E–R�
 g(AUC)=\frac{-58.635\ AUC_{0-24,ss}}{4000+AUC_{0-24,ss}}.
 \]
 
-これは既存のD/D1部分集団における探索的な腫瘍径変化とAUCの関係であり、今回推定した関数ではない。同資料でFDAは、ORRについて明確な正のE–Rを認めていない。BTRとORRを同じ結論として扱わない。[FDA multidisciplinary review / PDF310 , 314 pp.](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/219972Orig1s000MultidisciplineR.pdf)
+これは既存のD/D1部分集団における探索的な腫瘍径変化とAUCの関係であり、今回推定した関数ではない。同資料でFDAは、ORRについて明確な正のE–Rを認めていない。BTRとORRを同じ結論として扱わない。([4](#ref-4))（PDF 310・314 頁）
 
 ![左に液剤相対Fの集計推定、右に同じAUCでは錠剤QDとBIDの出力が重なるEmax関数を示す。](shared/sevabertinib-dosing-frequency/figures/03-formulation-er.png)
 
-**図3**：左は製剤間AUC比に基づく相対F推定と90%集計近似区間、菱形は公表PopPKの点推定。独立した二試験のメタ解析ではない。右は公表BTR関数へ今回のAUCを代入した数学的な写像であり、変更後の用法の臨床BTR予測ではない。二つの錠剤用法の印は重なる。
+**図3．** 左は製剤間AUC比に基づく相対F推定と90%集計近似区間、菱形は公表PopPKの点推定。独立した二試験のメタ解析ではない。右は公表BTR関数へ今回のAUCを代入した数学的な写像であり、変更後の用法の臨床BTR予測ではない。二つの錠剤用法の印は重なる。
 
 錠剤BIDとQDではAUCが同じなので、この関数は全仮想患者で同じ値を返す。しかしCminは約半分になり、Cmaxは約1.55倍になる。**E–Rの出力が同じであることと、臨床効果が同じであることは別である。** AUCだけを説明変数にしたモデルには、濃度変動による違いを判別する仕組みがない。
 
-公開ラベルには曝露増加と下痢・皮疹の関連が記載されているが、本解析ではピーク差をそのまま有害事象率の差へ変換しない。公開された親薬物PKだけから、最低濃度の低下がどの程度効果に影響するか、ピーク上昇がどの程度忍容性へ影響するかは決まらない。
+公開ラベルには曝露増加と下痢・皮疹の関連が記載されているが ([2](#ref-2))、本解析ではピーク差をそのまま有害事象率の差へ変換しない。公開された親薬物PKだけから、最低濃度の低下がどの程度効果に影響するか、ピーク上昇がどの程度忍容性へ影響するかは決まらない。
 
-## 投与回数と製剤変更は別の比較である {#_4}
+## 考察 {#_4}
 
 錠剤の同じ1日量をQDとBIDへ分ける計算では、24時間AUCが保たれてもピークと谷は変わった。一方、液剤QDを挟む比較では相対Fが異なり、同じ日量でもAUCが変わる。両者を一つの投与回数効果として扱えない。
 
 既存のAUCだけのE–Rには、同じAUCで変わる濃度変動を評価する情報がない。今回の計算は、投与回数変更による薬効維持や安全性改善を示していない。
 
-## 再実行と限界 {#_5}
+## 計算の検査と限界 {#_5}
 
 入力値は出典・表・PDF頁とともに保存し、相対Fの推定、4096人の主解析、512人の構造感度、集計表と図をPythonから再生成する。元の論文・審査資料の画像や個人データは配布しない。
 
@@ -175,7 +185,16 @@ g(AUC)=\frac{-58.635\ AUC_{0-24,ss}}{4000+AUC_{0-24,ss}}.
 
 個人別濃度・患者背景の同時分布・元の実行コードは使っていない。親薬物の血漿PKのみを扱い、代謝物、腫瘍内濃度、標的結合の時間変化は再現していない。製剤間のF推定は集計AUC0–24に基づく条件付き近似であり、用法間の効果・安全性の同等性や最適な用法を確定できない。
 
-錠剤内での投与回数の変更と、製剤まで変える比較では、移した仮定が異なる。同じ日量の比較でも、この二つを一つの分割効果として扱うことはできない。
 
+
+
+## データとコードの公開 {#article-availability}
 
 [解析コード・入力集計値・結果・再実行手順](shared/sevabertinib-dosing-frequency/sevabertinib-analysis.zip)
+
+## 参照 {#article-references}
+
+1. <span id="ref-1"></span> US Food and Drug Administration. FDA grants accelerated approval to sevabertinib for locally advanced or metastatic non-squamous non-small cell lung cancer. 2026 Sep 9. [Approval announcement](https://www.fda.gov/drugs/resources-information-approved-drugs/fda-grants-accelerated-approval-sevabertinib-locally-advanced-or-metastatic-non-squamous-non-small).
+2. <span id="ref-2"></span> Bayer HealthCare Pharmaceuticals Inc. HYRNUO (sevabertinib) tablets: US prescribing information. Revised 2026 Sep. [DailyMed](https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=d7a11334-6e7a-445b-9a16-bdcd9acbe61f). Sections 2.2 and 12.2–12.3.
+3. <span id="ref-3"></span> US Food and Drug Administration. HYRNUO (sevabertinib), NDA 219972: Other Review(s). 2025. [Review PDF](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/219972Orig1s000OtherR.pdf). PDF p. 35.
+4. <span id="ref-4"></span> US Food and Drug Administration. HYRNUO (sevabertinib), NDA 219972: Multi-Discipline Review. 2025. [Review PDF](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/219972Orig1s000MultidisciplineR.pdf). PDF pp. 117–118, 293, 300, 310 and 314.
