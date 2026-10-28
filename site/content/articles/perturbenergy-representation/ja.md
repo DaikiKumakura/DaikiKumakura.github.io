@@ -2,7 +2,7 @@
 
 私はここで、いったん出力まで戻って確認したくなる。名前を区別する情報と、どの遺伝子がどれだけ変わるかを決める情報は、どこまで重なっているのだろう。
 
-2026年10月13日公開のプレプリント、PerturbEnergyは、摂動に対応する潜在表現を明示的に作ろうとする手法だ。本稿ではv1を読む。査読済み論文としては扱わない。([Original paper](https://arxiv.org/abs/2610.18456))
+2026年10月13日公開のプレプリント、PerturbEnergyは、摂動に対応する潜在表現を明示的に作ろうとする手法だ。本稿ではv1を読む。査読済み論文としては扱わない ([1](#ref-1))。
 
 ## エネルギーは細胞の熱力学ではない {#_1}
 
@@ -12,7 +12,7 @@ PerturbEnergyは、基底状態の表現と摂動に関係する表現を分け�
 
 この仕組みには、なるほどと思うところがある。細胞種や培養条件の違いが大きければ、摂動の効果は潜在空間の中で目立たなくなる。デコーダーを大きくするだけでなく、使ってほしい情報が表現に残るようにする。モデルの容量を増やす方向とは別の工夫だ。
 
-ただし、ここで入力を確かめておきたい。公開実装の `PertEncoder` は基底状態に摂動の埋め込みを加えて表現を作る。したがって、その表現から摂動ラベルを読み戻せたことだけでは、観測された生物応答を再現した証拠としては足りない。摂動ラベルを入力すること自体は、条件付き応答予測では当然の設計である。問題は、何を評価した数字か、ということだ。[Checked implementation](https://github.com/BlueWhaleLab/PerturbEnergy/blob/0d0e32e80f0aecb43a439b5ad92bb8e167f73865/perturbenergy/models/encoders.py)
+ただし、ここで入力を確かめておきたい。公開実装の `PertEncoder` は基底状態に摂動の埋め込みを加えて表現を作る。したがって、その表現から摂動ラベルを読み戻せたことだけでは、観測された生物応答を再現した証拠としては足りない。摂動ラベルを入力すること自体は、条件付き応答予測では当然の設計である。問題は、何を評価した数字か、ということだ。([2](#ref-2); [確認版のエンコーダー](https://github.com/BlueWhaleLab/PerturbEnergy/blob/0d0e32e80f0aecb43a439b5ad92bb8e167f73865/perturbenergy/models/encoders.py))
 
 ## 同じ識別率で応答誤差は逆に動かせる {#_2}
 
@@ -54,6 +54,8 @@ $$
 
 と、デコーダー次第で変わる。ここでは条件ごとの平均を比べており、個々の潜在サンプルのばらつきをRMSEへ足してはいない。
 
+表1. 同一の潜在分布に異なるデコーダーを置いた一次元例。
+
 | 寄せる強さ $\lambda$ | ラベル識別率 | 正しい向きのRMSE | 無視する場合 | 逆向きのRMSE |
 | --- | ---: | ---: | ---: | ---: |
 | 0 | 50.0% | 1.00 | 1.00 | 1.00 |
@@ -62,6 +64,8 @@ $$
 | 16 | 約100.0% | 0.06 | 1.00 | 1.94 |
 
 ![同じ潜在分布でラベル識別率が上がっても、デコーダーの向きによって応答平均の誤差は改善・不変・悪化に分かれる](shared/perturbenergy-representation/figures/label-vs-response.png)
+
+図1. ラベル識別率と平均応答RMSEの関係。潜在表現の識別率が同じでも、デコーダーにより応答誤差は異なる。独自の一次元例であり原著モデルの再現ではない。
 
 もちろん、わざと逆向きのデコーダーを置いている。実際に応答を学習すれば修正されるかもしれない。この例の役割は、ラベル識別率の改善**だけ**から、応答予測の改善が論理的に決まるわけではないと示すことだ。PerturbEnergyが逆向きに予測している、という主張ではない。
 
@@ -80,6 +84,8 @@ $$
 83.2%という数字を、遺伝子発現の予測誤差の減少率や、新薬候補の成功率として読むことはできない。
 
 では応答の方はどうか。原著は、識別率だけでなく発現予測も評価している。評価には薬剤、遺伝子操作、サイトカイン刺激のデータが含まれる。Table 2の真の上位50 DEGに対するRMSEを使い、各データセットで既存手法の最小値と比較し直した。全12手法の数値を入力ファイルに収録し、比較対象をコードで選んでいる。LangはLangevin動力学による負例サンプリング、Misは別の摂動を使う負例構成の変種を指す。
+
+表2. 原著の真の上位50 DEGに対するRMSEの再集計。
 
 | データセット | 既存手法の最小RMSE | PerturbEnergy-Lang | PerturbEnergy-Mis |
 | --- | ---: | ---: | ---: |
@@ -112,10 +118,18 @@ $$
 
 今回の評価は、既知の摂動を別の条件へ移す設定を含む。発現RMSEの改善から、未知候補を選んだときの追試成績、細胞の生存、望ましくない応答まで改善したとは言えない。潜在空間の分離と、実際の候補選択の有用性の間には、この差が残る。
 
-## 計算を追うためのファイル {#_5}
+## データとコードの公開状況 {#_5}
 
 [計算コードと入力数値](shared/perturbenergy-representation/perturbenergy-representation.zip)には、[Original paper Table 2](https://arxiv.org/html/2610.18456v1)から抽出した上位50 DEGのRMSEと標準誤差、比較の再計算、一次元例の解析式・描画・検証テストをまとめた。原著の本文、図、学習済みモデルや細胞データは含めていない。
 
 一次元例は数値積分で平均・分散を照合し、乱数による識別率とも比較した。実際のPerturbEnergyの再現実験とは分けている。実行条件と限界は同梱のREPRODUCE.mdを参照。
 
-原著：Yan Y, Bian Y. *Learning Perturbation-Specific Representations through Conditional Energy Prior for Cellular Response Prediction*. [arXiv:2610.18456v1](https://arxiv.org/abs/2610.18456v1), 2026年10月13日。[Public code](https://github.com/BlueWhaleLab/PerturbEnergy)。コードの確認版は `0d0e32e80f0aecb43a439b5ad92bb8e167f73865`。
+公開実装の確認版は `0d0e32e80f0aecb43a439b5ad92bb8e167f73865`。
+
+## 参照 {#references}
+
+<span id="ref-1"></span>
+1. Yan Y, Bian Y. Learning perturbation-specific representations through conditional energy prior for cellular response prediction. arXiv. 2026 October 13. Version 1. [arXiv:2610.18456v1](https://arxiv.org/abs/2610.18456v1). Preprint.
+
+<span id="ref-2"></span>
+2. BlueWhaleLab. PerturbEnergy. GitHub repository. Commit 0d0e32e80f0aecb43a439b5ad92bb8e167f73865. [Source code](https://github.com/BlueWhaleLab/PerturbEnergy/tree/0d0e32e80f0aecb43a439b5ad92bb8e167f73865).

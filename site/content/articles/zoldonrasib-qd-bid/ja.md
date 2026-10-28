@@ -1,4 +1,6 @@
-Zoldonrasib（RMC-9805）は、KRAS G12Dを標的とする経口RAS(ON)阻害剤である。第I相では150–1200 mg QDと300–600 mg BIDが試され、1200 mg QDが第II相の候補用量となった。2026年のAACRでも臨床成績が更新されている。[AACR 2026 CT021](https://aacrjournals.org/cancerres/article/86/8_Supplement/CT021/785173/Abstract-CT021-Preliminary-safety-and-clinical)
+<span id="_8"></span>
+
+Zoldonrasib（RMC-9805）は、KRAS G12Dを標的とする経口RAS(ON)阻害剤である。第I相では150–1200 mg QDと300–600 mg BIDが試され、1200 mg QDが第II相の候補用量となった。2026年のAACRでも臨床成績が更新されている ([1](#ref-1))。
 
 1200 mgを一度に投与する代わりに600 mgずつ分ければ、ピークと次回投与前の濃度はどの程度変わるだろうか。公開されているのはQDの平均PK曲線と、同じ日量のQD・BIDでAUCが同程度という記述である。**BIDの実測波形は、この解析に使った資料にはない。**
 
@@ -14,7 +16,9 @@ COUは、次の比較PK試験で確かめる条件と測定を絞るための公
 
 ## 使える曲線と使えない情報 {#_2}
 
-PKの入力資料はAACR 2025公開発表資料の8ページである。2026年の新しい臨床成績を、別の時点のPK観測値として混ぜない。[Public materials](https://www.revmed.com/wp-content/uploads/2025/04/AACR-2025-Zoldon-Corporate-Rev.pdf)
+PKの入力資料はAACR 2025公開発表資料の8ページである。2026年の新しい臨床成績を、別の時点のPK観測値として混ぜない。([2](#ref-2); [原資料8ページ](https://www.revmed.com/wp-content/uploads/2025/04/AACR-2025-Zoldon-Corporate-Rev.pdf))
+
+表1. 入力資料にある情報と解析での扱い。
 
 | 資料 | 内容 | 今回の扱い |
 | --- | --- | --- |
@@ -48,6 +52,8 @@ C(t)=A_c(t)/V_*.
 
 分子量を用いず、量をmg、出力をnMで結んでいる。そのためCL*、Q*はmg/(nM·h)、V*、Vp*はmg/nMという換算尺度を含む係数であり、L/hやLの生理学的なCL/F・V/Fとして読まない。速度比と濃度予測を記述するためのパラメータである。
 
+表2. 共有モデル係数の推定値と換算単位。
+
 | 共有係数 | 推定値 | 単位 |
 | --- | ---: | --- |
 | CL* | 0.11254 | mg/(nM·h) |
@@ -64,6 +70,8 @@ QDを15日間重ね合わせ、45点について
 \]
 
 を最小化した。対数で当てはめても、入力が算術平均である事実は変わらない。この曲線を母集団中央値や典型患者のPKと同定することはできない。SDを独立した平均値の精度重みには使っていない。
+
+表3. 用量別の経験的入力尺度。
 
 | 1回量D（mg） | 推定入力尺度 f(D) |
 | --- | ---: |
@@ -89,6 +97,8 @@ QDを15日間重ね合わせ、45点について
 
 900 mg群を全て外し、残りの群から入力尺度を補間する確認も行った。
 
+表4. 900 mg群を除いた用量群外確認。
+
 | 900 mgの確認 | 公開平均点からの値 | 群を外した予測 | 相対ずれ |
 | --- | ---: | ---: | ---: |
 | AUC24（nM·h） | 10,182 | 8,182 | −19.6% |
@@ -102,6 +112,8 @@ QDを15日間重ね合わせ、45点について
 ![基準モデルのQDとBID。BIDは予測であり観測曲線ではない。](shared/zoldonrasib-qd-bid/figures/02-qd-vs-bid.png)
 
 図2：個人差を加える前のモデル曲線。母集団の典型患者と同定したものではない。
+
+表5. 同日量でのBID/QD曝露比と条件付き残差感度幅。
 
 | 条件変更（mg） | Cmax比 | Ctrough比 | AUC24比 |
 | --- | ---: | ---: | ---: |
@@ -131,6 +143,8 @@ CL_{*,i}=CL_*\exp(\eta_i),\qquad\eta_i\sim N(0,\sigma^2).
 
 1200 QD対600 BIDのCtrough比の5–95パーセンタイルは約2.38–4.29だった。CL*だけが変わる仮定から生じる幅であり、係数の信頼区間ではない。AUC比が全個体でほぼ同じ約0.96なのも、同じ入力尺度と線形収支を使う構造上の帰結である。kaにも変動を置く1,024組の感度解析ではCtrough比中央値は約3.5だった。
 
+表6. 1200 QD対600 BIDの構造・読取・服薬間隔感度。
+
 | 1200 QD対600 BIDの設定 | Cmax比 | Ctrough比 | AUC24比 |
 | --- | ---: | ---: | ---: |
 | 主解析 | 0.496 | 3.417 | 0.960 |
@@ -147,7 +161,7 @@ CL_{*,i}=CL_*\exp(\eta_i),\qquad\eta_i\sim N(0,\sigma^2).
 
 その変化が忍容性や薬効を改善するかは評価していない。標的占有率や効果閾値を置かず、単剤の集計曲線を併用時の曝露へ移してもいない。BIDの波形が実測と合うことを確認していない段階では、分割の臨床的な利点までは主張できない。
 
-## 再実行と検査 {#_7}
+## データとコードの公開状況 {#_7}
 
 読取済みCSV、モデル、再標本化、条件付き仮想個体、図のコードを配布する。PDFや原図画像は再配布しない。読取からやり直す場合だけ公開PDFが必要であり、解析と図の再実行には同梱CSVを使える。
 
@@ -155,11 +169,17 @@ CL_{*,i}=CL_*\exp(\eta_i),\qquad\eta_i\sim N(0,\sigma^2).
 
 入力資料・モデル仮定の確認日は2026年10月23日。
 
-## 出典 {#_8}
-
-1. AACR 2025. Zoldonrasib phase I presentation, page 8, data cutoff 2024-12-02. [Public PDF](https://www.revmed.com/wp-content/uploads/2025/04/AACR-2025-Zoldon-Corporate-Rev.pdf)
-2. AACR 2026 CT021. [Abstract reporting updated clinical results](https://aacrjournals.org/cancerres/article/86/8_Supplement/CT021/785173/Abstract-CT021-Preliminary-safety-and-clinical)
-3. ClinicalTrials.gov. [NCT06040541](https://clinicaltrials.gov/study/NCT06040541)
-
+試験登録は [NCT06040541](https://clinicaltrials.gov/study/NCT06040541) ([3](#ref-3)) を参照。公開曲線を数値化した本解析は、登録試験の個人別データ解析ではない。
 
 [解析コード・入力値・集計表・再実行手順](shared/zoldonrasib-qd-bid/zoldonrasib-qd-bid-companion.zip)
+
+## 参照 {#references}
+
+<span id="ref-1"></span>
+1. Riess J, Haura EB, Yaeger R, Johnson M, Luo J, Parikh AR, et al. Abstract CT021: preliminary safety and clinical activity of zoldonrasib (RMC-9805), an oral, RAS(ON) G12D-selective, tri-complex inhibitor in patients with previously treated KRAS G12D non-small cell lung cancer (NSCLC). Cancer Research. 2026;86(8 Supplement):CT021. [doi:10.1158/1538-7445.AM2026-CT021](https://doi.org/10.1158/1538-7445.AM2026-CT021).
+
+<span id="ref-2"></span>
+2. Arbour KC, Tanvetyanon T, Yaeger R, Parikh AR, Oberstein P, Papadopoulos KP, et al. Preliminary safety and antitumor activity of zoldonrasib (RMC-9805), an oral, RAS(ON) G12D-selective, tri-complex inhibitor in patients with KRAS G12D non-small cell lung cancer (NSCLC) from a phase 1 study in advanced solid tumors. AACR Annual Meeting 2025 presentation. Page 8; data cutoff 2 December 2024. [Presentation](https://www.revmed.com/wp-content/uploads/2025/04/AACR-2025-Zoldon-Corporate-Rev.pdf).
+
+<span id="ref-3"></span>
+3. ClinicalTrials.gov. Study of RMC-9805 in participants with KRAS G12D-mutant solid tumors. NCT06040541. [Trial record](https://clinicaltrials.gov/study/NCT06040541).

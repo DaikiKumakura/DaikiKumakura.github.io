@@ -1,16 +1,20 @@
+## 背景と目的 {#article-introduction}
+
 体重が重い人に多く投与すれば、曝露は揃うのだろうか。抗体薬物複合体（ADC）では、抗体に結合した薬物と、血中へ放出されたペイロードを分けて確かめる必要がある。
 
 Trastuzumab rezetecanの公表モデルを使って計算したところ、ADCとペイロードのAUCは、体重に対してほぼ同じ傾きを持っていた。モデル上では両方の体重傾向を同時に弱められる。しかし、アルブミンやASTの影響は揃わず、患者間のばらつきも残る。用量を体重だけで調整する議論が、どこまで成り立つかを調べる。
 
 ## 対象と比較する条件 {#_1}
 
-Trastuzumab rezetecan（SHR-A1811）は、HER2を標的とするADCで、トポイソメラーゼI阻害ペイロードを持つ。2026年にはHORIZON-Xの長期追跡と、ADC・遊離ペイロードを合わせたPopPK解析が公表された。[HORIZON-X long-term follow-up](https://www.nature.com/articles/s41392-026-02612-9)、[Gao et al., PopPK analysis](https://doi.org/10.1002/psp4.70259)
+Trastuzumab rezetecan（SHR-A1811）は、HER2を標的とするADCで、トポイソメラーゼI阻害ペイロードを持つ。2026年にはHORIZON-Xの長期追跡と、ADC・遊離ペイロードを合わせたPopPK解析が公表された ([1](#ref-1), [2](#ref-2))。
 
-2026年ASCOのHER2陽性大腸癌試験でも、4.8 mg/kgを3週間ごとに投与する条件が報告されている。本記事では、原著のモデル適用例にもある**4.8 mg/kg Q3W**を比較の出発点とした。臨床成績を用量の変更先へ外挿することはしない。[ASCO 2026 abstract 3505](https://doi.org/10.1200/JCO.2026.44.16_suppl.3505)
+2026年ASCOのHER2陽性大腸癌試験でも、4.8 mg/kgを3週間ごとに投与する条件が報告されている。本記事では、原著のモデル適用例にもある**4.8 mg/kg Q3W**を比較の出発点とした。臨床成績を用量の変更先へ外挿することはしない ([3](#ref-3))。
 
 **QOI**は、体重によるADCのAUC変化を抑える投与量が、遊離ペイロードのAUCも揃えるか、また体重以外に何が残るかである。**COU**は公開モデルを使った投与条件の研究と、次のPK比較で確認する項目の整理に限る。治療用量や臨床試験の用量を決めるためには使わない。
 
 比較したのは次の四つで、いずれも基準体重60.6 kgでは290.88 mgになる。
+
+**表1．** 比較した投与条件。
 
 | 条件 | 1回用量 \(D(W)\)、mg | 扱い |
 |---|---|---|
@@ -23,7 +27,7 @@ Wはkg単位の体重である。固定量・指数・70 kg上限は承認用法
 
 ## 原著本文だけでなく補足コードを確認する {#_2}
 
-PopPK解析は645人の18,671濃度観測を使い、まずADCを推定し、その結果を固定してペイロードを推定している。今回、個人別の濃度データは取得していない。再利用するのは公表された最終推定値と個体間分散であり、新たなNLME推定ではない。[Gao et al., Methods and Table 1](https://doi.org/10.1002/psp4.70259)
+PopPK解析は645人の18,671濃度観測を使い、まずADCを推定し、その結果を固定してペイロードを推定している。今回、個人別の濃度データは取得していない。再利用するのは公表された最終推定値と個体間分散であり、新たなNLME推定ではない。[Gao et al., Methods and Table 1](https://doi.org/10.1002/psp4.70259) ([2](#ref-2))
 
 モデルの実装には、補足資料末尾のNONMEMコードが役立った。ADCからペイロードへの生成項は、ADC中央区画の量に経験的な生成速度を掛ける形だった。ADCクリアランスや薬物抗体比（DAR）を、さらに掛け足す式にはなっていない。
 
@@ -41,6 +45,8 @@ k_{rel}&=RAT\times ALPHA \quad(\mathrm{Cycle\ 2以降})
 
 となる。ペイロード生成はADC側から追加の量を引かない**経験的な入力関係**であり、化学量論的な質量保存モデルとは解釈しない。
 
+**表2．** 再利用した最終モデル係数。
+
 | 再利用した最終係数 | 値 |
 |---|---:|
 | ADCのCL、Q | 0.360、0.162 L/day |
@@ -51,7 +57,7 @@ k_{rel}&=RAT\times ALPHA \quad(\mathrm{Cycle\ 2以降})
 | log個体間分散：CL、V1、Q、V2 | 0.0591、0.0408、0.0798、0.546 |
 | log個体間分散：RAT、ALPHA、CL3、V3 | 0.0419、0.0692、0.140、0.146 |
 
-数値は[Original paper Table 1](https://doi.org/10.1002/psp4.70259)を使い、補足コードの `$THETA` に書かれた初期値とは混ぜていない。分散も表の \(\omega^2\) を使い、標準誤差の百分率を個体差と取り違えないようにした。V3の典型値は固定でも、V3の個体間分散はモデルに含まれている。[Paper and supplementary materials](https://pmc.ncbi.nlm.nih.gov/articles/PMC13274680/)
+数値は[Original paper Table 1](https://doi.org/10.1002/psp4.70259) ([2](#ref-2))を使い、補足コードの `$THETA` に書かれた初期値とは混ぜていない。分散も表の \(\omega^2\) を使い、標準誤差の百分率を個体差と取り違えないようにした。V3の典型値は固定でも、V3の個体間分散はモデルに含まれている ([2](#ref-2))。
 
 ほかの条件は、年齢56歳、アルブミン42.5 g/L、標的病変径の合計（SOD）52 mm、AST 25 U/L、NSCLCに固定した。投与は90分の一定速度点滴を仮定し、30分・180分も感度分析した。これは投与時間を揃えるための数値条件で、臨床の全投与手順の再現ではない。
 
@@ -98,7 +104,9 @@ AUC_{payload}\propto W^{a+0.544-0.546-0.525}
 
 ![四つの投与条件によるADCと遊離ペイロードの定常AUC比](shared/rezetecan-weight-policy/figures/01-weight-policies.png)
 
-**図1。** 原著が5・95パーセンタイルとして扱った45–82 kgで、同じ背景因子・同じ個体差の60.6 kgに対する比を計算した。左右が似ているのは作図上の省略ではなく、二つの指数が近いためである。上限付き条件は70 kgまでは体重比例と同じ線になる。
+**図1．** 原著が5・95パーセンタイルとして扱った45–82 kgで、同じ背景因子・同じ個体差の60.6 kgに対する比を計算した。左右が似ているのは作図上の省略ではなく、二つの指数が近いためである。上限付き条件は70 kgまでは体重比例と同じ線になる。
+
+**表3．** 体重両端での用量とAUC比。
 
 | 条件 | 45 kgの用量、mg | 82 kgの用量、mg | ADC AUC比 45 / 82 kg | ペイロードAUC比 45 / 82 kg |
 |---|---:|---:|---:|---:|
@@ -116,6 +124,8 @@ AUC_{payload}\propto W^{a+0.544-0.546-0.525}
 補足コードの対角 \(\Omega\) に従って8個のlog正規個体差を生成し、4,096組を各体重・投与条件で共通に使った。共同の背景因子分布を復元した仮想患者集団ではなく、背景を固定した条件付き計算である。残差誤差、治療中の体重変化、減量・休薬は含めていない。
 
 基準60.6 kg・290.88 mg Q3Wでの定常状態の結果は次の通りだった。
+
+**表4．** 基準体重での定常状態の曝露分布。
 
 | 指標 | ADC中央値［5–95パーセンタイル］ | ペイロード中央値［5–95パーセンタイル］ |
 |---|---:|---:|
@@ -135,7 +145,9 @@ AUC_{payload}\propto W^{a+0.544-0.546-0.525}
 
 ![体重係数の感度分析と、アルブミン・AST・SODを一つずつ変えた結果](shared/rezetecan-weight-policy/figures/02-uncertainty-covariates.png)
 
-**図2。** 左の点は点推定、横線は9条件での最小・最大値であり、信頼区間ではない。べき乗補正でも、係数の組合せを変えるとAUC比は**0.890–1.122**まで動いた。右は体重を固定した一因子ずつの感度分析である。
+**図2．** 左の点は点推定、横線は9条件での最小・最大値であり、信頼区間ではない。べき乗補正でも、係数の組合せを変えるとAUC比は**0.890–1.122**まで動いた。右は体重を固定した一因子ずつの感度分析である。
+
+**表5．** 体重以外の共変量を一つずつ変えたAUC比。
 
 | 基準から一つだけ変更した条件 | ADC AUC比 | ペイロードAUC比 |
 |---|---:|---:|
@@ -151,11 +163,11 @@ ASTはペイロードのCL3に入り、アルブミンはV1などに入る。ADC
 
 ![初回から3サイクルの濃度推移と、生成速度を変えない仮想条件](shared/rezetecan-weight-policy/figures/03-cycle-release.png)
 
-**図3。** 投与前の薬物がない状態から、21日ごとに同じ用量を投与した典型条件。青線はCycle 2以降に生成速度を変更し、破線は変更しない仮想条件。変更後の速度は、残っているADCにも適用した。
+**図3．** 投与前の薬物がない状態から、21日ごとに同じ用量を投与した典型条件。青線はCycle 2以降に生成速度を変更し、破線は変更しない仮想条件。変更後の速度は、残っているADCにも適用した。
 
 Cycle 2以降の生成速度低下は、腫瘍縮小を個人ごとに予測したものではない。元の研究でも腫瘍動態と結び付けるモデルは十分に定まらず、経験的なサイクル効果が採用された。今回も、腫瘍反応や腫瘍内の有効ペイロード量へ置き換えて解釈しない。
 
-## 二つのAUCの体重効果はほぼ一致した {#_6}
+## 考察 {#_6}
 
 このモデルでは、べき乗補正によってADCと血中ペイロードの体重によるAUC傾向を同時に弱められた。一方、原著は実際の患者集団について共変量に基づく用量変更は不要と結論している。今回の仮想候補は、その臨床判断を覆す根拠ではない。
 
@@ -163,15 +175,18 @@ Cycle 2以降の生成速度低下は、腫瘍縮小を個人ごとに予測し�
 
 主要な比較は45–82 kgに限られる。補足表の36.4–138 kg全体へ最適化した結果ではなく、体重以外の因子の同時分布や投与量の丸めも含まれない。ADCの式とペイロードの式でAUCの体重効果がほぼ一致したことは計算で示せたが、臨床的に望ましい用法が決まったわけではない。
 
-## 再実行と出典 {#_7}
+## データとコードの公開状況 {#_7}
 
 `analysis/run_analysis.py` から集計表・図・`outputs/results.json` を再生成できる。4,096組、乱数シード20261021。ADCの2区画とペイロードの入力関係を実装し、行列指数・独立のODE・数値積分で定常状態とAUCを照合した。原著コード・図・個人別データは配布物へ含めていない。
 
 資料確認日：2026年10月21日。
 
-- Gao X et al. *Population Pharmacokinetics of Trastuzumab Rezetecan in Patients With HER2-Expressing or Mutated Advanced Solid Tumors*. CPT: Pharmacometrics & Systems Pharmacology, 2026;15:e70259. [doi:10.1002/psp4.70259](https://doi.org/10.1002/psp4.70259). Sources used: Table 1, Sections 3.2–3.5, Supplementary Tables S1–S3 and Final model code.
-- Yao H et al. *SHR-A1811, a novel HER2-targeting antibody-drug conjugate, in advanced solid tumors (HORIZON-X): a global phase 1 trial*. Signal Transduction and Targeted Therapy, 2026;11:104. [doi:10.1038/s41392-026-02612-9](https://doi.org/10.1038/s41392-026-02612-9)
-- *Trastuzumab rezetecan in HER2-positive metastatic colorectal cancer*, ASCO 2026 abstract 3505. [doi:10.1200/JCO.2026.44.16_suppl.3505](https://doi.org/10.1200/JCO.2026.44.16_suppl.3505)
 
 
 [解析コード・入力値・集計表・再実行手順](shared/rezetecan-weight-policy/rezetecan-analysis.zip)
+
+## 参照 {#article-references}
+
+1. <span id="ref-1"></span>Yao H, Yan M, Tong Z, Wu X, Yin Y, Ryu MH, et al. SHR-A1811, a novel HER2-targeting antibody-drug conjugate, in advanced solid tumors (HORIZON-X): a global phase 1 trial. Signal Transduction and Targeted Therapy. 2026;11(1):104. [doi:10.1038/s41392-026-02612-9](https://doi.org/10.1038/s41392-026-02612-9).
+2. <span id="ref-2"></span>Gao X, Zhao K, Zhao Y, Zhang Y, Zhao J, Zhao C, et al. Population Pharmacokinetics of Trastuzumab Rezetecan in Patients With HER2 ‐Expressing or Mutated Advanced Solid Tumors. CPT: Pharmacometrics & Systems Pharmacology. 2026;15(5):e70259. [doi:10.1002/psp4.70259](https://doi.org/10.1002/psp4.70259).
+3. <span id="ref-3"></span>Li J, Yuan Y, Liu T, Xiao X, Wang Y, Zhang F, et al. Phase 3 trial of trastuzumab rezetecan vs standard of care (SOC) for chemotherapy-refractory, HER2-positive, advanced colorectal cancer (CRC). Journal of Clinical Oncology. 2026;44(16_suppl):3505–3505. [doi:10.1200/JCO.2026.44.16_suppl.3505](https://doi.org/10.1200/JCO.2026.44.16_suppl.3505). Conference abstract.

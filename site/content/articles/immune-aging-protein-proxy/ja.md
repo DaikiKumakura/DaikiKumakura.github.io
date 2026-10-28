@@ -1,6 +1,8 @@
+## 背景と目的 {#article-introduction}
+
 同じ年齢でも、免疫の状態は同じではない。それを採血で測り、将来の健康リスクを知ることはできるだろうか。
 
-2026年10月9日にImmunityで公表されたTerekhovaらの研究は、2,609人の末梢血単核球（PBMC）のデータを統合し、二つのCD8陽性エフェクターメモリーT細胞集団の比に注目した。さらに、その状態を血中蛋白から推定する指標を健康転帰へつないだ。Eric Topolの[X post](https://x.com/EricTopol/status/2110067896529605026)でも紹介されている。([Original paper public abstract](https://kclpure.kcl.ac.uk/portal/en/publications/single-cell-analyses-of-global-cohorts-outline-determinants-of-im/))
+2026年10月9日にImmunityで公表されたTerekhovaらの研究は、2,609人の末梢血単核球（PBMC）のデータを統合し、二つのCD8陽性エフェクターメモリーT細胞集団の比に注目した。さらに、その状態を血中蛋白から推定する指標を健康転帰へつないだ。Eric Topolの投稿でも紹介されている([1](#ref-1))。原著の公開抄録を基に、その範囲を整理する([2](#ref-2))。
 
 この研究で興味深いのは、大きな細胞アトラスを作ったことに加え、そこで見つけた状態を、別の測定で読める形にした点だ。ただし、細胞状態の測定、蛋白による代理推定、将来の疾患との関連は、それぞれ別の検証を必要とする。
 
@@ -8,7 +10,7 @@
 
 ## 年齢の予測と健康の経過は別の問い {#_1}
 
-研究は、七つの既存の単一細胞データセットと新たなコホートを統合し、59の免疫細胞集団を扱った。CD8陽性T細胞のうち、GZMKを発現するエフェクターメモリー集団と、GZMBを発現する集団の比が、健康な経過と病態に関連する経過の違いを特徴づけたという。比にはCMVを含む慢性的なウイルス曝露なども関係し、その主な要因は集団によって異なった。([Original paper public abstract](https://kclpure.kcl.ac.uk/portal/en/publications/single-cell-analyses-of-global-cohorts-outline-determinants-of-im/))
+研究は、七つの既存の単一細胞データセットと新たなコホートを統合し、59の免疫細胞集団を扱った。CD8陽性T細胞のうち、GZMKを発現するエフェクターメモリー集団と、GZMBを発現する集団の比が、健康な経過と病態に関連する経過の違いを特徴づけたという。比にはCMVを含む慢性的なウイルス曝露なども関係し、その主な要因は集団によって異なった ([2](#ref-2))。
 
 暦年齢によく一致する指標と、同じ年齢の人の将来を区別する指標は、目的が違う。年齢を当てる誤差だけでは、疾患リスクを見分ける能力は分からない。逆に、ある細胞状態が疾患と関連していても、その細胞を変える介入が健康を改善するとはまだ言えない。
 
@@ -16,13 +18,15 @@ GZMK側を常に「良い細胞」、GZMB側を常に「悪い細胞」と呼ぶ
 
 ## 大規模な転帰解析では細胞を直接測っていない {#_2}
 
-研究機関の発表によると、UK Biobankの解析では対象のT細胞数がなかったため、細胞の情報と血中蛋白を持つ別のデータから推定モデルを作り、約５万人のベースラインの蛋白測定へ適用した。その推定指標と、その後の疾患や死亡との関連を調べたという。[WashU primary announcement](https://medicine.washu.edu/news/immune-cell-map-uncovers-how-individual-aging-trajectories-diverge/)
+研究機関の発表によると、UK Biobankの解析では対象のT細胞数がなかったため、細胞の情報と血中蛋白を持つ別のデータから推定モデルを作り、約５万人のベースラインの蛋白測定へ適用した。その推定指標と、その後の疾患や死亡との関連を調べたという ([3](#ref-3))。
 
-公開抄録では、四つのコホートの蛋白解析から得た「Tem GZMB+ plasma signature」が報告されている。細胞比と蛋白署名を、同一の測定値として扱わないことが重要だ。([Original paper public abstract](https://kclpure.kcl.ac.uk/portal/en/publications/single-cell-analyses-of-global-cohorts-outline-determinants-of-im/))
+公開抄録では、四つのコホートの蛋白解析から得た「Tem GZMB+ plasma signature」が報告されている。細胞比と蛋白署名を、同一の測定値として扱わないことが重要だ ([2](#ref-2))。
 
 つまり、「約５万人のT細胞を直接測り、その比を追った」と読んではいけない。UK Biobank全体の約50万人という規模と、ここで蛋白を使った対象数も別である。
 
 解析の流れは、三つに分けられる。
+
+**表1．** 細胞測定から健康転帰までの検証段階。
 
 | 段階 | 調べる対応関係 | 必要になる確認 |
 | --- | --- | --- |
@@ -40,6 +44,8 @@ GZMK側を常に「良い細胞」、GZMB側を常に「悪い細胞」と呼ぶ
 
 各細胞が独立に、同じ確率で回収され、分類も完全に正しいとする。１試料あたりの回収数を200、1,000、5,000に変え、各条件で10万回の多項分布サンプリングを行った。
 
+**表2．** 細胞割合を固定した場合の回収数による比の変動。
+
 | 回収細胞数 | K／Bの期待回収数 | Bが０件になる確率（厳密値） | 両集団が１件以上のときの観測比の中央95%範囲 |
 | --- | ---: | ---: | ---: |
 | 200 | 4／2 | 13.40% | 0.33〜7.00 |
@@ -50,6 +56,8 @@ GZMK側を常に「良い細胞」、GZMB側を常に「悪い細胞」と呼ぶ
 
 ![同じ細胞割合に対する回収数別の観測比と分母ゼロの確率](shared/immune-aging-protein-proxy/figures/01-ratio-sampling.png)
 
+**図1．** 同じ細胞割合に対する回収数別の観測比と分母ゼロの確率
+
 母集団の比を変えなくても、回収数によって観測値の幅は変わる。Bを１件も回収できなかったことを、B集団が存在しないという結論へ変換してはいけない。
 
 この設定では、分母が０件になる確率を、
@@ -58,7 +66,7 @@ GZMK側を常に「良い細胞」、GZMB側を常に「悪い細胞」と呼ぶ
 P(N_B=0)=(1-p_B)^N
 \]
 
-と計算できる。この分散は、総細胞数だけでなく、分母となる集団の期待回収数 \(Np_B\) にも依存する。
+と計算できる。この測定のばらつきは、総細胞数だけでなく、分母となる集団の期待回収数 \(Np_B\) にも依存する。
 
 両集団の数が十分あるとき、対数比のばらつきはデルタ法で近似できる。
 
@@ -83,6 +91,8 @@ W=Z+0.5\varepsilon
 
 ここから、測定値が一律0.75だけ高くなる場合と、全体が1.5倍になる場合を作る。同じ仮想個体の \(Z\) と雑音を使い、測定尺度の変化だけを比較した。
 
+**表3．** 測定尺度の変化と代理スコアの一致度。
+
 | 代理スコア | 母集団での相関 | 細胞状態スコアに対する平均誤差 | RMSE | 固定したスコア１を超える割合 |
 | --- | ---: | ---: | ---: | ---: |
 | \(W\) | 0.894 | 0 | 0.500 | 18.6% |
@@ -93,13 +103,15 @@ W=Z+0.5\varepsilon
 
 ![正の尺度変換で相関は変わらないが閾値を超える割合は変わる](shared/immune-aging-protein-proxy/figures/02-proxy-shift.png)
 
+**図2．** 正の尺度変換で相関は変わらないが閾値を超える割合は変わる
+
 相関は、一定の加算や正の倍率では変わらない。それでも、細胞状態の元の尺度との一致や、固定閾値を超える割合は変わる。「細胞状態と高く相関する」ことだけでは、そのまま測定を置き換えて同じ数値基準を使えるとは言えない。
 
 この例では、ずれや倍率を知っていれば元に戻せる。しかし、実測ではそれを推定するための対応測定が必要になる。新しい集団で細胞状態も本当に変化していたら、蛋白スコアの平均を揃えるだけで測定のずれを取り除くことはできない。生物学的な変化まで消してしまう可能性がある。
 
 ここで確認したのは、代理スコアと細胞状態の尺度の一致である。疾患確率の校正や死亡予測の精度を検証したわけではない。
 
-## 転帰との関連だけでは代理測定の意味は決まらない {#_5}
+## 考察 {#_5}
 
 蛋白の署名が将来の転帰と関連することと、細胞状態を正確に代理測定できることは異なる。年齢や既存の臨床情報を超えるリスク予測、直接測定との対応、治療後の変化の意味も、それぞれ別の検証になる。
 
@@ -107,10 +119,14 @@ W=Z+0.5\varepsilon
 
 この研究の公開抄録に記載された関連は、GZMK/GZMBの比を介入で変えれば健康が改善するという結果ではない。本記事の仮想例でも、細胞数の違いと代理推定のずれを分けており、臨床利益の代替指標として検証したわけではない。
 
-## 計算と資料の確認範囲 {#_6}
+## データとコードの公開状況 {#_6}
 
 文献確認日：2026年10月14日。原著の公開抄録と研究機関の一次発表を確認した。出版社の本文・補足資料は今回取得できず、原著モデルの係数、詳細な検証分割、測定誤差、正確な臨床効果量は独立検証していない。本稿は原著の再解析でも、検査の臨床性能評価でもない。
 
 二つの図と計算例は筆者作成。実際の参加者データやUK Biobankの個票は使っていない。[コード・設定・結果表・独自図](shared/immune-aging-protein-proxy/immune-aging-protein-proxy.zip)に再実行手順を添えた。細胞回収の仮想例と、蛋白代理スコアの仮想例は別のモデルであり、原著の測定系を一つのモデルとして再現したものではない。
 
-原著：Terekhova M, et al. [Single-cell analyses of global cohorts outline determinants of immune aging and link the ratio of GZMK+ to GZMB+ Tem cells to health trajectories](https://doi.org/10.1016/j.immuni.2026.09.012). Immunity. 2026年10月9日オンライン公開。
+## 参照 {#article-references}
+
+1. <span id="ref-1"></span>Topol E. Post discussing immune aging and T-cell states. X; 2026. [Post](https://x.com/EricTopol/status/2110067896529605026).
+2. <span id="ref-2"></span>Terekhova M, Kleverov M, Francis T, Usoltsev D, Bohacova P, Arthur L, et al. Single-cell analyses of global cohorts outline determinants of immune aging and link the ratio of GZMK+ to GZMB+ Tem cells to health trajectories. Immunity. 2026. [doi:10.1016/j.immuni.2026.09.012](https://doi.org/10.1016/j.immuni.2026.09.012). Published online 2026 Oct 9. Public abstract used.
+3. <span id="ref-3"></span>Washington University School of Medicine. Immune cell map uncovers how individual aging trajectories diverge. 2026. [Institutional announcement](https://medicine.washu.edu/news/immune-cell-map-uncovers-how-individual-aging-trajectories-diverge/).

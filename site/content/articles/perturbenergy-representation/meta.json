@@ -10,16 +10,19 @@
   "locales": {
     "ja": {
       "title": "ラベルが読める潜在空間で応答も予測できるか",
-      "summary": "PerturbEnergyのプレプリントを読み、摂動ラベルの識別と発現応答の予測を分ける。公開表の再計算と解析的な反例から、性能改善の数字と未知条件への一般化を検討する。",
-      "key_findings": [
-        "潜在表現からラベルが読めても、デコーダーを通した応答予測の改善は保証されない。独自の一次元例で確認した。",
-        "Replogleの83.2%改善は識別率28.6%から52.4%への相対変化であり、発現RMSEの減少率ではない。",
-        "公開表の上位50 DEGのRMSEは3データセットで改善するが、Norman2019では既存手法の最小RMSEより大きい。未知化合物への外挿とも区別する。"
-      ]
+      "summary": "PerturbEnergyのプレプリントを読み、摂動ラベルの識別と発現応答の予測を分ける。公開表の再計算と解析的な反例から、性能改善の数字と未知条件への一般化を検討する。"
+    },
+    "en": {
+      "title": "Does a readable perturbation label imply a predictable cellular response?",
+      "summary": "PerturbEnergy label accuracy and expression prediction are compared using reported results and a one-dimensional counterexample with explicit transfer limits.",
+      "seo_title": "PerturbEnergy: label separation and response prediction"
     }
   },
   "english": {
     "title": "Does a readable perturbation label imply a predictable cellular response?",
-    "summary": "A Japanese essay examines PerturbEnergy through published-number calculations and an independent analytic counterexample, separating label recognition, expression prediction and the scope of held-out evaluation."
+    "summary": "PerturbEnergy label accuracy and expression prediction are compared using reported results and a one-dimensional counterexample with explicit transfer limits."
+  },
+  "reviewed": {
+    "en": "499a6be6334a54f40574776f34c1eab2295d21fe743519b559b666470069ef7c"
   }
 }

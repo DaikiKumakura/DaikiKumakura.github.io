@@ -12,10 +12,18 @@
       "title": "閉経の生理学的な変化を年齢の異なる集団からどう復元したか",
       "summary": "最終月経を基準にした集団軌跡を復元するYoGlenを読む。独自の合成計算で、年齢平均のぼけと、FMP年齢のばらつきに依存する応答幅を確かめる。",
       "seo_title": "閉経の生理学的な変化を年齢の異なる集団からどう復元したか"
+    },
+    "en": {
+      "title": "How was the physiological cliff at menopause reconstructed from data?",
+      "summary": "A synthetic deconvolution example separates response width from FMP-age variation and examines the timing information supporting menopause reconstruction.",
+      "seo_title": "Menopause dynamics and biological time alignment"
     }
   },
   "english": {
     "title": "How was the physiological cliff at menopause reconstructed from data?",
-    "summary": "A reading of YoGlen distinguishes latent timing, cross-sectional trajectories and individual change. An original Gaussian/probit example shows how different response widths yield the same age-averaged curve."
+    "summary": "A synthetic deconvolution example separates response width from FMP-age variation and examines the timing information supporting menopause reconstruction."
+  },
+  "reviewed": {
+    "en": "8f9db5493709a875db30a4d92483b8791288394dfcffa9efe5db34ca1e985d35"
   }
 }

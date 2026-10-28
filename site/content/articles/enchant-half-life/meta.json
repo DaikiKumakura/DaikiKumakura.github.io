@@ -11,17 +11,21 @@
     "ja": {
       "title": "Enchantのヒト半減期予測をSpearman相関0.74から考える",
       "summary": "Iambic Therapeuticsが2024年に示したヒト半減期のSpearman 0.74について、公開のTDCデータで、基準モデルの到達点、分割と試験データの影響、少数データの基準、分布容積とクリアランスの寄与を確かめる（Enchant自体は検証していない）。",
-      "key_findings": [
-        "同じ試験データなら0.74と0.58の差は0と両立しにくいが、白書には分割も試験データの大きさも書かれておらず、同じ条件か確認できない。TDCの固定の試験データで素朴な近傍法は0.52（区間0.37〜0.65）で、0.74は素朴な基準のどの試行（最大0.65）よりも高い。",
-        "ランダム分割とスキャフォールド分割の差は0.03〜0.04と小さく、試験データの顔ぶれの違いで同じ近傍法が0.36〜0.65まで動いた。",
-        "訓練が5薬物のとき素朴なモデルは0.06〜0.07で、符号の事前知識を与えた回帰は0.25（logPだけの規則と同水準）。半減期（0.44）は、測定した分布容積（0.68）より予測しにくい。"
-      ],
       "seo_title": "Enchantのヒト半減期予測を相関から読む",
       "seo_description": "公開TDCデータで半減期予測の基準モデル、分割、少数データ、分布容積とクリアランスの寄与を点検する。Enchant自体の追試ではない。"
+    },
+    "en": {
+      "title": "How to read a Spearman of 0.74 for human half-life: checking Iambic's claim with public data and plain baselines",
+      "summary": "Public half-life data and simple baselines clarify Enchant comparison claims, test-set variation, five-molecule prior knowledge, and derived-clearance limits.",
+      "seo_title": "Iambic Enchant: interpreting half-life prediction",
+      "seo_description": "Public half-life data and simple baselines clarify Enchant comparison claims, test-set variation, five-molecule prior knowledge, and derived-clearance limits."
     }
   },
   "english": {
     "title": "How to read a Spearman of 0.74 for human half-life: checking Iambic's claim with public data and plain baselines",
     "summary": "A Japanese technical note that uses public TDC data to check where plain baselines land on the fixed test set, how splits and test sets move them, what a few training drugs or a no-training rule reach, and how volume of distribution and clearance enter half-life. Enchant itself is not tested."
+  },
+  "reviewed": {
+    "en": "d75bc1a4050e4f968908af2d51a94c2d8480bac6ea363b7647332ddda18b03ae"
   }
 }

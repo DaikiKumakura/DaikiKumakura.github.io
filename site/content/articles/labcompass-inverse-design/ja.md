@@ -1,12 +1,12 @@
 細胞が薬剤やサイトカインにどう反応するかを予測できたとして、次にどの条件を試せばよいのだろう。目的の細胞を多く得る条件と、モデルが苦手な領域を確かめる条件は、必ずしも同じではない。
 
-2026年10月9日公開のプレプリント[Generative inverse design steers human hematopoietic cell fate in vitro](https://doi.org/10.64898/2026.10.07.756550)は、LabCompassという逆設計の枠組みを使い、ヒトCD34陽性細胞の培養条件を選んでいる。入力はサイトカインや小分子の濃度、酸素濃度、培養期間など。出力は、スペクトルフローサイトメトリーで測る細胞状態の分布だ。RNA-seqだけから細胞の将来を推定する研究ではなく、条件の設計と実際の培養を往復する研究である。
+2026年10月9日公開のプレプリント[Generative inverse design steers human hematopoietic cell fate in vitro](https://doi.org/10.64898/2026.10.07.756550)は ([1](#ref-1))、LabCompassという逆設計の枠組みを使い、ヒトCD34陽性細胞の培養条件を選んでいる。入力はサイトカインや小分子の濃度、酸素濃度、培養期間など。出力は、スペクトルフローサイトメトリーで測る細胞状態の分布だ。RNA-seqだけから細胞の将来を推定する研究ではなく、条件の設計と実際の培養を往復する研究である。
 
 公開された注釈済み測定を使い、最初の新規候補実験で選ばれた12条件・67ウェルを再集計した。**目標細胞の濃縮と、次の予測を改善するための情報獲得を分けて見る**と、よく働いた条件と、低い割合にとどまった条件の両方に意味がある。ただし、低い結果なら何でも有益だったと解釈してよいわけではない。
 
 ## 順方向の予測を条件の逆設計へ使う {#_1}
 
-順方向モデルは、培養条件から細胞の分布を予測する。逆設計では、そのモデルが予測する表現型を手掛かりに、目的に合う培養条件を生成する。LabCompassはflow matchingによる条件の生成モデルと、細胞応答の順方向モデルを組み合わせ、学んだ条件の事前分布を利用して候補を探す。([Original paper , Fig. 1 and Methods](https://doi.org/10.64898/2026.10.07.756550))
+順方向モデルは、培養条件から細胞の分布を予測する。逆設計では、そのモデルが予測する表現型を手掛かりに、目的に合う培養条件を生成する。LabCompassはflow matchingによる条件の生成モデルと、細胞応答の順方向モデルを組み合わせ、学んだ条件の事前分布を利用して候補を探す。([原著のFig. 1とMethods](https://doi.org/10.64898/2026.10.07.756550))
 
 目標細胞型\(t\)の割合を増やす目的だけを簡略に書くと、
 
@@ -20,11 +20,11 @@
 
 ## 既知条件の回収と新しい実験を区別する {#_2}
 
-最初のLoop 1は、既知の培養条件を隠して評価した段階である。巨核球系を強く誘導する条件210を学習から外し、その近くへ逆設計が到達するかなどを調べた。実際にモデルが選んだ新しい条件を培養で評価するのはLoop 2からだ。([Original paper , Figs. 3–4](https://doi.org/10.64898/2026.10.07.756550))
+最初のLoop 1は、既知の培養条件を隠して評価した段階である。巨核球系を強く誘導する条件210を学習から外し、その近くへ逆設計が到達するかなどを調べた。実際にモデルが選んだ新しい条件を培養で評価するのはLoop 2からだ。([原著のFigs. 3–4](https://doi.org/10.64898/2026.10.07.756550))
 
-Loop 2では、巨核球系前駆細胞（MgkPro）、赤血球系前駆細胞（EryPro）、表現型上のHSC（pHSC）、Pre-ProBの4目標に対して3条件ずつを選んでいる。今回の再集計はこの12条件に限定した。各条件の目標と選択時の低・高不確実性は、[Author analysis notebook](https://github.com/theislab/LabCompass-reproducibility/blob/0d0ffb093431b2e0a0ff765d0423071aa380c3dc/data_notebooks/loop2/data_analysis/experimental_results_analysis.ipynb)の対応表から読み取った。ただしPre-ProBの条件245は、ノートブックでは高不確実性、原著のLoop 3の説明では低不確実性と記載され、資料間で一致しない。245・246の区分はノートブックに限定して表示し、確定した不確実性順位とは解釈しない。
+Loop 2では、巨核球系前駆細胞（MgkPro）、赤血球系前駆細胞（EryPro）、表現型上のHSC（pHSC）、Pre-ProBの4目標に対して3条件ずつを選んでいる。今回の再集計はこの12条件に限定した。各条件の目標と選択時の低・高不確実性は、[Author analysis notebook](https://github.com/theislab/LabCompass-reproducibility/blob/0d0ffb093431b2e0a0ff765d0423071aa380c3dc/data_notebooks/loop2/data_analysis/experimental_results_analysis.ipynb)の対応表から読み取った ([2](#ref-2))。ただしPre-ProBの条件245は、ノートブックでは高不確実性、原著のLoop 3の説明では低不確実性と記載され、資料間で一致しない。245・246の区分はノートブックに限定して表示し、確定した不確実性順位とは解釈しない。
 
-使ったのは[Public data](https://huggingface.co/datasets/theislab/LabCompass)の`loop2_annotated.h5ad`と`loop2p5_annotated.h5ad`。加工・注釈・サブサンプリング後のデータであり、生の測定全量ではない。2ファイルには合計999,995セルがあり、対象外の条件247に属する55,555セルを除くと、12条件・67ウェル・944,440セルになる。
+使ったのは[Public data](https://huggingface.co/datasets/theislab/LabCompass) ([3](#ref-3)) の`loop2_annotated.h5ad`と`loop2p5_annotated.h5ad`。加工・注釈・サブサンプリング後のデータであり、生の測定全量ではない。2ファイルには合計999,995セルがあり、対象外の条件247に属する55,555セルを除くと、12条件・67ウェル・944,440セルになる。
 
 両ファイルの実験ID、日付、試料の出所欄は同じで、出所は`pooled`と記載されている。ファイル名に異なるloopが付いていても、同じ条件の独立した追試を二回行ったとは読めない。また、このメタデータから個々のドナーや人数は復元できない。多くのセルがあっても、それだけ独立した生物学的反復があるわけではない。
 
@@ -34,7 +34,9 @@ Loop 2では、巨核球系前駆細胞（MgkPro）、赤血球系前駆細胞�
 
 ![12条件の目標細胞割合とウェル間のばらつき](shared/labcompass-inverse-design/figures/01-candidate-outcomes.png)
 
-図1。丸はウェルごとの割合、菱形はウェル均等平均、誤差棒は標本標準偏差。目標ごとに縦軸の尺度が違う。低・高不確実性は著者の公開ノートブックの区分で、図の誤差棒とは別物である。Pre-ProBの区分は上記の資料不一致があるため、図中でNotebookと明示した。条件246・251の取得データにはそれぞれ4・3ウェルが残り、他の条件は6ウェル。欠けたウェルを補完していない。誤差棒はドナー間の信頼区間ではない。
+**図1．**丸はウェルごとの割合、菱形はウェル均等平均、誤差棒は標本標準偏差。目標ごとに縦軸の尺度が違う。低・高不確実性は著者の公開ノートブックの区分で、図の誤差棒とは別物である。Pre-ProBの区分は上記の資料不一致があるため、図中でNotebookと明示した。条件246・251の取得データにはそれぞれ4・3ウェルが残り、他の条件は6ウェル。欠けたウェルを補完していない。誤差棒はドナー間の信頼区間ではない。
+
+表1　Loop 2の目標別候補とウェル均等平均の細胞割合。Pre-ProBの不確実性区分はノートブックによる。
 
 | 目標 | 低不確実性候補：条件 / 平均割合 | 高不確実性候補1：条件 / 平均割合 | 高不確実性候補2：条件 / 平均割合 |
 | --- | --- | --- | --- |
@@ -65,11 +67,13 @@ p_{\mathrm{cell}}=\frac{\sum_w k_w}{\sum_w n_w}
 
 モデルを学び直す価値は、濃縮割合とは別に評価する必要がある。原著では新しく測った一部の条件を学習へ追加し、条件248と249を残して、更新前後の予測を比較している。その後、全条件を取り込む段階もあるため、どのモデルの比較かを区別する。([Original paper , Loop 2 and Model update between loops](https://doi.org/10.64898/2026.10.07.756550))
 
-Supplementary Tables 13–14の報告値を転記し、更新前後の変化を計算した。ここは著者のモデル結果の算術再集計であり、今回独立にモデルを動かした結果ではない。
+[原著のSupplementary Tables 13–14](https://doi.org/10.64898/2026.10.07.756550)の報告値を転記し、更新前後の変化を計算した。ここは著者のモデル結果の算術再集計であり、今回独立にモデルを動かした結果ではない。
 
 ![原著が報告したモデル更新前後の不確実性と相関](shared/labcompass-inverse-design/figures/02-reported-update.png)
 
-図2。左は損失関数に関する予測不確実性を更新前100%として表示。右は、同じ条件におけるタンパク質マーカー平均の予測と実測のPearson相関。元データはSupplementary Tables 13–14。モデルの再学習・推論は行っていない。
+**図2．**左は損失関数に関する予測不確実性を更新前100%として表示。右は、同じ条件におけるタンパク質マーカー平均の予測と実測のPearson相関。元データは[原著のSupplementary Tables 13–14](https://doi.org/10.64898/2026.10.07.756550)。モデルの再学習・推論は行っていない。
+
+表2　原著が報告したモデル更新前後の指標。追加学習から条件248・249を除いた比較。
 
 | 追加学習から除外した評価条件 | 報告された損失の予測不確実性：更新前 → 後 | 相対的な低下 | マーカー平均の相関：更新前 → 後 |
 | --- | --- | ---: | --- |
@@ -88,7 +92,7 @@ MgkProの条件239ではUM171が66.54 nM、butyzamideが110.51 nMだった。条
 
 この比較から「UM171を増やせば何%改善する」と推定することはできない。複数の因子が同時に変わり、プレートも揃った対照になっていない。条件全体としての結果と、特定分子の因果効果は別の問いだ。
 
-候補選択を実務の判断へ近づけるなら、次は同じ試料条件で因子を切り分け、別のドナーでも評価したい。また、目標細胞の割合を上げるだけでなく、得られる絶対細胞数、機能、他の細胞型への影響も必要になる。今回の保存セル数はサンプリング後の数であり、絶対収量の比較には使っていない。
+今回の条件間比較では、同じ試料での因子別の作用も、別のドナーでの再現性も特定できていない。また、目標細胞の割合を上げるだけでなく、得られる絶対細胞数、機能、他の細胞型への影響も必要になる。今回の保存セル数はサンプリング後の数であり、絶対収量の比較には使っていない。
 
 ## 予測の不確実性と濃縮の実測順位は一致しなかった {#_6}
 
@@ -96,10 +100,16 @@ LabCompassは培養条件を提案し、測定結果をモデルへ戻してい�
 
 目的の細胞を多く得ることと、予測が弱い領域の情報を増やすことは、実験の評価として異なる。候補を生成できたことだけでは、その両方を達成したとは言えない。今回の表は、実際の濃縮や収量と、モデルの不確実性を同じ成功指標として扱えないことを示している。
 
-## データと再実行 {#_7}
+## データとコードの公開状況 {#_7}
 
 [再集計コード・入力CSV・図をダウンロード](shared/labcompass-inverse-design/labcompass-inverse-design.zip)。集計と7件の計算テストはPythonの標準ライブラリで実行できる。図の再描画にはmatplotlibが必要だ。実行方法は`REPRODUCE.md`、取得版とハッシュは`input-provenance.json`に記録した。
 
 原著は[Version 1 released October 9](https://doi.org/10.64898/2026.10.07.756550)で、査読前のプレプリント。測定入力は[Public data under CC BY 4.0](https://huggingface.co/datasets/theislab/LabCompass)のrevision `3c5002d8c9af70ad6b728d999719a26bef3dedfc`、対応表は[Author reproduction repository](https://github.com/theislab/LabCompass-reproducibility)のcommit `0d0ffb093431b2e0a0ff765d0423071aa380c3dc`に基づく。元のH5AD、PDF、著者の図・コード・学習済みモデルはZIPに含めていない。図は公開数値から独自に作成した。
 
 本解析は公開資料を見た後の探索的な再集計である。保存注釈の妥当性、全量測定からの処理、生成された個々の候補と選択条件の完全な対応、モデル推論、戦略間の最適性、ドナー間の再現性は検証していない。前臨床の培養条件研究を、臨床的な細胞製造や投与条件の推奨へ置き換えていない。
+
+## 参照 {#article-references}
+
+1. <span id="ref-1"></span>Paulas-Condori L, Palma A, Consoli L, Rubio-Lara JA, Hidajat O, Zheng W, et al. Generative inverse design steers human hematopoietic cell fate in vitro. bioRxiv [preprint]. 2026 Oct 9. [doi:10.64898/2026.10.07.756550](https://doi.org/10.64898/2026.10.07.756550).
+2. <span id="ref-2"></span>Theis Laboratory. LabCompass-reproducibility [source code and notebooks]. Commit 0d0ffb093431b2e0a0ff765d0423071aa380c3dc. [Reproduction repository](https://github.com/theislab/LabCompass-reproducibility/tree/0d0ffb093431b2e0a0ff765d0423071aa380c3dc).
+3. <span id="ref-3"></span>Theis Laboratory. LabCompass [dataset]. Revision 3c5002d8c9af70ad6b728d999719a26bef3dedfc. Hugging Face. CC BY 4.0. [Dataset](https://huggingface.co/datasets/theislab/LabCompass/tree/3c5002d8c9af70ad6b728d999719a26bef3dedfc).

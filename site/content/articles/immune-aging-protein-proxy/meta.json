@@ -12,10 +12,19 @@
       "title": "免疫の老化は採血で読めるか。血中蛋白から細胞の状態を探る",
       "summary": "免疫老化研究の細胞状態・蛋白代理指標・健康転帰を分けて読む。独自の仮想計算で、細胞比の回収数依存と、同じ相関でも変わる測定尺度を示す。",
       "seo_title": "免疫の老化は採血で読めるか。血中蛋白から細胞の状態を探る"
+    },
+    "en": {
+      "title": "Can blood proteins read immune aging? From cell states to proxy measurements",
+      "summary": "Cell recovery and protein-proxy errors answer different questions. Two numerical examples examine an immune-aging study without claiming clinical validation.",
+      "seo_title": "Immune aging: cell states and plasma-protein proxies",
+      "seo_description": "Cell recovery and protein-proxy errors answer different questions. Two numerical examples examine an immune-aging study without claiming clinical validation."
     }
   },
   "english": {
     "title": "Can blood proteins read immune aging? From cell states to proxy measurements",
     "summary": "Two original hypothetical examples show capture-depth uncertainty in cell ratios and affine shifts in protein proxy scores. Empirical reports are distinguished from measurement arithmetic."
+  },
+  "reviewed": {
+    "en": "0f702aed35c21ef12f28587d01d6ada4405fc6876247eb5fb9bf960a4cce73a7"
   }
 }

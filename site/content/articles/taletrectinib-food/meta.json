@@ -11,17 +11,21 @@
     "ja": {
       "title": "食事とともに400 mgか2時間空けて600 mgか。タレトレクチニブの公開PK比較",
       "summary": "ROS1阻害薬タレトレクチニブの承認用法（2時間空けて600 mg）と、FDAが市販後の試験で求めた「食事とともに400 mg」を、FDA審査報告のPopPKモデルと肝毒性の曝露反応モデルで、食事の守り方のぶれを含めて仮想患者4,096人で比べる。",
-      "key_findings": [
-        "食事とともに400 mgでは、平均濃度が承認用法の0.68倍、グレード3以上のALT/AST上昇のモデル上の相対ハザードが0.72（95%区間0.53〜0.93）になった。",
-        "食事なしの日が2割、5割混ざると0.63倍、0.55倍で、観測された曝露の最小値を下回る仮想患者は1.6%、4.1%だった。",
-        "承認用法でも一晩の絶食に近い飲み方では0.64倍になり、指示の守り方による曝露の幅は用量の差と同程度だった。"
-      ],
       "seo_title": "タレトレクチニブの食事条件と用量を比べる",
       "seo_description": "タレトレクチニブ600 mgの承認用法と食事時400 mgを、FDA公開PopPK・肝毒性モデルで仮想比較。食事遵守のばらつきと外挿の限界も調べる。"
+    },
+    "en": {
+      "title": "400 mg with a meal or 600 mg two hours apart: comparing taletrectinib dosing instructions with FDA's public models",
+      "summary": "FDA taletrectinib models compare food and dose conditions, distinguishing lower exposure, relative hepatic-toxicity hazards, and unverified regular-meal effects.",
+      "seo_title": "Taletrectinib: food, dose and exposure",
+      "seo_description": "FDA models compare taletrectinib food and dose conditions, separating long-run exposure and relative liver-toxicity hazards from unproven clinical benefit."
     }
   },
   "english": {
     "title": "400 mg with a meal or 600 mg two hours apart: comparing taletrectinib dosing instructions with FDA's public models",
     "summary": "A Japanese technical note that uses the PopPK and hepatotoxicity exposure-response models in FDA's review of taletrectinib to compare the approved 600 mg instruction (two hours before or after a meal) with 400 mg taken with meals, including imperfect meal adherence, in 4,096 virtual patients."
+  },
+  "reviewed": {
+    "en": "a195e99067b6c77e53c4dff9b96e047c10e49ef6b1777ca9309bd689257d97d8"
   }
 }

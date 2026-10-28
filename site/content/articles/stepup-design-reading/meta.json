@@ -11,16 +11,19 @@
     "ja": {
       "title": "ステップアップ投与は何を最適化しているか：エラナタマブとエプコリタマブの公開資料を読む",
       "summary": "CD3二重特異性抗体のステップアップ投与について、エラナタマブとエプコリタマブの2026年の曝露反応の論文を並べて読み、設計を正当化する根拠の形と、曝露反応モデルで説明できる範囲を整理する短い論考。",
-      "key_findings": [
-        "エラナタマブでは、最初の用量の後のCRSが、その後のピークに相当する濃度と腫瘍量で説明され、ステップアップは最初の一歩の高さを抑える設計として説明できる。",
-        "エプコリタマブでは、3段階の設計で2段階よりCRSが減った（全グレード49.4%対70.0%、グレード2以上9.9%対26.9%）が、設計の中では曝露と一貫した関係がなく、比較は別コホートで予防投与も組み合わされていた。",
-        "ステップアップが最適化しているのは濃度だけでなく、段の数と予防投与を含む最初の数回の手順全体であり、次の比較では各段の後のCRSと、段と予防投与を分けた評価が要る。"
-      ],
       "seo_title": "ステップアップ投与は何を最適化するのか"
+    },
+    "en": {
+      "title": "What does step-up dosing optimise? Reading the elranatamab and epcoritamab exposure-response papers",
+      "summary": "Elranatamab and epcoritamab studies distinguish first-dose exposure from step count and prophylaxis, with nonrandomized evidence limiting causal attribution.",
+      "seo_title": "Step-up dosing: concentration, steps and CRS prevention"
     }
   },
   "english": {
     "title": "What does step-up dosing optimise? Reading the elranatamab and epcoritamab exposure-response papers",
-    "summary": "A short Japanese reading essay comparing the 2026 exposure-response papers of elranatamab and epcoritamab to see how each justifies its step-up design and how much of CRS an exposure-response model can explain."
+    "summary": "Elranatamab and epcoritamab studies distinguish first-dose exposure from step count and prophylaxis, with nonrandomized evidence limiting causal attribution."
+  },
+  "reviewed": {
+    "en": "207d8ba9df9e9fdeab7ec9085e9cae7569a0579f1d474eedcdc0f821a9c4312d"
   }
 }

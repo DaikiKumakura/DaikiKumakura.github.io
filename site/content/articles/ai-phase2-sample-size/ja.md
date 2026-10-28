@@ -1,31 +1,27 @@
+<span id="_4"></span>
+
 資料の確認日：2026年10月14日。公表された集計値を入力にした、二項分布の簡単な計算だけを使う。計算結果、文献の報告、本記事の解釈を区別して書く。
 
-2026年10月5日、X上で、AIは薬を良くしているのかを一つの数字で答える投稿が話題になった（@parmitaの投稿）。病気の患者が良くなるかを問う試験（第2相）を通る割合は、AI以前も約40%、AI以後も約40%だという趣旨である。AIで見いだされた分子の臨床試験の成績を集計した2024年の分析は、第2相の成功率を約40%、ただし少数例と報告している。[1]
+2026年10月5日、X上で、AIは薬を良くしているのかを一つの数字で答える投稿が話題になった（@parmitaの投稿）。病気の患者が良くなるかを問う試験（第2相）を通る割合は、AI以前も約40%、AI以後も約40%だという趣旨である。AIで見いだされた分子の臨床試験の成績を集計した2024年の分析は、第2相の成功率を約40%、ただし少数例と報告している ([1](#ref-1))。
 
 「AIは第2相の成功率を上げていない」という主張にも、「上げている」という主張にも、同じ問いを向けたい。**今あるデータで、その差を見分けられるのか**である。
 
-先に結論を書く。
+## 今ある数字とその単位 {#1}
 
-- 第2相の結果が10件程度では、成功率の95%信頼区間は約12〜74%と広い。業界の基準値と同じとも違うとも言えない。
-- 本当の成功率が40%で、基準値28.9%との差を検出力80%で示すには、百数十件（136〜155件）の第2相の結果が要る。「差がない」ことを±10ポイントの幅で示すにも、約180件が要る。
-- 何を「成功」とし、何を基準値とするかで、比べる数字そのものが変わる。
+Jayatungaらの分析は、AIを中心に据えた新興バイオ企業の臨床パイプラインを集計し、第1相の成功率を80〜90%、第2相を約40%と報告した ([1](#ref-1))。 著者ら自身が、第2相は少数例に基づくと断っている。本記事では原著の本文で分母を確かめられなかったため、以下では「10件のうち4件」を、少数例で約40%という状況の**例**として使う。
 
-## 1. 今ある数字とその単位 {#1}
+その後も第2相の結果は出ている。Recursionは2025年5月、脳海綿状血管奇形を対象とするREC-994と、神経線維腫症2型を対象とするREC-2282の開発中止を発表した ([2](#ref-2))。 REC-994の第2相は安全性の主要評価項目を達成していたが、長期のデータを踏まえて中止された。REC-2282は低用量の群が無益性の基準を通過したが、他の群は通過しなかった。Insilicoのrentosertibは第2a相を経て、2026年9月に第3相を始めた（[第2a相を読んだ記事](rentosertib-ph2a.html)）。これらを「成功」と数えるかどうかは、定義によって変わる。
 
-Jayatungaらの分析は、AIを中心に据えた新興バイオ企業の臨床パイプラインを集計し、第1相の成功率を80〜90%、第2相を約40%と報告した。[1] 著者ら自身が、第2相は少数例に基づくと断っている。本記事では原著の本文で分母を確かめられなかったため、以下では「10件のうち4件」を、少数例で約40%という状況の**例**として使う。
-
-その後も第2相の結果は出ている。Recursionは2025年5月、脳海綿状血管奇形を対象とするREC-994と、神経線維腫症2型を対象とするREC-2282の開発中止を発表した。[2] REC-994の第2相は安全性の主要評価項目を達成していたが、長期のデータを踏まえて中止された。REC-2282は低用量の群が無益性の基準を通過したが、他の群は通過しなかった。Insilicoのrentosertibは第2a相を経て、2026年9月に第3相を始めた（[第2a相を読んだ記事](rentosertib-ph2a.html)）。これらを「成功」と数えるかどうかは、定義によって変わる。
-
-比較の基準としては、BIO、Informa、QLS Advisorsが2011〜2020年の臨床開発を集計した報告を使う。[3] 第2相から第3相へ進んだ割合は全体で28.9%（4,933件）、第1相は52.0%（4,414件）だった。この報告を選んだのは、件数が多く、定義（次の段階へ進んだ数を、進んだ数と開発中止の数の和で割る）が公開されているからである。
+比較の基準としては、BIO、Informa、QLS Advisorsが2011〜2020年の臨床開発を集計した報告を使う ([3](#ref-3))。 第2相から第3相へ進んだ割合は全体で28.9%（4,933件）、第1相は52.0%（4,414件）だった。この報告を選んだのは、件数が多く、定義（次の段階へ進んだ数を、進んだ数と開発中止の数の和で割る）が公開されているからである。
 
 ただし、二つの点で、AI側の数字と単位がそろっていない。
 
 - **数える単位。** BIOの件数は、薬と適応の組み合わせごとの段階の移行である。AI側の集計は分子ごとである。
-- **基準値の幅。** 同じBIOの報告でも、第2相の成功率は疾患領域によって15.0%（泌尿器）から48.1%（血液）まで違い、がん領域は24.6%だった。[3] AIの分子が多い領域によって、比べるべき基準値は変わる。Jayatungaらが「歴史的な業界平均と同程度」とした40%も、別の定義・期間の基準値と考えられる。
+- **基準値の幅。** 同じBIOの報告でも、第2相の成功率は疾患領域によって15.0%（泌尿器）から48.1%（血液）まで違い、がん領域は24.6%だった ([3](#ref-3))。 AIの分子が多い領域によって、比べるべき基準値は変わる。Jayatungaらが「歴史的な業界平均と同程度」とした40%も、別の定義・期間の基準値と考えられる。
 
 「成功」の定義がAI側とBIO側でずれていれば、どちらかが有利に見える。例えば、主要評価項目の達成を成功と数え、その後の開発中止を数えなければ、成功率は高く出やすい。
 
-## 2. 10件で分かること {#2-10}
+## 10件で分かること {#2-10}
 
 4/10の成功率の95%信頼区間（Clopper–Pearson法）は12.2〜73.8%である。28.9%を基準値とした正確な二項検定のp値は0.49だった。
 
@@ -39,11 +35,13 @@ Jayatungaらの分析は、AIを中心に据えた新興バイオ企業の臨床
 
 （出力：`results/summary.json`、`results/required_n.csv`）
 
-## 3. 何件あれば判断できるか {#3}
+## 何件あれば判断できるか {#3}
 
 ### 差があることを示す {#_1}
 
 基準値を28.9%に固定し、正確な二項検定で検出力80%を確保するのに必要な件数は次のとおりだった。正確な二項検定の検出力は件数に対してのこぎり状に上下するので、二つの数え方を並べた。「初めて80%に届く件数」と、「その件数から先の10件でも80%を下回らない最小の件数」である。
+
+表1. 仮定した真の成功率と比較方法に応じた必要結果件数。
 
 | 本当の成功率 | 初めて80%に届く件数 | 80%を保つ最小の件数 | 企業ごとのまとまりを考える（2倍） | 同数の非AI群と比べる（各群） |
 | --- | ---: | ---: | ---: | ---: |
@@ -59,7 +57,7 @@ Jayatungaらの分析は、AIを中心に据えた新興バイオ企業の臨床
 
 - **固定した基準値と比べる**のは、最も楽観的な比べ方である。基準値に不確実性がなく、AIの分子と業界全体が同じ種類の課題に取り組んでいると仮定している。
 - **企業ごとのまとまり**の列は、同じ企業や同じ標的から複数の分子が出ている場合の例示である。同じプラットフォーム・資金・判断で進む分子は互いに独立ではなく、独立な情報の量は件数より少なくなる。実際のまとまりの強さは分からないので、ここでは必要件数を2倍にした（1.5倍の場合は結果ファイルに残した）。
-- **条件をそろえた非AI群と比べる**のは、より公平な比べ方である。2026年5月にIQVIAが公表した解説は、AIの関与を確認したプログラムを同じ企業区分・規模の非AI群と比べ、第2相の成功率は同程度だったとしている。[4] 表の数字は比較群とAI群を同数とした場合で、比較群を5倍に取ればAI側は約168件、30倍なら約143件で済む（本当の成功率40%のとき）。
+- **条件をそろえた非AI群と比べる**のは、より公平な比べ方である。2026年5月にIQVIAが公表した解説は、AIの関与を確認したプログラムを同じ企業区分・規模の非AI群と比べ、第2相の成功率は同程度だったとしている ([4](#ref-4))。 表の数字は比較群とAI群を同数とした場合で、比較群を5倍に取ればAI側は約168件、30倍なら約143件で済む（本当の成功率40%のとき）。
 
 ### 差がないことを示す {#_2}
 
@@ -67,7 +65,7 @@ Jayatungaらの分析は、AIを中心に据えた新興バイオ企業の臨床
 
 本当の成功率が基準値と同じ28.9%で、±10ポイントの幅で同等と示すには、検出力80%で約180件（正規近似で176件）が要る。幅を広げれば件数は減るが、そのぶん「同等」の意味は弱くなる。
 
-## 4. 件数以外の偏り {#4}
+## 件数以外の偏り {#4}
 
 件数を増やせば解決する問題ばかりではない。
 
@@ -82,9 +80,9 @@ Jayatungaらの分析は、AIを中心に据えた新興バイオ企業の臨床
 
 報告された成功率の差には、少数の試験による幅だけでなく、何を1件と数えるかという違いも重なる。同じ会社や同じ技術に属する試験を独立な反復として数えれば、情報量を大きく見積もることになる。
 
-したがって、見かけの約40ポイントの差は、そのままAIを導入した効果の推定値にはならない。比較対象の選ばれ方と開発段階がそろっていない以上、集計値からAIの寄与だけを切り出すことはできない。
+したがって、報告された約40%という成功率は、そのままAIを導入した効果の推定値にはならない。比較対象の選ばれ方と開発段階がそろっていない以上、集計値からAIの寄与だけを切り出すことはできない。
 
-## 再実行と限界 {#_3}
+## データとコードの公開状況 {#_3}
 
 [計算コード](shared/ai-phase2-sample-size/phase2_numbers.py)は、上の入力値だけから`results/`と図1を生成する（約2分）。確認したNumPy・SciPy・Matplotlibの版は`requirements.txt`に固定した。
 
@@ -99,9 +97,16 @@ python phase2_numbers.py
 - 企業ごとのまとまりの影響は、件数を一律に1.5倍・2倍にする例示であり、推定値ではない。
 - 非AI群との比較と同等性の件数は、正規近似による。
 
-## 参考文献 {#_4}
+## 参照 {#references}
 
-1. Jayatunga MKP, Ayers M, Bruens L, Jayanth D, Meier C. How successful are AI-discovered drugs in clinical trials? A first analysis and emerging lessons. *Drug Discovery Today*. 2024;29(6):104009. [10.1016/j.drudis.2024.104009](https://doi.org/10.1016/j.drudis.2024.104009).
-2. GEN. [Recursion Halts Four Pipeline Programs, Sharpening Cancer, Rare Disease Focus](https://www.genengnews.com/topics/artificial-intelligence/recursion-halts-four-pipeline-programs-sharpening-cancer-rare-disease-focus/) (2025-05-05). Reporting based on Recursion's Q1 2025 announcement.
-3. BIO, Informa Pharma Intelligence, QLS Advisors. [Clinical Development Success Rates and Contributing Factors 2011–2020](https://go.bio.org/rs/490-EHZ-999/images/ClinicalDevelopmentSuccessRates2011_2020.pdf) (2021).
-4. IQVIA. [IQVIA Institute's Global R&D Trends 2026 report finds credible signal on AI-enabled programs](https://www.iqvia.com/blogs/2026/05/iqvia-institutes-global-r-and-d-trends-2026-report-finds-credible-signal-on-ai-enabled-programs) (2026-05).
+<span id="ref-1"></span>
+1. Jayatunga MKP, Ayers M, Bruens L, Jayanth D, Meier C. How successful are AI-discovered drugs in clinical trials? A first analysis and emerging lessons. Drug Discovery Today. 2024;29(6):104009. [doi:10.1016/j.drudis.2024.104009](https://doi.org/10.1016/j.drudis.2024.104009).
+
+<span id="ref-2"></span>
+2. Genetic Engineering & Biotechnology News. Recursion halts four pipeline programs, sharpening cancer, rare disease focus. 2025 May 5. [Article](https://www.genengnews.com/topics/artificial-intelligence/recursion-halts-four-pipeline-programs-sharpening-cancer-rare-disease-focus/). Secondary reporting on the first-quarter 2025 announcement.
+
+<span id="ref-3"></span>
+3. BIO, Informa Pharma Intelligence, QLS Advisors. Clinical development success rates and contributing factors 2011–2020. 2021. [Report](https://go.bio.org/rs/490-EHZ-999/images/ClinicalDevelopmentSuccessRates2011_2020.pdf).
+
+<span id="ref-4"></span>
+4. IQVIA. IQVIA Institute’s Global R&D Trends 2026 report finds credible signal on AI-enabled programs. 2026 May. [Article](https://www.iqvia.com/blogs/2026/05/iqvia-institutes-global-r-and-d-trends-2026-report-finds-credible-signal-on-ai-enabled-programs).

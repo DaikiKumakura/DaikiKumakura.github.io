@@ -1,6 +1,6 @@
 「閉経で全身の検査値が急に変わる」。そう聞くと、同じ人から何年も採血し、その変わり目を捉えた研究を想像する。今回おもしろいのは、別の道を通っているところだ。
 
-Pridham、Hayutらの研究は、年齢の異なる人たちの検査データから、最終月経を基準にした集団の時間変化を復元した。2026年10月12日にNature Medicineで公開され、[The journal also featured it on X](https://x.com/NatureMedicine/status/2110748336613732637)。([Original paper](https://doi.org/10.1038/s41591-026-04614-0))
+Pridham、Hayutらの研究は、年齢の異なる人たちの検査データから、最終月経を基準にした集団の時間変化を復元した。2026年10月12日にNature Medicineで公開され、[The journal also featured it on X](https://x.com/NatureMedicine/status/2110748336613732637) ([1](#ref-1))。
 
 私は「崖」という言葉より、時計の合わせ方が気になった。50歳という年齢が同じでも、最終月経の前にいる人と後にいる人が混ざっている。その混ざり方が分かれば、ぼやけた変化をどこまで戻せるのだろう。
 
@@ -8,7 +8,7 @@ Pridham、Hayutらの研究は、年齢の異なる人たちの検査データ�
 
 ## 年齢をそろえても生物学的な時刻はそろわない {#_1}
 
-最終月経をFMP（final menstrual period）と書く。ここでの時間ゼロは、最後の月経があった時点だ。閉経を確認できるのは、その後12か月月経がないことが分かってからになる。この二つの時点を混ぜないようにしたい。[US National Institute on Aging explanation](https://www.nia.nih.gov/health/menopause/what-menopause)
+最終月経をFMP（final menstrual period）と書く。ここでの時間ゼロは、最後の月経があった時点だ。閉経を確認できるのは、その後12か月月経がないことが分かってからになる。この二つの時点を混ぜないようにしたい ([2](#ref-2))。
 
 個人の現在年齢を \(a\)、FMP時の年齢を \(M\) とすれば、FMPからの時間は
 
@@ -22,9 +22,11 @@ $$
 
 ## 原著は情報の違う二つの集団を使った {#_2}
 
-原著の対象は米国NHANESとイスラエルClalit。合わせて約3億件の検査を扱っているが、これは3億人という意味ではない。また、Clalitの元の記録が縦断的であることと、主要な復元結果が同一人物の変化を直接追った曲線であることは別だ。著者が求めたのは、FMP相対時間でそろえたときの**横断的な集団平均の軌跡**である。([Original paper , Methods](https://www.nature.com/articles/s41591-026-04614-0#Sec8))
+原著の対象は米国NHANESとイスラエルClalit。合わせて約3億件の検査を扱っているが、これは3億人という意味ではない。また、Clalitの元の記録が縦断的であることと、主要な復元結果が同一人物の変化を直接追った曲線であることは別だ。著者が求めたのは、FMP相対時間でそろえたときの**横断的な集団平均の軌跡**である。([Original paper, Methods](https://www.nature.com/articles/s41591-026-04614-0#Sec8))
 
-著者らは、女性と男性を比較した検査値の変化が90検査中52検査で有意だったと報告している。変化の方向は一様ではなく、鉄や赤血球関連の指標も含まれる。「全身が一斉に悪くなる」という要約にはしたくない。([Original paper , Fig. 2 and Results](https://www.nature.com/articles/s41591-026-04614-0))
+著者らは、女性と男性を比較した検査値の変化が90検査中52検査で有意だったと報告している。変化の方向は一様ではなく、鉄や赤血球関連の指標も含まれる。「全身が一斉に悪くなる」という要約にはしたくない。([Original paper, Fig. 2 and Results](https://www.nature.com/articles/s41591-026-04614-0))
+
+表1. 二つの集団で利用できる時刻情報と復元方法。
 
 | データ | 時間を合わせるための情報 | 復元の方法 |
 | --- | --- | --- |
@@ -42,7 +44,7 @@ $$
 
 これは原著の区分線形モデルから、追加の変化点を省いた表現だ。\(\beta_m\) がFMPでの段差、\(\alpha_m\) が前後での傾きの差を表す。段差を表現できる形を先に用意して、その大きさをデータに合わせている。
 
-だから、復元後の図に角があるというだけで、任意の滑らかな変化より段差が正しいと決まるわけではない。一方で「段差を許したから、全部人工物だ」と片づけるのも雑だ。NHANESでは段差を持たない候補も含めたモデル比較があり、別集団との一致や、縦断研究SWANとのホルモン軌跡の比較も行っている。どの情報と検証が形を支えているかを、方法ごとに読む必要がある。([Original paper , YoGlen and model selection](https://www.nature.com/articles/s41591-026-04614-0))
+だから、復元後の図に角があるというだけで、任意の滑らかな変化より段差が正しいと決まるわけではない。一方で「段差を許したから、全部人工物だ」と片づけるのも雑だ。NHANESでは段差を持たない候補も含めたモデル比較があり、別集団との一致や、縦断研究SWANとのホルモン軌跡の比較も行っている。どの情報と検証が形を支えているかを、方法ごとに読む必要がある。([Original paper, YoGlen and model selection](https://www.nature.com/articles/s41591-026-04614-0))
 
 ## ぼける仕組みだけ式で取り出す {#_3}
 
@@ -97,6 +99,8 @@ $$
 
 になる。
 
+表2. 同一の年齢平均を生むFMP分布と応答幅の組合せ。
+
 | 仮定するFMP年齢の標準偏差 | 復元される応答の幅パラメータ | 応答の10–90%幅 |
 | ---: | ---: | ---: |
 | 2.0年 | 3.775年 | 9.676年 |
@@ -116,14 +120,9 @@ FMPの標準偏差を4.5年と置くと、平方根の中は負になる。そ�
 
 この計算をしたあとに原著へ戻ると、追加情報の役割がよく見える。月経状態や自己申告のFMPがあれば、年齢平均だけに頼る例とは条件が変わる。応答の関数形にも制約がある。そうした条件の下で、何が安定して求まるかを確かめるのが実際の解析だ。
 
-著者ら自身もFMP分布の平均や幅を変えたシミュレーションで、復元結果への影響を点検している。私の表を、著者が幅の感度を調べていないという指摘や、YoGlen全体が識別できないという証拠として読むことはできない。([Original paper , Extended Data Figs. 1–2](https://www.nature.com/articles/s41591-026-04614-0))
+著者ら自身もFMP分布の平均や幅を変えたシミュレーションで、復元結果への影響を点検している。私の表を、著者が幅の感度を調べていないという指摘や、YoGlen全体が識別できないという証拠として読むことはできない。([Original paper, Extended Data Figs. 1–2](https://www.nature.com/articles/s41591-026-04614-0))
 
-それでも、解析を見る順序としては役に立つ。最初に復元した曲線の見栄えを見るより、私は次を確認したい。
-
-- FMPを直接知っている人、月経状態だけ分かる人、どちらも不明な人を区別しているか。
-- 段差、滑らかな移行、前後の傾きの差のうち、モデルが何を表現できるか。
-- FMP分布、採用するモデル、対象者の選び方を変えても、判断に必要な結果が残るか。
-- 横断的な集団平均を、同じ人の経過や個人の予測として扱っていないか。
+復元曲線の解釈は、FMPが既知か、月経状態だけ既知か、どちらも不明かで異なる。さらに、段差や滑らかな移行を表現できるモデルの範囲と、FMP分布・モデル・対象者の選択への感度に依存する。横断的な集団平均から、個人の経過や予測へ直接は移れない。
 
 なお、[Original paper Fig. 2b](https://www.nature.com/articles/s41591-026-04614-0)のjumpは、3年間の変化を女性と男性で比較した量として定義されている。Clalitモデルの段差係数と、すべて同じ意味ではない。
 
@@ -131,13 +130,13 @@ FMPの標準偏差を4.5年と置くと、平方根の中は負になる。そ�
 
 ## 時計の情報もモデルを絞る観測になる {#_6}
 
-原著はホルモン療法を使う人で変化が小さい傾向も報告している。ただし、治療を選ぶ人と選ばない人では背景が違いうる。時間軸や観測された背景を調整しても、それだけで治療による利益や個人への推奨は決まらない。([Original paper , Discussion](https://www.nature.com/articles/s41591-026-04614-0))
+原著はホルモン療法を使う人で変化が小さい傾向も報告している。ただし、治療を選ぶ人と選ばない人では背景が違いうる。時間軸や観測された背景を調整しても、それだけで治療による利益や個人への推奨は決まらない。([Original paper, Discussion](https://www.nature.com/articles/s41591-026-04614-0))
 
 今回の計算例では、同じ観測を説明する複数の時間変化を実際に作れた。観測の横軸と、変化を起こす過程の横軸がずれていると、鋭い変化がなだらかに見えることも、その逆算が一意に定まらないこともある。
 
 原著では、その自由度を月経情報、モデル構造、別集団や縦断研究との照合で絞っている。復元された曲線の形は、血液の測定数だけで決まったものではない。失われた時計について、どれだけ独立した記録が残っているかにも支えられている。
 
-## 計算を再実行する {#_7}
+## データとコードの公開状況 {#_7}
 
 [計算・図・結果CSVをまとめたZIP](shared/menopause-time-deconvolution/menopause-time-deconvolution.zip)に、独自に書いたPythonコードと実行条件を収録した。PythonとNumPy、SciPy、Matplotlibを使う。実測データのダウンロード、YoGlenの実行、患者個人のFMP推定は行わない。
 
@@ -150,4 +149,15 @@ python plot.py
 
 正規分布・probit応答の厳密式と、独立な数値積分が一致すること、異なる幅の組合せが同じ観測を生むこと、両立しない幅の指定を検出することを検査する。記事の図はすべてこの合成計算から作成した。原著の図・データ・実装は同梱していない。
 
-参照資料の確認日：2026年10月18日。主な資料は[Original paper, Methods and Extended Data](https://doi.org/10.1038/s41591-026-04614-0)、[Author-released implementation YoGlen](https://github.com/AlonLabWIS/YoGlen)、[National Institute on Aging: menopause](https://www.nia.nih.gov/health/menopause/what-menopause)。公開実装へのリンクは参照用で、本記事の独自計算はその実装を利用していない。
+参照資料の確認日は2026年10月18日。原著の公開実装YoGlen ([3](#ref-3)) は参照用で、本記事の独自計算には利用していない。
+
+## 参照 {#references}
+
+<span id="ref-1"></span>
+1. Pridham G, Hayut Y, Lavi-Shoseyov N, Neeman M, Hovav N, Toledano Y, et al. Population-scale reconstruction of menopause dynamics reveals a physiological cliff at the final menstrual period. Nature Medicine. 2026;32:3823–3831. [doi:10.1038/s41591-026-04614-0](https://doi.org/10.1038/s41591-026-04614-0).
+
+<span id="ref-2"></span>
+2. National Institute on Aging. What is menopause? [Health information](https://www.nia.nih.gov/health/menopause/what-menopause).
+
+<span id="ref-3"></span>
+3. Alon Lab. YoGlen. GitHub repository. [Source code](https://github.com/AlonLabWIS/YoGlen).

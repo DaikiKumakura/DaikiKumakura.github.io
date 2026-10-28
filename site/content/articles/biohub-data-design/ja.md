@@ -1,6 +1,8 @@
+## 背景と目的 {#article-introduction}
+
 「もっと多くの細胞を測れば、細胞への介入を予測できるようになる」。この期待に、測定を始める側から一つ問いを加えたい。増やすのは、同じ条件の細胞数か、独立したドナーか、それともまだ測っていない条件の組合せか。
 
-2026年10月7日、BiohubはVirtual Biology Initiativeの拡張を発表した。DOE・NIHなどとの連携で、介入への細胞応答を予測するモデルの基盤となるデータと測定技術を整備する構想である。共有標準、共通識別子、データへのアクセスも計画に含まれる。[Biohub primary announcement](https://biohub.org/news/virtual-biology-initiative-expansion/)、[DOE announcement](https://www.energy.gov/science/articles/doe-nih-and-biohub-partner-build-foundational-data-predictive-biological-super)
+2026年10月7日、BiohubはVirtual Biology Initiativeの拡張を発表した。DOE・NIHなどとの連携で、介入への細胞応答を予測するモデルの基盤となるデータと測定技術を整備する構想である。共有標準、共通識別子、データへのアクセスも計画に含まれる ([1](#ref-1), [2](#ref-2))。
 
 これは、普遍的な細胞モデルが完成したという報告ではない。モデルのためのデータを大規模に作る段階だからこそ、何を測るかという設計が重要になる。本記事では、**同じ28,800細胞を四通りに配分する合成例**を作った。Biohubの実データや予算を再現する解析ではなく、訓練データを作る前に比較したい選択を具体化する計算である。
 
@@ -16,6 +18,8 @@
 
 四つの設計を固定した。表の細胞数は、各条件・各ドナーの**処置側または対照側の一方**に回収する数である。総数には両側を数えた。
 
+**表1．** 同じ総細胞数を四通りに配分する設計。
+
 | 設計 | 測る組合せ | ドナー数 | 一方の細胞数 | 両側を数えた総細胞数 |
 |---|---:|---:|---:|---:|
 | 深く測る（Depth） | 18 | 2 | 400 | 28,800 |
@@ -25,7 +29,7 @@
 
 ![同じ総細胞数で、実測する組合せと未測定の組合せが変わる](shared/biohub-data-design/figures/01-design-coverage.png)
 
-図1。灰色は未測定の組合せ。全設計に全ての背景・摂動・時点が含まれるので、ある摂動を一度も測らないために予測できない、という比較ではない。図のラベルは組合せ数×ドナー数×一方の細胞数を表す。実際の費用が等しいことを示した図ではない。
+**図1．**灰色は未測定の組合せ。全設計に全ての背景・摂動・時点が含まれるので、ある摂動を一度も測らないために予測できない、という比較ではない。図のラベルは組合せ数×ドナー数×一方の細胞数を表す。実際の費用が等しいことを示した図ではない。
 
 18条件を選ぶ設計にも、背景・摂動・時点の加法的な効果を推定できる組合せを入れた。実装では各設計の加法モデル行列が11列のフルランクであることを確認している。ただし、各水準を一度以上測っていることや、行列がフルランクであることだけでは、条件固有の応答まで分かるとは言えない。
 
@@ -42,7 +46,7 @@
 
 例えば \(\tau=\sigma=1\) の仮定で、2ドナー・各側50細胞の直接平均の標準誤差は0.721。各側400細胞へ8倍に増やしても0.709である。一方、4ドナー・各側50細胞なら0.510になる。これらは実測された生物学的な誤差ではなく、仮定から計算した応答単位の値である。
 
-逆に、ドナー差がない設定では細胞数を増やす価値が相対的に大きい。全ての実験で「細胞よりドナーを増やせ」と結論することはできない。先行データで、ドナー差、測定ノイズ、細胞型ごとの回収数を分けて見積もるところから始めたい。
+逆に、ドナー差がない設定では細胞数を増やす価値が相対的に大きい。全ての実験で「細胞よりドナーを増やせ」と結論することはできない。その判断には、先行データでドナー差、測定ノイズ、細胞型ごとの回収数を分けた推定が必要になる。
 
 今回の式は、異なる条件のドナー応答差も独立と置いている。同じドナーを複数条件で使う実験で、応答が条件間に相関するなら、予測の共分散も変わる。この仮定は実験計画に戻したときに確認が必要だ。
 
@@ -54,7 +58,9 @@
 
 ![ドナー差と非加法応答の強さで、設計ごとの期待誤差が変わる](shared/biohub-data-design/figures/02-risk-and-interactions.png)
 
-図2。縦軸は全72条件の期待二乗誤差を平均してから平方根を取った値で、誤差のバイアスと分散を厳密に計算した。独立な実験で得た生物学的な信頼区間ではない。左のBreadthとBalancedは値が同じで線が重なる。
+**図2．**縦軸は全72条件の期待二乗誤差を平均してから平方根を取った値で、誤差のバイアスと分散を厳密に計算した。独立な実験で得た生物学的な信頼区間ではない。左のBreadthとBalancedは値が同じで線が重なる。
+
+**表2．** ドナー差を固定した場合の設計別期待誤差。
 
 | ドナー差 \(\tau=1\) の設計 | 非加法成分なし \(\lambda=0\) | 非加法成分あり \(\lambda=1\) |
 |---|---:|---:|
@@ -79,16 +85,22 @@ BreadthとBalancedの線が水平なのは、全条件を直接測る推定規�
 
 実際にはドナーの取得、培養・摂動の成功率、組織や細胞型の回収、マルチモーダル測定、装置稼働、品質管理を費用へ入れる。今回の計算は金額で固定した予算の最適化を解いていない。
 
-## 測定の深さとドナー数は異なる誤差を減らす {#_5}
+## 考察 {#_5}
 
-Biohub構想で重要なのは、データの量に加えて、介入を測れる技術と、測定を結び付ける基盤を整備する点だ。4月の立ち上げでも、分子・空間・動的な次元の測定を広げる方針が示されていた。[Launch announcement](https://biohub.org/news/virtual-biology-initiative/)
+Biohub構想で重要なのは、データの量に加えて、介入を測れる技術と、測定を結び付ける基盤を整備する点だ。4月の立ち上げでも、分子・空間・動的な次元の測定を広げる方針が示されていた ([3](#ref-3))。
 
 本計算では、深く測ることで小さくなるノイズ、ドナーを増やすことで小さくなるばらつき、条件を増やすことで避けられる補完のバイアスを分けた。どれが律速かによって、同じ細胞数でも予測誤差が異なった。
 
 ただし、これは固定した仮想条件の比較であり、Biohubの実測データに対する最適配分を推定したものではない。細胞背景、摂動、時点、ドナーの組合せを欠く条件は、測定済み条件の細胞数だけでは埋まらない。
 
-## 計算の再実行 {#_6}
+## データとコードの公開状況 {#_6}
 
 [解析コード・設定・集計表・独自図をダウンロード](shared/biohub-data-design/biohub-data-design.zip)。PythonとNumPyで計算・10件のテストを実行でき、図の再描画にはMatplotlibを使う。
 
 全入力は独自の合成設定で、実データ、原著図、第三者コード、Biohubの内部計画は含まない。設定、乱数、推定対象、未測定条件の定義、費用の仮定は `REPRODUCE.md` とコードに記録した。結果は実験設計の考え方を示すもので、実際の基盤モデルの性能、最適なドナー数、臨床的な有用性を検証したものではない。
+
+## 参照 {#article-references}
+
+1. <span id="ref-1"></span>Biohub. International, cross-sector collaboration commits nearly $2 billion to build foundational data for AI models to predict and treat disease. 2026 Oct 7. [Announcement](https://biohub.org/news/virtual-biology-initiative-expansion/).
+2. <span id="ref-2"></span>US Department of Energy. DOE, NIH, and Biohub Partner to Build Foundational Data for Predictive Biological Super Intelligence Models. 2026 Oct 7. [Announcement](https://www.energy.gov/science/articles/doe-nih-and-biohub-partner-build-foundational-data-predictive-biological-super).
+3. <span id="ref-3"></span>Biohub. Biohub Launches the Virtual Biology Initiative to Galvanize a Global Effort to Create the Open Data Foundation for AI-Accelerated Biology. 2026 Apr 29. [Announcement](https://biohub.org/news/virtual-biology-initiative/).

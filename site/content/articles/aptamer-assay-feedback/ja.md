@@ -1,12 +1,12 @@
 ミオグロビンに結合するDNAを探していたはずなのに、実験を一周回すと、ヒット率が10.2%から3.7%に下がった。ところが、未補正の濃縮を見ると改善したように見える。何が起きたのだろう。
 
-Google Researchが2026年10月16日に紹介したアプタマー探索には、この気になる失敗が含まれている。AIエージェントが候補を設計し、実験結果を読んで次の候補を作る。報告によれば、途中で増えたのは、狙ったタンパク質だけでなく別のタンパク質や実験用ビーズにも付着する候補だった。[Research blog](https://research.google/blog/grounding-ai-agents-in-biological-reality-building-blocks-for-autonomous-wet-labs/)
+Google Researchが2026年10月16日に紹介したアプタマー探索には、この気になる失敗が含まれている。AIエージェントが候補を設計し、実験結果を読んで次の候補を作る。報告によれば、途中で増えたのは、狙ったタンパク質だけでなく別のタンパク質や実験用ビーズにも付着する候補だった ([1](#ref-1))。
 
 面白いのは、AIが実験を繰り返したこと以上に、結合の指標を分けると、探索の進歩が逆向きに見えることだ。ただし、原報告の本文と補足表では、成功を数える規則の説明がそろわない箇所もある。
 
 本記事では、公開された集計値を検算し、何が改善したと読めるか、何をまだ検証できないかを整理する。**対照実験を含むフィードバックから設計を修正した実例としては興味深い。一方、ヒット率の上昇をそのままAIの優位性や薬の完成に読み替えることはできない。**
 
-資料確認日は2026年10月19日。対象はCuttsらの10月12日付[Public research report ( PDF )](https://www.gstatic.com/science-ai/agentic_aptamer_sandbox.pdf)である。査読済み論文として扱わず、以下の計算も、配列・活性の生データからの再解析とは区別する。
+資料確認日は2026年10月19日。対象はCuttsらの10月12日付[研究報告](https://www.gstatic.com/science-ai/agentic_aptamer_sandbox.pdf) ([2](#ref-2))である。査読済み論文として扱わず、以下の計算も、配列・活性の生データからの再解析とは区別する。
 
 ## 標的のほかにビーズにも結合する {#_1}
 
@@ -22,7 +22,9 @@ Google Researchが2026年10月16日に紹介したアプタマー探索には、
 
 ## 33.5%は何を何で割った値か {#335}
 
-ヒット率を追う前に、分母をそろえたい。補足表S3には、新しく標的向けに設計した候補、他標的向けの候補、既存候補の持ち越し、対照などが分けて載っている。図で大きく示されたヒット率は、プール全体の成功率ではない。
+ヒット率を追う前に、分母をそろえたい。[原報告の補足表S3](https://www.gstatic.com/science-ai/agentic_aptamer_sandbox.pdf#page=25)には、新しく標的向けに設計した候補、他標的向けの候補、既存候補の持ち越し、対照などが分けて載っている。図で大きく示されたヒット率は、プール全体の成功率ではない。
+
+表1　新規の標的向け候補を分母とする報告ヒット率。
 
 | 標的 | 第1ラウンド | 第2ラウンド | 第3ラウンド |
 | --- | ---: | ---: | ---: |
@@ -33,7 +35,7 @@ Google Researchが2026年10月16日に紹介したアプタマー探索には、
 
 ![新規の標的向け候補を分母とする報告ヒット率。第1ラウンドの斜線はミオグロビンの閾値表記に留保があることを示す。](shared/aptamer-assay-feedback/figures/reported-rates.png)
 
-図は筆者作成。集計値の再描画であり、独立した追試ではない。
+図1　新規標的向け候補の報告ヒット率。筆者による集計値の再描画であり、独立した追試ではない。
 
 ミオグロビンの第2→第3ラウンドは、ヒット率では約9.1倍だが、ヒット数では9本から184本へ約20.4倍に増える。候補数も244本から549本へ2.25倍になっているので、同じ数字にはならない。探索量を固定した改善と読むことはできない。
 
@@ -45,6 +47,8 @@ Google Researchが2026年10月16日に紹介したアプタマー探索には、
 
 報告のMethodsには、判定を緩めた場合と厳しくした場合の、第2→第3ラウンドのミオグロビンの集計値もある。
 
+表2　原報告の別閾値での分子・分母から再計算したヒット率。
+
 | 判定 | 第2ラウンド | 第3ラウンド | 差 | 比 |
 | --- | ---: | ---: | ---: | ---: |
 | 緩い条件 | 16/244 = 6.6% | 211/549 = 38.4% | +31.9ポイント | 5.9倍 |
@@ -54,6 +58,8 @@ Google Researchが2026年10月16日に紹介したアプタマー探索には、
 元の分子・分母から筆者が再計算。緩い条件はFDR < 0.05、log2 fold change > 0.5、ビーズ補正残差 > 0.5。厳しい条件はFDR < 0.01、log2 fold change ≥ 1.5、補正残差 > 1.5と記載される。[Methods / PDF 17 pages](https://www.gstatic.com/science-ai/agentic_aptamer_sandbox.pdf#page=17)
 
 ![報告された3種類の閾値によるミオグロビンのヒット率。いずれも増加するが上昇幅は異なる。](shared/aptamer-assay-feedback/figures/threshold-sensitivity.png)
+
+図2　閾値別の報告ヒット率。筆者による集計値の再描画。上昇の方向は共通するが倍率は異なる。
 
 この集計範囲では、増加する方向は共通している。一方、「約9倍」という大きさは判定条件に依存する。厳しい条件なら約13ポイント増、緩い条件なら約32ポイント増である。大きな倍率だけを見出しにすると、この幅が落ちる。
 
@@ -66,6 +72,8 @@ Google Researchが2026年10月16日に紹介したアプタマー探索には、
 補正で数字が増えること自体が、直ちに誤りなのではない。気になったのは、補正とは別に、元の標的濃縮にも閾値を置いたと説明されている点だ。
 
 Methodsは、ヒット判定にFDR < 0.05、標的対入力の濃縮、ビーズ補正残差 > 1を使うと記す。表S3の第3ラウンドのミオグロビン行にも、log2 fold change ≥ 1という条件がある。ところが同じ行では、次のように記載される。
+
+表3　同一候補群での未補正濃縮とon-target hitの報告本数。
 
 | 第3ラウンドの新規ミオグロビン候補 | 本数 |
 | --- | ---: |
@@ -100,8 +108,13 @@ Methodsは、ヒット判定にFDR < 0.05、標的対入力の濃縮、ビーズ
 
 一方、どの対照の情報がAIの候補設計を改善したかは分離できていない。最終ラウンドの成績には候補群そのものの変更も含まれる。対照を返す前後の候補IDと設計履歴を追っていない以上、ヒット率の変化をAIの学習効果だけへ帰属させることはできない。
 
-## 集計値を再計算する {#_4}
+## データとコードの公開状況 {#_4}
 
 [入力表・計算コード・実行手順](shared/aptamer-assay-feedback/aptamer-assay-feedback.zip)を用意した。報告の分子・分母から割合と倍率を計算し、閾値別の結果と、部分集合としての本数の必要条件を確認する。`analysis.py`、`python -m unittest test_analysis.py`、`plot.py`の順で実行できる。元PDF、配列、エージェントのログは再配布していない。
 
-参考資料はCutts et al.「Aptamers as a sandbox for lab-in-the-loop agentic molecular discovery」（2026年10月12日付、[Public report PDF](https://www.gstatic.com/science-ai/agentic_aptamer_sandbox.pdf)）およびGoogle Researchの[Overview article](https://research.google/blog/grounding-ai-agents-in-biological-reality-building-blocks-for-autonomous-wet-labs/)。本記事の独自作業は公開集計の検算と整合性確認であり、原研究の生データ解析や実験の再現ではない。
+本記事の独自作業は公開集計の検算と整合性確認であり、原研究の生データ解析や実験の再現ではない。
+
+## 参照 {#article-references}
+
+1. <span id="ref-1"></span>Rao P, Sirkovic P, Pawlosky A. Grounding AI agents in biological reality: building blocks for autonomous wet labs. Google Research Blog. 2026 Oct 16. [Research blog](https://research.google/blog/grounding-ai-agents-in-biological-reality-building-blocks-for-autonomous-wet-labs/).
+2. <span id="ref-2"></span>Cutts Z, Coller J, Chen R, Tang H, Bellaiche M, Easterlin R, et al. Aptamers as a sandbox for lab-in-the-loop agentic molecular discovery. Google Research [research report; not peer reviewed]. 2026 Oct 12. [Report PDF](https://www.gstatic.com/science-ai/agentic_aptamer_sandbox.pdf).

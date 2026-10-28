@@ -1,12 +1,16 @@
+## 背景と目的 {#article-introduction}
+
 文献確認日：2026年10月19日。公開PBPKモデルをPythonへ移植し、推定済みパラメータで数値計算した。新しい患者データの推定や、治療用量の提案ではない。
 
 線形PKを仮定すれば、用量を2倍にすると血漿曝露も2倍になる。では、腫瘍内曝露や標的阻害も2倍になるだろうか。
 
-オシメルチニブには、肺腫瘍とEGFR結合を含む全身PBPKモデルが公開されている［1,2］。血漿だけを見るモデルから一歩進められるが、出力に「腫瘍」「結合」という名前が付けば、臨床的な作用を直接表すわけではない。今回は80 mgと160 mgの1日1回投与を比べ、どの違いが計算でき、どこで解釈を止めるべきかを調べた。
+オシメルチニブには、肺腫瘍とEGFR結合を含む全身PBPKモデルが公開されている ([1](#ref-1), [2](#ref-2))。血漿だけを見るモデルから一歩進められるが、出力に「腫瘍」「結合」という名前が付けば、臨床的な作用を直接表すわけではない。今回は80 mgと160 mgの1日1回投与を比べ、どの違いが計算でき、どこで解釈を止めるべきかを調べた。
 
 **原コードの吸収式では、80→160 mgで血漿の後半平均は2.00倍、肺腫瘍のモデル内総濃度は1.80倍、可逆結合状態の割合は85.1%→92.0%だった。** これを有効性の倍率や増量の利点とは解釈しない。
 
 ## 問いと使う範囲 {#_1}
+
+**表1．** 比較の問いと解析の使用範囲。
 
 | 項目 | 定義 |
 | --- | --- |
@@ -14,16 +18,18 @@
 | COU | 標的組織曝露を比較する研究計画に向け、公開モデルの実装・出力の意味・追加検証が必要な仮定を確認する。患者の増量判断、CNS病変の治療選択、有効性・安全性の最適化には使用しない。 |
 | 解析 | 固定パラメータによる条件付き数値計算。新規パラメータ推定、患者間変動の推定、仮想患者集団の生成は行わない。 |
 
-80 mg/日は製品情報に記載される通常用量である［3］。160 mg/日を検討したBLOOM試験は存在するが、対象は髄膜転移を伴う患者であり、今回の**肺腫瘍モデルによる比較を、その試験の再解析やCNSでの増量根拠とはしない**［4］。薬物相互作用に伴う用量調整も、ここでは再現していない。
+80 mg/日は製品情報に記載される通常用量である ([3](#ref-3))。160 mg/日を検討したBLOOM試験は存在するが、対象は髄膜転移を伴う患者であり、今回の**肺腫瘍モデルによる比較を、その試験の再解析やCNSでの増量根拠とはしない** ([4](#ref-4))。薬物相互作用に伴う用量調整も、ここでは再現していない。
 
 ## 何を取得し何を取得していないか {#_2}
 
+**表2．** 使用した公開資料と確認できない範囲。
+
 | 公開資料 | 取得・使用したもの | 今回できないこと |
 | --- | --- | --- |
-| 2025年原著［1］ | [Original paper, Table 1](https://doi.org/10.1002/psp4.70006)の腫瘍容積・EGFR量・結合速度、結合状態の定義 | 原著患者の薬効や毒性の再推定 |
+| 2025年原著 ([1](#ref-1)) | [Original paper, Table 1](https://doi.org/10.1002/psp4.70006)の腫瘍容積・EGFR量・結合速度、結合状態の定義 | 原著患者の薬効や毒性の再推定 |
 | 原著補足Appendix S2–S5 | 組織容積・血流・組織成分、薬物物性、分配係数式、全身ODE | 組織非結合型濃度の実測検証 |
-| 著者の公開コード［2］ | パラメータ・分配係数・ODEの実装。固定コミットを保存 | R/deSolveで得た全出力との完全一致保証 |
-| 製品情報・臨床試験［3,4］ | 臨床用量と今回の比較条件の区別 | 80 mgと160 mgの臨床的優劣の推定 |
+| 著者の公開コード ([2](#ref-2)) | パラメータ・分配係数・ODEの実装。固定コミットを保存 | R/deSolveで得た全出力との完全一致保証 |
+| 製品情報・臨床試験 ([3](#ref-3), [4](#ref-4)) | 臨床用量と今回の比較条件の区別 | 80 mgと160 mgの臨床的優劣の推定 |
 
 使用コードのコミットは`00c6410c000bcb3b32b7fa54f2cb3a2aed87dcbd`。元ファイルを保存し、SHA256も記録した。原著のPET・臨床PK個票は再取得していない。したがって、以下で確認するのは式・量収支・数値計算の整合であり、患者データによる独立の臨床検証ではない。
 
@@ -49,6 +55,8 @@ U_i=k_{on,i} A_i\frac{\max(R_iV_i-B_i,0)}{V_{iw,i}}-k_{off,i}B_i
 となる。肝臓は腸管・脾臓と肝動脈から流入し、腎・肝に消失がある。肺・肺腫瘍は静脈から流入する原モデルの構造を保持した。全組織の式は配布コードに含めた。
 
 \(bp\) は血液/血漿比なので、静脈血からの血漿濃度は \(C_{plasma}=A_{ven}/(V_{ven}bp)\) と計算する。組織/血漿係数 \(K_p\) と、組織/血液係数を混ぜない。
+
+**表3．** 代表パラメータと位置付け。
 
 | 代表パラメータ | 値 | 位置づけ |
 | --- | ---: | --- |
@@ -89,6 +97,8 @@ f_{bound}=B_{tumor}/(R_{tumor}V_{tumor})
 
 0日から1日1回、28日間投与した。比較窓は両条件とも27–28日の同じ24時間である。原コードの臨床PK比較用イベントには、初回後に間隔を空ける設定があるが、今回はそのイベント列の再現ではなく、連日投与の比較へ変更した。
 
+**表4．** 原コードの吸収式による後半24時間の比較。
+
 | 投与量 | 血漿平均 nM | 腫瘍非EGFR結合平均 nM | 腫瘍総平均 nM | 可逆結合状態の平均 | 投与前の結合状態 |
 | --- | --- | --- | --- | --- | --- |
 | 80 mg/日 | 742.6 | 1189.2 | 1515.0 | 85.1% | 82.9% |
@@ -98,7 +108,9 @@ f_{bound}=B_{tumor}/(R_{tumor}V_{tumor})
 
 ![原コードの吸収式を使用した、血漿・肺腫瘍のモデル内総濃度・可逆結合状態の経時推移。](shared/osimertinib-target-site/figures/01-exposure.png)
 
-非EGFR結合量はほぼ2倍になったが、総濃度の増加は80.2%だった。結合状態の平均の差は6.8 percentage pointsであり、「結合が2倍」という結果ではない。
+**図1．** 原コードの吸収式を使用した、血漿・肺腫瘍のモデル内総濃度・可逆結合状態の経時推移。
+
+非EGFR結合量はほぼ2倍になったが、総濃度の増加は80.2%だった。丸め前の値から計算した結合状態の平均の差は6.8パーセントポイントであり、「結合が2倍」という結果ではない。
 
 この違いには飽和可能な結合量が関わる。非EGFR結合量は増量にほぼ比例する一方、結合量には \(R_{tumor}V_{tumor}\) という上限がある。したがって、総量の増加率は血漿濃度の増加率より小さくなり得る。ただし、これを「160 mgでは薬効が飽和する」とは解釈できない。
 
@@ -123,6 +135,8 @@ R_{loss}=(1-F)k_aA_{lumen}
 
 こちらは原実装への**未検証の変更**である。臨床データに再適合しておらず、元のモデルを修正・改善できたとは主張しない。他のパラメータを固定し、\(F\) の置き方だけで解釈がどれだけ動くかを調べる。
 
+**表5．** 未吸収量を分離した対照条件の比較。
+
 | 投与量 | 血漿平均 nM | 腫瘍非EGFR結合平均 nM | 腫瘍総平均 nM | 可逆結合状態の平均 | 投与前の結合状態 |
 | --- | --- | --- | --- | --- | --- |
 | 80 mg/日 | 519.8 | 832.5 | 1138.6 | 80.0% | 76.7% |
@@ -132,6 +146,8 @@ R_{loss}=(1-F)k_aA_{lumen}
 
 ![吸収式の二つの解釈による、160/80 mg比と絶対的な可逆結合状態の比較。sourceは原コード、fractionは未検証の変更。](shared/osimertinib-target-site/figures/02-absorption.png)
 
+**図2．** 吸収式の二つの解釈による、160/80 mg比と絶対的な可逆結合状態の比較。sourceは原コード、fractionは未検証の変更。
+
 80 mgでは血漿平均が742.6→519.8 nM、結合状態の平均が85.1%→80.0%へ変わった。後者の計算では28日までに総投与量の30.00%を未吸収量として追跡した。
 
 同じ係数を使っていても、式の中で何を制御する係数かによって答えは変わる。特に絶対的な結合状態から閾値達成を議論するなら、この相違を残したまま先へ進めない。
@@ -139,6 +155,8 @@ R_{loss}=(1-F)k_aA_{lumen}
 ## 血漿が同じでも腫瘍の総量は変わる {#_3}
 
 腫瘍 \(K_p\)、血流、EGFR量を、それぞれ単独で基準の0.5倍・2倍に変更した。これは患者分布でも、公表信頼区間でもない。ここでのKpは非EGFR結合区画の組織量と血漿総濃度の分配を規定する係数であり、その感度を非結合型比Kpuuの変化とは読まない。体重や他の組織は固定し、腫瘍血流を変えるときは肺血流を反対方向へ変えて総心拍出量を保った。
+
+**表6．** 腫瘍の要因を一つずつ変更した感度分析。
 
 | 変更 | 血漿平均比 | 腫瘍総平均比 | 結合状態の平均 |
 | --- | --- | --- | --- |
@@ -153,6 +171,8 @@ R_{loss}=(1-F)k_aA_{lumen}
 
 ![80 mgでの単独変更。左は血漿と腫瘍総濃度の基準比、右は可逆結合状態。丸は0.5倍、三角は2倍。左の横軸は0.95–1.05。血漿平均はどの条件もほぼ1であり、横方向の微小な数値差は表示上区別しない。](shared/osimertinib-target-site/figures/03-sensitivity.png)
 
+**図3．** 80 mgでの単独変更。左は血漿と腫瘍総濃度の基準比、右は可逆結合状態。丸は0.5倍、三角は2倍。左の横軸は0.95–1.05。血漿平均はどの条件もほぼ1であり、横方向の微小な数値差は表示上区別しない。
+
 \(K_p\) の変更は腫瘍濃度と結合状態を動かした。一方、EGFR量を増やすと総濃度は上がるが、結合状態の**割合**はほとんど変わらなかった。「腫瘍に多く薬がある」ことと、「標的の何割が結合状態か」を分ける必要がある。
 
 このモデルで、定常周期の組織量と結合量の1周期変化が0に近く、腫瘍に消失がなければ、
@@ -166,6 +186,8 @@ R_{loss}=(1-F)k_aA_{lumen}
 
 ## 数値計算で確認した範囲 {#_4}
 
+**表7．** 数値計算の検査と結果。
+
 | 検査 | 結果 |
 | --- | --- |
 | 積分法・許容誤差を変更 | 主要平均の最大相対差7.9e-08 |
@@ -177,7 +199,7 @@ R_{loss}=(1-F)k_aA_{lumen}
 
 出力の出所は`analysis/run_analysis.py`、表は`outputs/tables/exposure.csv`と`sensitivity.csv`、検証値は`outputs/verification.json`である。ランダム抽出はなく、図の線は患者集団の区間ではない。
 
-## 血漿と腫瘍総量は同じ倍率では動かない {#_5}
+## 考察 {#_5}
 
 今回の計算では、血漿と腫瘍総量が同じ倍率では動かなかった。ただし、絶対的な結合状態は吸収式の解釈に依存し、その結合状態自体も不可逆阻害率ではない。
 
@@ -185,14 +207,16 @@ R_{loss}=(1-F)k_aA_{lumen}
 
 したがって、公開PBPKモデルの計算結果だけから80 mgと160 mgの臨床的な優劣は決まらない。濃度の増加を占有率や薬効の増加へ読み替える前提が、この比較では満たされていない。
 
-## 参考文献 {#_6}
 
-1. van der Gaag S, Jordens T, et al. Physiologically Based Pharmacokinetic Model of Tyrosine Kinase Inhibitors to Predict Target Site Penetration, with PET-Guided Verification. *CPT Pharmacometrics Syst Pharmacol*. 2025;14:918–928. [Paper and supplementary materials](https://doi.org/10.1002/psp4.70006). See parameters and equations in Table 1 and Appendices S2–S5.
-2. Author-released implementation: [Target-Site-PBPK-in-oncology](https://github.com/ibartelink/Target-Site-PBPK-in-oncology/tree/00c6410c000bcb3b32b7fa54f2cb3a2aed87dcbd). Apache 2.0. The Python port independently implements functions, integration, dosing events and accumulated mass balance, and adds an unvalidated absorption control. Original figures and patient data are not redistributed.
-3. [TAGRISSO prescribing information](https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=5e81b4a7-b971-45e1-9c31-29cea8c87ce7). Used to distinguish standard dosing from assumptions here. DDI dose-adjustment conditions are outside this analysis.
-4. Yang JCH, et al. Osimertinib in Patients With Epidermal Growth Factor Receptor Mutation–Positive Non–Small-Cell Lung Cancer and Leptomeningeal Metastases: The BLOOM Study. *J Clin Oncol*. 2020;38:538–547. [Original paper](https://doi.org/10.1200/JCO.19.00457). Cited as clinical background, not used for effect estimation.
+## データとコードの公開状況 {#article-data}
 
-Figures and derived tables were generated by the present calculations. Source attribution, modifications and licenses accompany the code.
+図と派生表は本稿の計算から作成した。出典、変更内容、ライセンスは[計算コード・係数・表・再実行手順](shared/osimertinib-target-site/osimertinib-pbpk.zip)に記録した。原著図や患者データは再配布していない。
 
+## 参照 {#article-references}
 
-[Calculation code, parameters, tables and instructions](shared/osimertinib-target-site/osimertinib-pbpk.zip)
+1. <span id="ref-1"></span>van der Gaag S, Jordens T, Yaqub M, Grijseels R, van Valkengoed DW, de Langen EN, et al. Physiologically Based Pharmacokinetic Model of Tyrosine Kinase Inhibitors to Predict Target Site Penetration, with PET ‐Guided Verification. CPT: Pharmacometrics & Systems Pharmacology. 2025;14(5):918–928. [doi:10.1002/psp4.70006](https://doi.org/10.1002/psp4.70006).
+2. <span id="ref-2"></span>Bartelink I and contributors. Target-Site-PBPK-in-oncology. Source code, commit 00c6410c000bcb3b32b7fa54f2cb3a2aed87dcbd. [Repository](https://github.com/ibartelink/Target-Site-PBPK-in-oncology/tree/00c6410c000bcb3b32b7fa54f2cb3a2aed87dcbd). Apache License 2.0.
+3. <span id="ref-3"></span>TAGRISSO (osimertinib): US prescribing information. [DailyMed](https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=5e81b4a7-b971-45e1-9c31-29cea8c87ce7). Accessed 2026 Oct 19.
+4. <span id="ref-4"></span>Yang JCH, Kim SW, Kim DW, Lee JS, Cho BC, Ahn JS, et al. Osimertinib in Patients With Epidermal Growth Factor Receptor Mutation–Positive Non–Small-Cell Lung Cancer and Leptomeningeal Metastases: The BLOOM Study. Journal of Clinical Oncology. 2020;38(6):538–547. [doi:10.1200/JCO.19.00457](https://doi.org/10.1200/JCO.19.00457).
+
+<span id="_6"></span>

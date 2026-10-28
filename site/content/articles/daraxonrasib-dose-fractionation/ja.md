@@ -1,4 +1,4 @@
-Daraxonrasib（RMC-6236）は、活性型RASを標的とするRAS(ON) multi-selective inhibitorである。2026年8月の米国承認で、膵癌のRAS阻害は開発段階の話だけではなくなった。承認用量は300 mgを1日1回。ここで考えたいのは、同じ300 mgを150 mgずつ2回に分けたら何が変わるか、という問いである。[FDA approval information](https://www.fda.gov/drugs/resources-information-approved-drugs/fda-approves-daraxonrasib-metastatic-pancreatic-adenocarcinoma)
+Daraxonrasib（RMC-6236）は、活性型RASを標的とするRAS(ON) multi-selective inhibitorである。2026年8月の米国承認で、膵癌のRAS阻害は開発段階の話だけではなくなった。承認用量は300 mgを1日1回。ここで考えたいのは、同じ300 mgを150 mgずつ2回に分けたら何が変わるか、という問いである ([1](#ref-1))。
 
 分割すればピークは下がる。しかし、それだけで安全性の改善とは言えない。FDA審査資料では、Grade 3以上の治療下発現有害事象（TEAE）は最低濃度と、Grade 3以上の治療関連有害事象（TRAE）は最高濃度と、それぞれ正の関連を持っていた。分割によってピークと最低濃度が逆方向に動くなら、どちらを見るかで解釈も変わる。
 
@@ -9,6 +9,8 @@ Daraxonrasib（RMC-6236）は、活性型RASを標的とするRAS(ON) multi-sele
 QOI（Question of Interest）は、300 mg/日の分割で全血中のピーク、最低濃度、平均曝露がどう変わるか、その変化を公表された安全性E–Rのどこまで解釈できるか、とした。
 
 COU（Context of Use）は、公開情報に基づいて次に検証する投与条件と測定項目を絞る研究・学習上の比較である。治療変更や臨床試験の用量決定には使用しない。新しい個人別データへのNLME推定は行わず、公表された推定済みパラメータを再利用する。
+
+表1. 比較した仮想投与条件。
 
 | 条件 | 0時間 | 12時間 | 1日量 | 比較の意味 |
 | --- | ---: | ---: | ---: | --- |
@@ -22,7 +24,9 @@ QDは1日1回、BIDは1日2回を指す。BIDと不均等分割は本解析の�
 
 ## 公開資料から何を取り出したか {#_2}
 
-主な出典はFDAのNDA 220910審査資料である。PopPKは720人、8,527点のPK記録に基づく。安全性E–RのPK評価可能集団は膵癌466人で、対象とする集団は同じではない。モデル作成時の投与条件は10–400 mgのQDであり、BIDの直接検証は含まれていない。([FDA assessment report / PopPK section , Table 59 , Tables 65–67](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2026/220910Orig1s000MultidisciplineR.pdf))
+主な出典はFDAのNDA 220910審査資料である ([2](#ref-2))。PopPKは720人、8,527点のPK記録に基づく。安全性E–RのPK評価可能集団は膵癌466人で、対象とする集団は同じではない。モデル作成時の投与条件は10–400 mgのQDであり、BIDの直接検証は含まれていない。([FDA assessment report / PopPK section , Table 59 , Tables 65–67](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2026/220910Orig1s000MultidisciplineR.pdf))
+
+表2. FDA資料から転記したモデル情報。
 
 | 取り出した情報 | 数値・扱い | 出典箇所（PDFページ） |
 | --- | --- | --- |
@@ -77,7 +81,9 @@ C_{avg,ss}=AUC_{24,ss}/24
 
 ## まず絶対曝露のずれを確認する {#_4}
 
-300 mg QDに関連するラベルの集計値を、本実装の定常曝露と並べた。ただしラベル本文ではCmaxの集計時点とAUCの積分区間が明記されていない。公表AUCをAUC24,ssと断定せず、厳密な同一指標の再現試験ではなく整合性の参考にする。[US prescribing information 12.3 / PDF14 pages](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2026/220910Orig1s000Lbl.pdf)
+300 mg QDに関連するラベルの集計値を、本実装の定常曝露と並べた。ただしラベル本文ではCmaxの集計時点とAUCの積分区間が明記されていない。公表AUCをAUC24,ssと断定せず、厳密な同一指標の再現試験ではなく整合性の参考にする。([3](#ref-3); [処方情報12.3](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2026/220910Orig1s000Lbl.pdf))
+
+表3. 公表集計値と条件付き計算の絶対曝露の比較。
 
 | 指標 | 公表幾何平均 | 参照共変量・η=0 | 条件付き4,096人の幾何平均 |
 | --- | ---: | ---: | ---: |
@@ -93,6 +99,8 @@ C_{avg,ss}=AUC_{24,ss}/24
 図1：左は同一個体に与えた5条件。右は初期Fの関数形の構造感度であり、観測データへの適合線ではない。
 
 ## 分割はピークを下げ最低濃度を上げる {#_5}
+
+表4. 300QDに対する個体内曝露比。
 
 | 条件 | Cmax個体内比 | 最低濃度の個体内比 | Cavg個体内比 |
 | --- | ---: | ---: | ---: |
@@ -127,6 +135,8 @@ OR_{modification}=\left(C_{avg,alt}/C_{avg,300QD}\right)^{1.25}.
 
 最後の指標は、いずれかの投与中断・減量・中止につながる全GradeのTRAEである。TEAEとTRAEは定義が異なり、同じ有害事象を二つの式で独立に説明しているわけではない。オッズ比はリスク比ではなく、1.43を「発生率が43%増える」とは読めない。([FDA assessment report / Tables 65–67](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2026/220910Orig1s000MultidisciplineR.pdf))
 
+表5. 公表QD関連式を仮想条件へ移した相対オッズ。
+
 | 条件 | Grade ≥3 TEAEの条件付きOR | Grade ≥3 TRAEの条件付きOR | 投与変更TRAEの条件付きOR |
 | --- | ---: | ---: | ---: |
 | 150BID | 1.43（1.21–1.77） | 0.790（0.557–0.938） | 1.000 |
@@ -147,6 +157,8 @@ OR_{modification}=\left(C_{avg,alt}/C_{avg,300QD}\right)^{1.25}.
 図3：色付き点と線は1回量でkaを分岐した中央値・5–95パーセンタイル、黒い×は1日量で分岐した中央値。線はE–R係数の信頼区間ではない。
 
 ## 不確実性を分けて見る {#_7}
+
+表6. 確認した不確実性と解釈の範囲。
 
 | 不確実性 | 実施した確認 | 解釈の範囲 |
 | --- | --- | --- |
@@ -169,9 +181,20 @@ OR_{modification}=\left(C_{avg,alt}/C_{avg,300QD}\right)^{1.25}.
 
 ピークを下げたという計算結果は得られたが、安全性の改善までは支持されなかった。最低濃度を説明変数とする有害事象では、むしろ反対向きの変化が起こる。
 
-## 再実行資料 {#_9}
+## データとコードの公開状況 {#_9}
 
 入力値、乱数seed、解析・検査コード、8点のCSV、図3点を配布する。個人別臨床データや原資料PDFは再配布しない。資料確認日は2026年10月22日。FDA審査資料のモデルと係数を出典とし、図は本解析から作成した。
 
 
 [解析コード・入力値・集計表・再実行手順](shared/daraxonrasib-dose-fractionation/daraxonrasib-analysis.zip)
+
+## 参照 {#references}
+
+<span id="ref-1"></span>
+1. US Food and Drug Administration. FDA approves daraxonrasib for metastatic pancreatic adenocarcinoma. 2026. [Approval information](https://www.fda.gov/drugs/resources-information-approved-drugs/fda-approves-daraxonrasib-metastatic-pancreatic-adenocarcinoma).
+
+<span id="ref-2"></span>
+2. US Food and Drug Administration. Daraxonrasib: multidisciplinary review, NDA 220910. 2026. [Review](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2026/220910Orig1s000MultidisciplineR.pdf).
+
+<span id="ref-3"></span>
+3. US Food and Drug Administration. Rasonque (daraxonrasib) tablets: US prescribing information. Revised August 2026. [Label](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2026/220910Orig1s000Lbl.pdf).

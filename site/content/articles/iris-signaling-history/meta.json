@@ -10,16 +10,19 @@
   "locales": {
     "ja": {
       "title": "細胞の「刺激履歴」はどこまで読めるのか",
-      "summary": "IRISの刺激履歴推定を読み、現在の応答分類と軌道に沿う履歴再構成を区別する。公開予測値13万行の閾値感度を集計し、分化条件の改善実験まで検討する。",
-      "key_findings": [
-        "IRISの履歴再構成は、個々の細胞の応答分類と、別に推定した分化軌道の組合せである。",
-        "公開予測値13万行では閾値0.25と0.75の間で41.5%の行の少なくとも1経路の判定が変わる。誤予測率ではない。",
-        "呼吸器間葉の分化改善はWNTの開始時期・持続時間・濃度を変えた実験で確認された。開始時刻だけの効果は分離していない。"
-      ]
+      "summary": "IRISの刺激履歴推定を読み、現在の応答分類と軌道に沿う履歴再構成を区別する。公開予測値13万行の閾値感度を集計し、分化条件の改善実験まで検討する。"
+    },
+    "en": {
+      "title": "How much of a cell’s signaling history can we reconstruct?",
+      "summary": "IRIS response classification and reconstructed signaling histories: a threshold analysis of 130,000 predictions and a review of experimental validation.",
+      "seo_title": "IRIS: RNA responses and inferred signaling histories"
     }
   },
   "english": {
     "title": "How much of a cell’s signaling history can we reconstruct?",
-    "summary": "A Japanese essay separates response classification from lineage-based history reconstruction in IRIS, audits threshold sensitivity in 130,000 released prediction rows, and examines experimental changes in differentiation protocols."
+    "summary": "IRIS response classification and reconstructed signaling histories: a threshold analysis of 130,000 predictions and a review of experimental validation."
+  },
+  "reviewed": {
+    "en": "f5233760895fc0867b42c2a4a3226eb27cd4fb17e1ab51bafa9eaad8f25bdb94"
   }
 }

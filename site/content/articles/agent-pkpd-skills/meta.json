@@ -11,16 +11,20 @@
     "ja": {
       "title": "AIエージェントに PK/PD 解析を任せられるか：公開のスキル集でワルファリン解析を再現させる",
       "summary": "公開のPK/PDスキルを与えた場合と与えない場合で、AIエージェントに公開のワルファリンデータの母集団PK/PD解析を4回行わせ、私の解析と比べて、何ができて何を人が確かめる必要があるかを整理する。",
-      "key_findings": [
-        "4回とも主要なデータの問題を見つけ、ラグタイム付きのPKモデルとturnoverモデルを組み、CL/Fは私の解析と1〜3%以内で一致し、24時間までの濃度で予測が良くなる証拠はないという同じ答えに至った。",
-        "一方で、ラグタイムが実際にはモデルに入っていない比較や、交差検証の推定し直しが初期値から動いていない回など、エージェントのレポートに書かれていない誤りがコードを読んで見つかった。",
-        "スキルの有無による差は各2回では判断できず、同じ条件の2回の間の違いの方が大きかった。下書きと別の視点には使えるが、判断と確認は人が行う必要がある。"
-      ],
       "seo_title": "AIエージェントのPK/PD解析を検証する"
+    },
+    "en": {
+      "title": "Can an AI agent do a PK/PD analysis? Re-running a warfarin analysis with a public skill library",
+      "summary": "Four AI-agent warfarin PK/PD analyses expose hidden implementation and refitting failures despite similar headline results.",
+      "seo_title": "AI agents and PK/PD: a warfarin analysis audit",
+      "seo_description": "Four AI-agent warfarin PK/PD analyses expose hidden implementation and refitting failures despite similar headline results."
     }
   },
   "english": {
     "title": "Can an AI agent do a PK/PD analysis? Re-running a warfarin analysis with a public skill library",
     "summary": "A Japanese technical note in which an AI agent ran four population PK/PD analyses of public warfarin data, with and without a public PK/PD skill, compared against the author's own analysis, showing what agreed, which errors only code inspection revealed, and what a human still has to check."
+  },
+  "reviewed": {
+    "en": "5bc6e56154d79adc294f5bab9486ff3ea8db471598b4494dcdd29c2fcccb37be"
   }
 }

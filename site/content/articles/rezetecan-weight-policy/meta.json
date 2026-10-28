@@ -12,10 +12,19 @@
       "title": "Trastuzumab rezetecanの体重換算投与をADCとペイロードの両方で確かめる",
       "seo_title": "Trastuzumab rezetecanの体重と曝露 | Daiki Kumakura",
       "summary": "公表モデルと補足コードから、体重別のADC・遊離ペイロード曝露を計算。固定量・べき乗補正・上限付き投与を比較し、係数の不確実性と体重以外に残る影響を整理する。"
+    },
+    "en": {
+      "title": "Trastuzumab rezetecan weight dosing across ADC and payload exposure",
+      "summary": "A public ADC/payload model separates weight effects, residual variability and covariate effects without selecting a clinical dose.",
+      "seo_title": "Trastuzumab rezetecan weight dosing and payload AUC",
+      "seo_description": "A public ADC/payload model separates weight effects, residual variability and covariate effects without selecting a clinical dose."
     }
   },
   "english": {
     "title": "Trastuzumab rezetecan weight dosing across ADC and payload exposure",
     "summary": "Public two-analyte PK supports conditional comparisons of weight-based, fixed, power and capped dosing. Similar AUC weight slopes do not establish improved clinical benefit or control other covariates."
+  },
+  "reviewed": {
+    "en": "568f21e1ec40c08db173b51def83ddfe46caf3bb1da98372d0dbff11815bf2e5"
   }
 }

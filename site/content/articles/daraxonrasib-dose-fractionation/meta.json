@@ -12,10 +12,19 @@
       "title": "Daraxonrasibを分割すると安全になるのか",
       "seo_title": "Daraxonrasibの分割投与と全血PK | Daiki Kumakura",
       "summary": "公表ヒトPopPK係数と4,096組の条件付き仮想個体でQDとBIDを比較。ピーク低下と最低濃度上昇を、安全性E–Rの異なる指標から検討する。"
+    },
+    "en": {
+      "title": "Daraxonrasib dose fractionation: opposing exposure metrics",
+      "summary": "Published daraxonrasib coefficients show opposing peak and minimum-concentration changes after fractionation, with conditional rather than validated safety projections.",
+      "seo_title": "Daraxonrasib: divided dosing and safety associations",
+      "seo_description": "Public PK coefficients compare divided daraxonrasib doses. Lower peaks and higher minima lead to conflicting safety associations, with no validated BID benefit."
     }
   },
   "english": {
     "title": "Daraxonrasib dose fractionation: opposing exposure metrics",
-    "summary": "Conditional paired simulations using public human PopPK coefficients separate peak reduction from minimum-concentration increase. Transported safety associations do not establish BID clinical benefit."
+    "summary": "Published daraxonrasib coefficients show opposing peak and minimum-concentration changes after fractionation, with conditional rather than validated safety projections."
+  },
+  "reviewed": {
+    "en": "4b2c66ce99ded8c27a105b82cf5e9bbdf4541efe8c929bd676394a5e13529633"
   }
 }

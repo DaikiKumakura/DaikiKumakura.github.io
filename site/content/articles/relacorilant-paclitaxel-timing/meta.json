@@ -12,10 +12,19 @@
       "title": "Relacorilantの間欠投与を点滴前後の曝露から考える",
       "seo_title": "Relacorilantの間欠投与とPK | Daiki Kumakura",
       "summary": "第II相試験のpaclitaxel集計PKを再解析し、relacorilantの公表PopPK係数で投与時刻を比較。総曝露と点滴前後の曝露を分け、相互作用を予測するために足りない情報を整理する。"
+    },
+    "en": {
+      "title": "Relacorilant intermittent timing around nab-paclitaxel infusion",
+      "summary": "Published paclitaxel PK and a relacorilant model separate drug interactions from parent-exposure timing, with explicit limits on clinical interpretation.",
+      "seo_title": "Relacorilant timing and nab-paclitaxel exposure",
+      "seo_description": "Published paclitaxel PK and a relacorilant model separate drug interactions from parent-exposure timing, with explicit limits on clinical interpretation."
     }
   },
   "english": {
     "title": "Relacorilant intermittent timing around nab-paclitaxel infusion",
     "summary": "Phase II aggregate paclitaxel exposure contrasts and conditional relacorilant PopPK simulations distinguish cycle exposure from infusion-window exposure. Parent PK does not identify dynamic CYP or GR effects."
+  },
+  "reviewed": {
+    "en": "26441a6390dcfaae15e9a72e93721f16e82b0c290da963a1f3bbc11e7b46ea8c"
   }
 }

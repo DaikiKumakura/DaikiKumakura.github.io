@@ -1,12 +1,16 @@
+## 背景と目的 {#article-introduction}
+
 文献確認日：2026年10月18日。公開された小児ALL維持療法の投与履歴・実測ANCを再解析した。薬物濃度を測定したデータではないため、PKパラメータの新規推定ではなく、固定した薬物入力モデルと母集団PDモデルによる予測を扱う。
 
-小児急性リンパ性白血病（ALL）の維持療法では、6-メルカプトプリン（6-MP）とメトトレキサート（MTX）を使用し、血球数を見ながら投与量を調整する。薬物による骨髄抑制には遅れがある。今日の投与量と今日の好中球数だけを見ても、数週間後の推移が分かるとは限らない［1,2］。
+小児急性リンパ性白血病（ALL）の維持療法では、6-メルカプトプリン（6-MP）とメトトレキサート（MTX）を使用し、血球数を見ながら投与量を調整する。薬物による骨髄抑制には遅れがある。今日の投与量と今日の好中球数だけを見ても、数週間後の推移が分かるとは限らない ([1](#ref-1), [2](#ref-2))。
 
 では、初期の投与記録と好中球数でモデルを個人更新すれば、将来の好中球数をよりよく予測できるだろうか。
 
 **このモデルでは基準ANCの個人更新による追加価値を確認できず、投与ルールの最適化には進まなかった。** 評価患者31例のMAEは、最終記録量を続ける条件で個人更新0.727 G/L、直近ANC0.791 G/L、母集団値のみ0.711 G/Lだった。個人更新と直近ANCとの差の95%区間は0を跨いだ。
 
 ## 28日先のANCを予測する条件 {#_1}
+
+**表1．** 問いと解析の使用範囲。
 
 | 項目 | 定義 |
 | --- | --- |
@@ -18,9 +22,11 @@
 
 ## 取得したのは濃度ではなく投与とANCの記録 {#anc}
 
-Jostらの原著には、116例の6-MP投与履歴、実測ANC、体格情報を含む補足CSVがある［1］。`Data_Sheet_2.CSV`には実測値の`DV`と、原著モデルによる予測値の`IPRED`が同居している。
+Jostらの原著には、116例の6-MP投与履歴、実測ANC、体格情報を含む補足CSVがある ([1](#ref-1))。`Data_Sheet_2.CSV`には実測値の`DV`と、原著モデルによる予測値の`IPRED`が同居している。
 
 **本解析ではIPREDを使わない。** 別の補足CSVにある原著の個人別推定値も、事前分布・初期値・評価の正解として使用しない。
+
+**表2．** 入力データの監査。
 
 | 監査項目 | 件数・対応 |
 | --- | --- |
@@ -33,9 +39,9 @@ Jostらの原著には、116例の6-MP投与履歴、実測ANC、体格情報を
 
 投与イベントがない日は、記録上の入力を0とする。ただし、それが実際の休薬、記録の欠落、服薬状況のどれを意味するかまでは確認できない。処方された量と実際に服用された量も同一とは限らない。
 
-元の治療はMTX併用であり、原著でも独立した薬効の識別に限界があった［1］。以下の感受性を6-MPだけの純粋な薬理学的感受性とは解釈しない。TPMT・NUDT15などの遺伝子型も、今回のCSVから推定しない。
+元の治療はMTX併用であり、原著でも独立した薬効の識別に限界があった ([1](#ref-1))。以下の感受性を6-MPだけの純粋な薬理学的感受性とは解釈しない。TPMT・NUDT15などの遺伝子型も、今回のCSVから推定しない。
 
-原著は5,897件のANCから、CRP >5 mg/Lの前後2週間に相当する1,150件を除き、4,747件でモデルを推定している［1］。今回のCSVにはCRP列も除外フラグもなく、この除外を再現できない。本解析は公開CSV全体を出発点とするため、原著と同じ解析対象の再推定ではない。感染に関連した変動を含む可能性があり、予測誤差を個人更新の性能だけに帰属させない。
+原著は5,897件のANCから、CRP >5 mg/Lの前後2週間に相当する1,150件を除き、4,747件でモデルを推定している ([1](#ref-1))。今回のCSVにはCRP列も除外フラグもなく、この除外を再現できない。本解析は公開CSV全体を出発点とするため、原著と同じ解析対象の再推定ではない。感染に関連した変動を含む可能性があり、予測誤差を個人更新の性能だけに帰属させない。
 
 ## 未来を見ない分割を先に決める {#_2}
 
@@ -47,7 +53,7 @@ Jostらの原著には、116例の6-MP投与履歴、実測ANC、体格情報を
 
 ## 固定する部分と推定する部分 {#_3}
 
-薬物入力には原著の3区画構造を使用する［1］。投与量をmg、時間をdayとし、投与時に吸収区画へ0.22×投与量を加える。
+薬物入力には原著の3区画構造を使用する ([1](#ref-1))。投与量をmg、時間をdayとし、投与時に吸収区画へ0.22×投与量を加える。
 
 \[
 \dot X_g=-31.2X_g,\qquad
@@ -89,6 +95,8 @@ Jostらの原著には、116例の6-MP投与履歴、実測ANC、体格情報を
 
 母集団推定では17点のGauss–Hermite求積による周辺尤度を最大化し、25点でも確認する。個人更新は母集団分布を事前分布とした基準ANCのMAP推定であり、84日以後のANCを使わない。2つの初期値から推定し、数値積分の刻み幅と未来情報の遮断も検査する。
 
+**表3．** 母集団パラメータの推定値。
+
 | 推定値 | 値 | 単位・定義 |
 | --- | ---: | --- |
 | baseline | 1.661 | G/L、モデル上の基準ANC |
@@ -106,6 +114,8 @@ Jostらの原著には、116例の6-MP投与履歴、実測ANC、体格情報を
 
 評価は二つの入力条件に分けた。
 
+**表4．** 将来投与の入力条件。
+
 | 入力条件 | 84日以降に与える投与情報 | 解釈 |
 | --- | --- | --- |
 | 最終記録量を継続 | 84日までの最後の正の投与量を、以後毎日投与すると仮定 | 変更なしというシナリオ。実際の将来処方を知っているわけではない |
@@ -120,6 +130,10 @@ Jostらの原著には、116例の6-MP投与履歴、実測ANC、体格情報を
 ## 28日間の予測結果 {#28}
 
 ![評価患者31例における患者平均MAE。縦線は患者単位の再標本化による95%区間。](shared/6mp-anc-forecast/figures/01-errors.png)
+
+**図1．** 評価患者31例における患者平均MAE。縦線は患者単位の再標本化による95%区間。
+
+**表5．** 予測誤差と経験的誤差帯。
 
 | 将来投与の入力 | 予測 | MAE（G/L） | RMSE（G/L） | 90%誤差帯の被覆率 | 誤差帯の平均幅（G/L） |
 | --- | --- | ---: | ---: | ---: | ---: |
@@ -138,6 +152,8 @@ Jostらの原著には、116例の6-MP投与履歴、実測ANC、体格情報を
 
 最終記録量継続条件の層別結果は以下のとおりだった。
 
+**表6．** 最終量継続条件の探索的層別結果。
+
 | その後の記録上の投与 | 患者数 | 直近ANCのMAE | 母集団値のみのMAE | 個人更新のMAE |
 | --- | ---: | ---: | ---: | ---: |
 | 変更なし | 7 | 0.532 | 0.565 | 0.440 |
@@ -149,6 +165,8 @@ MAEの単位はG/L。変更なし群で個人更新の点推定が小さくて�
 
 ![別の校正患者で作った90%誤差帯の、評価患者における被覆率。](shared/6mp-anc-forecast/figures/02-coverage.png)
 
+**図2．** 別の校正患者で作った90%誤差帯の、評価患者における被覆率。
+
 予測帯は、別の校正患者における絶対対数誤差の90パーセンタイルから作った。全パラメータの事後分布を伝播した完全なベイズ予測区間ではなく、小規模な校正標本で得た経験的な誤差帯である。記録単位で校正し、被覆率の要約は患者を等重みとしたので、90%の被覆を保証するものでもない。
 
 積分刻みを0.25日から0.125日にしたとき、評価時点の個人予測の最大絶対差は0.000246 G/Lだった。未来の投与入力を変えても84日以前のMAP推定が変わらないことを確認し、96件のMAP最適化は終了条件を満たした。Gauss–Hermite求積を17点から25点に増やした同じ係数での負の対数尤度差は0.484だった。これらは数値・情報境界の検査であり、臨床的な妥当性の検査とは区別する。
@@ -156,6 +174,8 @@ MAEの単位はG/L。変更なし群で個人更新の点推定が小さくて�
 原著の係数表記差への探索的なストレス計算として、代謝物消失係数と感受性を両方24分の1にした条件でも比較した。他の係数と個人更新値は固定したため、再推定した別モデルとの優劣比較ではない。そのMAEは最終記録量継続で0.739、将来投与記録を使う条件で0.739 G/Lだった。定常的な作用の尺度を揃えても応答の遅れは変わり得る。この計算で原著のどちらの表記が正しいかを判定することはできない。
 
 ![評価患者のうちID順で最初の3例。誤差の大小で選んだ例ではない。](shared/6mp-anc-forecast/figures/03-examples.png)
+
+**図3．** 評価患者のうちID順で最初の3例。誤差の大小で選んだ例ではない。
 
 個々の推移は、モデルを個人更新しても、急なANC変化が必ず予測できるわけではないことを示す。図のA・B・Cは表示用の別名であり、特定の患者への投与提案ではない。
 
@@ -167,7 +187,7 @@ MAEの単位はG/L。変更なし群で個人更新の点推定が小さくて�
 
 ANCは骨髄抑制の指標であり、再発や生存を直接予測しているわけではない。仮にANCを狙いどおりに動かせても、それだけで抗白血病効果を維持したと言うことはできない。
 
-## 何を確かめた解析なのか {#_6}
+## 考察 {#_6}
 
 公開補足資料の実測値を選び直し、患者単位の分割、過去だけによる個人更新、将来投与情報の有無を区別して予測を評価した。数式への適合と、投与判断に必要な将来予測は別の問題である。
 
@@ -175,13 +195,18 @@ ANCは骨髄抑制の指標であり、再発や生存を直接予測してい�
 
 結論は、個人別感受性を推定できなかった今回のモデルでは、基準ANCのMAP更新の追加価値を確認できなかった、という範囲に限る。感受性や現在の骨髄状態の逐次更新を含むMIPD一般や、6-MPの投与最適化そのものの可能性を否定する結果ではない。
 
-## 参考文献 {#_7}
+Karppinenらの白血球・CRPの研究は別のコホートであり、本解析のANCデータに併合していない ([3](#ref-3))。
 
-1. Jost F, et al. Model-Based Simulation of Maintenance Therapy of Childhood Acute Lymphoblastic Leukemia. *Front Physiol*. 2020;11:217. [Paper and supplementary materials](https://doi.org/10.3389/fphys.2020.00217). The supplementary CSV is used under the original CC BY terms. Patient-level records and the original figures and text are not redistributed.
-2. Friberg LE, et al. Model of Chemotherapy-Induced Myelosuppression With Parameter Consistency Across Drugs. *J Clin Oncol*. 2002;20:4713–4721. [Original paper](https://doi.org/10.1200/JCO.2002.02.140). Cited as background for the proliferation, maturation and feedback model, not as the source of patient data used here.
-3. Karppinen S, et al. Prediction of leukocyte counts during paediatric acute lymphoblastic leukaemia maintenance therapy. *Sci Rep*. 2019;9:18076. [Original paper](https://doi.org/10.1038/s41598-019-54492-5). This is a separate WBC/CRP cohort and was not pooled with the present analysis.
+## データとコードの公開状況 {#article-availability}
 
-Figures and aggregate tables were generated by this analysis. Data locations, input hashes and commands are documented in the reproduction materials.
+図と集計表は本解析で作成した。入力場所、ハッシュ、実行コマンドを再実行資料に記録した。原著の患者別データと図表は再配布していない。
 
+[再解析コード・集計表・再実行手順](shared/6mp-anc-forecast/6mp-forecast.zip)
 
-[Reanalysis code, aggregate tables and instructions](shared/6mp-anc-forecast/6mp-forecast.zip)
+## 参照 {#article-references}
+
+1. <span id="ref-1"></span>Jost F, Zierk J, Le TTT, Raupach T, Rauh M, Suttorp M, et al. Model-Based Simulation of Maintenance Therapy of Childhood Acute Lymphoblastic Leukemia. Frontiers in Physiology. 2020;11:217. [doi:10.3389/fphys.2020.00217](https://doi.org/10.3389/fphys.2020.00217).
+2. <span id="ref-2"></span>Friberg LE, Henningsson A, Maas H, Nguyen L, Karlsson MO. Model of Chemotherapy-Induced Myelosuppression With Parameter Consistency Across Drugs. Journal of Clinical Oncology. 2002;20(24):4713–4721. [doi:10.1200/JCO.2002.02.140](https://doi.org/10.1200/JCO.2002.02.140).
+3. <span id="ref-3"></span>Karppinen S, Lohi O, Vihola M. Prediction of leukocyte counts during paediatric acute lymphoblastic leukaemia maintenance therapy. Scientific Reports. 2019;9(1):18076. [doi:10.1038/s41598-019-54492-5](https://doi.org/10.1038/s41598-019-54492-5).
+
+<span id="_7"></span>

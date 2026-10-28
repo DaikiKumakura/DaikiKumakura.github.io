@@ -11,17 +11,12 @@
     "ja": {
       "title": "FURVENTの第3相で2つ目の用量群にどれだけ検出力を使ったか",
       "summary": "firmonertinibの第3相FURVENTのトップライン報告値から、2つ目の用量群が主要比較の検出力をどれだけ削ったかを近似計算し、同じ対象の試験や判定方法の違いと合わせて読む。",
-      "key_findings": [
-        "報告された信頼区間から逆算すると、240 mg対化学療法の比較は約160イベントに基づいていた。",
-        "同じ登録数を2群に割り付けていれば、真のハザード比0.65〜0.75で検出力は約14〜17ポイント高かった。ただし160 mg群がFDAの要請によるものかは確認できない。",
-        "同じ規模の2群試験WU-KONG28はハザード比0.65で成功した。FURVENTの化学療法群の中央判定によるPFS中央値は、この領域の試験の範囲の上端にあった。"
-      ],
       "seo_title": "FURVENTの第3相で2つ目の用量群にどれだけ検出力を使ったか"
     },
     "en": {
       "title": "How much power did the second dose arm cost? Reading the FURVENT topline results",
       "summary": "An event-count and power audit of FURVENT separates the cost of a third dose arm from claims about why the trial failed.",
-      "seo_title": "How much power did the second dose arm cost? Reading the FURVENT ",
+      "seo_title": "FURVENT: dose arms and statistical power",
       "seo_description": "An event-count and power audit of FURVENT separates the cost of a third dose arm from claims about why the trial failed."
     }
   },
@@ -30,6 +25,6 @@
     "summary": "A Japanese technical note that back-calculates the events behind the FURVENT firmonertinib phase 3 comparison from reported values, compares power with a hypothetical two-arm trial, and reads the result alongside WU-KONG28, PAPILLON, EXCLAIM-2 and the central-versus-investigator discrepancy. It does not conclude that dose optimization caused the failure."
   },
   "reviewed": {
-    "en": "6ddf8196856299f0add3a6aaadae854f77be46e2c3c2b6c3b27fdba6bdd7283c"
+    "en": "07514c97038affd0e6e867f68689299a6970e43521a5e518b13d47ee81f621d5"
   }
 }

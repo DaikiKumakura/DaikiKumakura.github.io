@@ -12,10 +12,18 @@
       "title": "Zoldonrasibを1日2回に分けたら：公開PK曲線からの予測",
       "seo_title": "ZoldonrasibのQD・BID比較 | Daiki Kumakura",
       "summary": "公開QD平均PKをモデル化し、同日量BIDのピークと投与前濃度を予測。実測BIDがない限界と、構造・服薬間隔への依存を検討する。"
+    },
+    "en": {
+      "title": "Zoldonrasib dose fractionation: predictions from public mean PK",
+      "summary": "Digitized mean QD zoldonrasib curves yield conditional BID predictions with explicit trough, interpolation, variability and absent external-validation limits.",
+      "seo_title": "Zoldonrasib QD and BID: conditional PK predictions"
     }
   },
   "english": {
     "title": "Zoldonrasib dose fractionation: predictions from public mean PK",
-    "summary": "Aggregate once-daily whole-blood curves support conditional twice-daily predictions, not clinical equivalence. Model sensitivity, predose definitions and absent BID validation remain explicit."
+    "summary": "Digitized mean QD zoldonrasib curves yield conditional BID predictions with explicit trough, interpolation, variability and absent external-validation limits."
+  },
+  "reviewed": {
+    "en": "365f8e2736975b1787fa1c96793c92fb859dab6d6ac0d904b93fd13bd7eea659"
   }
 }

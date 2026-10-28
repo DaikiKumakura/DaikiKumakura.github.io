@@ -1,43 +1,41 @@
+## 背景と目的 {#article-introduction}
+
 資料の確認日：2026年10月20日。公開データと標準的な機械学習の基準モデルだけを使う。**本記事はEnchant自体を検証したものではない。** Enchantの予測は入手できないので、示すのは、公開データの性質と、素朴な基準モデルがどこまで届くかである。
 
-AI創薬のIambic Therapeuticsは、2026年10月15日にNasdaq（ティッカーIAM）で取引を始め、1株16ドルで約1.5億ドルを調達した。[1] 同社のAIプラットフォーム Enchant は、2024年10月の発表で、初期の創薬データから臨床の性質を予測できると主張した。[2][3] 中心の数字は、ヒトの薬物動態の半減期の予測で、Spearman相関が0.74（従来の最高は0.58）というものである。さらに、ヒトのデータが5分子分しかなくても予測力がある、とも書かれている。
+AI創薬のIambic Therapeuticsは、2026年10月15日にNasdaq（ティッカーIAM）で取引を始め、1株16ドルで約1.5億ドルを調達した ([1](#ref-1))。 同社のAIプラットフォーム Enchant は、2024年10月の発表で、初期の創薬データから臨床の性質を予測できると主張した ([2](#ref-2)) ([3](#ref-3))。 中心の数字は、ヒトの薬物動態の半減期の予測で、Spearman相関が0.74（従来の最高は0.58）というものである。さらに、ヒトのデータが5分子分しかなくても予測力がある、とも書かれている。
 
 この「0.74」と「0.58」の差は、どう読めばよいのか。同じ公開データで、数字の読み方を確かめてみた。
 
-先に結論を書く。
+本稿では、公開ベンチマークと独自の基準モデルから、比較に必要な条件を調べた。
 
-- 同じ試験データで0.74と0.58が得られていたなら、差0.16が0とは両立しにくい（試験の薬物が135個として、差の95%区間は、二つのモデルの予測の相関の仮定により0.02〜0.31。下限は0に近い）。ただし、白書には、分割の方法も試験データの大きさも書かれていない。**確認できていないのは、0.74と0.58が同じ条件で得られたかどうかである。**
-- TDC（Therapeutics Data Commons）の固定の試験データで、素朴な近傍法のSpearmanは0.52（95%区間 0.37〜0.65）だった。リーダーボード首位の0.576より低いが、区間に入る。「従来の最高0.58」は、素朴な基準から大きく離れた数字ではない。一方、0.74は、本記事の素朴な基準のどの試行（最大0.65）よりも、リーダーボード首位よりも高い。素朴な基準で説明がつく数字ではない。説明がつかないのは、試験データ、訓練データ、事前学習のどれが違うのかである。
-- 分割の種類（ランダムかスキャフォールドか）の影響は、思ったより小さかった（平均で0.03〜0.04）。一方、試験データの顔ぶれが違うと、同じ近傍法が0.36〜0.65まで動いた。
-- 学習データが5薬物のとき、素朴なモデルは平均0.07だった。しかし「脂溶性が高く、酸性が弱いほど半減期が長い」という符号の知識を与えると、5薬物でも平均0.25になった。これはlogPだけの規則（学習なし、0.26）と同じ水準である。「予測力がある」は、0ではなく、この水準との比較で読む必要がある。ただし、Enchantは前臨床データで事前学習しており、条件が違う。
-- 半減期は、分布容積（V）とクリアランス（CL）の比で決まる。測定された分布容積は構造から予測しやすく（0.68）、半減期（0.44）は予測しにくかった（クリアランスは、分布容積から逆算した導出値で0.51と中間）。半減期の相関だけでは、何を当てたのかが分からない。
+## 公開されていること {#1}
 
-## 1. 公開されていること {#1}
-
-Enchantの2024年の発表と白書は、次のように述べている。[2][3]
+Enchantの2024年の発表と白書は、次のように述べている ([2](#ref-2)) ([3](#ref-3))。
 
 - 評価には、Obachらのヒト薬物動態のデータを使った。半減期のSpearmanは、前臨床データの全体と、Obachのデータの全体を使った場合に0.74である。
-- 従来の最高は0.58とされ、TDCの「Half_Life_Obach」のベンチマークにリンクされている。TDCのリーダーボードでは、2026年5月28日時点（第三者の集計サイトbenchmarklistによる）の首位が0.576だった。[4][5]
+- 従来の最高は0.58とされ、TDCの「Half_Life_Obach」のベンチマークにリンクされている。TDCのリーダーボードでは、2026年5月28日時点（第三者の集計サイトbenchmarklistによる）の首位が0.576だった ([4](#ref-4)) ([5](#ref-5))。
 - ヒトのデータがObachの1%未満（5分子）でも、発表では「meaningful predictive power」、白書では「strong predictive power」と書かれている。前臨床の実験データによる転移学習の効果だと説明され、「競合の技術は、この少ない訓練データでは予測モデルにならない」とも書かれている。
 
 書かれていないこともある。評価データの分割の方法、試験データの大きさ、乱数のシード、5分子の場合の数値は、白書の本文に見当たらなかった（図表の画像に載っている可能性があるが、本文のテキストからは読み取れなかった）。白書は、Obachの他の薬物動態パラメータも表にまとめたとしているが、その表も画像で、私は中身を確認できていない。また、本記事が確認したのは2024年の発表で、その後に更新された版は確認していない。
 
-比べる先のTDCのベンチマークは、スキャフォールド分割（分子の骨格が似たものを同じ側に置く分割）で、20%を試験データとして取り置く。評価にSpearmanを使う理由は、「化学構造以外の要因にも依存するため」と説明されている。[5] 試験データは固定で、667薬物のうち135薬物である。乱数は、訓練と検証の分割だけを変える（TDCのソースコードを、査読者が確認した。私はPyTDCを使っていない）。リーダーボードの標準偏差（首位で約0.025、第三者の集計による）は、この乱数による違いで、試験データの顔ぶれの違いは含まない。
+比べる先のTDCのベンチマークは、スキャフォールド分割（分子の骨格が似たものを同じ側に置く分割）で、20%を試験データとして取り置く。評価にSpearmanを使う理由は、「化学構造以外の要因にも依存するため」と説明されている ([5](#ref-5))。 試験データは固定で、667薬物のうち135薬物である。乱数は、訓練と検証の分割だけを変える（TDCのソースコードを、査読者が確認した。私はPyTDCを使っていない）。リーダーボードの標準偏差（首位で約0.025、第三者の集計による）は、この乱数による違いで、試験データの顔ぶれの違いは含まない。
 
-## 2. データ {#2}
+## データ {#2}
 
-データは、TDCが配布する三つのファイルである。[6]
+データは、TDCが配布する三つのファイルである ([6](#ref-6))。
 
-- 半減期：667薬物（Obachらのヒト静脈内投与の終末相半減期）。うちTDCの固定の試験データが135、訓練・検証用が532。
-- 定常状態の分布容積（Vss）：1,130薬物（Lombardoら）。単位はL/kg。
+- 半減期：667薬物（Obachらのヒト静脈内投与の終末相半減期）([7](#ref-7))。うちTDCの固定の試験データが135、訓練・検証用が532。
+- 定常状態の分布容積（Vss）：1,130薬物（Lombardoら）([8](#ref-8))。単位はL/kg。
 
 立体異性体や塩を同じ親化合物にまとめると、半減期は658化合物になった（9組が重複。重複どうしの半減期の対数の差は、中央値で0.16、つまり約1.4倍で、最大は0.64、つまり約4.3倍）。骨格（Murcko骨格）は444グループにまとまり、365は1化合物だけのグループ、最大のグループ（ベンゼン環だけ）は57化合物だった。TDCの固定の試験データの135薬物は、訓練・検証用の532薬物と、親化合物が重ならなかった。分布容積との共通の化合物は621だった。
 
-## 3. 0.74と0.58の差はどれだけ確かなのか {#3-074058}
+## 0.74と0.58の差はどれだけ確かなのか {#3-074058}
 
-試験データが135薬物の場合、Spearman 0.74 の95%区間は 0.64〜0.82、0.58 は 0.44〜0.69 だった（Fisher zにBonett–Wrightの標準誤差を用いた）。白書は評価の大きさを書いていないので、全667薬物で評価した場合（0.74は0.70〜0.78、0.58は0.52〜0.63。交差検証の予測は独立でないため、実際はこれより広い）も併記する。
+試験データが135薬物の場合、Spearman 0.74 の95%区間は 0.64〜0.82、0.58 は 0.44〜0.69 だった（Fisher zにBonett–Wrightの標準誤差を用いた） ([9](#ref-9))。白書は評価の大きさを書いていないので、全667薬物で評価した場合（0.74は0.70〜0.78、0.58は0.52〜0.63。交差検証の予測は独立でないため、実際はこれより広い）も併記する。
 
-同じ試験データで二つのモデルを評価するなら、差はより精密に決まる。二つのモデルの予測の順位の相関を仮定して、依存する相関の差の区間（Zou、2007）を計算した（この式はピアソン相関の理論に基づく近似を、Spearmanに流用している）。
+同じ試験データで二つのモデルを評価するなら、差はより精密に決まる。二つのモデルの予測の順位の相関を仮定して、依存する相関の差の区間（Zouの方法）([10](#ref-10))を計算した（この式はピアソン相関の理論に基づく近似を、Spearmanに流用している）。
+
+**表1．** 予測順位間相関を仮定した相関差の近似95%区間。
 
 | 二つのモデルの予測の順位相関（仮定） | 試験データ135での差の95%区間 | 667での差の95%区間 |
 | --- | --- | --- |
@@ -54,13 +52,15 @@ Enchantの2024年の発表と白書は、次のように述べている。[2][3]
 
 （出力：`results/summary.json`、`results/split_baselines.csv`、`results/learning_curve.csv`）
 
-## 4. 素朴な基準モデルはどこまで届くのか {#4}
+## 素朴な基準モデルはどこまで届くのか {#4}
 
 二つの素朴な基準モデルを用意した。近傍法（Morganフィンガープリントの5近傍、Tanimoto類似度で重み付けした平均）と、13個の記述子（脂溶性、極性表面積、分子量、水素結合の数、酸性・塩基性の部分構造の数など）によるランダムフォレスト（300本）である。どちらも標準的なscikit-learnの実装で、調整していない。**先端のモデルではなく、「先端のモデルとの差」を示すものでもない。**
 
 ### TDCの固定の試験データで {#tdc}
 
 TDCの訓練・検証用532薬物で訓練し、固定の試験データ135薬物で評価した。
+
+**表2．** TDC固定試験データにおける基準モデルと学習なし規則の性能。
 
 | 方法 | 試験Spearman（95%区間） |
 | --- | --- |
@@ -76,6 +76,8 @@ TDCの訓練・検証用532薬物で訓練し、固定の試験データ135薬�
 
 658の親化合物を、ランダム分割と、TDCの方式にならったスキャフォールド分割（グループの大きさの閾値と充填の順はTDCにならった自前の実装）で30回ずつ再分割し、同じ基準モデルを評価した。
 
+**表3．** 再分割30回にわたる性能の平均と最小・最大。
+
 | 分割 | 近傍法 | ランダムフォレスト | logPの規則 |
 | --- | --- | --- | --- |
 | ランダム | 0.48（0.34〜0.64） | 0.43（0.28〜0.54） | 0.26（0.11〜0.38） |
@@ -85,9 +87,11 @@ TDCの訓練・検証用532薬物で訓練し、固定の試験データ135薬�
 
 したがって、**別々の試験データで得た数字を並べると、0.1前後（30回の標準偏差は0.07〜0.09）のずれが、モデルの違いとは関係なく生じうる。** 同じ試験データでの比較には、この問題はない。
 
-## 5. 5分子で「予測力がある」とは {#5-5}
+## 5分子で「予測力がある」とは {#5-5}
 
 TDCの固定の試験データで、訓練の薬物を減らして評価した（各100回の無作為抽出）。素朴なモデルのほかに、事前知識として符号だけを与えた回帰も加えた。「logPが高いほど、塩基性が強いほど、半減期は長く、酸性が強いほど短い」という薬物動態の知識に従って、三つの特徴（logP、酸性部分構造の有無、塩基性部分構造の有無）の係数の符号を固定し、大きさだけを訓練の薬物から学習する（非負の最小二乗法）。
+
+**表4．** 学習薬物数と固定試験データの平均順位相関。
 
 | 訓練の薬物の数 | 近傍法 | ランダムフォレスト | 符号を固定した回帰 |
 | ---: | ---: | ---: | ---: |
@@ -104,7 +108,7 @@ TDCの固定の試験データで、訓練の薬物を減らして評価した�
 
 つまり、少数の薬物で「予測力がある」と言うには、基準が0ではなく、**0.25〜0.28程度の、事前知識だけの水準**になる。ただし、Enchantは前臨床データで事前学習しており、事前知識を持つモデルの5分子の結果である。本記事の基準モデルは、それと同じ条件の再現ではなく、「どの水準から意味を持つか」の目安にすぎない。5分子の数値が公開されていないので、Enchantがこの水準を超えているかは分からない。なお、符号を固定した回帰が使う標準化には、ラベルのない532薬物の分布を使っており、「5薬物しかない」という想定とは厳密には異なる。
 
-## 6. 半減期は何を当てているのか {#6}
+## 半減期は何を当てているのか {#6}
 
 終末相の半減期は、分布容積（Vz）とクリアランス（CL）の比で決まる（t½ = ln2 × Vz / CL）。Vzの代わりにVssを使い、共通の621化合物で、CLをVssと半減期から逆算した（CL = ln2 × Vss / t½）。これは「導出CL」で、実際のCLではない。VzはVssより大きいことが多いので、導出CLは実際のCLより小さく出る傾向がある（CL × Vss / Vz）。また、半減期の測定の誤差は、導出CLにそのまま入る。
 
@@ -117,6 +121,8 @@ VとCLが正に相関するため、半減期の分散（0.37）は、二つの�
 
 予測のしやすさは次のとおりだった（スキャフォールド分割10回、ランダムフォレスト）。
 
+**表5．** スキャフォールド分割10回でのPK量別予測性能。
+
 | 予測する量 | 試験Spearman（平均±標準偏差） |
 | --- | ---: |
 | Vss（測定値） | 0.68（0.05） |
@@ -125,9 +131,9 @@ VとCLが正に相関するため、半減期の分散（0.37）は、二つの�
 
 測定したVssは、構造から予測しやすい。導出CLの予測には、Vssの予測のしやすさが一部入り込んでいるので、「CLは予測しにくい」とまでは言えない。言えるのは、半減期の順位が、構造から予測しやすい量（Vss）より予測しにくい量になっていることである。半減期のSpearmanが高くても、それが分布容積を当てたのか、クリアランスを当てたのかは、半減期の相関だけでは分からない。用量の設計では、曝露（AUC）はバイオアベイラビリティと用量をCLで割った値で決まり、半減期は投与間隔と蓄積に効く。分布容積だけを当てて半減期を当てたモデルは、曝露を誤らせうる（この点は、本記事の分析で示したことではなく、薬物動態の関係からの推測である）。
 
-Enchantの白書は、半減期以外のパラメータも表にまとめたとしている。[3] クリアランスや分布容積が別に報告されているなら、この問いに答えられる。公開されたテキストからは確認できなかった。
+Enchantの白書は、半減期以外のパラメータも表にまとめたとしている ([3](#ref-3))。 クリアランスや分布容積が別に報告されているなら、この問いに答えられる。公開されたテキストからは確認できなかった。
 
-## 順位相関だけでは倍率誤差が分からない {#7}
+## 考察 {#7}
 
 白書の0.74と比較対象の0.58は、入力情報と評価分割が同一であることを独立に確認できていない。0.74には前臨床データによる事前学習が含まれるとされる一方、比較対象の学習条件は未確認である。
 
@@ -135,7 +141,7 @@ Enchantの白書は、半減期以外のパラメータも表にまとめたと�
 
 Spearman相関は順位を測る。半減期の予測値が何倍ずれたか、VとCLのどちらがずれたかは、この指標だけからは分からない。順位の改善と、曝露を計算するための絶対値の精度は同じ結果ではない。
 
-## 再実行と限界 {#_2}
+## データとコードの公開および限界 {#_2}
 
 [計算コード](shared/enchant-half-life/half_life_analysis.py)は、TDCの三つのデータから`results/`と図1を生成する（約20分）。データはライセンスの記載が「Not Specified」なので同梱していない。Harvard Dataverse（doi:10.7910/DVN/21LKWG）から取得して`data/`に置く（`half_life_obach.tab`、`vdss_lombardo.tab`、`admet_group.zip`の`half_life_obach/train_val.csv`と`test.csv`）。確認した版は`requirements.txt`に固定した。
 
@@ -155,14 +161,17 @@ python half_life_analysis.py
 - Obachのデータは文献の集成で、半減期の定義や測定条件が研究ごとに異なる。
 - 白書の表の画像は読んでおらず、2024年の発表以降の更新は確認していない。
 
-## 参考文献 {#_3}
+## 参照 {#article-references}
 
-1. Iambic Therapeutics. [Iambic Announces Pricing of Initial Public Offering](https://www.biospace.com/press-releases/iambic-announces-pricing-of-initial-public-offering) (2026-10-14); see also [SEC Form 424B4](https://www.sec.gov/Archives/edgar/data/0001997038/000119312526422865/iambic_inception_424b4.htm).
-2. Iambic Therapeutics. [Iambic Therapeutics Announces Enchant, an AI Platform that Predicts Clinical Outcomes from the Earliest Stages of Drug Discovery](https://www.businesswire.com/news/home/20241029837875/en/Iambic-Therapeutics-Announces-Enchant-an-AI-Platform-that-Predicts-Clinical-Outcomes-from-the-Earliest-Stages-of-Drug-Discovery) (2024-10-29).
-3. Iambic Therapeutics. [Enchant white paper](https://iambic.ai/post/enchant) (2024-10).
-4. benchmarklist. [TDC Half_Life_Obach](https://benchmarklist.com/benchmarks/tdc_half_life_obach/) (2026-05-28 snapshot).
-5. Therapeutics Data Commons. [ADMET benchmark group](https://tdcommons.ai/benchmark/admet_group/overview/).
-6. Therapeutics Data Commons. [ADME datasets (Half_Life_Obach, VDss_Lombardo)](https://tdcommons.ai/single_pred_tasks/adme/). Data are distributed through Harvard Dataverse ([doi:10.7910/DVN/21LKWG](https://doi.org/10.7910/DVN/21LKWG)).
-7. Obach RS, Lombardo F, Waters NJ. Trend analysis of a database of intravenous pharmacokinetic parameters in humans for 670 drug compounds. *Drug Metabolism and Disposition*. 2008;36(7):1385–1405. [10.1124/dmd.108.020479](https://doi.org/10.1124/dmd.108.020479).
-8. Lombardo F, Berellini G, Obach RS. Trend analysis of a database of intravenous pharmacokinetic parameters in humans for 1352 drug compounds. *Drug Metabolism and Disposition*. 2018;46(11):1466–1477. [10.1124/dmd.118.082966](https://doi.org/10.1124/dmd.118.082966).
-9. Zou GY. Toward using confidence intervals to compare correlations. *Psychological Methods*. 2007;12(4):399–413. [10.1037/1082-989X.12.4.399](https://doi.org/10.1037/1082-989X.12.4.399).
+1. <span id="ref-1"></span>Iambic Therapeutics. Iambic Announces Pricing of Initial Public Offering. 2026 Oct 14. [Company release](https://www.biospace.com/press-releases/iambic-announces-pricing-of-initial-public-offering); [SEC Form 424B4](https://www.sec.gov/Archives/edgar/data/0001997038/000119312526422865/iambic_inception_424b4.htm).
+2. <span id="ref-2"></span>Iambic Therapeutics. Iambic Therapeutics Announces Enchant, an AI Platform that Predicts Clinical Outcomes from the Earliest Stages of Drug Discovery. 2024 Oct 29. [Company release](https://www.businesswire.com/news/home/20241029837875/en/Iambic-Therapeutics-Announces-Enchant-an-AI-Platform-that-Predicts-Clinical-Outcomes-from-the-Earliest-Stages-of-Drug-Discovery).
+3. <span id="ref-3"></span>Iambic Therapeutics. Enchant white paper. 2024 Oct. [White paper](https://iambic.ai/post/enchant).
+4. <span id="ref-4"></span>benchmarklist. TDC Half_Life_Obach. 2026 May 28 snapshot. [Benchmark aggregation](https://benchmarklist.com/benchmarks/tdc_half_life_obach/).
+5. <span id="ref-5"></span>Therapeutics Data Commons. ADMET benchmark group. [Documentation](https://tdcommons.ai/benchmark/admet_group/overview/). Accessed 2026 Oct 20.
+6. <span id="ref-6"></span>Therapeutics Data Commons. ADME datasets: Half_Life_Obach and VDss_Lombardo. [Documentation](https://tdcommons.ai/single_pred_tasks/adme/). Distributed through Harvard Dataverse, [doi:10.7910/DVN/21LKWG](https://doi.org/10.7910/DVN/21LKWG).
+7. <span id="ref-7"></span>Obach RS, Lombardo F, Waters NJ. Trend Analysis of a Database of Intravenous Pharmacokinetic Parameters in Humans for 670 Drug Compounds. Drug Metabolism and Disposition. 2008;36(7):1385–1405. [doi:10.1124/dmd.108.020479](https://doi.org/10.1124/dmd.108.020479).
+8. <span id="ref-8"></span>Lombardo F, Berellini G, Obach RS. Trend Analysis of a Database of Intravenous Pharmacokinetic Parameters in Humans for 1352 Drug Compounds. Drug Metabolism and Disposition. 2018;46(11):1466–1477. [doi:10.1124/dmd.118.082966](https://doi.org/10.1124/dmd.118.082966).
+9. <span id="ref-9"></span>Bonett DG, Wright TA. Sample size requirements for estimating Pearson, Kendall and Spearman correlations. Psychometrika. 2000;65(1):23–28. [doi:10.1007/BF02294183](https://doi.org/10.1007/BF02294183).
+10. <span id="ref-10"></span>Zou GY. Toward using confidence intervals to compare correlations. Psychological Methods. 2007;12(4):399–413. [doi:10.1037/1082-989X.12.4.399](https://doi.org/10.1037/1082-989X.12.4.399).
+
+<span id="_3"></span>

@@ -2,7 +2,7 @@ RNAを何分子持っているかが同じでも、それが細胞の中のど�
 
 仮想摂動のモデルが量の予測から配置の予測へ進むなら、何をもって「当たった」とするのかも変わる。重心まで合えばよいだろうか。広がりも合わせれば十分だろうか。
 
-2026年10月17日公開のSubcellPertは、RNAの細胞内配置を評価するベンチマークだ。本稿ではプレプリントv1と公開コードを読み、公開されたアストロサイトのRNA座標を使って、量・重心・分散を合わせたときに何がまだ残るかを調べた。([Original paper](https://doi.org/10.64898/2026.10.11.758305))、[Code](https://github.com/king159/SubcellPert)
+2026年10月17日公開のSubcellPertは、RNAの細胞内配置を評価するベンチマークだ。本稿ではプレプリントv1と公開コードを読み、公開されたアストロサイトのRNA座標を使って、量・重心・分散を合わせたときに何がまだ残るかを調べた ([1](#ref-1), [2](#ref-2))。
 
 ## 細胞の地図を発現量の表へ潰さない {#_1}
 
@@ -16,7 +16,9 @@ SubcellPertの予測対象は、遺伝子名の付いたRNA分子の二次元座
 
 ## 正解のRNA数を渡す試験と渡さない試験 {#rna}
 
-原著の設計で気に入ったのは、課題を二つに分けたところだ。
+原著は、RNA数を与える条件と与えない条件を分けている。
+
+表1. 正解RNA数を使う条件と使わない条件の違い。
 
 | 設定 | 予測時に正解のRNA数を使うか | 調べること |
 | --- | --- | --- |
@@ -33,7 +35,7 @@ Gaussian輸送がよかったことから、平均と分散だけを再現すれ
 
 以下は、原著モデルの再学習でも、Oracleベンチマークの追試でもない。**正解座標の要約統計まで与えた、指標の点検用の人工配置**である。未来の配置を予測したとは主張しない。
 
-使ったのは公開データPF-Astroの `sample1`。Perturb-FISHで測られた、ヒト多能性幹細胞由来アストロサイトのデータである。元の測定をSubcellPertの著者が再構成した公開版から、RNA座標と細胞・遺伝子の対応を読み取った。
+使ったのは公開データPF-Astroの `sample1`。Perturb-FISHで測られた、ヒト多能性幹細胞由来アストロサイトのデータである。元の測定 ([3](#ref-3)) をSubcellPertの著者が再構成した公開版 ([4](#ref-4)) から、RNA座標と細胞・遺伝子の対応を読み取った。
 
 この標本には3,532細胞、4,247,341分子のRNAがある。そのうち対照838細胞とASXL3介入条件361細胞を対象にした。介入条件は、同標本で細胞数が最も多いASXL3を選んだ。二条件はまとめて指標の診断へ使い、両者の差を介入効果として推定してはいない。
 
@@ -62,6 +64,8 @@ $$
 
 それでも、元の点群との距離は残った。下表は、全RNA重心からの半径分布に対する一次Wasserstein距離の中央値である。単位は規格化座標の距離で、マイクロメートルではない。
 
+表2. モーメント補正後の人工配置と観測配置の半径W1。
+
 | 遺伝子 | 対象の細胞・遺伝子組数 | 再標本化の半径W1 | Gaussian置換の半径W1 |
 | --- | ---: | ---: | ---: |
 | VIM | 1,192 | 0.043 | 0.197 |
@@ -71,6 +75,8 @@ $$
 | CDC37 | 748 | 0.085 | 0.113 |
 
 ![RNA数・重心・共分散を合わせた後にも残る、二次元sliced W1と半径W1の差](shared/subcellpert-spatial-response/figures/moment-blindspot.png)
+
+図1. 同じRNA数・重心・共分散を持つ人工配置のsliced W1と半径W1。原著モデルの予測誤差ではなく実測点群を使った指標診断。
 
 図の左側は32方向へ投影した一次元W1の平均で、二次元配置の違いを見る。右側は全RNA重心からの半径だけを見る。どちらも私の細胞・遺伝子ごとの診断であり、生物学的単位や遺伝子を重み付けして集約する原著の公式スコアとは同一ではない。
 
@@ -98,10 +104,22 @@ $$
 
 SubcellPertが広げたのは空間配置の予測を評価する範囲であり、別々の細胞のスナップショットから同じ分子の移動経路を観測できるようになったわけではない。
 
-## データと再実行 {#_6}
+## データとコードの公開状況 {#_6}
 
 [診断コードと集計入力](shared/subcellpert-spatial-response/subcellpert-spatial-response.zip)に、点群ごとの診断値、乱数を平均した集計、描画・テスト・元データ取得手順をまとめた。元の画像、RNA座標、細胞注釈、学習済みモデルは同梱していない。
 
 元データの版、取得ファイルのSHA-256、選択条件は `inputs/provenance.json` に記録した。取得後に同じ診断を作り直す手順と依存関係はREPRODUCE.mdを参照。これは原著608学習実行の再現ではなく、1標本の実測座標を使った独立診断である。
 
-原著：Wang J et al. *SubcellPert: Benchmarking Subcellular Perturbation Prediction*. [bioRxiv v1](https://www.biorxiv.org/content/10.64898/2026.10.11.758305v1), 2026年10月17日公開。[Public data](https://huggingface.co/datasets/king159/SubcellPert)のPF-Astro再構成版を使用した。測定の出典は原著Appendix C.1と[Perturb-FISH measurement paper (Binan et al., 2025)](https://doi.org/10.1016/j.cell.2025.02.012)を参照。
+## 参照 {#references}
+
+<span id="ref-1"></span>
+1. Wang J, Cao H, Dang X, Zhou T, Zhao Y, Hsieh CY, et al. SubcellPert: benchmarking subcellular perturbation prediction. bioRxiv. 2026 October 17. Version 1. [doi:10.64898/2026.10.11.758305](https://doi.org/10.64898/2026.10.11.758305). Preprint.
+
+<span id="ref-2"></span>
+2. king159. SubcellPert. GitHub repository. [Source code and evaluation specification](https://github.com/king159/SubcellPert).
+
+<span id="ref-3"></span>
+3. Binan L, Jiang A, Danquah SA, Valakh V, Simonton B, Bezney J, et al. Simultaneous CRISPR screening and spatial transcriptomics reveal intracellular, intercellular, and functional transcriptional circuits. Cell. 2025;188:2141–2158.e18. [doi:10.1016/j.cell.2025.02.012](https://doi.org/10.1016/j.cell.2025.02.012).
+
+<span id="ref-4"></span>
+4. king159. SubcellPert datasets: PF-Astro reconstruction. Hugging Face. [Dataset repository](https://huggingface.co/datasets/king159/SubcellPert).

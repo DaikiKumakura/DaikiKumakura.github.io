@@ -10,16 +10,19 @@
   "locales": {
     "ja": {
       "title": "RNAの量は合った。その配置まで予測できるか",
-      "summary": "SubcellPertの空間摂動ベンチマークを読み、公開RNA座標で量・重心・共分散を合わせた人工配置を検証する。同じ二次モーメントにも異なる形が対応し、座標の予測精度から機能は決まらない。",
-      "key_findings": [
-        "SubcellPertは正解RNA数を与えるOracleと、数・配置を同時に予測するJointを分けて評価する。",
-        "1標本の4,681個の細胞・遺伝子点群では、数・重心・共分散が一致しても空間分布の差は残った。独自の指標診断であり、モデルの予測性能比較ではない。",
-        "規格化座標は核膜や絶対距離を表さない。配置の検証では遺伝子被覆率、細胞境界、標本単位の再現性も考える。"
-      ]
+      "summary": "SubcellPertの空間摂動ベンチマークを読み、公開RNA座標で量・重心・共分散を合わせた人工配置を検証する。同じ二次モーメントにも異なる形が対応し、座標の予測精度から機能は決まらない。"
+    },
+    "en": {
+      "title": "Matching RNA counts does not determine intracellular organization",
+      "summary": "A SubcellPert metric diagnostic uses real RNA coordinates to show spatial-shape differences after counts, centroids and covariance have been matched.",
+      "seo_title": "SubcellPert: RNA counts, moments and spatial prediction"
     }
   },
   "english": {
     "title": "Matching RNA counts does not determine intracellular organization",
-    "summary": "A Japanese essay examines SubcellPert and uses released RNA coordinates for an independent moment-preservation diagnostic, separating abundance, localization and the limits of spatial summaries."
+    "summary": "A SubcellPert metric diagnostic uses real RNA coordinates to show spatial-shape differences after counts, centroids and covariance have been matched."
+  },
+  "reviewed": {
+    "en": "a3e1d9c43f14d573dbea4022c482f0ee8ef68d11f6a28ea75d17fea200ed708c"
   }
 }
