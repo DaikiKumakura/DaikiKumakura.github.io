@@ -12,10 +12,19 @@
       "title": "AlphaGenomeの高スコア変異から創薬標的を選べるか",
       "summary": "AlphaGenome AtlasのAVIを順位尺度として読み、DNM1のスプライシング実験12変異を再集計する。PCSK9の証拠と対照し、変異の影響から治療方向を判断するまでに必要な情報を整理する。",
       "seo_title": "AlphaGenomeの高スコア変異から創薬標的を選べるか"
+    },
+    "en": {
+      "title": "Do high AlphaGenome variant scores identify drug targets?",
+      "summary": "An audit of AVI rank units and 12 reported DNM1 splice variants, contrasted with PCSK9 evidence. Published aggregates are recalculated; no model inference or API queries were performed.",
+      "seo_title": "AlphaGenome scores and evidence for drug targets",
+      "seo_description": "AVI ranks and 12 reported DNM1 splice variants are contrasted with PCSK9 evidence, separating variant impact from therapeutic direction."
     }
   },
   "english": {
     "title": "Do high AlphaGenome variant scores identify drug targets?",
     "summary": "An audit of AVI rank units and 12 reported DNM1 splice variants, contrasted with PCSK9 evidence. Published aggregates are recalculated; no model inference or API queries were performed."
+  },
+  "reviewed": {
+    "en": "a448636f1969d22ef325fc7cf3eafe6f0b627cda96f9f1e1712fd341e1fc7e3f"
   }
 }

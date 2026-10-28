@@ -1,3 +1,5 @@
+## 背景と目的 {#article-introduction}
+
 Zongertinibの米国での推奨用量は、90 kg未満では120 mg、90 kg以上では180 mgを1日1回である。体重に合わせる設計だが、全員の曝露を同じにする設計ではない。
 
 公開PopPKとFDAの用量比較表から、この違いを計算した。120 mg固定では体重増加とともにAUCが下がり、2段階用量は高体重側の低下を補う。一方、90 kgの境界には用量の段差が残る。連続的な体重補正を数理的対照にすると体重に沿う傾きは消えるが、個体差は消えない。
@@ -6,9 +8,11 @@ Zongertinibの米国での推奨用量は、90 kg未満では120 mg、90 kg以�
 
 ## 90 kgという境界の背景 {#90-kg}
 
-ZongertinibはHER2（ERBB2）TKD活性化変異を持つ非扁平上皮非小細胞肺癌の経口阻害薬である。米国では2025年に承認され、2026年2月には適応が拡大された。体重による120／180 mgの用法は2026年8月更新のラベルでも維持されている。[FDA 2026 approval information](https://www.fda.gov/drugs/resources-information-approved-drugs/fda-grants-accelerated-approval-zongertinib-unresectable-or-metastatic-non-squamous-non-small-cell)、[Current DailyMed prescribing information 2.2 section](https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=d3fabf12-354e-4e5c-b5de-20fdb579b783)
+ZongertinibはHER2（ERBB2）TKD活性化変異を持つ非扁平上皮非小細胞肺癌の経口阻害薬である。米国では2025年に承認され、2026年2月には適応が拡大された。体重による120／180 mgの用法は2026年7月改訂のラベルでも維持されている。([1](#ref-1))、([2](#ref-2))
 
-FDAの初回審査では、低曝露群のORRと高体重患者の曝露低下が論点になり、180 mgへの曝露マッチングと便益・リスクを踏まえて90 kgが選ばれた。以下の計算は、その臨床判断を数学だけで置き換えるものではない。[FDA multidisciplinary review / PDF358 , 361 pp.](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/219042Orig1s000MultidisciplineR.pdf)
+FDAの初回審査では、低曝露群のORRと高体重患者の曝露低下が論点になり、180 mgへの曝露マッチングと便益・リスクを踏まえて90 kgが選ばれた。以下の計算は、その臨床判断を数学だけで置き換えるものではない。([3](#ref-3))（PDF 358・361頁）
+
+**表1．比較の問いと条件。**
 
 | 項目 | 今回の定義 |
 | --- | --- |
@@ -20,7 +24,9 @@ FDAの初回審査では、低曝露群のORRと高体重患者の曝露低下�
 
 ## まず用量比較表を数式に戻す {#_1}
 
-公表PopPKは、零次入力と一次吸収を逐次組み合わせた2コンパートメントモデルである。主な係数は次のとおりだった。([FDA assessment report Table 79 / PDF297–298 pp.](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/219042Orig1s000MultidisciplineR.pdf))
+公表PopPKは、零次入力と一次吸収を逐次組み合わせた2コンパートメントモデルである。主な係数は次のとおりだった。(([3](#ref-3))（PDF 297–298頁）)
+
+**表2．再構成に使ったPopPK係数。**
 
 | 量 | 公表値 | 扱い |
 | --- | ---: | --- |
@@ -47,7 +53,7 @@ r(w,D)=\frac{AUC(w,D)}{AUC(70,120)}
 =\frac{D}{120}\left(\frac{w}{70}\right)^{-0.75}.
 \]
 
-この比には、共通のCL基準値、製剤F、吸収速度は残らない。AUCを調べる主な問いは、この簡潔な式で扱える。FDA Figure 19の共変量比較では、70 kg・62歳・non-Asian・SDDまたはSDD iCF製剤が基準とされている。本稿のAUC比では共通の背景効果が消える一方、後述の補助的な波形計算では、それらの共変量倍率を1に抑止し、CL/F=7.22を70 kgの基準係数に置く。原資料の背景補正まで再現した絶対濃度とはしない。
+この比には、共通のCL基準値、製剤F、吸収速度は残らない。AUCを調べる主な問いは、この簡潔な式で扱える。[FDA審査資料のFigure 19](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/219042Orig1s000MultidisciplineR.pdf)の共変量比較では、70 kg・62歳・non-Asian・SDDまたはSDD iCF製剤が基準とされている。本稿のAUC比では共通の背景効果が消える一方、後述の補助的な波形計算では、それらの共変量倍率を1に抑止し、CL/F=7.22を70 kgの基準係数に置く。原資料の背景補正まで再現した絶対濃度とはしない。
 
 FDA Table 89には、体重33.6–122 kgでの120 mgの比13点と、75–122 kgでの180 mgの比8点が、整数%で掲載されている。120 mgの行だけを用いて、
 
@@ -55,7 +61,7 @@ FDA Table 89には、体重33.6–122 kgでの120 mgの比13点と、75–122 kg
 \log r_k=-a\log(w_k/70)
 \]
 
-の係数を最小二乗で逆算すると、\(a=0.74796\) だった。120 mg表との最大差は0.495パーセントポイント、照合に残した180 mg表との最大差は0.456ポイントだった。[FDA Table 89 / PDF361 pp.](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/219042Orig1s000MultidisciplineR.pdf)
+の係数を最小二乗で逆算すると、\(a=0.74796\) だった。120 mg表との最大差は0.495パーセントポイント、照合に残した180 mg表との最大差は0.456ポイントだった。([3](#ref-3))（PDF 361頁）
 
 **これはモデル由来の丸められた表の逆算であり、臨床データから0.75乗則を新規推定した結果ではない。** 180 mg表の照合も、同じモデル内部の数値監査であって外部検証ではない。以降の主解析には、公表された固定指数0.75を使う。この逆算に臨床的な信頼区間は付けない。
 
@@ -79,7 +85,9 @@ D_{continuous}(w)=120\left(\frac{w}{70}\right)^{0.75}.
 
 ![体重に対する典型AUC比を、固定120 mg、90 kgで切り替える120/180 mg、連続体重補正で比較する。](shared/zongertinib-weight-dosing/figures/01-weight-exposure.png)
 
-**図1**：基準は70 kg・120 mgの典型個体。白抜き点はFDAのモデル計算表であり、実測AUCではない。線は今回の式による計算。破線の段差は用量規則に由来する。
+**図1．** 基準は70 kg・120 mgの典型個体。白抜き点はFDAのモデル計算表であり、実測AUCではない。線は今回の式による計算。破線の段差は用量規則に由来する。
+
+**表3．典型個体の体重と用量設計別AUC比。**
 
 | 体重 | 120 mg固定のAUC比 | 2段階用量のAUC比 | 連続補正のAUC比 |
 | --- | ---: | ---: | ---: |
@@ -112,7 +120,9 @@ CL_i=CL_{70}\left(\frac{w}{70}\right)^{0.75}e^{\eta_{CL,i}},
 
 ![体重別に、基準の典型AUCの0.8倍未満と1.25倍超になる条件付き割合を示す。](shared/zongertinib-weight-dosing/figures/02-exposure-tails.png)
 
-**図2**：CLの公表IIVから計算した対数正規分布の理論割合。主解析の4096人のシミュレーションと別に、滑らかな線を解析式で描いた。IOVは0。実際の患者全体の割合や臨床リスクを表す図ではない。
+**図2．** CLの公表IIVから計算した対数正規分布の理論割合。主解析の4096人のシミュレーションと別に、滑らかな線を解析式で描いた。IOVは0。実際の患者全体の割合や臨床リスクを表す図ではない。
+
+**表4．4096人の仮想患者から得た条件付きAUC分布。**
 
 | 体重・設計 | AUC比の中央値［5–95%］ | 0.8倍未満 | 1.25倍超 |
 | --- | --- | ---: | ---: |
@@ -166,19 +176,19 @@ CL・Qには体重の0.75乗、両容積には1乗を使い、基準の見かけ
 
 ![左に境界前後の周期定常状態濃度、右に体重指数を変えたときの数理的切替体重を示す。](shared/zongertinib-weight-dosing/figures/03-boundary.png)
 
-**図3**：左は個体差0での補助的な再構成例。公表MATとの時間モーメントの差は未解消。縦軸は70 kg・120 mgの平均濃度で規格化。右は対数AUC距離だけを最小化する切替点で、承認用法変更の提案ではない。
+**図3．** 左は個体差0での補助的な再構成例。公表MATとの時間モーメントの差は未解消。縦軸は70 kg・120 mgの平均濃度で規格化。右は対数AUC距離だけを最小化する切替点で、承認用法変更の提案ではない。
 
-計算上の基準個体のAUCは31.0 µmol·h/L、Cmaxは2.56 µmol/Lだった。ラベルの集団幾何平均34、3.0とは同一ではない。基準共変量の扱い、患者・投与機会の集約、吸収実装も異なるため、この照合を独立した外部検証とは扱わない。[US prescribing information 12.3 section](https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/219042s001lbl.pdf)
+計算上の基準個体のAUCは31.0 µmol·h/L、Cmaxは2.56 µmol/Lだった。ラベルの集団幾何平均34、3.0とは同一ではない。基準共変量の扱い、患者・投与機会の集約、吸収実装も異なるため、この照合を独立した外部検証とは扱わない。([4](#ref-4))
 
-## 曝露の比較から臨床的な優劣は決まらない {#_5}
+## 考察 {#_5}
 
-FDA資料にはORRとの正の曝露–反応傾向がある。一方、DORやPFSを含むすべての指標で同じ関係が示されたわけではなく、曝露域の両端は注意して解釈するよう記載されている。([FDA assessment report / PDF317 , 358 , 361 pp.](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/219042Orig1s000MultidisciplineR.pdf))
+FDA資料にはORRとの正の曝露–反応傾向がある。一方、DORやPFSを含むすべての指標で同じ関係が示されたわけではなく、曝露域の両端は注意して解釈するよう記載されている。(([3](#ref-3))（PDF 317・358・361頁）)
 
 今回のモデル由来AUCを既存E–Rへ代入して、連続補正の方が効く、90 kg直前では効果が足りない、といった予測は行わない。0.8／1.25という便宜的な目盛りを、そのまま奏効・有害事象へ翻訳する根拠もない。
 
 IOV、患者背景、実投与歴と転帰の同時分布は、このモデル比較に含まれていない。したがって、曝露の体重依存性が小さいという結果を、臨床的に望ましい用法の順位へ置き換えることはできない。
 
-## 再実行と計算の確認 {#_6}
+## 計算の検査と限界 {#_6}
 
 入力値・出典頁・コード・集計表を保存した。`analysis/run_analysis.py` で表の逆算、体重層ごとの4096人の計算、感度分析、図3点を再生成する。`python -m unittest discover -s analysis -p "test_*.py" -q` で検査する。
 
@@ -186,7 +196,16 @@ IOV、患者背景、実投与歴と転帰の同時分布は、このモデル�
 
 実行結果は `outputs/tables/`、逆算係数は `outputs/fit.json`、検査値は `outputs/verification.json` にある。個人別の実測データ、完全なNONMEM実装、IOV込みの患者背景分布を取得したとは扱わない。元資料の画像は転載せず、配布物は独自コード・転記した数値・独自図表に限定する。
 
-2段階用量は、高体重側の曝露低下を補う実用的な設計として理解できる。ただし、その段差と同一体重内のばらつきは残る。今回の計算は、その二つを分けて次に確かめる範囲を明確にしたものである。
 
+
+
+## データとコードの公開 {#article-availability}
 
 [解析コード・入力値・集計結果・再実行手順](shared/zongertinib-weight-dosing/zongertinib-analysis.zip)
+
+## 参照 {#article-references}
+
+1. <span id="ref-1"></span> US Food and Drug Administration. FDA grants accelerated approval to zongertinib for unresectable or metastatic non-squamous non-small cell lung cancer. 2026 Feb 26. [Approval announcement](https://www.fda.gov/drugs/resources-information-approved-drugs/fda-grants-accelerated-approval-zongertinib-unresectable-or-metastatic-non-squamous-non-small-cell).
+2. <span id="ref-2"></span> Boehringer Ingelheim Pharmaceuticals Inc. HERNEXEOS (zongertinib tablets): US prescribing information. Revised 2026 Jul. [DailyMed](https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=d3fabf12-354e-4e5c-b5de-20fdb579b783). Section 2.2.
+3. <span id="ref-3"></span> US Food and Drug Administration. HERNEXEOS (zongertinib), NDA 219042: Multi-Discipline Review. 2025. [Review PDF](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/219042Orig1s000MultidisciplineR.pdf). Table 79, Figure 19 and Table 89; PDF pp. 297–298, 317, 358 and 361.
+4. <span id="ref-4"></span> Boehringer Ingelheim Pharmaceuticals Inc. HERNEXEOS (zongertinib tablets): US prescribing information. Revised 2026 Feb. [FDA label PDF](https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/219042s001lbl.pdf). Section 12.3.
