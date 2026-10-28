@@ -390,6 +390,20 @@ class BuildTests(unittest.TestCase):
   build.build(self.root,preview=True)
   for name in ('feed-en.xml','feed-ja.xml'):self.assertFalse((self.root/'dist'/name).exists())
 
+ def test_article_has_reference_manager_tags_and_glossary_links(self):
+  self.publish_fixtures();self.add_term(related=('logistic-example',));build.build(self.root)
+  for name,lang,term_title in (('logistic-example-en.html','en','Sample term'),('logistic-example.html','ja','用語の例')):
+   page=self.text('writing/'+name)
+   self.assertIn('<meta name="citation_author" content="Kumakura, Daiki">',page);self.assertIn('<meta name="citation_publication_date" content="2026/10/04">',page)
+   self.assertIn('<meta name="citation_language" content="'+lang+'">',page);self.assertIn('<meta name="citation_abstract_html_url" content="'+build.SITE_URL+'writing/'+name+'">',page)
+   self.assertIn('<meta name="DC.creator" content="Daiki Kumakura">',page)
+   self.assertIn('href="../glossary/sample-term'+('' if lang=='en' else '-ja')+'.html">'+term_title+'<',page)
+   self.assertIn('"@type": "DefinedTerm"',page.replace('"@type":"DefinedTerm"','"@type": "DefinedTerm"'))
+  # An article that no term lists has no glossary section.
+  self.assertNotIn('related-terms',self.text('writing/japanese-note.html'))
+  # Pages that are not articles carry no citation tags.
+  self.assertNotIn('citation_title',self.text('writing.html'))
+
 if __name__=='__main__':unittest.main()
 
 

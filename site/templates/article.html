@@ -13,6 +13,7 @@
 {% if stale %}<p class="notice">{{ ui.stale }}</p>{% endif %}
 {% if toc %}<details><summary>{{ ui.toc }}</summary>{{ toc|safe }}</details>{% endif %}
 {{ body|safe }}
+{% if terms %}<section class="terms" aria-labelledby="related-terms"><h2 id="related-terms">{{ '関連する用語' if lang == 'ja' else 'Related glossary terms' }}</h2><ul>{% for t in terms %}<li><a href="{{ t.href }}">{{ t.title }}</a></li>{% endfor %}</ul></section>{% endif %}
 <p><a href="{{ root }}writing.html">{{ ui.back }}</a></p>
 <aside class="cite" lang="en" aria-labelledby="cite-this"><p id="cite-this">Cite this article</p>{% set citation_text, citation_url = cite.rsplit(' ', 1) %}<p>{{ citation_text }} <a href="{{ citation_url }}">{{ citation_url }}</a></p></aside>
 </article>

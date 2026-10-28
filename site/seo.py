@@ -28,7 +28,7 @@ def first_raster(page, base):
   return (urljoin(base,html.unescape(src[1])),int(size[0][1]) if size[0] else None,int(size[1][1]) if size[1] else None,html.unescape(alt[1]) if alt else '')
  return None
 
-def enrich(page, name, site, site_url, article=None, og_image=None, topics=None):
+def enrich(page, name, site, site_url, article=None, og_image=None, topics=None, terms=None):
  """article is the article's meta.json, used for dates, the English summary and the
  optional per-locale seo_title / seo_description. og_image is the published path of
  the article's 1200x630 card (relative to the site root), if it has one."""
@@ -83,7 +83,14 @@ def enrich(page, name, site, site_url, article=None, og_image=None, topics=None)
    if translated and source==lang:schema['workTranslation']=translated
   if {'ja','en'}<=set(hreflangs):metadata.append('<link rel="alternate" hreflang="x-default" href="'+html.escape(hreflangs['en'],quote=True)+'">')
   metadata.append('<meta name="author" content="'+html.escape(site['name'],quote=True)+'">')
+  if terms:schema['mentions']=[{'@type':'DefinedTerm','name':t['title'],'url':t['url']} for t in terms]
   if article:
+   # Reference managers (Zotero, Mendeley) and Google Scholar read the citation_* tags; the DC.* tags are the Dublin Core equivalents.
+   given,_,family=site['name'].rpartition(' ')
+   scholarly=[('citation_title',headline),('citation_author',family+', '+given),('citation_publication_date',article['date'].replace('-','/')),('citation_online_date',article['date'].replace('-','/')),('citation_language',lang),('citation_abstract_html_url',canonical),
+              ('DC.title',headline),('DC.creator',site['name']),('DC.date',article['date']),('DC.language',lang),('DC.identifier',canonical)]
+   scholarly+=[('citation_reference','citation_doi='+doi.removeprefix('https://doi.org/')) for doi in citations]
+   metadata+=['<meta name="'+n+'" content="'+html.escape(v,quote=True)+'">' for n,v in scholarly]
    metadata.append('<meta property="article:published_time" content="'+article['date']+'">')
    metadata.append('<meta property="article:modified_time" content="'+(article.get('updated') or article['date'])+'">')
  elif home:

@@ -360,9 +360,16 @@ def build(project=BASE, preview=False, strict_translations=False):
             file=file.removesuffix('-ja.html').removesuffix('-en.html').removesuffix('.html')+('' if m['source_language']=='en' else '-en')+'.html'
         punctuation='' if not language_note and citation_title.endswith(('?', '!')) else '.'
         return f"Kumakura, D. ({m['date'][:4]}). {citation_title}{language_note}{punctuation} daikikumakura.github.io. {SITE_URL}writing/{file}"
-    def output(name,page,lang='en',article=None,og_image=None,topics=None):
+    def glossary_terms(slug,language):
+        """Glossary pages that list this article as related, in the article's language."""
+        found=[]
+        for e in reference:
+            if e['kind']=='term' and slug in e['meta'].get('related_articles',[]):
+                found.append(dict(title=e['meta']['locales'][language]['title'],href='../'+reference_file(e,language),url=SITE_URL+reference_file(e,language)))
+        return found
+    def output(name,page,lang='en',article=None,og_image=None,topics=None,terms=None):
         canonical=SITE_URL if name in ('index.html','home.html') else SITE_URL+name
-        page=enrich(page,name,site,SITE_URL,article,og_image,topics)
+        page=enrich(page,name,site,SITE_URL,article,og_image,topics,terms)
         page=page.replace('</head>',f'<link rel="canonical" href="{canonical}">\n</head>')
         outputs[name]=page.encode('utf-8')
     for key,title in NAV.items():
@@ -382,8 +389,8 @@ def build(project=BASE, preview=False, strict_translations=False):
         for language in m['locales']:
             body,toc=render_body(a,language)
             body=add_image_attributes(body,a)
-            page=env.get_template('article.html').render(site=site,lang=language,ui=ui,preview=preview,active='writing',root='../',alternatives=alternatives,title=m['locales'][language]['title'],description=m['locales'][language]['summary'],math=m.get('math',False),author=m.get('author',site['name']),date=m['date'],category=m['category'],version=m.get('version',''),draft=m['draft'],stale=a['stale'][language],body=body,toc=toc,has_abstract=bool(re.search(r'<h2[^>]*>(?:要旨|Abstract)</h2>',body)),key_findings=m['locales'][language].get('key_findings',[]),english=m.get('english') if language!='en' and 'en' not in m['locales'] else None,cite=cite_text(m,m['locales'][language]['title'],alternatives[language]))
-            output('writing/'+alternatives[language],page,language,m,og_card)
+            page=env.get_template('article.html').render(site=site,lang=language,ui=ui,preview=preview,active='writing',root='../',alternatives=alternatives,title=m['locales'][language]['title'],description=m['locales'][language]['summary'],math=m.get('math',False),author=m.get('author',site['name']),date=m['date'],category=m['category'],version=m.get('version',''),draft=m['draft'],stale=a['stale'][language],body=body,toc=toc,has_abstract=bool(re.search(r'<h2[^>]*>(?:要旨|Abstract)</h2>',body)),key_findings=m['locales'][language].get('key_findings',[]),english=m.get('english') if language!='en' and 'en' not in m['locales'] else None,cite=cite_text(m,m['locales'][language]['title'],alternatives[language]),terms=glossary_terms(a['slug'],language))
+            output('writing/'+alternatives[language],page,language,m,og_card,terms=glossary_terms(a['slug'],language))
         for asset in (a['folder']/'shared').rglob('*'):
             if asset.is_file():outputs[f"writing/shared/{a['slug']}/{asset.relative_to(a['folder']/'shared').as_posix()}"]=asset.read_bytes()
     for sw in site['software']:
