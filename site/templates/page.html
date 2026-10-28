@@ -31,10 +31,12 @@
 {% for a in year_rows %}<article class="record" id="activity-{{ a.id }}"><p class="meta">{{ a.date }} · {{ a.role }}{% if a.format %} · {{ a.format }}{% endif %}</p><h3>{{ a.title }}</h3>{% if a.description is defined and a.description %}<p class="meta">{{ a.description }}</p>{% endif %}{% if a.authors %}<p>{{ a.authors }}</p>{% endif %}{% if a.participants is defined %}<p>{{ a.participants }}</p>{% endif %}{% if a.event %}<p class="meta">{{ a.event }}</p>{% endif %}{% for link in a.links %}<a class="meta" href="{{ link.url }}">{{ link.label }}</a>{{ ' · ' if not loop.last }}{% endfor %}</article>{% endfor %}</details>
 {% endfor %}</section>{% endfor %}
 {% elif active == 'writing' %}
+{% if alternatives|length > 1 %}<nav class="languages" aria-label="Writing language">{% for code,href in alternatives.items() %}<a href="{{ href }}" lang="{{ code }}"{% if code == lang %} aria-current="true"{% endif %}>{{ "日本語" if code == "ja" else "English" }}</a>{% endfor %}</nav>{% endif %}
+{% if lead %}<p class="lead" lang="{{ lang }}">{{ lead }}</p>{% endif %}
 {% if not articles %}<p>{{ ui.empty }}</p>{% endif %}
-<p><a href="reference.html">Tools, glossary and model catalog</a></p>
+<p><a href="reference.html">{{ 'ツール、用語集、モデル一覧（英語・日本語）' if lang == 'ja' else 'Tools, glossary and model catalog' }}</a></p>
 {% for a in articles %}<article class="record" data-article="{{ a.slug }}">
-<p class="meta"><time datetime="{{ a.date }}">{{ a.date }}</time>{% if a.draft %} · Draft{% endif %}</p>
+<p class="meta"><time datetime="{{ a.date }}">{{ a.date }}</time>{% if a.draft %} · Draft{% endif %}{% if a.note %} · {{ a.note }}{% endif %}</p>
 <h2 class="record-title"><a href="{{ a.href }}" lang="{{ a.lang }}">{{ a.title }}</a></h2>
 <p lang="{{ a.lang }}">{{ a.summary }}</p>
 {% for version in a.versions %}{% if version.lang != a.lang %}<p class="meta"><a href="{{ version.href }}" lang="{{ version.lang }}">{{ 'English' if version.lang == 'en' else '日本語' }}</a></p>{% endif %}{% endfor %}

@@ -24,6 +24,12 @@ EXTRA_SITEMAPS = ('rsemflow/sitemap.xml',)
 REFERENCE_KINDS = {'tool': 'tools', 'term': 'glossary', 'catalog': 'catalog'}
 REFERENCE_HEADINGS = {'tool': 'Tools', 'term': 'Glossary', 'catalog': 'Catalogs'}
 REFERENCE_LABELS = {'tool': 'Tool', 'term': 'Glossary term', 'catalog': 'Catalog'}
+# The Writing index exists once per language so that every title on a page is in that page's language.
+WRITING_ALTERNATIVES = {'en': 'writing.html', 'ja': 'writing-ja.html'}
+WRITING_TITLE_JA = '記事一覧'
+WRITING_DESCRIPTION_JA = '熊倉大騎による、公開データの解析、技術メモ、チュートリアルの一覧（日本語）。母集団PK、PK/PD、用量選択、腫瘍動態などを扱う。各記事に英語版へのリンクがある。'
+WRITING_LEAD = {'en': 'This is the English list. Each article is also available in Japanese; the link under each entry opens the other language.',
+                'ja': 'これは日本語の一覧です。各記事の下のリンクから、英語版を開けます。'}
 RECENT_ON_HOME = 3
 FEED_SIZE = 50
 BASE = Path(__file__).resolve().parent
@@ -320,6 +326,23 @@ def build(project=BASE, preview=False, strict_translations=False):
         m=a['meta']; language=m['source_language']
         versions=[dict(lang=code,href=f"writing/{a['slug']}{'' if code==language else '-'+code}.html") for code in m['locales']]
         listings.append(dict(**m['locales'][language],slug=a['slug'],category=m['category'],date=m['date'],draft=m['draft'],lang=language,available='Japanese' if language=='ja' else 'English',href=f"writing/{a['slug']}.html",versions=versions))
+    def language_listing(a,language):
+        """One list entry in a single language: its own title and summary, never the other language's.
+
+        When the article has no version in that language, the English summary of a Japanese
+        original is shown with a note; the link then leads to the original."""
+        m=a['meta']; original=m['source_language']
+        if language in m['locales']:
+            loc=m['locales'][language]; lang=language; note=''
+            href=f"writing/{a['slug']}.html" if language==original else f"writing/{a['slug']}-{language}.html"
+        elif language=='en' and m.get('english'):
+            loc=m['english']; lang='en'; note='article in Japanese'; href=f"writing/{a['slug']}.html"
+        else:
+            loc=m['locales'][original]; lang=original; note='in Japanese' if original=='ja' else ''; href=f"writing/{a['slug']}.html"
+        versions=[dict(lang=code,href=f"writing/{a['slug']}{'' if code==original else '-'+code}.html") for code in m['locales'] if code!=lang]
+        return dict(title=loc['title'],summary=loc['summary'],slug=a['slug'],category=m['category'],date=m['date'],draft=m['draft'],lang=lang,note=note,available='Japanese' if lang=='ja' else 'English',href=href,versions=versions)
+    listings_en=[language_listing(a,'en') for a in entries]
+    listings_ja=[language_listing(a,'ja') for a in entries]
     # The profile is English: Japanese originals show their English title when one exists.
     def profile_link(a):
         m=a['meta']; english=m.get('english')
@@ -343,9 +366,11 @@ def build(project=BASE, preview=False, strict_translations=False):
         page=page.replace('</head>',f'<link rel="canonical" href="{canonical}">\n</head>')
         outputs[name]=page.encode('utf-8')
     for key,title in NAV.items():
-        page=env.get_template('page.html').render(site=site,lang='en',ui=ui,preview=preview,active=key,root='',alternatives={},title=site['name'] if key=='home' else title,description=site['profile'],math=False,articles=listings,recent=listings[:RECENT_ON_HOME],working_papers=[a for a in listings if a['category']=='paper'])
+        page=env.get_template('page.html').render(site=site,lang='en',ui=ui,preview=preview,active=key,root='',title=site['name'] if key=='home' else title,description=site['profile'],math=False,articles=listings_en if key in ('home','writing') else listings,recent=listings_en[:RECENT_ON_HOME],working_papers=[a for a in listings if a['category']=='paper'],alternatives=WRITING_ALTERNATIVES if key=='writing' else {},lead=WRITING_LEAD['en'] if key=='writing' else '')
         output(key+'.html',page)
         if key=='home':outputs['index.html']=outputs['home.html']
+    page=env.get_template('page.html').render(site=site,lang='ja',ui=ui,preview=preview,active='writing',root='',title=WRITING_TITLE_JA,description=WRITING_DESCRIPTION_JA,math=False,articles=listings_ja,recent=[],working_papers=[],alternatives=WRITING_ALTERNATIVES,lead=WRITING_LEAD['ja'])
+    output('writing-ja.html',page,'ja')
     for a in entries:
         m=a['meta']; original=m['source_language']
         # The 1200x630 social card sits beside the article, not in shared/, so it is
@@ -386,7 +411,7 @@ def build(project=BASE, preview=False, strict_translations=False):
     groups=[dict(heading=REFERENCE_HEADINGS[kind],items=[dict(en=e['meta']['locales']['en'],ja=e['meta']['locales']['ja'],en_href=reference_file(e,'en'),ja_href=reference_file(e,'ja')) for e in reference if e['kind']==kind]) for kind in REFERENCE_KINDS]
     groups=[g for g in groups if g['items']]
     output('reference.html',env.get_template('reference-index.html').render(site=site,lang='en',ui=ui,preview=preview,active='writing',root='',alternatives={},title='Tools and reference',description='Interactive tools, a glossary of pharmacometrics terms and catalogs that accompany the analyses by Daiki Kumakura, in Japanese and English.',math=False,groups=groups))
-    canonical_pages=['index.html']+[key+'.html' for key in NAV if key!='home']+[name for name in outputs if name.startswith(('writing/','topics/','software/','tools/','glossary/','catalog/','reference.html')) and name.endswith('.html')]
+    canonical_pages=['index.html']+[key+'.html' for key in NAV if key!='home']+['writing-ja.html']+[name for name in outputs if name.startswith(('writing/','topics/','software/','tools/','glossary/','catalog/','reference.html')) and name.endswith('.html')]
     if not preview:
         redirects=dict(LEGACY_REDIRECTS)
         redirects.update({path:'writing.html' for path in site.get('legacy_topic_paths',[])})
@@ -405,13 +430,15 @@ def build(project=BASE, preview=False, strict_translations=False):
             lastmod['writing/'+(a['slug']+'.html' if code==m['source_language'] else a['slug']+'-'+code+'.html')]=changed
     if entries:
         newest=max(a['meta'].get('updated') or a['meta']['date'] for a in entries)
-        lastmod['index.html']=lastmod['writing.html']=newest
+        lastmod['index.html']=lastmod['writing.html']=lastmod['writing-ja.html']=newest
     for e in reference:
         for code in ('en','ja'):lastmod[reference_file(e,code)]=e['meta']['updated']
     if reference:lastmod['reference.html']=max(e['meta']['updated'] for e in reference)
     def sitemap_url(p):
         tag='<url><loc>'+html.escape(SITE_URL if p=='index.html' else SITE_URL+p)+'</loc>'
         if p in lastmod:tag+='<lastmod>'+lastmod[p]+'</lastmod>'
+        if p in WRITING_ALTERNATIVES.values():
+            tag+=''.join('<xhtml:link rel="alternate" hreflang="'+code+'" href="'+html.escape(SITE_URL+name)+'"/>' for code,name in WRITING_ALTERNATIVES.items())+'<xhtml:link rel="alternate" hreflang="x-default" href="'+html.escape(SITE_URL+WRITING_ALTERNATIVES['en'])+'"/>'
         for a in entries:
             m=a['meta']; files={code:'writing/'+a['slug']+('' if code==m['source_language'] else '-'+code)+'.html' for code in m['locales']}
             if p not in files.values() or len(files)<2:continue
@@ -461,6 +488,8 @@ def llms_txt(site, entries, reference=()):
     for key, label in NAV.items():
         page = SITE_URL if key == 'home' else SITE_URL + key + '.html'
         lines.append(f'- [{label}]({page})')
+        if key == 'writing':
+            lines.append(f'- [記事一覧（日本語）]({SITE_URL}writing-ja.html)')
     pages = [x for x in site['software'] if 'slug' in x]
     if pages:
         lines += ['', '## Software', '']

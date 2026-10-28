@@ -118,8 +118,12 @@ def enrich(page, name, site, site_url, article=None, og_image=None, topics=None)
    questions={'@context':'https://schema.org','@type':'FAQPage','inLanguage':lang,'mainEntity':[{'@type':'Question','name':html.unescape(q),'acceptedAnswer':{'@type':'Answer','text':html.unescape(re.sub(r'<[^>]+>','',a))}} for q,a in faq]}
    metadata.append('<script type="application/ld+json">'+json.dumps(questions,ensure_ascii=False).replace('<','\\u003c')+'</script>')
   schema={k:v for k,v in schema.items() if v is not None}
- elif key in ('writing','activity','reference'):
+ elif key in ('writing','writing-ja','activity','reference'):
   schema={'@context':'https://schema.org','@type':'CollectionPage','url':canonical,'name':title,'about':person}
+  if key in ('writing','writing-ja'):
+   schema['inLanguage']=lang
+   hreflangs=dict(re.findall(r'<link rel="alternate" hreflang="([^"]+)" href="([^"]+)"',page))
+   if {'ja','en'}<=set(hreflangs):metadata.append('<link rel="alternate" hreflang="x-default" href="'+html.escape(hreflangs['en'],quote=True)+'">')
  if schema:metadata.append('<script type="application/ld+json">'+json.dumps(schema,ensure_ascii=False).replace('<','\\u003c')+'</script>')
  if name.startswith('writing/') and name.endswith('.html'):
   crumbs={'@context':'https://schema.org','@type':'BreadcrumbList','itemListElement':[{'@type':'ListItem','position':1,'name':'Home','item':site_url},{'@type':'ListItem','position':2,'name':'Writing','item':site_url+'writing.html'},{'@type':'ListItem','position':3,'name':headline,'item':canonical}]}

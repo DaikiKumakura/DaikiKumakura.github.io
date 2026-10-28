@@ -356,6 +356,25 @@ class BuildTests(unittest.TestCase):
  def test_reference_is_absent_when_there_are_no_pages(self):
   build.build(self.root);self.assertFalse((self.root/'dist/glossary').exists())
 
+ def publish_fixtures(self):
+  for slug in ('logistic-example','japanese-note'):
+   p,m=self.meta(slug);m.update(draft=False,date='2026-10-04',publish_at='2026-10-04T09:00:00+09:00');p.write_text(json.dumps(m),encoding='utf-8')
+ def test_writing_index_exists_once_per_language_with_one_language_per_page(self):
+  self.publish_fixtures();build.build(self.root)
+  en=self.text('writing.html');ja=self.text('writing-ja.html')
+  self.assertIn('<html lang="en">',en);self.assertIn('<html lang="ja">',ja)
+  self.assertIn('Plotting logistic growth in R (sample)',en);self.assertNotIn('Rでロジスティック増殖を描く',en)
+  self.assertIn('Rでロジスティック増殖を描く',ja);self.assertNotIn('Plotting logistic growth in R (sample)',ja)
+  # An article without an English version stays in the list with a note rather than disappearing.
+  self.assertIn('in Japanese',en);self.assertIn('日本語だけの技術メモ',ja)
+  for page in (en,ja):
+   self.assertIn('hreflang="ja" href="'+build.SITE_URL+'writing-ja.html"',page);self.assertIn('hreflang="x-default" href="'+build.SITE_URL+'writing.html"',page)
+  sitemap=self.text('sitemap.xml');self.assertIn(build.SITE_URL+'writing-ja.html',sitemap);self.assertIn('hreflang="ja" href="'+build.SITE_URL+'writing-ja.html"',sitemap)
+  self.assertIn('writing-ja.html',self.text('llms.txt'))
+ def test_home_recent_writing_uses_english_titles(self):
+  self.publish_fixtures();build.build(self.root)
+  self.assertIn('Plotting logistic growth in R (sample)',self.text('index.html'))
+
 if __name__=='__main__':unittest.main()
 
 
