@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2026-12-04",
+  "publish_at": "2026-12-04T18:00:00+09:00",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "KRASワクチンの99%は何を数えているのか",
+      "summary": "AMPLIFY-7Pの公開免疫応答データを再集計し、抗原の対象と分母の違いを調べる。",
+      "seo_title": "KRASワクチンの免疫応答率と分母",
+      "seo_description": "89/90と78/89を同じ分母で比較。公開Source Dataの粒度、最大応答の選択、未評価者の影響を検討する。"
+    },
+    "en": {
+      "title": "What does a 99% immune-response rate count in a KRAS vaccine trial?",
+      "summary": "Public AMPLIFY-7P response summaries distinguish any-antigen and tumor-matched responses using aligned denominators.",
+      "seo_title": "KRAS vaccine immune-response denominators",
+      "seo_description": "An audit of public AMPLIFY-7P response counts, selected maxima and ascertainment bounds."
+    }
+  },
+  "reviewed": {
+    "en": "c3add39b3edf5c1b25fedd11f0749c723bbf89402249988c948e2c7b89087254"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2026-12-03",
+  "publish_at": "2026-12-03T18:00:00+09:00",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "Tarlatamab維持療法の利益はいつ現れるのか",
+      "summary": "DeLLphi-305の公開生存曲線を読み取り、12か月までの制限平均生存時間差と時間別の絶対利益を再計算する。",
+      "seo_title": "Tarlatamab維持療法の絶対利益",
+      "seo_description": "DeLLphi-305のOS・PFS公開曲線から12か月RMST差を計算。中央値やハザード比との違い、読取感度、投与時期へ外挿できない範囲を整理する。"
+    },
+    "en": {
+      "title": "When does the survival benefit of tarlatamab maintenance accumulate?",
+      "summary": "Public DeLLphi-305 survival curves are integrated over a common 12-month window to describe accumulated absolute survival and progression-free time.",
+      "seo_title": "Tarlatamab maintenance benefit over time",
+      "seo_description": "A reanalysis of public DeLLphi-305 KM curves compares 12-month restricted mean differences with hazard ratios, with reading sensitivity and explicit limits."
+    }
+  },
+  "reviewed": {
+    "en": "8c61d88d03fc79dc9e1c225f4a2bf1b7ccfc698edcf9b5d09de88ab3c5086fcf"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2026-12-04",
+  "publish_at": "2026-12-04T09:00:00+09:00",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "ZW209の初期殺細胞活性から反復刺激後を予測できるか",
+      "summary": "公開ポスターのベクトル座標から反復刺激の11点を抽出。初期2回の保持率で3回目を予測し、CD28null対照で外挿が破綻する範囲を検証する。",
+      "seo_title": "ZW209の反復刺激と殺細胞活性",
+      "seo_description": "DLL3×CD3×CD28抗体の公表図を再解析。初期2点からの外挿、対照分子、図形座標の感度と機序推論の限界を扱う。"
+    },
+    "en": {
+      "title": "Can initial ZW209 cytotoxicity predict activity after repeated stimulation?",
+      "summary": "Eleven public figure markers test whether early cytotoxicity predicts a held-out stimulation for ZW209 and two controls.",
+      "seo_title": "ZW209 cytotoxicity after repeated stimulation",
+      "seo_description": "A public DLL3×CD3×CD28 poster tests early-to-late cytotoxicity predictions, matched controls and graphical-coordinate sensitivity."
+    }
+  },
+  "reviewed": {
+    "en": "9f267d5a559a93e63f716d7aba1e3a13775c8abf78ccf37887b4c1af04c22009"
+  }
+}
