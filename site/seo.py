@@ -117,7 +117,8 @@ def enrich(page, name, site, site_url, article=None, og_image=None, topics=None,
   elif name.startswith('about/'):
    schema=dict(base,**{'@type':'AboutPage','name':headline,'description':description,'about':person})
   elif name.startswith('glossary/'):
-   schema=dict(base,**{'@type':'DefinedTerm','name':headline,'description':description,'inDefinedTermSet':{'@type':'DefinedTermSet','name':'Pharmacometrics terms | '+site['name'],'url':site_url+'reference.html#glossary'}})
+   # The page is a WebPage (language, author and dates are properties of a page); the term itself is its main entity.
+   schema=dict(base,**{'@type':'WebPage','name':headline,'description':description,'mainEntity':{'@type':'DefinedTerm','@id':canonical+'#term','name':headline,'description':description,'inDefinedTermSet':{'@type':'DefinedTermSet','name':'Pharmacometrics terms | '+site['name'],'url':site_url+'reference.html#glossary'}}})
   else:
    schema=dict(base,**{'@type':'CollectionPage','name':headline,'description':description,'about':person})
   hreflangs=dict(re.findall(r'<link rel="alternate" hreflang="([^"]+)" href="([^"]+)"',page))
