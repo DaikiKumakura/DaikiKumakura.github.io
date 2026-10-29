@@ -26,6 +26,6 @@
     "summary": "Retrospective time-extrapolation benchmark using 54 aggregate means in two 5T4/CD3 cell-line assays. Early-only estimation and lag selection are compared with carry-forward and linear baselines. Lag sensitivity, reading uncertainty and unavailable donor linkage constrain measurement-shortening claims."
   },
   "reviewed": {
-    "en": "b1d35b44f3642ac36f062fcca9514fcf2216b57970551987495d5483fb3ddb69"
+    "en": "20597e04247f589caacfe493befbe096c61bcdf4520f196d3aae1c7a4d1e17ad"
   }
 }

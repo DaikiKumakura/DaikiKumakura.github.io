@@ -42,13 +42,13 @@ The example also shows why the checkerboard's high G does not establish strong i
 
 In real specimens, tumor–stroma mixing, cell density, section quality and fine-scale prediction errors may all enter the statistic. Conversely, smoothing predictions can erase both real boundaries and errors. A spatial statistic therefore includes the tissue mask, adjacency definition, resolution and smoothing conditions as parts of its measurement procedure.
 
-Interpreting arrangement as additional information requires agreement with measured RNA in the same region and incremental value beyond mean expression, tumor–stroma proportion and cell composition. These are conditions distinguishing the meaning of a spatial statistic, not additional validation results established here.
+Whether image-derived arrangement adds predictive information can be tested against models using mean expression, tumor–stroma proportion and cell composition. Interpreting that gain specifically as EREG spatial expression additionally requires agreement with measured RNA in corresponding regions. An image-derived surrogate can be predictive without being an accurate molecular measurement. These distinguish the meaning of a spatial statistic; they are not additional validation results established here.
 
 ## External prediction and association estimates are different evaluations {#_3}
 
-The report distinguishes applying a model trained in the discovery cohort to TransNEO from refitting regressions within each cohort to estimate odds ratios ([1](#ref-1)). Treating the latter as external validation of a fixed predictor changes the meaning of the evaluation. Its stromal tumor-infiltrating lymphocyte comparator (sTIL) is also automatically estimated from images, rather than being a pathologist's sTIL assessment ([1](#ref-1)). The analysis procedures are described in the [technical report](https://sophont.med/blog/holon/).
+The report distinguishes applying a model trained in the discovery cohort to TransNEO from refitting regressions within each cohort to estimate odds ratios ([1](#ref-1)). Treating the latter as external validation of a fixed predictor changes the meaning of the evaluation. Reported odds ratios are per discovery-cohort standard deviation, not intervention effects of increasing EREG by a fixed amount or equal-fold increases in response probability. Its stromal tumor-infiltrating lymphocyte comparator (sTIL) is also automatically estimated from images, rather than being a pathologist's sTIL assessment ([1](#ref-1)). The analysis procedures are described in the [technical report](https://sophont.med/blog/holon/).
 
-Selecting features after testing many genes and spatial statistics can introduce optimism into discovery-cohort performance. Evaluation of the complete selection process differs from independent evaluation of a fixed candidate. Having an external evaluation is valuable, but its precision still depends on patient and response counts.
+Selecting features after testing many genes and spatial statistics can introduce optimism into discovery-cohort performance. Evaluation of the complete selection process differs from independent evaluation of a fixed candidate. The report describes five-fold evaluation in IMPRESS and application of IMPRESS-trained models to TransNEO, but this description does not establish whether gene–metric selection was repeated within every training fold. Discovery cross-validation should not be assumed independent of the entire feature-selection process. Having an external evaluation is valuable, but its precision still depends on patient and response counts.
 
 Average precision (AP), which summarizes a precision–recall curve, also depends on the pCR prevalence in the evaluation population. Values from populations with different positive fractions are not directly comparable. A patient-level validation and patient-level uncertainty are appropriate; many tiles from one patient are not many independent patients.
 
@@ -56,17 +56,24 @@ Patient-level predictions and outcomes were not jointly available from the publi
 
 ## An association with pCR does not determine treatment selection {#_4}
 
-An association with pCR among treated patients does not establish that patients with a given marker benefit more from this drug than from an alternative treatment. Association with response and explanation of between-treatment differences are separate questions.
+An association with pCR among treated patients does not establish that patients with a given marker benefit more from this drug than from an alternative treatment. Association with response and explanation of between-treatment differences are separate questions. Demonstrating treatment-benefit prediction involves treated and comparison groups and evaluation of a treatment-by-marker interaction ([2](#ref-2)). Predicting pCR here does not establish which patients benefit from switching treatments.
 
 Image-predicted EREG arrangement is also not the same observation as measured RNA or protein in that region. Combining the report's associations with the grid calculation does not estimate the benefit of changing an individual's treatment. What the calculation established is that arrangement alone changes a spatial statistic while the distribution of values remains fixed. For the opening question, the report presents image-derived spatial expression maps as biomarker candidates but does not show replacement of RNA-seq.
+
+## Discussion and scope
+
+Three questions matter for gEREG: whether it helps predict pCR from pathology, whether it accurately measures EREG's actual arrangement, and whether altering that arrangement with treatment improves outcomes. Independent-cohort prediction addresses the first. Corresponding molecular measurements address the second, and comparative intervention evidence addresses the third. Satisfying the first does not automatically satisfy the others.
+
+The report compares gEREG with image-estimated sTIL, not all alternatives including pathologist assessments, mean EREG and tissue composition. Association after sTIL adjustment does not isolate a mechanism independent of every known microenvironment factor. The synthetic grid does not validate the predictor, but makes one relevant distinction explicit: arrangements can differ even when total expression does not.
 
 ## Data and code availability {#_5}
 
 The [reproduction ZIP](shared/holon-spatial-biomarker/companion.zip) uses only the Python standard library: a 16×16 grid, 128 instances of each value, nonperiodic boundaries, horizontal/vertical adjacency, and seed 20261026. It generates figures, CSV and summary JSON without estimating biological parameters or patient effect sizes.
 
-The technical report was checked on 26 October 2026. It is a developer report on a research model; this article is not independent clinical validation. The announcement date, 20 October ([2](#ref-2)), is not assumed to be the technical report's first publication date.
+The technical report was checked on 26 October 2026. It is a developer report on a research model; this article is not independent clinical validation. The announcement date, 20 October ([3](#ref-3)), is not assumed to be the technical report's first publication date.
 
 ## References {#article-references}
 
 1. <span id="ref-1"></span>Muhammad H, Warner B, Scotti PS, Abraham TM. Holon-S1 Technical Report [Technical report]. Sophont Technical Report; 2026. Month and day of publication not stated. [doi:10.5281/zenodo.23569193](https://doi.org/10.5281/zenodo.23569193). Available from: [https://sophont.med/blog/holon/](https://sophont.med/blog/holon/) [cited 2026 Oct 26].
-2. <span id="ref-2"></span>Sophont. Sophont launches Holon-S1 to reveal tumor biology from routine pathology slides [Press release]. PR Newswire; 2026 Oct 20 [cited 2026 Oct 26]. Available from: [https://www.prnewswire.com/news-releases/sophont-launches-holon-s1-to-reveal-tumor-biology-from-routine-pathology-slides-302914452.html](https://www.prnewswire.com/news-releases/sophont-launches-holon-s1-to-reveal-tumor-biology-from-routine-pathology-slides-302914452.html).
+2. <span id="ref-2"></span>Ballman KV. Biomarker: Predictive or Prognostic? J Clin Oncol. 2015;33(33):3968–3971. [doi:10.1200/JCO.2015.63.3651](https://doi.org/10.1200/JCO.2015.63.3651). Abstract consulted.
+3. <span id="ref-3"></span>Sophont. Sophont launches Holon-S1 to reveal tumor biology from routine pathology slides [Press release]. PR Newswire; 2026 Oct 20 [cited 2026 Oct 26]. Available from: [https://www.prnewswire.com/news-releases/sophont-launches-holon-s1-to-reveal-tumor-biology-from-routine-pathology-slides-302914452.html](https://www.prnewswire.com/news-releases/sophont-launches-holon-s1-to-reveal-tumor-biology-from-routine-pathology-slides-302914452.html).

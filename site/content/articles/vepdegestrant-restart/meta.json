@@ -11,13 +11,13 @@
     "ja": {
       "title": "Vepdegestrantは休薬後いつ元の曝露に戻るか",
       "seo_title": "Vepdegestrantの休薬・再開PK | Daiki Kumakura",
-      "summary": "公開ヒトPopPKモデルで休薬・再開後のAUC、ピーク、投与前濃度を比較。2,048組の条件付き計算と、蓄積倍率の不一致から予測の範囲を考える。"
+      "summary": "公開ヒトPopPKモデルで休薬・再開後のAUC、ピーク、投与前濃度を比較。2,048組の条件付き計算を示し、蓄積倍率と第1相試験の要約値との不一致から、予測の未検証部分を整理する。"
     },
     "en": {
       "title": "Vepdegestrant exposure after interruption and restart",
-      "summary": "A public vepdegestrant model compares restart exposure with uninterrupted dosing while retaining unresolved accumulation and covariance-definition uncertainty.",
+      "summary": "A public vepdegestrant PopPK model estimates restart exposure; accumulation discrepancies and unmatched phase 1 summaries limit validation.",
       "seo_title": "Vepdegestrant exposure after interruption and restart",
-      "seo_description": "A public vepdegestrant model compares restart exposure with uninterrupted dosing while retaining unresolved accumulation and covariance-definition uncertainty."
+      "seo_description": "A public vepdegestrant PopPK model estimates restart exposure; accumulation discrepancies and unmatched phase 1 summaries limit validation."
     }
   },
   "english": {
@@ -25,6 +25,6 @@
     "summary": "A public oral PK model explores omitted doses and restart with matched prior histories. Accumulation mismatch and covariance ambiguity limit clinical extrapolation."
   },
   "reviewed": {
-    "en": "2c83ecdfdf39292b9269e78297d6d12db0a1cc1cfc9ed3929bda1dab1ccd6f1d"
+    "en": "653c9237fb5e8c0abb793c23b5082874b83e074457bcba092bb895856db1e595"
   }
 }

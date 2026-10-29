@@ -77,6 +77,12 @@ CEA陽性面積を使うモデルのドナー除外RMSEは、平均モデルよ�
 
 組織部位をCEAに加えると、学習内の誤差はわずかに小さくなったが、未使用ドナーへの誤差は大きくなった。説明変数を増やせば予測もよくなるわけではなかった。小腸・大腸の違いを入れるだけでも平均より改善したため、CEAとの関連を組織部位から独立した因果効果とは解釈しない。
 
+## 除外したのはドナーであり組織部位ではない
+
+この標本では、小腸7ドナーのCEA陽性面積はすべて、大腸7ドナーより低かった。1ドナーを外しても、そのドナーと同じ部位の標本は学習側に残る。したがって、今回の誤差は、一つの部位で学習して別の部位へ移す性能や、観測範囲外のCEA発現へ外挿する性能ではない。組織部位を加えて成績が悪くなったことも、部位の生物学的な意味がないという証拠にはならない。
+
+四つの式を比較し、その中で最も小さい除外誤差を強調している。各式の係数推定から評価ドナーを外していても、同じ除外成績を見て式を選べば、その最小値は選択後の独立な性能推定ではなくなる。この種の選択による楽観性は交差検証の方法論で扱われている ([2](#ref-2))。51.3%は今回の固定した比較の記述であり、選択手順全体を新しいドナー集団で検証した改善率ではない。
+
 ## 1人のドナーだけで改善が生じたのか
 
 全14ドナーを使ったCEAモデルは次式になった。
@@ -102,6 +108,8 @@ bootstrapは14ドナーを復元抽出して2,000回再推定したものであ�
 
 **図3．** 全体から1ドナーを除いた後、残る13ドナー内でドナー除外予測を繰り返したRMSE。14通りは重複するデータの感度分析であり、独立した外部検証ではない。
 
+IHC面積と反応比はいずれも測定値の平均であるが、ここでは説明変数の測定誤差や、対照信号を分母に使うことによる不確実性を別々にモデル化していない。ドナー再標本化は、各ドナー内の染色・ウェル・対照の測定をやり直す操作ではない。また、係数の区間は、モデル間の予測誤差の差に対する区間ではない。
+
 ## 正常組織の平均値が隠すもの
 
 今回の固定濃度では、ドナー平均の反応を別ドナーへそのまま使うよりも、CEAのIHC情報を使う方が予測誤差は小さかった。平均応答だけで要約すると、正常組織の標的発現の分布が変わった場合の応答差を取りこぼしうる。
@@ -119,6 +127,7 @@ bootstrapは14ドナーを復元抽出して2,000回再推定したものであ�
 ## 参照
 
 1. <span id="ref-1"></span>Harter MF, Recaldin T, Gerard R, Avignon B, Bollen Y, Esposito C, et al. Analysis of off-tumour toxicities of T-cell-engaging bispecific antibodies via donor-matched intestinal organoids and tumouroids. Nat Biomed Eng. 2024;8(4):345–360. Published online December 19, 2023. [doi:10.1038/s41551-023-01156-5](https://doi.org/10.1038/s41551-023-01156-5). Source Data for Figure 5, CC BY 4.0. Changes: donor-level table extraction, source-sheet concordance checks, regression, cross-validation, bootstrap and new figures.
+2. <span id="ref-2"></span>Varma S, Simon R. Bias in error estimation when using cross-validation for model selection. BMC Bioinformatics. 2006;7:91. [doi:10.1186/1471-2105-7-91](https://doi.org/10.1186/1471-2105-7-91).
 
 
 <span id="cite-this-article"></span>

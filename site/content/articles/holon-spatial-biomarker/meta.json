@@ -18,7 +18,7 @@
       "title": "Can pathology AI replace RNA-seq?",
       "summary": "An essay on Holon-S1 spatial expression predictions and the EREG chemotherapy-response marker, with a reproducible synthetic spatial-layout illustration rather than a model replication.",
       "seo_title": "Holon-S1: spatial expression and biomarker evidence",
-      "seo_description": "A technical-report review separates predicted EREG arrangement, external response evaluation and treatment selection, with a synthetic spatial-statistic example."
+      "seo_description": "A technical-report review separates predicted EREG arrangement, external response evaluation and treatment selection, using a synthetic spatial-statistic example."
     }
   },
   "english": {
@@ -26,6 +26,6 @@
     "summary": "A Japanese essay examines Holon-S1 spatial expression predictions and the EREG chemotherapy-response marker, with a reproducible synthetic spatial-layout illustration rather than a model replication."
   },
   "reviewed": {
-    "en": "425d9c9892c1680ec8a6401952b2308c34a326f9b661ddf4b43d0cd5aedf3c7a"
+    "en": "83e9e910aef32e105c46c4eabc5a2c4333d27bdc2d458d0a68d6066946c4e94a"
   }
 }

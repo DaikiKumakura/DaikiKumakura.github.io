@@ -26,6 +26,6 @@
     "summary": "In public Perturb-CITE-seq data with CRISPR knockouts, RNA and surface proteins measured in the same cells agreed partly: the correlation of their changes was 0.42 after correcting for measurement noise, and some knockouts lowered the protein markedly while the gene's mRNA barely changed."
   },
   "reviewed": {
-    "en": "db618c44766d0c87057af177c4e01832994c14344f59e0e0d560477078f8f327"
+    "en": "d25f6f198950023869162d228af58a1dadfed7fbcaaa0560e2850e5d8620fc30"
   }
 }

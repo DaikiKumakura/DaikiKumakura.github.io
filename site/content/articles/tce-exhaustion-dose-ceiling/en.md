@@ -58,6 +58,14 @@ Units are million RLU/s; see `outputs/tables/heldout-prediction.csv`. The Teff p
 
 In 2,000 reading scenarios that independently shifted each highest-concentration symbol by ±2 vertical pixels, the Tex/Teff ratio ranged from 0.278 to 0.329 for donor 1 and from 0.513 to 0.585 for donor 2. These are reading-sensitivity ranges, not confidence intervals for a donor population. They do not include horizontal-axis calibration errors or original experimental variability (`outputs/tables/reading-sensitivity.csv`).
 
+## A 48-hour ceiling is not an intrinsic T-cell constant
+
+In [the original Figure 6c–g](https://pmc.ncbi.nlm.nih.gov/articles/PMC12382474/#f0006), Tex also showed lower Granzyme B induction and secretion of cytokines and cytotoxicity-associated proteins. [Supplementary Figure S5](https://pmc.ncbi.nlm.nih.gov/articles/PMC12382474/) reports persistently lower TCR/CD3 surface expression after chronic stimulation and subsequent rest. These observations are consistent with the luminescence difference; the present curves do not partition that difference between CD3 availability and downstream function ([1](#ref-1)).
+
+The Hill ceiling summarizes a 48-hour culture endpoint with matched initial cell counts. It does not separately estimate survival, proliferation during culture and per-cell activity, and is not a permanent intrinsic killing capacity. Increasing concentration also differs from changing measurement time or cell state.
+
+Subtracting the same zero-concentration reading from all points introduces a shared baseline-reading error. The ±2-pixel scenarios vary only the highest-concentration symbols, not baseline or shared axis errors. Narrow ratio ranges therefore do not establish high precision of the entire ceiling estimate.
+
 ## A difference not readily summarized by potency alone
 
 The lower Tex than Teff signal at the upper observed concentrations, and the large error reduction when ceilings are state specific, indicate a difference that is difficult to summarize as a rightward shift alone. The close agreement between the observed highest-concentration ratio and the full-data fitted ceiling ratio is expected because the fit includes that highest-concentration point; it is not independent confirmation. A finite concentration range does not establish the true infinite-concentration maximum. Behavior outside that range remains unmeasured.

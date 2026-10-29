@@ -19,6 +19,8 @@ Those sample sizes refer to mice. The reanalysis obtained 49 plotted mean symbol
 
 The question is whether the effects of the monotherapies on net tumor growth transfer independently to the combination. The context of use is testing this simple hypothesis in these nonclinical experiments, not selecting human combination doses or treatment sequence.
 
+The B16 target is not the TRP2 protein itself but a TRP2-derived peptide presented by mouse MHC-I H2-Kb, TRP2/Kb. Its presentation differs from the surface DLL3 target in KP1. The source's IL2REH is also fused to mouse serum albumin; the listed 3 µg denotes the IL-2 component. These doses cannot be transferred to wild-type IL-2 or another formulation ([1](#ref-1)).
+
 ## Estimation uses only control and monotherapy outcomes
 
 For each arm, \(V_a(t_0)\) denotes tumor volume at treatment start. The control and monotherapy mean trajectories were approximated by
@@ -79,6 +81,12 @@ Volumes are in mm³; see `outputs/tables/comparison.csv`. The KP1 comparison has
 In 2,000 reading scenarios, each arm's mean symbols were shifted coherently by ±1 vertical pixel. The exponential predicted-to-observed ratio ranged from 1.84 to 2.41 for KP1 and from 1.43 to 19.91 for B16. These are not mouse-population confidence intervals.
 
 For B16, both treatment-start and combination volumes lie close to the zero tick. One pixel represents a large fraction of these volumes. Consequently, 5.39 is not a precise interaction magnitude. For KP1, overprediction remained throughout the specified reading scenarios (`outputs/tables/reading-sensitivity.csv`). The two model-specific ratios were not averaged into a general combination effect.
+
+## The two predictions are not independent corroboration
+
+The constant-rate equation and pointwise ratios use the same control and monotherapy means. The latter removes exponential time dependence but retains the multiplicative normalized-volume reference. Overprediction by both therefore argues against the time shape alone explaining the discrepancy; it is not independent experimental replication of synergy.
+
+Monotherapy observations also extend through the same times as the predicted combination. This is an arm holdout excluding later combination outcomes, not a forecast from early information alone. The source's combination-versus-monotherapy group differences and deviation from the present multiplicative reference are different comparisons ([1](#ref-1)).
 
 ## A model discrepancy is not a mechanism
 

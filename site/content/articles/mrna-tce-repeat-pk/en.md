@@ -6,7 +6,7 @@ I examined this distinction using public data on MTS105, an mRNA-encoded TCE tar
 
 ## Comparing the first and fourth occasions in the same ten animals
 
-Huang and colleagues described MTS105, a lipid-nanoparticle mRNA formulation encoding a GPC3×CD3 TCE. The present analysis uses blood TCE protein concentrations from the Source Data corresponding to [the original Figure 6B](https://www.nature.com/articles/s41467-025-66087-y#Fig6) ([1](#ref-1)).
+Huang and colleagues described MTS105, a lipid-nanoparticle mRNA formulation encoding a GPC3×CD3 TCE. The present analysis uses serum TCE protein concentrations from the Source Data corresponding to [the original Figure 6B](https://www.nature.com/articles/s41467-025-66087-y#Fig6) ([1](#ref-1)).
 
 The workbook contains 210 observations at 21 times in ten cynomolgus monkeys. These are individual-animal values, not digitized figure means. The concentration unit is ng/mL. The Methods specifies 45 µg/kg; the required dosing inputs are Days 1, 8, 15 and 22.
 
@@ -94,6 +94,14 @@ A model that repeats the same production and disappearance process every week ha
 | Reported zeros omitted; \(s=1\) | 16.15 |
 
 Every forecast is scored against all 90 fourth-occasion records. Large individual prediction errors persist under these choices. This sensitivity analysis is not a substitute for a censored likelihood with a known quantification limit.
+
+## Group accumulation differs from individual reproducibility
+
+The source reports sex-stratified Day-22/Day-1 AUC and Cmax ratios mostly within 0.5–2.0 and no significant accumulation. Here the distribution instead divides individual trapezoidal integrals of recorded values. A ratio of means, a mean of individual ratios and their median need not agree. This distribution therefore does not by itself refute the original group summary ([1](#ref-1)).
+
+Conversely, little group-level accumulation does not guarantee accurate next-occasion predictions for the same individual. The finding here is individual prediction error. The comparison is also restricted to serum protein concentrations; fitting it does not establish stable liver production, functional TCE abundance or tumor activity across occasions.
+
+Both the two-state model and empirical replay are deterministic predictions from the same first-occasion information. Their errors do not identify a biological mechanism that changes between occasions. First-occasion measurement error, transformation and interpolation, unknown quantification limits and model approximation also contribute.
 
 ## What the data support
 

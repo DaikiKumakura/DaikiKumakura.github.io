@@ -26,6 +26,8 @@ S2 contains 29 rows, of which 28 enter the main analysis. The remaining 18 C row
 
 C derives from the independently collected Chan SCLC atlas ([3](#ref-3)), but the fractions used here are already processed by Mishra and colleagues. This is neither independent reproduction of raw-data processing nor external validation of treatment response.
 
+The released code calls DLL3, SEZ6 and CD276 (B7-H3) positive when the normalized RNA-assay value exceeds zero ([4](#ref-4)). That is not a therapeutic protein threshold. Detection sensitivity was not recalibrated across samples, so differing measurement depth can affect non-detection even under the same calling rule.
+
 ## Calculating additional coverage
 
 Let \(D,S,B\) denote detectable DLL3, SEZ6 and B7-H3 RNA. Adding B7-H3 newly covers cells without detected DLL3 but with detected B7-H3:
@@ -40,7 +42,7 @@ Let \(D,S,B\) denote detectable DLL3, SEZ6 and B7-H3 RNA. Adding B7-H3 newly cov
 
 In S2, `Pbind` means \(P(B^+\mid D^+)\) and `Psind` means \(P(S^+\mid D^+)\). Their denominator is DLL3-positive cells, not all malignant cells. Subtracting them directly as whole-population copositivity would be incorrect. I checked definitions against table footnotes and released code ([4](#ref-4)). Adding \(\Delta_B\) to DLL3 coverage gives the DLL3/B7-H3 union; adding all B7-H3 positivity would double-count overlaps.
 
-The main comparison is paired \(\Delta_B-\Delta_S\): positive favors B7-H3 and negative SEZ6. Samples receive equal weights; high-cell-count samples do not dominate. Cohorts are not pooled.
+The main comparison is paired \(\Delta_B-\Delta_S\): positive favors B7-H3 and negative SEZ6. Samples receive equal weights; high-cell-count samples do not dominate. This estimates mean RNA coverage for an equally weighted draw from the sampled specimens, not for a random tumor cell across a patient population or a tumor-burden-weighted population. Cohorts are not pooled.
 
 Uncertainty uses 10,000 bootstrap resamples of sample/donor rows rather than treating cells as independent patients. Intervals are exploratory 95% percentile intervals for individual comparisons, without multiplicity correction or calibration as clinical selection rules. They hold annotations, RNA detection and within-sample measurement error fixed and describe variation between rows.
 
@@ -79,7 +81,7 @@ As a descriptive comparison, I choose SEZ6 uniformly because it has the larger B
 | B | 11.26 pp | 12.56 pp | 1.31 pp |
 | C | 6.53 pp | 7.48 pp | 0.96 pp |
 
-Choosing the larger observed value is a descriptive upper bound after inspecting measurements, not selection performance in new patients. It illustrates coverage missed by a uniform target choice. Protein–efficacy validation would be needed for therapeutic use. Even this retrospective choice adds only 1.31 pp in B and 0.96 pp in C. Ranking-change frequency and average benefit from individualized selection are different quantities.
+Choosing the larger observed value is a retrospective descriptive upper bound with these two additional targets and this RNA table fixed, not selection performance in new patients. It is not a maximum achievable biological effect or coverage including other targets. It illustrates coverage missed by a uniform target choice. Protein–efficacy validation would be needed for therapeutic use. Even this retrospective choice adds only 1.31 pp in B and 0.96 pp in C. Ranking-change frequency and average benefit from individualized selection are different quantities.
 
 ## Three targets do not cover every cell
 
@@ -105,7 +107,7 @@ P(S^+\cap B^+) &= P(D^+)+P(S^+)+P(B^+)\\
 | B | 6.69 pp | 8.17 pp | 55.55% |
 | C | 3.38 pp | 5.37 pp | 75.04% |
 
-The fact that adding a target cannot reduce the RNA union follows from set definitions. The empirical questions are increment size and between-sample variation. An increment alone establishes neither drug benefit nor its balance against toxicity.
+The fact that adding a target cannot reduce the RNA union follows from set definitions. The empirical questions are increment size and between-sample variation. An increment alone establishes neither drug benefit nor its balance against toxicity. The union also uses an OR rule: detection of either target qualifies a cell. A hypothetical design requiring both tumor antigens would instead concern their intersection. A drug described as dual-targeting cannot therefore be assigned this coverage without specifying its recognition rule.
 
 ## Sensitivity to excluded rows and sample composition
 
@@ -138,6 +140,8 @@ These fractions count cells meeting RNA detection rules. They do not estimate su
 
 The original study ([1](#ref-1)) examined response to tarlatamab using circulating tumor cells (CTCs). Its treatment-response population and the tissue single-cell populations analyzed here are not matched patients. Applying the original response rates to RNA coverage would not create an individual response model. Complementary RNA detection does not demonstrate combination efficacy or suppression of antigen escape.
 
+Although SEZ6 had higher mean additional coverage, retrospective sample-specific choice added only about one percentage point on average. Ranking changes alone therefore do not support a complex individualized selection strategy. They must be read together with the small RNA-coverage increment available under this comparison. Cohort differences also remain inseparable from sampling and detection conditions as well as subtype and treatment history.
+
 ## Data and code availability
 
 The [analysis archive](shared/dll3-antigen-coverage/dll3-antigen-coverage-analysis.zip) contains the CC BY input table, provenance and hashes, extracted CSVs, analysis code, results and tests.
@@ -149,7 +153,7 @@ python analysis/run.py
 python -m unittest discover -s tests -v
 ```
 
-Original worksheet row numbers are retained. `sample_coverage.csv` holds all 29 rows and exclusion flags, `group_summaries.csv` main and sensitivity results, and `frozen_rule_comparison.csv` uniform versus retrospective choices. The fixed seed is 2026102502 with 10,000 resamples. Tiny negative reconstructed-state values of absolute magnitude below \(10^{-7}\), caused by source rounding, are clipped only for plots; original values remain in outputs.
+Definitions in the original coexpression Methods, Figure 7 and public code were rechecked on October 29, 2026. Original worksheet row numbers are retained. `sample_coverage.csv` holds all 29 rows and exclusion flags, `group_summaries.csv` main and sensitivity results, and `frozen_rule_comparison.csv` uniform versus retrospective choices. The fixed seed is 2026102502 with 10,000 resamples. Tiny negative reconstructed-state values of absolute magnitude below \(10^{-7}\), caused by source rounding, are clipped only for plots; original values remain in outputs.
 
 ## References
 

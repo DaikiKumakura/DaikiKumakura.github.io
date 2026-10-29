@@ -16,7 +16,7 @@
     },
     "en": {
       "title": "Can antigen-positive fractions predict residual antigen-negative cells after a TCE?",
-      "summary": "A one-parameter model predicts held-out HER2-positive mixture fractions, while separated tumoroids expose the limits of a fraction-only explanation.",
+      "summary": "Testing a one-parameter model on held-out HER2-positive mixture fractions and separated tumoroids reveals limits of a fraction-only explanation.",
       "seo_title": "TCE bystander effects and residual antigen-negative cells",
       "seo_description": "HER2/CD3 tumoroid means test whether positive-cell fractions predict residual negative cells, with mixture holdouts, reading sensitivity and spatial limits."
     }
@@ -26,6 +26,6 @@
     "summary": "Aggregate reanalysis of HER2/CD3 mixed tumoroids. A one-parameter endpoint model undergoes exploratory mixture-condition holdout and reading sensitivity; separated clusters expose limits of a fraction-only explanation. Not clinical dosing or donor-level validation."
   },
   "reviewed": {
-    "en": "2be5169815aceca1a13d0597dfb8c9227c7409444eddd5264a0da0cc5f4807a5"
+    "en": "e21014c6a72035946ddbc937509fd4da51ab00e8f2c23b9f9a98697320291e33"
   }
 }

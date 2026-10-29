@@ -1,6 +1,6 @@
-Even at the same dose, formulation and food can change how much drug reaches circulation and how quickly. I re-examined public crossover data on camizestrant (1) to separate formulation and food effects.
+Even at the same dose, formulation and food can change how much drug reaches circulation and how quickly. I re-examined public crossover data on camizestrant ([1](#ref-1)) to separate formulation and food effects.
 
-At 75 mg in this study, adjusted geometric-mean ratios were 0.962–0.995 between formulations and 1.062–1.098 for fed versus fasting (1). These population comparisons are consistent with the formulation change and administration without additional food restrictions. Individual exposure changes and absorption rates, however, are not identified by the published summaries alone. Small models make that distinction explicit.
+At 75 mg in this study, adjusted geometric-mean ratios were 0.962–0.995 between formulations and 1.062–1.098 for fed versus fasting ([1](#ref-1)). These population comparisons are consistent with the formulation change and administration without additional food restrictions. Individual exposure changes and absorption rates, however, are not identified by the published summaries alone. Small models make that distinction explicit.
 
 ## Comparing single-dose total exposure and peak concentration {#auc}
 
@@ -31,6 +31,8 @@ Figure 1. Points are the original adjusted geometric-mean ratios; lines are thei
 At 75 mg, the fed/fasting ratio was 1.098 (90% CI 1.044–1.155) for AUC and 1.062 (0.943–1.197) for Cmax. The AUC interval excludes 1 and the Cmax interval includes 1. Magnitude and precision need separate interpretation. The 300 mg Cmax upper bound of 1.287 should not be transferred to 75 mg, nor should clinical importance be inferred from a single boundary.
 
 The current US prescribing information (ETCAMAH, generic name camizestrant) specifies 75 mg once daily with or without food ([2](#ref-2), Section 2.3). These calculations examine evidence interpretation rather than proposing another administration method.
+
+An AUC CI excluding 1 can coexist with absence of a clinically important food effect. FDA food-effect guidance evaluates whether the 90% CIs for both AUC and Cmax lie within 0.80–1.25, unless an exposure–response-based alternative is more appropriate ([3](#ref-3), Section VI.A). Both 75 mg intervals are inside that range, constraining effect magnitude rather than merely failing to detect a difference. The 300 mg Cmax upper bound exceeds it, preventing generalization across doses. The original sample size targeted precision of exposure ratios; this reanalysis does not establish universal formulation interchangeability or individual equivalence ([1](#ref-1), Section 2.2).
 
 ## Ratios of geometric means do not reproduce the crossover contrast {#_1}
 
@@ -111,6 +113,8 @@ The variance of the within-person log ratio is
 
 Identical mean ratios and marginal CVs can yield different individual-ratio distributions when rho changes. I generated 2,048 pairs and compared them with this theoretical distribution. No correlation linking AUC and Cmax was specified, so I did not calculate the fraction simultaneously satisfying criteria for both endpoints.
 
+The generated within-person ratio is a ratio of measurements from two dosing occasions. It can include occasion-to-occasion variability and measurement error as well as a stable person-specific food response. Even one measured value under each condition would not establish that the same ratio recurs in that person. Adding a correlation assumption therefore does not by itself justify individualized administration.
+
 Table 3. Assumed between-condition correlation and individual-ratio distributions. P5 and P95 denote the 5th and 95th percentiles.
 
 | Metric | Assumed rho | Theoretical individual-ratio P5–P95 | Calculated P5–P95 in 2,048 pairs |
@@ -162,11 +166,11 @@ Marginal CVs do not contain covariance between an individual's paired values. Th
 
 ## Limitations {#_5}
 
-The conclusions depend on published summaries from single doses in healthy adults. Effects of concomitant medicines, disease and repeated dosing were not estimated. Without individual data, the original mixed model was not refitted and within-person correlation cannot be recovered. I did not fit observed concentration–time series or re-estimate population pharmacokinetics (PopPK). Sources were checked on October 24, 2026.
+The conclusions depend on published summaries from single doses in healthy adults. Effects of concomitant medicines, disease and repeated dosing were not estimated. Without individual data, the original mixed model was not refitted and within-person correlation cannot be recovered. I did not fit observed concentration–time series or re-estimate population pharmacokinetics (PopPK). The original analysis checked sources on October 24, 2026; study design, Tables 3–4 and FDA materials were rechecked on October 29, 2026.
 
 ## Conclusion
 
-For single 75 mg doses, adjusted AUC and Cmax ratios were 0.962–0.995 between formulations and 1.062–1.098 for fed versus fasting, with 90% CI in Table 1. Within this population comparison, the public information is consistent with formulation change and administration without additional food restrictions. How many-fold an individual's exposure changes and formulation differences in absorption rate could not be determined from the published summaries and the one-compartment model. Individual changes would need matched individual data or additional assumptions about between-condition correlation.
+For single 75 mg doses, adjusted AUC and Cmax ratios were 0.962–0.995 between formulations and 1.062–1.098 for fed versus fasting, with 90% CI in Table 1. Within this population comparison, the public information is consistent with formulation change and administration without additional food restrictions. How many-fold an individual's exposure changes and formulation differences in absorption rate could not be determined from the published summaries and the one-compartment model. Estimating the distribution of individual two-occasion changes needs matched individual data or additional assumptions about between-condition correlation. That alone does not validate a stable food effect recurring in the same individual.
 
 ## Data and code availability
 
@@ -178,3 +182,5 @@ The package contains inputs, seven types of summary CSV, three figures and code,
 
 1. <span id="ref-1"></span> Sykes A, Engman H, Taylor N, Brier T, Maudsley R, Kirova B, et al. [Open-label study assessing relative and absolute bioavailability of oral camizestrant formulations and food effects in healthy postmenopausal women](https://doi.org/10.1111/cts.70475). Clin Transl Sci. 2026;19(2):e70475. Tables 3–4 and Section 2.8 were used.
 2. <span id="ref-2"></span> US Food and Drug Administration. ETCAMAH (camizestrant) tablets, for oral use: prescribing information [Internet]. Silver Spring (MD): FDA; revised 2026 Sep [cited 2026 Oct 24]. Sections 2.3 and 12.3. Available from: [https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/220359Orig1s000lbl.pdf](https://www.accessdata.fda.gov/drugsatfda_docs/label/2026/220359Orig1s000lbl.pdf).
+
+3. <span id="ref-3"></span> US Food and Drug Administration. Assessing the Effects of Food on Drugs in INDs and NDAs—Clinical Pharmacology Considerations: Guidance for Industry. Revision 1. May 2026. Section VI.A. [Guidance](https://www.fda.gov/media/121313/download).

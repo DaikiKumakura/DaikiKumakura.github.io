@@ -2,21 +2,25 @@ DLL3 positivity among circulating tumor cells (CTCs) was 75%. Does that mean thr
 
 Mishra and colleagues reported an association between clinical benefit and a 25% DLL3-positive CTC cutoff before tarlatamab treatment ([1](#ref-1)). I reaggregated the public supplementary table for 20 patients to examine how well that boundary can be classified when few cells are measured.
 
+The scope of what I checked is as follows. I read the full text of Mishra et al. (PMC version) and Supplementary Table S3 ([2](#ref-2)). For the September 2026 preprint discussed below I read only the abstract, not its methods or figures. The binomial intervals and the beta-binomial sensitivity analysis are calculations in this article, not findings of the source paper.
+
 The published CTC counts are normalized to 20 mL and need not equal actual counted cells. Rather than impose a unique raw denominator, I calculate ranges consistent with public information and explicit assumptions. Separate measurement-design calculations do not represent repeated blood draws in these patients.
 
 ## Question and intended use
 
 The question is how uncertainty around a 25% DLL3-positive CTC boundary changes with counted cell number. Intended use is evaluating fixed measurement counts and indeterminate classifications in biomarker-validation research, not selecting patient treatment or dose.
 
-Positivity refers to cells identified as CTCs by this assay. The paper defines CTCs as hematopoietic-marker-negative cells positive for an epithelial marker or DLL3. Tumor cells with neither detectable marker can be absent from the denominator. The fraction does not directly measure DLL3 positivity throughout the tumor.
+Positivity refers to cells identified as CTCs by this assay. In the paper, 10–20 mL of whole blood was depleted of leukocytes with the CTC-iChip ([3](#ref-3)), and CTCs were defined as cells negative for hematopoietic markers (CD45, CD66b, CD16) and positive for an epithelial marker (EpCAM, pan-CK, CK19) or DLL3 ([1](#ref-1)). Tumor cells with neither detectable marker can be absent from the denominator. The paper reports that most DLL3-positive CTCs lack epithelial markers (58% DLL3 only, 31% epithelial only, 11% both). DLL3 positivity is therefore itself one of the routes into the denominator. The fraction does not directly measure DLL3 positivity throughout the tumor, and the denominator definition can bias it upward.
+
+Per-cell DLL3 positivity is described as a fluorescence intensity above a threshold of 20 (8-bit images, 0–255) with a plausible cytoplasmic distribution, adjudicated by three analysts ([1](#ref-1)). The paper states that DLL3 on individual CTCs is either strongly positive or negative with few intermediate levels. That is compatible with treating each cell as a binary call, but the boundary between the two calls still depends on an intensity threshold.
 
 ## Available and unavailable information
 
-Blood was collected from 32 patients, of whom 20 meeting specified conditions entered response evaluation. Exclusions included insufficient follow-up, inadequate specimen or CTC evaluation, and active brain metastases. The 25% threshold was applied with reference to earlier work rather than optimized anew in these 20 patients ([1](#ref-1)).
+Blood was collected from 32 patients, of whom 20 meeting specified conditions entered response evaluation. The 12 excluded patients comprised inadequate follow-up imaging (2), inadequate baseline specimen or CTC assessment (3), active brain metastases (2), extrapulmonary neuroendocrine carcinoma (2), and transformed SCLC (3) ([1](#ref-1)). The 25% threshold was applied with reference to a previously annotated value rather than optimized anew in these 20 patients ([1](#ref-1)).
 
-Using a previously reported value does not independently validate this assay's threshold. Low values span 0–20% and positive values 33–100%, leaving no observations immediately around 25%. Separation in these patients does not establish precision near the boundary or an optimal cutoff.
+Using a previously reported value does not independently validate this assay's threshold. Low values span 0–20% and positive values 33–100%, leaving no observations immediately around 25%. From the S3 displayed values, any threshold above 20% and below 33% would classify these 20 patients identically. Separation in these patients therefore does not establish that 25% is optimal or that precision near the boundary is high. The 25% here is a previously annotated value, not one chosen on these 20 patients, but dichotomizing a continuous predictor has general costs, namely information loss and overstated effects when the cutpoint is selected from the data ([4](#ref-4), [5](#ref-5)). The paper itself lists optimizing the cutoff and multi-institutional validation as limitations ([1](#ref-1)).
 
-I transcribed the 20 rows of [Supplementary Table S3](https://doi.org/10.1158/2159-8290.32728723) ([2](#ref-2)) into CSV and checked them against PDF images. Results below are generated by `analysis/run.py`.
+I transcribed the 20 rows of [Supplementary Table S3](https://doi.org/10.1158/2159-8290.32728723) ([2](#ref-2)) into CSV and rechecked them against the PDF image. Results below are generated by `analysis/run.py`.
 
 **Table 1.** Patients and information available in the supplementary table.
 
@@ -30,7 +34,13 @@ I transcribed the 20 rows of [Supplementary Table S3](https://doi.org/10.1158/21
 | Actual positive and total cell counts per patient | Not reported |
 | Processed blood volume per patient | Not reported; Methods specifies 10–20 mL per collection |
 
-The sum 2,987 is not treated as a sum of independent raw counts. Patient fractions are not pooled using cell-count weights. Among the 11 positive patients, the median displayed integer percentage in S3 is 80%, differing from the main text's 76%. Total normalized count, median count, and positive/low group sizes agree. I retain S3's values for the measurement analysis without guessing the cause or correcting the published median. Clinical-benefit aggregates are separately taken from the main text.
+In all 20 rows the per-mL column of S3 equals the 20 mL value divided by 20. That the counts are normalized to a 20 mL reference volume rather than raw tallies is also stated in the paper's Methods ([1](#ref-1)).
+
+The sum 2,987 is not treated as a sum of independent raw counts. Patient fractions are not pooled using cell-count weights. However, the paper's text itself describes 2,987 as the total number of CTCs scored at baseline and pools it by response (PR, 7 patients: 1,868 of 2,103 positive; SD, 6 patients: 182 of 285; PD, 7 patients: 52 of 599). Multiplying each S3 normalized count by its displayed fraction and summing gives 2,102.19, matching the paper's response-group positive total of 2,102. The paper's pooled figures are therefore consistent with being built from normalized counts and displayed fractions; this agreement does not settle what the raw denominators are. By contrast, the DLL3-positive total implied by the paper's marker classes (1,727 DLL3 only plus 328 both) is 2,055, which differs by 47 cells (1.6% of 2,987) from the response-group total. I could not identify the source of that difference from public information. The response-group percentages (89%, 64%, 9%) are cell-weighted pools dominated by a few high-count patients; they do not describe the distribution of patient-level fractions.
+
+S3 gives positivity as integer percentages. Among the 11 positive patients, the median displayed integer percentage is 80%, differing from the main text's 76%. Total normalized count, median count, and positive/low group sizes agree. I retain S3's values for the measurement analysis without guessing the cause or correcting the published median. Clinical-benefit aggregates are separately taken from the main text.
+
+One further correspondence between the main text and S3 could not be confirmed. The text states that patients 1 and 8 had large numbers of CTCs at baseline, 100% and 75% DLL3-positive respectively ([1](#ref-1)). In S3 the only row at 75% is 008 (4 cells per 20 mL); the rows at 100% are 001 (1,416) and 040 (87). If patient 8 is S3 row 008, a count of 4 does not read as "large". Public information does not settle whether the main-text patient numbers and S3 IDs coincide. Below, patients are named by S3 ID, and the correspondence to main-text patient numbers is used only where it does not contradict the paper's low-fraction or high-fraction description (patients 1, 17 and 18).
 
 ## Calculations without known raw denominators
 
@@ -40,7 +50,7 @@ For a known total count \(n\) and positive count \(k\), independent cells give
 k\sim\operatorname{Binomial}(n,p)
 \]
 
-Here \(p\) is positivity under the same collection, identification and classification process. Individual 95% intervals for known \((k,n)\) use Clopper–Pearson ([3](#ref-3)). Since raw counts are unavailable, I enumerate integer pairs compatible with normalized count \(c\) and displayed percentage \(r\):
+Here \(p\) is positivity under the same collection, identification and classification process. Individual 95% intervals for known \((k,n)\) use Clopper–Pearson ([6](#ref-6)). That method is built to have coverage at least at the nominal level and is conservative (wide) for many \((k,n)\); a narrower interval method would change how the results below read ([7](#ref-7)). Since raw counts are unavailable, I enumerate integer pairs compatible with normalized count \(c\) and displayed percentage \(r\):
 
 \[
 \mathcal S_i=\left\{(k,n):\exists v\in[10,20],\quad
@@ -65,6 +75,8 @@ This is a conditional interval envelope, not a recovered denominator or a patien
 
 Eight of 20 envelopes cross 25%. This is neither a count of misclassified patients nor a probability that their classifications are wrong.
 
+Of the eight crossing patients (P004, P007, P008, P011, P016, P024, P030, P034), three have displayed positivity of at least 25% (P004, P008, P030) and five are below 25%. Two of the three patients with displayed positivity of 33–50% in S3 (P004, P030, P041) are among them. These three can be read as the paper's three intermediate-fraction patients (all with stable disease), but that correspondence is inferred from how the paper treats 75%. By contrast, the S3 rows P017 (185 cells) and P018 (97 cells), which would correspond to the low-fraction patients 17 and 18 that the paper describes as showing tumor shrinkage, have envelopes of 2.7–14.7% and 0.3–11.9% and do not cross 25%. These envelopes do not support relabeling the responding low-fraction cases as having latent assay-specific positivity above 25%. Exclusion from an interval does not make a value impossible or rule out all count error; for patient 17 the paper attributes the finding to a DLL3 splicing abnormality close to the diagnostic antibody's recognition site that appeared to preclude scoring in the assay ([1](#ref-1)).
+
 **Table 2.** Examples of normalized counts and conditional envelopes.
 
 | Original patient ID | Count normalized to 20 mL | Displayed positivity | Compatible raw total range | Interval envelope |
@@ -78,7 +90,9 @@ Eight of 20 envelopes cross 25%. This is neither a count of misclassified patien
 
 Only \((k,n)=(1,2)\) fits P030 under these assumptions; that does not mean the paper published a raw count of 1/2. P008's displayed 75% also has an envelope crossing 25%. A large percentage does not establish precision relative to the boundary.
 
-Widening rounding tolerance to ±1 percentage point still gives eight crossing envelopes. Assuming all specimens used 20 mL gives seven. Results therefore depend on how unknown denominators are constrained; see `outputs/tables/rounding_volume_sensitivity.csv`.
+Widening rounding tolerance to ±1 percentage point still gives eight crossing envelopes. Assuming all specimens used 20 mL gives seven. Results therefore depend on how unknown denominators are constrained; see `outputs/tables/rounding_volume_sensitivity.csv`. The count also depends on the interval type: applying Wilson or Jeffreys intervals to the same candidate integer pairs gives seven crossing patients (P008 drops out). The separate supplementary script linked below reproduces this additional calculation. The number eight is the value obtained with the conservative Clopper–Pearson interval and the union over candidate denominators.
+
+Separately from the denominator problem, cell identification itself can matter in low-count patients. The paper reports that five healthy control donors had marker-positive cells at a median of 0.2 per mL, a mean of 0.18 per mL and a range of 0–3 per 10 mL ([1](#ref-1)). On a 20 mL basis that is a median of 4, a mean of 3.6 and a maximum of 6, the same order as the normalized counts of P008 (4), P024 (5), P030 (2) and P034 (5). From what I could check, it is unclear whether background marker-positive cells in controls were counted under the same CTC definition or what fraction expressed DLL3. Background cells entering the denominator or numerator of low-count patients is therefore not covered by the binomial intervals.
 
 ## Classification with a fixed cell count
 
@@ -105,13 +119,17 @@ No correct side or misclassification probability is assigned at \(p=0.25\).
 
 These are mismatches against the side containing the specified true fraction, not treatment-response prediction errors. At 20% and 30%, the probabilities fall below 1% with 500 cells; substantial uncertainty remains at 24% and 26%. Required counts depend on distance from the boundary.
 
+The same calculation gives an approximate range of true fractions for which mismatch is at most 5% (a grid search in 0.05-percentage-point steps; because of the sawtooth pattern the values near the boundary are not exact). With 20 cells counted, the range is about 10% or lower and about 40% or higher; with 50 cells, about 16% or lower and about 36% or higher; with 100 cells, about 18% or lower and about 32% or higher; with 500 cells, about 22% or lower and about 28% or higher. Even with independent cells, specimens near 25% do not reach 5% mismatch after hundreds of cells. The separate supplementary script also reproduces this calculation.
+
 ![Fixed-count mismatch probabilities for specified true fractions](shared/dll3-ctc-count-precision/figures/fixed-count-design.png)
 
 **Figure 2.** The sawtooth pattern follows the changing minimum positive count \(\lceil0.25n\rceil\), not numerical error. A value below 5% at one count does not imply values below 5% at every larger count.
 
+Irregular oscillation of the same discrete origin is known for the coverage probability of binomial intervals ([7](#ref-7)).
+
 ## Nonindependent cells
 
-Common processing or cell clusters can make positivity judgments dependent. A beta-binomial sensitivity analysis fixes mean fraction \(p\) and varies correlation \(\rho\):
+Common processing or cell clusters can make positivity judgments dependent. A beta-binomial sensitivity analysis ([8](#ref-8)) fixes mean fraction \(p\) and varies correlation \(\rho\):
 
 \[
 K\sim\operatorname{BetaBinomial}(n,a,b),\quad
@@ -136,6 +154,10 @@ This convenient overdispersion model assumes exchangeable correlation across all
 
 **Figure 3.** Increasing counts under correlation does not reproduce the independent-binomial improvement. These correlations are scenarios, not measured patient values. Adopting binomial counts without establishing independence can overstate precision.
 
+In Table 4, a correlation as small as \(\rho=0.01\) moves mismatch from 0.6% to 15.5% because the variance is multiplied by \(1+(n-1)\rho\). Looking at variance alone, the effective sample size \(n/\{1+(n-1)\rho\}\) with 500 cells is only about 84 at \(\rho=0.01\) and about 19 at \(\rho=0.05\) (also auxiliary calculations). Effective sample size matches the variance of a proportion, not the entire distribution or probability near a classification boundary. Table 3's values at 100 and 20 cells are not direct calculations at 84 and 19. Table 4 was calculated from the beta-binomial itself rather than converted from effective sample size.
+
+Under correlation, adding cells alone does not give the improvement of the independent calculation. Figure 3 does not claim that the real correlation has these values. The public 20-patient table has no repeated measurements of the same patient, so these data cannot tell whether \(\rho\) is near 0, 0.01 or 0.05. The figure shows that adopting the independent-binomial counts without checking independence invites overconfidence.
+
 ## Clinical-benefit aggregates answer another question
 
 Clinical benefit is partial response (PR) plus stable disease (SD). The paper reports benefit in all 11 positive patients and two of nine low patients ([1](#ref-1)). Recalculation gives:
@@ -149,15 +171,29 @@ Clinical benefit is partial response (PR) plus stable disease (SD). The paper re
 | Positive predictive value | 11/11 | 100.0% | 71.5–100.0% |
 | Negative predictive value | 7/9 | 77.8% | 40.0–97.2% |
 
-These describe the original 20 patients, not independent validation. Cell-level intervals do not validate clinical sensitivity or specificity. A single treated cohort also cannot establish a biomarker predicting greater benefit relative to another treatment.
+Sensitivity and specificity agree with the paper's reported values within rounding (sensitivity 85%, 95% CI 55–98%; specificity 100%, one-sided 97.5% CI 59–100%) ([1](#ref-1)). These describe the original 20 patients, not independent validation. The intervals summarize clinical association when patients are classified using the recorded assay result. That estimand does not require a measurement to equal the latent true fraction exactly. Repeatability after another blood draw or cell classification, and performance of classification by a latent true fraction, are different questions; adding cell-level intervals alone does not evaluate them. Three of the 11 positive patients (P004, P008, P030) have envelopes that, under the stated assumptions, cannot exclude a true fraction below 25% (Table 2, Figure 1). Modeling error relative to latent fractions would require at least raw positive/total counts and information about measurement repeatability, unavailable from this table alone. Cell-level intervals would not validate clinical sensitivity or specificity either. A single treated cohort also cannot establish a biomarker predicting greater benefit relative to another treatment; the paper likewise lists testing against alternative regimens as outstanding ([1](#ref-1)).
 
-A September 2026 preprint relates tissue IHC to tarlatamab outcomes ([4](#ref-4)). Its measurement target and threshold differ; it does not externally validate the 25% CTC rule.
+A September 2026 preprint relates tissue IHC to tarlatamab outcomes ([9](#ref-9)). According to its abstract, in 54 patients the percentage of IHC-positive cells above versus at or below 75% was associated with time on treatment (10.1 versus 2.9 months, p = 0.036), and median IHC percentages were 80% in patients with PR and 40% in patients with PD. Its measurement target and threshold differ, so it does not externally validate the 25% CTC rule. On the other hand, Mishra et al. report that archival tissue IHC from 18 patients in their cohort was poorly predictive of benefit ([1](#ref-1)), so the two reports disagree on how well tissue IHC predicts outcome. Differences in populations and measurement conditions mean this analysis cannot resolve the disagreement.
 
 ## Errors that more cells cannot remove
 
-The public table does not determine one required count for every specimen. Unknown raw denominators constrain envelope interpretation, while clusters, preprocessing, CTC identification and antibody-classification errors are absent from independent binomial calculations. More cells do not remove bias caused by antibody-epitope differences. The paper's splicing example illustrates a source beyond sampling count ([1](#ref-1)).
+The public table does not determine one required count for every specimen. Unknown raw denominators constrain envelope interpretation, while clusters, preprocessing, CTC identification and antibody-classification errors are absent from independent binomial calculations. More cells do not remove bias caused by antibody-epitope differences. In the paper's splicing example, an abnormality in the cytoplasmic region next to the diagnostic antibody's recognition site appeared to preclude scoring in the assay regardless of the extracellular domain that the therapeutic antibody targets; the paper suggests pairing diagnostic and therapeutic antibodies ([1](#ref-1)). That interpretation rests on one patient.
 
 Fixed-count intervals also do not evaluate sequentially adding cells until significance. The precision calculated here is conditional on the assay and denominator assumptions.
+
+## Implications for reading the source study and designing validation
+
+Three points follow for the 20 classified patients. First, the S3 displayed values alone leave the classification unchanged for any threshold strictly between 20% and 33%, so the threshold position itself is neither supported nor refuted by these data. Second, for 12 of 20 patients the envelope does not cross 25% under the assumptions, placing opposite-side latent fractions outside the interval. Third, eight envelopes span both sides, including three patients contributing to the positive predictive value of 11/11. This concerns uncertainty about latent fractions; classification by the displayed S3 result has not changed. The paper's high sensitivity and specificity are compatible with the uncertain classification of few-cell patients near the boundary. The latter does not negate the former, and the paper's intervals do not include it.
+
+Conditional on matching main-text patients 17 and 18 to S3 P017 and P018, their envelopes remain below 25%. Patient 18, however, had PD because of new lesions despite target-lesion shrinkage, and is not an example of clinical benefit defined as PR plus SD ([1](#ref-1)). These two cases cannot establish that count error does not affect group separation overall. Antibody recognition, denominator definition and background-cell biases also remain outside the binomial intervals.
+
+For the design of a validation study, the relevant quantity is the number of cells identified as CTCs and scored, not the blood volume. The median normalized count in S3 is 40, and only 5 of 20 patients have at least 200 cells per 20 mL. With independent cells, 200 counts give 4.9% mismatch at p=20% and 5.1% at p=30%, near but not uniformly below 5% (Table 3). At 50 counts, fractions meeting the 5% criterion are also asymmetric around the boundary. At the median of 2 cells/mL, 200 cells correspond arithmetically to 100 mL. This assumes constant concentration and recovery; it does not establish feasible processing of that volume or validate the expected yield. Correlation between cells, meanwhile, does not disappear with more counted cells, and its size cannot be identified without independent repeated measurements from the same patient, which the public table cannot provide.
+
+For reading other reports, a claim that compares a fraction with a threshold needs the counted cells (\(k\) and \(n\)) as well as the fraction. A table that shows only normalized values and fractions, like S3, does not allow an interval against the threshold to be built.
+
+## Conclusion
+
+The answer to the opening question is that a high positive percentage does not guarantee precision relative to a 25% boundary. In the 20-patient public table of Mishra et al., enumerating integer pairs under unknown raw denominators gave eight patients whose intervals cross 25%, and seven under another interval method. Under independent cells, specimens about 5 percentage points from 25% need about 200 cells for 5% mismatch, while specimens 1 percentage point from the boundary still show about 30% mismatch with 500 cells. A correlation of only 0.01 reduces the effect of 500 cells to an effective sample of about 84. The paper's high sensitivity and specificity are results at a different level from the classification uncertainty of few-cell patients, and the denominators and repeatability information needed to evaluate error relative to latent true fractions are not public. This conclusion rests on conditional binomial calculations and a sensitivity analysis with specified correlation.
 
 ## Data and code availability
 
@@ -171,9 +207,16 @@ python -m unittest discover -s tests -v
 
 Figure 1 and patient values trace to `patient_interval_envelopes.csv`, Figures 2–3 to `fixed_n_design.csv`, and clinical aggregates to `published_aggregate_metrics.csv`. Numerical tables are in `outputs/tables/`; environment and principal summaries are in `outputs/results.json`.
 
+The numbers described as auxiliary calculations in the text (seven crossing patients with Wilson and Jeffreys intervals, the reconciliation with 2,102.19, the ranges of true fractions with at most 5% mismatch, effective sample sizes, and the 20 mL conversion of the control-donor background) were computed with a [supplementary script](shared/dll3-ctc-count-precision/extra-count-checks.py) reading the archive's input CSV and functions. The original ZIP is unchanged; place the script alongside it and follow the [additional calculation instructions](shared/dll3-ctc-count-precision/extra-count-checks-README.md).
+
 ## References
 
 1. <span id="ref-1"></span>Mishra A, Meador CB, Kikkeri K, Cunneely Q, Lin M, Carmona-LaSalle TJ, et al. Circulating Tumor Cells Predict Response to the DLL3-Targeting Bispecific Antibody Tarlatamab. Cancer Discov. 2026;16(5):911–930. [doi:10.1158/2159-8290.CD-25-1483](https://doi.org/10.1158/2159-8290.CD-25-1483). [Open full text](https://pmc.ncbi.nlm.nih.gov/articles/PMC13067943/).
 2. <span id="ref-2"></span>Mishra A, Meador CB, Kikkeri K, Cunneely Q, Lin M, Carmona-LaSalle TJ, et al. Supplementary Table S3 from Circulating Tumor Cells Predict Response to the DLL3-Targeting Bispecific Antibody Tarlatamab [dataset]. AACR Figshare. 2026. CC BY. [doi:10.1158/2159-8290.32728723](https://doi.org/10.1158/2159-8290.32728723). Accessed 2026 Oct 25.
-3. <span id="ref-3"></span>Clopper CJ, Pearson ES. The use of confidence or fiducial limits illustrated in the case of the binomial. Biometrika. 1934;26(4):404–413. [doi:10.1093/biomet/26.4.404](https://doi.org/10.1093/biomet/26.4.404).
-4. <span id="ref-4"></span>Zhang B, Hong L, Wang K, Stewart CA, Shah K, Wang WL, et al. DLL3 expression predicts response and long-term outcome in small cell lung cancer patients treated with tarlatamab. bioRxiv [preprint]. 2026 Sep 7. [doi:10.64898/2026.09.03.749238](https://doi.org/10.64898/2026.09.03.749238).
+3. <span id="ref-3"></span>Karabacak NM, Spuhler PS, Fachin F, Lim EJ, Pai V, Ozkumur E, et al. Microfluidic, marker-free isolation of circulating tumor cells from blood samples. Nat Protoc. 2014;9(3):694–710. [doi:10.1038/nprot.2014.044](https://doi.org/10.1038/nprot.2014.044).
+4. <span id="ref-4"></span>Altman DG, Lausen B, Sauerbrei W, Schumacher M. Dangers of using "optimal" cutpoints in the evaluation of prognostic factors. J Natl Cancer Inst. 1994;86(11):829–835. [doi:10.1093/jnci/86.11.829](https://doi.org/10.1093/jnci/86.11.829).
+5. <span id="ref-5"></span>Royston P, Altman DG, Sauerbrei W. Dichotomizing continuous predictors in multiple regression: a bad idea. Stat Med. 2006;25(1):127–141. [doi:10.1002/sim.2331](https://doi.org/10.1002/sim.2331).
+6. <span id="ref-6"></span>Clopper CJ, Pearson ES. The use of confidence or fiducial limits illustrated in the case of the binomial. Biometrika. 1934;26(4):404–413. [doi:10.1093/biomet/26.4.404](https://doi.org/10.1093/biomet/26.4.404).
+7. <span id="ref-7"></span>Brown LD, Cai TT, DasGupta A. Interval estimation for a binomial proportion. Stat Sci. 2001;16(2):101–133. [doi:10.1214/ss/1009213286](https://doi.org/10.1214/ss/1009213286).
+8. <span id="ref-8"></span>Williams DA. The analysis of binary responses from toxicological experiments involving reproduction and teratogenicity. Biometrics. 1975;31(4):949–952. [doi:10.2307/2529820](https://doi.org/10.2307/2529820).
+9. <span id="ref-9"></span>Zhang B, Hong L, Wang K, Stewart CA, Shah K, Wang WL, et al. DLL3 expression predicts response and long-term outcome in small cell lung cancer patients treated with tarlatamab. bioRxiv [preprint]. 2026 Sep 7. [doi:10.64898/2026.09.03.749238](https://doi.org/10.64898/2026.09.03.749238).

@@ -74,7 +74,7 @@ An alternative empirical model allows the control ratio to fall with positive fr
 
 The dimensionless coefficient \(\beta\) describes the day-5 endpoint. It is not a death rate, cytokine action constant or drug-concentration coefficient. Larger values represent a steeper decline of the control ratio with positive fraction in this experiment.
 
-The main fit minimizes squared errors on the original ratio scale. All three mixture conditions give \(\beta\approx2.56\). Fitting those same points is not a prediction check, so I exclude one condition, fit the other two and predict the excluded fraction. Log-scale fitting, which can emphasize small ratios, is a sensitivity analysis.
+The main fit minimizes squared errors on the original ratio scale. All three mixture conditions give \(\beta\approx2.56\). Fitting those same points is not a prediction check, so I exclude one condition, fit the other two and predict the excluded fraction. This is retrospective analysis after viewing all three public conditions, not a blinded evaluation of a model form chosen in advance. Log-scale fitting, which can emphasize small ratios, is a sensitivity analysis.
 
 **Table 3.** Predictions for excluded mixture conditions.
 
@@ -120,9 +120,17 @@ This is not scored as external prediction error for the mixed-culture model. Arr
 
 Distances are measured between cluster centers, not diffusion paths from cell surfaces. A distance of 250 µm is not a universal action radius in patient tumors.
 
+## Model discrepancies and the original mechanistic experiments
+
+The exponential equation assumes the same multiplicative change in the negative-cell control ratio for each equal increase in positive fraction. One coefficient struggles with these aggregates, which decline markedly from 20% to 50% and then change less through 80%. This does not show that every positive-fraction model must fail. A threshold or residual-floor curve might describe the data better, but increasing flexibility with only three conditions leaves even less opportunity to establish prediction. The residuals do not identify a biological threshold.
+
+The source's mechanistic evidence comes from separate experiments. In [Figure 6](https://doi.org/10.1002/eji.202451589), conditioned medium from positive-cell/T-cell/antibody co-cultures affects negative cells without T cells in that medium. In [Figures 7 and 8](https://doi.org/10.1002/eji.202451589), IFNγ neutralization partly attenuates bystander injury; TNFα neutralization alone does not clearly do so, whereas combined neutralization strongly suppresses it. In the 3D system, positive-cell killing persists while negative-cell effects diminish ([1](#ref-1)). These interventions test soluble-factor contributions, not whether the fitted β is a cytokine rate constant.
+
+Initial positive fraction describes the amount of tissue capable of engaging T cells. Negative-cell abundance five days later combines activation timing, arrangement, soluble-factor sensitivity and intervening growth. Reducing these to one fraction threshold loses distinctions. The original observation that cytokine blockade can alter indirect antitumor activity also shows why low cytokines alone do not imply a better treatment outcome. It does not predict efficacy or safety when cytokine inhibitors are used in patients.
+
 ## Fractions alone cannot separate arrangement and growth
 
-Negative-cell endpoint abundance involves spatial relationships and growth as well as initial mixture fractions. The model misses excluded fractions, and abundance changes in separate spatial experiments. A single positive-fraction threshold does not adequately explain these results.
+Negative-cell endpoint abundance involves spatial relationships and growth as well as initial mixture fractions. The model misses excluded fractions, and abundance changes in separate spatial experiments. The tested one-coefficient mapping did not adequately predict excluded-condition abundance. This does not disprove all alternative functions of positive fraction, but does not support treating fraction alone as sufficient regardless of spatial arrangement.
 
 Cytokine neutralization and time-course observations in the original study investigate the bystander mechanism ([1](#ref-1)). This endpoint model does not replace that mechanism. Five-day counts do not distinguish growth suppression from death; adding coefficients to fit endpoints cannot recover that missing information.
 

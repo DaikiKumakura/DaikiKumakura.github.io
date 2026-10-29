@@ -136,6 +136,14 @@ Lag-model RMSE spans approximately 5.1–9.6 pp for MDA-MB-231 and 7.0–12.7 pp
 
 Donor correspondence across times and prediction on separate experimental days remain unverified. These 18 series do not justify broadly eliminating 72-hour measurements.
 
+## Reproducing the source model differs from early prediction
+
+The source jointly fits available time points using a model linking trimer formation, T-cell activation and differentiation, and tumor-cell effects. This analysis instead excludes late values when fitting a small empirical equation. Comparing its errors with the source's displayed fitted curves would not establish superiority of either mechanistic or empirical models ([1](#ref-1)).
+
+The empirical lag combines activation, proliferation and development of the assay signal into one time quantity. Fixing the ceiling at 100% at every concentration also affects rate and lag estimates. An early-data lag estimate therefore does not directly identify T-cell activation time or a sufficient incubation duration.
+
+The comparison also varies concentration of one molecule rather than ranking different candidate molecules. Relative to the opening candidate-selection question, the analysis tests only a prerequisite: stability of time extrapolation. A small average error does not establish preservation of candidate rankings or selection decisions.
+
 ## Evidence does not support omitting the late measurement
 
 The lag model has lower pooled error, but carrying 48 hours forward predicts MDA-MB-468 more accurately. Similar early fits can produce divergent later predictions, so average scores do not establish stable extrapolation.

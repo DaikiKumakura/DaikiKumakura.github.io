@@ -29,7 +29,7 @@ Table 1. Published AUC12 summary by dose (BID). AUC12 is the steady-state 12-hou
 
 The record counts are not patient counts. The 212 records carry 201 distinct original ID labels, and 8 labels appear at more than one dose. No ID was duplicated at the same dose. The original text reports 15, 33, 134 and 13 patients starting 50, 100, 150 and 200 mg (195 in total) ([1](#ref-1)), which differs from the PK counts of 16, 37, 146 and 13. Complete information on dose changes and sampling occasions is unavailable, and the IDs could not be verified as independent patients.
 
-Geometric CV was calculated as √(exp(V) − 1), where V is the sample variance of log AUC. Estimation uses the published AUC records, and resampling moves records sharing an original ID label together. The analysis is not a causal comparison adjusted for patient characteristics or dose modification in each dose group. The number of patients and the standard deviation (SD) at each time point of the mean concentration curves cannot be obtained from the published values, and individual concentrations were not estimated with a nonlinear mixed-effects model (NLME).
+Geometric CV was calculated as √(exp(V) − 1), where V is the sample variance of log AUC. Estimation uses the published AUC records, and resampling moves records sharing an original ID label together. The analysis is not a causal comparison adjusted for patient characteristics or dose modification in each dose group. The original design allowed intrapatient escalation after the initial 21-day evaluation, subject to safety review and approval ([1](#ref-1)). A label appearing at different doses is therefore compatible with the study design, but that provision does not resolve every public PK identifier or sampling occasion. The number of patients and the standard deviation (SD) at each time point of the mean concentration curves cannot be obtained from the published values, and individual concentrations were not estimated with a nonlinear mixed-effects model (NLME).
 
 ### Dose–exposure models
 
@@ -80,7 +80,7 @@ Table 2. Fits of the dose–exposure models (log AUC12, all 212 records).
 | Proportional M0 | a = 12.452 ng·h/mL/mg | 62.867 |
 | Saturating M1 | Amax = 14,587 ng·h/mL; D50 = 1,035 mg | 62.667 |
 
-M1 has one more parameter, but the residual sum of squares decreased by only 0.32%. No significance test or AIC comparison premised on independent observations was performed, and this difference alone does not select either model. D50 is larger than the observed range of 50–200 mg and is not a value that directly captures strong saturation.
+M1 has one more parameter, but the residual sum of squares decreased by only 0.32%. No significance test or AIC comparison premised on independent observations was performed, and this difference alone does not select either model. D50 is larger than the observed range of 50–200 mg and is not a value that directly captures strong saturation. The original description of a plateau between 150 and 200 mg is not contradicted by this analysis failing to exclude proportionality. One describes the observed exposure distributions; the other reflects weak discrimination between these two equations in groups with different sizes and backgrounds. Proportionality has not been established either.
 
 ![Measured mean concentrations and dose–exposure relationships estimated from individual AUC12 records.](shared/olomorasib-dose-fractionation/figures/data-and-models.png)
 
@@ -153,6 +153,8 @@ The published PK did not support the conclusion that TID is advantageous because
 
 Whether TID has an advantage also depended on dosing times. Evenly spaced TID gave a Cmin ratio of 1.74–2.07 and a Cmax ratio of 0.78–0.85, whereas TID with a 12-hour night gap gave a Cmin ratio of only 0.85–0.88. In this calculation, improvement of the minimum concentration depended on even spacing rather than on the number of doses. This conclusion rests on a calculation that transfers the dose–AUC relationship obtained with BID to TID and assumes that absorption does not change with dosing frequency.
 
+Olomorasib is also a covalent KRAS G12C inhibitor ([1](#ref-1)). Plasma half-life and the duration of target occupancy are different quantities; this model does not describe target recovery after binding. The original TEC80 is model-derived, not a clinical threshold revalidated here. Raising calculated Cmin alone cannot determine whether additional efficacy follows when inhibition may already be sufficient.
+
 The calculation does not predict efficacy or safety. Concentration differences cannot be read as better efficacy or lower toxicity, and a plateau in total exposure alone is not a reason to increase dosing frequency.
 
 ## Limitations
@@ -167,7 +169,7 @@ Splitting 150 mg BID into 100 mg TID did not yield support for an increase in to
 
 The archive contains input values, PK numbers extracted from the original report, six summary tables, three figures and the code for rerunning the analysis. Original IDs were replaced by block numbers, and personal information other than PK, the complete source workbook and the trial protocol are not included. Extracted values follow the original report's CC BY 4.0 license, with source and transformations stated ([License](https://creativecommons.org/licenses/by/4.0/)).
 
-Nine numerical checks covered an independent ordinary differential equation (ODE) calculation of dosing events, periodic integration, grid width for minima and peaks, mass balance of the proportional model and cancellation of the multipliers. Agreement of the implementations does not imply clinical validation of TID. Sources were checked on October 24, 2026.
+Nine numerical checks covered an independent ordinary differential equation (ODE) calculation of dosing events, periodic integration, grid width for minima and peaks, mass balance of the proportional model and cancellation of the multipliers. Agreement of the implementations does not imply clinical validation of TID. The original analysis checked sources on October 24, 2026; escalation rules, PK results and target-occupancy statements were rechecked on October 29, 2026.
 
 [Analysis code, input values, summary tables and rerun instructions](shared/olomorasib-dose-fractionation/fractionation-analysis.zip)
 

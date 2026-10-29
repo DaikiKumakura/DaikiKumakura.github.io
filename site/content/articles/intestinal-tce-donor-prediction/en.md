@@ -77,6 +77,12 @@ The CEA-area model reduced held-out donor RMSE by 51.3% relative to the mean mod
 
 Adding tissue region to CEA slightly reduced the training error but increased error for unused donors. More explanatory variables did not improve prediction. Tissue region alone also improved on the mean, so the CEA association should not be interpreted as a causal effect independent of tissue region.
 
+## Donors, rather than tissue regions, were excluded
+
+In this sample, all seven small-intestine donors had lower CEA-positive areas than all seven colon donors. Excluding one donor leaves other samples from its tissue region in training. The resulting error therefore does not evaluate transfer from one tissue region to another or extrapolation beyond the observed CEA range. Worse performance after adding region also does not establish that region lacks biological relevance.
+
+Four equations were compared, and the smallest exclusion error is emphasized. Even though each coefficient fit excludes the evaluated donor, selecting an equation using those same errors makes the minimum a post-selection result rather than an independent estimate of the selected procedure's performance. This source of optimism is established in cross-validation methodology ([2](#ref-2)). The 51.3% reduction describes this fixed comparison, not an improvement validated for the entire selection procedure in a new donor cohort.
+
 ## Does improvement depend on one donor?
 
 Fitting the CEA model to all 14 donors gave:
@@ -102,6 +108,8 @@ As an additional sensitivity analysis, one donor was removed from the entire dat
 
 **Figure 3.** RMSE after removing one donor from the dataset and repeating donor-exclusion prediction within the remaining 13. The 14 deletions use overlapping data and are sensitivity analyses, not independent external validations.
 
+IHC areas and response ratios are means of measured quantities, but measurement error in the predictor and uncertainty from the control-signal denominator are not modeled separately. Donor resampling does not repeat staining, wells or control measurements within a donor. Coefficient intervals are also not intervals for differences in predictive error between models.
+
 ## What a normal-tissue average leaves out
 
 At this fixed concentration, the CEA IHC measurement predicted a different donor more accurately than carrying forward a donor average. Summarizing the assay only by its mean can miss response differences when the normal-tissue target-expression distribution changes.
@@ -119,6 +127,7 @@ This internal validation compared model performance using 14 donors from one stu
 ## References
 
 1. <span id="ref-1"></span>Harter MF, Recaldin T, Gerard R, Avignon B, Bollen Y, Esposito C, et al. Analysis of off-tumour toxicities of T-cell-engaging bispecific antibodies via donor-matched intestinal organoids and tumouroids. Nat Biomed Eng. 2024;8(4):345–360. Published online December 19, 2023. [doi:10.1038/s41551-023-01156-5](https://doi.org/10.1038/s41551-023-01156-5). Source Data for Figure 5, CC BY 4.0. Changes: donor-level table extraction, source-sheet concordance checks, regression, cross-validation, bootstrap and new figures.
+2. <span id="ref-2"></span>Varma S, Simon R. Bias in error estimation when using cross-validation for model selection. BMC Bioinformatics. 2006;7:91. [doi:10.1186/1471-2105-7-91](https://doi.org/10.1186/1471-2105-7-91).
 
 
 <span id="analysis-material"></span>

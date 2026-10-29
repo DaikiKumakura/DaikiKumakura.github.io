@@ -42,13 +42,13 @@ $$
 
 実標本でも、腫瘍と間質の混ざり方、細胞密度、切片の品質、画像予測の細かな誤差が指標に入る可能性がある。逆に、予測を平滑化すれば、真の境界と誤差の両方を消し得る。したがって空間指標は、組織マスク、隣接の定義、解像度、平滑化条件までを含めて一つの測定法として固定したい。
 
-配置の情報が独立に加わるという解釈には、同じ領域の実測RNAとの一致と、平均発現・腫瘍と間質の割合・細胞構成を用いたモデルに対する上乗せが必要になる。これらは空間指標の意味を区別する条件であり、ここで追加検証した結果ではない。
+画像由来の配置が予測に情報を加えるかは、平均発現・腫瘍と間質の割合・細胞構成を用いた比較モデルへの上乗せとして調べられる。一方、その上乗せをEREG固有の空間発現と解釈するには、対応領域の実測RNAとの一致も別に確かめる必要がある。予測に役立つ画像の代理指標であることと、分子状態を正確に測ることは同じ条件ではない。これらは指標の意味を区別する論点であり、ここで追加検証した結果ではない。
 
 ## 外部予測と関連の推定を分けて読む {#_3}
 
-Holon-S1の報告では、探索側で学習したモデルをTransNEOへ適用する予測評価と、各コホート内で回帰を当て直して求めるオッズ比が分かれている ([1](#ref-1))。後者まで「固定した予測器の外部検証」と読むと、評価の意味が変わる。また比較対象の間質内腫瘍浸潤リンパ球割合（sTIL）は画像解析による自動推定で、病理医が評価したsTILそのものではない ([1](#ref-1))。解析手順は技術報告の[該当箇所](https://sophont.med/blog/holon/)に記載されている。
+Holon-S1の報告では、探索側で学習したモデルをTransNEOへ適用する予測評価と、各コホート内で回帰を当て直して求めるオッズ比が分かれている ([1](#ref-1))。後者まで「固定した予測器の外部検証」と読むと、評価の意味が変わる。報告のオッズ比は探索コホートの標準偏差1単位当たりに換算されており、EREG量を一定量増やした介入効果でも、患者の奏効確率が同じ倍率で増えるという値でもない。また比較対象の間質内腫瘍浸潤リンパ球割合（sTIL）は画像解析による自動推定で、病理医が評価したsTILそのものではない ([1](#ref-1))。解析手順は技術報告の[該当箇所](https://sophont.med/blog/holon/)に記載されている。
 
-さらに、たくさんの遺伝子と空間指標を試して選んだ特徴の探索側成績には、選択による楽観が入り得る。候補選択を含む工程全体の評価と、固定した候補の独立評価を分けたい。外部評価を設けた点に意味があるが、そこで得た成績の精度は患者数と奏効数にも左右される。
+さらに、たくさんの遺伝子と空間指標を試して選んだ特徴の探索側成績には、選択による楽観が入り得る。候補選択を含む工程全体の評価と、固定した候補の独立評価を分けたい。報告はIMPRESS内の5分割評価と、そのIMPRESSで学習したモデルのTransNEOへの適用を記載する一方、遺伝子・空間指標の選択までを各訓練分割内でやり直したかは、この記述だけでは確認できない。探索側の交差検証成績を、選択過程すべてから独立な評価とみなすことは避ける。外部評価を設けた点に意味があるが、そこで得た成績の精度は患者数と奏効数にも左右される。
 
 適合率と再現率の関係を示すPR曲線のaverage precision（AP）を見るときは、pCRの割合も並べたい。評価集団の陽性割合が違えば、同じ数字をそのまま横比較しにくい。この用途の評価単位は患者であり、分割と不確実性も患者単位で扱う必要がある。同じ患者の多数のタイルを、独立した多数の患者の代わりには数えない。
 
@@ -56,17 +56,24 @@ Holon-S1の報告では、探索側で学習したモデルをTransNEOへ適用�
 
 ## pCRとの関連だけでは治療の選択は決まらない {#_4}
 
-治療を受けた集団でpCRと関連しても、「この指標の患者では別の治療よりこの薬の利益が大きい」という比較は得られない。治療反応との関連と、治療間の効果差を説明する能力は異なる。
+治療を受けた集団でpCRと関連しても、「この指標の患者では別の治療よりこの薬の利益が大きい」という比較は得られない。治療反応との関連と、治療間の効果差を説明する能力は異なる。この区別は治療効果予測バイオマーカーの基本条件であり、治療群と比較群を含む設計と治療×指標の相互作用の評価に関わる ([2](#ref-2))。ここでのpCR予測は、別の治療へ変更した方がよい患者を同定する検証ではない。
 
 画像から予測したEREGの配置も、その領域の実測RNAや蛋白と同一の観測ではない。公開報告の関連と今回の格子計算を合わせても、患者ごとの治療変更の利益を推定したことにはならない。今回の計算で確かめたのは、同じ値の分布でも配置だけで空間指標が変わることだった。冒頭の問いに対しては、この報告は画像由来の空間発現マップをバイオマーカー候補として示すが、RNA-seqの代替を示してはいない。
+
+## 考察と成立範囲
+
+gEREGの価値を考えるときは、三つの問いを混ぜない方がよい。病理画像からpCRを予測するのに役立つか、EREGの実際の配置を測れているか、その配置を変える治療が転帰を改善するか、である。最初の問いは独立コホートの予測評価に対応する。二つ目には対応する分子測定が、三つ目には介入を比較する根拠が要る。最初の予測評価が成立しても、残る二つが自動的に成立するわけではない。
+
+報告はgEREGを画像推定sTILと比べているが、病理医の評価や、平均EREG・組織構成を含む全ての代替モデルを上回ると示したものではない。sTILで調整後も関連したことから、既知の腫瘍微小環境因子すべてと独立な機序を読み取ったとまでは言えない。今回の合成格子はこの予測器を検証しないが、総量が同じでも配置が異なるという、比較から落とせない情報を具体的に示す。
 
 ## データとコードの公開状況 {#_5}
 
 [再実行用ZIP](shared/holon-spatial-biomarker/companion.zip)はPython標準ライブラリのみで実行できる。16×16格子、各値128個、非周期境界、上下左右隣接、乱数シード20261026で、図・CSV・要約JSONを生成する。生物学的なパラメータや患者の効果量は推定していない。
 
-技術報告の確認日は2026年10月26日。開発者による研究用モデルの報告であり、本記事は独立した臨床検証ではない。10月20日の発表日 ([2](#ref-2)) を、技術報告の初公開日とは同一視していない。
+技術報告の確認日は2026年10月26日。開発者による研究用モデルの報告であり、本記事は独立した臨床検証ではない。10月20日の発表日 ([3](#ref-3)) を、技術報告の初公開日とは同一視していない。
 
 ## 参照 {#article-references}
 
 1. <span id="ref-1"></span>Muhammad H, Warner B, Scotti PS, Abraham TM. Holon-S1 Technical Report [Technical report]. Sophont Technical Report; 2026. Month and day of publication not stated. [doi:10.5281/zenodo.23569193](https://doi.org/10.5281/zenodo.23569193). Available from: [https://sophont.med/blog/holon/](https://sophont.med/blog/holon/) [cited 2026 Oct 26].
-2. <span id="ref-2"></span>Sophont. Sophont launches Holon-S1 to reveal tumor biology from routine pathology slides [Press release]. PR Newswire; 2026 Oct 20 [cited 2026 Oct 26]. Available from: [https://www.prnewswire.com/news-releases/sophont-launches-holon-s1-to-reveal-tumor-biology-from-routine-pathology-slides-302914452.html](https://www.prnewswire.com/news-releases/sophont-launches-holon-s1-to-reveal-tumor-biology-from-routine-pathology-slides-302914452.html).
+2. <span id="ref-2"></span>Ballman KV. Biomarker: Predictive or Prognostic? J Clin Oncol. 2015;33(33):3968–3971. [doi:10.1200/JCO.2015.63.3651](https://doi.org/10.1200/JCO.2015.63.3651). Abstract consulted.
+3. <span id="ref-3"></span>Sophont. Sophont launches Holon-S1 to reveal tumor biology from routine pathology slides [Press release]. PR Newswire; 2026 Oct 20 [cited 2026 Oct 26]. Available from: [https://www.prnewswire.com/news-releases/sophont-launches-holon-s1-to-reveal-tumor-biology-from-routine-pathology-slides-302914452.html](https://www.prnewswire.com/news-releases/sophont-launches-holon-s1-to-reveal-tumor-biology-from-routine-pathology-slides-302914452.html).

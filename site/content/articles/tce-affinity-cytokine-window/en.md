@@ -33,7 +33,7 @@ r_{m,e}(C)=
 {\max_CY_{\mathrm{high},e}(C)-Y_{\mathrm{high},e}(C_{\min})}
 \]
 
-Here \(m\) is the CD3 molecule and \(e\) activity (TDCC) or TNFα. Endpoints have separate denominators; molecules are not normalized to their own maxima. A relative activity of 0.8 means 80% of the reference increment, not 80% cell killing. Relative TNFα of 0.25 is 25% of the reference signal, not 25% CRS risk.
+Here \(m\) is the CD3 molecule and \(e\) activity (TDCC) or TNFα. Endpoints have separate denominators; molecules are not normalized to their own maxima. The reference maximum and low-concentration value are shared by all candidates within a condition, so their reading errors propagate jointly into relative values. A small value above one, such as 1.03, is not evidence of superiority over the reference molecule. A relative activity of 0.8 means 80% of the reference increment, not 80% cell killing. Relative TNFα of 0.25 is 25% of the reference signal, not 25% CRS risk.
 
 The lowest concentration is not untreated control, making background subtraction an assumption. TA high and low also have different reference denominators; their normalized values cannot directly establish absolute superiority. \(C_{\min}\) is endpoint-specific: CEACAM5 activity starts at 0.05 pM and TNFα at 0.5 pM, so their joint comparison is limited to 0.5 pM and above.
 
@@ -116,6 +116,16 @@ Width is \(\log_{10}(C_{\mathrm{upper}}/C_{\mathrm{lower}})\); 0.52 corresponds 
 ![Sensitivity to interpolation, Hill shape and reference choice](shared/tce-affinity-cytokine-window/figures/03-assumption-sensitivity.png)
 
 **Figure 3.** Range widths for four conditions and four molecules. “Common high-TA reference” applies the same target's TA-high/CD3-high reference to TA-low conditions. Whether the TA-high and TA-low figures used the same donors is unconfirmed, so differences between them are not causal effects of TA affinity. An alternative background uses the smaller of the two lowest-concentration values.
+
+## Discussion
+
+Comparisons of weaker CD3 binders depend on what is matched. Lower cytokines at the same concentration may simply accompany lower activity. Table 3 instead matches relative activity, but its concentrations are interpolated and activity and TNFα use separate reference increments. The resulting comparison is neither a clinical therapeutic index nor an absolute safety window.
+
+Tumor-antigen KD alone also does not determine candidate rank. These molecules bind tumor antigen bivalently and CD3 monovalently in a 2+1 format, so avidity, antigen abundance, epitope and cell background accompany monovalent affinity ([1](#ref-1)). FOLR1 and CEACAM5 comparisons change both target and cell line. Differences across the four conditions cannot be reduced to a causal effect of tumor-antigen KD alone.
+
+The original paper additionally examines healthy jejunal organoids in [Figure 7](https://doi.org/10.1080/19420862.2025.2584374) and mouse experiments in [Figures 4, 8 and 10](https://doi.org/10.1080/19420862.2025.2584374) ([1](#ref-1)). These do not validate the present TNFα threshold against normal-tissue injury or in-vivo safety. In Figure 10, tolerability required a lower CD3-high dose than for the other molecules, precluding a simple equal-dose comparison. Those animal and normal-tissue results were not fitted or used to rank candidates here.
+
+AUCE also compresses time-course differences into one integrated value ([2](#ref-2)). Equal AUCE need not distinguish an early large response from a sustained later response. Choosing TNFα alone, using representative donor curves and sharing reference/background errors directly limit what these sparse observations establish. A smooth Hill curve cannot supply those unmeasured distinctions.
 
 ## Sparse measurements and boundaries constrain the result
 

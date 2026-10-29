@@ -1,14 +1,16 @@
-## 要旨 {#article-abstract}
-
-公表された母集団薬物動態（PopPK）モデルを用い、gedatolisibの540 mg/28日を「180 mg × 3回」または「135 mg × 4回」に配分した仮想条件を比較した。周期的な状態での最高濃度の比は約0.75、周期AUCの比は1.000だった。一方、第4週（Day 22の投与開始から次周期直前まで）のAUCが周期AUCに占める割合は、約1.9%から25%へ増えた。2,048組の条件付き仮想個体でも、第4週AUCの個体内比は中央値13.2（5–95パーセンタイル 7.6–25.0）だった。総曝露を揃えても、休薬週の曝露は保存されない。ただし、効果、毒性、粘膜の回復、投与法の優劣は計算していない。
+公表された母集団薬物動態（PopPK）モデルを用い、gedatolisibの540 mg/28日を「180 mg × 3回」または「135 mg × 4回」に配分した仮想条件を比較した。周期的な状態での最高濃度の比は約0.75、周期AUCの比は1.000だった。周期AUCが等しいのは線形モデルの収支の恒等式であり、配分の違いはピークと第4週の曝露に現れる。第4週（Day 22の投与開始から次周期直前まで）のAUCが周期AUCに占める割合は、約1.9%から25%へ増えた。2,048組の条件付き仮想個体でも、第4週AUCの個体内比は中央値13.2（5–95パーセンタイル 7.6–25.0）だった。したがって、周期AUCだけを曝露指標とする曝露–反応解析は、この二つの配分を区別できない。ただし、効果、毒性、粘膜の回復、投与法の優劣は計算していない。
 
 公開資料の確認日：2026年10月29日。本稿の数値は、公表係数から新たに計算した。患者別データの再推定ではなく、承認された用法に代わる投与法の提案でもない。
 
 ## 背景と目的 {#article-introduction}
 
-米国食品医薬品局（FDA）は2026年7月14日に、gedatolisibとフルベストラント（パルボシクリブ併用の有無は問わない）の併用を、内分泌療法後に進行したHR（ホルモン受容体）陽性・HER2陰性でPIK3CA変異が検出されない局所進行または転移乳がんに対して承認した ([1](#ref-1))。用法は、180 mgを30分かけて静脈内投与し、28日周期のDay 1、8、15に投与する形である。第4週には投与しない ([1](#ref-1))。Gedatolisibは、PI3K/AKT/mTOR経路を阻害する薬剤として報告されている ([2](#ref-2))。
+米国食品医薬品局（FDA）は2026年7月14日に、gedatolisibとフルベストラント（パルボシクリブ併用の有無は問わない）の併用を、内分泌療法後に進行したHR（ホルモン受容体）陽性・HER2陰性でPIK3CA変異が検出されない局所進行または転移乳がんに対して承認した ([1](#ref-1))。用法は、180 mgを30分かけて静脈内投与し、28日周期のDay 1、8、15に投与する形である。第4週には投与しない ([1](#ref-1))。Gedatolisibは、PI3KとmTORの二重阻害薬として創製された化合物（開発コードPKI-587）である ([2](#ref-2), [3](#ref-3))。学会抄録は、すべてのクラスI PI3KアイソフォームとmTORC1・mTORC2を標的とすると記述している ([4](#ref-4))。第3相試験VIKTORIA-1では、PIK3CA野生型で、CDK4/6阻害薬とアロマターゼ阻害薬の後に進行した患者に、180 mgを週1回、3週投与1週休薬（Day 1、8、15）で投与した ([5](#ref-5))。この試験で口内炎は、gedatolisib・palbociclib・fulvestrantの群で69.2%、gedatolisib・fulvestrantの群で56.9%に報告され、Grade 3は19.2%と12.3%だった ([5](#ref-5))。
 
-この540 mgを135 mgずつ4回に分ければ、点滴直後のピークは下がると予想される。しかし、休薬週に薬を入れる影響を「4週間のAUCが同じ」で片付けてよいだろうか。AUCは濃度–時間曲線下面積である。
+3週投与1週休薬の根拠として、申請者は、PI3K/AKT/mTOR経路とCDK4/6を同期して断続的に阻害すると、休薬週に免疫が回復し、抗腫瘍活性を支えうるという報告を挙げている ([3](#ref-3), PDF p. 87)。第1b相試験B2151009では、180 mg毎週投与の群（Arm C）より3週投与1週休薬の群（Arm D）で、奏効率（56%対25%）が高く、無増悪生存期間の中央値（12.9か月対5.1か月）が長かったと申請者は述べる ([3](#ref-3), PDF p. 97)。FDAは、この2群が無作為化されておらず、適格基準が異なり、毎週投与群の追跡期間が短い（3.4か月対9.5か月）ため、比較は慎重に解釈すべきだとした ([3](#ref-3), PDF p. 98)。
+
+この540 mgを135 mgずつ4回に分ければ、線形のPKでは1回量に比例して点滴直後のピークが下がる。しかし、4回目の投与は休薬週に薬を入れることでもある。その影響を「4週間のAUCが同じ」で片付けてよいだろうか。AUCは濃度–時間曲線下面積である。
+
+用法の最適化は、規制の側でも課題とされている。FDAは、承認された用量・用法は最適化されていないと評価し、別の用量・用法が同等の活性とより良い安全性・忍容性を示すかを評価する無作為化の用量比較試験を、市販後の要件として課すとした ([3](#ref-3), PDF p. 88)。理由の一つは、Cmax（最高濃度）を指標にした曝露–安全性解析で、10〜319 mgの広い範囲で、Grade 3以上の口内炎・粘膜炎などと正の関係が見られたことである ([3](#ref-3), PDF p. 88)。この関係が因果的で新しい配分にも移るなら、Cmaxを下げる配分は、その側のリスクを下げる方向に働く。一方、休薬週にも投与する配分は、申請者が挙げた休薬週の根拠とは逆の方向に動く。本記事は、この二つの動きがPKとして何倍の差になるかを数える。
 
 ### 問いと比較条件 {#_1}
 
@@ -24,13 +26,17 @@
 | 135 mg × 4回 | Day 1、8、15、22 | 540 mg | 同じ総量で配分を変える仮想条件 |
 | 180 mg × 4回 | Day 1、8、15、22 | 720 mg | 総量増加との混同を確認する条件 |
 
-全て30分の点滴とする。参照条件の用量と投与日は、添付文書の用法 ([1](#ref-1), [3](#ref-3)) に従う。135 mgを毎週投与する条件は、この解析で比較する仮説であり、承認された代替用法を示すものではない。他の併用薬のPKや投与日程は計算していない。
+全て30分の点滴とする。参照条件の用量と投与日は、添付文書の用法 ([1](#ref-1), [6](#ref-6)) に従う。135 mgを毎週投与する条件は、この解析で比較する仮説であり、承認された代替用法を示すものではない。180 mg × 4回の条件は、B2151009の180 mg毎週投与群（Arm C）と用量と間隔が対応する ([3](#ref-3), PDF p. 87)。ただし、その群の周期の区切りは確認していない。他の併用薬のPKや投与日程は計算していない。
 
 ## 方法 {#article-methods}
 
+### 資料と確認範囲 {#sources-scope}
+
+本文を確認した資料は、添付文書 ([6](#ref-6))、FDAの審査資料 ([3](#ref-3))、VIKTORIA-1の論文 ([5](#ref-5)) である。審査資料はPDFをテキスト化して全体を調べ、モデルの係数の表は画像で照合した。ASCO 2026の抄録 ([4](#ref-4)) は要旨のみ、その他の文献 ([2](#ref-2), [7](#ref-7), [8](#ref-8), [9](#ref-9)) は要旨と書誌情報の範囲で確認した。FDAの承認通知 ([1](#ref-1)) は2026年10月29日に取得して承認日・適応・投与日を確認し、添付文書 ([6](#ref-6)) と照合した。VIKTORIA-1には2026年の正誤表が出ているが、内容は確認していない。審査資料には申請者の記述（Applicant's Position）とFDAの評価が混在しており、本記事は区別して引用する。
+
 ### 公表モデルの実装 {#_2}
 
-添付文書の薬物動態の項には、分布容積393 L、クリアランス8 L/h、半減期36 hが記載されている ([3](#ref-3), section 12.3)。これらの要約値だけで1-compartmentモデルを作ると、点滴直後の濃度を大きく外す。そこで、FDAの審査資料に公開された、4,238点・605人に基づく4-compartmentモデル ([4](#ref-4), PDF pp. 86, 227–228) を実装した。
+添付文書の薬物動態の項には、分布容積393 L、クリアランス8 L/h、半減期36 hが記載されている ([6](#ref-6), section 12.3)。同じ項には、CmaxとAUCが10〜319 mgの範囲で用量に比例し、週1回投与で蓄積は見られないとも記載されている ([6](#ref-6), section 12.3)。本記事の線形モデルは、この範囲の比例性を仮定している。これらの要約値だけで1-compartmentモデルを作ると、点滴直後の濃度を大きく外す。そこで、FDAの審査資料に公開された、4,238点・605人に基づく4-compartmentモデル ([3](#ref-3), PDF pp. 86, 227–228) を実装した。FDAは申請者の解析を再現して重大な不一致を認めず、このモデルを個別の曝露指標の導出に適切と評価した ([3](#ref-3), PDF p. 239)。
 
 中央の量をA1、末梢の量をA2、A3、A4とする。薬物の量はmg、時間はh、容積はLである。
 
@@ -43,7 +49,7 @@
 \qquad C(t)=1000\frac{A_1}{V_1}.
 \]
 
-Cは血漿中ng/mL。Rinは点滴中D/0.5 mg/h、それ以外は0とする。係数は審査資料の[Table 66](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2026/219908Orig1s000MultidisciplineR.pdf#page=236)（PDF 236ページ、印刷235ページ）から再利用した ([4](#ref-4), Table 66)。CLはクリアランス、Vは容積、Qは区画間クリアランスである。
+Cは血漿中ng/mL。Rinは点滴中D/0.5 mg/h、それ以外は0とする。係数は審査資料の[Table 66](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2026/219908Orig1s000MultidisciplineR.pdf#page=236)（PDF 236ページ、印刷235ページ）から再利用した ([3](#ref-3), Table 66)。CLはクリアランス、Vは容積、Qは区画間クリアランスである。
 
 **表2　使用した公表係数**
 
@@ -72,7 +78,7 @@ CL_i=7.99\left(\frac{WT_i}{70}\right)^{0.246}
 
 表2には三つの分散が示されるが、共分散は示されない。主解析では独立と仮定し、CLとQ4の相関を−0.5、+0.5とした場合も調べる。残差誤差は潜在的な曝露へ加えない。
 
-審査資料には、モデルのシミュレーションが観測より広い変動を出し得るという注意がある ([4](#ref-4), PDF p. 228)。以下の5–95パーセンタイルは、条件付きの仮想個体の幅であり、臨床集団で検証済みの予測区間や係数の信頼区間ではない。
+審査資料には、予測補正した視覚的予測チェック ([9](#ref-9)) で観測の95%区間が予測区間より狭く、モデルのシミュレーションは観測より広い変動を出し得るという注意がある ([3](#ref-3), PDF p. 228)。以下の5–95パーセンタイルは、条件付きの仮想個体の幅であり、臨床集団で検証済みの予測区間や係数の信頼区間ではない。
 
 ### 周期状態と初回周期の定義 {#auc}
 
@@ -88,19 +94,19 @@ AUC_{28\mathrm{d}}=1000\frac{\text{28日間の総投与量}}{CL}
 
 ### 仮想個体と感度解析の設定 {#article-virtual-individuals}
 
-乱数seedを20261023に固定し、2,048組の同じ仮想個体へ二つの540 mg条件を与えた。個体ごとに、135 mg × 4回の指標を180 mg × 3回の指標で割った個体内比を求め、2,048個の比の中央値と5–95パーセンタイルを報告する。係数の不確実性は、八つの分布・消失係数（cl、v1、q2、v2、q3、v3、q4、v4）を、公表95%区間の端へ一つずつ置き換えて調べた。体重50／100 kgとAST 16／64 IU/Lも別々に変えた。共変量の指数や個体間変動の分散は、この感度解析では固定した。
+乱数seedを20261023に固定し、2,048組の同じ仮想個体へ二つの540 mg条件を与えた。公表された母集団モデルの推定値から仮想個体を生成してシミュレーションする使い方は、母集団モデリングの一般的な用法である ([7](#ref-7))。個体ごとに、135 mg × 4回の指標を180 mg × 3回の指標で割った個体内比を求め、2,048個の比の中央値と5–95パーセンタイルを報告する。係数の不確実性は、八つの分布・消失係数（cl、v1、q2、v2、q3、v3、q4、v4）を、公表95%区間の端へ一つずつ置き換えて調べた。体重50／100 kgとAST 16／64 IU/Lも別々に変えた。共変量の指数や個体間変動の分散は、この感度解析では固定した。
 
 ## 結果 {#article-results}
 
 ### 添付文書の393 Lは中央容積ではない {#393-l}
 
-審査資料のモデルでは、中央容積は7.31 Lで、三つの末梢容積との合計が392.62 Lになる ([4](#ref-4), Table 66)。添付文書の393 Lは、この合計に近い値であり、中央容積ではない。
+審査資料のモデルでは、中央容積は7.31 Lで、三つの末梢容積との合計が392.62 Lになる ([3](#ref-3), Table 66)。添付文書の393 Lは、この合計に近い値であり、中央容積ではない。
 
 ![公表モデルと、393 Lを中央容積にした単純モデルの違い。](shared/gedatolisib-rest-week/figures/model-check.png)
 
 **図1.** 左は180 mg単回点滴の計算。点線は添付文書の平均Cmax（最高濃度）という要約値であり、観測曲線ではない。右は公表モデルの単回投与後の尾部。基準個体（70 kg、AST 32 IU/L、個体間変動なし）の計算であり、閾値や臨床的なwashoutを示す図ではない。
 
-393 Lを中央容積にした単純モデルのピークは約456 ng/mLなのに対し、公表4-compartmentモデルの基準個体では約14,791 ng/mLだった。添付文書の平均Cmax 13,700 ng/mLより約8%高い ([3](#ref-3), section 12.3)。基準個体と臨床集団平均の比較なので、これを独立した予測検証とは呼ばない。
+393 Lを中央容積にした単純モデルのピークは約456 ng/mLなのに対し、公表4-compartmentモデルの基準個体では約14,791 ng/mLだった。添付文書の平均Cmax 13,700 ng/mLより約8%高い ([6](#ref-6), section 12.3)。基準個体と臨床集団平均の比較なので、これを独立した予測検証とは呼ばない。基準個体の値は、個体間変動を含む集団の平均とも一致しない。仮想個体での集団平均のCmaxは、本記事では計算していない。
 
 ### ピークを下げる代わりに第4週へ曝露を移す {#4}
 
@@ -116,9 +122,11 @@ AUC_{28\mathrm{d}}=1000\frac{\text{28日間の総投与量}}{CL}
 
 出力は `outputs/tables/typical-regimens.csv` による。周期的な状態の最高濃度（14,802 ng/mL）は、前周期からの持ち越しを含むため、単回投与のピーク（14,791 ng/mL）とわずかに異なる。
 
-540 mgを4回に分けると、ピークは約25%下がった。しかし、第4週AUCは約1,288から16,896 ng·h/mLへ増えた。周期AUCに対する割合では、約1.9%（1,288/67,584）から25%（16,896/67,584）への変化である。毎週同じ投与を繰り返す場合に各週のAUCが25%になるのは周期対称性の帰結であり、薬剤固有の発見ではない。一方、参照条件の約1.9%や低濃度の大きさはモデルに依存する。第4週AUCの比が約13倍なのは、参照条件の分母が小さいことも踏まえて読む。
+540 mgを4回に分けると、ピークは約25%下がった。しかし、第4週AUCは約1,288から16,896 ng·h/mLへ増えた。周期AUCに対する割合では、約1.9%（1,288/67,584）から25%（16,896/67,584）への変化である。毎週同じ投与を繰り返す場合に各週のAUCが25%になるのは周期対称性の帰結であり、薬剤固有の発見ではない。一方、参照条件の約1.9%や低濃度の大きさはモデルに依存する。第4週AUCの比が約13倍なのは、参照条件の分母が小さいことも踏まえて読む。分子（135 mgの1回量をクリアランスで割った値）は、クリアランスの推定の相対標準誤差が1.44%と小さいため安定している ([3](#ref-3), Table 66)。分母は遅い分布相に残る量に依存し、その推定は遅い末梢区画の容積とクリアランス（相対標準誤差7.84%、4.84%）に左右される ([3](#ref-3), Table 66)。
 
 周期末は、180 mg × 3回では最終点滴から約14日、135 mg × 4回では約7日となる。周期末濃度が上がることは、この間隔差の帰結であり、効果改善を示すものではない。180 mgを4回にする条件は総量が33%増えているので、同じ総量で配分を変えた比較とは区別する。
+
+この条件は、第1b相試験の180 mg毎週投与群に対応する。基準個体では、180 mg × 3回に比べて周期AUCが33%増え、第4週AUCは約17倍（22,528/1,288）になる。この群と3週投与1週休薬群の臨床成績の差には、休薬週の有無だけでなく、これらの曝露の差も含まれる ([3](#ref-3), PDF pp. 97–98)。
 
 初回周期では、同じ総量でも28日AUCは一致しない。基準個体では、180 mg × 3回が約65,670、135 mg × 4回が約65,057 ng·h/mLだった。
 
@@ -162,9 +170,9 @@ AUC_{28\mathrm{d}}=1000\frac{\text{28日間の総投与量}}{CL}
 
 ### 遅い尾部は添付文書の36 hと一致しない {#36}
 
-4-compartmentの固有値から得られる半減期は約0.27、1.78、27.7、286 hとなった。最も遅い数学的な相は、添付文書の36 hと一致しない。複数の相を持つモデルの一番遅い固有値を、臨床で観測される消失半減期と自動的に同一視しない。
+4-compartmentの固有値から得られる半減期は約0.27、1.78、27.7、286 hとなった。最も遅い数学的な相は、添付文書の36 hと一致しない。複数の相を持つモデルの一番遅い固有値を、臨床で観測される消失半減期と自動的に同一視しない。終末相の半減期は、クリアランスだけでなく分布の程度にも支配される量で、蓄積や平衡に達するまでの時間に関わる ([8](#ref-8))。添付文書の36 hが、観測時系列のどの区間から求められたかは、確認した資料に記載がない。
 
-審査資料は、臨床のAUC 21,400 ng·h/mLを定常状態の0–168 h値として記載している ([4](#ref-4), PDF p. 40)。実装モデルの参照条件では、第1–3週の各168 hのAUCは約21,870–22,277 ng·h/mLで、同じ桁だが一致はしない。資料に特定の週・同一基準個体の値が示されているわけではなく、これも独立検証には使わない。単回AUC∞の約22,528 ng·h/mLを、そのまま168 hのAUCと比較しない。
+審査資料は、臨床のAUC 21,400 ng·h/mLを定常状態の0–168 h値として記載している ([3](#ref-3), PDF p. 40)。実装モデルの参照条件では、第1–3週の各168 hのAUCは約21,870–22,277 ng·h/mLで、同じ桁だが一致はしない。資料に特定の週・同一基準個体の値が示されているわけではなく、これも独立検証には使わない。単回AUC∞の約22,528 ng·h/mLを、そのまま168 hのAUCと比較しない。
 
 特に休薬中の低濃度は、遅い区画と持ち越しの仮定に依存する。観測時系列を再取得して尾部を検証した解析ではないため、この濃度から「何日で薬理作用が消えるか」「何日で粘膜が回復するか」は計算できない。
 
@@ -174,17 +182,27 @@ AUC_{28\mathrm{d}}=1000\frac{\text{28日間の総投与量}}{CL}
 
 135 mgの毎週投与では、ピークが下がる一方、第4週の曝露が増えた。投与回数も周期あたり3回から4回になる。現在の3週投与・1週休薬との違いは、ピークだけでは表せない。
 
-ASCO 2026の抄録は、第1b相・第3相試験のPopPK・曝露解析で、gedatolisibの曝露と効果・安全性の間に明瞭な関係が見られなかったと報告し、現在の180 mg・3週投与／1週休薬を支持すると結論した ([2](#ref-2))。ただし、明瞭な関連が見られなかったことは、休薬が不要であることを意味しない。確認できたのは抄録のみで、曝露指標、時間窓、曝露の範囲は確認していない。
+ASCO 2026の抄録は、第1b相・第3相試験などをプールしたPopPK・曝露解析で、Cmax、Cmin、第1周期の累積AUCを指標にし、腫瘍サイズの変化、無増悪生存期間、最良総合効果に明瞭な関係を認めず、安全性指標とも統計的かつ臨床的に意味のある関係を認めなかったと報告した。結論は、現在の180 mg・3週投与／1週休薬を支持するというものである ([4](#ref-4))。FDAも、効果の曝露–反応は平坦と評価したが、データが単一の用量に限られるため慎重な解釈を求めた ([3](#ref-3), PDF p. 98)。安全性については、Cmaxを指標にした解析で、10〜319 mgの広い範囲でGrade 3以上の口内炎・粘膜炎、全Gradeの吐き気・嘔吐、減量・中止につながるGrade 3以上の有害事象と正の関係があるとした ([3](#ref-3), PDF pp. 88, 258)。一方、FDAは、プール解析で有意だった安全性の評価項目の一部が、CELC-G-301の各群内では有意でなかったとも述べる ([3](#ref-3), PDF p. 245)。抄録とFDAの記述は、用量範囲、曝露指標、層別の扱いが異なり、同じ結論には至っていない。抄録は要旨のみ確認したため、差の原因は特定できない。ただし、明瞭な関連が見られなかったことは、休薬が不要であることを意味しない。
 
-今回のPKモデルには、口内炎などの発現・回復は入っていない。第4週へ移った曝露が回復を妨げるのか、薬効維持に寄与するのかは計算しておらず、毎週135 mgの臨床的な優位性は示していない。
+今回のPKモデルには、口内炎などの発現・回復は入っていない。第4週へ移った曝露が回復を妨げるのか、薬効維持に寄与するのかは計算しておらず、毎週135 mgの臨床的な優位性は示していない。確認した資料の範囲では、同じ総量を別の配分で投与したときの週ごとの曝露を計算した報告はなかった。本記事の計算は、この空白を埋める最小限のPKの数値にとどまる。
+
+### この計算が変えること {#implications}
+
+周期AUCを曝露指標にした曝露–反応解析は、本記事の二つの配分を区別できない。同じ個体で周期AUCの比は1.000だが、最高濃度は0.75倍、周期内最低濃度は約1.6倍、第4週AUCは約13倍になるからである。したがって、配分の違いを評価するには、反応を決める曝露指標が何かを先に決める必要がある。Cmaxと安全性の関係を示したFDAの解析 ([3](#ref-3)) では、Cmaxを下げる配分は、この関係が因果的で新しい配分にも移るのであればリスクを下げる側に動く。休薬週の存在を効果の根拠とする申請者の仮説 ([3](#ref-3)) では、第4週の曝露を増やす配分は逆の側に動く。二つの根拠は逆の方向を指しており、PKだけではどちらが優るかは決まらない。
+
+効果の曝露–反応が平坦だという評価は、3週投与1週休薬の試験集団の中の曝露のばらつきに基づく ([3](#ref-3), PDF p. 98)。本記事の計算では、135 mg × 4回の第4週曝露は、同じ個体の180 mg × 3回の約13倍（5–95パーセンタイル 7.6–25.0）である。この個体内比と、試験集団の個体間分布の広さは異なる量であり、大小は比較していない。したがって、この平坦な関係を、第4週にも投与する配分へ移して「効果は変わらない」と読むことは、本記事の範囲では支持されない。
+
+B2151009の毎週投与群と休薬群の比較も、休薬週の寄与だけを示すものではない。毎週投与は周期AUCが33%多く、第4週AUCが約17倍になる。この比較は無作為化されておらず、追跡期間も異なる ([3](#ref-3), PDF p. 98)。したがって、臨床成績の差には、休薬週の有無、総量、集団の違いが重なっている。PK上の差は、総量と最終週の曝露の二つに分けられ、本記事はその大きさだけを与える。
 
 ### 限界 {#article-limitations}
 
-患者別の観測データを使わず、公表係数を再利用した計算である。尾部と休薬中の低濃度は観測時系列で検証していない。共分散は未公表で、感度条件として置いた。仮想個体は条件付きで、臨床集団の予測分布ではない。同時信頼区間も算出していない。併用薬のPK、投与中断、口内炎などの有害事象、薬力学（PD）は評価していない。
+患者別の観測データを使わず、公表係数を再利用した計算である。尾部と休薬中の低濃度は観測時系列で検証していない。第4週AUCの比の大きさは、参照条件の小さな第4週AUC、つまり遅い分布相の推定に依存する。共分散は未公表で、感度条件として置いた。仮想個体は条件付きで、臨床集団の予測分布ではない。同時信頼区間も算出していない。
+
+線形性は、添付文書が示す10〜319 mgの用量比例性と、時間不変のクリアランスを仮定している。本記事の計算は血漿中濃度であり、作用部位の濃度、PI3K/mTOR経路の阻害の持続、口内炎の発現・回復とは結び付けていない。併用薬のPK、投与中断、薬力学（PD）も評価していない。審査資料の申請者の記述は、FDAの評価と区別して引用したが、申請者の解析の詳細は確認していない。
 
 ## 結論 {#article-conclusion}
 
-公表PopPKモデルによる仮想条件では、540 mg/28日を135 mg × 4回へ配分するとピークは約25%下がったが、第4週AUCの割合は約1.9%から25%へ増えた。周期AUCが一致するのは線形モデルの収支であり、休薬週の曝露が保存されることを意味しない。この結論は、公表係数、独立と仮定した個体間変動、持ち越しの仮定に依存する。口内炎の回復、薬効、投与法の優劣は、今回のPK計算の範囲外である。
+公表PopPKモデルによる仮想条件では、540 mg/28日を135 mg × 4回へ配分するとピークは約25%下がったが、第4週AUCの割合は約1.9%から25%へ増えた。周期AUCが一致するのは線形モデルの収支であり、休薬週の曝露が保存されることを意味しない。この違いのため、周期AUCだけを曝露指標とする曝露–反応解析は、二つの配分を区別できない。どちらの配分が優れるかは、反応を決める曝露指標がCmaxか、休薬週の曝露かに依存し、確認した資料ではこの点が決着していない。この結論は、公表係数、独立と仮定した個体間変動、持ち越しの仮定に依存する。口内炎の回復、薬効、投与法の優劣は、今回のPK計算の範囲外である。
 
 ## データとコードの公開状況 {#_5}
 
@@ -197,6 +215,11 @@ ASCO 2026の抄録は、第1b相・第3相試験のPopPK・曝露解析で、ged
 ## 参照 {#_6}
 
 1. <span id="ref-1"></span>U.S. Food and Drug Administration. FDA approves gedatolisib with fulvestrant, with or without palbociclib, for HR-positive, HER2-negative locally advanced or metastatic breast cancer [Internet]. Silver Spring (MD): FDA; 2026 Jul 14 [cited 2026 Oct 29]. Available from: [https://www.fda.gov/drugs/resources-information-approved-drugs/fda-approves-gedatolisib-fulvestrant-or-without-palbociclib-hr-positive-her2-negative-locally](https://www.fda.gov/drugs/resources-information-approved-drugs/fda-approves-gedatolisib-fulvestrant-or-without-palbociclib-hr-positive-her2-negative-locally)
-2. <span id="ref-2"></span>Pistilli B, Hurvitz SA, Gunn L, Cacovean A, Rajagopalan P, Gorbatchevsky I, et al. Assessment of gedatolisib (geda) pharmacokinetics (PK), drug-drug interactions (DDI), and exposure-safety and exposure-efficacy relationships [conference abstract]. J Clin Oncol. 2026;44(16_suppl):e13069. [doi:10.1200/JCO.2026.44.16_suppl.e13069](https://doi.org/10.1200/JCO.2026.44.16_suppl.e13069).
-3. <span id="ref-3"></span>Celcuity Inc. REVTORPYK (gedatolisib) for injection, for intravenous infusion: prescribing information [Internet]. Bethesda (MD): DailyMed; revised 2026 Jul [cited 2026 Oct 29]. Available from: [https://www.dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=959d73ef-831f-4005-956c-210702270bda](https://www.dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=959d73ef-831f-4005-956c-210702270bda)
-4. <span id="ref-4"></span>U.S. Food and Drug Administration, Center for Drug Evaluation and Research. NDA/BLA multi-disciplinary review and evaluation, NDA 219908, REVTORPYK (gedatolisib) [Internet]. Silver Spring (MD): FDA; 2026 [cited 2026 Oct 29]. Available from: [https://www.accessdata.fda.gov/drugsatfda_docs/nda/2026/219908Orig1s000MultidisciplineR.pdf](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2026/219908Orig1s000MultidisciplineR.pdf)
+2. <span id="ref-2"></span>Venkatesan AM, Dehnhardt CM, Delos Santos E, Chen Z, Dos Santos O, Ayral-Kaloustian S, et al. Bis(morpholino-1,3,5-triazine) derivatives: potent adenosine 5'-triphosphate competitive phosphatidylinositol-3-kinase/mammalian target of rapamycin inhibitors: discovery of compound 26 (PKI-587), a highly efficacious dual inhibitor. J Med Chem. 2010;53(6):2636–2645. [doi:10.1021/jm901830p](https://doi.org/10.1021/jm901830p).
+3. <span id="ref-3"></span>U.S. Food and Drug Administration, Center for Drug Evaluation and Research. NDA/BLA multi-disciplinary review and evaluation, NDA 219908, REVTORPYK (gedatolisib) [Internet]. Silver Spring (MD): FDA; 2026 [cited 2026 Oct 29]. Available from: [https://www.accessdata.fda.gov/drugsatfda_docs/nda/2026/219908Orig1s000MultidisciplineR.pdf](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2026/219908Orig1s000MultidisciplineR.pdf)
+4. <span id="ref-4"></span>Pistilli B, Hurvitz SA, Gunn L, Cacovean A, Rajagopalan P, Gorbatchevsky I, et al. Assessment of gedatolisib (geda) pharmacokinetics (PK), drug-drug interactions (DDI), and exposure-safety and exposure-efficacy relationships [conference abstract]. J Clin Oncol. 2026;44(16_suppl):e13069. [doi:10.1200/JCO.2026.44.16_suppl.e13069](https://doi.org/10.1200/JCO.2026.44.16_suppl.e13069).
+5. <span id="ref-5"></span>Hurvitz SA, Layman RM, Curigliano G, André F, Cristofanilli M, Kim SB, et al. VIKTORIA-1 trial of gedatolisib plus fulvestrant with or without palbociclib in hormone receptor-positive/HER2-negative/PIK3CA wild-type advanced breast cancer. J Clin Oncol. 2026;44(12):1108–1119. [doi:10.1200/JCO-25-02643](https://doi.org/10.1200/JCO-25-02643).
+6. <span id="ref-6"></span>Celcuity Inc. REVTORPYK (gedatolisib) for injection, for intravenous infusion: prescribing information [Internet]. Bethesda (MD): DailyMed; revised 2026 Jul [cited 2026 Oct 29]. Available from: [https://www.dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=959d73ef-831f-4005-956c-210702270bda](https://www.dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=959d73ef-831f-4005-956c-210702270bda)
+7. <span id="ref-7"></span>Mould DR, Upton RN. Basic concepts in population modeling, simulation, and model-based drug development. CPT Pharmacometrics Syst Pharmacol. 2012;1:e6. [doi:10.1038/psp.2012.4](https://doi.org/10.1038/psp.2012.4).
+8. <span id="ref-8"></span>Toutain PL, Bousquet-Mélou A. Plasma terminal half-life. J Vet Pharmacol Ther. 2004;27(6):427–439. [doi:10.1111/j.1365-2885.2004.00600.x](https://doi.org/10.1111/j.1365-2885.2004.00600.x).
+9. <span id="ref-9"></span>Bergstrand M, Hooker AC, Wallin JE, Karlsson MO. Prediction-corrected visual predictive checks for diagnosing nonlinear mixed-effects models. AAPS J. 2011;13(2):143–151. [doi:10.1208/s12248-011-9255-z](https://doi.org/10.1208/s12248-011-9255-z).

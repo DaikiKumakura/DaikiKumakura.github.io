@@ -10,14 +10,14 @@
   "locales": {
     "ja": {
       "title": "がんで痩せ始めたのはいつか。悪液質データの時間軸を調べる",
-      "summary": "52,236人の公開エピソード表を集計し、開始・閾値到達・最低BMI・終了の違いを読む。患者と区間の分母を分け、体重減少の定義と予測に使える情報の時刻を確かめる。",
+      "summary": "52,236人の公開エピソード表を集計し、基準日・最低BMI・終了の違いを読む。原著本文とコードで時刻の定義を確かめ、血液解析とリスク予測が先行性を検証していない理由を示す。",
       "seo_title": "がんで痩せ始めたのはいつか。悪液質データの時間軸を調べる"
     },
     "en": {
       "title": "Cancer cachexia episodes and the prediction clock",
-      "summary": "A cachexia episode-table audit distinguishes retrospective interval starts, threshold crossing, nadir, and information available for prospective prediction.",
+      "summary": "A cachexia episode-table audit, checked against the paper's text and code, distinguishes retrospective interval starts, nadir, and end, and shows why its blood analyses and risk models do not test lead time.",
       "seo_title": "Cancer cachexia episodes and the prediction clock",
-      "seo_description": "A cachexia episode-table audit distinguishes retrospective interval starts, threshold crossing, nadir, and information available for prospective prediction."
+      "seo_description": "An audit of a 52,236-patient cachexia table separates retrospective episode timing from prospective blood biomarker prediction."
     }
   },
   "english": {
@@ -25,6 +25,6 @@
     "summary": "An aggregate audit of a public 52,236-patient cachexia table distinguishes retrospective window baselines, threshold attainment, eventual nadirs and episode ends. No blood biomarker forecasting or survival model is fitted."
   },
   "reviewed": {
-    "en": "a4a17562addd01d8f688eb47721c9cf83f2cc55cc7480f276e63f52e9019d230"
+    "en": "30a84bc84b2d8f0c1dfe35b5f7572db43f84024484a49c342dfa4a6123dc3569"
   }
 }
