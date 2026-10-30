@@ -1,0 +1,25 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2026-12-08",
+  "draft": false,
+  "math": false,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "AI設計タンパク質の「当たり率」は、何をそろえれば比べられるか：Bits to Binders、Claude、Pythia-1",
+      "summary": "Bits to Binders（12,000個）とClaudeの毒素結合体（211個）の公開データから、AI設計タンパク質の当たり率が、閾値・分母・検査機関の定義でどれだけ動くかを数えた。同じ実験で0.7%〜16.7%、Claudeは公表の基準で17/211（8.1%）、緩めると19〜23%になった。",
+      "key_findings": [
+        "Bits to Binders の12,000個で、閾値と分母を変えると、当たり率は0.7%〜16.7%になった。",
+        "Claudeの結合体は、公表の基準で17/211（8.1%）。基準を緩めると、検査機関1つで19.4%、どちらかで23.2%になった。",
+        "チーム別の当たり率の差は、1チームが大きく生み、低い側には回収率が低いチームなどが含まれた。比べるには測定法・閾値・反復・対照・事前選別・分母をそろえる必要がある。"
+      ]
+    }
+  },
+  "publish_at": "2026-12-08T09:00:00+09:00",
+  "english": {
+    "title": "What must be aligned to compare hit rates of AI-designed proteins: Bits to Binders, Claude, Pythia-1",
+    "summary": "Using public data from Bits to Binders (12,000 designs) and Anthropic's scorpion-toxin binder set (211 designs), hit rates range from 0.7% to 16.7% in the same experiment depending on threshold and denominator; Claude's published criterion gives 17/211 (8.1%), and looser criteria give 19% to 23%."
+  }
+}

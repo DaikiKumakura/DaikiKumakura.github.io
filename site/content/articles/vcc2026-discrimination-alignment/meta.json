@@ -1,0 +1,25 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2026-12-06",
+  "draft": false,
+  "math": false,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "識別0.86、整合0.08は起こりうるか：Virtual Cell Challengeの参加者の振り返りを、公開データで考える",
+      "summary": "Virtual Cell Challenge参加者の振り返りにある「識別0.86、整合0.08」が起こりうるかを、公開のNormanデータで確かめた。実測を2細胞平均した予測は、整合0.16でも識別0.89になり、識別は評価の規則にも左右された。",
+      "key_findings": [
+        "実測の細胞を2個だけ平均した予測は、整合0.16、識別0.89。1個なら整合0.11、識別0.83で、参加者の報告に近い値になった（予測の質を示すものではない）。",
+        "他の摂動の平均を返す予測は、整合0.50でも識別0.49と偶然並みだった。",
+        "標的遺伝子だけを予測する内容の乏しい予測は、遺伝子を除かない規則で識別0.98、cell-eval2の既定の規則で0.50だった。"
+      ]
+    }
+  },
+  "publish_at": "2026-12-06T09:00:00+09:00",
+  "english": {
+    "title": "Can discrimination 0.86 with alignment 0.08 occur? Considering a Virtual Cell Challenge write-up with public data",
+    "summary": "Using public Norman et al. CRISPRa data, predictions with low alignment can still score high on the perturbation discrimination score: a two-cell average of real cells gives alignment 0.16 and discrimination 0.89, and the score depends on the exclusion rule. This does not reproduce the challenge scoring."
+  }
+}

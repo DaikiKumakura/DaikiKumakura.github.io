@@ -1,0 +1,25 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2026-12-07",
+  "draft": false,
+  "math": false,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "日本の通常用量は1 mg、試験では2 mgが多く使われた：オベポレキストンの用量を、公開された試験結果から読む",
+      "summary": "武田のオレキシン作動薬オベポレキストンの3試験の公開結果から、日本の通常用量1 mgと2 mgの差、同じ2 mgの試験間の違い、投与の仕方の差を数えた。FirstLightで2 mgと1 mgのMWT差は3.4分（−0.1〜6.8）、副作用の頻度はほぼ同じだった。",
+      "key_findings": [
+        "FirstLightで、MWTのプラセボとの差は1 mg群13.8分、2 mg群17.2分。2 mgと1 mgの差は3.4分で、95%信頼区間は近似の選び方で−0.1〜6.8（独立の近似）または0.5〜6.2（共通のプラセボを考慮）と、下限が0の近くで変わった。",
+        "不眠は1 mg群53%、2 mg群58%、頻尿は53%と55%で、報告された4事象で用量による大きな差は見えなかったが、各群60人台で小さな差は除けない。",
+        "同じ2 mg×2/日のMWT変化は、第2b相23.5分、FirstLight 15.9分、RadiantLight 19.1分で、試験間の違いは偶然では説明しにくかった（Q検定 p = 0.004）。"
+      ]
+    }
+  },
+  "publish_at": "2026-12-07T09:00:00+09:00",
+  "english": {
+    "title": "Oveporexton: 1 mg versus 2 mg twice daily, read from posted trial results",
+    "summary": "Using posted ClinicalTrials.gov results from three oveporexton trials, the 2 mg vs 1 mg twice-daily difference in MWT sleep latency in FirstLight is 3.4 minutes (approximate 95% CI -0.1 to 6.8 assuming independence, 0.5 to 6.2 with a shared placebo), with similar rates of insomnia and pollakiuria; the same 2 mg regimen varied from 15.9 to 23.5 minutes across trials."
+  }
+}

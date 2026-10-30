@@ -1,0 +1,25 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2026-12-11",
+  "draft": false,
+  "math": false,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "「バイオ・ブーム」の10の見出しを、公開資料の数字で並べ直す：何が承認され、何が途中なのか",
+      "summary": "「バイオ・ブーム」の10の見出しを、企業発表・FDA・二次報道で確かめた（2026年10月30日時点）。承認済みは2つで、遺伝性血管性浮腫の87%（発作の減少率、発作なしは62%）など、数字の測り方で読み間違いやすい項目があった。",
+      "key_findings": [
+        "承認の対象になりうる8項目のうち、承認済みはdaraxonrasib（膵がん）とdostarlimab（直腸がん、加速承認）の2つで、残りは承認前か第1相だった。",
+        "87%は発作の減少率で、発作なしは62%。42%はHR 0.58に由来するハザードの減少で、24か月の無再発生存の差は約12ポイント。LDL −62%は第1相の最高用量群（約7例）の平均だった。",
+        "元の投稿と、雑誌本文・個別登録の多くは直接確認できておらず、数値は企業発表・FDA・二次報道の記載である。"
+      ]
+    }
+  },
+  "publish_at": "2026-12-11T09:00:00+09:00",
+  "english": {
+    "title": "Ten 'bio boom' headlines re-read against public sources: what is approved and what is still in progress",
+    "summary": "Of ten headlines, eight concern products that could be approved, and two of those are approved as of 2026-10-30 (daraxonrasib in pancreatic cancer; dostarlimab in rectal cancer, accelerated). Several numbers are easy to misread: 87% in hereditary angioedema is an attack-rate reduction (62% were attack-free); the 42% in the melanoma vaccine is a hazard reduction (HR 0.58). Many primary texts were not read directly."
+  }
+}

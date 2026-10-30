@@ -1,0 +1,25 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2026-12-10",
+  "draft": false,
+  "math": false,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "「アイデアから有望なマウス結果まで18か月未満」は何を指すか：Anthropicによる一人会社Mithril Medicine買収の発表を読む",
+      "summary": "Anthropicが買収した一人会社Mithril Medicineの「アイデアから有望なマウス結果まで18か月未満」が何を指すかを、Anthropicの記事と技術報告書で確かめた。18か月は前臨床のマウス結果までで、ヒト試験開始は早ければ2020年代の終わり近くという条件つきの予測である。筆者のAIは買収した側のモデルである。",
+      "key_findings": [
+        "「18か月」は、アイデアからマウスでの結果までの期間で、INDの準備が終わるまでではない。ヒト試験の開始は早ければ2020年代の終わり近くという、条件つきの予測として書かれている。",
+        "試験された分子は公開配列のツール分子2つで、マウスの結果は最大の力1.95倍（95%信頼区間1.51〜2.51）。litter単位の検定はP=0.057で、報告書自身が無作為化・盲検なしなどの限界を書いている。",
+        "AIの下書きと人間の絞り込み・確認の分担が報告書に書かれており、詳しく調べた6件の誤りのうちClaude自身が5件を見つけており、人間が編集して送ったメールでも少なくとも3件がCROに届いた。"
+      ]
+    }
+  },
+  "publish_at": "2026-12-10T09:00:00+09:00",
+  "english": {
+    "title": "What does the under-18-months from idea to promising mouse results cover? Reading the Mithril Medicine acquisition announcement",
+    "summary": "Reading Anthropic's own announcement and technical report (both by the acquirer; the announcement was checked through a fetch summary), the 18-month figure covers idea to mouse results, not IND readiness; first-in-human is projected, conditionally, for late in the 2020s. The author is a model made by the acquirer, which is disclosed; deal terms are not public."
+  }
+}
