@@ -1,0 +1,26 @@
+{
+  "method": "Arithmetic on printed 24-month estimates; hypothetical constant and piecewise exponential models",
+  "not_a_trial_curve_reconstruction": true,
+  "source_rfs_control": 0.7,
+  "source_rfs_combination": 0.822,
+  "risk_control": 0.30000000000000004,
+  "risk_combination": 0.17800000000000005,
+  "absolute_risk_reduction": 0.122,
+  "risk_ratio_at_24_months": 0.5933333333333334,
+  "relative_risk_reduction_at_24_months": 0.4066666666666666,
+  "reciprocal_absolute_risk_reduction_at_24_months": 8.19672131147541,
+  "control_hazard_per_year": 0.17833747196936622,
+  "constant_effect_ratio": 0.549561687068289,
+  "delayed_effect_ratio_after_six_months": 0.39941558275771866,
+  "hypothetical_rfs_at_6_months_constant": 0.9521775866567386,
+  "hypothetical_rfs_at_6_months_delayed": 0.9146912192286945,
+  "checks": {
+    "control_24m": 0.7,
+    "constant_24m": 0.822,
+    "delayed_24m": 0.822
+  },
+  "environment": {
+    "python": "3.12.4",
+    "matplotlib": "3.9.1"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "category": "essay",
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "AIは培養槽まで予測できるか。バイオ医薬品製造のデジタルツイン",
+      "summary": "酸素収支を使う仮想計算で、同じ培養条件に一致するモデルが設備変更後に分かれる理由を調べる。",
+      "seo_title": "バイオ医薬品製造のAIとデジタルツイン",
+      "seo_description": "酸素収支を使う仮想計算で、同じ培養条件に一致するモデルが設備変更後に分かれる理由を調べる。"
+    },
+    "en": {
+      "title": "Can AI transfer between bioreactors? Digital twins for biomanufacturing",
+      "summary": "A synthetic oxygen-balance example shows why models calibrated at one condition can disagree after mass transfer changes.",
+      "seo_title": "AI bioreactor transfer and manufacturing digital twins",
+      "seo_description": "A synthetic oxygen-balance example shows why models calibrated at one condition can disagree after mass transfer changes."
+    }
+  },
+  "date": "2026-12-06",
+  "publish_at": "2026-12-06T18:00:00+09:00",
+  "draft": false,
+  "reviewed": {
+    "en": "af323af219ef062b848c1066f82e52ea886f846cb14285b4621c2dc055d1271f"
+  }
+}

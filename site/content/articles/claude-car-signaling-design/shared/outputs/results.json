@@ -1,0 +1,27 @@
+{
+  "inputs": {
+    "icd_aa_reference": 154,
+    "icd_aa_compact": 45,
+    "antigen_ec50_reference_molecules_per_target": 650,
+    "antigen_ec50_compact_molecules_per_target": 1130
+  },
+  "icd_reduction_percent": 70.7792207792208,
+  "antigen_ec50_ratio": 1.7384615384615385,
+  "illustrative_initial_gain": 8.4,
+  "illustrative_extension_in_half_lives": 3.070389327891398,
+  "illustrative_half_lives_days": [
+    1,
+    2,
+    3
+  ],
+  "illustrative_extension_days": [
+    3.070389327891398,
+    6.140778655782796,
+    9.211167983674194
+  ],
+  "versions": {
+    "python": "3.12.4",
+    "numpy": "2.2.6",
+    "matplotlib": "3.9.1"
+  }
+}

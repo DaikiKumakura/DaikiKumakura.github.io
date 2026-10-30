@@ -1,0 +1,33 @@
+{
+  "source_language": "ja",
+  "category": "essay",
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "tags": [
+    "AI drug discovery",
+    "Perturbation",
+    "Disease progression",
+    "Causal inference"
+  ],
+  "locales": {
+    "ja": {
+      "title": "AI創薬は介入の時期を選べるか。Etceleraの構想を病態の可逆性から読む",
+      "summary": "Etceleraが統合する細胞状態・病態の時間軸・摂動の技術を検討する。細胞の回復後にも残る履歴と治療開始の比較を通じ、病期を分類することと介入時期を選ぶことの違いを考える。",
+      "seo_title": "EtceleraのAI創薬は介入時期を選べるか",
+      "seo_description": "Cellarity・Etiome・Empressを統合するEtceleraの構想を、細胞状態の可逆性と治療開始時期の因果比較から読む。公開情報の限界も整理する。"
+    },
+    "en": {
+      "title": "Can AI drug discovery choose when to intervene? Reading Etcelera through disease reversibility",
+      "summary": "Etcelera proposes connecting cell states, disease time, and perturbations. Cellular history after recovery and a treatment-initiation estimand distinguish accurate staging from evidence for choosing an intervention time.",
+      "seo_title": "Can Etcelera's AI choose when to intervene in disease?",
+      "seo_description": "An assessment of Etcelera's proposal through cell-state reversibility, retained cellular history, and causal comparisons of treatment initiation."
+    }
+  },
+  "date": "2026-12-07",
+  "publish_at": "2026-12-07T18:00:00+09:00",
+  "draft": false,
+  "reviewed": {
+    "en": "3fba59915596e02cdd8e461c6fe02018bc7fbcd09cd348d6629d714e965c7b27"
+  }
+}

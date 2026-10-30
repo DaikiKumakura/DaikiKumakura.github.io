@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "category": "essay",
+  "math": true,
+  "author": "Daiki Kumakura",
+  "version": "1.0",
+  "locales": {
+    "ja": {
+      "title": "ClaudeがCAR-Tのシグナル伝達部を70%短縮した。何が薬効を高めたのか",
+      "summary": "Generate Biomedicinesの小型CAR設計を発現量・抗原感度・機能持続に分けて読む。公表値と説明用計算から同じmRNA量での比較が支持する範囲を確かめる。",
+      "seo_description": "小型CARの発現量・抗原感度・機能持続を分け、公表値と説明用計算で比較条件を確かめる。",
+      "seo_title": "ClaudeによるCAR-Tの小型化と受容体発現"
+    },
+    "en": {
+      "title": "Claude-assisted compact CAR-T design: separating receptor expression from signaling",
+      "summary": "Separate expression, antigen sensitivity and functional duration in Generate Biomedicines' compact CAR design, using reported aggregate values and explicitly illustrative calculations.",
+      "seo_description": "Reported values and illustrative calculations distinguish receptor expression, antigen sensitivity and functional duration in compact CAR designs.",
+      "seo_title": "Claude CAR-T design: expression versus signaling"
+    }
+  },
+  "date": "2026-12-05",
+  "publish_at": "2026-12-05T13:00:00+09:00",
+  "draft": false,
+  "reviewed": {
+    "en": "5849de1752ca348b1516fd972d88ea5f47bd56a8188ddcc7d946773eb31f99bd"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "category": "essay",
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "Claudeによる抗体設計で見えた「融解温度」の落とし穴",
+      "summary": "熱変性と凝集を区別し、仮想モデルで濃度・加熱速度が天然状態単量体の残存温度を変えることを確かめる。",
+      "seo_title": "Claudeの抗体設計と融解温度の落とし穴",
+      "seo_description": "熱変性と凝集を区別し、仮想モデルで濃度・加熱速度が天然状態単量体の残存温度を変えることを確かめる。"
+    },
+    "en": {
+      "title": "Claude antibody engineering and the pitfalls of melting temperature",
+      "summary": "A synthetic unfolding–aggregation model separates equilibrium stability from condition-dependent native monomer loss.",
+      "seo_title": "Claude antibody design and melting-temperature pitfalls",
+      "seo_description": "A synthetic unfolding–aggregation model separates equilibrium stability from condition-dependent native monomer loss."
+    }
+  },
+  "date": "2026-12-05",
+  "publish_at": "2026-12-05T18:00:00+09:00",
+  "draft": false,
+  "reviewed": {
+    "en": "ad1eb093ca5b9a4f433a32ecf6712121c9ee3a852dc8f572cfe80ca70de11c84"
+  }
+}
