@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2026-12-05",
+  "publish_at": "2026-12-05T09:00:00+09:00",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "SavolitinibのAUCを合わせても代謝物の曝露は戻らない",
+      "summary": "公開DDI試験の集計PKから親薬物のAUCを合わせた後に残る活性代謝物M2の曝露差を計算する。",
+      "seo_title": "Savolitinibとfluvoxamineの親薬物・M2曝露",
+      "seo_description": "親薬物のAUCを合わせた後のM2曝露を公開DDI比で計算。相関不明の不確実性とCL/Fの識別限界を調べる。"
+    },
+    "en": {
+      "title": "Matching savolitinib AUC does not restore metabolite exposure",
+      "summary": "Public DDI ratios quantify the remaining M2 exposure difference after arithmetic parent-AUC matching.",
+      "seo_title": "Savolitinib parent and M2 exposure during a DDI",
+      "seo_description": "An aggregate-data calculation of parent-AUC matching, active M2 exposure and nonidentifiability of clearance and bioavailability."
+    }
+  },
+  "reviewed": {
+    "en": "55b12d583e09de6d582dd8d63e0a980833d11d80b9a07084e58e450d3834cb7f"
+  }
+}
