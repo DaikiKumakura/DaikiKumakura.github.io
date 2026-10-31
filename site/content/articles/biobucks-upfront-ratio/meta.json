@@ -1,25 +1,27 @@
 {
   "source_language": "ja",
-  "category": "note",
-  "date": "2026-12-09",
-  "draft": false,
+  "category": "essay",
   "math": false,
-  "version": "1.0",
   "author": "Daiki Kumakura",
+  "version": "1.0",
   "locales": {
     "ja": {
-      "title": "「総額150億ドル」のうち、前払金はいくらか：2026年秋の創薬提携18件を数える",
-      "summary": "2026年秋を中心とする創薬提携18件の公開情報から、見出しの「総額」に占める前払金の割合を数えた。前払金が公表された15件で中央値4.1%（四分位範囲3.3〜7.6%）、合計では5.0%だった。",
-      "key_findings": [
-        "前払金が公表された15件で、前払金は総額の中央値4.1%（四分位範囲3.3〜7.6%、範囲2.5〜18.8%）。合計では5.0%だった。",
-        "AI創薬の5件は中央値3.0%、それ以外の10件は6.1%で、探索的な比較である。",
-        "「前払金」の定義（契約時の支払いのみか、近い時期の支払いを含むか）で、割合は最大約2.2倍動いた。"
-      ]
+      "title": "「総額150億ドル」のうち前払金はどれだけを占めるか：2026年秋を中心とする創薬提携18件の集計",
+      "summary": "2026年秋を中心とする創薬提携18件の公開情報から、見出しの総額に占める前払金の割合を数えた。前払金が公表された15件で中央値4.1%、合計で5.0%だったが、標本は偏り、発表文書を確認できたのは5件のみで、定義の違いで割合は最大約2.2倍動く。",
+      "seo_description": "創薬提携18件のうち前払金が公表された15件で、総額に占める前払金の割合は中央値4.1%。標本の偏りと前払金の定義の違いを併記する。",
+      "seo_title": "創薬提携の総額と前払金の割合18件の集計"
+    },
+    "en": {
+      "title": "What share of a \"$15 billion\" headline value is upfront? A count of 18 drug-discovery deals, mostly from autumn 2026",
+      "summary": "In 15 of 18 drug-discovery deals with a disclosed upfront payment, the upfront was a median 4.1% of the headline total (5.0% pooled). The sample is biased, and the definition of upfront moves the share by up to about 2.2-fold.",
+      "seo_description": "Upfront payment as a share of the headline total in 15 drug-discovery deals with disclosed upfronts: median 4.1%, with sample bias and definition effects.",
+      "seo_title": "Upfront share of drug-deal headline totals"
     }
   },
+  "date": "2026-12-09",
   "publish_at": "2026-12-09T09:00:00+09:00",
-  "english": {
-    "title": "How much of a headline total deal value is upfront? Counting 18 drug-discovery deals, mostly from autumn 2026",
-    "summary": "Across 15 recent drug-discovery deals with disclosed upfronts, the upfront payment is a median 4.1% of the headline total (IQR 3.3% to 7.6%), and 5.0% of the pooled total. The definition of upfront moves the share by up to about 2.2-fold; the sample is not representative of all deals."
+  "draft": false,
+  "reviewed": {
+    "en": "24f4b5515327483832f98e5309a0075c3bfb690ee8fdcbcca2adbcaa52b637f2"
   }
 }

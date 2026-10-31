@@ -1,25 +1,27 @@
 {
   "source_language": "ja",
-  "category": "note",
-  "date": "2026-12-08",
-  "draft": false,
+  "category": "essay",
   "math": false,
-  "version": "1.0",
   "author": "Daiki Kumakura",
+  "version": "1.0",
   "locales": {
     "ja": {
-      "title": "AI設計タンパク質の「当たり率」は、何をそろえれば比べられるか：Bits to Binders、Claude、Pythia-1",
-      "summary": "Bits to Binders（12,000個）とClaudeの毒素結合体（211個）の公開データから、AI設計タンパク質の当たり率が、閾値・分母・検査機関の定義でどれだけ動くかを数えた。同じ実験で0.7%〜16.7%、Claudeは公表の基準で17/211（8.1%）、緩めると19〜23%になった。",
-      "key_findings": [
-        "Bits to Binders の12,000個で、閾値と分母を変えると、当たり率は0.7%〜16.7%になった。",
-        "Claudeの結合体は、公表の基準で17/211（8.1%）。基準を緩めると、検査機関1つで19.4%、どちらかで23.2%になった。",
-        "チーム別の当たり率の差は、1チームが大きく生み、低い側には回収率が低いチームなどが含まれた。比べるには測定法・閾値・反復・対照・事前選別・分母をそろえる必要がある。"
-      ]
+      "title": "AI設計タンパク質の当たり率を比べる条件：3つの発表の公開値の再集計",
+      "summary": "同じ12,000個の実験でも、閾値と分母で当たり率は0.7%から16.7%まで動く。Claudeの毒素結合体は基準により8.1%から23.2%になる。3つの発表で異なる6つの条件を整理した。",
+      "seo_description": "Bits to Binders・Claude・Pythia-1の当たり率を、閾値・分母・反復・対照の定義から公開データで再集計し、比較の条件を整理する。",
+      "seo_title": "AI設計タンパク質の当たり率を比べる条件"
+    },
+    "en": {
+      "title": "Conditions for comparing hit rates of AI-designed proteins: a recount of public values from three reports",
+      "summary": "For the same 12,000 designs, the hit rate ranges from 0.7% to 16.7% depending on threshold and denominator; Claude's toxin binders range from 8.1% to 23.2% by criterion. The three reports differ in six conditions.",
+      "seo_description": "Recounting public data from Bits to Binders, Claude and Pythia-1 to show how threshold, denominator, replication and controls change hit rates.",
+      "seo_title": "Comparing hit rates of AI-designed proteins"
     }
   },
+  "date": "2026-12-08",
   "publish_at": "2026-12-08T09:00:00+09:00",
-  "english": {
-    "title": "What must be aligned to compare hit rates of AI-designed proteins: Bits to Binders, Claude, Pythia-1",
-    "summary": "Using public data from Bits to Binders (12,000 designs) and Anthropic's scorpion-toxin binder set (211 designs), hit rates range from 0.7% to 16.7% in the same experiment depending on threshold and denominator; Claude's published criterion gives 17/211 (8.1%), and looser criteria give 19% to 23%."
+  "draft": false,
+  "reviewed": {
+    "en": "842e1bf9bd63ecb5daa4084e458ccb492468c2fb53ce9f9031267f31597e530f"
   }
 }
