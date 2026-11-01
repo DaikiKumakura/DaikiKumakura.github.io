@@ -1,0 +1,15 @@
+{
+  "scope": "Hypothetical multinomial sampling; no biological potency labels or method benchmark",
+  "profiles": {
+    "uniform": {
+      "entropy_nats": 4.605170185988091,
+      "effective_genes": 99.99999999999996
+    },
+    "dominant": {
+      "entropy_nats": 1.419426393565106,
+      "effective_genes": 4.134748041821483
+    }
+  },
+  "python": "3.12.4",
+  "matplotlib": "3.9.1"
+}

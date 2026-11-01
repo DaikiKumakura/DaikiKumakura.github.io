@@ -1,0 +1,4 @@
+case,row_a,row_b,naive_sum,shared,distinct_molecules
+disjoint,8,5,13,0,13
+overlap,8,5,13,4,9
+duplicated,8,8,16,8,8

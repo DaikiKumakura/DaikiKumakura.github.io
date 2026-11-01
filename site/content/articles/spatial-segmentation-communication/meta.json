@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "author": "Daiki Kumakura",
+  "category": "note",
+  "math": true,
+  "version": "1.0",
+  "locales": {
+    "ja": {
+      "title": "空間トランスクリプトームの細胞間通信は境界線で変わる",
+      "summary": "細胞分割法の比較論文を読み、RNAの持ち主だけを変える仮想計算でリガンド・受容体の発現積を調べる。組織全体の発現量が同じでも通信候補が変わる理由を示す。",
+      "seo_title": "空間トランスクリプトームの細胞分割と通信推定",
+      "seo_description": "細胞分割がリガンド・受容体推定へ及ぼす影響を原著と仮想計算から検討。RNA割当、発現積、標的陽性判定を区別し、境界の不確かさを考える。"
+    },
+    "en": {
+      "title": "Cell boundaries can change inferred communication in spatial transcriptomics",
+      "summary": "A segmentation benchmark and a hypothetical transcript-reassignment calculation show how ligand–receptor expression products can change while total tissue expression stays constant.",
+      "seo_title": "Cell segmentation and spatial communication inference",
+      "seo_description": "A synthetic RNA-reassignment example shows how cell boundaries change ligand-receptor expression products without changing tissue-wide RNA totals."
+    }
+  },
+  "date": "2026-12-10",
+  "publish_at": "2026-12-10T09:00:00+09:00",
+  "draft": false,
+  "reviewed": {
+    "en": "45af7b2cda9f60fe6d12e429e34578d816b52611c5d78b479c0df66bbdd7c99f"
+  }
+}

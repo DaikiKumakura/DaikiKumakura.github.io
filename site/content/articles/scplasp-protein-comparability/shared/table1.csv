@@ -1,0 +1,4 @@
+hypothetical_universe,detection_probability,one_cell_expected,two_cells_shared_expected,ten_cells_shared_expected
+8000,0.50,4000.0,2000.0,7.8
+8000,0.75,6000.0,4500.0,450.5
+8000,0.90,7200.0,6480.0,2789.4

@@ -1,0 +1,26 @@
+{
+  "source_language": "ja",
+  "author": "Daiki Kumakura",
+  "category": "essay",
+  "math": true,
+  "locales": {
+    "ja": {
+      "title": "がんワクチンAIは何を陰性として学んでいるのか",
+      "summary": "BenchMHCの報告を入口に、人工的な負例の作り方が抗原提示AIの評価を変える理由を検討する。配列の出自だけを使う計算例で高いAUCが生じる条件を示し、候補順位と実験・臨床での成功を分ける。",
+      "seo_title": "がんワクチンAIの陰性データとBenchMHC",
+      "seo_description": "BenchMHCの報告と公開資料を読み、負例生成がMHC提示予測の評価に与える影響を検討。配列一致だけで高いAUCが生じる条件を計算する。"
+    },
+    "en": {
+      "title": "What does cancer-vaccine AI learn to reject? Negative sampling in BenchMHC",
+      "summary": "Using the BenchMHC report as a starting point, an analytical example shows how sequence-origin imbalance alone can produce high AUC without MHC-binding information. Negative generation, antigen-candidate ranking and therapeutic success are distinguished.",
+      "seo_title": "Cancer-vaccine AI and negative sampling in BenchMHC",
+      "seo_description": "A binary-feature calculation shows how artificial MHC decoys can inflate ROC-AUC without establishing peptide presentation or cancer-vaccine candidate ranking."
+    }
+  },
+  "date": "2026-12-09",
+  "publish_at": "2026-12-09T18:00:00+09:00",
+  "draft": false,
+  "reviewed": {
+    "en": "6672e40e662fdfb06acde0535322a961b361b9c975618b74ad1d2aef865a2719"
+  }
+}

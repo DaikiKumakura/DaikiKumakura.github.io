@@ -1,0 +1,5 @@
+condition,positive_match_probability,decoy_match_probability,roc_auc
+reported_lower,0.86,0.12,0.870
+reported_upper,0.99,0.12,0.935
+hypothetical_matched,0.86,0.86,0.500
+hypothetical_all_match,1.00,1.00,0.500

@@ -1,0 +1,69 @@
+{
+  "data_type": "synthetic deterministic examples, not biological observations",
+  "python": "3.12.4",
+  "set_examples": [
+    {
+      "case": "disjoint",
+      "row_a": 8,
+      "row_b": 5,
+      "naive_sum": 13,
+      "shared": 0,
+      "distinct_molecules": 13
+    },
+    {
+      "case": "overlap",
+      "row_a": 8,
+      "row_b": 5,
+      "naive_sum": 13,
+      "shared": 4,
+      "distinct_molecules": 9
+    },
+    {
+      "case": "duplicated",
+      "row_a": 8,
+      "row_b": 8,
+      "naive_sum": 16,
+      "shared": 8,
+      "distinct_molecules": 8
+    }
+  ],
+  "duplicate_bias": {
+    "true_target": [
+      10,
+      10
+    ],
+    "background": [
+      90,
+      90
+    ],
+    "displayed_target": [
+      10,
+      20
+    ],
+    "displayed_library": [
+      100,
+      110
+    ],
+    "target_per_10000": [
+      1000.0,
+      1818.1818181818182
+    ],
+    "background_per_10000": [
+      9000.0,
+      8181.818181818182
+    ],
+    "apparent_fold_change": 1.8181818181818183
+  },
+  "length_example": {
+    "counts": [
+      8,
+      5
+    ],
+    "lengths_kb": [
+      1,
+      2
+    ],
+    "normalize_then_sum": 10.5,
+    "sum_then_divide_by_arbitrary_1_5_kb": 8.666666666666666
+  }
+}

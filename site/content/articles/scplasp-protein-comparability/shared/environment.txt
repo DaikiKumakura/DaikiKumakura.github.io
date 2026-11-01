@@ -1,0 +1,3 @@
+Python 3.12.4
+Dependencies: Python standard library only
+Randomness: none

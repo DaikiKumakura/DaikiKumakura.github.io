@@ -1,0 +1,26 @@
+{
+  "source_language": "ja",
+  "author": "Daiki Kumakura",
+  "category": "essay",
+  "math": true,
+  "locales": {
+    "ja": {
+      "title": "1細胞で5600タンパク質群を同定すると創薬は何が変わるか",
+      "summary": "scpLASPの新報告を測定条件から読む。1細胞の同定数、HeLa消化物の技術的CV、実効スループットを分け、仮想計算で各細胞の検出数と共通の比較対象が違うことを示す。",
+      "seo_title": "単一細胞プロテオミクスの同定数と比較可能性",
+      "seo_description": "scpLASPの5655 protein groupsを測定条件から検討。細胞ごとの同定数と共通検出の違いを計算し、薬剤応答を比べる際の限界を考える。"
+    },
+    "en": {
+      "title": "What does identifying 5600 protein groups per cell change for drug research?",
+      "summary": "The new scpLASP report is read through its measurement conditions. Per-cell depth, technical CVs and throughput are separated; a hypothetical calculation distinguishes per-cell detections from shared observations for comparison.",
+      "seo_title": "Single-cell proteomics depth and comparability",
+      "seo_description": "The scpLASP report and a hypothetical detection model separate single-cell protein-group identification counts from shared measurements for drug comparisons."
+    }
+  },
+  "date": "2026-12-11",
+  "publish_at": "2026-12-11T18:00:00+09:00",
+  "draft": false,
+  "reviewed": {
+    "en": "a27182cbac7f7eb8c961e86eac6e458a77587fdc21a65b460a28f291394e15c9"
+  }
+}

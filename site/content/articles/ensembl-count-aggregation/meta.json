@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "author": "Daiki Kumakura",
+  "category": "note",
+  "math": true,
+  "version": "1.0",
+  "locales": {
+    "ja": {
+      "title": "同じEnsembl IDならRNA-seqのカウントを足してよいか",
+      "summary": "遺伝子IDの統一と分子数の統合を分けて考える。人工的な計数例から加算が正しい条件と重複が残る条件を示し、scVIへの入力、UMIとfull-lengthの長さ補正、失われた計数情報の限界を検討する。",
+      "seo_title": "Ensembl ID統合とRNA-seqカウントの加算",
+      "seo_description": "同じEnsembl IDへ写った行は足してよいか。分子の重複、geneとtranscript、scVIのraw counts、UMIとSmart-seq2の長さ補正を公式資料と再実行可能な小例で考える。"
+    },
+    "en": {
+      "title": "Should RNA-seq counts be added when rows share an Ensembl ID?",
+      "summary": "Synthetic counting examples separate identifier harmonization from molecule aggregation. They show when addition is valid, when duplication survives normalization, and why scVI input and length correction depend on the measurement protocol.",
+      "seo_title": "Ensembl ID merging and RNA-seq count aggregation",
+      "seo_description": "When can RNA-seq counts sharing an Ensembl ID be summed? Examples separate molecule overlap, gene and transcript levels, and UMI versus Smart-seq2 input."
+    }
+  },
+  "date": "2026-12-12",
+  "publish_at": "2026-12-12T09:00:00+09:00",
+  "draft": false,
+  "reviewed": {
+    "en": "54507976eb3e0b3e0760e7348e7081a7b003beb16cfdf0c22aea2af5552b32e7"
+  }
+}

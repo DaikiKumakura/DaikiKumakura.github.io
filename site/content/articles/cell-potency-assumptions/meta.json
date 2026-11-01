@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "author": "Daiki Kumakura",
+  "category": "note",
+  "math": true,
+  "version": "1.0",
+  "locales": {
+    "ja": {
+      "title": "RNA-seqで測る細胞の分化能は何を表しているのか",
+      "summary": "細胞分化能の新しいレビューを起点に、同じ仮想発現組成を異なるUMI深度で観測する計算を行う。検出遺伝子数とentropyの変化から、発現の多様さと将来の運命を区別する。",
+      "seo_title": "RNA-seqの細胞分化能スコアと測定深度",
+      "seo_description": "同じ仮想細胞でも検出遺伝子数とShannon entropyはUMI深度で変わる。厳密な標本化計算から細胞分化能・がんの未分化性スコアの解釈を考える。"
+    },
+    "en": {
+      "title": "What does cell potency estimated from RNA-seq actually measure?",
+      "summary": "Exact sampling calculations for hypothetical expression profiles show why detected gene counts and simple Shannon entropy depend on UMI depth, and why expression diversity is not itself future fate potential.",
+      "seo_title": "RNA-seq cell potency scores and sampling depth",
+      "seo_description": "Exact sampling calculations distinguish depth-dependent gene detection and Shannon entropy from functional differentiation potential and cancer stemness."
+    }
+  },
+  "date": "2026-12-11",
+  "publish_at": "2026-12-11T09:00:00+09:00",
+  "draft": false,
+  "reviewed": {
+    "en": "3b4f62e67245942b749837fd76e2d271b2c5b987d69549256af6ca36b020ec7a"
+  }
+}
