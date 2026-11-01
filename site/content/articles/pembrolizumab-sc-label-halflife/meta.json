@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "category": "essay",
+  "math": false,
+  "author": "Daiki Kumakura",
+  "version": "1.0",
+  "locales": {
+    "ja": {
+      "title": "皮下投与ペムブロリズマブの添付文書にある半減期22日は、定常状態の数値と整合するか",
+      "summary": "添付文書の半減期22日は、典型患者のモデルでは定常状態の値を再現できず、約26〜29日が必要だった。クリアランスの個人間のばらつきを入れると、22日のままでほぼ整合した。",
+      "seo_description": "皮下ペムブロリズマブの添付文書にある半減期22日と、定常状態の蓄積比や最低濃度を、典型患者のモデルと個人間のばらつきを入れたモデルで照合した。",
+      "seo_title": "皮下ペムブロリズマブの半減期22日の整合性"
+    },
+    "en": {
+      "title": "Is the 22-day half-life in the subcutaneous pembrolizumab label consistent with its steady-state values?",
+      "summary": "A typical-patient model needs a half-life of about 26-29 days to reproduce the label's steady-state values, but including between-patient variability in clearance reproduces them at 22 days.",
+      "seo_description": "The 22-day half-life in the subcutaneous pembrolizumab label was checked against the label's steady-state accumulation ratios and trough concentrations with a typical-patient model and a model with between-patient variability.",
+      "seo_title": "Subcutaneous pembrolizumab half-life consistency"
+    }
+  },
+  "date": "2026-12-09",
+  "publish_at": "2026-12-09T18:00:00+09:00",
+  "draft": false,
+  "reviewed": {
+    "en": "681d84df947f32ea4ea13d512b186863a17635651a5b0d42a0981dc774355e89"
+  }
+}
