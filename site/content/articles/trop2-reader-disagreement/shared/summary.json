@@ -1,0 +1,10 @@
+{
+  "scope": "Exhaustive possible voting patterns, not a uniform probability distribution over patients",
+  "readers": 5,
+  "patterns_enumerated": 32,
+  "reported_any_disagreement_input": 0.67,
+  "pair_disagreement_lower_bound": 0.268,
+  "pair_disagreement_upper_bound": 0.402,
+  "gold_standard": "not specified; diagnostic error not identified",
+  "python": "3.12.4"
+}

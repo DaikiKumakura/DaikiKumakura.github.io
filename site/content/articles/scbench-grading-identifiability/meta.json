@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "author": "Daiki Kumakura",
+  "category": "note",
+  "math": true,
+  "version": "1.0",
+  "locales": {
+    "ja": {
+      "title": "AI解析の正答率は何を確かめているか。scBenchの公開採点を読む",
+      "summary": "scBenchの差次的発現・QC課題の数値条件を実行確認。DEG数と遺伝子集合、同じ集計値と異なる理由を分け、合格が支持する範囲を検討する。",
+      "seo_title": "scBenchの正答率と単一細胞解析の採点",
+      "seo_description": "scBenchの公開採点器と独自コードを9ケースで照合。DEG数の一致が遺伝子集合の一致を保証しないことと、QC集計から理由を特定できないことを具体例で調べる。"
+    },
+    "en": {
+      "title": "What does AI analysis accuracy verify? Reading scBench's public grading rules",
+      "summary": "Executed checks of two public scBench numeric conditions distinguish DEG counts from gene-set agreement, and QC summaries from the reasoning behind them.",
+      "seo_title": "What scBench accuracy verifies in single-cell analysis",
+      "seo_description": "Nine checks of public scBench grading conditions separate DEG counts from gene-set agreement and QC summaries from analytical reasoning."
+    }
+  },
+  "date": "2026-12-12",
+  "publish_at": "2026-12-12T18:00:00+09:00",
+  "draft": false,
+  "reviewed": {
+    "en": "5119d861b77f24f2501d947041ac522259134f76a44ad1f98830b2984459abe5"
+  }
+}

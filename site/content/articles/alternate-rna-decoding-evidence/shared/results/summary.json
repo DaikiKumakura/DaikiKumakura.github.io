@@ -1,0 +1,63 @@
+{
+  "scope": "Published spreadsheet audit only, not validation of mass spectra or translation mechanisms",
+  "pair_key": [
+    "SAAP",
+    "BP"
+  ],
+  "table3_and_8_observation_key": [
+    "Dataset",
+    "SAAP",
+    "BP",
+    "TMT/Tissue",
+    "Digest"
+  ],
+  "table_counts": [
+    {
+      "table": 2,
+      "rows": 10086,
+      "unique_sequence_pairs": 8746,
+      "unique_dataset_sequence_pairs": 10086
+    },
+    {
+      "table": 3,
+      "rows": 19480,
+      "unique_sequence_pairs": 8944,
+      "unique_dataset_sequence_pairs": 10285
+    },
+    {
+      "table": 8,
+      "rows": 5873,
+      "unique_sequence_pairs": 1955,
+      "unique_dataset_sequence_pairs": 2503
+    }
+  ],
+  "overlap": {
+    "table2_and_table8": 1899,
+    "table2_only": 6847,
+    "table8_only": 56,
+    "table8_only_rows": 81
+  },
+  "table8_all_observations_present_in_table3": true,
+  "table3_to_8_row_retention_percent": 30.148870636550306,
+  "table3_to_8_pair_retention_percent": 21.858228980322004,
+  "table8_exported_probability_equal_0_9_rows": 4,
+  "table8_exported_probability_below_0_9_rows": 0,
+  "sources": {
+    "2": {
+      "file": "Supplementary_Data_2.SAAP_proteins.xlsx",
+      "sha256": "9bed2028e939a0202c03fd8d3a04f3c1899c14167cb337a0125c478b0b09c290"
+    },
+    "3": {
+      "file": "Supplementary_Data_3.SAAP_precursor_quant.xlsx",
+      "sha256": "0867003e3d381f727a6ace7711bdef49f43611d1bc3ecb2586914bd2a49a6b8c"
+    },
+    "8": {
+      "file": "Supplementary_Data_8.High_confidence_SAAP_precursor_quant.xlsx",
+      "sha256": "5946d1e8ccab9d5290d520ade446c58d5e15c596d2491c923b0cec540a8eb9a7"
+    }
+  },
+  "environment": {
+    "python": "3.12.4",
+    "openpyxl": "3.1.5"
+  }
+}

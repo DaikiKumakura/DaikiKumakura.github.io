@@ -1,0 +1,60 @@
+{
+  "scope": "Artificial map; independent arithmetic implementation; no Minerva model execution",
+  "python": "3.12.4",
+  "sequence": "GGAAAACC",
+  "indexing": "0-based",
+  "positive_edges": [
+    [
+      0,
+      6,
+      0.9
+    ],
+    [
+      0,
+      7,
+      0.8
+    ],
+    [
+      1,
+      6,
+      0.8
+    ]
+  ],
+  "threshold_checks": [
+    {
+      "threshold": 0.6,
+      "greedy_pairs": "0-6",
+      "greedy_weight_sum": 0.9,
+      "exact_pairs": "0-7;1-6",
+      "exact_weight_sum": 1.6
+    },
+    {
+      "threshold": 0.8,
+      "greedy_pairs": "0-6",
+      "greedy_weight_sum": 0.9,
+      "exact_pairs": "0-7;1-6",
+      "exact_weight_sum": 1.6
+    },
+    {
+      "threshold": 0.9,
+      "greedy_pairs": "0-6",
+      "greedy_weight_sum": 0.9,
+      "exact_pairs": "0-6",
+      "exact_weight_sum": 0.9
+    },
+    {
+      "threshold": 0.91,
+      "greedy_pairs": "",
+      "greedy_weight_sum": 0,
+      "exact_pairs": "",
+      "exact_weight_sum": 0
+    }
+  ],
+  "constraints": "one partner per position; only these three edges; exact solution is nested in this example",
+  "not_claimed": [
+    "calibrated probabilities",
+    "minimum free energy",
+    "true biological structure",
+    "model accuracy improvement"
+  ]
+}

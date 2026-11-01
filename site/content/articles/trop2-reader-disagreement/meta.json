@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "author": "Daiki Kumakura",
+  "category": "note",
+  "math": true,
+  "version": "1.0",
+  "locales": {
+    "ja": {
+      "title": "TROP2の「67%不一致」は何を数えているのか",
+      "summary": "5人の病理医によるTROP2分類の不一致を、32通りの二値投票で検討する。標本単位の不一致、読影者ペアの不一致、誤分類率を区別する。",
+      "seo_title": "TROP2のH-scoreと読影者間の不一致",
+      "seo_description": "TROP2の67%不一致は何を数えた率か。5人の二値判定を全列挙し、標本・読影者ペア・正解ラベルで変わる解釈を確かめる。"
+    },
+    "en": {
+      "title": "What does 67% disagreement in TROP2 classification count?",
+      "summary": "An exhaustive five-reader voting example separates specimen-level dissent, pairwise disagreement and diagnostic error in interpreting TROP2 classification.",
+      "seo_title": "TROP2 H-scores and reader disagreement",
+      "seo_description": "An exhaustive five-reader example separates any-dissent rates, pairwise disagreement and diagnostic error when interpreting TROP2 H-score classifications."
+    }
+  },
+  "date": "2026-12-13",
+  "publish_at": "2026-12-13T09:00:00+09:00",
+  "draft": false,
+  "reviewed": {
+    "en": "2674e143efcedfa0143cc48f90010f599c4af8a6659a635b6659d0a9d9836427"
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "commit": "900fb32a427f2ebed601569257877167ea45c9ed",
+  "method": "Unchanged selected function ASTs executed with numpy; no model or plot imports",
+  "numpy": "2.2.6",
+  "checks": [
+    {
+      "threshold": 0.6,
+      "upstream_pairs": [
+        [
+          0,
+          6,
+          0.9
+        ]
+      ],
+      "independent_pairs": [
+        [
+          0,
+          6,
+          0.9
+        ]
+      ],
+      "agrees": true
+    },
+    {
+      "threshold": 0.8,
+      "upstream_pairs": [
+        [
+          0,
+          6,
+          0.9
+        ]
+      ],
+      "independent_pairs": [
+        [
+          0,
+          6,
+          0.9
+        ]
+      ],
+      "agrees": true
+    },
+    {
+      "threshold": 0.9,
+      "upstream_pairs": [
+        [
+          0,
+          6,
+          0.9
+        ]
+      ],
+      "independent_pairs": [
+        [
+          0,
+          6,
+          0.9
+        ]
+      ],
+      "agrees": true
+    },
+    {
+      "threshold": 0.91,
+      "upstream_pairs": [],
+      "independent_pairs": [],
+      "agrees": true
+    }
+  ]
+}

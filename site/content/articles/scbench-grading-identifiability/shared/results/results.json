@@ -1,0 +1,46 @@
+{
+  "scope": "Published numeric conditions and artificial counterexamples; no biological or agent rerun",
+  "python": "3.12.4",
+  "de_boundary_checks": [
+    {
+      "n_degs": 799,
+      "passes_numeric_condition": false
+    },
+    {
+      "n_degs": 800,
+      "passes_numeric_condition": true
+    },
+    {
+      "n_degs": 1150,
+      "passes_numeric_condition": true
+    },
+    {
+      "n_degs": 1500,
+      "passes_numeric_condition": true
+    },
+    {
+      "n_degs": 1501,
+      "passes_numeric_condition": false
+    }
+  ],
+  "set_counterexample": {
+    "size_A": 1150,
+    "size_B": 1150,
+    "intersection": 0,
+    "union": 2300,
+    "jaccard": 0.0,
+    "answer_A_passes": true,
+    "answer_B_passes": true
+  },
+  "qc_same_summary": {
+    "summary": {
+      "median_genes_per_pbmc": 68,
+      "n_monocytes_pbmc": 2592,
+      "n_pbmcs_retained": 14346
+    },
+    "panel_aware_narrative_passes": true,
+    "no_op_filter_narrative_passes": true,
+    "note": "Narrative labels are not supplied to this numeric checker; this does not measure actual model reasoning."
+  },
+  "missing_field_rejected": true
+}

@@ -1,0 +1,50 @@
+{
+  "all_agree": true,
+  "cases": [
+    {
+      "case": "DE-799",
+      "upstream_passed": false,
+      "independent_check_passed": false
+    },
+    {
+      "case": "DE-800",
+      "upstream_passed": true,
+      "independent_check_passed": true
+    },
+    {
+      "case": "DE-1150",
+      "upstream_passed": true,
+      "independent_check_passed": true
+    },
+    {
+      "case": "DE-1500",
+      "upstream_passed": true,
+      "independent_check_passed": true
+    },
+    {
+      "case": "DE-1501",
+      "upstream_passed": false,
+      "independent_check_passed": false
+    },
+    {
+      "case": "DE-missing",
+      "upstream_passed": false,
+      "independent_check_passed": false
+    },
+    {
+      "case": "QC-panel-aware",
+      "upstream_passed": true,
+      "independent_check_passed": true
+    },
+    {
+      "case": "QC-no-op",
+      "upstream_passed": true,
+      "independent_check_passed": true
+    },
+    {
+      "case": "QC-count-outside",
+      "upstream_passed": false,
+      "independent_check_passed": false
+    }
+  ]
+}

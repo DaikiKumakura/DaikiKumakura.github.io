@@ -1,0 +1,8 @@
+dataset,table2_rows,table8_rows,table8_unique_pairs,table8_pairs_absent_from_table2
+BRCA,312,203,112,0
+CCRCC,478,625,206,0
+Healthy,6471,2292,1231,56
+LSCC,680,811,245,0
+LUAD,864,1071,314,0
+PDAC,954,620,281,0
+UCEC,327,251,114,0

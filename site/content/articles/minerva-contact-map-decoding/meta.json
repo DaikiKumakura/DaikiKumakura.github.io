@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "math": false,
+  "author": "Daiki Kumakura",
+  "version": "1.0",
+  "locales": {
+    "ja": {
+      "title": "Minervaの接触地図からRNA構造を選ぶ",
+      "summary": "Minervaの公開後処理を人工地図で実行。高い1対と少し低い2対の競合から、塩基対スコア、組合せの選択、物理的な構造を区別する。",
+      "seo_title": "MinervaのRNA接触地図と構造の選び方",
+      "seo_description": "Minervaの公開コード4関数を人工地図で実行し、貪欲な塩基対選択と最大重みの組合せを比較。スコアからRNA構造へ変えるときの閾値・競合・解析範囲を調べる。"
+    },
+    "en": {
+      "title": "Choosing RNA structures from Minerva contact maps",
+      "summary": "An artificial contact map separates Minerva's greedy partner selection from maximum-weight matching and physical RNA-structure validation.",
+      "seo_title": "Minerva contact maps and RNA-structure decoding",
+      "seo_description": "An artificial map tests Minerva's public decoding functions and separates greedy pair selection, maximum-weight matching and physical RNA structure."
+    }
+  },
+  "date": "2026-12-13",
+  "publish_at": "2026-12-13T18:00:00+09:00",
+  "draft": false,
+  "reviewed": {
+    "en": "747b510726d151931d06933da1025b1fbd82bfeea1fd3b8683c30730f33d538b"
+  }
+}

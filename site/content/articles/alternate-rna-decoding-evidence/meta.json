@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "math": true,
+  "author": "Daiki Kumakura",
+  "version": "1.0",
+  "locales": {
+    "ja": {
+      "title": "予想と違うタンパク質配列は翻訳の変更を意味するか",
+      "summary": "Alternate RNA decoding研究の公開補足表を再集計。8,746対と1,955対を再現し、配列同定・局在・翻訳の由来・存在量・機能の証拠を分けて検討する。",
+      "seo_title": "RNAデコーディングと予想外のタンパク質配列",
+      "seo_description": "公開補足表の8,746対と1,955対を再集計し、正しい親表と観測単位を確認。タンパク質配列の同定から翻訳の変更や創薬標的を判断するまでの証拠を検討する。"
+    },
+    "en": {
+      "title": "Do unexpected protein sequences establish altered translation?",
+      "summary": "An audit of public alternate-RNA-decoding tables reproduces 8,746 and 1,955 sequence pairs while separating identification, localization, origin, abundance and function.",
+      "seo_title": "Alternate RNA decoding and unexpected protein sequences",
+      "seo_description": "A public-table audit separates peptide counts, localization, translation and protein stability before interpreting unexpected sequences as drug targets."
+    }
+  },
+  "date": "2026-12-14",
+  "publish_at": "2026-12-14T09:00:00+09:00",
+  "draft": false,
+  "reviewed": {
+    "en": "13c8f2380190d60b800e9f6d6a682041c4211bfccba5fafa7827e1b85e6b38bc"
+  }
+}
