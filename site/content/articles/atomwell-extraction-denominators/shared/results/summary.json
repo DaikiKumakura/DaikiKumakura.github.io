@@ -1,0 +1,9 @@
+{
+  "matched_measurements": 10972,
+  "agreement": 8566,
+  "disagreement": 2406,
+  "agreement_fraction": 0.7807145461173898,
+  "disagreement_fraction": 0.21928545388261028,
+  "crossover_multiplier": 3.5602660016625105,
+  "interpretation": "Logical constructions, not observed extraction accuracy or prediction loss."
+}

@@ -1,0 +1,10 @@
+drug,target,cohort,n,pfs_months,pfs_ci_lower,pfs_ci_upper,os_months,os_ci_lower,os_ci_upper,source
+ifinatamab deruxtecan,B7-H3,second-line,32,5.6,3.9,8.1,12.0,7.3,19.1,https://doi.org/10.1200/JCO-25-02142
+ifinatamab deruxtecan,B7-H3,mixed-line,137,4.9,4.2,5.5,10.3,9.1,13.3,https://doi.org/10.1200/JCO-25-02142
+ABBV-706 1.8 mg/kg,SEZ6,second-line,17,6.77,4.01,12.45,14.26,7.75,NE,https://doi.org/10.1038/s41591-026-04452-0
+ABBV-706 1.8 mg/kg,SEZ6,mixed-line,41,6.44,4.01,8.08,12.42,8.21,17.31,https://doi.org/10.1038/s41591-026-04452-0
+sacituzumab govitecan,TROP2,second-line,43,4.40,3.81,6.11,13.60,6.57,14.78,https://doi.org/10.1016/j.jtho.2024.12.028
+izalontamab brengitecan,EGFR/HER3,second-line,22,6.2,3.7,8.2,15.0,8.7,NR,https://doi.org/10.1200/JCO-26-00243
+izalontamab brengitecan,EGFR/HER3,mixed-line,52,4.1,3.0,5.5,12.2,9.1,13.2,https://doi.org/10.1200/JCO-26-00243
+IDE849,DLL3,second-line,51,6.9,5.5,8.3,17.4,9.9,NR,https://ir.ideayabio.com/2026-10-23-IDE849-SHR-4849-DLL3-TOP1-ADC-Updated-Phase-1-Results-at-ESMO-2026-Demonstrates-Promising-Anti-Tumor-Activity-and-Preliminary-Overall-Survival-Results-in-Relapsed-Small-Cell-Lung-Cancer-and-Neuroendocrine-Carcinomas
+IDE849,DLL3,mixed-line,101,6.8,5.5,8.1,14.7,11.9,18.3,https://ir.ideayabio.com/2026-10-23-IDE849-SHR-4849-DLL3-TOP1-ADC-Updated-Phase-1-Results-at-ESMO-2026-Demonstrates-Promising-Anti-Tumor-Activity-and-Preliminary-Overall-Survival-Results-in-Relapsed-Small-Cell-Lung-Cancer-and-Neuroendocrine-Carcinomas

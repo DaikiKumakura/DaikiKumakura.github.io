@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "author": "Daiki Kumakura",
+  "category": "note",
+  "math": true,
+  "version": "1.0",
+  "locales": {
+    "ja": {
+      "title": "Atomwellの学習データを読む。78%の一致率は正解率なのか",
+      "summary": "Datawellと人手データの10,972件中8,566件の一致から、抽出精度と選択された評価集合の違いを検討する。一致した値だけでは決まらない量を導く。",
+      "seo_title": "Atomwellの学習データとLLM抽出の一致率",
+      "seo_description": "Atomwellの公開ブログにあるDatawellとCROの照合件数を再計算。一致率78.1%を抽出精度と区別し、一致行だけの予測評価を全体へ延長する条件を数式で示す。"
+    },
+    "en": {
+      "title": "Reading Atomwell's training data: is 78% agreement an accuracy score?",
+      "summary": "The reported 8,566 agreements among 10,972 matched Datawell and curated records separate extraction accuracy from selection of a validation set. Aggregate counts leave correctness unidentified.",
+      "seo_title": "Atomwell training data and LLM extraction agreement",
+      "seo_description": "Recalculate Datawell–CRO agreement from Atomwell's technical blog, distinguish 78.1% agreement from extraction accuracy, and derive when a selected-set comparison extends to all matched records."
+    }
+  },
+  "date": "2026-12-15",
+  "publish_at": "2026-12-15T09:00:00+09:00",
+  "draft": false,
+  "reviewed": {
+    "en": "324bc70609dca0975d0332fcdb2ff1cb7efc37508227739eef43515d64406a61"
+  }
+}

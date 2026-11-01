@@ -1,0 +1,32 @@
+{
+  "method": "Unweighted minima/maxima and overlapping-cohort arithmetic only; no causal comparison, pooling, hazard ratio, CI or statistical test computed.",
+  "second_line_report_count": 5,
+  "range_months": {
+    "pfs": [
+      "4.40",
+      "6.9"
+    ],
+    "os": [
+      "12.0",
+      "17.4"
+    ]
+  },
+  "within_report_differences_months": {
+    "ifinatamab deruxtecan": {
+      "pfs": "0.7",
+      "os": "1.7"
+    },
+    "ABBV-706 1.8 mg/kg": {
+      "pfs": "0.33",
+      "os": "1.84"
+    },
+    "izalontamab brengitecan": {
+      "pfs": "2.1",
+      "os": "2.8"
+    },
+    "IDE849": {
+      "pfs": "0.1",
+      "os": "2.7"
+    }
+  }
+}

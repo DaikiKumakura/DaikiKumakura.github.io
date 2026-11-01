@@ -1,0 +1,5 @@
+scenario,agreement_both_correct,disagreement_a_correct,disagreement_b_correct,a_correct,b_correct,a_accuracy,b_accuracy
+both_correct_on_agreement_neither_on_disagreement,8566,0,0,8566,8566,0.7807145461173898,0.7807145461173898
+agreement_wrong_neither_correct_elsewhere,0,0,0,0,0,0.0,0.0
+agreement_correct_a_correct_on_all_disagreements,8566,2406,0,10972,8566,1.0,0.7807145461173898
+agreement_correct_b_correct_on_all_disagreements,8566,0,2406,8566,10972,0.7807145461173898,1.0

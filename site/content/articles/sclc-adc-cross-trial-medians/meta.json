@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "author": "Daiki Kumakura",
+  "category": "note",
+  "math": false,
+  "version": "1.0",
+  "locales": {
+    "ja": {
+      "title": "小細胞肺がんのADCはどれも同じなのか",
+      "summary": "五つの標的のADCを二次治療集団で照合し、集団とデータの版で変わる生存期間中央値を検討する。似た中央値と無作為化試験の利益を分けて読む。",
+      "seo_title": "小細胞肺がんのADCと生存期間中央値の比較",
+      "seo_description": "B7-H3・DLL3・SEZ6・TROP2・EGFR/HER3のADCを二次治療集団で比較。生存期間中央値の近さから薬効や標的の価値をどこまで判断できるかを検討する。"
+    },
+    "en": {
+      "title": "Are small-cell lung cancer ADCs all reaching the same limit?",
+      "summary": "Five target classes are compared using reported second-line cohorts, separating population and data-version effects from randomized evidence of benefit.",
+      "seo_title": "SCLC ADCs and cross-trial survival medians",
+      "seo_description": "Reported second-line survival medians for five SCLC ADC targets are checked against cohort definitions, data versions and randomized evidence of benefit."
+    }
+  },
+  "date": "2026-12-13",
+  "publish_at": "2026-12-13T13:00:00+09:00",
+  "draft": false,
+  "reviewed": {
+    "en": "7d7cf1f8d650cb1a1e4636692f3fcb49a5c027937807d8bde4a1a3990d34e0a0"
+  }
+}

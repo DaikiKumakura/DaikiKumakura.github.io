@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "author": "Daiki Kumakura",
+  "category": "essay",
+  "math": false,
+  "version": "1.0",
+  "locales": {
+    "ja": {
+      "title": "TMPRSS2阻害剤の計算効率と薬効を分けて読む",
+      "summary": "約29倍の計算費用改善は何を示すのか。TMPRSS2阻害剤研究の原著と解説を照合し、細胞までの裏付け、未評価の動物薬効、カモスタット臨床試験を区別する。",
+      "seo_title": "TMPRSS2阻害剤研究の計算効率と薬効の証拠",
+      "seo_description": "TMPRSS2阻害剤研究の29倍の計算費用改善、酵素・細胞試験、カモスタット臨床試験を検討。未評価と陰性、計算の終点と治療効果を分けて読む。"
+    },
+    "en": {
+      "title": "Separating computational efficiency from efficacy in TMPRSS2 inhibitor research",
+      "summary": "A close reading separates a 29-fold computational-cost improvement, enzyme and cell evidence, unassessed animal efficacy, and clinical results for camostat.",
+      "seo_title": "TMPRSS2 inhibitor research: computational efficiency and efficacy",
+      "seo_description": "Distinguish a 29-fold computational-cost improvement from enzyme, cellular and clinical evidence, without counting unassessed animal efficacy as failure."
+    }
+  },
+  "date": "2026-12-14",
+  "publish_at": "2026-12-14T13:00:00+09:00",
+  "draft": false,
+  "reviewed": {
+    "en": "920d627a9ea97e356bd528a70164c33d0b17bfdcd1c829b7ed0fd2ac924eeb29"
+  }
+}
