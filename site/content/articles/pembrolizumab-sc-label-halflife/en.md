@@ -61,7 +61,7 @@ A substantial part of the apparent inconsistency may be explained by comparing t
 - The effect of clearance falling over time. The label does not regard it as clinically meaningful ([1](#ref-1)), but it acts to increase the accumulation ratio.
 - The effect of non-first-order absorption, of the accumulation-ratio definition (an AUC-based definition was assumed), and of correlation between clearance and bioavailability.
 
-This bears on another note about the 1.67 subcutaneous-to-intravenous trough ratio from the same label ([2](#ref-2)), whose model used a half-life of 22 days and a typical patient. In a typical-patient model with the same half-life in both arms, changing it to 26–30 days only lowers the cycle-3 trough ratio from 1.23 to 1.22–1.21. The trial's report, however, is an estimated geometric mean ratio, and the effect of variability does not enter it in the same way as for the means here. How variability affects 1.67 was not examined in this note.
+This also bears on how to read the cycle-3 trough ratio of 1.67 for subcutaneous (790 mg) versus intravenous (400 mg) dosing every 6 weeks reported in the label ([1](#ref-1)). In the same typical-patient model (bioavailability 0.60, peak at 4 days) with the same half-life in both arms, changing the half-life from 22 to 26–30 days only lowers this ratio from 1.23 to 1.22–1.21 (`results/cycle3-trough-ratio-by-half-life.csv`). The trial's report, however, is an estimated geometric mean ratio, and the effect of variability does not enter it in the same way as for the means here. How variability affects 1.67 was not examined in this note.
 
 The limits are that the coefficients of variation were assumed to be log-normal and bioavailability and clearance independent, and that the label's accumulation ratios (1.6 and 2.5) are rounded, so the back-calculated half-lives have a range. Beyond "means", the label does not say whether its values are arithmetic or geometric; I assumed arithmetic. The result is a consistency check on published summary values, not a reanalysis of trial data.
 
@@ -79,5 +79,3 @@ The full re-run materials are in the [companion archive](shared/pembrolizumab-sc
 ## References
 
 <span id="ref-1"></span>1. Merck Sharp & Dohme LLC. KEYTRUDA QLEX (pembrolizumab and berahyaluronidase alfa-pmph) injection, for subcutaneous use. Prescribing information [Internet]. U.S. Food and Drug Administration; 2025 Sep [cited 2026 Nov 1]. Section 12.3. Available from: https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/761467s000lbl.pdf
-
-<span id="ref-2"></span>2. Kumakura D. Can slower absorption explain the 1.67 trough ratio of subcutaneous pembrolizumab? [Internet]. Scheduled for publication 2026 Dec 8 on this site (article name: sc-pembrolizumab-trough-ratio) [cited 2026 Nov 1].

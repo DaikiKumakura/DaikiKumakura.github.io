@@ -61,7 +61,7 @@
 - クリアランスが時間とともに低下する影響。添付文書はこれを臨床的に意味のないものとしているが ([1](#ref-1))、蓄積比を大きくする方向に働く。
 - 吸収が一次過程でない場合の影響、蓄積比の定義（AUCに基づく定義を仮定した）、クリアランスと生物学的利用率の相関。
 
-この結果は、同じ添付文書の皮下と静脈内の最低濃度比1.67を扱った別の記事 ([2](#ref-2)) にも関わる。その記事のモデルは、半減期22日と典型患者を使っていた。典型患者のモデルで両群に同じ半減期を使う限り、半減期を26〜30日にしても、3回目の最低濃度比は1.23から1.22〜1.21に下がるだけだった。ただし、試験の報告は推定値の幾何平均比で、ばらつきの影響は本記事のような平均値と同じ形では出ない。ばらつきが1.67にどう効くかは、本記事では調べていない。
+この結果は、添付文書が報告する皮下（790 mg）と静脈内（400 mg）の3回目の最低濃度比1.67（6週ごと） ([1](#ref-1)) の読み方にも関わる。同じ典型患者のモデル（生物学的利用率0.60、ピーク4日）で両群に同じ半減期を使う限り、半減期を22日から26〜30日にしても、この比は1.23から1.22〜1.21に下がるだけだった（`results/cycle3-trough-ratio-by-half-life.csv`）。ただし、試験の報告は推定値の幾何平均比で、ばらつきの影響は本記事のような平均値と同じ形では出ない。ばらつきが1.67にどう効くかは、本記事では調べていない。
 
 限界として、変動係数は対数正規分布と仮定した値で、生物学的利用率とクリアランスは独立とした。添付文書の蓄積比（1.6と2.5）は丸めた値で、逆算した半減期には幅がある。添付文書の値が算術平均か幾何平均かは、本文に「平均値」とある以上のことが分からず、算術平均と仮定した。結果は試験データの再解析ではなく、公表された要約値の整合性の確認である。
 
@@ -79,5 +79,3 @@
 ## 参照
 
 <span id="ref-1"></span>1. Merck Sharp & Dohme LLC. KEYTRUDA QLEX (pembrolizumab and berahyaluronidase alfa-pmph) injection, for subcutaneous use. Prescribing information [Internet]. U.S. Food and Drug Administration; 2025 Sep [cited 2026 Nov 1]. Section 12.3. Available from: https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/761467s000lbl.pdf
-
-<span id="ref-2"></span>2. Kumakura D. Can slower absorption explain the 1.67 trough ratio of subcutaneous pembrolizumab? [Internet]. Scheduled for publication 2026 Dec 8 on this site (article name: sc-pembrolizumab-trough-ratio) [cited 2026 Nov 1].
