@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "category": "essay",
+  "math": false,
+  "author": "Daiki Kumakura",
+  "version": "1.0",
+  "locales": {
+    "ja": {
+      "title": "皮下投与ペムブロリズマブの最低濃度比1.67を、吸収の遅れで説明できるか",
+      "summary": "皮下投与ペムブロリズマブの最低濃度は静脈内投与の1.67倍だが、AUCは1.14倍だった。添付文書の吸収特性から典型患者で計算すると最低濃度比は1.2〜1.3で、吸収の遅れだけでは報告値に届かなかった。",
+      "seo_description": "皮下ペムブロリズマブの最低濃度比1.67を、添付文書の生物学的利用率とピーク時間を使った典型患者の計算で検討した。吸収の遅れだけでは1.2前後にとどまった。",
+      "seo_title": "皮下ペムブロリズマブの最低濃度比1.67"
+    },
+    "en": {
+      "title": "Can slower absorption explain the 1.67 trough ratio of subcutaneous pembrolizumab?",
+      "summary": "The trough concentration of subcutaneous pembrolizumab was 1.67 times the intravenous value while the AUC was 1.14 times. Typical-patient calculations from label absorption values give a trough ratio of 1.2-1.3, below the reported value.",
+      "seo_description": "Typical-patient calculations with the label bioavailability and time to peak give a subcutaneous-to-intravenous pembrolizumab trough ratio of about 1.2, not the reported 1.67.",
+      "seo_title": "Subcutaneous pembrolizumab trough ratio 1.67"
+    }
+  },
+  "date": "2026-12-08",
+  "publish_at": "2026-12-08T13:00:00+09:00",
+  "draft": false,
+  "reviewed": {
+    "en": "7df5b50b195cfeaebdfff37bd6acf569c0290a6109bada629ec4784da832491c"
+  }
+}
