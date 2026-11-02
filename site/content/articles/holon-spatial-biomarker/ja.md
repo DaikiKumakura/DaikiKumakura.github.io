@@ -74,6 +74,6 @@ gEREGの価値を考えるときは、三つの問いを混ぜない方がよい
 
 ## 参照 {#article-references}
 
-1. <span id="ref-1"></span>Muhammad H, Warner B, Scotti PS, Abraham TM. Holon-S1 Technical Report [Technical report]. Sophont Technical Report; 2026. Month and day of publication not stated. [doi:10.5281/zenodo.23569193](https://doi.org/10.5281/zenodo.23569193). Available from: [https://sophont.med/blog/holon/](https://sophont.med/blog/holon/) [cited 2026 Oct 26].
+1. <span id="ref-1"></span>Muhammad H, Warner B, Scotti PS, Abraham TM. Holon-S1 Technical Report [Technical report]. Sophont Technical Report; 2026 Oct 13. Publication date checked on the official report page on 2026 Nov 2. [doi:10.5281/zenodo.23569193](https://doi.org/10.5281/zenodo.23569193). Available from: [https://sophont.med/blog/holon/](https://sophont.med/blog/holon/) [cited 2026 Nov 2].
 2. <span id="ref-2"></span>Ballman KV. Biomarker: Predictive or Prognostic? J Clin Oncol. 2015;33(33):3968–3971. [doi:10.1200/JCO.2015.63.3651](https://doi.org/10.1200/JCO.2015.63.3651). Abstract consulted.
 3. <span id="ref-3"></span>Sophont. Sophont launches Holon-S1 to reveal tumor biology from routine pathology slides [Press release]. PR Newswire; 2026 Oct 20 [cited 2026 Oct 26]. Available from: [https://www.prnewswire.com/news-releases/sophont-launches-holon-s1-to-reveal-tumor-biology-from-routine-pathology-slides-302914452.html](https://www.prnewswire.com/news-releases/sophont-launches-holon-s1-to-reveal-tumor-biology-from-routine-pathology-slides-302914452.html).

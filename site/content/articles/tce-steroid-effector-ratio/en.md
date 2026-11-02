@@ -20,7 +20,7 @@ I read the square and triangular mean markers. Ten points are aggregates for fiv
 | 5 | 104.9 | 90.3 | 14.6 |
 | 10 | 98.1 | 95.1 | 2.9 |
 
-The source response is tumor-cell lysis as percent of control; differences are percentage points (pp). Values are approximate image readings. Their printed decimal places do not represent original assay precision.
+The source response is tumor-cell lysis as percent of control; differences are percentage points (pp). Values are approximate image readings. Their printed decimal places do not represent original assay precision. Differences were calculated before rounding the means, so subtracting the displayed means can differ by 0.1 pp.
 
 The question is which description better predicts this condition-dependent difference: a lower ceiling or a horizontal shift. The context of use is description of a nonclinical assay at fixed drug concentrations and culture duration. Clinical superiority of CRS prophylaxis or clinical dosing is not evaluated.
 

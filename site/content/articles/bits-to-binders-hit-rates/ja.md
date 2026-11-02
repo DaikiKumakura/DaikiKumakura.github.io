@@ -30,7 +30,7 @@
 
 **当たり率の区間：** 当たり数と試験数から、95%のウィルソン区間（二項割合の信頼区間の一種）を計算した。この区間は、設計ごとの結果が互いに独立だと仮定する。
 
-**Bits to Binders：** 公開のプール選別（CAR-Tの増殖で濃縮された配列を数える方法）の結果から、「Up」（FDR（false discovery rate、多数の検定での偽の発見の割合の目安）0.05未満、濃縮が2倍超）の数を再現した。707個で、発表と一致した。閾値と分母を変えて数え直した。「Down」（濃縮と逆向きの変化）の数は、雑音の目安として用いた。チーム間の当たり率の差には、設計の独立を仮定したχ²検定を用いた。
+**Bits to Binders：** 公開のプール選別（CAR-Tの増殖で濃縮された配列を数える方法）の結果から、「Up」（FDR（false discovery rate、偽発見割合の期待値）0.05未満、濃縮が2倍超）の数を再現した。707個で、発表と一致した。閾値と分母を変えて数え直した。「Down」（濃縮と逆向きの変化）の数も、反対方向の観測結果として集計した。チーム間の当たり率の差には、設計の独立を仮定したχ²検定を用いた。
 
 **Claude：** 公開の表で、検査機関ごとの結果から、基準を変えて数え直した。KDは結合の強さを表す解離定数で、小さいほど結合が強い。測定は表面プラズモン共鳴（SPR）などの結合測定による。KDの閾値別の件数は、Adaptyv Bioで結合と判定され、かつ平均KD（算術平均）が閾値以下の設計を数えた。
 
@@ -46,7 +46,7 @@
 
 ![Bits to Binders 28チームの当たり率、回収率、UpとDownの数](shared/bits-to-binders-hit-rates/figures/01-team-hit-rates.png)
 
-図1　Bits to Bindersのチーム別の結果。縦軸は各チーム。A：Upの数を提出数で割った当たり率（%、95%ウィルソン区間）。B：プール選別で検出された設計の割合（%）。C：UpとDownの設計数（対称対数軸）。点の色は、青がUpがDownより多いチーム、赤がDown以上のチームを表す。運営の対照配列を含め、提出数は12,000個。
+図1　Bits to Bindersのチーム別の結果。縦軸は各チーム。A：Upの数を提出数で割った当たり率（%、95%ウィルソン区間）。B：プール選別で検出された設計の割合（%）。C：UpとDownの設計数（対称対数軸）。点の色は、青がUpのほうが多いチーム、赤がDownのほうが多いか同数のチームを表す。運営の対照配列を含め、提出数は12,000個。
 
 表2に、閾値と分母による当たり数と当たり率を示す。
 
@@ -68,8 +68,8 @@
 
 **低い側の中身：**
 - **回収が少ない：** Perforators（回収9.3%）とEvaneil（回収10.5%）は、設計の9割が選別で検出されなかった。当たり率が低いのは、検出できた設計が少ないためで、設計の力とは言い切れない。
-- **濃縮よりも減少が多い：** CAD Pro（Up 4、Down 50）、Team Anonymous（7、35）、Picaso Protein（15、29）、Bryant Lab（6、11）の4チームは、UpよりDownが多かった。この4チームでは、Upが雑音を上回るとは示せない。
-- **雑音の目安：** 全体では、Up 707個に対しDown 166個で、比は4.3対1。「Up−Down」で数えると541個（4.5%）になる。FDR 0.05での期待される偽陽性は約35個（707個の5%）で、Down 166個とは別の量である。Downには本当に減る設計も含まれるので、Downは雑音を過大に見積もる（保守的な）目安である。
+- **濃縮よりも減少が多い：** CAD Pro（Up 4、Down 50）、Team Anonymous（7、35）、Picaso Protein（15、29）、Bryant Lab（6、11）の4チームは、UpよりDownが多かった。この大小関係だけから、雑音を超えた濃縮の有無は判定できない。
+- **UpとDownの数：** 全体では、Up 707個に対しDown 166個で、比は4.3対1。「Up−Down」で数えると541個（4.5%）になる。707個の5%は約35個だが、これは単純な掛け算であり、この実験の偽陽性数の期待値ではない。FDRは繰り返した解析での偽発見割合の期待値を対象とする ([6](#ref-6))。実現したUpの数に0.05を掛けても個別実験の偽陽性数は決まらない。Downには本当に減る設計も含まれるので、Down 166個も偽陽性数や雑音量の定量推定としては使えない。
 
 **方法の違い：** 言語モデルを使ったチームの当たり率は10.7%（194/1,812）、拡散モデル系は5.4%（495/9,192）だった。ただし、言語モデル系からNucleateを除くと2.5%（35/1,398）になり、順位が逆になる。方法の差を、1チームの結果と分けて読むことはできない。チーム、計算資源、戦略が方法と交絡するため、方法が当たり率を変えたという因果の読みは支持されない。
 
@@ -126,7 +126,7 @@ Claudeの基準（KD 1 µM以下、2つの検査機関、全反復、対照）�
 | Assay | Enrichment under CAR-T proliferation (pooled) | SPR (2 laboratories, some BLI) | BLI, flow cytometry |
 | Threshold | FDR below 0.05, enrichment above 2-fold | KD 1 µM or tighter | Response above 0.06 nm, KD below 5 µM |
 | Replication | 3 replicates in the pool | Binding in all replicates | Five BLI concentrations (a concentration series, not replicates) |
-| Controls | Number of Down calls | CLEC12A, OVA | Not confirmed in the main text |
+| Controls or opposite-direction comparison | Down calls; not a calibrated negative control | CLEC12A, OVA | Not confirmed in the main text |
 | Prior selection | Depends on the team | 180 chosen by Claude plus 31 added later with Claude's help | After narrowing to at most 48 |
 | Denominator | Total submitted and recovered counted separately | 211 tested | At most 48 per target |
 
@@ -147,7 +147,7 @@ Pythia-1は、基準が他の2つより緩く、事前選別の後の数であ�
 - **優劣：** 3つの発表は、標的も測定法も違うので、どれが優れているかは言えない。
 - **Claudeの結果：** 公表の基準による17個のうち15個は2つの検査機関の両方で、LqhIIIの2個はAdaptyv Bioのみで確認された結合である。結合は中和ではなく、動物での効果の試験もない。Anthropicの記事が、結合の中和は確認していないと述べている ([1](#ref-1))。
 - **Pythia-1：** 設計ごとの当たり率と、対照の扱いは、本記事では確認できていない。
-- **Bits to Binders：** 「Down」を雑音の目安にする方法は、本当に減る設計を含むので保守的である。チーム間の差の検定は設計の独立を仮定し、チーム内の相関を無視する。
+- **Bits to Binders：** Downは本当に減る設計も含むので、雑音や偽陽性の数を定量的に推定できない。チーム間の検定は設計の独立を仮定し、同一チーム内の相関を無視する。
 - **関係者と開示：** 本記事は、公開データの再集計である。筆者が使うAI（Claude）はAnthropic社のモデルで、比較対象の一つは、Anthropicが発表したClaudeの結果である。このため、Claudeの結果は、公開データと公表の基準だけで数え、評価や推測は加えていない。Pythia Labsの論文は、同社の従業員が実施した研究である ([2](#ref-2))。
 - **区間の前提：** ウィルソン区間は、設計ごとの結果が独立だと仮定する。Claudeの211個は、事前に選別され、同じ標的・設計の群に分かれているので、実際の不確かさは、示した区間より広い可能性がある。
 - **検証の範囲：** 再計算は同じ筆者（AI支援を含む）による別実装であり、第三者の確認ではない。Rでの再計算は件数、Up・Down、Claudeの17個と11個、ウィルソン区間（17/211）を対象とし、チーム別、χ²、方法別、感度分析は含まない。
@@ -155,6 +155,8 @@ Pythia-1は、基準が他の2つより緩く、事前選別の後の数であ�
 ## 結論
 
 同じ実験の当たり率は、閾値と分母の定義だけで、Bits to Bindersでは0.7–16.7%、Claudeの毒素結合体では8.1–23.2%（参考として「弱い・曖昧」を含めると29.4%）に動いた。3つの発表は、測定法・閾値・反復・対照・事前の選別・分母の6条件で異なり、本記事のデータでは、3つを同じ尺度に並べる根拠は得られなかった。
+
+2026-11-02訂正：FDRの定義と、Down数を雑音の定量推定に使えないことを明確にした。当たり数・当たり率・区間の計算値は変更していない。
 
 ## データとコードの公開状況
 
@@ -176,3 +178,5 @@ Pythia-1は、基準が他の2つより緩く、事前選別の後の数であ�
 <span id="ref-4"></span>4. Kosonocky CW, et al. bits-to-binders [Dataset and software]. GitHub; 2026. Commit 43eeeaf7e6ab629e796c9fe8d20b0ef70a3610d9 [cited 2026 Oct 30]. [https://github.com/kosonocky/bits-to-binders](https://github.com/kosonocky/bits-to-binders)
 
 <span id="ref-5"></span>5. Anthropic. scorpion-toxin-binder-design [Dataset]. Hugging Face; 2026. Revision 0bac3d0286f7f83b5339f5b4f1e67fbe47a6e7c1. CC BY 4.0 [cited 2026 Oct 30]. [https://huggingface.co/datasets/Anthropic/scorpion-toxin-binder-design](https://huggingface.co/datasets/Anthropic/scorpion-toxin-binder-design)
+
+<span id="ref-6"></span>6. Benjamini Y, Hochberg Y. Controlling the false discovery rate: a practical and powerful approach to multiple testing. Journal of the Royal Statistical Society: Series B (Methodological). 1995;57(1):289–300. [doi:10.1111/j.2517-6161.1995.tb02031.x](https://doi.org/10.1111/j.2517-6161.1995.tb02031.x).

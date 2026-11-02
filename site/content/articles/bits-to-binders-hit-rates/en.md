@@ -30,7 +30,7 @@ The sources checked on October 30, 2026 were: the full Anthropic page; the abstr
 
 **Hit-rate intervals:** 95% Wilson intervals (a confidence interval for a binomial proportion) were computed from hits and tests. They assume the results for individual designs are independent.
 
-**Bits to Binders:** From the public pooled-selection results (counting sequences enriched under CAR-T proliferation), the number of "Up" designs (FDR below 0.05, where FDR is the false discovery rate, and enrichment above twofold) was reproduced: 707, matching the report. Counts were redone with other thresholds and denominators. The number of "Down" calls (change opposite to enrichment) was used as a noise indicator. Differences in hit rate between teams were tested with a chi-square test that assumes independent designs.
+**Bits to Binders:** From the public pooled-selection results (counting sequences enriched under CAR-T proliferation), the number of "Up" designs (FDR below 0.05, where FDR is the false discovery rate, and enrichment above twofold) was reproduced: 707, matching the report. Counts were redone with other thresholds and denominators. The number of "Down" calls (change opposite to enrichment) was also counted as an observation in the opposite direction. Differences in hit rate between teams were tested with a chi-square test that assumes independent designs.
 
 **Claude:** In the public table, counts were redone under other criteria using per-laboratory results. KD is the dissociation constant, a measure of binding strength; smaller means tighter binding. Binding was measured by methods such as surface plasmon resonance (SPR). Counts by KD threshold are designs called hits at Adaptyv Bio whose mean KD (arithmetic mean) was at or below the threshold.
 
@@ -68,8 +68,8 @@ Table 2. Bits to Binders: hits and hit rates by definition of a hit (FDR below 0
 
 **What the low end contains:**
 - **Low recovery:** For Perforators (9.3% recovered) and Evaneil (10.5%), about 90% of designs were not detected in the screen. Their low rates reflect few detectable designs and cannot be read as design ability.
-- **More depletion than enrichment:** Four teams, CAD Pro (Up 4, Down 50), Team Anonymous (7, 35), Picaso Protein (15, 29) and Bryant Lab (6, 11), had more Down than Up. For these four teams, Up cannot be shown to exceed noise.
-- **Noise indicator:** Overall there were 166 Down against 707 Up, a ratio of 4.3 to 1. Counting "Up minus Down" gives 541 (4.5%). The expected number of false positives at FDR 0.05 is about 35 (5% of 707), a different quantity from 166 Down. Down also includes truly depleted designs, so Down overestimates noise (a conservative indicator).
+- **More depletion than enrichment:** Four teams, CAD Pro (Up 4, Down 50), Team Anonymous (7, 35), Picaso Protein (15, 29) and Bryant Lab (6, 11), had more Down than Up. This ordering alone does not determine whether enrichment exceeds noise.
+- **Up and Down counts:** Overall there were 166 Down against 707 Up, a ratio of 4.3 to 1. Counting "Up minus Down" gives 541 (4.5%). Five percent of 707 is about 35, but that arithmetic is not an estimate of the expected false-positive count in this experiment. FDR concerns the expected false-discovery proportion over repeated analyses ([6](#ref-6)); multiplying the realized number of Up calls by 0.05 does not determine this experiment's false-positive count. Down also includes truly depleted designs, so the 166 Down calls cannot quantify false positives or the amount of noise.
 
 **Method differences:** Teams using language models had a hit rate of 10.7% (194/1,812) and diffusion-based teams 5.4% (495/9,192). Excluding Nucleate from the language-model group gives 2.5% (35/1,398), reversing the order. The method effect cannot be separated from one team's result. Because team, compute and strategy are confounded with method, a causal reading that method changed the hit rate is not supported.
 
@@ -126,7 +126,7 @@ Table 4. Six conditions that differ among the three reports.
 | Assay | Enrichment under CAR-T proliferation (pooled) | SPR (2 laboratories, some BLI) | BLI, flow cytometry |
 | Threshold | FDR below 0.05, enrichment above 2-fold | KD 1 µM or tighter | Response above 0.06 nm, KD below 5 µM |
 | Replication | 3 replicates in the pool | Binding in all replicates | Five BLI concentrations (a concentration series, not replicates) |
-| Controls | Number of Down calls | CLEC12A, OVA | Not confirmed in the main text |
+| Controls or opposite-direction comparison | Down calls; not a calibrated negative control | CLEC12A, OVA | Not confirmed in the main text |
 | Prior selection | Depends on the team | 180 chosen by Claude plus 31 added later with Claude's help | After narrowing to at most 48 |
 | Denominator | Total submitted and recovered counted separately | 211 tested | At most 48 per target |
 
@@ -147,7 +147,7 @@ Pythia-1 uses looser criteria than the other two, reports counts after prior sel
 - **Ranking:** The three reports differ in target and assay, so which is better cannot be stated.
 - **Claude's result:** Of the 17 under the published criteria, 15 are binding confirmed at both laboratories and the 2 LqhIII designs at Adaptyv Bio only. Binding is not neutralization, and no animal efficacy test was done; Anthropic's page states that neutralization was not confirmed ([1](#ref-1)).
 - **Pythia-1:** Per-design hit rates and the handling of controls could not be confirmed here.
-- **Bits to Binders:** Using Down as a noise indicator is conservative because it includes truly depleted designs. The between-team test assumes independent designs and ignores within-team correlation.
+- **Bits to Binders:** Down includes truly depleted designs and cannot quantify noise or false-positive counts. The between-team test assumes independent designs and ignores within-team correlation.
 - **Affiliations and disclosure:** This article is a recount of public data. The AI I use (Claude) is an Anthropic model, and one compared item is Anthropic's own Claude result. Claude's results were therefore counted using only public data and the published criteria, with no added evaluation or speculation. The Pythia Labs preprint reports work by company employees ([2](#ref-2)).
 - **Interval assumptions:** Wilson intervals assume independent results across designs. Claude's 211 designs were pre-selected and fall into groups sharing a target and design, so the actual uncertainty may be wider than the intervals shown.
 - **Scope of verification:** The recalculation is a separate implementation by the same author (with AI assistance), not third-party confirmation. The R recount covers counts, Up and Down, Claude's 17 and 11, and the Wilson interval for 17/211; it does not cover team-level results, the chi-square test, method groups or the sensitivity analysis.
@@ -155,6 +155,8 @@ Pythia-1 uses looser criteria than the other two, reports counts after prior sel
 ## Conclusion
 
 By threshold and denominator alone, the hit rate for the same experiment moved over 0.7–16.7% for Bits to Binders and 8.1–23.2% for Claude's toxin binders (29.4% including "weak or ambiguous" as a reference). The three reports differ in assay, threshold, replication, controls, prior selection and denominator, and the data here give no basis for placing the three on one scale.
+
+Correction, 2026-11-02: clarified the definition of FDR and why Down counts do not quantify noise. Hit counts, rates and calculated intervals are unchanged.
 
 ## Data and code availability
 
@@ -176,3 +178,5 @@ The full re-run materials are in the [companion archive](shared/bits-to-binders-
 <span id="ref-4"></span>4. Kosonocky CW, et al. bits-to-binders [Dataset and software]. GitHub; 2026. Commit 43eeeaf7e6ab629e796c9fe8d20b0ef70a3610d9 [cited 2026 Oct 30]. [https://github.com/kosonocky/bits-to-binders](https://github.com/kosonocky/bits-to-binders)
 
 <span id="ref-5"></span>5. Anthropic. scorpion-toxin-binder-design [Dataset]. Hugging Face; 2026. Revision 0bac3d0286f7f83b5339f5b4f1e67fbe47a6e7c1. CC BY 4.0 [cited 2026 Oct 30]. [https://huggingface.co/datasets/Anthropic/scorpion-toxin-binder-design](https://huggingface.co/datasets/Anthropic/scorpion-toxin-binder-design)
+
+<span id="ref-6"></span>6. Benjamini Y, Hochberg Y. Controlling the false discovery rate: a practical and powerful approach to multiple testing. Journal of the Royal Statistical Society: Series B (Methodological). 1995;57(1):289–300. [doi:10.1111/j.2517-6161.1995.tb02031.x](https://doi.org/10.1111/j.2517-6161.1995.tb02031.x).

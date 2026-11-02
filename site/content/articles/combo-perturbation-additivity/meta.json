@@ -26,6 +26,6 @@
     "summary": "In 131 double CRISPRa perturbations, the noise-corrected share of the expression change not explained by the sum of single effects had a median of 9%. Most pairs that departed strongly from additivity differed mainly in overall magnitude, which a single scale factor captured, so in these data the room for models to beat the additive baseline is small for most pairs."
   },
   "reviewed": {
-    "en": "7aba28e5704f22fd27cd421ecde213a302209cfe6492e5e19284ca6584f51461"
+    "en": "938af9842391393fcc1f2b1f12124edf827995ed993b634a2bd171bbe7c588bd"
   }
 }

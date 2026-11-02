@@ -61,7 +61,7 @@ AdaptyvのTREM2設計イベントでも、人間が設計ツールを運用す�
 | Tecan | Total sales in local currencies, first half of 2026 | +3.4% | Currency-adjusted measure; AI-specific sales not separated |
 | Revvity Life Sciences | Pro forma organic sales, Q2 2026 | −3% | Adjusted for business scope, currency and other factors |
 | Charles River DSA | Discovery and Safety Assessment, Q2 2026 | Reported −1.9%; organic +0.2% | Divestiture and currency adjustments alter the comparison |
-| Evotec | Total revenue, first half of 2026 | €301 million; −19.2% | Includes effects such as timing of partnership revenue |
+| Evotec | Total revenue, first half of 2026 | €300.1 million; −19.2% | Includes effects such as timing of partnership revenue |
 
 出典： ([8](#ref-8), [9](#ref-9), [10](#ref-10), [11](#ref-11), [12](#ref-12), [13](#ref-13))。
 
@@ -165,6 +165,8 @@ Virtual Biology Initiativeが掲げる測定とモデルの接続も、この隔
 
 今回読んだ資料を一つの「AI創薬の成功率」にまとめなかったのは、その尺度がそろっていないためだ。
 
+
+2026年11月2日訂正：表のEvotec上期売上を301百万ユーロから300.1百万ユーロへ訂正した。[SEC掲載の2026年上期報告](https://www.sec.gov/Archives/edgar/data/1412558/000110465926095267/tm2623114d1_ex99-1.htm)のHighlights「Group revenues decreased by 19.2% to €300.1 m」に従う。
 
 ## 参照 {#revision-section-2}
 

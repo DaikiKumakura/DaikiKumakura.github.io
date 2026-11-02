@@ -59,7 +59,7 @@ Table 1 summarizes the comparison.
 | Tecan | Total sales in local currencies, first half of 2026 | +3.4% | Currency-adjusted measure; AI-specific sales not separated |
 | Revvity Life Sciences | Pro forma organic sales, Q2 2026 | −3% | Adjusted for business scope, currency and other factors |
 | Charles River DSA | Discovery and Safety Assessment, Q2 2026 | Reported −1.9%; organic +0.2% | Divestiture and currency adjustments alter the comparison |
-| Evotec | Total revenue, first half of 2026 | €301 million; −19.2% | Includes effects such as timing of partnership revenue |
+| Evotec | Total revenue, first half of 2026 | €300.1 million; −19.2% | Includes effects such as timing of partnership revenue |
 
 Sources: ([8](#ref-8), [9](#ref-9), [10](#ref-10), [11](#ref-11), [12](#ref-12), [13](#ref-13)).
 
@@ -163,6 +163,8 @@ Molecular proposals, cellular responses and patient efficacy have different deno
 
 I have not collapsed these materials into one “AI drug discovery success rate” because their scales do not match.
 
+
+Correction, 2 November 2026: Evotec first-half revenue in the table was corrected from €301 million to €300.1 million. The Highlights in the [SEC-filed first-half 2026 report](https://www.sec.gov/Archives/edgar/data/1412558/000110465926095267/tm2623114d1_ex99-1.htm) state “Group revenues decreased by 19.2% to €300.1 m”.
 
 ## References {#revision-section-2}
 

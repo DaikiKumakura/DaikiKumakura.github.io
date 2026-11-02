@@ -177,7 +177,7 @@ AUCに似た勝率と考えると理解しやすいが、通常のROC-AUCや、�
 | PIE, October 2026 preprint | Population-level perturbation effects informed by biological knowledge | Separate unseen target, unseen context and both unseen |
 | Miller et al., Nature Biotechnology 2026 | Metric sensitivity and comparisons on unseen targets or combinations | Interpret scores together with metric properties |
 
-能力の概要は、UCE・State・Stackの各原著とMillerらの報告に基づく ([13](#ref-13), [14](#ref-14), [15](#ref-15), [12](#ref-12))。表の「今回の問題との関係」は本記事の解釈である。Stackは、この調査ではプレプリントとして扱う。
+能力の概要は、UCE・State・Stackの各原著とMillerらの報告に基づく ([13](#ref-13), [14](#ref-14), [15](#ref-15), [12](#ref-12))。表の「Relation to this article's concern」（今回の問題との関係）の列は本記事の解釈である。Stackは、この調査ではプレプリントとして扱う。
 
 PIEは2026年10月5日に公開された新しい例である。公開READMEと発表資料では、知識源、対象文脈のcontrol、学習データ内の摂動応答を利用すると説明されている。未知条件を予測するという主張も、何も観測せずに予測するという意味ではない。本記事では公開資料で確認できる設計の紹介に留め、詳細な性能値や独立検証を済ませたという主張は採用しない ([16](#ref-16))。
 

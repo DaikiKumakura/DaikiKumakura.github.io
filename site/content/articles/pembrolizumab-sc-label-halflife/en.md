@@ -1,6 +1,6 @@
 Reference date: the facts in this article are as of 1 November 2026.
 
-The prescribing information for subcutaneous pembrolizumab (Keytruda Qlex) gives steady-state values for 790 mg every 6 weeks and 395 mg every 3 weeks, together with a terminal half-life of 22 days ([1](#ref-1)). The steady-state values include the area under the concentration–time curve (AUC), the trough concentration (Ctrough) and the accumulation ratio. If the numbers in the same label are consistent, the steady-state values should follow from the 22-day half-life. Using a one-compartment model with first-order absorption, this note finds the half-life that reproduces the label's values and compares it with 22 days. It then examines how the result changes when the between-patient variability reported in the label is included.
+The prescribing information for subcutaneous pembrolizumab (Keytruda Qlex) gives steady-state values for 790 mg every 6 weeks and 395 mg every 3 weeks, together with a terminal half-life of 22 days ([1](#ref-1)). The steady-state values include the area under the concentration–time curve (AUC), the trough concentration (Ctrough) and the accumulation ratio. A terminal half-life alone does not uniquely determine population steady-state means. Under an assumed one-compartment model with first-order absorption, this note finds the elimination half-life that reproduces the label's values and compares it with 22 days. A discrepancy under this model alone is not evidence of an error in the label. It then examines how the result changes when the between-patient variability reported in the label is included.
 
 ## Methods
 
@@ -75,6 +75,8 @@ The calculation code (`analysis.py`, `figures.py`), tests (`test_analysis.py`) a
 
 The full re-run materials are in the [companion archive](shared/pembrolizumab-sc-label-halflife/pembrolizumab-sc-label-halflife-companion.zip).
 
+
+Update, 2 November 2026: The introduction was clarified. Terminal half-life alone does not determine population mean exposure; this comparison depends on the assumed model. Calculated results are unchanged.
 
 ## References
 
