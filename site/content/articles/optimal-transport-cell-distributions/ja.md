@@ -34,9 +34,9 @@ CellOTは、この対応のない分布の間に、変化のコストを小さ�
 
 **表1　主分割のセル行数**
 
-| 条件 | 学習セル | 評価セル |
+| Condition | Training cells | Evaluation cells |
 | --- | ---: | ---: |
-| 対照 | 8,796 | 2,199 |
+| Control | 8,796 | 2,199 |
 | Trametinib | 2,109 | 528 |
 | Dabrafenib | 2,140 | 535 |
 | Everolimus | 2,073 | 519 |
@@ -51,11 +51,11 @@ pERKは公開ファイルの前処理後の値をそのまま用いた。前処�
 
 **表2　比較する予測と保持する情報**
 
-| 予測 | 対照の評価セルに与える値 | 保持するもの |
+| Prediction | Value assigned to control evaluation cells | Information retained |
 | --- | --- | --- |
-| 平均一点 | 全セルに投与群の学習平均を返す | 平均だけ |
-| 平均倍率 | 対照値を、投与群平均／対照平均で掛ける | 対照分布の相対的な形 |
-| 分位点写像 | 対照での順位を投与群での同じ分位点へ対応させる | 投与群の分布の形を反映する |
+| Mean point | Return the treated training mean to every cell | Mean only |
+| Mean multiplier | Multiply control values by treated mean / control mean | Relative shape of the control distribution |
+| Quantile map | Map control ranks to the same treated quantiles | Shape of the treated distribution |
 
 連続的な1次元分布で、対照の累積分布を\(F_0\)、投与後を\(F_1\)とすると、分位点写像は
 
@@ -85,17 +85,17 @@ W_1(\mu,\nu)=\int_0^1|F_\mu^{-1}(u)-F_\nu^{-1}(u)|\,du.
 
 **表3　平均誤差とWasserstein距離**
 
-| 薬剤 | 予測 | 平均誤差／対照SD | W1／対照SD |
+| Drug | Prediction | Mean error / control SD | W1 / control SD |
 | --- | --- | ---: | ---: |
-| Trametinib | 平均一点 | 0.0000 | 0.0260 |
-| Trametinib | 平均倍率 | 0.0003 | 0.0109 |
-| Trametinib | 分位点写像 | −0.0002 | 0.0036 |
-| Dabrafenib | 平均一点 | −0.0694 | 0.6394 |
-| Dabrafenib | 平均倍率 | −0.0605 | 0.1359 |
-| Dabrafenib | 分位点写像 | −0.0644 | 0.1193 |
-| Everolimus | 平均一点 | 0.0172 | 0.7979 |
-| Everolimus | 平均倍率 | 0.0295 | 0.0762 |
-| Everolimus | 分位点写像 | 0.0263 | 0.0687 |
+| Trametinib | Mean point | 0.0000 | 0.0260 |
+| Trametinib | Mean multiplier | 0.0003 | 0.0109 |
+| Trametinib | Quantile map | −0.0002 | 0.0036 |
+| Dabrafenib | Mean point | −0.0694 | 0.6394 |
+| Dabrafenib | Mean multiplier | −0.0605 | 0.1359 |
+| Dabrafenib | Quantile map | −0.0644 | 0.1193 |
+| Everolimus | Mean point | 0.0172 | 0.7979 |
+| Everolimus | Mean multiplier | 0.0295 | 0.0762 |
+| Everolimus | Quantile map | 0.0263 | 0.0687 |
 
 例えばEverolimusでは、平均一点の平均誤差は0.0172と小さいが、距離は0.7979だった。平均倍率は、平均誤差が少し大きくても距離を0.0762まで減らした。平均を当てることに加え、集団の広がりを残すことが効いている。
 
@@ -109,7 +109,7 @@ W_1(\mu,\nu)=\int_0^1|F_\mu^{-1}(u)-F_\nu^{-1}(u)|\,du.
 
 **表4　学習群で固定した閾値を超える割合**
 
-| 薬剤 | 実測の高値側割合 | 平均倍率 | 分位点写像 |
+| Drug | Observed upper-tail fraction | Mean multiplier | Quantile map |
 | --- | ---: | ---: | ---: |
 | Trametinib | 7.77% | 4.87% | 10.19% |
 | Dabrafenib | 9.53% | 11.51% | 10.19% |

@@ -40,14 +40,14 @@ ExpansionRxでの評価は次の設計である。([1](#ref-1))
 
 **表1．** 曝露目標と補正の設定。
 
-| 設定 | 目標 | 補正など |
+| Setting | Target | Assumptions or corrections |
 | --- | --- | --- |
-| A | 非結合型の平均濃度（Cavg,u） | 最小の形（Fa = 1、ミクロソーム結合の補正なし） |
-| A + fu,mic | 同上 | LogDからミクロソーム結合を補正（Hallifax–Houstonの式([5](#ref-5))） |
-| A 結合補正なし | 同上 | well-stirred モデルに血漿結合を入れない（Page 2016の塩基の扱い） |
-| A + Fa | 同上 | Caco-2透過性から吸収率を与える（例示の式） |
-| A′ | 同上 | fu,mic と Fa の両方 |
-| B | 非結合型の最低濃度（Cmin,u） | 1次吸収（ka 1/h）、分布容積 1 L/kg（感度分析で 3 L/kg） |
+| A | Mean unbound concentration, Cavg,u | Fa=1; no microsomal-binding correction |
+| A + fu,mic | Same | LogD-based microsomal-binding correction ([5](#ref-5)) |
+| A without plasma-binding correction | Same | Omit plasma binding in the well-stirred model, following Page's treatment of bases |
+| A + Fa | Same | Illustrative absorption fraction from Caco-2 permeability |
+| A′ | Same | Both fu,mic and Fa |
+| B | Minimum unbound concentration, Cmin,u | First-order absorption, ka=1/h; distribution volume 1 L/kg, with 3 L/kg sensitivity |
 
 ## 用量の順位は主にHLM CLintで決まる {#3-hlm-clint}
 
@@ -61,15 +61,15 @@ ExpansionRxでの評価は次の設計である。([1](#ref-1))
 
 **表2．** 用量とHLM CLintの関係。
 
-| 設定 | HLM CLintとのSpearman | 用量の対数の標準偏差 | 中央値（mg/日、分子量450） |
+| Setting | Spearman with HLM CLint | SD of log10 dose | Median mg/day at molecular weight 450 |
 | --- | ---: | ---: | ---: |
 | A | 1.00 | 0.48 | 94 |
 | A + fu,mic | 0.99 | 0.52 | 113 |
-| A 結合補正なし | 0.91 | 0.81 | 764 |
+| A without plasma-binding correction | 0.91 | 0.81 | 764 |
 | A + Fa | 0.94 | 0.47 | 112 |
-| A′（fu,mic + Fa） | 0.95 | 0.51 | 128 |
-| B（分布容積 1 L/kg） | 0.80 | 1.17 | 763 |
-| B（分布容積 3 L/kg） | 0.95 | 0.63 | 188 |
+| A′ (fu,mic + Fa) | 0.95 | 0.51 | 128 |
+| B (volume 1 L/kg) | 0.80 | 1.17 | 763 |
+| B (volume 3 L/kg) | 0.95 | 0.63 | 188 |
 
 設定Bでは、半減期が効いてくる。クリアランスの高い化合物は、1日1回の投与で最低濃度を保つのに大量の用量が要る。分布容積 1 L/kg では、分子量450として1 g/日を超える化合物が46%あり、上位5%は約190 g/日を超えた。実際の創薬では、こうした化合物には1日2回の投与や別の剤形を考える。設定Bは**極端な側の参考**として読んでほしい。筋組織への結合（MGMB）からØie–Tozer法で分布容積を求められた128化合物では、設定BとHLM CLintのSpearman相関は0.87だった。
 
@@ -93,10 +93,10 @@ CLintに対数正規の予測誤差を入れ、予測用量と実測値からの
 
 **表3．** 別の実測値と用量順位の相関。
 
-| 実測値をそのまま使う | 設定A | 設定A′ | 設定B |
+| Measured property used directly | A | A′ | B |
 | --- | ---: | ---: | ---: |
-| LogD | 0.63（0.56〜0.69） | 0.61 | 0.23 |
-| マウス肝ミクロソームCLint（n = 278） | 0.64 | 0.63 | 0.44 |
+| LogD | 0.63 (0.56–0.69) | 0.61 | 0.23 |
+| Mouse liver microsomal CLint, n=278 | 0.64 | 0.63 | 0.44 |
 
 括弧内はブートストラップの95%信頼区間。設定Aでは、LogDだけでも0.63になった。この集合ではLogDとHLM CLintのSpearman相関が0.63で、脂溶性の高い化合物ほど代謝されやすい傾向がある。構造から学習した単純なモデルの予測を用量の式に入れた基準は、計算していない（未計算）。
 
@@ -108,11 +108,11 @@ AAFE 2.4倍は、実測値からの用量そのものがどれだけばらつい
 
 **表4．** 定数予測によるAAFE。
 
-| 設定 | 学習用データの中央値を答える | 評価用データの中央値を答える（事後に知る最良の定数予測） |
+| Setting | Training-set median | Test-set median, known only retrospectively and optimal among constant predictions |
 | --- | ---: | ---: |
-| A | 2.77倍 | 2.38倍 |
-| A′ | 3.02倍 | 2.47倍 |
-| B（分布容積 1 L/kg） | 14.3倍 | 7.98倍 |
+| A | 2.77-fold | 2.38-fold |
+| A′ | 3.02-fold | 2.47-fold |
+| B (volume 1 L/kg) | 14.3-fold | 7.98-fold |
 
 設定Aに近い定義なら、2.4倍は「何も区別しない」予測と同じ程度である。
 

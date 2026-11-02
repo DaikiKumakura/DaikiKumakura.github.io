@@ -46,11 +46,11 @@ x_i(t+1)=f_i\bigl(x_{\mathrm{pa}(i)}(t)\bigr).
 
 **表1．** 標的mRNAの変化と発現状況。
 
-| 細胞株 | MYB | HDAC2 | FOXA2 |
+| Cell line | MYB | HDAC2 | FOXA2 |
 | --- | --- | --- | --- |
-| HCT116 | −92% | −94% | **未発現**（CPM 0.02） |
-| CACO2 | **−16%** | −76% | **−2%**（発現あり） |
-| HT29 | −68%（反復別 −46%／−92%） | −92% | **未発現**（CPM 0.43） |
+| HCT116 | −92% | −94% | Below expression cutoff, CPM 0.02 |
+| CACO2 | −16% | −76% | −2%, expressed |
+| HT29 | −68%, replicate values −46%/−92% | −92% | Below expression cutoff, CPM 0.43 |
 
 HCT116とHT29では、FOXA2がほとんど発現していない。この2株では、mRNAだけからFOXA2に対する操作の寄与を確認できない。MYBとHDAC2の減少は確認できたが、タンパク質や他の作用まで2標的操作と同じとは言えない。CACO2では、FOXA2は発現しているが減らず、MYBも16%しか減っていない。**mRNAの水準では、3つの標的がすべて発現し、すべて強く減っている細胞株は、3つのうち1つもなかった。**
 
@@ -82,12 +82,12 @@ HT29では、増殖プログラムの低下が、ノックダウンの2つ目の
 
 **表2．** 原著の主張と本再解析の確認範囲。
 
-| 論文の主張 | 公開RNA-seqの再解析 |
+| Claim | Public RNA-seq assessment |
 | --- | --- |
-| 3つの標的を同時にノックダウンした | mRNAの水準では、HCT116とHT29でFOXA2が未発現、CACO2でMYBとFOXA2がほとんど減っていない。3つが強く減った株はなかった（タンパク質は未確認） |
-| 腸細胞のプログラムが上がった | 成熟腸細胞のセットは3株とも上がった（基準すれすれの株がある）。ほかの細胞種に比べた特異性が明確なのは、HT29だけ |
-| 増殖が抑制され、分化した | 3株中2株で増殖プログラムが下がり、1株では上がった |
-| 3株とも似た正常様の状態に収束した | 未確認（本記事の指標である遺伝子ごとの倍率は、株間でほとんど一致しなかったが、論文の主張を検定したものではない） |
+| Three targets were knocked down simultaneously | FOXA2 mRNA was below the expression cutoff in HCT116 and HT29; MYB and FOXA2 barely decreased in CACO2. No line showed strong decreases in all three; protein effects unverified |
+| Enterocyte programs increased | Increased in all three, near threshold in some; relative specificity clearest in HT29 |
+| Proliferation decreased with differentiation | Proliferation programs decreased in two lines and increased in one |
+| All lines converged to a similar normal-like state | Unverified; low correlations of gene-wise changes use a different metric from the original claim |
 
 つまり、「部分的な腸細胞様のシグナルは、3株に見える」とは言える。「3つの標的を同時に抑えると、3つの大腸がん細胞が正常様の腸細胞へ戻る」とは、このmRNAのデータからは言えない。
 

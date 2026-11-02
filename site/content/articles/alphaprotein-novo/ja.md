@@ -30,11 +30,11 @@ pLDDTなどの信頼度指標は、モデルが予測構造にどれほど自信
 
 **表1　反応別の予測対象と実験評価**
 
-| 対象 | 予測で確かめること | 実験で確かめること |
+| Reaction | Evaluated in predictions | Evaluated experimentally |
 | --- | --- | --- |
-| Kemp脱離反応 | 触媒塩基と遷移状態類似体の配置 | 活性と速度論パラメータ |
-| エステル加水分解 | 触媒三残基の相互作用、基質結合状態と中間体の配置の整合性 | 加水分解活性、基質濃度による速度の変化 |
-| ニトレン転移反応 | ヘムと基質の配置、結合形成に関わる原子間距離 | 生成物量、環の大きさの選択性、鏡像異性体の選択性 |
+| Kemp elimination | Catalytic base and transition-state-analogue geometry | Activity and kinetic parameters |
+| Ester hydrolysis | Catalytic-triad interactions and consistency between substrate-bound and intermediate geometries | Hydrolysis activity and substrate-dependent rates |
+| Nitrene transfer | Heme/substrate geometry and distances between bond-forming atoms | Product yield, ring-size selectivity and enantioselectivity |
 
 基質が結合した状態だけをうまく予測できても、中間体の配置が大きく変わるなら、想定した触媒配置が成立するか疑問が残る。そのため複数の反応状態を評価する。ただし、異なる状態の静的な予測構造を比べることは、反応経路を動力学的に計算することとは異なる。
 
@@ -66,10 +66,10 @@ MRでは、それぞれの配列について構造予測とフィルタ判定を
 
 **表2　公表件数と参考二項比率区間**
 
-| 記載された集計 | 割合 | Wilson 95%区間 |
+| Reported aggregation | Proportion | Wilson 95% interval |
 | --- | ---: | ---: |
-| セリンエステラーゼ、後ろ向きに選別した9候補中5ヒット | 55.6% | 26.7–81.1% |
-| Kemp脱離反応、最終ラウンド90候補中5候補が上記速度を超過 | 5.6% | 2.4–12.4% |
+| Serine esterase: five hits among nine retrospectively selected designs | 55.6% | 26.7–81.1% |
+| Kemp elimination: five of 90 final-round designs above the stated rate criterion | 5.6% | 2.4–12.4% |
 
 この区間は、同じ成功確率を持つ独立な二項試行という仮定で、件数の少なさを可視化した参考値である。最良条件を選んだことによる偏りや、足場間の依存、新しい反応への適用の不確実性は含まない。将来の実験ヒット率の予測区間としては使わない。
 

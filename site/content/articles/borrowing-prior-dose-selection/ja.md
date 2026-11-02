@@ -22,10 +22,10 @@ Sotorasibの集計は申請者の公開資料、ifinatamab deruxtecanの集計�
 
 **表1　既存薬の群別集計**
 
-| 既存薬 | 低用量：奏効 / 重い有害事象 | 高用量：奏効 / 重い有害事象 | 観測が有利とする用量 |
+| Existing drug | Low dose: responses / severe adverse events | High dose: responses / severe adverse events | Dose favored by the observations |
 | --- | --- | --- | --- |
-| sotorasib 240 / 960 mg | 26/105、20/104 | 34/104、37/104 | 低用量 |
-| ifinatamab deruxtecan 8 / 12 mg/kg | 12/46、20/46 | 23/42、21/42 | 高用量 |
+| sotorasib 240 / 960 mg | 26/105, 20/104 | 34/104, 37/104 | Low dose |
+| ifinatamab deruxtecan 8 / 12 mg/kg | 12/46, 20/46 | 23/42, 21/42 | High dose |
 
 重い有害事象は、sotorasibではGrade≥3の治療関連有害事象、ifinatamab deruxtecanではGrade≥3の有害事象。よい用量は、効用 U = 奏効率 − 重い有害事象の率が大きい方とした（奏効1件と重い有害事象1件を同じ重さで見る。sotorasibの用量比較の記事 ([5](#ref-5))の主解析と同じ）。
 
@@ -73,12 +73,12 @@ S2・S4は確率を0〜0.99へ制限した。
 
 **表2　正選択率の比較**
 
-| | 借用なし | 全量借用 |
+| | No borrowing | Full borrowing |
 | --- | ---: | ---: |
-| sotorasibを借用、新薬が同等 | 73% | 83% |
-| sotorasibを借用、新薬で高用量の害が増えない（S3） | 71% | 28% |
-| ifinatamab deruxtecanを借用、新薬が同等 | 87% | 93% |
-| ifinatamab deruxtecanを借用、新薬で高用量の奏効が増えない（S1） | 72% | 42% |
+| Borrowing sotorasib, new drug equivalent | 73% | 83% |
+| Borrowing sotorasib, no added harm at the high dose of the new drug (S3) | 71% | 28% |
+| Borrowing ifinatamab deruxtecan, new drug equivalent | 87% | 93% |
+| Borrowing ifinatamab deruxtecan, no added response at the high dose of the new drug (S1) | 72% | 42% |
 
 ### 事後混合重みと不一致 {#posterior-mixture-weight}
 
@@ -96,13 +96,13 @@ S2・S4は確率を0〜0.99へ制限した。
 
 **表3　各感度条件で許容された最大借用重み**
 
-| 条件 | sotorasibを借用 | ifinatamab deruxtecanを借用 |
+| Condition | Borrowing sotorasib | Borrowing ifinatamab deruxtecan |
 | --- | --- | --- |
-| 主解析（1群40例） | 0.5まで | 0.5まで |
-| 1群25例 | 0.5まで | 0.5まで |
-| 1群60例 | 0.5まで | 0.75まで |
-| 既存薬の有効標本数を50に縮める | 0.75まで | 0.5まで |
-| 害の重みを2倍 | 0.25まで | 0.5まで |
+| Main analysis (40 per arm) | up to 0.5 | up to 0.5 |
+| 25 per arm | up to 0.5 | up to 0.5 |
+| 60 per arm | up to 0.5 | up to 0.75 |
+| Effective sample size of the existing drug reduced to 50 | up to 0.75 | up to 0.5 |
+| Weight on harm doubled | up to 0.25 | up to 0.5 |
 
 全量の借用（ω = 1）は、どの条件でも許容できなかった。すべての条件で許容できたのは ω = 0.25 だけだった。
 

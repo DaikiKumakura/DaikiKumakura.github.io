@@ -12,7 +12,7 @@ KauerらのFigure 1Cには、健康人PBMCとLNCaP細胞を72時間共培養し�
 
 原図の四角・三角の平均マーカーを読み取った。10点は4人分の個票ではなく、5条件×2群の集計値である。原著の線やエラーバーを観測点として追加していない（[original Figure 1](https://pmc.ncbi.nlm.nih.gov/articles/PMC7264835/#F1)）。
 
-| E:T比 | TOCI併用平均 | DEX併用平均 | 差 |
+| E:T ratio | TOCI combination mean | DEX combination mean | Difference |
 | --- | ---: | ---: | ---: |
 | 0.625 | 100.0 | 11.7 | 88.3 |
 | 1.25 | 96.1 | 37.9 | 58.3 |
@@ -44,10 +44,10 @@ f(r)=E\frac{r^h}{K^h+r^h}
 
 図1。原図から読み取った平均マーカーと本解析の当てはめ。各群5点、原著では4ドナーの集計。原図の線を再現したものではない。
 
-| モデル | 当てはめRMSE | E:T条件除外RMSE | 除外したDEX群のみのRMSE |
+| Model | Fitting RMSE | Paired E:T-holdout RMSE | Held-out DEX-only RMSE |
 | --- | ---: | ---: | ---: |
-| 水平移動 | 3.17 | 6.54 | 7.21 |
-| 上限低下 | 20.27 | 27.95 | 27.99 |
+| Horizontal shift | 3.17 | 6.54 | 7.21 |
+| Ceiling change | 20.27 | 27.95 | 27.99 |
 
 単位はpp。上限だけを下げるモデルは、DEX群の低E:Tでの小さい反応と高E:Tでの基準群への接近を同時に表せなかった。水平移動モデルは、同じ上限へ近づく形を許すため、この違いを記述しやすい。
 

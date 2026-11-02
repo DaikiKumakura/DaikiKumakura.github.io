@@ -30,7 +30,7 @@ Y_s(c)=E_s\frac{c^{h_s}}{EC_{50,s}^{h_s}+c^{h_s}}.
 
 **表1．** ドナーごとの観測信号比とモデル誤差。
 
-| ドナー | 最高濃度でのTex/Teff信号比 | 推定上限比 | 上限・Hill共通RMSE | 上限のみ状態別RMSE | 上限・Hill状態別RMSE |
+| Donor | Observed high-concentration Tex/Teff ratio | Fitted ceiling ratio | Common ceiling and Hill RMSE | Separate ceilings with common Hill RMSE | Separate ceilings and Hill RMSE |
 | --- | ---: | ---: | ---: | ---: | ---: |
 | 1 | 0.303 | 0.302 | 0.113 | 0.026 | 0.026 |
 | 2 | 0.548 | 0.541 | 0.115 | 0.023 | 0.018 |
@@ -47,7 +47,7 @@ Y_s(c)=E_s\frac{c^{h_s}}{EC_{50,s}^{h_s}+c^{h_s}}.
 
 **表2．** 最高濃度を除外した予測。
 
-| ドナー | 状態 | 最高濃度の観測信号 | 低濃度からの予測 |
+| Donor | State | Observed highest-concentration signal | Prediction from lower concentrations |
 | --- | --- | ---: | ---: |
 | 1 | Teff | 1.286 | 3.282 |
 | 1 | Tex | 0.390 | 0.364 |

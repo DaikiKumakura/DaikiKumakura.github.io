@@ -28,11 +28,11 @@ CRANのfrailtypack 3.8.1にある `colorectal` と `colorectalLongi` は、転�
 
 <span id="table-1"></span>表1．生存モデルの予測因子
 
-| モデル | 予測因子 |
+| Model | Predictors |
 | --- | --- |
-| C：臨床因子 | 治療群、年齢区分、WHO status ≥1、切除歴、ベースライン腫瘍値 |
-| P：一点変化 | Cに加え、ランドマーク以前の最後の値とベースラインとの差、その計測時点 |
-| K：動態 | Cに加え、モデルから予測したランドマーク時点の値とベースラインとの差、個別の傾き |
+| C: clinical | Treatment arm, age group, WHO status ≥1, previous resection, baseline tumor value |
+| P: one-point | C + last value before the landmark minus baseline, and the time of that value |
+| K: kinetic | C + the model-predicted value at the landmark minus baseline, and the individual slope |
 
 PとKはどちらもCに二つの項を加えるため、項数ではなく、その情報を比較する。
 
@@ -54,11 +54,11 @@ PとKはどちらもCに二つの項を加えるため、項数ではなく、�
 
 <span id="table-2"></span>表2．C-indexの差と条件付き95%区間
 
-| ランドマーク | 一点変化対臨床因子（P − C） | 線形動態対一点変化（K − P） | 二次動態対一点変化 |
+| Landmark | One-point vs clinical (P − C) | Linear kinetic vs one-point (K − P) | Quadratic kinetic vs one-point |
 | --- | --- | --- | --- |
-| 16週 | +0.049 (−0.006 to +0.105) | +0.004 (−0.018 to +0.028) | — |
-| 24週 | +0.036 (−0.026 to +0.100) | +0.007 (−0.022 to +0.037) | +0.001 (−0.036 to +0.037) |
-| 32週 | +0.001 (−0.064 to +0.063) | +0.002 (−0.033 to +0.035) | +0.016 (−0.015 to +0.046) |
+| 16 weeks | +0.049 (−0.006 to +0.105) | +0.004 (−0.018 to +0.028) | — |
+| 24 weeks | +0.036 (−0.026 to +0.100) | +0.007 (−0.022 to +0.037) | +0.001 (−0.036 to +0.037) |
+| 32 weeks | +0.001 (−0.064 to +0.063) | +0.002 (−0.033 to +0.035) | +0.016 (−0.015 to +0.046) |
 
 動態項によるC-indexの変化は最大0.016で、全区間が0を含んだ。1年Brier scoreの差も0付近だった。患者間で動態項と一点変化項の相関は約0.97で、混合モデルは観測変化を母集団へ縮小して表現している部分が大きい。傾きの縮小率は0.24–0.35だった。
 
@@ -74,11 +74,11 @@ PとKはどちらもCに二つの項を加えるため、項数ではなく、�
 
 <span id="table-3"></span>表3．次の計測の平均絶対誤差
 
-| ランドマーク | 最後の値を維持 | ベースラインからの直線 | 線形混合モデル | 二次混合モデル |
+| Landmark | Last value carried forward | Straight line from baseline | Linear mixed model | Quadratic mixed model |
 | --- | ---: | ---: | ---: | ---: |
-| 16週 | **0.42** | 0.65 | 0.52 | — |
-| 24週 | **0.50** | 0.85 | 0.78 | 0.63 |
-| 32週 | **0.61** | 0.92 | 0.89 | 0.72 |
+| 16 weeks | **0.42** | 0.65 | 0.52 | — |
+| 24 weeks | **0.50** | 0.85 | 0.78 | 0.63 |
+| 32 weeks | **0.61** | 0.92 | 0.89 | 0.72 |
 
 混合モデルはベースラインから引いた直線より良かったが、最後の値を維持する規則より0.10–0.29悪く、その差の全区間が0を含まなかった。二次モデルも最後の値より0.11–0.13悪かった。
 

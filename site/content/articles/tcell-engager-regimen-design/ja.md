@@ -12,12 +12,12 @@
 
 <span id="table-1"></span>表1．解析の問いと範囲
 
-| 問い（QOI） | 本解析で扱う指標 | 判断したい範囲 |
+| Question (QOI) | Metric used here | Scope of the judgment |
 | --- | --- | --- |
-| 公開モデルの再計算は妥当か | 初回・初回10 mg・定常状態のCavg、Cmax、Ctrough | 実装の整合性と公表集約値との違い |
-| 有効性が飽和するとは何か | Cycle 1 Cavgと公表Emaxモデル | 平均曝露の解釈と適用範囲 |
-| CRSは投与に伴ってどう分布するか | 観察期間別のall-grade CRS人数 | 集約値が示すことと示さないこと |
-| 維持間隔を延ばすと何が変わるか | 定常状態の平均・ピーク・トラフ、患者内比 | PK上のトレードオフ |
+| Is the recalculation of the public model sound? | Cavg, Cmax and Ctrough after the first dose, the first 10 mg dose and at steady state | Implementation consistency and differences from published summaries |
+| What does "efficacy saturates" mean? | Cycle 1 Cavg and the published Emax model | Interpretation and scope of average exposure |
+| How is CRS distributed across doses? | Number of patients with all-grade CRS by observation period | What the summary does and does not show |
+| What changes when the maintenance interval is extended? | Steady-state average, peak and trough; within-patient ratios | PK trade-offs |
 
 解析の利用範囲（COU）は、タルラタマブの公開モデルを使ったレジメン間の曝露比較である。新しいDLL3標的薬へのmg用量の移植、患者のリスク予測、Q3W/Q4Wの有効性・安全性の保証は範囲外とする。
 
@@ -27,13 +27,13 @@
 
 <span id="table-2"></span>表2．使用資料と証拠の性質
 
-| 資料 | 使用した情報 | 証拠の性質 |
+| Source | Information used | Type of evidence |
 | --- | --- | --- |
-| FDA multidisciplinary review（2024）、Tables 66–67 | 2コンパートメントPK、IIV、固定効果の区間 | 公表されたモデル推定値 ([2](#ref-2)) |
-| PopPK原著（2025） | 420例、8,509検体、モデルと共変量の位置付け | 患者データに基づく原著解析 ([3](#ref-3)) |
-| [Exposure–response paper (2025)](https://pmc.ncbi.nlm.nih.gov/articles/PMC12616239/)・[FDA Table 71](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2024/761344Orig1s000MultidisciplineR.pdf) | Cycle 1 Cavgに対する有効性モデル | 公表された曝露反応推定 ([2](#ref-2), [4](#ref-4)) |
-| DeLLphi-301有害事象管理論文、[原著Figure 2](https://pmc.ncbi.nlm.nih.gov/articles/PMC11775405/) | 133例の期間別CRS人数 | 公表された観察集計 ([5](#ref-5)) |
-| 米国添付文書、Section 12.3、Table 17 | 平均濃度とCV%、投与条件 | モデルに基づく公表集約値 ([1](#ref-1)) |
+| FDA multidisciplinary review (2024), Tables 66–67 | Two-compartment PK, IIV, intervals for fixed effects | Published model estimates ([2](#ref-2)) |
+| Original PopPK paper (2025) | 420 patients, 8,509 samples, model and role of covariates | Original analysis of patient data ([3](#ref-3)) |
+| Original exposure–response paper (2025), FDA Table 71 | Efficacy model against Cycle 1 Cavg | Published exposure–response estimates ([2](#ref-2), [4](#ref-4)) |
+| DeLLphi-301 adverse-event management paper, Figure 2 | CRS counts by period in 133 patients | Published observational summary ([5](#ref-5)) |
+| US label, Section 12.3, Table 17 | Mean concentrations with CV%, dosing conditions | Model-based published summaries ([1](#ref-1)) |
 
 患者ごとの濃度、実投与時刻、CRS発現時刻、前処置・腫瘍量との対応は取得していない。今回の5,000人はモデルの個体間変動から生成した**仮想被験者**であり、臨床データではない。また、公表モデルの再計算と、新しい患者データによるNLME推定は別の作業である。本解析では後者を行っていない。
 
@@ -57,15 +57,15 @@
 
 <span id="table-3"></span>表3．公開モデルのパラメータ
 
-| パラメータ | 参照値 | 公表95% CI |
+| Parameter | Reference value | Published 95% CI |
 | --- | ---: | ---: |
-| CL（L/day） | 0.649 | 0.616–0.682 |
-| Vc（L） | 3.44 | 3.25–3.62 |
-| Q（L/day） | 1.11 | 0.874–1.34 |
-| Vp（L） | 5.06 | 4.40–5.71 |
-| CLのη標準偏差 | 0.437 | 0.364–0.510 |
-| Vcのη標準偏差 | 0.387 | 0.329–0.445 |
-| ηCLとηVcの相関 | 0.535 | 0.314–0.755 |
+| CL (L/day) | 0.649 | 0.616–0.682 |
+| Vc (L) | 3.44 | 3.25–3.62 |
+| Q (L/day) | 1.11 | 0.874–1.34 |
+| Vp (L) | 5.06 | 4.40–5.71 |
+| SD of η for CL | 0.437 | 0.364–0.510 |
+| SD of η for Vc | 0.387 | 0.329–0.445 |
+| Correlation of ηCL and ηVc | 0.535 | 0.314–0.755 |
 
 出典はFDA Tables 66–67 ([2](#ref-2))。IIVの0.437と0.387は、同表の**標準偏差・相関表記**として使う。CVと解釈してlog-SDへ再変換しない。
 
@@ -105,17 +105,17 @@ V_{c,i}=3.44\exp(\eta_{Vc,i}),\quad
 
 <span id="table-4"></span>表4．公表平均曝露との照合
 
-| 期間 | 指標 | 公表平均 | 典型値 | 仮想平均 |
+| Period | Metric | Published mean | Typical value | Virtual mean |
 | --- | --- | ---: | ---: | ---: |
-| 初回1 mg、7日間 | Cavg | 106 | 106.6 | 106.8 |
-| 同上 | Cmax | 314 | 287.6 | 311.6 |
-| 同上 | Ctrough | 49 | 51.0 | 51.8 |
-| 初回10 mg、7日間 | Cavg | 1,100 | 1,106.4 | 1,109.4 |
-| 同上 | Cmax | 3,190 | 2,927.1 | 3,168.0 |
-| 同上 | Ctrough | 517 | 541.8 | 552.2 |
-| 定常10 mg Q2W | Cavg | 1,040 | 1,100.6 | 1,216.3 |
-| 同上 | Cmax | 3,640 | 3,423.1 | 3,779.0 |
-| 同上 | Ctrough | 472 | 548.2 | 664.2 |
+| First 1 mg dose, 7 days | Cavg | 106 | 106.6 | 106.8 |
+| Same | Cmax | 314 | 287.6 | 311.6 |
+| Same | Ctrough | 49 | 51.0 | 51.8 |
+| First 10 mg dose, 7 days | Cavg | 1,100 | 1,106.4 | 1,109.4 |
+| Same | Cmax | 3,190 | 2,927.1 | 3,168.0 |
+| Same | Ctrough | 517 | 541.8 | 552.2 |
+| Steady state 10 mg Q2W | Cavg | 1,040 | 1,100.6 | 1,216.3 |
+| Same | Cmax | 3,640 | 3,423.1 | 3,779.0 |
+| Same | Ctrough | 472 | 548.2 | 664.2 |
 
 初回ピークは仮想平均を使うと公表平均に近づく。一方、定常状態のトラフは一致しない。典型値でも公表平均より約16%、仮想平均では約41%高い。集団の共変量分布、モデル・集約方法の違いを再現していないため、すべての指標を一致させたとは言えない。
 
@@ -145,7 +145,7 @@ p(E)=\frac{E_{max}E}{EC_{50}+E},\qquad E=C_{avg,\mathrm{first\ cycle}}.
 
 <span id="table-5"></span>表5．原著モデルによる用量別の予測
 
-| 目標用量 Q2W | 公表予測ORR | 公表予測DCR |
+| Target dose Q2W | Published predicted ORR | Published predicted DCR |
 | --- | ---: | ---: |
 | 3 mg | 26.2% | 52.0% |
 | 10 mg | 31.4% | 60.8% |
@@ -165,7 +165,7 @@ DeLLphi-301の133例について、[原著Figure 2](https://pmc.ncbi.nlm.nih.gov
 
 <span id="table-6"></span>表6．観察期間別のCRS集計
 
-| 観察期間 | CRS人数 / 133 | 割合 | Wilson 95%区間 |
+| Observation period | Patients with CRS / 133 | Proportion | Wilson 95% interval |
 | --- | ---: | ---: | ---: |
 | C1D1–7 | 54 | 40.6% | 32.6–49.1% |
 | C1D8–14 | 39 | 29.3% | 22.2–37.6% |
@@ -196,13 +196,13 @@ DeLLphi-301の133例について、[原著Figure 2](https://pmc.ncbi.nlm.nih.gov
 
 <span id="table-7"></span>表7．維持投与の患者内曝露比
 
-| 条件 | Cavg比 | Cmax比［5–95%］ | Ctrough比［5–95%］ |
+| Condition | Cavg ratio | Cmax ratio [5–95%] | Ctrough ratio [5–95%] |
 | --- | ---: | ---: | ---: |
 | 10 mg Q2W | 1.000 | 1.000 | 1.000 |
-| 10 mg Q3W | 0.667 | 0.923［0.857–0.966］ | 0.518［0.434–0.580］ |
-| 10 mg Q4W | 0.500 | 0.888［0.789–0.952］ | 0.298［0.206–0.377］ |
-| 15 mg Q3W | 1.000 | 1.385［1.286–1.450］ | 0.778［0.651–0.870］ |
-| 20 mg Q4W | 1.000 | 1.776［1.579–1.905］ | 0.597［0.412–0.753］ |
+| 10 mg Q3W | 0.667 | 0.923 [0.857–0.966] | 0.518 [0.434–0.580] |
+| 10 mg Q4W | 0.500 | 0.888 [0.789–0.952] | 0.298 [0.206–0.377] |
+| 15 mg Q3W | 1.000 | 1.385 [1.286–1.450] | 0.778 [0.651–0.870] |
+| 20 mg Q4W | 1.000 | 1.776 [1.579–1.905] | 0.597 [0.412–0.753] |
 
 図4に示す。
 

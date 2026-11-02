@@ -16,11 +16,11 @@
 
 <span id="table-1"></span>表1．解析の段階と対象
 
-| 段階 | 問いたいこと | この解析で扱うもの |
+| Step | Question | What this analysis handles |
 | --- | --- | --- |
-| 投与 → PK | 初回量・増量幅・間隔が曝露をどう変えるか | モデル内の定量比較 |
-| PK → RO | 残存anti-CD20が結合競合にどう影響するか | 仮定を明示した感度解析 |
-| RO → CRS | 変更レジメンのCRS発現率を予測できるか | 公表回帰式の探索的な出力。臨床予測としては未検証 |
+| Dose → PK | How do the first dose, step-up size and interval change exposure? | Quantitative comparison within the model |
+| PK → RO | How does residual anti-CD20 affect binding competition? | Sensitivity analysis with explicit assumptions |
+| RO → CRS | Can CRS incidence for a modified regimen be predicted? | Exploratory output of a published regression; not validated as clinical prediction |
 
 ### 解析の問いと用途 {#qoicou}
 
@@ -40,11 +40,11 @@
 
 <span id="table-2"></span>表2．使用資料と確認箇所
 
-| 資料 | 主な用途 | 確認箇所 |
+| Source | Main use | Location |
 | --- | --- | --- |
-| PopPK論文の補足資料（cts13825） | 構造式、NONMEM実装、競合結合、既存患者に基づく曝露要約 | Equation 1、Table S2、最終モデルコード |
-| E–R論文の補足資料（cpt3445） | 最終固定効果、Ω、RO–CRS回帰 | Tables S3、S12 |
-| LUNSUMIO静注製剤の製品情報 | 投与日、点滴時間、Cycle別の曝露値 | Dosage and Administration、Clinical Pharmacology |
+| Supplement of the PopPK paper (cts13825) | Structural equations, NONMEM implementation, competitive binding, exposure summaries based on actual patients | Equation 1, Table S2, final model code |
+| Supplement of the E–R paper (cpt3445) | Final fixed effects, Ω, RO–CRS regression | Tables S3, S12 |
+| LUNSUMIO intravenous product information | Dosing days, infusion durations, exposure values by cycle | Dosage and Administration, Clinical Pharmacology |
 
 補足資料はEurope PMCの公開アーカイブから取得した。掲載するのは独自に作成した図、計算コードと結果であり、論文の図表の転載ではない。取得元とファイルのSHA-256を[資料マニフェスト](shared/mosunetuzumab-public-pk/results/source_manifest.json)に記録した。
 
@@ -74,7 +74,7 @@ CL(t)=CL_{ss}+(CL_{base}-CL_{ss})\exp\left(-\frac{\ln 2}{HL_{trans}}t\right)
 
 <span id="table-3"></span>表3．公開モデルのパラメータ
 
-| パラメータ | 典型値 | 公表95% CI | 単位 |
+| Parameter | Typical value | Published 95% CI | Unit |
 | --- | --- | --- | --- |
 | CLbase | 1.08 | 0.962–1.20 | L/day |
 | CLss | 0.584 | 0.561–0.607 | L/day |
@@ -115,13 +115,13 @@ Table S3のCLbase–V1共分散には記号欄に不整合があるため、行�
 
 <span id="table-4"></span>表4．比較する投与条件
 
-| 比較条件 | 初回量 | 2回目量 | 最初の2間隔 | 初回60 mgの時刻 |
+| Comparison | First dose | Second dose | First two intervals | Time of first 60 mg dose |
 | --- | --- | --- | --- | --- |
-| 参照 | 1 mg | 2 mg | 7日・7日 | 14日 |
-| 初回量変更 | 0.5 / 2 mg | 2 mg | 7日・7日 | 14日 |
-| 2回目量変更 | 1 mg | 1 / 4 mg | 7日・7日 | 14日 |
-| 間隔短縮 | 1 mg | 2 mg | 3.5日・3.5日 | 7日 |
-| 間隔延長 | 1 mg | 2 mg | 14日・14日 | 28日 |
+| Reference | 1 mg | 2 mg | 7 days, 7 days | Day 14 |
+| Changed first dose | 0.5 / 2 mg | 2 mg | 7 days, 7 days | Day 14 |
+| Changed second dose | 1 mg | 1 / 4 mg | 7 days, 7 days | Day 14 |
+| Shorter interval | 1 mg | 2 mg | 3.5 days, 3.5 days | Day 7 |
+| Longer interval | 1 mg | 2 mg | 14 days, 14 days | Day 28 |
 
 間隔変更では、**最初の2間隔を両方変更し、その後の投与日も初回60 mgを基準に動かす**。2回目の60 mgは初回60 mgの7日後、最初の30 mgは28日後である。この定義では、短縮条件は35日までに30 mgも投与されるが、参照条件ではその投与は42日になる。固定した0–42日のAUC比較には、このスケジュール差が入る。
 
@@ -175,13 +175,13 @@ Table S12の見出しはGrade 2と記載されているが、論文本文のGrad
 
 <span id="table-5"></span>表5．公表曝露要約と典型値による計算
 
-| 指標・単位 | 公表の幾何平均 | 典型値の再計算 | 差 (%) |
+| Metric and unit | Published geometric mean | Recalculated typical value | Difference (%) |
 | --- | --- | --- | --- |
-| Cycle 1 AUC：µg·day/mL | 35.2 | 34.80 | -1.14 |
-| Cycle 1 Cmax：µg/mL | 11.1 | 10.66 | -4.00 |
-| Cycle 1投与間隔末の濃度：µg/mL | 2.6 | 2.59 | -0.42 |
-| AUC 0–42：µg·day/mL | 126 | 125.08 | -0.73 |
-| Cycle 4 AUC：µg·day/mL | 52.9 | 52.70 | -0.38 |
+| Cycle 1 AUC: µg·day/mL | 35.2 | 34.80 | -1.14 |
+| Cycle 1 Cmax: µg/mL | 11.1 | 10.66 | -4.00 |
+| Concentration at end of Cycle 1 interval: µg/mL | 2.6 | 2.59 | -0.42 |
+| AUC 0–42: µg·day/mL | 126 | 125.08 | -0.73 |
+| Cycle 4 AUC: µg·day/mL | 52.9 | 52.70 | -0.38 |
 
 参照値は[製品情報](https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=2ef0cf38-101c-4681-98fe-c05dc9ead443)と[PopPK原著補足資料のTable S2](https://ascpt.onlinelibrary.wiley.com/doi/suppl/10.1111/cts.13825)に基づく。投与間隔末の参照値には、[2025年FDA製品情報のTable 10](https://www.accessdata.fda.gov/drugsatfda_docs/label/2025/761263s006lbl.pdf)にも記載されている2.6 µg/mLを使用した ([1](#ref-1), [2](#ref-2), [4](#ref-4))。
 
@@ -197,14 +197,14 @@ AUCと投与間隔末濃度は近かったが、Cycle 1 Cmaxには約−4.0%の�
 
 <span id="table-6"></span>表6．同一仮想患者における曝露の変化率
 
-| 変更条件 | 初回Cmax | 初回60 mg直前濃度 | AUC 0–42 |
+| Change | First Cmax | Concentration before first 60 mg | AUC 0–42 |
 | --- | --- | --- | --- |
-| 初回 1 → 0.5 mg | -50.0% | -11.0% | -0.4% |
-| 初回 1 → 2 mg | +100.0% | +22.1% | +0.8% |
-| 2回目 2 → 1 mg | +0.0% | -39.0% | -0.9% |
-| 2回目 2 → 4 mg | +0.0% | +77.9% | +1.7% |
-| 間隔 7 → 3.5日 | +0.0% | +54.1% | +18.6% |
-| 間隔 7 → 14日 | +0.0% | -36.3% | -30.8% |
+| First dose 1 → 0.5 mg | -50.0% | -11.0% | -0.4% |
+| First dose 1 → 2 mg | +100.0% | +22.1% | +0.8% |
+| Second dose 2 → 1 mg | +0.0% | -39.0% | -0.9% |
+| Second dose 2 → 4 mg | +0.0% | +77.9% | +1.7% |
+| Interval 7 → 3.5 days | +0.0% | +54.1% | +18.6% |
+| Interval 7 → 14 days | +0.0% | -36.3% | -30.8% |
 
 ![同一仮想患者での曝露変化。初回ピーク、初回60 mg直前濃度、42日AUCの3指標を表示する。](shared/mosunetuzumab-public-pk/figures/paired.svg)
 
@@ -244,10 +244,10 @@ AUCと投与間隔末濃度は近かったが、Cycle 1 Cmaxには約−4.0%の�
 
 <span id="table-7"></span>表7．仮想患者集団の絶対曝露
 
-| 指標 | 中央値 | 2.5–97.5パーセンタイル |
+| Metric | Median | 2.5th–97.5th percentile |
 | --- | --- | --- |
-| 初回Cmax (µg/mL) | 0.175 | 0.096–0.333 |
-| 初回60 mg直前濃度 (µg/mL) | 0.101 | 0.032–0.191 |
+| First Cmax (µg/mL) | 0.175 | 0.096–0.333 |
+| Concentration before first 60 mg (µg/mL) | 0.101 | 0.032–0.191 |
 | AUC 0–42 (µg·day/mL) | 123.830 | 55.519–193.473 |
 
 絶対曝露にはばらつきがある一方、paired解析では2回目量や間隔変更の効果の方向は維持された。しかし、この集団は参照共変量を固定してΩだけを反映したものであり、実患者の体重、腫瘍量、アルブミン、残存anti-CD20とIIVのjoint distributionを再現していない。患者集団の曝露分布として検証されたものではない。
@@ -258,9 +258,9 @@ ROの競合結合のみを変える条件と、CLbase共変量も変える条件
 
 <span id="table-8"></span>表8．残存anti-CD20の条件別感度
 
-| 開始時anti-CD20 | 最大RO：結合のみ | CRS式の出力：結合のみ | 最大RO：CLも変更 | CRS式の出力：CLも変更 |
+| Baseline anti-CD20 | Max RO: binding only | CRS equation output: binding only | Max RO: CL also changed | CRS equation output: CL also changed |
 | --- | --- | --- | --- | --- |
-| 残存薬なし | 56.63% | 17.80% | 56.63% | 17.80% |
+| No residual drug | 56.63% | 17.80% | 56.63% | 17.80% |
 | RTX 10 µg/mL | 12.60% | 8.37% | 12.81% | 8.40% |
 | OBI 10 µg/mL | 10.71% | 8.09% | 10.89% | 8.12% |
 | RTX 305 µg/mL | 0.53% | 6.73% | 0.54% | 6.73% |
@@ -277,12 +277,12 @@ ROの競合結合のみを変える条件と、CLbase共変量も変える条件
 
 <span id="table-9"></span>表9．解析が支持する判断と限界
 
-| 判断対象 | この解析から支持できること | 支持できないこと |
+| Subject of judgment | What this analysis supports | What it does not support |
 | --- | --- | --- |
-| PK実装 | 構造式・投与イベントを独立に実装し、数値計算の整合性を確認した | 新しい患者データによる外部検証 |
-| 投与量比較 | 同じモデル・同じ患者パラメータ内での曝露変化 | 変更後もモデルが臨床で同じ精度を持つ保証 |
-| 不確実性 | 局所的な固定効果感度と、Ωに基づく個体差 | 固定効果・共変量・モデル構造を統合した完全な予測分布 |
-| RO–CRS | 残存薬・回帰式の仮定に結果がどれだけ依存するか | 変更レジメンの集団CRS発現率、個人リスク、最適レジメン |
+| PK implementation | Independently implemented the structural equations and dosing events and confirmed numerical consistency | External validation with new patient data |
+| Dose comparison | Exposure changes within the same model and the same patient parameters | A guarantee that the model has the same clinical accuracy after the change |
+| Uncertainty | Local fixed-effect sensitivity and individual differences based on Ω | A full predictive distribution integrating fixed effects, covariates and model structure |
+| RO–CRS | How much results depend on assumptions about residual drug and the regression | Population CRS incidence for a modified regimen, individual risk, the optimal regimen |
 
 患者別のPK観測、共変量と残存anti-CD20濃度の同時分布、CRSの時点と投与履歴を結び付けたデータは今回の公開資料から得られなかった。また、元のRO–CRS関係が、仮想的な3.5日・14日間隔に輸送可能かを確認するデータもない。
 

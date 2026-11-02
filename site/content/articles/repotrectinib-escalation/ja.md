@@ -16,10 +16,10 @@
 
 **表1　解析の問いと使用範囲**
 
-| 項目 | 定義 |
-| --- | --- |
-| **QOI：解析で答える問い** | 160 mgの1日1回投与を7・14・21日続けてから1日2回にした場合、最初の28日間のAUC、途中のピーク、期間終了時のトラフはどう変わるか。その比較は、個体間変動、固定効果パラメータ、食事条件の仮定にどれだけ依存するか。 |
-| **COU：結果を使う範囲** | 公開モデルによる探索的な曝露比較。導入レジメンを検討する研究で、比較すべき曝露指標と採血期間を整理する。臨床用量の選択、個人の有害事象予測、比較試験の実施判断には単独で使わない。 |
+| Item | Definition |
+|---|---|
+| **Quantity of interest** | How do 28-day AUC, intervening peaks and end-of-period trough change when 160 mg once daily continues for seven, 14 or 21 days before twice-daily dosing? How much does the comparison depend on interindividual variability, fixed effects and food assumptions? |
+| **Context of use** | Exploratory exposure comparison with a public model, to clarify exposure metrics and sampling periods for research on lead-in regimens. These results alone do not select clinical doses, predict individual adverse events or determine whether to conduct a comparative trial. |
 
 解析の目的は、候補の違いを区別する曝露指標と観測時点を示すことである。薬効と安全性を同時に測った比較データがなければ、曝露の違いからレジメンの優劣までは決まらない。
 
@@ -29,12 +29,12 @@
 
 **表2　公開資料と使用範囲**
 
-| 資料 | 今回の使い方 | 使っていないもの |
-| --- | --- | --- |
-| Du et al. 2025のPopPK論文 ([1](#ref-1))、[Table 2](https://doi.org/10.1002/psp4.70036) | 最終推定値と公表された個体間変動を使用 | 元の患者別濃度データ、患者ごとの推定値 |
-| 同論文のData S3 | 吸収ラグ、濃度の単位、自己誘導、患者と健常者の区別を照合 | NONMEMを実行した再推定 |
-| Du et al. 2025の曝露–反応解析 ([3](#ref-3)) | 既存解析で使われた曝露指標と、今回の外挿の違いを確認 | 別レジメンへの奏効率・PFS・有害事象確率の外挿 |
-| 2026年のTRIDENT-1安全性解析 ([4](#ref-4)) | 導入期間にも有害事象と増量未実施があることを確認 | 集計データからの個人別イベント再構築 |
+| Material | Use here | Not used |
+|---|---|---|
+| Du et al. 2025 PopPK paper ([1](#ref-1)), [Table 2](https://doi.org/10.1002/psp4.70036) | Final estimates and reported interindividual variability | Original individual concentrations or patient-specific estimates |
+| Data S3 of that paper | Cross-check absorption lag, concentration units, autoinduction and patient/healthy-volunteer distinction | NONMEM refitting |
+| Du et al. 2025 exposure–response analysis ([3](#ref-3)) | Check original exposure metrics and how extrapolation here differs | Extrapolated ORR, PFS or adverse-event probabilities for other regimens |
+| 2026 TRIDENT-1 safety analysis ([4](#ref-4)) | Check adverse events and failure to escalate during the lead-in | Reconstruction of individual events from aggregate data |
 
 補足資料はEurope PMCの公開配布から取得した。原著の文章や図は転載せず、以下の図と計算コードは独自に作成した。患者別データがないため、モデルを新しく推定した解析でも、患者濃度に対する外部検証でもない。
 
@@ -65,15 +65,15 @@ I_{\max}\frac{C_{\rm pre}}{EC_{50}+C_{\rm pre}}
 
 **表3　典型患者に用いたパラメータ**
 
-| パラメータ | 使用値 | 単位・意味 |
-| --- | --- | --- |
-| \(CL_0\) | 7.1 | L/h、自己誘導前のCL |
-| \(V_c\)、\(V_p\) | 19.8、221 | L、患者の中心・末梢分布容積 |
-| \(Q\) | 4.98 | L/h、区画間クリアランス |
-| \(k_a\)、F | 0.0541、0.52 | 1/h、無次元。fasted条件 |
-| 吸収ラグ | 0.421 | h |
-| \(I_{\max}\) | 1.59 | 無次元、CLの指数に入る値 |
-| \(EC_{50}\)、\(TC_{50}\) | 77、47.2 | ng/mL、h |
+| Parameter | Value | Unit and meaning |
+|---|---|---|
+| \(CL_0\) | 7.1 | L/h, before autoinduction |
+| \(V_c\), \(V_p\) | 19.8, 221 | L, patient central and peripheral volumes |
+| \(Q\) | 4.98 | L/h, intercompartmental clearance |
+| \(k_a\), F | 0.0541, 0.52 | 1/h and dimensionless; fasted |
+| Absorption lag | 0.421 | h |
+| \(I_{\max}\) | 1.59 | Dimensionless term inside the CL exponent |
+| \(EC_{50}\), \(TC_{50}\) | 77, 47.2 | ng/mL and h |
 
 値は[原著Table 2](https://doi.org/10.1002/psp4.70036)の最終推定値を使用した。補足のコントロールストリームに書かれた推定開始値とは区別する。\(I_{\max}=1.59\)は「CLが最大1.59倍」の意味ではなく、濃度と時間が十分大きい場合の倍率は\(\exp(1.59)\)となる。
 
@@ -87,11 +87,11 @@ I_{\max}\frac{C_{\rm pre}}{EC_{50}+C_{\rm pre}}
 
 **表4　投与履歴と28日曝露**
 
-| 導入期間 | 28日間の総投与量（mg） | AUC0–28日（ng·h/mL） | Day 29投与直前（ng/mL） |
-| --- | --- | --- | --- |
-| 7日 | 7,840 | 201,065 | 251.1 |
-| 14日 | 6,720 | 178,977 | 251.0 |
-| 21日 | 5,600 | 158,500 | 250.0 |
+| Lead-in | Total dose over 28 days (mg) | AUC0–28 days (ng·h/mL) | Predose Day 29 (ng/mL) |
+|---|---:|---:|---:|
+| 7 days | 7,840 | 201,065 | 251.1 |
+| 14 days | 6,720 | 178,977 | 251.0 |
+| 21 days | 5,600 | 158,500 | 250.0 |
 
 増量が早い候補は、28日間の総投与量も多い。14日導入に対して7日導入は16.7%多く、21日導入は16.7%少ない。これは総量を揃えて投与間隔だけを変える比較ではない。導入期間と、その結果として変わる総量を合わせて比較している。
 
@@ -111,11 +111,11 @@ I_{\max}\frac{C_{\rm pre}}{EC_{50}+C_{\rm pre}}
 
 **表5　暦日と増量イベントを揃えたピーク**
 
-| 導入期間 | Day 8–21のピーク（ng/mL） | 各条件の増量後72 hのピーク（ng/mL） | 0–28日の最大濃度（ng/mL） |
-| --- | --- | --- | --- |
-| 7日 | 396.7 | 395.3 | 396.7 |
-| 14日 | 377.9 | 373.4 | 377.9 |
-| 21日 | 309.3 | 364.1 | 370.3 |
+| Lead-in | Days 8–21 peak (ng/mL) | Peak within 72 h after each escalation (ng/mL) | Maximum over days 0–28 (ng/mL) |
+|---|---:|---:|---:|
+| 7 days | 396.7 | 395.3 | 396.7 |
+| 14 days | 377.9 | 373.4 | 377.9 |
+| 21 days | 309.3 | 364.1 | 370.3 |
 
 増量後の窓は、各条件で異なる暦日に位置する。自己誘導と蓄積の進み方も異なるため、ここも同じ状態からの用量比較ではない。暦日を揃えた指標と、増量イベントからの時間を揃えた指標を併記する必要がある。
 
@@ -125,16 +125,16 @@ I_{\max}\frac{C_{\rm pre}}{EC_{50}+C_{\rm pre}}
 
 **表6　同一仮想患者内の曝露比**
 
-| 導入期間 | 指標 | 比の中央値 | 5–95パーセンタイル |
-| --- | --- | --- | --- |
-| 7日 | 28日AUC | 1.125 | 1.110–1.147 |
-| 7日 | Day 8–21のピーク（21日導入は増量前のみ） | 1.049 | 1.035–1.058 |
-| 7日 | Day 29投与直前 | 1.000 | 1.000–1.003 |
-| 7日 | 各条件の増量後72 hピーク | 1.057 | 1.043–1.073 |
-| 21日 | 28日AUC | 0.884 | 0.865–0.897 |
-| 21日 | Day 8–21のピーク（21日導入は増量前のみ） | 0.799 | 0.712–0.905 |
-| 21日 | Day 29投与直前 | 0.996 | 0.984–1.000 |
-| 21日 | 各条件の増量後72 hピーク | 0.975 | 0.969–0.982 |
+| Lead-in | Metric | Median ratio | 5th–95th percentiles |
+|---|---|---:|---|
+| 7 days | 28-day AUC | 1.125 | 1.110–1.147 |
+| 7 days | Days 8–21 peak; pre-escalation only for the 21-day lead-in | 1.049 | 1.035–1.058 |
+| 7 days | Predose Day 29 | 1.000 | 1.000–1.003 |
+| 7 days | Peak within 72 h after each escalation | 1.057 | 1.043–1.073 |
+| 21 days | 28-day AUC | 0.884 | 0.865–0.897 |
+| 21 days | Days 8–21 peak; pre-escalation only for the 21-day lead-in | 0.799 | 0.712–0.905 |
+| 21 days | Predose Day 29 | 0.996 | 0.984–1.000 |
+| 21 days | Peak within 72 h after each escalation | 0.975 | 0.969–0.982 |
 
 ![同一仮想患者内の曝露比](shared/repotrectinib-escalation/figures/02-paired.png)
 
@@ -148,14 +148,14 @@ I_{\max}\frac{C_{\rm pre}}{EC_{50}+C_{\rm pre}}
 
 **表7　固定効果を一つずつ変更した曝露比**
 
-| 導入期間 | 指標 | 14日導入に対する比の最小–最大 |
-| --- | --- | --- |
-| 7日 | 28日AUC | 1.119–1.128 |
-| 7日 | Day 8–21のピーク（21日導入は増量前のみ） | 1.027–1.069 |
-| 7日 | Day 29投与直前 | 1.000–1.000 |
-| 21日 | 28日AUC | 0.881–0.890 |
-| 21日 | Day 8–21のピーク（21日導入は増量前のみ） | 0.800–0.836 |
-| 21日 | Day 29投与直前 | 0.995–0.997 |
+| Lead-in | Metric | Minimum–maximum ratio against 14 days |
+|---|---|---|
+| 7 days | 28-day AUC | 1.119–1.128 |
+| 7 days | Days 8–21 peak; pre-escalation only for 21 days | 1.027–1.069 |
+| 7 days | Predose Day 29 | 1.000–1.000 |
+| 21 days | 28-day AUC | 0.881–0.890 |
+| 21 days | Days 8–21 peak; pre-escalation only for 21 days | 0.800–0.836 |
+| 21 days | Predose Day 29 | 0.995–0.997 |
 
 ![固定効果パラメータを一つずつ変更した場合の曝露比](shared/repotrectinib-escalation/figures/03-sensitivity.png)
 
@@ -165,8 +165,8 @@ I_{\max}\frac{C_{\rm pre}}{EC_{50}+C_{\rm pre}}
 
 **表8　食事カテゴリー別の曝露比**
 
-| モデルの食事カテゴリー | 7日導入：28日AUC比 | 21日導入：28日AUC比 | 7日導入：Day 8–21ピーク比 | 21日導入：Day 8–21ピーク比 |
-| --- | --- | --- | --- | --- |
+| Model food category | 7-day AUC ratio | 21-day AUC ratio | 7-day Days 8–21 peak ratio | 21-day Days 8–21 peak ratio |
+|---|---:|---:|---:|---:|
 | fasted | 1.123 | 0.886 | 1.050 | 0.818 |
 | fed | 1.109 | 0.901 | 1.058 | 0.995 |
 | modified | 1.105 | 0.904 | 1.032 | 1.000 |
@@ -182,11 +182,11 @@ unknownは食事条件が不明な観測のためのモデルカテゴリーで�
 
 **表9　採血候補時点の予測濃度**
 
-| 典型患者の採血候補時点 | 7日導入（ng/mL） | 14日導入（ng/mL） | 21日導入（ng/mL） |
-| --- | --- | --- | --- |
-| Day 15投与直前 | 265.8 | 128.5 | 128.5 |
-| Day 22投与直前 | 256.4 | 255.3 | 124.3 |
-| Day 29投与直前 | 251.1 | 251.0 | 250.0 |
+| Candidate sampling time for the typical patient | 7 days (ng/mL) | 14 days (ng/mL) | 21 days (ng/mL) |
+|---|---:|---:|---:|
+| Predose Day 15 | 265.8 | 128.5 | 128.5 |
+| Predose Day 22 | 256.4 | 255.3 | 124.3 |
+| Predose Day 29 | 251.1 | 251.0 | 250.0 |
 
 今回のモデルでは、Day 15・22投与直前とDay 29投与直前で、候補間の差の見え方が異なった。これらは採血設計を最適化した結果ではなく、**どの時期の情報を落とすと、投与履歴の違いが見えなくなるかを示す候補時点**である。
 

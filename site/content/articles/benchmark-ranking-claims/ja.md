@@ -14,13 +14,13 @@
 
 表1．比較条件の確認範囲。
 
-| | PXRチャレンジ | LifeSciBench | AIntibody |
+| | PXR challenge | LifeSciBench | AIntibody |
 |---|---|---|---|
-| 1 試験データ | 隠した試験データ | 開発元が全モデルを実行。混入の議論は読んだ範囲では見当たらない | 全チームが同じ条件で実験（設計は事前に公開） |
-| 2 公式の順位表 | あり（主催者） | 論文の表（開発元） | 論文に載る（本文は未読） |
-| 3 不確かさ | 同順位のグループ（ブートストラップ） | 読んだ範囲では記載なし | 資料により異なる（第四の節） |
-| 4 利害の分離 | 主催者と参加者は別 | 開発元が作成、評価対象に自社モデル。論文が開示 | 設計・主催のSpecificaと参加者は別 |
-| 5 基準 | 順位表のみ | 他社のモデル（Claudeなし） | 人の実験、無作為、単純な方法 |
+| 1 Test information | Hidden test data | Developer runs all models; no contamination discussion found in inspected text | Designs preregistered; common experimental conditions |
+| 2 Official ranking | Organizer leaderboard | Developer paper table | Paper; full text not read |
+| 3 Uncertainty | Bootstrap-based tiers | None found in inspected material | Depends on source; see fourth section |
+| 4 Separation of interests | Organizer differs from entrants | Developer created evaluation and participates; disclosed | Specifica organizes separately from participants |
+| 5 Baselines | Leaderboard only | Other vendors' models, without Claude | Experimental, random and simple methods |
 
 ## PXRチャレンジの順位と不確実性 {#2-pxr1}
 
@@ -30,7 +30,7 @@ OpenADMETのPXR誘導の盲検チャレンジ（2026年3月17日〜7月1日）�
 
 表2．PXR活性予測上位3エントリー。
 
-| 順位 | エントリー | MAE（±の幅） |
+| Rank | Entry | MAE (reported ± width) |
 |---|---|---|
 | 1 | matcha-croissant | 0.4061 ± 0.0280 |
 | 2 | AIDD-LiLab | 0.4092 ± 0.0281 |
@@ -52,13 +52,13 @@ OpenAIが2026年6月17日に発表したLifeSciBenchは、外部の専門家173�
 
 表3．LifeSciBenchの公表結果と課題単位の概算区間。
 
-| モデル | 正規化スコア | 合格率 | 合格率の95%区間（私の概算） |
+| Model | Normalized score | Pass rate | Approximate 95% pass-rate interval |
 |---|---|---|---|
-| GPT-Rosalind | 0.576 | 36.1% | 32.7〜39.6% |
-| GPT-5.5 | 0.519 | 25.7% | 22.7〜28.9% |
-| Gemini 3.1 Pro | 0.515 | 23.6% | 20.7〜26.8% |
-| GPT-5.4 | 0.479 | 20.7% | 18.0〜23.7% |
-| Grok 4.3 | 0.399 | 13.0% | 10.8〜15.6% |
+| GPT-Rosalind | 0.576 | 36.1% | 32.7–39.6% |
+| GPT-5.5 | 0.519 | 25.7% | 22.7–28.9% |
+| Gemini 3.1 Pro | 0.515 | 23.6% | 20.7–26.8% |
+| GPT-5.4 | 0.479 | 20.7% | 18.0–23.7% |
+| Grok 4.3 | 0.399 | 13.0% | 10.8–15.6% |
 
 区間は、課題を750の独立な標本とみなしたWilson区間（割合の信頼区間の一種）で、課題の抽出による不確かさだけを見た目安であり、検定ではない。5つのモデルを比べる多重比較の補正もしていない。プレプリントは1課題に複数の標本があることを示唆しており、そのときこの区間の単位は合わない。プレプリントに、信頼区間や繰り返し実行のばらつきの記載は、私が読んだ範囲では見当たらなかった。
 
@@ -74,11 +74,11 @@ AIntibodyは、IQVIA傘下のSpecificaが設計した盲検の抗体設計の評
 
 表4．AIntibody三課題の二次資料による結果。
 
-| 課題 | 結果（二次資料） |
+| Challenge | Secondary-source result |
 |---|---|
-| 1. 親和性成熟（既存の抗体の結合を強める） | AIの最良は94.7 pM、人の実験（約3か月のファージ成熟）の最良は113 pM。独立した解説は統計的に区別できないと書く。単純な統計的な合意（コンセンサス）の基準が3位（540 pM）に入った。 |
-| 2. 親和性の順位付け | モデルが「最も多いクローンを選ぶ」に勝ったのは9.8〜13.8%で、無作為な選択がモデルに勝ったのが39%（ニュースレター単独の数値で、39%の解釈は資料から確定できない）。 |
-| 3. 新規のCDR設計（結合に使う部分を一から作る） | 最良の親和性は2.9 pMだが、開発可能性の試験を通らなかった。通った最良は8.69 pM（人の最良は9.2 pM）。提出の30.4%は結合しなかった。 |
+| 1 Affinity maturation | Best AI 94.7 pM versus experimental phage maturation over approximately 3 months, 113 pM; commentary calls them statistically indistinguishable. A statistical consensus baseline ranks 3rd, 540 pM. |
+| 2 Affinity ranking | Models beat selecting the most abundant clone in 9.8–13.8% of cases; the newsletter reports random selection beating models in 39%, but the precise interpretation of 39% is unresolved from the inspected source. |
+| 3 De novo CDR design | Best affinity 2.9 pM fails developability; best passing result 8.69 pM versus experimental 9.2 pM. Nonbinding submissions: 30.4%. |
 
 ここでpM（ピコモル毎リットル）は解離定数に使う濃度単位で、同じ測定条件では小さい解離定数が高い親和性に対応する。94.7 pMは113 pMより約16.2%小さい（比で1.19倍、`results/summary.json`）。これは解離定数が16.2%低いという計算であり、一般的な「結合力が16%強い」という量ではない。測定のばらつきや再測定の情報は、読んだ資料に書かれていなかった。課題2と3、コンセンサス基準の数字は、一つのニュースレターに頼っている。
 

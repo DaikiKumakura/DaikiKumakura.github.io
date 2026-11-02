@@ -40,7 +40,7 @@ H(\boldsymbol p)=-\sum_g p_g\log p_g
 
 表1. 同じ仮想組成を異なるUMI数で観測したときの期待値。
 
-| UMI数 | 検出遺伝子数 | 観測entropy（nat） |
+| UMI count | Detected genes | Observed entropy (nats) |
 | ---: | ---: | ---: |
 | 50 | 39.5 | 3.603 |
 | 100 | 63.4 | 4.036 |

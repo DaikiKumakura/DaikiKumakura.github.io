@@ -22,11 +22,11 @@ Q=-10\log_{10}u,\qquad u=10^{-Q/10}.
 
 **表1．AVI PHREDと参照分布内の順位の対応。**
 
-| AVI PHRED | 参照分布の上位側割合 |
+| AVI PHRED | Upper-tail fraction in the reference distribution |
 | ---: | ---: |
 | 10 | 10% |
 | 20 | 1% |
-| 24.7 | 約0.339% |
+| 24.7 | Approximately 0.339% |
 | 30 | 0.1% |
 
 24.7は「病原性の確率が99.661%」という意味ではない。同じ上位割合でも、疾患、候補の絞り方、遺伝形式、対象組織によって、注目すべき変異は変わる。
@@ -73,13 +73,13 @@ PCSK9はLDL受容体の分解を促すため、阻害すると受容体が保た
 
 **表2．変異の優先順位付けから治療介入までの証拠。**
 
-| 判断 | DNM1のAtlas例で得られた情報 | 創薬のために追加して問うこと |
+| Question | Information in the Atlas DNM1 example | Further question for drug discovery |
 | --- | --- | --- |
-| どの変異を調べるか | 総合順位とスプライシング寄与 | 対象疾患・遺伝形式に合う候補か |
-| どこで何が変わるか | 脳特異的転写産物、スプライス部位、延長 | 関連する細胞・組織で再現するか |
-| タンパク質がどう働くか | 既存研究に基づく作用機序の仮説 | 機能低下、機能獲得、正常機能の妨害を区別できるか |
-| 何を介入するか | この報告だけでは治療方向は決まらない | 正常機能を保ちつつ、異常な作用を変えられるか |
-| 患者に便益があるか | reporter実験では評価していない | 曝露、対象組織、時期、安全性、臨床効果を検証できるか |
+| Which variant merits investigation? | Overall rank and splicing contribution | Is it relevant to the disease and inheritance pattern? |
+| What changes, and where? | Brain-specific transcript, splice site and extension | Does it reproduce in relevant cells or tissue? |
+| How does protein function change? | A mechanistic hypothesis based on earlier work | Can loss, gain and interference with normal function be distinguished? |
+| What should be intervened on? | The report alone does not determine therapeutic direction | Can the abnormal action be modified while preserving normal function? |
+| Does the patient benefit? | Not evaluated by the reporter assay | What do exposure, tissue, timing, safety and clinical outcomes show? |
 
 高スコア変異を持つ遺伝子を並べることと、薬で介入する標的を並べることは、同じ順位付けではない。疾患に関連する変化が強くても、その遺伝子全体を抑えることが望ましいとは限らない。
 

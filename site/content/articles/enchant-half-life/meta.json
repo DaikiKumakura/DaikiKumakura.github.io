@@ -26,6 +26,6 @@
     "summary": "A Japanese technical note that uses public TDC data to check where plain baselines land on the fixed test set, how splits and test sets move them, what a few training drugs or a no-training rule reach, and how volume of distribution and clearance enter half-life. Enchant itself is not tested."
   },
   "reviewed": {
-    "en": "d75bc1a4050e4f968908af2d51a94c2d8480bac6ea363b7647332ddda18b03ae"
+    "en": "e42d711813c3ec5f1e3f817dff093432c35711b451ec655f73f81017cf8b1cf4"
   }
 }

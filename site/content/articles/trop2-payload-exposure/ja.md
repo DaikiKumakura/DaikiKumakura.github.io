@@ -26,11 +26,11 @@ QOIは「公表PK・E–Rから、TROP2 ADC間で移せるpayload曝露目標や
 
 **表1　SGラベルの版による記載値の差**
 
-| SGのラベル記載値 | 旧版18 | 2026年版20 | 今回計算した記載値差 |
+| Reported SG label quantity | Older version 18 | 2026 version 20 | Calculated reporting difference |
 | --- | ---: | ---: | ---: |
-| ADC AUC0–168（ng·h/mL） | 5,640,000 | 12,049,500 | 2.136倍 |
-| Free SN-38 AUC0–168（ng·h/mL） | 3,696 | 3,510 | −5.0% |
-| Free SN-38 Cmax（ng/mL） | 98.0 | 108 | +10.2% |
+| ADC AUC0–168 (ng·h/mL) | 5,640,000 | 12,049,500 | 2.136-fold |
+| Free SN-38 AUC0–168 (ng·h/mL) | 3,696 | 3,510 | −5.0% |
+| Free SN-38 Cmax (ng/mL) | 98.0 | 108 | +10.2% |
 
 表1の旧版は単剤投与、現行版は単剤・pembrolizumab併用を含む集団の要約であり、モデルと患者構成も同一ではない ([3](#ref-3), [4](#ref-4))。 **この2.136倍の全量をDARだけの因果効果として分解することはできない。** 同一患者・同一濃度時系列を両定義で再計算した比較ではなく、記載値差には信頼区間を付けなかった。
 
@@ -68,12 +68,12 @@ $$
 
 **表2　SGとDato-DXdの分析物と曝露定義**
 
-| 確認項目 | SG | Dato-DXd | 比較に必要な確認 |
+| Item | SG | Dato-DXd | Remaining comparison issue |
 | --- | --- | --- | --- |
-| Payload | SN-38 | DXd | 異なる分子の効力・細胞内動態 |
-| ADC濃度 | 結合SN-38から派生、DAR仮定が変更 | ADCを免疫測定 | 測定・派生定義とmodel version |
-| 公表ラベルのpayload AUC | 3,510 ng·h/mL、0–168h | 18 ng·day/mL、初回cycleのAUC | 積分窓と投与履歴 |
-| レジメン | Day1・8、21日cycle | 21日ごと | 反復回数と観測期間 |
+| Payload | SN-38 | DXd | Different potency and intracellular kinetics |
+| ADC concentration | Derived from conjugated SN-38; DAR assumption changed | ADC immunoassay | Measurement/derivation definitions and model versions |
+| Payload AUC in public labels | 3,510 ng·h/mL over 0–168 h | 18 ng·day/mL, first-cycle AUC | Integration window and dosing history |
+| Regimen | Days 1 and 8 of a 21-day cycle | Every 21 days | Number of doses and observation period |
 
 18 ng·day/mLは432 ng·h/mLへ換算できる。しかし、単位が一致したことは同じ168時間の積分や同じbioactive exposureを意味しない。Dato-DXdラベルの該当表は積分上限を明示していないため、その行から168時間平均や21日平均を作らなかった。原著のcycle 1指標を利用するなら、元の定義と母集団を照合する必要がある ([6](#ref-6))。
 

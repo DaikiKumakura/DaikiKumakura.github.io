@@ -28,15 +28,15 @@
 
 **表1　出典の用途と限界**
 
-| 根拠 | 用途 | 限界 |
+| Evidence | Use | Limits |
 | --- | --- | --- |
-| FDA tarlatamab review, [Tables 66–67](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2024/761344Orig1s000MultidisciplineR.pdf) ([5](#ref-5)) | PK構造と個体間変動 | 基準パラメータでは試験の共変量分布を再現できない |
-| Tarlatamab PopPK ([6](#ref-6)) and label [Table 17](https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1e7b6163-5d83-42ea-82c9-cf7620cdc782) ([7](#ref-7)) | モデルの位置付けと曝露の照合 | 比較値はモデル由来の平均であり生の観測値ではない |
-| Formal tarlatamab E–R, [Supplementary Table S1](https://doi.org/10.1158/1078-0432.30618111) ([8](#ref-8)) | ORR/DCRのEmax | 患者単位の投与記録と転帰は得られない |
-| DeLLphi-301 AE-management [Figure 2](https://pmc.ncbi.nlm.nih.gov/articles/PMC11775405/) ([9](#ref-9)) | 全Grade CRSの54/133、39/133、10/133 | 患者が重複し期間は7、7、14日 |
-| Epcoritamab RTTE analysis ([10](#ref-10)) | 構造の比較 | Grade ≥2 CRS、CD20疾患、皮下投与。数値は移植しない |
-| Teclistamab modeling ([11](#ref-11)) | 薬理的な曝露の余裕の例 | 薬剤・評価項目・奏効例集団が異なる |
-| Mosunetuzumab step-up analysis ([12](#ref-12)) | 薬剤固有のPK/RO/CRS連結の例 | 抗CD20競合と曝露指標を相互に置き換えられない |
+| FDA tarlatamab review, [Tables 66–67](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2024/761344Orig1s000MultidisciplineR.pdf) ([5](#ref-5)) | Structural PK and IIV | Reference parameters do not recover the trial covariate distribution |
+| Tarlatamab PopPK ([6](#ref-6)) and label [Table 17](https://dailymed.nlm.nih.gov/dailymed/drugInfo.cfm?setid=1e7b6163-5d83-42ea-82c9-cf7620cdc782) ([7](#ref-7)) | Model context and exposure benchmarks | Benchmarks are model-derived means, not raw observations |
+| Formal tarlatamab E–R, [Supplementary Table S1](https://doi.org/10.1158/1078-0432.30618111) ([8](#ref-8)) | ORR/DCR Emax | Patient-level dosing records and outcomes unavailable |
+| DeLLphi-301 AE-management [Figure 2](https://pmc.ncbi.nlm.nih.gov/articles/PMC11775405/) ([9](#ref-9)) | 54/133, 39/133, 10/133 all-grade CRS | Repeated subjects; windows are 7, 7, and 14 days |
+| Epcoritamab RTTE analysis ([10](#ref-10)) | Structural comparison | Grade ≥2 CRS, CD20 disease, SC administration; no numeric parameter transfer |
+| Teclistamab modeling ([11](#ref-11)) | Example of a pharmacologic exposure margin | Different molecule, endpoint and responder population |
+| Mosunetuzumab step-up analysis ([12](#ref-12)) | Example of drug-specific PK/RO/CRS linkage | Anti-CD20 competition and exposure metrics are not interchangeable |
 
 個人別の臨床データは使っていない。公表された人数を観測値、出典のパラメータ推定値を公表モデル由来、本記事の計算を再構築、未検証投与法と仮想薬剤を探索的と区別する。図1は公開情報の再構築と仮想シナリオを区別している。元の文献確認日は2026年10月3日である。公開資料は確認用に保存したが、ダウンロード資料には含めず、出典URLを記載した。
 
@@ -121,11 +121,11 @@ H_{ik}=\sum_{m<k}\frac{x_{im}}{r+x_{im}}
 
 | Parameter | Baseline prior | Interpretation |
 | --- | --- | --- |
-| α | Normal(logit(0.4), 1.5²) | 探索的な基準対数オッズ |
-| log β | Normal(log(0.43), 0.7²) | 正の急性傾きを仮定。外部推定値ではない |
-| log γ | Normal(log(2), 0.7²) | 仮定した抑制強度 |
-| log TH | Normal(log(20), 0.8²) | 仮定した履歴時間尺度（日） |
-| log r | Normal(log(0.1), 1.5²) | 仮定した無次元飽和尺度 |
+| α | Normal(logit(0.4), 1.5²) | Exploratory baseline log-odds |
+| log β | Normal(log(0.43), 0.7²) | Assumed positive acute slope; not an external estimate |
+| log γ | Normal(log(2), 0.7²) | Assumed attenuation strength |
+| log TH | Normal(log(20), 0.8²) | Assumed history timescale, days |
+| log r | Normal(log(0.1), 1.5²) | Assumed dimensionless saturation scale |
 
 同じ患者が複数期間に含まれるため、3つの二項尤度の積から結合尤度は復元できない。代わりに、探索的な**べき複合尤度**を使った。
 
@@ -289,16 +289,16 @@ log(CL,Vc,Q,Vp)の局所Fisher情報量を、独立な対数濃度誤差標準�
 
 **表8　測定が与える情報と判断の対応**
 
-| 測定 | 得られる情報 | 検討できる判断 |
+| Experiment | Information | Decision it can support |
 | --- | --- | --- |
-| 多ドナーのTDCC濃度応答 | E50/E90とHill曲線形状 | 必要曝露の仮定 |
-| 標的密度パネル | 力価変化とドナー変動 | 病態間での作用維持の頑健性 |
-| TDCCと併せたサイトカイン応答 | 殺傷と刺激の分離 | 機能的TIの仮説 |
-| Priming・washout・再刺激 | P50、殺傷の維持、履歴・時間依存 | 導入量の割合と間隔の仮説 |
-| マウスPK・濃度・反復投与下の腫瘍体積 | PKと増殖・殺傷動態 | 曝露・有効性と維持投与の仮説 |
-| 腫瘍免疫細胞の浸潤・活性化 | 組織PDと時間経過 | 機序の妥当性。単独の有効性閾値にはならない |
-| 薬理的に関連するNHPの反復PK・サイトカイン | 種間の刺激と反復応答のパターン | 割引を要する橋渡しの仮定 |
-| 対応したヒトの用量・PK・PD・CRS記録 | 薬剤固有の縦断モデル | 臨床投与法比較の更新 |
+| TDCC concentration-response, multiple donors | E50/E90, Hill shape | Target-exposure assumptions |
+| Target-density panel | Potency shift and donor variability | Coverage robustness across disease states |
+| Cytokine response alongside TDCC | Separation of killing and stimulation | Functional TI hypotheses |
+| Priming/washout/rechallenge | P50, retained killing, history/time dependence | Step fraction and interval hypotheses |
+| Mouse PK, concentrations and repeated-dose tumor volumes | PK and growth/kill dynamics | Exposure–efficacy and maintenance hypotheses |
+| Tumor immune-cell infiltration/activation | Tissue PD and time course | Mechanistic plausibility, not a standalone efficacy threshold |
+| Relevant NHP repeated-dose PK/cytokines | Cross-species stimulation and repeat-response patterns | Discountable translational assumptions |
+| Connected human dose/PK/PD/CRS records | Drug-specific longitudinal model | Updating clinical regimen comparisons |
 
 細胞実験で標的量の低・中・高、多ドナー、濃度応答、時間依存の殺傷とサイトカイン、制御した再刺激を組み合わせれば、仮定した応答を区別する情報になる。マウス実験は適切なヒト免疫・標的条件、vehicle対照、経時腫瘍体積、対応する曝露・PD測定時点を必要とし、総量、頻度、step-upの影響を区別する群構成が問題になる。マウスのサイトカイン測定だけではヒトCRSリスクを確立できない。
 
@@ -314,17 +314,17 @@ PKの置換だけでは不十分で、サイトカイン力価、標的密度、
 
 **表9　結論の根拠区分**
 
-| 結論 | 分類 | 理由 |
+| Conclusion | Classification | Reason |
 | --- | --- | --- |
-| 基準2コンパートメント実装は内部整合する | 数理上の頑健な確認 | 独立解法・積分・蓄積の照合 |
-| 添付文書の集団曝露を完全に再現した | 支持されない | 定常トラフ平均は約40%高いままである |
-| 正式Emax関数は曝露増加とともに飽和する | 出典モデルを条件とした再構築 | Parameters verified in [Supplementary Table S1](https://doi.org/10.1158/1078-0432.30618111) |
-| 正の単調曝露項だけでCRSの順序を説明する | 検討した仮定では支持されない | カテゴリー・履歴項または負の傾きの方が適合する |
-| 臨床的な生物学的適応が確立した | 支持されない | 疎で重複した集計と未測定の期間変化 |
-| 同じ用量強度は平均を保つが波形を保たない | 線形PK構造内で頑健 | 解析的恒等式と対応したシミュレーション |
-| 特定のstep-upが臨床的に優れる | 支持されない | 未検証の投与法と安全性・有効性の移植 |
-| Priming測定は高い意思決定価値を持つ | 探索的 | 仮定した分布・効用・測定精度 |
-| 初期採血だけで4つのPKパラメータをよく同定する | 検討設計では支持されない | Fisher情報量の悪条件性 |
+| Two-compartment reference implementation is internally consistent | Robust mathematical check | Independent solution, integration and accumulation checks |
+| Label population exposure is completely recovered | Unsupported | Steady trough mean remains approximately 40% high |
+| Formal Emax saturates over increasing exposure | Reconstructed, conditional on source model | Parameters verified in [Supplementary Table S1](https://doi.org/10.1158/1078-0432.30618111) |
+| One positive monotone exposure term fits the CRS ordering | Unsupported under tested assumptions | Category/history terms or a negative slope fit better |
+| Clinical biological adaptation is established | Unsupported | Sparse overlapping aggregates and unmeasured period changes |
+| Equal dose intensity preserves average, not waveform | Robust within the linear PK structure | Analytical identity and paired simulation |
+| A particular step-up is clinically superior | Unsupported | Untested schedules and unqualified safety/efficacy translation |
+| Priming assays have high decision value | Exploratory | Assumed distributions, utility and measurement precision |
+| Early-only sampling identifies four PK parameters well | Unsupported in tested design | Ill-conditioned Fisher information |
 
 限界は、個人別データとイベント時刻の欠如、期間間依存の不明、予防処置の差、標的・疾患・経路の違い、共変量再構築の不完全さ、事前分布に依存する履歴パラメータ、有限候補集合にある。3つの割合への一致は外部検証ではない。新規薬剤の検証、臨床推奨、因果機序、最適投与法の特定は行っていない。
 

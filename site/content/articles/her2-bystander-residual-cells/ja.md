@@ -16,11 +16,11 @@ Liaoらは、BT474細胞と、ERBB2を欠損させたHER2陰性細胞から3D tu
 
 **表1．** 使用した公開図と反復の単位。
 
-| 使用部分 | 読み取った値 | 独立実験と培養数 |
+| Source | Digitized quantity | Independent experiments and cultures |
 | --- | --- | --- |
-| [本文Figure 2D](https://doi.org/10.1002/eji.202451589) | T細胞＋抗体での5日目／0日目の細胞数比 | 3独立実験・各条件2培養 |
-| [補足Figure 3C](https://doi.org/10.1002/eji.202451589) | T細胞のみでの同じ細胞数比 | 3独立実験・各条件1培養 |
-| [本文Figure 3D](https://doi.org/10.1002/eji.202451589) | 陽性・陰性細胞塊を離した条件での同じ細胞数比 | 抗体あり4独立実験・T細胞のみ3独立実験・各1培養 |
+| [Original Figure 2D](https://doi.org/10.1002/eji.202451589) | Day 5/day 0 abundance with T cells and antibody | 3 independent experiments; 2 cultures per condition |
+| [Supplementary Figure 3C](https://doi.org/10.1002/eji.202451589) | Corresponding abundance ratio with T cells only | 3 independent experiments; 1 culture per condition |
+| [Original Figure 3D](https://doi.org/10.1002/eji.202451589) | Corresponding ratio for separated positive and negative clusters | 4 independent experiments with antibody and 3 with T cells only; 1 culture each |
 
 数値表形式の個別測定値は回収できなかったため、公開図の棒の上端から平均値を読んだ。元の図は平均±標準誤差（SEM）を示すが、今回再構成したのは24本の棒の平均であり、24人のドナーや24件の独立した個票ではない。技術的な2培養を、独立実験2件として数えていない。
 
@@ -50,11 +50,11 @@ R_-(f)=\frac{F_-^{\mathrm{T+bsAb}}(f)}{F_-^{\mathrm{T\ only}}(f)}
 
 **表2．** 陰性細胞の初期比とT細胞のみの対照に対する比。
 
-| 初期陽性率 | T細胞＋抗体の \(F_-\) | T細胞のみの \(F_-\) | 対照比 \(R_-\) |
+| Initial positive fraction | \(F_-\), T cells + antibody | \(F_-\), T cells only | Control ratio \(R_-\) |
 | --- | ---: | ---: | ---: |
-| 20% | 約1.36 | 約1.85 | 約0.73 |
-| 50% | 約0.37 | 約2.24 | 約0.16 |
-| 80% | 約0.23 | 約1.81 | 約0.13 |
+| 20% | Approximately 1.36 | Approximately 1.85 | Approximately 0.73 |
+| 50% | Approximately 0.37 | Approximately 2.24 | Approximately 0.16 |
+| 80% | Approximately 0.23 | Approximately 1.81 | Approximately 0.13 |
 
 20%条件では、対照より陰性細胞が少ない一方、初期の約1.36倍まで増えている。「陰性細胞の増え方が抑えられた」と「初期集団から陰性細胞が減った」を分ける必要がある。対照比0.73を、そのまま死亡率27%とは呼べない。
 
@@ -82,11 +82,11 @@ R_-(f)=\frac{F_-^{\mathrm{T+bsAb}}(f)}{F_-^{\mathrm{T\ only}}(f)}
 
 **表3．** 混合条件を除外した予測。
 
-| 外した陽性率 | 図からの対照比 | 元スケールでの予測 | 対数スケールでの予測 |
+| Excluded positive fraction | Digitized control ratio | Original-scale prediction | Log-scale prediction |
 | --- | ---: | ---: | ---: |
-| 20% | 約0.73 | 約0.52 | 約0.56 |
-| 50% | 約0.16 | 約0.35 | 約0.28 |
-| 80% | 約0.13 | 約0.13 | 約0.07 |
+| 20% | Approximately 0.73 | Approximately 0.52 | Approximately 0.56 |
+| 50% | Approximately 0.16 | Approximately 0.35 | Approximately 0.28 |
+| 80% | Approximately 0.13 | Approximately 0.13 | Approximately 0.07 |
 
 3条件の予測誤差である二乗平均平方根誤差（RMSE）は、元スケールの経験式で約0.16、間接作用なしの基準で約0.71だった。経験式は粗い基準より改善したが、20%では陰性細胞を少なく予測し、50%では多く予測した。80%で合ったことだけを取り上げて、予測できたとは判断しない。
 

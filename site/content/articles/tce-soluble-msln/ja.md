@@ -12,15 +12,15 @@ MSLNを標的とするT-cell engager（TCE）は、細胞表面の標的だけ�
 
 Snellらは、MSLNに対して二価のNM28-2746と、一価のNM28-1872を比較している。今回の対象は原著Figure 4aのH226だけである。同じ図にあるC86細胞の値は使わず、抗原発現量による細胞の選別も解析しない。可溶性抗原が曲線を右へずらすこと自体は、原著ですでに示されている。ここで検証するのは、低い2条件から高い未使用条件への予測である（[Snell et al., 2023](https://doi.org/10.1080/2162402X.2023.2233401)）。
 
-| 項目 | 使った条件 |
+| Item | Conditions used |
 | --- | --- |
-| 標的細胞 | H226 |
-| 分子 | NM28-2746・NM28-1872 |
-| 共培養 | Human PBMC・E:T比30:1 |
-| 測定 | 40時間後のLDH cytotoxicity |
-| TCE濃度 | 未処置と10濃度・最高50 nMから5倍希釈 |
-| 推定に使う可溶性MSLN | 0・50 ng/mL |
-| 予測対象 | 500 ng/mLの全濃度 |
+| Target cells | H226 |
+| Molecules | NM28-2746 and NM28-1872 |
+| Co-culture | Human PBMCs; E:T 30:1 |
+| Measurement | LDH cytotoxicity at 40 hours |
+| TCE concentrations | Untreated plus ten concentrations; fivefold dilutions from 50 nM |
+| Soluble MSLN used for fitting | 0 and 50 ng/mL |
+| Prediction target | All concentrations at 500 ng/mL |
 
 ## 原図の観測点だけを読む
 
@@ -52,16 +52,16 @@ EC_{50}(S)=EC_{50}(0)\left(1+\frac{S}{K_{\mathrm{app}}}\right)
 
 図の点はH226の観測平均である。緑は可溶性抗原によるEC50の移動、橙は移動を含まないモデル。右列の500 ng/mLでは、点を使って線を引き直していない。
 
-| 分子 | モデル | 推定条件RMSE | 500 ng/mL予測RMSE |
+| Molecule | Model | Training-condition RMSE | Prediction RMSE at 500 ng/mL |
 | --- | --- | ---: | ---: |
-| NM28-2746 | 抗原による移動なし | 8.16 | 23.74 |
-| NM28-2746 | EC50が移動 | 3.01 | 4.77 |
-| NM28-1872 | 抗原による移動なし | 10.39 | 24.30 |
-| NM28-1872 | EC50が移動 | 2.31 | 5.96 |
+| NM28-2746 | No antigen-dependent shift | 8.16 | 23.74 |
+| NM28-2746 | EC50 shift | 3.01 | 4.77 |
+| NM28-1872 | No antigen-dependent shift | 10.39 | 24.30 |
+| NM28-1872 | EC50 shift | 2.31 | 5.96 |
 
 RMSEの単位はcytotoxicityのpercentage pointsである。基線と上限だけを平均的に合わせるより、可溶性MSLNによる濃度のずれを入れる方が、未使用条件の曲線を小さい誤差で予測した。
 
-| 分子 | EC50(0) | Hill係数 | Kapp | 予測EC50(500) |
+| Molecule | EC50(0) | Hill coefficient | Kapp | Predicted EC50(500) |
 | --- | ---: | ---: | ---: | ---: |
 | NM28-2746 | 0.001033 nM | 0.980 | 11.54 ng/mL | 0.04581 nM |
 | NM28-1872 | 0.07296 nM | 1.683 | 8.32 ng/mL | 4.458 nM |
@@ -74,7 +74,7 @@ RMSEの単位はcytotoxicityのpercentage pointsである。基線と上限だ�
 
 ![予測したEC50と条件ごとの記述的当てはめ](shared/tce-soluble-msln/figures/potency-extrapolation.svg)
 
-| 分子 | 500 ng/mLの予測EC50 | 同条件の記述的当てはめ |
+| Molecule | Predicted EC50 at 500 ng/mL | Descriptive fit at that condition |
 | --- | ---: | ---: |
 | NM28-2746 | 45.81 pM | 35.46 pM |
 | NM28-1872 | 4,458 pM | 2,583 pM |
@@ -85,10 +85,10 @@ RMSEの単位はcytotoxicityのpercentage pointsである。基線と上限だ�
 
 各点の縦位置を±1.5ピクセルの一様分布で動かし、再推定と予測を100回繰り返した。軸の較正は固定している。
 
-| 分子 | 移動なしの予測RMSE範囲 | EC50移動の予測RMSE範囲 |
+| Molecule | Prediction RMSE range without shift | Prediction RMSE range with EC50 shift |
 | --- | ---: | ---: |
-| NM28-2746 | 22.73〜24.44 | 3.81〜5.76 |
-| NM28-1872 | 23.25〜25.40 | 5.30〜6.91 |
+| NM28-2746 | 22.73–24.44 | 3.81–5.76 |
+| NM28-1872 | 23.25–25.40 | 5.30–6.91 |
 
 この読み取り感度では、可溶性抗原を含むモデルの誤差は小さいままだった。ただし、この幅は生物学的な信頼区間ではない。原著のSD、実験間・ドナー間のばらつき、軸の較正誤差は再現していない。仮想患者の分布にも使わない。
 

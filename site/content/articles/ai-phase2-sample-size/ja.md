@@ -43,7 +43,7 @@ Jayatungaらの分析は、AIを中心に据えた新興バイオ企業の臨床
 
 表1. 仮定した真の成功率と比較方法に応じた必要結果件数。
 
-| 本当の成功率 | 初めて80%に届く件数 | 80%を保つ最小の件数 | 企業ごとのまとまりを考える（2倍） | 同数の非AI群と比べる（各群） |
+| True success rate | First reaching 80% | Minimum stable count | Illustrative clustering (2×) | Equal non-AI comparison (per group) |
 | --- | ---: | ---: | ---: | ---: |
 | 35% | 446 | 470 | 940 | 917 |
 | 40% | 136 | 155 | 310 | 287 |

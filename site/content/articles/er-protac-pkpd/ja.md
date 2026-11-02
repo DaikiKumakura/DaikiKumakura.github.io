@@ -18,7 +18,7 @@ Goughらの[原論文Figure 5C](https://pmc.ncbi.nlm.nih.gov/articles/PMC1132514
 
 **表1　終了時ER分解と腫瘍増殖抑制**
 
-| 毎日の投与量 | 公表TGI | 試験終了時のER分解 |
+| Daily dose | Published TGI | ER degradation at end of study |
 | --- | ---: | ---: |
 | 3 mg/kg | 85% | ≥94% |
 | 10 mg/kg | 98% | ≥94% |
@@ -34,7 +34,7 @@ ERD-1233の一次論文には、10 mg/kg投与後のER Y537S変異MCF-7モデル
 
 **表2　公表された血漿・腫瘍濃度と濃度比**
 
-| 化合物 | 投与後時刻 | 血漿濃度（ng/mL） | 腫瘍濃度（ng/mL） | 腫瘍／血漿比（本記事で計算） |
+| Compound | Time after dose | Plasma concentration (ng/mL) | Tumor concentration (ng/mL) | Tumor/plasma ratio (calculated here) |
 | --- | ---: | ---: | ---: | ---: |
 | ERD-1233 | 3 h | 5,365 | 312 | 0.058 |
 | ERD-1233 | 24 h | 16 | 157 | 9.81 |
@@ -50,13 +50,13 @@ ERD-1233の一次論文には、10 mg/kg投与後のER Y537S変異MCF-7モデル
 
 **表3　資料の用途と限界**
 
-| 資料 | 今回の利用 | この資料だけではできないこと |
+| Source | Use here | What this source alone cannot do |
 | --- | --- | --- |
-| Vepdegestrant非臨床論文 ([1](#ref-1)) | 終了時ER分解とTGIの比較 | 全投与期間のPD軌跡の推定 |
-| ERD-1233論文 ([2](#ref-2)) | 血漿・腫瘍濃度の数値点検 | 2時点からの独立した組織移行・回復速度推定 |
-| Haid・ReichelのTPDモデリング ([3](#ref-3)) | PKと分解動態を結ぶ考え方 | 本記事のパラメータを実薬の値と見なすこと |
-| AZD4241のAACR抄録 ([4](#ref-4)) | PK/PD/腫瘍モデルの先行例 | 抄録に未掲載の個体データ・推定値の再現 |
-| VepdegestrantのヒトPopPK論文 ([5](#ref-5)) | 将来のヒト曝露解析の候補資料 | 動物のPDをヒトへそのまま移植すること |
+| Vepdegestrant nonclinical paper ([1](#ref-1)) | Comparing end-of-study ER degradation and TGI | Estimating the PD trajectory over the whole dosing period |
+| ERD-1233 paper ([2](#ref-2)) | Checking plasma and tumor concentrations | Independently estimating tissue penetration and recovery rates from two time points |
+| Haid and Reichel on TPD modeling ([3](#ref-3)) | The approach linking PK and degradation kinetics | Treating the parameters in this article as values for an actual drug |
+| AACR abstract on AZD4241 ([4](#ref-4)) | A precedent for a PK/PD/tumor model | Reproducing individual data or estimates not published in the abstract |
+| Human PopPK paper on vepdegestrant ([5](#ref-5)) | A candidate source for future human exposure analysis | Transferring animal PD directly to humans |
 
 文献 ([4](#ref-4))は学会抄録であり、査読論文と同じ情報量ではない。文献 ([1](#ref-1))の個体データは著者への問い合わせ対象とされている。本記事は公開された本文の集約値だけを使い、入手していない個体データを再解析したとは主張しない。
 
@@ -117,25 +117,25 @@ x(t)=1-\{1-x(0)\}\exp(-k_{deg}t)
 
 **表4　モデルの設定値**
 
-| パラメータ | 設定 | 位置付け |
+| Parameter | Setting | Status |
 | --- | --- | --- |
-| 血漿PK消失半減期 | 6 h | 仮定 |
-| 吸収速度 | 1 h⁻¹ | 仮定 |
-| 作用部位平衡化半減期 | 2 / 24 h | 2シナリオ |
-| 自然標的turnover半減期 | 6 / 48 h | 2シナリオ |
-| 最大誘導分解速度 | 1 h⁻¹ | 仮定 |
-| \(K_{50}\) | 相対濃度1 | 仮定 |
-| Hill係数 | 1.2 | 仮定 |
-| 初期標的量 | baseline比1 | 未処置平衡 |
+| Plasma PK elimination half-life | 6 h | Assumption |
+| Absorption rate | 1 h⁻¹ | Assumption |
+| Effect-site equilibration half-life | 2 / 24 h | Two scenarios |
+| Natural target turnover half-life | 6 / 48 h | Two scenarios |
+| Maximal induced degradation rate | 1 h⁻¹ | Assumption |
+| \(K_{50}\) | Relative concentration 1 | Assumption |
+| Hill coefficient | 1.2 | Assumption |
+| Initial target amount | Ratio to baseline 1 | Untreated equilibrium |
 
 **表5　長期平均投与量を揃えた投与法**
 
-| 投与法 | 1回の相対用量 | 長期平均の週投与量 |
+| Regimen | Relative dose per administration | Long-term average weekly dose |
 | --- | ---: | ---: |
-| QD（24時間ごと） | 1 | 7 |
-| BID（12時間ごと） | 0.5 | 7 |
-| Q2D（48時間ごと） | 2 | 7 |
-| 5日投与・2日休薬 | 1.4 | 7 |
+| QD (every 24 hours) | 1 | 7 |
+| BID (every 12 hours) | 0.5 | 7 |
+| Q2D (every 48 hours) | 2 | 7 |
+| 5 days on, 2 days off | 1.4 | 7 |
 
 Q2Dは暦週ごとの回数が交互に変わる。14日で7回、相対用量14となるため、比較は長期平均投与量を揃え、42日間を計算した最後の14日間で行う。この期間にはQ2Dと週単位の休薬周期が整数個入る。線形PKと投与量に依存しない吸収を仮定するが、平均投与量が等しくてもPDの形や安全性が等しいとは限らない。
 
@@ -159,7 +159,7 @@ PDだけを見ると、分解の持続を「標的が戻りにくい」と解釈
 
 **表6　標的半減期と投与法による分解率**
 
-| 標的半減期 | 投与法 | 最大分解率 | 最低分解率 | 平均分解率 |
+| Target half-life | Regimen | Maximal degradation | Minimal degradation | Mean degradation |
 | --- | --- | ---: | ---: | ---: |
 | 6 h | QD | 73.7% | 48.4% | 63.8% |
 | 6 h | BID | 68.3% | 63.2% | 66.1% |
@@ -218,13 +218,13 @@ T_{D>D^*}=\int_{t_0}^{t_0+L}\mathbf 1\{D(t)>D^*\}\,dt
 
 **表7　解析で示された範囲**
 
-| 区分 | 本記事の到達点 |
+| Category | What this article reached |
 | --- | --- |
-| 公開観測 | 血漿と腫瘍濃度の乖離、終了時ER分解とTGIの異なる用量応答 |
-| 本記事で計算 | 公表濃度比、仮定した16条件のPD軌跡と指標 |
-| 本記事で推定 | 実薬パラメータの推定は実施していない |
-| 仮定に依存する示唆 | 最大分解率だけでは投与頻度比較を誤る可能性、回復と残留の区別 |
-| まだ答えられない問い | 必要ER分解率、実薬の最適間隔、患者集団の目標達成率、臨床薬効・安全性 |
+| Public observations | Divergence between plasma and tumor concentrations; different dose responses for end-of-study ER degradation and TGI |
+| Calculated here | Ratios of published concentrations; PD trajectories and metrics under 16 assumed conditions |
+| Estimated here | No parameters of an actual drug were estimated |
+| Implications that depend on assumptions | Maximal degradation alone may mislead comparisons of dosing frequency; recovery and retention need to be distinguished |
+| Questions not yet answerable | The required ER degradation, the optimal interval for an actual drug, target attainment in a patient population, clinical efficacy and safety |
 
 今回の16条件は仮定したPD軌跡であり、実薬の係数を推定した結果ではない。作用部位の残留と標的の回復は、公開された終了時点の分解率だけからは分離できず、追加測定どうしの価値の大小もこの解析では決まっていない。
 

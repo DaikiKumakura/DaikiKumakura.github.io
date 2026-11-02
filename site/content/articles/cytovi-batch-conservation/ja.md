@@ -59,13 +59,13 @@ RMSEは参照との差の誤差、\(c\)は参照方向への射影係数であ�
 
 **表1．同じ細胞型内のドナー対比と保存した参照との差。**
 
-| 設計 | 補正方法 | 対比RMSE | 参照方向への係数 |
+| Design | Correction | Contrast RMSE | Reference-direction coefficient |
 | --- | --- | ---: | ---: |
-| 交差 | 単純なバッチ平均合わせ | 0.00003 | 1.000 |
-| 交差 | CytoVI seed 0 / 1 | 0.250 / 0.245 | 0.540 / 0.551 |
-| 完全交絡 | 単純なバッチ平均合わせ | 0.349 | 0.386 |
-| 完全交絡 | CytoVI seed 0 / 1 | 0.406 / 0.413 | 0.122 / 0.108 |
-| 両設計 | 既知シフトを引くoracle | 0 | 1 |
+| Crossed | Simple batch-mean alignment | 0.00003 | 1.000 |
+| Crossed | CytoVI seed 0 / 1 | 0.250 / 0.245 | 0.540 / 0.551 |
+| Fully confounded | Simple batch-mean alignment | 0.349 | 0.386 |
+| Fully confounded | CytoVI seed 0 / 1 | 0.406 / 0.413 | 0.122 / 0.108 |
+| Both designs | Oracle subtracting known shift | 0 | 1 |
 
 単純な平均合わせに有利な、一定の加算シフトを作った実験である。この表から複雑な現実のバッチ差でも単純補正が最良だとは結論しない。また、CytoVIの復号値はdenoisingも含むため、参照との差をすべて過剰補正による生物学的情報の損失だと断定していない。
 

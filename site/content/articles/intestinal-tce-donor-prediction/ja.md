@@ -14,14 +14,14 @@ Harterらは正常腸管オルガノイドと末梢血単核球（PBMC）の共�
 
 **表1．** 入力データと予測の単位。
 
-| 項目 | 解析に使った情報 |
+| Item | Information used |
 | --- | --- |
-| 予測の単位 | オルガノイドのドナー14人 |
-| 組織部位 | 小腸7・大腸7 |
-| 分子と条件 | CEA(hi) TCB・0.5 µg/mL・48時間 |
-| 標的の指標 | IHCでのCEA陽性面積のドナー平均 |
-| 目的変数 | non-targeting TCBで正規化したcaspase-3/7信号 |
-| 原データ | Figure 5 Source Dataのb・d_CEA・e・f |
+| Prediction unit | 14 organoid donors |
+| Tissue region | Seven small-intestine and seven colon donors |
+| Molecule and condition | CEA(hi) TCB; 0.5 µg/mL; 48 hours |
+| Target measure | Donor-mean CEA-positive IHC area |
+| Outcome | Caspase-3/7 signal normalized to non-targeting TCB |
+| Original data | Figure 5 Source Data sheets b, d_CEA, e and f |
 
 IHCではドナーごとに複数のオルガノイドが測定されている。その数を独立したドナー数として回帰に投入しなかった。評価するのはオルガノイドの由来が異なる場合の予測であり、PBMCドナーを交換した場合の予測ではない。
 
@@ -62,12 +62,12 @@ M_{AR} &: y_i=\beta_0+\beta_A A_i+\beta_R R_i+\epsilon_i
 
 **表2．** 学習内とドナー除外予測の誤差。
 
-| モデル | 係数数 | 学習内RMSE | ドナー除外RMSE | ドナー除外MAE |
+| Model | Coefficients | Training RMSE | Held-out donor RMSE | Held-out donor MAE |
 | --- | ---: | ---: | ---: | ---: |
-| 平均 | 1 | 0.482 | 0.519 | 0.408 |
-| 組織部位 | 2 | 0.298 | 0.348 | 0.270 |
-| CEA陽性面積 | 2 | 0.206 | 0.253 | 0.214 |
-| CEA陽性面積と組織部位 | 3 | 0.201 | 0.283 | 0.230 |
+| Mean | 1 | 0.482 | 0.519 | 0.408 |
+| Tissue region | 2 | 0.298 | 0.348 | 0.270 |
+| CEA-positive area | 2 | 0.206 | 0.253 | 0.214 |
+| CEA-positive area and tissue region | 3 | 0.201 | 0.283 | 0.230 |
 
 CEA陽性面積を使うモデルのドナー除外RMSEは、平均モデルより51.3%小さかった。最大の絶対予測誤差は、平均モデルの1.237に対してCEAモデルで0.526だった。これは信号比の誤差であり、百分率ポイントではない。
 
@@ -95,10 +95,10 @@ CEA陽性面積を使うモデルのドナー除外RMSEは、平均モデルよ�
 
 **表3．** CEAモデルの係数とbootstrap区間。
 
-| 係数 | 推定値 | ドナー単位bootstrapの2.5〜97.5%点 |
+| Coefficient | Estimate | Donor-bootstrap 2.5th–97.5th percentiles |
 | --- | ---: | ---: |
-| 切片 | 1.2542 | 1.0635〜1.4267 |
-| CEA陽性面積1 percentage point当たり | 0.02894 | 0.01754〜0.03638 |
+| Intercept | 1.2542 | 1.0635–1.4267 |
+| Per percentage point of CEA-positive area | 0.02894 | 0.01754–0.03638 |
 
 bootstrapは14ドナーを復元抽出して2,000回再推定したものである。小規模な観測標本と線形モデルに条件付けた係数の不確実性であり、臨床反応の区間や新規患者の予測区間ではない。
 

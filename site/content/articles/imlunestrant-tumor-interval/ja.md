@@ -16,11 +16,11 @@
 
 **表1．** 公開資料の範囲。
 
-| 資料 | 使える情報 | ここからは分からないこと |
-|---|---|---|
-| FDA・EMA審査資料 | 血漿PopPKの係数・個体差、用量別集計PK | 個人別濃度データからの新たなNLME推定 |
-| EMBER-2術前試験 | 腫瘍／血漿の比較、生検前後のER・PR・Ki-67 | 投与中断後のヒト腫瘍濃度・ER回復曲線 |
-| 前臨床の機序研究 | 動物での腫瘍曝露・作用の時間経過 | 人の腫瘍からの消失速度や隔日投与の薬効 |
+| Source | Available evidence | Not established here |
+| --- | --- | --- |
+| FDA and EMA assessments | Plasma PopPK coefficients, variability and dose-level summaries | New individual-level NLME fitting |
+| EMBER-2 preoperative study | Tumor/plasma comparison and pre/post ER, PR and Ki-67 | Human tumor concentrations and ER recovery after interruption |
+| Preclinical mechanistic studies | Animal tumor exposure and effect time courses | Human tumor elimination or alternate-day efficacy |
 
 以下では、実測集計値から行った小さな推定、公表PopPKの再構成、未同定の時間定数を置いた感度解析を分ける。([FDA assessment report Table 19.2](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/218881Orig1s000MultidisciplineR.pdf) ([3](#ref-3)))、([4](#ref-4))
 
@@ -30,12 +30,12 @@
 
 **表2．** Day 15の実測集計PK。
 
-| QD用量 | AUC0–24の幾何平均（ng·h/mL、n） | Cmaxの幾何平均（ng/mL、n） |
-|---|---:|---:|
-| 200 mg | 894、14 | 62.3、19 |
-| 400 mg | 2,480、19 | 164、21 |
-| 600 mg | 3,390、9 | 204、18 |
-| 800 mg | 3,670、14 | 247、15 |
+| Daily dose | Geometric mean AUC0–24 (ng·h/mL), n | Geometric mean Cmax (ng/mL), n |
+| --- | ---: | ---: |
+| 200 mg | 894, 14 | 62.3, 19 |
+| 400 mg | 2,480, 19 | 164, 21 |
+| 600 mg | 3,390, 9 | 204, 18 |
+| 800 mg | 3,670, 14 | 247, 15 |
 
 \[
 \log E_D=\alpha+\beta\log(D/400)
@@ -57,13 +57,13 @@
 
 **表3．** 再構成に使った係数。
 
-| 係数 | 使用値 |
-|---|---:|
+| Parameter | Value |
+| --- | ---: |
 | CL/F | 166 L/h |
 | Q/F | 256 L/h |
-| Vc/F（mBC） | 4,311.72 L |
+| Vc/F, mBC | 4,311.72 L |
 | Vp/F | 2,280 L |
-| 平均吸収移行時間MTT | 1.84 h |
+| Mean transit time, MTT | 1.84 h |
 
 今回の実装では3個の直列入力状態\(B_1,B_2,B_3\)を置き、\(k_{tr}=3/MTT\)とした。
 
@@ -106,8 +106,8 @@ AUC_{48}=\frac{48}{\tau}\frac{1000D}{CL/F}.
 
 **表4．** 同じ平均量の周期定常状態。
 
-| 計算上の条件 | 血漿Cmax（ng/mL） | 血漿投与前濃度（ng/mL） | AUC48（ng·h/mL） |
-|---|---:|---:|---:|
+| Hypothetical schedule | Plasma Cmax (ng/mL) | Plasma predose (ng/mL) | AUC48 (ng·h/mL) |
+| --- | ---: | ---: | ---: |
 | 200 mg Q12h | 114.3 | 86.0 | 4,819.3 |
 | 400 mg Q24h | 138.4 | 71.7 | 4,819.3 |
 | 800 mg Q48h | 193.1 | 51.8 | 4,819.3 |
@@ -124,11 +124,11 @@ EMBER-2では、200–800 mg QDで治療された10例のDay 15腫瘍中濃度�
 
 **表5．** 術前生検のERとKi-67変化。
 
-| QD用量 | ER評価人数 | ERの幾何平均変化（90% CI） | 全評価例のKi-67幾何平均変化 |
-|---|---:|---:|---:|
-| 200 mg | 22 | −89%（−96～−72） | −69% |
-| 400 mg | 27 | −82%（−91～−60） | −71% |
-| 800 mg | 26 | −70%（−78～−59） | −72% |
+| Daily dose | ER-evaluable participants | Geometric mean ER change (90% CI) | Geometric mean Ki-67 change in all evaluable participants |
+| --- | ---: | ---: | ---: |
+| 200 mg | 22 | −89% (−96 to −72) | −69% |
+| 400 mg | 27 | −82% (−91 to −60) | −71% |
+| 800 mg | 26 | −70% (−78 to −59) | −72% |
 
 ERの低下は用量と単調に並ばず、200 mg群は後から追加された非無作為化コホートである。ここから低用量の優越性や濃度–作用のEC50を推定しない。また、これは未治療の早期乳がんでの約2週間の投与前後比較であり、承認対象の進行乳がんと同じ集団ではない。[EMBER-2 Table 2](https://pmc.ncbi.nlm.nih.gov/articles/PMC11609621/) ([5](#ref-5))
 
@@ -160,13 +160,13 @@ CL/F、Vc/F、MTTの公表個体間CVは50.5%、69.1%、47.7%だった。これ�
 
 **表6．** 条件付き仮想患者の用法比。
 
-| 800 mg Q48h／同じ患者の400 mg Q24h | 中央値 | 仮想患者の5–95百分位 |
-|---|---:|---:|
-| 血漿Cmax | 1.392 | 1.191–1.652 |
-| 血漿投与前濃度 | 0.730 | 0.553–0.847 |
-| 仮想指標の最低値：平衡化半時間2 h | 0.728 | 0.546–0.847 |
-| 同：12 h | 0.821 | 0.695–0.905 |
-| 同：48 h | 0.947 | 0.911–0.972 |
+| Endpoint | Median | Virtual-individual 5th–95th percentiles |
+| --- | ---: | ---: |
+| Plasma Cmax | 1.392 | 1.191–1.652 |
+| Plasma predose | 0.730 | 0.553–0.847 |
+| Minimum hypothetical index: equilibration half-time 2 h | 0.728 | 0.546–0.847 |
+| Same: 12 h | 0.821 | 0.695–0.905 |
+| Same: 48 h | 0.947 | 0.911–0.972 |
 
 ![仮定する平衡化半時間による最低値の条件間比の変化](shared/imlunestrant-tumor-interval/figures/03-minimum-sensitivity.png)
 

@@ -12,11 +12,11 @@
 
 **表1．** 比較の問いと解析の使用範囲。
 
-| 項目 | 定義 |
+| Item | Definition |
 | --- | --- |
-| QOI | 同じ公開パラメータで80→160 mgとしたとき、血漿、肺腫瘍のモデル内薬物量、可逆EGFR結合状態はそれぞれどれだけ変わるか。吸収式・腫瘍分配の仮定で、その解釈は変わるか。 |
-| COU | 標的組織曝露を比較する研究計画に向け、公開モデルの実装・出力の意味・追加検証が必要な仮定を確認する。患者の増量判断、CNS病変の治療選択、有効性・安全性の最適化には使用しない。 |
-| 解析 | 固定パラメータによる条件付き数値計算。新規パラメータ推定、患者間変動の推定、仮想患者集団の生成は行わない。 |
+| QOI | With the same public parameters, how do plasma, modeled lung-tumor drug amounts, and reversible EGFR binding change from 80 to 160 mg? How do absorption and tumor-partition assumptions affect interpretation? |
+| COU | Examine implementation, output meanings, and assumptions requiring further validation when planning target-tissue exposure comparisons. Not intended for patient dose escalation, CNS treatment selection, or optimization of efficacy and safety. |
+| Analysis | Conditional numerical calculations with fixed parameters. No new parameter estimation, interpatient-variability estimation, or virtual-population generation. |
 
 80 mg/日は製品情報に記載される通常用量である ([3](#ref-3))。160 mg/日を検討したBLOOM試験は存在するが、対象は髄膜転移を伴う患者であり、今回の**肺腫瘍モデルによる比較を、その試験の再解析やCNSでの増量根拠とはしない** ([4](#ref-4))。薬物相互作用に伴う用量調整も、ここでは再現していない。
 
@@ -24,12 +24,12 @@
 
 **表2．** 使用した公開資料と確認できない範囲。
 
-| 公開資料 | 取得・使用したもの | 今回できないこと |
+| Material | Obtained and used | Not established here |
 | --- | --- | --- |
-| 2025年原著 ([1](#ref-1)) | [Original paper, Table 1](https://doi.org/10.1002/psp4.70006)の腫瘍容積・EGFR量・結合速度、結合状態の定義 | 原著患者の薬効や毒性の再推定 |
-| 原著補足Appendix S2–S5 | 組織容積・血流・組織成分、薬物物性、分配係数式、全身ODE | 組織非結合型濃度の実測検証 |
-| 著者の公開コード ([2](#ref-2)) | パラメータ・分配係数・ODEの実装。固定コミットを保存 | R/deSolveで得た全出力との完全一致保証 |
-| 製品情報・臨床試験 ([3](#ref-3), [4](#ref-4)) | 臨床用量と今回の比較条件の区別 | 80 mgと160 mgの臨床的優劣の推定 |
+| 2025 paper ([1](#ref-1)) | Tumor volume, EGFR abundance, binding rates, and state definitions in [original Table 1](https://doi.org/10.1002/psp4.70006) | Re-estimation of original patients' efficacy or toxicity |
+| Original Appendices S2–S5 | Tissue volumes, flows and composition, drug properties, partition equations, whole-body ODEs | Empirical validation of unbound tissue concentrations |
+| Author-released code ([2](#ref-2)) | Parameters, partition coefficients, and ODE implementation at a fixed commit | Guaranteed agreement with every R/deSolve output |
+| Prescribing information and clinical study ([3](#ref-3), [4](#ref-4)) | Distinction between clinical doses and the comparison conditions | Clinical superiority of 80 or 160 mg |
 
 使用コードのコミットは`00c6410c000bcb3b32b7fa54f2cb3a2aed87dcbd`。元ファイルを保存し、SHA256も記録した。原著のPET・臨床PK個票は再取得していない。したがって、以下で確認するのは式・量収支・数値計算の整合であり、患者データによる独立の臨床検証ではない。
 
@@ -58,18 +58,18 @@ U_i=k_{on,i} A_i\frac{\max(R_iV_i-B_i,0)}{V_{iw,i}}-k_{off,i}B_i
 
 **表3．** 代表パラメータと位置付け。
 
-| 代表パラメータ | 値 | 位置づけ |
+| Parameter | Value | Interpretation |
 | --- | ---: | --- |
-| 分子量 | 500 g/mol | 原コードでの丸め値。mg→nmolの変換に使用 |
-| 血漿非結合率 \(f_u\) | 0.0535 | 組織非結合率ではない |
-| 血液/血漿比 \(bp\) | 1/1.30 | 血漿濃度への換算 |
-| 吸収速度定数 \(k_a\) | 0.24/60 min⁻¹ | 原コード値 |
-| 吸収の係数 \(F\) | 0.70 | 式のどこに掛けるかを後で比較 |
-| 算出された腫瘍Kp | 1.6014 | 原コードの分配式から計算 |
-| 肺腫瘍容積 | 0.046 L | 原コードの固定仮定 |
-| 腫瘍EGFR濃度 | 382.65 nM | 個人別測定値ではない |
-| 腫瘍 \(k_{on},k_{off}\) | 0.18 nM⁻¹min⁻¹、86.1 min⁻¹ | 原コードはWTとL858R/T790M変異型の速度の平均を使用 |
-| 肝固有CL、腎CL | 約3.631、0.235/60 L/min | 原コードの算出式を使用 |
+| Molecular weight | 500 g/mol | Source rounding used for mg-to-nmol conversion |
+| Plasma unbound fraction \(f_u\) | 0.0535 | Not the tissue unbound fraction |
+| Blood/plasma ratio \(bp\) | 1/1.30 | Conversion to plasma concentration |
+| Absorption rate \(k_a\) | 0.24/60 min⁻¹ | Source value |
+| Absorption coefficient \(F\) | 0.70 | Its placement in the equations is compared below |
+| Calculated tumor Kp | 1.6014 | Calculated with source partition equations |
+| Lung-tumor volume | 0.046 L | Fixed source assumption |
+| Tumor EGFR concentration | 382.65 nM | Not an individual measurement |
+| Tumor \(k_{on},k_{off}\) | 0.18 nM⁻¹min⁻¹, 86.1 min⁻¹ | Source averages WT and L858R/T790M-mutant rates |
+| Intrinsic hepatic CL, renal CL | Approximately 3.631, 0.235/60 L/min | Calculated using source expressions |
 
 \(K_p\) は細胞内外水、脂質、酸性リン脂質、lysosomal trappingの項から算出した。式中の`LogP`等も、原コードの数値・使い方を保持し、こちらで別の物性定義へ自動修正していない。これは原実装に沿った条件の検討であり、全ての生理学的仮定が検証済みという意味ではない。
 
@@ -99,10 +99,10 @@ f_{bound}=B_{tumor}/(R_{tumor}V_{tumor})
 
 **表4．** 原コードの吸収式による後半24時間の比較。
 
-| 投与量 | 血漿平均 nM | 腫瘍非EGFR結合平均 nM | 腫瘍総平均 nM | 可逆結合状態の平均 | 投与前の結合状態 |
+| Dose | Mean plasma, nM | Mean tumor non-EGFR-bound, nM | Mean tumor total, nM | Mean reversible binding fraction | Predose binding fraction |
 | --- | --- | --- | --- | --- | --- |
-| 80 mg/日 | 742.6 | 1189.2 | 1515.0 | 85.1% | 82.9% |
-| 160 mg/日 | 1485.2 | 2378.5 | 2730.4 | 92.0% | 90.7% |
+| 80 mg/day | 742.6 | 1189.2 | 1515.0 | 85.1% | 82.9% |
+| 160 mg/day | 1485.2 | 2378.5 | 2730.4 | 92.0% | 90.7% |
 
 全て27–28日の共通区間。患者の実測値・母集団平均・真の標的阻害率ではない。
 
@@ -137,10 +137,10 @@ R_{loss}=(1-F)k_aA_{lumen}
 
 **表5．** 未吸収量を分離した対照条件の比較。
 
-| 投与量 | 血漿平均 nM | 腫瘍非EGFR結合平均 nM | 腫瘍総平均 nM | 可逆結合状態の平均 | 投与前の結合状態 |
+| Dose | Mean plasma, nM | Mean tumor non-EGFR-bound, nM | Mean tumor total, nM | Mean reversible binding fraction | Predose binding fraction |
 | --- | --- | --- | --- | --- | --- |
-| 80 mg/日 | 519.8 | 832.5 | 1138.6 | 80.0% | 76.7% |
-| 160 mg/日 | 1039.7 | 1664.9 | 2005.0 | 88.9% | 86.8% |
+| 80 mg/day | 519.8 | 832.5 | 1138.6 | 80.0% | 76.7% |
+| 160 mg/day | 1039.7 | 1664.9 | 2005.0 | 88.9% | 86.8% |
 
 上表は吸収量を分離する未検証の変更。同じ他パラメータで計算した対照であり、原著より正しい予測とはしていない。
 
@@ -158,14 +158,14 @@ R_{loss}=(1-F)k_aA_{lumen}
 
 **表6．** 腫瘍の要因を一つずつ変更した感度分析。
 
-| 変更 | 血漿平均比 | 腫瘍総平均比 | 結合状態の平均 |
+| Change | Mean plasma ratio | Mean tumor-total ratio | Mean binding fraction |
 | --- | --- | --- | --- |
-| 腫瘍Kp ×0.5 | 1.000000 | 0.580 | 74.1% |
-| 腫瘍Kp ×2.0 | 1.000000 | 1.802 | 92.0% |
-| 腫瘍血流 ×0.5 | 1.000000 | 1.000 | 85.1% |
-| 腫瘍血流 ×2.0 | 1.000000 | 1.000 | 85.1% |
-| 腫瘍EGFR量 ×0.5 | 1.000000 | 0.892 | 85.1% |
-| 腫瘍EGFR量 ×2.0 | 1.000000 | 1.215 | 85.1% |
+| Tumor Kp ×0.5 | 1.000000 | 0.580 | 74.1% |
+| Tumor Kp ×2.0 | 1.000000 | 1.802 | 92.0% |
+| Tumor blood flow ×0.5 | 1.000000 | 1.000 | 85.1% |
+| Tumor blood flow ×2.0 | 1.000000 | 1.000 | 85.1% |
+| Tumor EGFR abundance ×0.5 | 1.000000 | 0.892 | 85.1% |
+| Tumor EGFR abundance ×2.0 | 1.000000 | 1.215 | 85.1% |
 
 80 mg、原コードの吸収式。比は同じ80 mg基準に対する条件付きの変化。1付近の微小差を意味のある個人差として読まない。
 
@@ -188,12 +188,12 @@ R_{loss}=(1-F)k_aA_{lumen}
 
 **表7．** 数値計算の検査と結果。
 
-| 検査 | 結果 |
+| Check | Result |
 | --- | --- |
-| 積分法・許容誤差を変更 | 主要平均の最大相対差7.9e-08 |
-| 28日と56日の最終24時間 | 主要平均の最大相対差4.5e-06 |
-| 投与量＝体内量＋消失量＋未吸収量 | 最大相対誤差7.3e-15 |
-| 7件の単体検査 | 量収支、結合状態境界、Jacobian、結合なしの用量比例、吸収損失、出典パラメータが成功 |
+| Change integrator and tolerances | Maximum relative difference in principal means: 7.9e-08 |
+| Final 24 hours at day 28 versus day 56 | Maximum relative difference in principal means: 4.5e-06 |
+| Administered dose = body amount + eliminated amount + unabsorbed amount | Maximum relative error: 7.3e-15 |
+| Seven unit tests | Mass balance, binding bounds, Jacobian, dose proportionality without binding, absorption loss, and source parameters passed |
 
 1日ごとの投与イベントで積分を区切り、投与直前の量を次の積分へ受け渡した。硬い結合速度を扱うためBDFと解析的Jacobianを使い、より厳しい許容誤差のRadauでも比較した。期間を56日まで延ばした値も確認したが、この数値的な安定性を臨床的妥当性とは呼ばない。
 

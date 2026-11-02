@@ -22,8 +22,8 @@ SHAPで複合体Iのタンパク質が重要と分かっても、薬がそのタ
 
 表1　基礎ID単位で集約した保存スコア。
 
-| 化合物 | 保存スコアの平均 | 集約した行数 |
-| --- | ---: | ---: |
+| Compound | Mean saved score | Rows aggregated |
+|---|---:|---:|
 | 1 | 0.917 | 2 |
 | 2 | 0.478 | 1 |
 | 3 | 0.359 | 3 |
@@ -36,8 +36,8 @@ SHAPで複合体Iのタンパク質が重要と分かっても、薬がそのタ
 
 表2　濃度別のNADH依存呼吸鎖活性。公開値の平均。
 
-| 濃度（µM） | 化合物1の活性（%） | 化合物2の活性（%） | 化合物3の活性（%） |
-| --- | ---: | ---: | ---: |
+| Concentration (µM) | Compound 1 activity (%) | Compound 2 activity (%) | Compound 3 activity (%) |
+|---|---:|---:|---:|
 | 0.1 | 43.4 | 103.8 | 88.0 |
 | 1 | 16.2 | 63.4 | 61.0 |
 | 20 | 14.6 | 37.8 | 37.8 |
@@ -66,14 +66,14 @@ SHAPで複合体Iのタンパク質が重要と分かっても、薬がそのタ
 
 表3　保存スコアと公開分割の照合結果。APは独立評価性能ではない。
 
-| 再集計した項目 | 結果 |
-| --- | ---: |
-| 評価側でIC50 < 10 µMの行数 | 24 / 43 |
-| 評価側の陽性割合 | 0.558 |
-| 学習・評価の両方にある基礎ID | 5 |
-| 評価側の化学系列 | 12 |
-| そのうち学習側にもある系列 | 12 |
-| 保存された校正済みスコアのAP | 0.847 |
+| Reaggregated item | Result |
+|---|---:|
+| Test rows with IC50 <10 µM | 24 / 43 |
+| Test positive fraction | 0.558 |
+| Base identifiers present in both training and test sets | 5 |
+| Chemical series in the test set | 12 |
+| Test series also present in training | 12 |
+| AP of saved calibrated scores | 0.847 |
 
 AP（average precision）は、スコアが高い順に並べたときの適合率を、再現率の増分で重み付けして足した指標だ。同点はまとめて計算した。しかし、この0.847を独立した評価性能として読んではいけない。論文Methodsには、**最終モデルの校正に評価用のtest setを使った**と明記されている。保存スコアでのAPには、その校正に使ったラベルが再登場する。
 

@@ -20,10 +20,10 @@ SubcellPertの予測対象は、遺伝子名の付いたRNA分子の二次元座
 
 表1. 正解RNA数を使う条件と使わない条件の違い。
 
-| 設定 | 予測時に正解のRNA数を使うか | 調べること |
+| Setting | True RNA count available at prediction? | Question |
 | --- | --- | --- |
-| Oracle | 使う | RNA数を固定したとき、配置をどこまで予測できるか |
-| Joint | 使わない | 介入後のRNA数と配置を、まとめて予測できるか |
+| Oracle | Yes | How accurately can arrangement be predicted with counts fixed? |
+| Joint | No | How accurately can post-intervention counts and arrangement be predicted together? |
 
 Oracleでは数が合っていることが出発点で、量の予測精度を示す試験ではない。また二つは独立に学習されるため、OracleのスコアをJointの厳密な性能上限とみなすこともできない。
 
@@ -66,7 +66,7 @@ $$
 
 表2. モーメント補正後の人工配置と観測配置の半径W1。
 
-| 遺伝子 | 対象の細胞・遺伝子組数 | 再標本化の半径W1 | Gaussian置換の半径W1 |
+| Gene | Cell–gene pairs | Resampling radial W1 | Gaussian-replacement radial W1 |
 | --- | ---: | ---: | ---: |
 | VIM | 1,192 | 0.043 | 0.197 |
 | HIF1A | 1,080 | 0.061 | 0.139 |

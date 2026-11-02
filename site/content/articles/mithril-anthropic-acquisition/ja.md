@@ -16,15 +16,15 @@
 
 表1　買収の発表と技術報告書で確認できる項目。
 
-| 項目 | 資料の記載 |
+| Item | What the sources state |
 | --- | --- |
-| 発表日 | 2026年10月27日 ([1](#ref-1)) |
-| 会社 | Mithril Medicine。従業員1名の会社。創業者のCody Tranbarger氏は、発表時点でAnthropicに所属する ([1](#ref-1), [2](#ref-2)) |
-| 対象疾患 | 希少な筋ジストロフィー2病型 ([1](#ref-1))。報告書はLAMA2関連先天性筋ジストロフィー（LAMA2-CMD）を扱い、α-ジストログリカノパチーも継続する計画に挙げる ([2](#ref-2)) |
-| 薬の種類 | 二重特異性の橋渡し抗体。laminin-α4とα-ジストログリカンを結び付けて、筋線維を基底膜につなぎ直す設計である ([2](#ref-2)) |
-| 段階 | 発表は、研究全体が「ほぼ前臨床」であり、ヒトでの試験にはまだ至っていないと述べる ([1](#ref-1)) |
-| 取引条件 | 両資料に記載がない |
-| 技術報告書 | 2026年10月26日付。査読前 ([2](#ref-2)) |
+| Announcement date | 27 October 2026 ([1](#ref-1)) |
+| Company | Mithril Medicine, a company with one employee. Its founder, Cody Tranbarger, is at Anthropic as of the announcement ([1](#ref-1), [2](#ref-2)) |
+| Disease targets | Two rare forms of muscular dystrophy ([1](#ref-1)). The report addresses LAMA2-related congenital muscular dystrophy (LAMA2-CMD) and lists α-dystroglycanopathy among the programs to be continued ([2](#ref-2)) |
+| Type of drug | A bispecific "bridging" antibody designed to link laminin-α4 to α-dystroglycan and thereby reconnect muscle fibers to the basement membrane ([2](#ref-2)) |
+| Stage | The announcement says the research as a whole is mostly preclinical and has not yet reached testing in humans ([1](#ref-1)) |
+| Transaction terms | Not stated in either document |
+| Technical report | Dated 26 October 2026; not peer reviewed ([2](#ref-2)) |
 
 ## 「18か月未満」が指す期間
 
@@ -70,14 +70,14 @@ P = 0.057について、報告書は「7 litterで取りうる最小の値」と
 
 表2　報告書が1週間の事例として記す数値。CRO（contract research organization）は受託研究機関を指す。
 
-| 項目 | 報告書の記載 |
+| Item | What the report states |
 | --- | --- |
-| データ | 4日目に製造委託先から341ページの報告が届いた。最初の回答までClaudeは2分40秒、113の構築体の視覚的な要約までは7分53秒だった |
-| 分類 | Claudeは、82をそのままスクリーニングし、7を追加精製し、24（ラミニンに結合する3種のアームの構築体）を保留とした |
-| 人間の判断 | Claudeは113全件の結合速度論を勧めたが、人間がこれを退け、3種を製造上の理由で外した。Claudeは約4分で文書・日程・下書きを113から89構築体に直した |
-| メール | Claudeは17通を起案し、人間が12通を送り、いずれも編集を経ていた。書面に根拠のない41点を、送信前の確認用に列挙した |
-| 誤り | 詳しく調べた6件のうち、Claudeが5件を見つけた（1件はCROの質問の後、2件は該当するメールの送信前）。少なくとも3件は、人間が編集して送ったメールでCROに届いた。うち1件（アッセイ委託先が求めた量より少ない1管あたりの量の依頼）は、1日以内、管への充填の前に訂正された。別の2件は、いずれもClaudeによる製造データの確認に含まれた記述で、4日を超えて気づかれず、1件は未解決である |
-| 速度 | 89構築体は、人間の判断から1週間以内に二つの細胞アッセイ向けに発送された。Claudeの応答時間の中央値は、最初の回答で96秒、完全な回答で10分。CROの最初の返信の中央値は8.5時間 |
+| Data | A 341-page report arrived from the production contractor on day 4. Claude took 2 min 40 s to give a first answer and 7 min 53 s to produce a visual synthesis of all 113 constructs |
+| Triage | Claude marked 82 constructs for screening as is, seven for additional polishing, and 24 (constructs with three laminin-binding arms) to be held back |
+| Human ruling | Claude recommended binding kinetics for all 113 constructs; the team overruled this and set the three arms aside on production criteria. About four minutes later Claude had revised the memo, schedule and drafts from 113 to 89 constructs |
+| Emails | Claude drafted 17 emails and the team sent 12, each of which had been edited. Claude listed 41 points for which it had found no written statement, for confirmation before sending |
+| Errors | Of six errors examined in detail, Claude found five (one after a question from a CRO and two before the affected email was sent). At least three reached a CRO in emails the team had edited and sent. One of these (a request for less material per tube than the assay CRO had asked for) was corrected within a day, before any tube was filled. Two others, both statements in Claude's review of the production data, went unnoticed for more than 4 days, and one remains unsettled |
+| Pace | All 89 constructs were shipped for the two cell-based assays within a week of the ruling. Claude's median response times were 96 s for a first answer and 10 min for a full answer; the median first reply of a CRO took 8.5 h |
 
 これらの数値は、報告書の著者が自らの作業を記述したものである。報告書は、作業の速さがCROの返信と人間の判断で決まったと解釈し、Claudeが担ったのは、読み取り、計算、起案、および一つの判断が影響する後続の全工程をたどる作業であり、判断は人間に残ったと述べる ([2](#ref-2))。同時に報告書は、これらの事例から、人間の編集はメールに含まれる判断を検査するほうが、メールが運ぶ細部や前提を検査するより確実だったとみられると述べる ([2](#ref-2))。
 

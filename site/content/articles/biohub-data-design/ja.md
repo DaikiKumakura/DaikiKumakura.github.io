@@ -20,12 +20,12 @@
 
 **表1．** 同じ総細胞数を四通りに配分する設計。
 
-| 設計 | 測る組合せ | ドナー数 | 一方の細胞数 | 両側を数えた総細胞数 |
-|---|---:|---:|---:|---:|
-| 深く測る（Depth） | 18 | 2 | 400 | 28,800 |
-| 広く測る（Breadth） | 72 | 2 | 100 | 28,800 |
-| 反復を増やす（Replication） | 36 | 8 | 50 | 28,800 |
-| 広さと反復を組み合わせる（Balanced） | 72 | 4 | 50 | 28,800 |
+| Design | Measured combinations | Donors | Cells per arm | Total cells including both arms |
+| --- | ---: | ---: | ---: | ---: |
+| Depth | 18 | 2 | 400 | 28,800 |
+| Breadth | 72 | 2 | 100 | 28,800 |
+| Replication | 36 | 8 | 50 | 28,800 |
+| Balanced | 72 | 4 | 50 | 28,800 |
 
 ![同じ総細胞数で、実測する組合せと未測定の組合せが変わる](shared/biohub-data-design/figures/01-design-coverage.png)
 
@@ -62,8 +62,8 @@
 
 **表2．** ドナー差を固定した場合の設計別期待誤差。
 
-| ドナー差 \(\tau=1\) の設計 | 非加法成分なし \(\lambda=0\) | 非加法成分あり \(\lambda=1\) |
-|---|---:|---:|
+| Design | No nonadditive component, \(\lambda=0\) | Nonadditive component present, \(\lambda=1\) |
+| --- | ---: | ---: |
 | Depth | 0.622 | 1.350 |
 | Breadth | 0.714 | 0.714 |
 | Replication | 0.294 | 0.896 |

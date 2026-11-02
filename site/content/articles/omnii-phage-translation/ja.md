@@ -69,12 +69,12 @@ E=\int_0^4 a(\tau)\,d\tau
 
 表1。感染部位への到達割合と失活速度を変えた無次元の合成例。
 
-| 仮の条件 | \(q\) | \(c\) | 積算曝露 \(E\) |
+| Hypothetical condition | \(q\) | \(c\) | Integrated exposure \(E\) |
 | --- | ---: | ---: | ---: |
-| 利用可能割合が高く、失活が遅い | 1.0 | 0.25 | 2.528 |
-| 利用可能割合が高く、失活が速い | 1.0 | 2.00 | 0.500 |
-| 利用可能割合が低く、失活が遅い | 0.2 | 0.25 | 0.506 |
-| 利用可能割合が低く、失活が速い | 0.2 | 2.00 | 0.100 |
+| High availability, slow activity loss | 1.0 | 0.25 | 2.528 |
+| High availability, fast activity loss | 1.0 | 2.00 | 0.500 |
+| Low availability, slow activity loss | 0.2 | 0.25 | 0.506 |
+| Low availability, fast activity loss | 0.2 | 2.00 | 0.100 |
 
 ![無次元の合成例による曝露の違い](shared/omnii-phage-translation/figures/illustrative-exposure.png)
 

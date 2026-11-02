@@ -22,23 +22,23 @@ PK/PD、PopPK、PBPK、QSPは重なりを持つ異なる着眼点であり、高
 
 **表1　モデル名称と主な着眼点**
 
-| 名前 | 何を表す言葉か | 主に詳しくする部分 |
+| Term | Meaning | Main emphasis |
 |---|---|---|
-| PK/PD（PKPD、PK-PDとも表記） | pharmacokinetic/pharmacodynamic modeling | 投与条件、濃度、応答の関係と時間経過 |
-| PopPK | population pharmacokinetics：母集団薬物動態 | 集団の典型的なPK、個人差、患者背景との関係 |
-| PBPK | physiologically based pharmacokinetic modeling：生理学的薬物動態モデル | 臓器・組織、血流、代謝・輸送などを使った濃度の変化 |
-| QSP | quantitative systems pharmacology：定量的システム薬理学 | 薬物作用、経路、細胞、生体の調節、疾患の相互作用 |
+| PK/PD, also PKPD or PK-PD | Pharmacokinetic/pharmacodynamic modeling | Dosing, concentration, response and time |
+| PopPK | Population pharmacokinetics | Typical PK, variability and covariates |
+| PBPK | Physiologically based pharmacokinetic modeling | Concentrations through organs, blood flow, metabolism and transport |
+| QSP | Quantitative systems pharmacology | Interactions among drug action, pathways, cells, regulation and disease |
 
 この表は主な着眼点を整理したもので、排他的な分類ではない。PBPKにPDをつなげることも、QSPの曝露を通常のPKモデルで計算することもある。
 
 **表2　目的・入力・解析結果の比較**
 
-| 方法 | 主な目的 | 入力データの例 | 解析結果の例 |
+| Approach | Main purpose | Example inputs | Example outputs |
 |---|---|---|---|
-| PK/PD | 曝露と応答の関係、遅延、投与条件の影響を考える | 投与履歴、濃度、時点を伴うバイオマーカー・有効性・安全性 | 濃度と応答の関係、応答の時間経過、パラメータの不確実性 |
-| PopPK | 濃度の個人差を説明し、曝露や投与条件を比較する | 個人別の投与・採血時刻、濃度、体重・臓器機能・併用など | CLやVの典型値、変動、共変量効果、条件別の曝露分布 |
-| PBPK | 生理学や薬物相互作用が変わる条件で曝露を検討する | 物性、結合、酵素・輸送体の実験、生理学、臨床PK | 血中・組織濃度、相互作用比、未測定条件への予測と感度 |
-| QSP | 薬物作用と病態の相互作用、併用や応答差の仮説を考える | 結合・経路・細胞の実験、病態、PK、バイオマーカー、臨床転帰 | 機序仮説、応答の時間経過、仮想集団の結果、仮定への感度 |
+| PK/PD | Exposure–response, delays and dosing effects | Dose history, concentrations, timed biomarkers/efficacy/safety | Exposure–response relationships, response trajectories and uncertainty |
+| PopPK | Explain concentration variability and compare exposure/regimens | Individual dose and sampling times, concentrations, weight, organ function and concomitant drugs | Typical CL/V, variability, covariates and exposure distributions |
+| PBPK | Predict exposure under altered physiology or interactions | Physicochemical properties, binding, enzyme/transporter experiments, physiology and clinical PK | Blood/tissue concentrations, interaction ratios, predictions and sensitivity |
+| QSP | Examine disease–drug interactions, combinations and response heterogeneity | Binding/pathway/cell experiments, disease biology, PK, biomarkers and clinical outcomes | Mechanistic hypotheses, response dynamics, virtual-population results and sensitivity |
 
 入力と出力は代表例で、全てが必須という意味ではない。個人別データと集約値、in vitroと臨床データ、当てはめ用と検証用を混同しないことが共通の出発点になる。
 
@@ -90,10 +90,10 @@ E(C)=\frac{C}{EC_{50}+C}.
 
 **表3　架空のPK/PD例での応答ピーク**
 
-| 応答の仮定 | 最大応答の時刻 | 最大応答（任意単位） |
+| Response assumption | Peak time | Maximum response, arbitrary units |
 |---|---:|---:|
-| 濃度に直ちに追従 | 0.00 h | 0.833 |
-| turnoverによる遅延 | 20.95 h | 0.381 |
+| Immediate concentration response | 0.00 h | 0.833 |
+| Turnover delay | 20.95 h | 0.381 |
 
 時刻は0.05時間刻みの計算格子から求めた。この表は、PDの仮定だけで応答の大きさと時刻が変わることを示す。どちらが正しいかは、応答の実測と生物学的な情報で確かめる必要がある。
 
@@ -115,13 +115,13 @@ PopPKでは、集団の典型的な薬物動態と、その周りにある個人
 
 **表4　PopPK解析に用いるデータ**
 
-| データ | 解析前に見ること |
+| Data | Preanalysis question |
 |---|---|
-| 個人ID、試験・群・来院の情報 | 個人内の反復と個人間の違いを分けられるか |
-| 実際の投与量・経路・時刻・注入時間 | 予定投与からの変更、休薬、服薬情報をどう扱うか |
-| 採血時刻、濃度、単位、測定法 | 濃度と時刻の対応、単位の統一、検体の条件 |
-| 体重、臓器機能、併用、関連する患者背景 | 時変の情報を含め、どの時点の値を使うか |
-| 定量下限未満（BLQ）、欠測、除外理由 | 検出できない値を0と同一視せず、処理の根拠を決める |
+| Participant, study, arm and visit identifiers | Can within-person repetition be separated from between-person variability? |
+| Actual dose, route, time and infusion duration | How are interruptions, deviations and adherence represented? |
+| Sampling times, concentrations, units and assays | Are times and values aligned, units harmonized and samples comparable? |
+| Weight, organ function, concomitant drugs and background | Which timepoint supplies each covariate, including time-varying values? |
+| Below-quantification values, missingness and exclusions | What supports their treatment without equating undetected values with zero? |
 
 一人あたりの採血が少ない疎なデータも、集団全体の採血時点が必要な範囲を覆えば利用できる。ただし、全員が同じようなトラフ時点だけなら、吸収や分布の速さなどは推定しにくい。「PopPKだから少ないデータでも何でも決まる」わけではない。
 
@@ -145,7 +145,7 @@ CL_i=CL_{70}\left(\frac{WT_i}{70\ \mathrm{kg}}\right)^\theta\exp(\eta_i),\qquad 
 
 **表5　仮定したCL分布による濃度分布**
 
-| 固定した体重 | 典型CL（L/h） | 投与24時間後の濃度中央値（mg/L） | 同時点の10–90パーセンタイル（mg/L） |
+| Fixed weight | Typical CL, L/h | Median concentration at 24 h, mg/L | 10th–90th percentiles, mg/L |
 |---|---:|---:|---:|
 | 50 kg | 0.777 | 1.549 | 0.766–2.583 |
 | 70 kg | 1.000 | 0.907 | 0.366–1.752 |
@@ -159,13 +159,13 @@ Nguyenらのモデル評価総説 ([4](#ref-4))を踏まえると、次の観点
 
 **表6　PopPKの結果と解釈上の注意**
 
-| 結果 | 読みたいこと | 読み違えやすいこと |
+| Output | Evaluation focus | Misinterpretation |
 |---|---|---|
-| 典型値と推定の不確実性 | CLやVがどこまで決まり、相関・不安定性があるか | 典型値を全員に当てはまる値とみなす |
-| 共変量による曝露の変化 | 関係の大きさ・不確実性と、実際の共変量範囲 | 統計的な関連だけで用量変更を決める |
-| 残差や予測対観測 | 時間・濃度・群ごとの系統的なずれ | 個人ごとに合えば集団の予測も正しいとみなす |
-| Visual predictive check（VPC） | 観測の設計・投与条件等を再現したシミュレーションと観測分布を比較する | 仮想曲線の帯を描いただけでVPCと呼ぶ |
-| 個人推定とshrinkage | 個人データの情報が少ないと、推定が共変量を条件とした集団の典型値（個体差η=0）へ引き寄せられる程度 | 推定された個人値を誤差のない観測値として使う |
+| Typical parameters and uncertainty | Identification, correlations and instability | A typical value applies to everyone |
+| Covariate-related exposure change | Magnitude, uncertainty and observed covariate range | Association alone determines dose changes |
+| Residuals and predictions versus observations | Systematic discrepancies by time, concentration and group | Individual fit guarantees population prediction |
+| Visual predictive check, VPC | Compare observed distributions with simulations reproducing observation/dose design | Any band of simulated curves is a VPC |
+| Individual estimates and shrinkage | Pull toward the covariate-conditional typical value, η=0, when individual information is weak | Individual estimates are error-free observations |
 
 shrinkageが大きい場合は、個人推定値を使った相関や診断が歪み得る。個人情報が乏しいことを踏まえ、集団予測やシミュレーションによる評価なども見る。患者や時点を増やせば常に同じ改善が得られるわけではない。
 
@@ -183,11 +183,11 @@ shrinkageが大きい場合は、個人推定値を使った相関や診断が�
 
 **表7　PBPKで用いる情報の層**
 
-| 情報の層 | データの例 | 実践的に見ること |
+| Layer | Example data | Evaluation focus |
 |---|---|---|
-| 薬物 | 溶解性、膜透過、非結合率、代謝・輸送の速度 | in vitroからin vivoへ変換する根拠、実験条件 |
-| 生体 | 臓器容積、血流、酵素・輸送体、年齢等の分布 | 対象集団との対応、値の相関、病態の影響 |
-| 実測PK | 用量別・投与経路別・併用条件別の濃度 | 構築・調整用と検証用の条件を分ける |
+| Drug | Solubility, permeability, unbound fraction, metabolism/transport rates | Experimental conditions and in vitro–in vivo scaling |
+| Physiology | Organ volumes, flows, enzymes/transporters and age distributions | Population relevance, correlations and disease effects |
+| Measured PK | Dose-, route- and interaction-specific concentrations | Separate construction/calibration from verification |
 
 ### 解析するもの：生理学に基づく物質収支 {#_9}
 
@@ -233,12 +233,12 @@ QSPは、薬理作用と生体の機序を定量的に組み合わせ、経路�
 
 **表8　T細胞を介する薬物作用の概念例**
 
-| 表す関係の例 | 問いへの役割 | 確かめたい情報 |
+| Relationship | Analytical role | Relevant evidence |
 |---|---|---|
-| 薬物曝露と標的への結合 | 作用の入口を表す | 濃度、結合、標的量 |
-| 免疫細胞と腫瘍細胞の相互作用 | 抗腫瘍応答を考える | 細胞数、活性化、殺傷の時間経過 |
-| 活性化とサイトカイン、調節機構 | 応答の増幅や制御を考える | 時点を伴うバイオマーカー、背景差 |
-| 腫瘍増殖と治療の作用 | 観測される疾患の変化へつなぐ | 治療前後の腫瘍動態 |
+| Exposure and target binding | Entry to pharmacological action | Concentrations, binding and target abundance |
+| Immune–tumor-cell interaction | Antitumor response | Cell counts, activation and killing over time |
+| Activation, cytokines and regulation | Amplification and control | Timed biomarkers and background differences |
+| Tumor growth and treatment | Observable disease change | Pretreatment and on-treatment dynamics |
 
 これは本記事の概念例であり、特定の薬剤について検証されたQSPモデルではない。挙げた全ての機序を必ず入れる必要もない。機序を増やすほど、パラメータ、データの整合、識別可能性の問題も増える。
 
@@ -272,13 +272,13 @@ QSPに何を含めるかには、研究者間で幅がある。2019年のQSP論�
 
 **表9　問いに応じたモデルの組合せ**
 
-| 問いの例 | 出発点になりやすい方法 | 追加で必要になる確認 |
+| Question | Possible starting approach | Evidence to examine |
 |---|---|---|
-| 実測した用量・集団で濃度と個人差を説明したい | PopPK。必要ならPK/PDへ接続 | 採血設計、共変量、個人差、予測診断 |
-| 同じ曝露でも応答が遅れる理由や投与間隔を考えたい | 機序に基づくPK/PD | 応答の時系列、遅延の候補、用途に合う検証 |
-| 未測定の併用条件や生理学的集団で曝露を考えたい | 関連機序を含むPBPK | 酵素・輸送体、生理学、外挿先に近い実測 |
-| 複数の経路や細胞相互作用、併用の機序を考えたい | QSP。曝露にはPKやPBPKを接続 | 機序ごとの根拠、較正、感度、独立した検証 |
-| 疾患の状態が曝露も応答も変える | PK・PD・病態の連結 | 双方向の作用、交絡、観測できない状態 |
+| Explain observed-dose/population concentrations and variability | PopPK, linked to PK/PD if needed | Sampling, covariates, variability and diagnostics |
+| Explain response delays or compare intervals | Mechanism-based PK/PD | Response time series, delay hypotheses and intended-use validation |
+| Predict unmeasured interactions or physiology | PBPK with relevant mechanisms | Enzymes/transporters, physiology and nearby empirical conditions |
+| Examine multiple pathways, cells or combinations | QSP linked to PK/PBPK exposure | Mechanistic evidence, calibration, sensitivity and independent verification |
+| Disease changes both exposure and response | Linked PK/PD/disease model | Feedback, confounding and unobserved states |
 
 これは唯一の正解表ではない。例えば薬物相互作用を実測した集団ではPopPKから情報が得られるし、投与間隔の比較をQSPで行うこともある。同じ薬剤でも、問いが変われば適切なモデルは変わる。
 

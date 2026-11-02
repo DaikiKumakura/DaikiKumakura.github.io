@@ -18,12 +18,12 @@ SunvozertinibはEGFR exon 20 insertion変異を持つ非小細胞肺がんに用
 
 **表1　問いと使用範囲・推定値の来歴**
 
-| 項目 | 定義 |
+| Item | Definition |
 | --- | --- |
-| QOI | 公開された用量―曝露データとPopPKを使うと、200・250・300 mgの1日1回投与、および同じ1日総量の分割投与で、AUC・ピーク・トラフの患者間分布はどう変わるか。その差を臨床の奏効・毒性の予測まで結び付けられるか。 |
-| COU | 投与条件の研究で比較する曝露指標と、未検証の候補条件を整理する。個人の治療変更、最適用量の決定、分割投与の有効性・安全性保証には使用しない。 |
-| 新しく推定したもの | 公開された群別実測PKの用量―曝露指数と係数、用量群別の奏効・下痢発現確率の不確実性。 |
-| 公表値を使うもの | PopPKの構造、固定効果、個体間変動。新しい患者別PKや個人E–Rの推定とは区別する。 |
+| QOI | How do AUC, peak and trough distributions change under 200, 250 and 300 mg QD and equal-daily-dose fractionation? Can these differences support clinical response/toxicity predictions? |
+| COU | Research comparisons of exposure metrics and candidate regimens requiring verification, not treatment changes, optimal-dose selection or guarantees of BID efficacy/safety. |
+| Newly estimated | Dose–exposure exponents and coefficients from aggregate measured PK; uncertainty in dose-group response and diarrhea probabilities. |
+| Published inputs | PopPK structure, fixed effects and interindividual variability, rather than newly estimated individual PK or E–R. |
 
 承認された基準は200 mg・1日1回を食事とともに投与する条件である ([1](#ref-1))。BIDへの変更は、QDで推定された吸収・食事・製剤・相対Fの条件を各回にそのまま移す外挿でもある。食事時刻、服薬遵守、DZ0753の挙動は検証していない。
 
@@ -33,18 +33,18 @@ SunvozertinibはEGFR exon 20 insertion変異を持つ非小細胞肺がんに用
 
 **表2　使用資料と解析上の役割**
 
-| 資料 | 数値・情報 | 解析での役割 |
+| Source | Information | Role |
 | --- | --- | --- |
-| [Wang et al. (2022), Supplementary Table S6](https://doi.org/10.1158/2159-8290.CD-21-1615) ([3](#ref-3)) | 50–400 mgの5用量群の幾何平均AUC・Cmax、CV、群別n | 実測集計値に対するパラメータ推定 |
-| FDA審査資料のPopPK表 ([4](#ref-4)) | CL/F・容積・吸収・初回通過代謝経路・分散共分散 | 親薬物のPopPK実装、仮想患者生成 |
-| WU-KONG1Bの用量比較 ([4](#ref-4), [5](#ref-5)) | ランダム化された有効性評価可能集団の奏効件数 | 用量群別の奏効確率の推定 |
-| FDAの120日安全性更新、[Table 62](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/219839Orig1s000MultidisciplineR.pdf) ([4](#ref-4)) | 200 mg全投与例と300 mg全投与例のGrade 3–4下痢 | 有害事象の記述的比較 |
+| [Wang et al. 2022, Supplementary Table S6](https://doi.org/10.1158/2159-8290.CD-21-1615) ([3](#ref-3)) | Geometric-mean AUC/Cmax, CV and n for five groups from 50–400 mg | Estimate parameters from aggregate measurements |
+| FDA PopPK tables ([4](#ref-4)) | Apparent CL/volumes, absorption, presystemic metabolism and covariance | Parent-drug implementation and virtual individuals |
+| WU-KONG1B dose comparison ([4](#ref-4), [5](#ref-5)) | Responses in randomized efficacy-evaluable groups | Dose-group response probabilities |
+| FDA 120-day safety update, [Table 62](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/219839Orig1s000MultidisciplineR.pdf) ([4](#ref-4)) | Grade 3–4 diarrhea in all-treated 200/300 mg groups | Descriptive safety comparison |
 
 Table S6の数値には、原資料に「preliminary, unvalidated and subject to change」との留保がある。今回も初期の集計資料として扱い、後のモデルを独立に臨床検証したとは呼ばない。群別の患者背景や同一患者の重複を再確認できないため、集計値だけから個体間変動を新たに推定することもしない。
 
 **表3　初期試験の実測PK集計**
 
-| 1日量 mg | n | AUCτ ng·h/mL | Cmax ng/mL |
+| Daily dose, mg | n | AUCτ, ng·h/mL | Cmax, ng/mL |
 | --- | ---: | ---: | ---: |
 | 50 | 5 | 1271 | 68.42 |
 | 100 | 7 | 4371 | 252.1 |
@@ -78,7 +78,7 @@ SE_g\simeq\sqrt{\frac{\log\{1+(CV_g/100)^2\}}{n_g}}
 
 **表4　用量–曝露power modelの推定値**
 
-| 指標 | 200 mgでの係数a | 指数b | bの近似95%区間 |
+| Endpoint | Coefficient a at 200 mg | Exponent b | Approximate 95% interval for b |
 | --- | ---: | ---: | --- |
 | AUC | 6897.9 | 1.143 | 0.974–1.313 |
 | CMAX | 397.5 | 1.144 | 0.963–1.326 |
@@ -112,7 +112,7 @@ p_g\mid r_g,n_g\sim Beta(r_g+1/2,n_g-r_g+1/2)
 
 **表5　用量群別の事後確率**
 
-| 指標 | 用量 | 件数/分母 | 事後平均 | 95%信用区間 |
+| Endpoint | Dose | Events/denominator | Posterior mean | 95% credible interval |
 | --- | --- | --- | ---: | --- |
 | ORR | 200 mg | 39/85 | 45.9% | 35.6–56.5% |
 | ORR | 300 mg | 42/89 | 47.2% | 37.0–57.5% |
@@ -152,14 +152,14 @@ p_g\mid r_g,n_g\sim Beta(r_g+1/2,n_g-r_g+1/2)
 
 **表6　親薬物の公表パラメータ**
 
-| パラメータ | 採用値 |
+| Parameter | Value |
 | --- | ---: |
 | CL/F | 22.1 L/h |
-| 中央容積Vc/F | 954 L |
-| 末梢容積Vp/F | 569 L |
+| Central Vc/F | 954 L |
+| Peripheral Vp/F | 569 L |
 | Q/F | 15.0 L/h |
 | ka | 1.53 h⁻¹ |
-| 吸収中の分岐 \(f_{pre}\) | 0.125 |
+| Presystemic branch fpre | 0.125 |
 
 体重65.7 kgのがん患者を基準とし、健康成人の係数を適用しない。体重・他の背景の同時分布を創作して実際の試験集団を再現したことにはしない。
 
@@ -187,7 +187,7 @@ CLとVcの公表共分散を保持した。kaとの共分散は公表表に記�
 
 **表7　条件付き仮想患者の曝露分布**
 
-| 条件 | AUC24中央値 [5–95%点] | Cmax中央値 [5–95%点] | トラフ中央値 [5–95%点] |
+| Schedule | Median AUC24 [5th–95th percentiles] | Median Cmax [5th–95th percentiles] | Median trough [5th–95th percentiles] |
 | --- | --- | --- | --- |
 | 200 QD | 7947 [4339–14142] | 410 [217–763] | 257 [138–471] |
 | 250 QD | 9933 [5424–17678] | 513 [271–954] | 321 [173–589] |
@@ -219,7 +219,7 @@ AUC_{24}=\frac{(1-f_{pre})\,Dose_{day}}{CL/F}
 
 **表8　吸収構造を変更した対照**
 
-| 構造対照 | 同一人内ピーク比の中央値 | 5–95%点 |
+| Structural control | Median paired peak ratio | 5th–95th percentiles |
 | --- | ---: | --- |
 | 3steps_same_ka | 0.890 | 0.801–0.942 |
 | 3steps_same_mean_absorption | 0.883 | 0.794–0.937 |
@@ -230,7 +230,7 @@ AUC_{24}=\frac{(1-f_{pre})\,Dose_{day}}{CL/F}
 
 **表9　絶対曝露の規模の比較**
 
-| 用量 | 基準背景の再構成AUC24 | 初期実測群の幾何平均AUCτ | 単純比 |
+| Dose | Reconstructed reference AUC24 | Early-study geometric-mean AUCτ | Simple ratio |
 | --- | ---: | ---: | ---: |
 | 200 mg | 7919 | 6817 | 1.16 |
 | 300 mg | 11878 | 9131 | 1.30 |

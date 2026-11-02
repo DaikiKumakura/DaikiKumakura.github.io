@@ -20,12 +20,12 @@ CAR-Tのシグナル伝達部が約70%短い設計で、細胞表面の受容体
 
 表1　比較条件と推定対象の対応。
 
-| 揃える条件 | 主に問えること | なお残る違い |
+| Condition held equal | Main question | Differences that remain |
 | --- | --- | --- |
-| 投入したmRNA量 | 同量の材料からどの程度の細胞応答を得るか | 細胞への導入率・発現量・下流信号 |
-| 細胞表面のCAR数 | 同程度の受容体量で反応が違うか | 受容体の配置・会合・細胞状態 |
-| 標的細胞あたりの抗原数 | どの抗原量で反応が立ち上がるか | CAR数・反応の最大値・背景値 |
-| 測定時刻 | その時点で機能がどれほど残るか | 初期量・生成と消失・細胞数の履歴 |
+| Input mRNA | How much cellular response follows the same amount of material? | Delivery, expression and downstream signaling |
+| Surface CAR abundance | Does response differ at comparable receptor abundance? | Receptor organization, assembly and cell state |
+| Antigen molecules per target | At what antigen abundance does the response emerge? | CAR abundance, response maximum and background |
+| Measurement time | How much function remains at that time? | Initial abundance, production and loss, and cell-number history |
 
 これは原報告の表の転載ではなく、比較の解釈を整理したものである。
 

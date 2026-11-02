@@ -26,6 +26,6 @@
     "summary": "Reanalysis of a public 20-patient tarlatamab CTC table. Conditional count-precision bounds and fixed-count design calculations separate normalized counts from unavailable raw denominators."
   },
   "reviewed": {
-    "en": "370ff79a1e41e387f93674af9cdef4f05f9f7749bb0cd646da13dfb9367ed8c4"
+    "en": "04fe47a7aaddb6ddef1d15589b603ee6e306564adb774287e537b0019afdcb03"
   }
 }

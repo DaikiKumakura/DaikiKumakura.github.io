@@ -20,14 +20,14 @@ GFH375（VS-7375）は、KRAS G12DのON状態（GTP結合型）とOFF状態（GD
 
 表1．公開平均曲線とAUC分布の対象。AUC0–24は投与後0〜24時間の濃度曲線下面積、IQRは四分位範囲。N・nは原著の図に示された人数。
 
-| 公開資料 | 対象・人数 | 今回の使い方 |
+| Public material | Population | Use in this analysis |
 | --- | --- | --- |
-| 平均PK曲線、600 mg QD | 図のN=24 | モデル推定用、9時点 |
-| 平均PK曲線、400 mg QD | N=27 | 推定に使わない確認用、9時点 |
-| 平均PK曲線、750 mg QD | N=4 | 推定に使わない確認用、9時点 |
-| 平均PK曲線、300 mg BID | N=3 | 推定に使わない確認用、0–12時間の8時点 |
-| AUC0–24分布、600 mg QD | n=25 | IQRから変動の近似尺度を作る |
-| AUC0–24分布、400 mg QD | n=26 | 変動の構造感度に使う |
+| Mean PK curve, 600 mg QD | Figure N=24 | Model fit, 9 time points |
+| Mean PK curve, 400 mg QD | N=27 | Check not used in the fit, 9 time points |
+| Mean PK curve, 750 mg QD | N=4 | Check not used in the fit, 9 time points |
+| Mean PK curve, 300 mg BID | N=3 | Check not used in the fit, 0–12 h, 8 time points |
+| AUC0–24 distribution, 600 mg QD | n=25 | Approximate variability scale from the IQR |
+| AUC0–24 distribution, 400 mg QD | n=26 | Structural sensitivity of variability |
 
 濃度曲線とAUC分布で人数が違う。同じ個人の記録が一対一に対応しているとは扱わない ([1](#ref-1), [Extended Data Figure 2](https://www.nature.com/articles/s41591-026-04559-4/figures/5))。補足表1の人数は、400 mg QDが29人、600 mg QDが29人、750 mg QDが8人、300 mg BIDが3人であり ([1](#ref-1), [Supplementary Table 1](https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41591-026-04559-4/MediaObjects/41591_2026_4559_MOESM1_ESM.pdf))、図の曲線のN（27、24、4、3）は300 mg BIDを除いてこれより少ない。曲線に含めた患者の基準は凡例から分からない。
 
@@ -76,21 +76,21 @@ C(t)=1000A_c(t)/V_c.
 
 表2．平均曲線から推定した条件付き係数。
 
-| 条件付き推定係数 | 推定値 |
+| Conditional coefficient | Estimate |
 | --- | ---: |
 | CL/F | 216.9 L/h |
 | Vc/F | 742.0 L |
 | Q/F | 160.7 L/h |
 | Vp/F | 2,015 L |
-| 二段階吸収の各速度ka | 0.871 /h |
+| Each two-stage absorption rate ka | 0.871 /h |
 
 表3．平均曲線への当てはめの比較。最大相対ずれは、600 mg QDの9時点のうち、読み取り値との相対差が最大の時点の値である。
 
-| モデル | 対数残差二乗和 | 各時点の最大相対ずれ | 判断 |
+| Model | Log-residual sum of squares | Largest relative discrepancy at a time point | Interpretation |
 | --- | ---: | ---: | --- |
-| 一次吸収・1-compartment | 0.381 | 36.1% | 系統的な形のずれが残る |
-| 一次吸収・2-compartment | 0.201 | 26.4% | 分布係数が不安定 |
-| 二段階吸収・2-compartment | 0.0253 | 11.7% | 条件付き波形の記述に採用 |
+| First-order absorption, 1 compartment | 0.381 | 36.1% | Systematic shape mismatch remains |
+| First-order absorption, 2 compartments | 0.201 | 26.4% | Unstable distribution coefficients |
+| Two-stage absorption, 2 compartments | 0.0253 | 11.7% | Adopted to describe the conditional profile |
 
 一次吸収・1-compartmentモデルでは、2時間の平均濃度が読み取り値より約29%低く、その後の残差にも形が残った。一次吸収・2-compartmentモデルでは末梢容積が大きくなり、ヤコビ行列の条件数が約8,771と大きかった。条件数は、一次吸収・1-compartmentモデルで約6.6、採用モデルで約50.9だった。
 
@@ -106,10 +106,10 @@ C(t)=1000A_c(t)/V_c.
 
 表4．600 mg QDを基準とした投与条件の比較。同一の仮想個体2,048組での個体内比の中央値（5–95パーセンタイル）。
 
-| 条件 | Cmax個体内比 | 最低濃度の個体内比 | AUC24個体内比 |
+| Regimen | Cmax within-individual ratio | Minimum-concentration within-individual ratio | AUC24 within-individual ratio |
 | --- | ---: | ---: | ---: |
-| 300 mg、12時間ごと | 0.583（0.525–0.696） | 1.43（1.23–1.61） | 1.000 |
-| 300 mg、8／16時間間隔 | 0.615（0.539–0.737） | 1.21（1.12–1.32） | 1.000 |
+| 300 mg every 12 h | 0.583 (0.525–0.696) | 1.43 (1.23–1.61) | 1.000 |
+| 300 mg at 8/16 h intervals | 0.615 (0.539–0.737) | 1.21 (1.12–1.32) | 1.000 |
 | 400 mg QD | 0.667 | 0.667 | 0.667 |
 
 括弧内は条件付き個体差の5–95パーセンタイルで、推定係数の信頼区間ではない。最低濃度は24時間内の最小値、AUC24は24時間の曲線下面積である。
@@ -126,12 +126,12 @@ C(t)=1000A_c(t)/V_c.
 
 表5．各群の最大平均濃度と同時刻のモデル予測。濃度の単位はng/mL。
 
-| 群 | 図のN | 最大平均濃度の時刻 | 読み取り値 | 同時刻のモデル予測 |
+| Cohort | Figure N | Time of highest mean | Digitized value | Model prediction at the same time |
 | --- | ---: | ---: | ---: | ---: |
-| 600 mg QD（推定用） | 24 | 2 h | 351 | 326 |
-| 400 mg QD（確認用） | 27 | 2 h | 269 | 217 |
-| 750 mg QD（確認用） | 4 | 4 h | 285 | 395 |
-| 300 mg BID（確認用） | 3 | 2 h | 393 | 203 |
+| 600 mg QD (fit) | 24 | 2 h | 351 | 326 |
+| 400 mg QD (check) | 27 | 2 h | 269 | 217 |
+| 750 mg QD (check) | 4 | 4 h | 285 | 395 |
+| 300 mg BID (check) | 3 | 2 h | 393 | 203 |
 
 表5の値は平均曲線の最大値であり、各患者のCmaxを平均したものとは異なる。
 
@@ -149,11 +149,11 @@ C(t)=1000A_c(t)/V_c.
 
 表6．用量依存入力の仮定に対する感度。個体差\(\sigma\)=0.554、300 mg BIDの600 mg QDに対する個体内比の中央値。
 
-| 入力の仮定 | β | 300 mg BIDのCmax比中央値 | 最低濃度比中央値 | AUC24比 |
+| Input assumption | β | Median Cmax ratio for 300 mg BID | Median minimum-concentration ratio | AUC24 ratio |
 | --- | ---: | ---: | ---: | ---: |
-| 少量側の入力効率が高い | 0.5 | 0.824 | 2.02 | 1.414 |
-| 用量比例 | 1.0 | 0.583 | 1.43 | 1.000 |
-| 少量側の入力効率が低い | 1.5 | 0.412 | 1.01 | 0.707 |
+| Higher input efficiency at smaller doses | 0.5 | 0.824 | 2.02 | 1.414 |
+| Dose proportionality | 1.0 | 0.583 | 1.43 | 1.000 |
+| Lower input efficiency at smaller doses | 1.5 | 0.412 | 1.01 | 0.707 |
 
 同じ600 mg/日でも、用量依存の入力を認めるとAUC一致は崩れる。一方、\(\beta\)を動かして入力の倍率を変えるだけでは、実測BIDの鋭いピークを説明したことにはならない。入力の量と形は別の問題である。
 

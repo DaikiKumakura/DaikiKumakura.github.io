@@ -144,13 +144,13 @@ U\rightarrow X,\quad U\rightarrow Y,\quad X\rightarrow M\rightarrow Y,\quad X\ri
 
 **表1　パラメータと予測値の区間**
 
-| 量 | 95%区間（格子近似） | うち \(S=0.073\) に固定し \(k_{\mathrm{out}}\) だけを動かした幅 |
-| --- | --- | --- |
-| \(k_{\mathrm{out}}\)（/日） | 約0.77以上。上限は決まらない | — |
-| \(S\)（L/mg） | 0.059〜0.086（真値0.075） | — |
-| 25 mg週1回、84日目の \(R\) | 69.2〜77.1 | 71.7〜73.5 |
-| 25 mg週1回、期間中の最小の \(R\) | 54.0〜65.2 | 58.0〜61.9 |
-| 100 mg投与6時間後の \(R\) | 37.3〜77.3 | 41.2〜77.3 |
+| Quantity | 95% interval, grid approximation | Range holding S=0.073 and varying only kout |
+|---|---|---|
+| kout (/day) | Lower bound about 0.77; no upper bound | — |
+| S (L/mg) | 0.059–0.086; true 0.075 | — |
+| R on day 84 with 25 mg weekly | 69.2–77.1 | 71.7–73.5 |
+| Minimum R during 25 mg weekly | 54.0–65.2 | 58.0–61.9 |
+| R six hours after 100 mg | 37.3–77.3 | 41.2–77.3 |
 
 読み取れることを四つに分けて書く。
 

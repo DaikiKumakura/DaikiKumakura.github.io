@@ -16,13 +16,13 @@ COU（Context of Use）は、公開資料に基づいてPK比較の仮説と次�
 
 表1．公表された併用PKの定義と未確認事項。
 
-| 項目 | 公開資料で確認できたこと | 確認できないこと |
+| Item | Publicly established | Unconfirmed |
 | --- | --- | --- |
-| 併用条件 | Vopimetostat 200 mg＋Daraxonrasib 100 mg QD | 250 mg側の別AUC |
-| PK集計 | AUC 4,106、n=13、CV40.5% | 算術／幾何平均、CVの種類 |
-| 測定条件 | 2026年5月28日データ抽出 | AUC区間、採血日、定常状態の定義、全血／血漿などの測定対象 |
-| 対象 | 資料の該当欄は膵癌・肺癌 | PK評価13人の内訳・個体別共変量 |
-| 単剤との比較 | 「300 mg単剤と同程度」という記述 | 同じ条件の対照群との個体別比較 |
+| Combination | Vopimetostat 200 mg + daraxonrasib 100 mg QD | Separate AUC at 250 mg |
+| PK summary | AUC 4,106, n=13, CV40.5% | Arithmetic/geometric mean and CV definition |
+| Measurement | Data extracted 2026-05-28 | AUC interval, sampling day, steady-state definition, whole blood/plasma or other matrix |
+| Population | Pancreatic and lung cancer in the relevant section | Composition and individual covariates of 13 PK participants |
+| Monotherapy comparison | Described as comparable to 300 mg alone | Individual comparison with a matched control group |
 
 Daraxonrasibの米国添付文書には、幾何平均Cmax 365 ng/mL、AUC 3,760 ng·h/mLとある。ただし、その段落ではAUCの積分区間や正確な測定時点が明記されていない。したがって、4,106/3,760を確定した曝露比として、さらに用量補正してDDI倍率とすることは避けた。[US prescribing information 12.3](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2026/220910Orig1s000Lbl.pdf) ([2](#ref-2))
 
@@ -59,10 +59,10 @@ K=\frac{GM_{combo}}{AUC_{100,ss}}
 
 表2．集計方法による条件付き曝露スケール。
 
-| 集計の仮定 | 併用AUCの仮定GM | 条件付きK | 単剤300 mgのAUCに合う計算上の量 |
+| Assumption | Assumed combination AUC GM | Conditional K | Calculated dose matching monotherapy 300 mg AUC |
 | --- | ---: | ---: | ---: |
-| GM＋幾何CV | 4,106.0 | 3.44（2.71–4.35） | 87.3 mg（69.0–110.5） |
-| AM＋SD/平均CV | 3,805.7 | 3.18（2.52–4.03） | 94.2 mg（74.4–119.2） |
+| GM + geometric CV | 4,106.0 | 3.44 (2.71–4.35) | 87.3 mg (69.0–110.5) |
+| AM + SD/mean CV | 3,805.7 | 3.18 (2.52–4.03) | 94.2 mg (74.4–119.2) |
 
 括弧は\(\log GM\pm t_{12,0.975}\sqrt{\log(1+CV^2)/13}\)から計算した近似的な位置の感度範囲である。AMからの変換では分散の推定誤差も単純化しており、原試験の信頼区間ではない。区間・集団・平均定義の不一致は、この範囲では解消されない。
 
@@ -89,15 +89,15 @@ C(t)=1000A_c/V_c.
 
 表3．再利用したPK係数と仮想個体の設定。
 
-| パラメータ・仮想個体 | 値・扱い |
+| Parameter or setting | Value or treatment |
 | --- | --- |
-| CL/F、Vc/F、Q/F、Vp/F | 53.8 L/h、516 L、26.1 L/h、255 L |
-| ka、Tlag | 0.735 /h、0.305 h |
-| 160 mg以下のka効果 | 公表カテゴリ式から2.49倍。効果なしも別計算 |
-| η分散（CL、Vc、ka） | 0.139、0.168、0.847 |
-| η共分散（CL–Vc） | 0.0949。その他は0と仮定 |
-| 個体数・seed | 4,096組、20261023 |
-| 共変量・誤差 | 参照共変量固定、残差誤差なし |
+| CL/F, Vc/F, Q/F, Vp/F | 53.8 L/h, 516 L, 26.1 L/h, 255 L |
+| ka, Tlag | 0.735 /h, 0.305 h |
+| ka effect at ≤160 mg | 2.49-fold from the published categorical equation; no-effect scenario also calculated |
+| η variances, CL, Vc, ka | 0.139, 0.168, 0.847 |
+| CL–Vc η covariance | 0.0949; others assumed 0 |
+| Draws and seed | 4,096 paired draws, 20261023 |
+| Covariates and error | Fixed reference covariates, no residual error |
 
 出典は同Table 59。相対Fの初期時間関数が完全には確認できないため、今回は定常状態のみを比較する。個体別係数は\(\theta_i=\theta\exp(\eta_i)\)、ηは上記の共分散を持つ正規分布とし、同じηを全条件に与えた。これは実際の併用集団を復元したものではない。
 
@@ -116,7 +116,7 @@ Vopimetostatの非臨床公開資料は、治療濃度でのCYP・輸送体DDI�
 
 表4．同じAUCスケールを持つ構造シナリオの曝露比。
 
-| 併用Daraxonrasib量 | AUC24比 | 入力型Cmax比 | CL型Cmax比 | 入力型最低濃度比 | CL型最低濃度比 |
+| Combination daraxonrasib | AUC24 ratio | Input-scale Cmax ratio | CL-scale Cmax ratio | Input-scale minimum ratio | CL-scale minimum ratio |
 | --- | ---: | ---: | ---: | ---: | ---: |
 | 50 mg QD | 0.573 | 0.668 | 0.397 | 0.545 | 1.07 |
 | 75 mg QD | 0.859 | 1.00 | 0.596 | 0.818 | 1.61 |
@@ -137,7 +137,7 @@ Vopimetostatの非臨床公開資料は、治療濃度でのCYP・輸送体DDI�
 
 表5．単剤参照分布の端を超える仮想個体割合。
 
-| 併用量 | GM仮定：参照P05未満 | GM仮定：参照P95超 | AM仮定：参照P05未満 | AM仮定：参照P95超 |
+| Combination dose | GM assumption: below P05 | GM assumption: above P95 | AM assumption: below P05 | AM assumption: above P95 |
 | --- | ---: | ---: | ---: | ---: |
 | 50 mg QD | 44.2% | 0.07% | 52.7% | 0.05% |
 | 75 mg QD | 10.7% | 1.90% | 14.6% | 1.15% |
@@ -156,14 +156,14 @@ Vopimetostatの非臨床公開資料は、治療濃度でのCYP・輸送体DDI�
 
 表6．感度分析に含めた不確実性と残る制約。
 
-| 不確実性 | 実施したこと | 残る制約 |
+| Uncertainty | Calculation | Constraint |
 | --- | --- | --- |
-| 平均・CV定義 | GM/GCVとAM/CVを別計算 | 元資料の定義を確定していない |
-| 小標本の集計位置 | n=13から近似範囲を計算 | 個人データ、欠測・選択の影響は不明 |
-| 個体差 | 公表η分布でpaired比較 | 併用集団の共変量分布・Kの個体差なし |
-| 波形の構造 | 入力型／CL型 | 二つで全可能性を網羅しない |
-| 低用量吸収 | ka効果あり／なし | 併用時に同じ効果が成立するか不明 |
-| 用量–AUC関係 | 100 mgを固定し指数0.8・1・1.2のシナリオ | 実測した併用用量指数ではない |
+| Mean/CV definitions | Separate GM/GCV and AM/CV scenarios | Source definitions remain unconfirmed |
+| Small-sample location | Approximate ranges from n=13 | Individual data, missingness and selection unknown |
+| Individual variability | Paired published η distribution | No combination covariate distribution or individual K variation |
+| Structural profiles | Input versus CL scaling | Does not cover every possible structure |
+| Low-dose absorption | With and without ka effect | Transferability to combination unknown |
+| Dose–AUC relationship | At 100 mg, anchored exponents 0.8, 1 and 1.2 | Not measured combination exponents |
 
 中心シナリオではKを50–150 mgで一定にした。特に50 mgは添付文書が近似的な用量比例性を記す80–300 mgの範囲外である。用量指数の感度は、その外挿を検証済みにするものではない。
 

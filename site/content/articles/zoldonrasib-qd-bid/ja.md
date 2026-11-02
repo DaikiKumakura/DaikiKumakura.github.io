@@ -20,13 +20,13 @@ PKの入力資料はAACR 2025公開発表資料の8ページである。2026年�
 
 表1. 入力資料にある情報と解析での扱い。
 
-| 資料 | 内容 | 今回の扱い |
+| Material | Content | Use |
 | --- | --- | --- |
-| Cycle 1 Day 15のQD平均曲線 | 150、300、600、900、1200 mg。全血中濃度、nM。誤差棒はSD | 5用量×9時点の当てはめ |
-| QDのAUC分布 | 600、900、1200 mgの箱・個別点 | 四分位幅を条件付き変動尺度に換算 |
-| QDとBIDのAUC比較 | 同じ日量なら同程度という脚注 | 定性的な整合性確認のみ |
-| BIDの平均曲線 | 同資料には掲載なし | 波形の外部検証はできない |
-| 各PK群の人数・個人別時系列 | 同図には明記されない | 平均の標本誤差や患者別NLMEを推定しない |
+| Cycle 1 Day 15 mean QD curves | 150, 300, 600, 900 and 1200 mg; whole-blood nM; SD error bars | Fit 5 doses × 9 times |
+| QD AUC distributions | Boxes and individual points for 600, 900 and 1200 mg | Convert interquartile widths into a conditional variability scale |
+| QD–BID AUC comparison | Footnote states comparable exposure at equal daily dose | Qualitative consistency only |
+| Mean BID profiles | Not supplied in these materials | No external validation of BID shape |
+| PK-group counts and individual series | Not specified in the figure | No estimation of mean sampling error or patient-level NLME |
 
 PDF内の画像を抽出し、軸目盛りで校正した。時間は0.5、1、1.5、2、2.5、4、6、8、24時間。マーカーが重なる点は拡大して読み、不確かな点に印を付けた。投与前0時間は軸と重なり使わず、定常状態として24時間値を投与前値の代わりに用いた。原図との重ね合わせも確認した。読取位置や元図の丸めを、元データと同じ精度とは扱わない。
 
@@ -54,7 +54,7 @@ C(t)=A_c(t)/V_*.
 
 表2. 共有モデル係数の推定値と換算単位。
 
-| 共有係数 | 推定値 | 単位 |
+| Shared coefficient | Estimate | Unit |
 | --- | ---: | --- |
 | CL* | 0.11254 | mg/(nM·h) |
 | V* | 0.18942 | mg/nM |
@@ -73,7 +73,7 @@ QDを15日間重ね合わせ、45点について
 
 表3. 用量別の経験的入力尺度。
 
-| 1回量D（mg） | 推定入力尺度 f(D) |
+| Dose D (mg) | Estimated input scale f(D) |
 | --- | ---: |
 | 150 | 0.433 |
 | 300 | 1.050 |
@@ -99,11 +99,11 @@ QDを15日間重ね合わせ、45点について
 
 表4. 900 mg群を除いた用量群外確認。
 
-| 900 mgの確認 | 公開平均点からの値 | 群を外した予測 | 相対ずれ |
+| Metric at 900 mg | From public mean points | Prediction with group omitted | Relative discrepancy |
 | --- | ---: | ---: | ---: |
-| AUC24（nM·h） | 10,182 | 8,182 | −19.6% |
-| 平均曲線の最大値（nM） | 2,180 | 1,871 | −14.2% |
-| 24 h濃度（nM） | 17.77 | 12.89 | −27.5% |
+| AUC24 (nM·h) | 10,182 | 8,182 | −19.6% |
+| Maximum of mean curve (nM) | 2,180 | 1,871 | −14.2% |
+| 24 h concentration (nM) | 17.77 | 12.89 | −27.5% |
 
 これは未使用用量群の確認であって、BID予測の検証ではない。特に谷側にはずれがあり、8–24時間には中間観測もない。450 mg BIDの補間や投与間隔変更には、この弱さが持ち越される。
 
@@ -115,11 +115,11 @@ QDを15日間重ね合わせ、45点について
 
 表5. 同日量でのBID/QD曝露比と条件付き残差感度幅。
 
-| 条件変更（mg） | Cmax比 | Ctrough比 | AUC24比 |
+| Regimen change (mg) | Cmax ratio | Ctrough ratio | AUC24 ratio |
 | --- | ---: | ---: | ---: |
-| 1200 QD → 600 BID | 0.496（0.407–0.596） | 3.417（1.730–4.650） | 0.960（0.794–1.155） |
-| 900 QD → 450 BID | 0.464（0.392–0.537） | 3.198（1.674–4.331） | 0.898（0.763–1.047） |
-| 600 QD → 300 BID | 0.542（0.449–0.647） | 3.737（1.926–5.002） | 1.050（0.871–1.259） |
+| 1200 QD → 600 BID | 0.496 (0.407–0.596) | 3.417 (1.730–4.650) | 0.960 (0.794–1.155) |
+| 900 QD → 450 BID | 0.464 (0.392–0.537) | 3.198 (1.674–4.331) | 0.898 (0.763–1.047) |
+| 600 QD → 300 BID | 0.542 (0.449–0.647) | 3.737 (1.926–5.002) | 1.050 (0.871–1.259) |
 
 点は基準モデルのBID/QD比。括弧は残差再標本化1,000回の2.5–97.5パーセンタイルである。**臨床的な95%信頼区間ではない。** 平均曲線の人数・時点相関が不明なまま残差を再標本化しているため、仮定した誤差の下での数値的な感度幅と読む。患者を再抽出したものではなく、読取誤差や構造誤差も十分には含まない。
 
@@ -145,13 +145,13 @@ CL_{*,i}=CL_*\exp(\eta_i),\qquad\eta_i\sim N(0,\sigma^2).
 
 表6. 1200 QD対600 BIDの構造・読取・服薬間隔感度。
 
-| 1200 QD対600 BIDの設定 | Cmax比 | Ctrough比 | AUC24比 |
+| Setting | Cmax ratio | Ctrough ratio | AUC24 ratio |
 | --- | ---: | ---: | ---: |
-| 主解析 | 0.496 | 3.417 | 0.960 |
-| 重なった点を除く | 0.424 | 2.857 | 0.821 |
-| 入力尺度を全用量で1にする | 0.517 | 3.559 | 1.000 |
-| 一次吸収・1-compartment | 0.516 | 7.340 | 0.960 |
-| 8／16時間のBID | 0.514 | 2.030 | 0.960 |
+| Main analysis | 0.496 | 3.417 | 0.960 |
+| Omit overlapping-marker points | 0.424 | 2.857 | 0.821 |
+| Set all dose input scales to 1 | 0.517 | 3.559 | 1.000 |
+| First-order absorption, 1-compartment | 0.516 | 7.340 | 0.960 |
+| BID at 8/16-hour intervals | 0.514 | 2.030 | 0.960 |
 
 8／16時間の行は、二つの次回投与直前濃度の小さい方を使った。全時間の最小値とは区別する。1-compartmentは当てはまりが悪く、7倍程度の谷の比を同じ重みで信頼しない。試した条件ではピーク低下の方向は共通だったが、BIDの吸収形状自体は未確認であり、方向まで実測で保証されたわけではない。
 

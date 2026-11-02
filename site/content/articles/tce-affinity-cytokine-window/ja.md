@@ -18,12 +18,12 @@ Abdelmotalebらの研究では、関連するCD3結合クローンをhigh・inte
 
 **表1．** 解析対象の標的側親和性と原著図。TA：標的抗原（tumor antigen）。
 
-| 標的・細胞株 | 標的側の結合KD | 表記 | 原著図 |
+| Target and line | Tumor-antigen KD | Label | Original figure |
 | --- | ---: | --- | --- |
-| FOLR1・SK-OV-3 | 約57 nM | TA high | Figure 1 |
-| FOLR1・SK-OV-3 | 約1,000 nM | TA low | Figure 2 |
-| CEACAM5・LS-180 | 約0.1 nM | TA high | Figure 5 |
-| CEACAM5・LS-180 | 約5.5 nM | TA low | Figure 6 |
+| FOLR1, SK-OV-3 | Approximately 57 nM | TA high | Figure 1 |
+| FOLR1, SK-OV-3 | Approximately 1,000 nM | TA low | Figure 2 |
+| CEACAM5, LS-180 | Approximately 0.1 nM | TA high | Figure 5 |
+| CEACAM5, LS-180 | Approximately 5.5 nM | TA low | Figure 6 |
 
 培養は末梢血単核細胞（PBMC）と標的細胞のE:T（エフェクター細胞と標的細胞の比）=10:1。最大5,000 pMから10倍刻みの濃度系列が使われている。各図は技術的二重測定の平均を示し、2人のPBMCドナーを用いた実験の代表図と記載されている。図の点を2ドナーの統合平均と解釈したり、濃度点数を生物学的反復数に数えたりはしない ([1](#ref-1))。
 
@@ -74,12 +74,12 @@ r_{\mathrm{TDCC}}(C)\geq\alpha,
 
 **表2．** 観測濃度内の最大相対TDCC。
 
-| 条件 | CD3 intermed | CD3 low | CD3 vlow |
+| Condition | CD3 intermed | CD3 low | CD3 vlow |
 | --- | ---: | ---: | ---: |
-| FOLR1・TA high | 1.03 | 0.53 | 0.25 |
-| FOLR1・TA low | 0.56 | 0.17 | 0.12 |
-| CEACAM5・TA high | 0.90 | 0.72 | 0.36 |
-| CEACAM5・TA low | 0.93 | 0.59 | 0.32 |
+| FOLR1, TA high | 1.03 | 0.53 | 0.25 |
+| FOLR1, TA low | 0.56 | 0.17 | 0.12 |
+| CEACAM5, TA high | 0.90 | 0.72 | 0.36 |
+| CEACAM5, TA low | 0.93 | 0.59 | 0.32 |
 
 表の値は観測範囲内の最大相対TDCC。`analysis/run.py` が出力する `normalized-points.csv` から計算した。CD3 highは各条件の基準なので1となる。1を超える値も許し、上限1に切り詰めていない。
 
@@ -89,12 +89,12 @@ vlowはTNFαが低い一方、今回の薬効0.8という条件には届かな�
 
 **表3．** 同じ相対薬効へ初めて達する濃度とTNFα。
 
-| 条件 | highの濃度 pM | highの相対TNFα | intermedの濃度 pM | intermedの相対TNFα |
+| Condition | High concentration, pM | High relative TNFα | Intermed concentration, pM | Intermed relative TNFα |
 | --- | ---: | ---: | ---: | ---: |
-| FOLR1・TA high | 約30 | 0.92 | 約37 | 0.26 |
-| FOLR1・TA low | 約1,100 | 0.69 | 未到達 | — |
-| CEACAM5・TA high | 約33 | 0.28 | 約1,500 | 0.31 |
-| CEACAM5・TA low | 約190 | 0.36 | 約1,500 | 0.13 |
+| FOLR1, TA high | Approximately 30 | 0.92 | Approximately 37 | 0.26 |
+| FOLR1, TA low | Approximately 1,100 | 0.69 | Not reached | — |
+| CEACAM5, TA high | Approximately 33 | 0.28 | Approximately 1,500 | 0.31 |
+| CEACAM5, TA low | Approximately 190 | 0.36 | Approximately 1,500 | 0.13 |
 
 これらは補間値であり、その濃度で直接測定した値ではない。CEACAM5・TA highのintermedは500 pMの薬効点を除外しているため、50〜5,000 pMの広い区間をつないだ結果である。この行からintermedが不利だと確定することはできない。この区間では観測が疎であり、分子間比較の根拠が限られる。
 
@@ -127,11 +127,11 @@ FOLR1・TA highのintermedは薬効0.8に達した時点のTNFαが約0.26で、
 
 **表4．** 補間とHill形状による候補濃度域の幅。
 
-| 条件とCD3分子 | 観測点の補間 | Hill h=0.5 | Hill h=1 | Hill h=2 |
+| Condition and CD3 molecule | Point interpolation | Hill h=0.5 | Hill h=1 | Hill h=2 |
 | --- | ---: | ---: | ---: | ---: |
-| FOLR1・TA high・intermed | 0 | 0.04 | 0.13 | 0.12 |
-| CEACAM5・TA high・intermed | 0 | 0.01 | 0.34 | 0.63 |
-| CEACAM5・TA low・intermed | 0.52 | 0.46 | 0.71 | 0.96 |
+| FOLR1, TA high, intermed | 0 | 0.04 | 0.13 | 0.12 |
+| CEACAM5, TA high, intermed | 0 | 0.01 | 0.34 | 0.63 |
+| CEACAM5, TA low, intermed | 0.52 | 0.46 | 0.71 | 0.96 |
 
 数値は領域幅を \(\log_{10}(C_{\mathrm{upper}}/C_{\mathrm{lower}})\) で表したもの。0.52は約3.3倍の濃度幅に相当する。0は幅のある領域が残らないことを表す。
 

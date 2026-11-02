@@ -12,13 +12,13 @@ COU（Context of Use）は、公開情報に基づいて次に検証する投与
 
 表1. 比較した仮想投与条件。
 
-| 条件 | 0時間 | 12時間 | 1日量 | 比較の意味 |
+| Regimen | 0 h | 12 h | Daily dose | Interpretation |
 | --- | ---: | ---: | ---: | --- |
-| 300QD | 300 mg | — | 300 mg | 承認用量の参照条件 |
-| 150BID | 150 mg | 150 mg | 300 mg | 同じ1日量の均等分割 |
-| 200QD | 200 mg | — | 200 mg | 1日量の減量 |
-| 100BID | 100 mg | 100 mg | 200 mg | 減量と分割の併用 |
-| 200+100 | 200 mg | 100 mg | 300 mg | 同じ1日量の不均等分割 |
+| 300QD | 300 mg | — | 300 mg | Approved reference |
+| 150BID | 150 mg | 150 mg | 300 mg | Equal split preserving 1-day dose |
+| 200QD | 200 mg | — | 200 mg | 1-day dose reduction |
+| 100BID | 100 mg | 100 mg | 200 mg | Reduction plus fractionation |
+| 200+100 | 200 mg | 100 mg | 300 mg | Unequal split preserving 1-day dose |
 
 QDは1日1回、BIDは1日2回を指す。BIDと不均等分割は本解析の仮想条件であり、検証済みの代替レジメンではない。服薬遵守、食事、併用薬は条件間で変えない。
 
@@ -28,17 +28,17 @@ QDは1日1回、BIDは1日2回を指す。BIDと不均等分割は本解析の�
 
 表2. FDA資料から転記したモデル情報。
 
-| 取り出した情報 | 数値・扱い | 出典箇所（PDFページ） |
+| Input | Value or treatment | Source location (PDF page) |
 | --- | --- | --- |
-| CL/F、Vc/F | 53.8 L/h、516 L | Table 59、242ページ |
-| Q/F、Vp/F | 26.1 L/h、255 L | 同上 |
-| ka、吸収ラグ | 0.735 /h、0.305 h | 同上 |
-| 相対Fの最大低下、半変化時間 | 0.357、5.90日 | 同上 |
-| CL・Vc・kaのη分散 | 0.139、0.168、0.847 | 同上 |
-| CL–Vcのη共分散 | 0.0949 | 同上 |
-| Grade ≥3 TEAEのCmin傾き | 0.013 /（ng/mL）、95% CI 0.007–0.020 | Table 65、260ページ |
-| Grade ≥3 TRAEのCmax傾き | 0.00363 /（ng/mL）、95% CI 0.00204–0.00523 | Table 66、260ページ |
-| 投与変更につながるTRAEのlog Cavg傾き | 1.25、95% CI 0.77–1.74 | Table 67、261ページ |
+| CL/F, Vc/F | 53.8 L/h, 516 L | Table 59, page 242 |
+| Q/F, Vp/F | 26.1 L/h, 255 L | Same table |
+| ka, absorption lag | 0.735 /h, 0.305 h | Same table |
+| Maximum relative-F reduction, half-change time | 0.357, 5.90 days | Same table |
+| CL, Vc and ka η variances | 0.139, 0.168, 0.847 | Same table |
+| CL–Vc η covariance | 0.0949 | Same table |
+| Grade ≥3 TEAE Cmin slope | 0.013 /(ng/mL), 95% CI 0.007–0.020 | Table 65, page 260 |
+| Grade ≥3 TRAE Cmax slope | 0.00363 /(ng/mL), 95% CI 0.00204–0.00523 | Table 66, page 260 |
+| Dose-modifying TRAE log Cavg slope | 1.25, 95% CI 0.77–1.74 | Table 67, page 261 |
 
 濃度は**全血中濃度**である。血液／血漿比には濃度依存性があり、血漿濃度や非結合濃度に読み替えない。腫瘍内濃度やRAS占有率も計算しない。
 
@@ -85,10 +85,10 @@ C_{avg,ss}=AUC_{24,ss}/24
 
 表3. 公表集計値と条件付き計算の絶対曝露の比較。
 
-| 指標 | 公表幾何平均 | 参照共変量・η=0 | 条件付き4,096人の幾何平均 |
+| Metric | Published geometric mean | Reference covariates, η=0 | Geometric mean of 4,096 conditional individuals |
 | --- | ---: | ---: | ---: |
-| Cmax（ng/mL） | 365 | 296.7 | 292.5 |
-| AUC（ng·h/mL、公表区間未確認／計算は24時間定常） | 3,760 | 3,585.5 | 3,580.2 |
+| Cmax (ng/mL) | 365 | 296.7 | 292.5 |
+| AUC (ng·h/mL; published interval unconfirmed, calculation uses 24-hour steady state) | 3,760 | 3,585.5 | 3,580.2 |
 
 条件付き集団のCmaxは公表値より約20%低い。実集団と参照共変量固定の違いも含み、理由を特定できていない。公表値に合わせて係数を調整しなかった。したがって、**本実装を絶対曝露の検証済みモデルとして扱わない。** 以下は公表係数に条件付けたレジメン間の感度解析である。
 
@@ -102,12 +102,12 @@ C_{avg,ss}=AUC_{24,ss}/24
 
 表4. 300QDに対する個体内曝露比。
 
-| 条件 | Cmax個体内比 | 最低濃度の個体内比 | Cavg個体内比 |
+| Regimen | Cmax ratio | Minimum-concentration ratio | Cavg ratio |
 | --- | ---: | ---: | ---: |
-| 150BID | 0.774（0.662–0.908） | 1.49（1.21–1.87） | 1.000 |
+| 150BID | 0.774 (0.662–0.908) | 1.49 (1.21–1.87) | 1.000 |
 | 200QD | 0.667 | 0.667 | 0.667 |
-| 100BID | 0.516（0.441–0.605） | 0.991（0.807–1.25） | 0.667 |
-| 200+100 | 0.780（0.723–0.886） | 1.35（1.19–1.60） | 1.000 |
+| 100BID | 0.516 (0.441–0.605) | 0.991 (0.807–1.25) | 0.667 |
+| 200+100 | 0.780 (0.723–0.886) | 1.35 (1.19–1.60) | 1.000 |
 
 300QDを1とした中央値（5–95パーセンタイル）。丸め前の値は配布CSVに収録した。最低濃度は24時間内の最小値で、ラグがあるため服薬直前濃度とは必ずしも一致しない。
 
@@ -137,12 +137,12 @@ OR_{modification}=\left(C_{avg,alt}/C_{avg,300QD}\right)^{1.25}.
 
 表5. 公表QD関連式を仮想条件へ移した相対オッズ。
 
-| 条件 | Grade ≥3 TEAEの条件付きOR | Grade ≥3 TRAEの条件付きOR | 投与変更TRAEの条件付きOR |
+| Regimen | Grade ≥3 TEAE conditional OR | Grade ≥3 TRAE conditional OR | Dose-modifying TRAE conditional OR |
 | --- | ---: | ---: | ---: |
-| 150BID | 1.43（1.21–1.77） | 0.790（0.557–0.938） | 1.000 |
-| 200QD | 0.773（0.528–0.918） | 0.700（0.510–0.832） | 0.602 |
-| 100BID | 0.993（0.723–1.07） | 0.599（0.349–0.788） | 0.602 |
-| 200+100 | 1.30（1.16–1.50） | 0.796（0.615–0.925） | 1.000 |
+| 150BID | 1.43 (1.21–1.77) | 0.790 (0.557–0.938) | 1.000 |
+| 200QD | 0.773 (0.528–0.918) | 0.700 (0.510–0.832) | 0.602 |
+| 100BID | 0.993 (0.723–1.07) | 0.599 (0.349–0.788) | 0.602 |
+| 200+100 | 1.30 (1.16–1.50) | 0.796 (0.615–0.925) | 1.000 |
 
 公表傾きの点推定値を移植した中央値（5–95パーセンタイル）。**QDで観察された関連をBIDへ仮に移した投影であり、BIDの臨床的な因果効果でも、検証済み安全性予測でもない。**
 
@@ -160,14 +160,14 @@ OR_{modification}=\left(C_{avg,alt}/C_{avg,300QD}\right)^{1.25}.
 
 表6. 確認した不確実性と解釈の範囲。
 
-| 不確実性 | 実施した確認 | 解釈の範囲 |
+| Uncertainty | Check | Scope |
 | --- | --- | --- |
-| 個体差 | 公表η共分散を用いたpaired 4,096組 | 参照共変量固定での分布 |
-| 吸収の用量分岐 | 1回量判定と1日量判定 | BIDへの構造外挿の感度 |
-| PK固定効果 | CL、Vc、Q、Vp、ka、EM、ET50を公表RSEの約±1.96倍だけ対数尺度で単独変化 | 同時信頼領域ではない |
-| E–R傾き | 公表95% CIの下限・上限で別計算 | 個体差範囲と混ぜない |
-| Cminの定義 | 24時間最小値と服薬直前最小値を比較 | 原資料の厳密な抽出定義が不明な点の感度 |
-| 初期相対F | 二つの仮定関数で14日・42日AUCを比較 | 原モデル再現ではない |
+| Individual variability | Paired 4,096 draws from published η covariance | Fixed reference-covariate distribution |
+| Absorption dose category | Classification by 1 dose versus 1 day | Structural extrapolation to BID |
+| PK fixed effects | Vary CL, Vc, Q, Vp, ka, EM and ET50 separately on a log scale by approximately ±1.96 times reported RSE | Not a joint confidence region |
+| E–R slopes | Separate calculations at published 95% CI endpoints | Kept distinct from individual variability |
+| Cmin definition | Compare 24-hour minimum with minimum predose concentration | Sensitivity to an incompletely specified source extraction rule |
+| Initial relative F | Compare 14-day and 42-day AUC under two assumed functions | Not a reconstruction of the original time function |
 
 単独のPK係数変動や年齢・体重・ビリルビンの共変量シナリオでは、150BIDのピーク低下と最低濃度上昇は保たれた。ET50を変えても定常状態の結果は変わらない。これは定常極限を使ったためで、ET50が臨床的に重要でないという意味ではない。
 

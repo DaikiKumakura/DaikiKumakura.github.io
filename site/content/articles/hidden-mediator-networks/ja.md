@@ -86,15 +86,15 @@ m(t)\approx\frac{a}{\lambda}\,x(t),\qquad
 
 **表1　合成例における当てはまりと介入予測**
 
-| | 速い媒介（λ = 10/日） | 遅い媒介（λ = 0.3/日） |
-| --- | --- | --- |
-| 直接モデルの当てはまり（R²） | 0.995 | 0.681 |
-| 直接モデルの定常ゲイン k/g（真値 ab/(λγ)） | 0.202（0.200） | 6.85（6.67） |
-| 直接モデルが推定した y の消失速度 g（真値 0.5/日） | 0.47 | 0.12 |
-| 2段モデルの当てはまり（R²） | 0.998 | 0.993 |
-| 2段モデルが推定した二つの速度（真値 {λ, γ}） | {0.50, 8.7} | {0.29, 0.54} |
-| 媒介物の除去を5倍にしたときの平均：真値 / 2段（速度を正しく選んだ場合） / 2段（取り違えた場合） | 0.20 / 0.20 / 0.20 | 0.20 / 0.20 / 0.20 |
-| 同じ介入での振れ幅：真値 / 正しく選んだ場合 / 取り違えた場合 | 0.20 / 0.20 / 0.28 | 0.44 / 0.45 / 0.32 |
+| Metric | Fast mediator (λ = 10/day) | Slow mediator (λ = 0.3/day) |
+|---|---|---|
+| Direct-model fit, R² | 0.995 | 0.681 |
+| Direct-model steady gain k/g; true ab/(λγ) in parentheses | 0.202 (0.200) | 6.85 (6.67) |
+| Direct-model y removal g; true 0.5/day | 0.47 | 0.12 |
+| Two-stage fit, R² | 0.998 | 0.993 |
+| Two estimated rates; true {λ, γ} | {0.50, 8.7} | {0.29, 0.54} |
+| Mean under fivefold mediator removal: true / correct rate assignment / swapped assignment | 0.20 / 0.20 / 0.20 | 0.20 / 0.20 / 0.20 |
+| Peak-to-trough amplitude under the same intervention: true / correct / swapped | 0.20 / 0.20 / 0.28 | 0.44 / 0.45 / 0.32 |
 
 介入の効果は、最後の20日間の平均と、山から谷までの振れ幅を、介入しない場合との比で示した。「速度を正しく選んだ場合」は、真の値を知っているシミュレーションだからこそ選べるもので、実際のデータでは選べない。
 
@@ -120,11 +120,11 @@ Niehausらは、代謝物や老廃物といった**相互作用の媒介物を�
 
 **表2　微生物モデルでの相互作用検出**
 
-| 条件 | 結果（Suzuki et al. 2022） |
-| --- | --- |
-| 栄養資源の競争あり | 相互作用を検出できたのはLIMITSとCCMで、ROC-AUCではこの順に高かった。相関に基づく3法はROC-AUCが約0.5で、偶然と変わらなかった |
-| 競争ありで、化学物質を介した場合と直接の場合を比べると | LIMITSは化学物質を介した場合にROC-AUCが下がった（precisionでは有意差なし）。CCMは両者の差が小さく有意でなかったが、性能自体はLIMITSより低かった |
-| 栄養資源の競争なし | どの方法でも相互作用の検出は難しかった |
+| Condition | Result in Suzuki et al. (2022) |
+|---|---|
+| With nutrient competition | LIMITS and CCM detected interactions, with ROC-AUC higher in that order. Three correlation methods had ROC-AUC around 0.5, close to chance. |
+| Chemical-mediated versus direct interactions with competition | LIMITS had lower ROC-AUC for chemical mediation, but no significant precision difference. CCM's difference was small and nonsignificant; its overall performance was below LIMITS. |
+| Without nutrient competition | Interaction detection was difficult for every method. |
 
 この結果を「CCMなら隠れた媒介変数を見抜ける」と読むべきではない。特定の数理モデルと条件でのベンチマークであり、実測された微生物群集で直接作用と間接作用を区別できると示したわけではない。**推定法が想定する相互作用の形と、実際の生物の作用の形がずれると、推定したネットワークのエッジの意味も変わる。**
 
@@ -166,13 +166,13 @@ Dimitrovらの2026年の総説は、single-cellの機械学習の方法を、表
 
 **表3　介入の問いと識別に関係する情報**
 
-| 調べたい問い | 識別に関係する観測・実験 | なお残る限界 |
-| --- | --- | --- |
-| 直接作用か、媒介作用か | 急性の摂動の直後を、媒介の時間尺度より細かく測り、一次応答と二次応答を分ける。翻訳を止めた条件や新生RNAの測定、標的の調節領域への結合の測定（ChIP、CUT&RUN）を加える | 測った層にも、測っていない経路が残りうる |
-| Xを変えるとYが変わるか | Xを無作為に割り付けて介入する。実験では、操作の特異性（siRNAのoff-target、阻害剤の複数の標的への作用）の確認が先に問題になる | 総効果は分かるが、媒介の経路は特定できない |
-| 特定のMが経路に必要か | XとMの操作を組み合わせ、Mを操作したときにXの効果が消えるかを見る。Mを補ってXの操作を迂回できるかを見る | Mが別の経路でもYに作用しうる。効果が床に張りついて差が見えないことがある |
-| 薬が標的に当たり、それが効果につながっているか | 標的への結合（target engagement）の測定、遺伝学的な摂動と化合物の効果の一致、薬が結合しない変異体での効果の消失、標的に近いバイオマーカーから遠いものへの順の変化 | 標的に近い指標が動いても、薬効の経路の全体は保証されない |
-| どの機序のモデルを採るべきか | 競合するモデルの予測が分かれる条件（[合成計算例](#3)なら、媒介物を測る、または応答の振れ幅が分かれる入力）を選んで実験する | 実験できるか、パラメータを識別できるかに依存する |
+| Question | Informative observations or experiments | Remaining limitation |
+|---|---|---|
+| Direct or mediated action? | Measure shortly after an acute perturbation at resolution finer than mediation; distinguish primary and secondary responses. Add translation-blocked conditions, nascent RNA or regulatory-region binding measurements such as ChIP or CUT&RUN. | Unmeasured pathways may remain even within a measured layer. |
+| Does changing X change Y? | Randomize interventions on X; verify specificity, including siRNA off-target effects or inhibitors acting on multiple targets. | A total effect does not identify its mediating path. |
+| Is a particular M necessary? | Combine X and M interventions; test whether modifying M removes X's effect, or supplying M bypasses X manipulation. | M may act through other routes; floor effects can conceal differences. |
+| Does the drug engage its target and produce effects through it? | Measure target engagement, genetic/compound concordance, loss of effect in binding-resistant mutants and temporal changes from proximal to distal biomarkers. | Movement of a proximal marker does not validate the entire efficacy pathway. |
+| Which mechanistic model is appropriate? | Experiment where competing predictions differ: measure the mediator in the [synthetic example](#3), or choose inputs revealing different dynamic amplitudes. | Feasibility and parameter identifiability still matter. |
 
 標的の妥当性については、ヒトの遺伝学的な証拠が、介入の結果を前もって示す独立の情報源になる。遺伝学的な裏付けのある標的は、臨床開発の成功確率が高いと報告されている ([16](#ref-16))。これも、観察した関連とは別の情報で機序の仮説を確かめる方法の一つである。ただし、生まれつきの遺伝的な変化と、薬による急性の阻害は同じではなく、一つの遺伝子が複数の経路に関わること（多面発現）もある。
 

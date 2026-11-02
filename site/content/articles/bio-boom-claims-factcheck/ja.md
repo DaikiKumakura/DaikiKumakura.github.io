@@ -8,18 +8,18 @@
 
 表1　10項目の確認水準と状況（2026年10月30日時点）。
 
-| # | 見出しの要約 | 確認できた資料の種類 | 状況 |
+| # | Headline (summary) | Type of source reached | Status |
 | --- | --- | --- | --- |
-| 1 | daraxonrasib、膵がん、全生存期間13.2対6.6か月 | 論文抄録 ([1](#ref-1))。FDAページの抽出 ([2](#ref-2)) | FDA承認済み（2026年8月26日） |
-| 2 | 遺伝子編集、遺伝性血管性浮腫、87%と62% | 論文抄録 ([3](#ref-3))（87%）。企業発表の抽出 ([4](#ref-4))（62%） | 未承認。BLA受理・優先審査（2026年9月8日） ([5](#ref-5)) |
-| 3 | 遺伝子編集でLDLコレステロール −62% | 論文抄録 ([6](#ref-6)) | 未承認（第1相） |
-| 4 | 個別化mRNAワクチン、1,137例、42% | 企業発表の全文 ([7](#ref-7))。報道の抽出 ([8](#ref-8)) | 未承認。論文はNEJM掲載受理と企業が記載、未出版 |
-| 5 | retatrutide、約28%の体重減少 | 企業の医療情報ページの抽出 ([9](#ref-9))。企業発表の抽出 ([10](#ref-10)) | 未承認。BLA提出は2027年第1四半期の予定 |
-| 6 | rentosertib、第3相 | 試験登録 ([11](#ref-11))。第2a相の論文抄録 ([12](#ref-12)) | 未承認 |
-| 7 | 発毛の飲み薬、第3相 | 企業発表の検索結果抜粋のみ（数値は未照合） ([13](#ref-13)) | 未承認 |
-| 8 | dostarlimab、直腸がん、FDA承認 | FDAページの抽出 ([14](#ref-14))。試験登録 ([15](#ref-15))。論文抄録 ([16](#ref-16)) | 加速承認（2026年10月19日） |
-| 9 | ブタの腎臓、271日 | 論文抄録 ([17](#ref-17))。企業発表の抽出 ([18](#ref-18)) | 未承認。拡大アクセス継続中でRESTORE試験は未開始 |
-| 10 | 染色体サイズのDNAの細胞間移動 | 論文抄録 ([19](#ref-19), [20](#ref-20)) | 承認の対象ではない基礎研究 |
+| 1 | Daraxonrasib, pancreatic cancer, overall survival 13.2 vs 6.6 months | Journal abstract ([1](#ref-1)); extraction of the FDA page ([2](#ref-2)) | Approved by the FDA (August 26, 2026) |
+| 2 | Gene editing, hereditary angioedema, 87% and 62% | Journal abstract ([3](#ref-3)) (87%); extraction of the company release ([4](#ref-4)) (62%) | Not approved. BLA accepted with priority review (September 8, 2026) ([5](#ref-5)) |
+| 3 | Gene editing, LDL cholesterol −62% | Journal abstract ([6](#ref-6)) | Not approved (phase 1) |
+| 4 | Personalized mRNA vaccine, 1,137 patients, 42% | Full text of the company release ([7](#ref-7)); extraction of a news report ([8](#ref-8)) | Not approved. Paper reported by the companies as accepted by NEJM, not yet published |
+| 5 | Retatrutide, about 28% weight loss | Extraction of the company's medical information page ([9](#ref-9)); extraction of the company release ([10](#ref-10)) | Not approved. BLA submission planned for the first quarter of 2027 |
+| 6 | Rentosertib, phase 3 | Trial registry ([11](#ref-11)); abstract of the phase 2a paper ([12](#ref-12)) | Not approved |
+| 7 | Oral hair-growth drug, phase 3 | Search-result excerpt of the company release only (numbers not checked) ([13](#ref-13)) | Not approved |
+| 8 | Dostarlimab, rectal cancer, FDA approval | Extraction of the FDA page ([14](#ref-14)); trial registry ([15](#ref-15)); journal abstract ([16](#ref-16)) | Accelerated approval (October 19, 2026) |
+| 9 | Pig kidney, 271 days | Journal abstract ([17](#ref-17)); extraction of the company release ([18](#ref-18)) | Not approved. Expanded access continues; the RESTORE trial has not started |
+| 10 | Transfer of chromosome-sized DNA between cells | Journal abstracts ([19](#ref-19), [20](#ref-20)) | Basic research, not subject to approval |
 
 本文中の差や比は、特に断らない限り原資料の報告値であり、筆者が引き算をした値には「筆者計算」と付ける。
 

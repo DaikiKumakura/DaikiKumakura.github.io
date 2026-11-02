@@ -28,11 +28,11 @@ IDTrackの`build_graph`は参照するEnsembl releaseを固定でき、変換結
 
 **表1. 2行の加算と異なる分子数の違い**
 
-| 条件 | 行Aの数 | 行Bの数 | 単純な和 | 共有する分子数 | 異なる分子数 |
+| Condition | Row A count | Row B count | Naive sum | Shared molecules | Distinct molecules |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| 別々の分子 | 8 | 5 | 13 | 0 | 13 |
-| 一部が重複 | 8 | 5 | 13 | 4 | 9 |
-| 同じ行の複製 | 8 | 8 | 16 | 8 | 8 |
+| Disjoint molecules | 8 | 5 | 13 | 0 | 13 |
+| Partial overlap | 8 | 5 | 13 | 4 | 9 |
+| A duplicated row | 8 | 8 | 16 | 8 | 8 |
 
 最初の2例は、カウント行列ではどちらも8と5である。それでも求める値は13と9に分かれる。集計値と変換先IDしか残っていなければ、どちらが正しいかは決まらない。
 
@@ -62,14 +62,14 @@ scVIは遺伝子発現カウントをモデル化する。公式FAQは、scVIの
 
 **表2. ID統合と計数統合を分けるための記録**
 
-| 記録 | 判断に使う内容 |
+| Record | Question it supports |
 | --- | --- |
-| 元のfeature IDと名称 | 表示名の変更か別featureか |
-| 生物種・assembly・注釈release・ID version | 同じ参照系で比較しているか |
-| gene・transcriptなどの対象 | 集計単位を混ぜていないか |
-| quantifierと割当・重複除去の設定 | 2行が同じ分子を含む可能性があるか |
-| 変換の一対多・未対応と採用規則 | 曖昧な対応を黙って一行へ潰していないか |
-| 統合前後の細胞別総数と採用feature | 実装上の脱落・増殖を検出できるか |
+| Original feature identifiers and names | Was only a display label changed, or was a different feature involved? |
+| Species, assembly, annotation release and ID version | Are the reference systems comparable? |
+| Object type such as gene or transcript | Were aggregation levels mixed? |
+| Quantifier, assignment and deduplication settings | Could the rows contain the same molecules? |
+| One-to-many and missing matches with selection rules | Were ambiguous mappings silently collapsed? |
+| Per-cell totals and retained features before and after aggregation | Did implementation lose or multiply entries? |
 
 原データから同じ注釈・計数法で定量し直せるなら、少なくとも比較する観測単位をそろえられる。集計行列しかない場合、表1の共有部分は推定不能なまま残る。疑わしいfeatureを除く解析と残す解析の比較は、その不確かさへの感度を調べることはできても、正しい分子数の回復にはならない。
 

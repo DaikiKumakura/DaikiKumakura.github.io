@@ -57,7 +57,7 @@ k_La(C^*-C)=q(C)
 
 表1　校正条件と変更後の定常酸素消費。仮想計算。
 
-| モデル | \(k_La\) (h⁻¹) | 溶存酸素 (mmol/L) | 酸素消費 (mmol/(L·h)) | 校正時の消費に対する比 |
+| Model | \(k_La\) (h⁻¹) | Dissolved oxygen (mmol/L) | Uptake (mmol/(L·h)) | Fraction of calibration uptake |
 | --- | ---: | ---: | ---: | ---: |
 | A | 50 | 0.1800 | 1.0000 | 1.000 |
 | B | 50 | 0.1800 | 1.0000 | 1.000 |

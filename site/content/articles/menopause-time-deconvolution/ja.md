@@ -28,10 +28,10 @@ $$
 
 表1. 二つの集団で利用できる時刻情報と復元方法。
 
-| データ | 時間を合わせるための情報 | 復元の方法 |
+| Data | Information for time alignment | Reconstruction |
 | --- | --- | --- |
-| NHANES | 年齢、月経状態、一部では自己申告のFMP年齢 | FMP年齢を潜在変数として扱い、ありうる年齢を複数代入する。柔軟な回帰モデルを比較して平均する |
-| Clalit | 年齢別の検査値。月経状態は利用できない | 参照となるFMP年齢分布を使い、FMP前後の傾きと段差を表す回帰モデルを、年齢別平均に当てはめる |
+| NHANES | Age, menstrual status and self-reported FMP age for some participants | Latent FMP ages are multiply imputed; flexible regression models are compared and averaged |
+| Clalit | Age-specific laboratory measurements; menstrual status unavailable | A reference FMP-age distribution connects age-specific averages to a piecewise-linear response with a jump and slope change |
 
 NHANESでは15組の代入データを作り、不確実性を統合している。月経状態が分かれば、FMPが現在より前か後かという制約が入る。自己申告のFMP年齢がある人は、さらに情報が増える。年齢だけから全員の時計を当てているわけではない。
 
@@ -101,12 +101,12 @@ $$
 
 表2. 同一の年齢平均を生むFMP分布と応答幅の組合せ。
 
-| 仮定するFMP年齢の標準偏差 | 復元される応答の幅パラメータ | 応答の10–90%幅 |
+| Assumed FMP-age standard deviation | Reconstructed response scale | Response 10–90% width |
 | ---: | ---: | ---: |
-| 2.0年 | 3.775年 | 9.676年 |
-| 3.0年 | 3.041年 | 7.795年 |
-| 4.0年 | 1.500年 | 3.845年 |
-| 4.2年 | 0.781年 | 2.002年 |
+| 2.0 years | 3.775 years | 9.676 years |
+| 3.0 years | 3.041 years | 7.795 years |
+| 4.0 years | 1.500 years | 3.845 years |
+| 4.2 years | 0.781 years | 2.002 years |
 
 この4組は、年齢平均の曲線が完全に同じになるように作ってある。データが少ないせいで区別できない、という例ではない。**この設定で年齢平均だけを見ている限り、ノイズをゼロにしても二つの幅を別々には決められない。**
 

@@ -32,9 +32,9 @@ GEMSは、配列からATAC-seq（クロマチンの開きやすさ）やRNA-seq�
 
 **表1．** マルチモーダル解析の候補変異と最多細胞組合せの分母。
 
-| 形質 | 全候補変異 N | 両モダリティに有意な対応 B | 最多の組合せ K | K / B | K / N |
+| Trait | All candidates N | Significant associations in both modalities B | Largest combination K | K / B | K / N |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| 喘息 | 547 | 167 | 100 | 59.9% | 18.3% |
+| Asthma | 547 | 167 | 100 | 59.9% | 18.3% |
 | LDL | 985 | 191 | 149 | 78.0% | 15.1% |
 | MS | 273 | 80 | 50 | 62.5% | 18.3% |
 | T2D | 497 | 10 | 3 | 30.0% | 0.6% |

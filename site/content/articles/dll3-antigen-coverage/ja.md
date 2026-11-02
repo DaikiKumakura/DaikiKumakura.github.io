@@ -18,11 +18,11 @@ Mishraらの原著 ([1](#ref-1))は、DLL3・SEZ6・B7-H3の発現が細胞ご�
 
 **表1．** 解析コホートの構成と除外行。
 
-| 解析対象 | 主解析の単位数 | 構成と扱い |
+| Population | Main-analysis units | Composition and handling |
 | --- | ---: | --- |
-| コホートB | 10標本 | 原著で10患者由来。すべてSCLC-A。未治療6・既治療4 |
-| コホートC | 18ドナーラベル行 | Chanらの別研究 ([3](#ref-3))由来。SCLC-A 12・SCLC-N 5・SCLC-P 1。未治療7・既治療11 |
-| Cの胸水行 | 主解析から1行除外 | 公開コードで既存患者との対応が不明とされており、含める場合は感度分析 |
+| Cohort B | 10 samples | From 10 patients; all SCLC-A; 6 untreated and 4 previously treated |
+| Cohort C | 18 donor-label rows | From Chan et al. ([3](#ref-3)); SCLC-A 12, SCLC-N 5, SCLC-P 1; 7 untreated and 11 previously treated |
+| C pleural-effusion row | 1 row excluded | Public code states uncertain correspondence to existing patients; inclusion is a sensitivity analysis |
 
 S2には計29行があり、主解析には28行を用いた。Cの残る18行は互いに異なるRUドナーラベルである。胸水の `PleuralEffusion` 行は、患者の重複を独立した観測として数えないために除外した。原著の19行全体と本稿の主解析18行を混同しない。
 
@@ -60,7 +60,7 @@ S2の `Pbind` は \(P(B^+\mid D^+)\)、`Psind` は \(P(S^+\mid D^+)\) である�
 
 **表2．** コホート別のRNA被覆と追加被覆。
 
-| コホート | n | DLL3 | 追加B7-H3 | 追加SEZ6 | 三標的非検出 |
+| Cohort | n | DLL3 | Additional B7-H3 | Additional SEZ6 | All three undetected |
 | --- | ---: | ---: | ---: | ---: | ---: |
 | B | 10 | 37.60% | 9.78 pp | 11.26 pp | 44.45% |
 | C | 18 | 65.13% | 4.53 pp | 6.53 pp | 24.96% |
@@ -69,10 +69,10 @@ S2の `Pbind` は \(P(B^+\mid D^+)\)、`Psind` は \(P(S^+\mid D^+)\) である�
 
 **表3．** 標本内の追加被覆率差と区間。
 
-| コホート | 平均差 B7-H3−SEZ6 | 行単位ブートストラップ95%区間 |
+| Cohort | Mean difference B7-H3−SEZ6 | Row-bootstrap 95% interval |
 | --- | ---: | ---: |
-| B | -1.48 pp | -5.51〜1.78 pp |
-| C | -1.99 pp | -5.54〜0.53 pp |
+| B | -1.48 pp | -5.51 to 1.78 pp |
+| C | -1.99 pp | -5.54 to 0.53 pp |
 
 このデータから、どちらか一方を一般に優れた追加標的と結論する根拠は弱い。一方、図1の標本別の違いは、平均の僅かな差だけを見ていては把握できない。
 
@@ -84,7 +84,7 @@ B7-H3の追加被覆が大きい標本はBで5/10、Cで8/18だった。残り�
 
 **表4．** 一律SEZ6と同じ表を見た後の標本別選択。
 
-| コホート | 一律SEZ6 | 標本別に大きい方 | 差 |
+| Cohort | Uniform SEZ6 | Larger target per sample | Difference |
 | --- | ---: | ---: | ---: |
 | B | 11.26 pp | 12.56 pp | 1.31 pp |
 | C | 6.53 pp | 7.48 pp | 0.96 pp |
@@ -116,7 +116,7 @@ P(S^+\cap B^+) &= P(D^+)+P(S^+)+P(B^+)\\
 
 **表5．** 第三標的の増分と三標的の平均被覆。
 
-| コホート | DLL3＋SEZ6へB7-H3を追加 | DLL3＋B7-H3へSEZ6を追加 | 三標的の平均被覆率 |
+| Cohort | Add B7-H3 to DLL3＋SEZ6 | Add SEZ6 to DLL3＋B7-H3 | Mean three-target coverage |
 | --- | ---: | ---: | ---: |
 | B | 6.69 pp | 8.17 pp | 55.55% |
 | C | 3.38 pp | 5.37 pp | 75.04% |
@@ -129,11 +129,11 @@ P(S^+\cap B^+) &= P(D^+)+P(S^+)+P(B^+)\\
 
 **表6．** 胸水行とサブタイプ構成の感度分析。
 
-| Cの対象 | 行数 | 平均差 B7-H3−SEZ6 |
+| C population | Rows | Mean difference B7-H3−SEZ6 |
 | --- | ---: | ---: |
-| 胸水行を除外 | 18 | -1.99 pp |
-| 胸水行を含む | 19 | -1.77 pp |
-| 胸水行を除外したSCLC-Aのみ | 12 | -0.45 pp |
+| Exclude effusion | 18 | -1.99 pp |
+| Include effusion | 19 | -1.77 pp |
+| SCLC-A only, exclude effusion | 12 | -0.45 pp |
 
 ![主解析と胸水行・サブタイプ構成による感度分析。同じ標本内の追加被覆率差を比較し、行単位のブートストラップ区間を示した。](shared/dll3-antigen-coverage/figures/ranking-uncertainty.png)
 
@@ -145,10 +145,10 @@ SCLC-Aへ限定すると平均差は小さくなった。この比較だけで�
 
 **表7．** 一標本除外による平均差の範囲。
 
-| コホート | 一標本除外時の平均差の最小〜最大 |
+| Cohort | Minimum–maximum leave-one-sample-out mean difference |
 | --- | ---: |
-| B | -2.30〜0.04 pp |
-| C | -2.36〜-0.55 pp |
+| B | -2.30 to 0.04 pp |
+| C | -2.36 to -0.55 pp |
 
 Bでは一標本を外すと平均順位が逆になる場合があった。平均順位を固定したまま議論するより、どの標本の構成が順位を動かしているかを確認する必要がある。
 

@@ -26,12 +26,12 @@ Longitudinal-CT v3は、300患者のベースライン・フォローアップ�
 
 **表1　病変対応の分類と主解析での扱い**
 
-| 対応の種類 | 行数 | 主解析での扱い |
+| Correspondence | Rows | Primary-analysis handling |
 | --- | ---: | --- |
-| 既存の対応病変（UNCHANGED） | 2,506 | 対応の確実性・体積・時間を確認して採用 |
-| 消失 | 1,407 | 別に計数し、正の対数比に押し込まない |
-| 新出 | 559 | ベースライン体積がないため別に計数 |
-| 合流 | 166 | 二重計数を避け、主解析から除外 |
+| Existing matched lesions (UNCHANGED) | 2,506 | Retain after checking correspondence certainty, volume and time |
+| Disappearing | 1,407 | Count separately, without forcing into positive-volume log ratios |
+| Newly appearing | 559 | Count separately because baseline volume is absent |
+| Merging | 166 | Exclude to avoid double counting |
 
 UNCHANGEDは形が変わらないという意味ではなく、病変対応のトポロジー分類である。リンク不明は135行、リンク情報欠測は4行だった。患者背景と対応できないIDが1患者、撮影間隔0日が5患者あり、推測でIDや日付を補正しなかった。これらの患者に属する155行は、時間を伴う変化の主解析から除外した。除外理由は重なるため、各件数を単純に足し合わせない。
 
@@ -56,11 +56,11 @@ $$
 
 **表2　合計縮小と探索閾値を超える病変増加の併存**
 
-| 病変増加の探索用閾値 | 該当患者／主解析患者 | 割合 | 95%患者ブートストラップ区間 |
+| Exploratory lesion-growth threshold | Patients / primary-analysis patients | Proportion | 95% patient-bootstrap interval |
 | --- | ---: | ---: | ---: |
-| 0%超 | 77/276 | 27.9% | 22.8–33.3% |
-| 20%超 | 58/276 | 21.0% | 16.3–25.7% |
-| 50%超 | 41/276 | 14.9% | 10.9–19.2% |
+| Above 0% | 77/276 | 27.9% | 22.8–33.3% |
+| Above 20% | 58/276 | 21.0% | 16.3–25.7% |
+| Above 50% | 41/276 | 14.9% | 10.9–19.2% |
 
 各行の分母は合計が減った患者だけではなく、主解析の276患者すべてである。合計が減った患者は172人だった。閾値は測定の小さな差への感度を確認するための探索設定で、臨床的な進行閾値ではない。患者を単位に2,000回再標本化し、病変を独立患者として扱わなかった。
 
@@ -70,12 +70,12 @@ $$
 
 **表3　病変と撮影間隔の選択による感度**
 
-| 病変の選び方 | 病変数 | 患者数 | 該当患者 | 割合 |
+| Selection | Lesions | Patients | Qualifying patients | Proportion |
 | --- | ---: | ---: | ---: | ---: |
-| 主解析 | 2,425 | 276 | 58 | 21.0% |
-| target_lesionのみ | 443 | 243 | 14 | 5.8% |
-| ベースライン体積1,000 mm³以上 | 894 | 229 | 23 | 10.0% |
-| 撮影間隔120日以下 | 1,971 | 214 | 45 | 21.0% |
+| Primary analysis | 2,425 | 276 | 58 | 21.0% |
+| target_lesion only | 443 | 243 | 14 | 5.8% |
+| Baseline volume at least 1,000 mm³ | 894 | 229 | 23 | 10.0% |
+| Scan interval at most 120 days | 1,971 | 214 | 45 | 21.0% |
 
 target_lesionだけに絞った場合の低い頻度を、患者が良くなった証拠とは読めない。調べる病変が少なくなれば、最大の増加を見つける機会も減る。小病変の除外では測定の不安定さと、実際の不均一性の両方を取り除く可能性がある。分母と病変集合が変わる比較であり、同じ集団への無作為介入ではない。
 

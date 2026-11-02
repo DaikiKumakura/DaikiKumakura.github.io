@@ -8,11 +8,11 @@
 
 表1．予測器・探索の自動化・LLMエージェントの違い。
 
-| 意味 | 何をするか | 代表例 |
+| Meaning | Task | Example |
 |---|---|---|
-| 予測器としての機械学習 | 濃度や薬効を直接予測し、従来の非線形混合効果モデル（NLME）の代わりにする | Mao et al. 2025 ([1](#ref-1)) |
-| モデル探索の自動化 | 探索空間を決め、最適化アルゴリズムでモデルを選ぶ（LLMではない） | Richardson et al. 2025（pyDarwin） ([2](#ref-2)) |
-| LLMがモデラーの役をする | コードを書き、実行し、結果を見て直す | PKGPT、文脈工学のチュートリアル、nlmixr2llm |
+| Machine learning as a predictor | Predict concentration or response directly as an alternative to nonlinear mixed-effects modeling, NLME | Mao et al. 2025 ([1](#ref-1)) |
+| Automated model search | Select models within a defined search space using optimization rather than an LLM | Richardson et al. 2025, pyDarwin ([2](#ref-2)) |
+| An LLM acting as modeler | Write code, execute it and revise it after inspecting results | PKGPT, the context-engineering tutorial, nlmixr2llm |
 
 本記事は三つ目を扱う。ただし三つ目の中にも、コードを書くだけで実行しない評価（Zhengら）と、実行して直すループを持つ評価（PKGPT、チュートリアル）がある。
 
@@ -20,13 +20,13 @@
 
 表2．資料の種類と評価対象。
 
-| 資料 | 種類 | 評価したもの | 規模 | 実行 |
+| Source | Type | Evaluated task | Scale | Execution |
 |---|---|---|---|---|
-| Zheng et al. 2025 ([3](#ref-3)) | 論文 | LLMが書くNONMEMコードの採点 | 7つのLLM、13課題 | なし（コードを採点） |
-| PKGPT（Kwack et al. 2026） ([4](#ref-4)) | 論文とOSS | NONMEMを実行して直し続けるエージェント | 3データ、各3回 | あり |
-| Pritchard-Bell et al. 2026 ([5](#ref-5)) | チュートリアル | 36課題に分けた解析を一つの合成PK/PDシナリオで | 6回（Claude Code 3、Codex 3） | あり |
-| Ponce-Bobadilla et al. 2026 ([6](#ref-6)) | 展望 | 予測AIの評価の慣行 | 評価はしていない | 対象外 |
-| nlmixr2llm ([7](#ref-7)) | OSS | R用の支援ツール | 検証の記載を見つけられなかった | 対象外 |
+| Zheng et al. 2025 ([3](#ref-3)) | Paper | Scoring LLM-written NONMEM code | 7 LLMs, 13 tasks | None; code scoring |
+| PKGPT, Kwack et al. 2026 ([4](#ref-4)) | Paper and software | Iterative NONMEM execution and revision | 3 datasets, 3 runs each | Yes |
+| Pritchard-Bell et al. 2026 ([5](#ref-5)) | Tutorial | Analysis divided into 36 tasks in one synthetic PK/PD scenario | 6 runs: Claude Code 3, Codex 3 | Yes |
+| Ponce-Bobadilla et al. 2026 ([6](#ref-6)) | Perspective | Practices for benchmarking predictive AI | No new performance evaluation | Not applicable |
+| nlmixr2llm ([7](#ref-7)) | Software | R support tools | No validation description identified | Not applicable |
 
 「コードが書ける」「モデルが収束する」「専門家が見て妥当である」は別の水準で、資料ごとにどれを見たかが違う。
 

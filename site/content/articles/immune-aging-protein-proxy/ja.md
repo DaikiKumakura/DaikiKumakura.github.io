@@ -28,11 +28,11 @@ GZMK側を常に「良い細胞」、GZMB側を常に「悪い細胞」と呼ぶ
 
 **表1．** 細胞測定から健康転帰までの検証段階。
 
-| 段階 | 調べる対応関係 | 必要になる確認 |
+| Stage | Relationship examined | Required checks |
 | --- | --- | --- |
-| 細胞状態を測る | 回収した細胞から、集団の割合や比を求める | 集団の定義、回収数、ゼロ件の扱い、測定の再現性 |
-| 蛋白へ置き換える | 血中蛋白から、細胞状態の指標を推定する | 直接測定との一致、系統的なずれ、コホート間の移植性 |
-| 健康転帰につなぐ | 推定指標と、その後の疾患・死亡を対応させる | 交絡、絶対リスクの校正、既存情報への上乗せ、使う場面での有用性 |
+| Measure the cell state | Estimate population fractions and ratios from recovered cells | Population definitions, cell recovery, zero counts, measurement reproducibility |
+| Replace cells with proteins | Infer a cell-state marker from plasma proteins | Agreement with direct measurement, systematic bias, transportability between cohorts |
+| Connect the marker to health outcomes | Relate the inferred marker to subsequent disease and mortality | Confounding, absolute-risk calibration, incremental value beyond existing information, usefulness in its intended setting |
 
 細胞が増えれば最初の段階は精密になるかもしれない。しかし、それだけで蛋白の代理指標が別の集団でも同じ意味を持つようになるわけではない。転帰との関連が見つかっても、個人のリスクを正しく見積もることや、その指標を使って介入する利益は別に確かめる必要がある。
 
@@ -46,11 +46,11 @@ GZMK側を常に「良い細胞」、GZMB側を常に「悪い細胞」と呼ぶ
 
 **表2．** 細胞割合を固定した場合の回収数による比の変動。
 
-| 回収細胞数 | K／Bの期待回収数 | Bが０件になる確率（厳密値） | 両集団が１件以上のときの観測比の中央95%範囲 |
+| Recovered cells | Expected K/B counts | Probability of zero B cells, exact | Central 95% range of observed ratios conditional on at least one cell in each population |
 | --- | ---: | ---: | ---: |
-| 200 | 4／2 | 13.40% | 0.33〜7.00 |
-| 1,000 | 20／10 | 0.0043% | 0.94〜5.00 |
-| 5,000 | 100／50 | ほぼ０ | 1.44〜2.86 |
+| 200 | 4/2 | 13.40% | 0.33–7.00 |
+| 1,000 | 20/10 | 0.0043% | 0.94–5.00 |
+| 5,000 | 100/50 | Approximately zero | 1.44–2.86 |
 
 右端はシミュレーションの観測比の分布であり、母集団の比についての信頼区間ではない。KかBが０件だった試料を除いた条件付きの範囲で、除外数は結果表に残した。200細胞の条件では10万回中15,036回が、いずれかの集団０件により対数比を計算できなかった。
 
@@ -93,7 +93,7 @@ W=Z+0.5\varepsilon
 
 **表3．** 測定尺度の変化と代理スコアの一致度。
 
-| 代理スコア | 母集団での相関 | 細胞状態スコアに対する平均誤差 | RMSE | 固定したスコア１を超える割合 |
+| Proxy score | Population correlation | Mean error relative to the cell-state score | RMSE | Proportion exceeding a fixed score of 1 |
 | --- | ---: | ---: | ---: | ---: |
 | \(W\) | 0.894 | 0 | 0.500 | 18.6% |
 | \(W+0.75\) | 0.894 | 0.75 | 0.901 | 41.2% |

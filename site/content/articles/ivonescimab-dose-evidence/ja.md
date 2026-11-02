@@ -29,12 +29,12 @@ ivonescimabは、PD-1とVEGFに同時に結合する二重特異性抗体であ�
 
 **表1　公開資料と取得した数値**
 
-| 資料 | 内容 | 使った値 |
+| Source | Study | Values used |
 | --- | --- | --- |
-| [Wang et al. 2025](https://doi.org/10.1002/cam4.70653) ([2](#ref-2)) 第1相（CC BY） | 59人。3〜30 mg/kg Q2Wと10・20 mg/kg Q3W | 7コホートのPK、PD-1占有率 |
-| [Zhao et al. 2023](https://doi.org/10.1016/j.eclinm.2023.102106) ([3](#ref-3)) 第2相 | NSCLCに化学療法を併用。3コホートのそれぞれで10と20 mg/kg Q3W | 各群のORRとn |
-| 単剤の第1b相。[J Thorac Oncol 2024](https://doi.org/10.1016/j.jtho.2023.10.014) ([4](#ref-4)) | NSCLC 1次、PD-L1陽性の単剤。67人 | 本文で、用量別の人数と奏効数（7/21、10/19、9/15、9/12）を確認 |
-| SCLC第1b相。[J Thorac Oncol 2025](https://doi.org/10.1016/j.jtho.2024.10.013) ([5](#ref-5)) | エトポシド・カルボプラチン併用。35人 | 本文で、用量別の人数（3、11、21）を確認。奏効数は、要旨の割合と人数から決まる |
+| Wang et al. 2025 ([2](#ref-2)) | Phase I, 59 participants; 3–30 mg/kg Q2W and 10/20 mg/kg Q3W; CC BY | PK and PD-1 occupancy across seven cohorts |
+| Zhao et al. 2023 ([3](#ref-3)) | Phase II chemotherapy combinations in three NSCLC settings, each at 10/20 mg/kg Q3W | ORR and denominators |
+| Wang et al. 2024 ([4](#ref-4)) | Phase Ib first-line, PD-L1-positive NSCLC monotherapy, 67 participants | Primary-text counts 7/21, 10/19, 9/15 and 9/12 |
+| Chen et al. 2025 ([5](#ref-5)) | Phase Ib etoposide/carboplatin combination in SCLC, 35 participants | Primary-text group sizes 3, 11 and 21; response counts determined by percentages |
 
 単剤とSCLCの7群のnは、はじめ、報告された割合と合計から導出した（報告された割合、合計（67人、35人、28人=80%）、論説の表の合算（19/31=61.3%）のすべてと一致する整数の組）。**その後、2026年10月13日に、一次論文の本文を確認し、導出した人数がすべて一致した**（単剤：7/21、10/19、9/15、9/12、合計35/67。SCLC：人数 3、11、21）。SCLCの奏効数（2/3、10/11、16/21）は、本文の割合と人数から一意に決まる。解析は、公開した計画（導出した値）のまま行った。
 
@@ -75,13 +75,13 @@ $$
 
 **表2　10対20 mg/kg Q3Wの記述的な奏効差**
 
-| 設定 | 10 mg/kg Q3W | 20 mg/kg Q3W | 差（ポイント） |
+| Setting | 10 mg/kg Q3W | 20 mg/kg Q3W | Difference, points |
 | --- | --- | --- | --- |
-| NSCLC 1次＋化学療法 | 10/19（52.6%） | 13/24（54.2%） | +1.5 |
-| NSCLC EGFR-TKI後＋化学療法 | 8/10（80.0%） | 5/9（55.6%） | −24.4 |
-| NSCLC 既治療＋化学療法 | 4/10（40.0%） | 4/10（40.0%） | 0.0 |
-| ES-SCLC＋化学療法 | 10/11（90.9%） | 16/21（76.2%） | −14.7 |
-| NSCLC 1次単剤、PD-L1陽性 | 7/21（33.3%） | 9/15（60.0%） | +26.7 |
+| First-line NSCLC plus chemotherapy | 10/19 (52.6%) | 13/24 (54.2%) | +1.5 |
+| Post-EGFR-TKI NSCLC plus chemotherapy | 8/10 (80.0%) | 5/9 (55.6%) | −24.4 |
+| Previously treated NSCLC plus chemotherapy | 4/10 (40.0%) | 4/10 (40.0%) | 0.0 |
+| ES-SCLC plus chemotherapy | 10/11 (90.9%) | 16/21 (76.2%) | −14.7 |
+| First-line PD-L1-positive NSCLC monotherapy | 7/21 (33.3%) | 9/15 (60.0%) | +26.7 |
 
 化学療法併用のNSCLC 3コホートを合算すると、10 mg/kgが22/39（56.4%）、20 mg/kgが22/43（51.2%）だった。この合算では、用量を倍にした記述的な上乗せは見えなかった。単剤は最も大きい正の差を示したが、NSCLC 1次の化学療法併用も+1.5ポイントである。これらは2群の生の差であり、設定間で情報を共有する階層モデルの傾きとは同一でない。
 

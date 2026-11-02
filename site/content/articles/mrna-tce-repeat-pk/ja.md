@@ -12,11 +12,11 @@ Huangらは、脂質ナノ粒子でmRNAを送達し、GPC3とCD3を結ぶTCEを�
 
 **表1．** 解析区間と観測数。
 
-| 区間 | 使用する観測 | 件数 | 役割 |
+| Interval | Observations used | Records | Role |
 | --- | --- | ---: | --- |
-| 初回 | Day 1〜8の9時点 | 90 | パラメータ推定 |
-| 後続投与回 | Day 8.5以降の12時点 | 120 | 再推定しない予測評価 |
-| 4回目 | Day 22〜29の9時点 | 90 | 主な予測評価 |
+| First dose | Nine times from Day 1 through Day 8 | 90 | Parameter estimation |
+| Later occasions | Twelve times from Day 8.5 onward | 120 | Prediction without refitting |
+| Fourth occasion | Nine times from Day 22 through Day 29 | 90 | Main prediction assessment |
 
 Day 8・15・22・29の整数日には投与前採血を対応させた。投与後に新たに産生されるタンパク質は、その採血値へ加えない。元ワークブックの1.01日・1.042日などの時刻をそのまま使い、名目の0.25時間・1時間へ置換していない。
 
@@ -58,11 +58,11 @@ C_i(t)=A_i\frac{e^{-k_s t}-e^{-k_f t}}{k_f-k_s},\qquad k_f>k_s>0.
 
 **表2．** 推定と予測の濃度スケールRMSE。
 
-| 方法 | 初回RMSE | 後続投与回RMSE | 4回目RMSE |
+| Method | First-occasion RMSE | Later-occasion RMSE | Fourth-occasion RMSE |
 | --- | ---: | ---: | ---: |
-| 一指数減衰 | 9.48 | 20.16 | 18.22 |
-| 二状態の産生・消失 | 5.95 | 17.94 | 16.58 |
-| 初回曲線の繰り返し | 0.00 | 17.37 | 15.63 |
+| Single exponential | 9.48 | 20.16 | 18.22 |
+| Two-state production/disappearance | 5.95 | 17.94 | 16.58 |
+| Replay of first profile | 0.00 | 17.37 | 15.63 |
 
 RMSEの単位はng/mLで、各採血時点・個体を等しく重み付けした。二状態モデルは初回の上昇を表現でき、一指数減衰より誤差が小さい。しかし4回目では、初回曲線を繰り返す基準よりRMSEが大きかった。変換後の誤差では順位が逆になり、二状態モデルは1.384、曲線の繰り返しは1.476だった。高濃度の誤差を強く評価するか、低濃度を含む相対的な違いを評価するかで順位が変わる。
 
@@ -86,12 +86,12 @@ RMSEの単位はng/mLで、各採血時点・個体を等しく重み付けし�
 
 **表3．** 初回推定条件による4回目の予測誤差。
 
-| 初回推定時の扱い | 4回目RMSE（ng/mL） |
+| Handling during first-occasion estimation | Fourth-occasion RMSE (ng/mL) |
 | --- | ---: |
-| 全件保持・\(s=0.5\) | 16.87 |
-| 全件保持・\(s=1\) | 16.58 |
-| 全件保持・\(s=2\) | 16.31 |
-| ゼロを除外・\(s=1\) | 16.15 |
+| All records retained; \(s=0.5\) | 16.87 |
+| All records retained; \(s=1\) | 16.58 |
+| All records retained; \(s=2\) | 16.31 |
+| Reported zeros omitted; \(s=1\) | 16.15 |
 
 いずれも同じ4回目の全90件で評価した。ゼロの扱いを変えても個体別予測の大きな誤差は残った。ただし、これは定量下限を使った打切り尤度解析の代替ではない。
 

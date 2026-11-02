@@ -24,13 +24,13 @@ FDA/NIHラベル、両薬のFDA審査資料、2026年のziftomenib PBPK論文を
 
 **表1　公表情報の来歴と比較上の制限**
 
-| 情報 | 数値の性質 | 比較時の注意 |
+| Information | Type of quantity | Comparison limitation |
 | --- | --- | --- |
-| Revumenibのazole約2倍 | ラベルのClinical Studies記述 | azole群の要約で、全剤・全条件の共通定数ではない |
-| RevumenibのラベルPK表 | 160 mg BID併用と270 mg BID非併用の集約値 | 用量も患者群も異なる |
-| ZiftomenibのラベルPK表 | 600 mg QD、C2D1のPopPK由来集約値 | 独立観測の検証データではない |
-| ZiftomenibのFDA Table66 | fmを置いた保守的条件の推定 | 患者で検証済みの真値ではない |
-| [原著Table 2・3](https://doi.org/10.1002/psp4.70327) ([3](#ref-3)) | 校正用群比への感度結果／条件付きPBPK予測 | 初回投与とDay29、校正と予測を分ける |
+| Revumenib, approximately twofold with azoles | Label Clinical Studies summary | Not a universal constant for every azole and condition |
+| Revumenib label PK table | Aggregate 160 mg BID with inhibitor and 270 mg BID without | Doses and patient groups differ |
+| Ziftomenib label PK table | PopPK-derived summaries at 600 mg QD, C2D1 | Not independent observational validation |
+| FDA ziftomenib Table 66 | Predictions under conservative fm assumptions | Not a patient-validated true value |
+| [Original Tables 2 and 3](https://doi.org/10.1002/psp4.70327) ([3](#ref-3)) | Sensitivity to calibration-group ratios and conditional PBPK predictions | Separate first dose from Day 29 and calibration from prediction |
 
 例えばrevumenibのラベル行のAUC生比は1.74だが、用量を補正すると2.94になる。ziftomenibのラベル行のAUC比は2.39である。いずれも今回の計算結果だが、同一患者・同じ投与条件でazoleの有無だけを変えたDDI比ではない。用量補正は群間の患者背景や投与履歴の違いを消さない。[REVUFORJ Table9](https://dailymed.nlm.nih.gov/dailymed/lookup.cfm?setid=6eb3cdbc-0e74-477d-82d6-3bb172d3f63f&version=5) ([1](#ref-1))、[FDA ziftomenib review p133](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/220305Orig1s000MultidisciplineR.pdf) ([4](#ref-4))
 
@@ -50,7 +50,7 @@ S/Oと予測倍率から元の参照群比を逆算すると、AUCは約2.25–2
 
 **表2　許容幅による共同整合性の感度**
 
-| 予測／参照比の許容幅 | AUCとCmaxが共同通過した公表条件数 |
+| Simulated/reference tolerance | Published conditions passing both AUC and Cmax |
 | --- | ---: |
 | 0.80–1.25 | 0/7 |
 | 1/1.5–1.5 | 3/7 |
@@ -64,10 +64,10 @@ S/Oと予測倍率から元の参照群比を逆算すると、AUCは約2.25–2
 
 **表3　借用倍率とziftomenibの条件付きベンチマーク**
 
-| 指標 | 借用値 | Ziftomenibの条件付きベンチマーク | 借用値の不一致 |
+| Endpoint | Borrowed value | Conditional ziftomenib benchmark | Discrepancy |
 | --- | ---: | ---: | ---: |
-| AUC倍率 | 2.0 | 2.6 | −23.1% |
-| Cmax倍率 | 2.0 | 1.7 | +17.6% |
+| AUC ratio | 2.0 | 2.6 | −23.1% |
+| Cmax ratio | 2.0 | 1.7 | +17.6% |
 
 計算は $100(R_{borrowed}/R_{benchmark}-1)$。Ziftomenib 600 mg QD、itraconazole 200 mg QDの推定条件に対する不一致であり、患者での予測誤差ではない。[FDA ziftomenib Table66 / printed p. 312](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/220305Orig1s000MultidisciplineR.pdf) ([4](#ref-4))
 

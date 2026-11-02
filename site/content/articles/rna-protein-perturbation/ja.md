@@ -85,14 +85,14 @@ Frangiehらは、患者由来の1つのメラノーマ細胞モデルでCRISPR�
 
 **表1　ノックアウトした遺伝子自身のmRNAとタンパク質の変化（3条件の平均）**
 
-| ノックアウトした遺伝子 | mRNAの変化（3条件の平均） | タンパク質の変化（3条件の平均） |
+| Knocked-out gene | mRNA change (mean of 3 conditions) | Protein change (mean of 3 conditions) |
 | --- | ---: | ---: |
-| CD274（PD-L1） | −0.03 | −1.02 |
+| CD274 (PD-L1) | −0.03 | −1.02 |
 | CD58 | −0.10 | −0.87 |
 | CD47 | −0.26 | −1.09 |
 | CD44 | −0.26 | −0.75 |
 | CD59 | −0.22 | −0.52 |
-| IFNGR1（CD119） | −0.19 | −0.50 |
+| IFNGR1 (CD119) | −0.19 | −0.50 |
 | HLA-A | −0.33 | −0.09 |
 | HLA-E | −0.56 | −0.12 |
 
@@ -132,14 +132,14 @@ CXCR4とKDRは、RNAもタンパク質もほとんど変わらなかった。KDR
 
 **表2　間接の効果の主解析**
 
-| 指標（主解析、13,251組） | 値 |
+| Metric (main analysis, 13,251 pairs) | Value |
 | --- | ---: |
-| RNAとタンパク質の変化の相関 | 0.26 |
-| 半分どうしの信頼性（RNA／タンパク質、全細胞に換算） | 0.62／0.64 |
-| 減衰を補正した相関 | 0.42 |
-| タンパク質が大きく変わった組（ノイズの3倍以上） | 576組 |
-| そのうちmRNAの変化の向きが一致した割合（偶然なら50%） | 67% |
-| タンパク質が大きく変わった組だけでの相関 | 0.49 |
+| Correlation between RNA and protein changes | 0.26 |
+| Split-half reliability (RNA/protein, converted to all cells) | 0.62/0.64 |
+| Correlation corrected for attenuation | 0.42 |
+| Pairs with a large protein change (at least 3 × noise) | 576 pairs |
+| Of these, proportion with the same direction of mRNA change (50% by chance) | 67% |
+| Correlation among pairs with a large protein change | 0.49 |
 
 注：向きが一致した組は387/576である。出所：`results/indirect-summary.csv`。「偶然なら50%」は、両指標の符号が独立で正負の周辺比率が釣り合う場合の比較値にすぎず、実データの帰無分布を推定したものではない。
 
@@ -156,13 +156,13 @@ CXCR4とKDRは、RNAもタンパク質もほとんど変わらなかった。KDR
 
 **表3　感度解析での補正した相関**
 
-| 設定 | 補正した相関 |
+| Setting | Corrected correlation |
 | --- | ---: |
-| 主解析（CLR、全細胞） | 0.42 |
-| ガイドRNAが1つ以下の細胞に限る（対照にはガイド未検出の細胞を含む） | 0.40 |
-| タンパク質を総ADTで割る正規化 | 0.44 |
-| タンパク質をRNAの総カウントで割る正規化（事後） | 0.48 |
-| 背景を超える14種のタンパク質に限る（事後） | 0.52 |
+| Main analysis (CLR, all cells) | 0.42 |
+| Cells with 1 or fewer guide RNAs (control includes cells with no detected guide) | 0.40 |
+| Protein normalized by total ADT | 0.44 |
+| Protein normalized by total RNA counts (post hoc) | 0.48 |
+| Restricted to the 14 proteins above background (post hoc) | 0.52 |
 
 注：「背景を超える」は、タンパク質の平均がアイソタイプ対照の平均を超えることを指す。出所：`results/indirect-summary.csv`。
 

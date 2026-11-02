@@ -18,11 +18,11 @@ TROP2を標的とするdatopotamab deruxtecan（Dato-DXd）を例に、公開Pop
 
 **表1　解析の問いと使用範囲**
 
-| 項目 | 定義 |
+| Item | Definition |
 | --- | --- |
-| QOI | 総投与量と比較期間を揃えて投与を小分けにすると、ADC本体と遊離DXdのAUC、平均濃度、ピーク、投与前濃度はどう変わるか。経験的なDXd生成項を別の投与間隔へ持ち込む仮定で、解釈はどれだけ変わるか。 |
-| COU | 別の投与間隔を研究する際、揃えるべき曝露指標と、追加検証が必要なモデル仮定を整理する。用量選択、個人の治療変更、有効性・毒性の最適化には単独で使わない。 |
-| 解析の種類 | 推定済み固定効果による条件付きシミュレーション。新規推定、患者別再解析、患者集団でのリスク予測は行わない。 |
+| QOI | With equal total input and comparison periods, how do fractionated schedules change intact-ADC and released-DXd AUC, means, peaks and predose concentrations? How does extrapolating an empirical formation term affect interpretation? |
+| COU | Research comparison of exposure metrics and model assumptions requiring verification for different intervals. Results alone do not select doses, change treatment or optimize efficacy/toxicity. |
+| Analysis | Conditional simulations with estimated fixed effects, without new estimation, individual-patient reanalysis or population-risk prediction. |
 
 誤った外挿をすると、ある濃度指標の低下を安全性改善と取り違えるおそれがある。そのため、共通の比較期間、量の収支、単位、生成項の意味を先に確認する。
 
@@ -30,13 +30,13 @@ TROP2を標的とするdatopotamab deruxtecan（Dato-DXd）を例に、公開Pop
 
 **表2　公表資料と使用範囲**
 
-| 資料 | 取得したもの | 使用範囲 |
+| Source | Information obtained | Use |
 | --- | --- | --- |
-| Hongらの2025年PopPK原著 ([1](#ref-1)) | [Tables 1–2, Equations 8–15 and Figure 4](https://doi.org/10.1002/psp4.70118)の推定値・90% CI・共変量効果 | 構造・共変量式と、同じモデル内での数値整合 |
-| 同論文の補足NONMEMコード | hour/day変換、生成係数、分子量換算 | Pythonへ独立に実装。原本コードは配布しない |
-| [原著Supplementary Table S1](https://doi.org/10.1002/psp4.70118) | 初回90分、その後30分の点滴 | 投与イベントの定義 |
-| 2026年NSCLC E–R原著 ([2](#ref-2)) | 各臨床評価に使った曝露指標、その限界 | 新しい投与間隔に毒性・奏効率を直接外挿しない理由の確認 |
-| 製品情報 ([3](#ref-3)) | 基準の6 mg/kg・3週間隔と体重による上限 | 本記事の基準条件と臨床レジメンの区別 |
+| Hong et al. 2025 PopPK paper ([1](#ref-1)) | Estimates, 90% CIs and covariates in [Tables 1–2, Equations 8–15 and Figure 4](https://doi.org/10.1002/psp4.70118) | Structural/covariate equations and numerical consistency within the model |
+| Supplementary NONMEM code | Hour/day conversion, formation factors and molecular weights | Independent Python implementation; original code is not redistributed |
+| [Original Supplementary Table S1](https://doi.org/10.1002/psp4.70118) | First infusion 90 minutes, subsequent infusions 30 minutes | Dose-event definitions |
+| 2026 NSCLC E–R paper ([2](#ref-2)) | Endpoint-specific exposure definitions and limitations | Why outcomes are not directly extrapolated to new intervals |
+| Prescribing information ([3](#ref-3)) | Reference 6 mg/kg every three weeks and weight-based cap | Distinguish the reference from hypothetical regimens |
 
 PopPK原著は729例、ADC本体9,036点、DXd 9,012点を用いている ([1](#ref-1))。本記事が取得したのは公表モデルと集計結果であり、この患者別測定値ではない。元の患者背景の同時分布も再現していない。モデル開発データの投与間隔は全て3週間隔であり、今回の14日・7日間隔は投与間隔について開発範囲外である（[原著Supplementary Table S1](https://doi.org/10.1002/psp4.70118)）。
 
@@ -50,18 +50,18 @@ PopPK原著は729例、ADC本体9,036点、DXd 9,012点を用いている ([1](#
 
 **表3　モデルパラメータと実装単位**
 
-| パラメータ | 採用値 | 単位 |
+| Parameter | Value | Unit |
 | --- | ---: | --- |
-| ADCの線形CL | 0.386 / 24 | L/h |
-| ADCの中央・末梢容積 | 3.06、2.88 | L |
-| ADCのQ | 0.422 / 24 | L/h |
-| 非線形消失Vmax | 8,410 / 24 | µg/h |
+| ADC linear CL | 0.386 / 24 | L/h |
+| ADC central and peripheral volumes | 3.06, 2.88 | L |
+| ADC Q | 0.422 / 24 | L/h |
+| Nonlinear elimination Vmax | 8,410 / 24 | µg/h |
 | Km | 4,490 | ng/mL |
-| DXdのCL | 2.66 | L/h |
-| DXdの容積 | 25.1 | L |
-| 2回目以降の生成係数 | 0.696 | 無次元 |
-| 生成係数の減衰β | 0.259 | h⁻¹、補足コードの時間尺度 |
-| α、初期payload:intact比 | 0.25、4 | 無次元 |
+| DXd CL | 2.66 | L/h |
+| DXd volume | 25.1 | L |
+| Formation factor from dose 2 onward | 0.696 | Dimensionless |
+| Formation-factor decay β | 0.259 | h⁻¹, supplementary-code time scale |
+| α and initial payload:intact ratio | 0.25, 4 | Dimensionless |
 
 基準背景は66 kg、男性、62歳、albumin 38 g/L、腫瘍径合計66 mm、AST 22 U/L、総bilirubin 0.4 mg/dL、地域USとした。個体間変動ηは0である。これは試験集団の平均的な曲線ではない。主解析は体重90 kg未満なので、臨床の540 mg上限は作用しない。
 
@@ -109,11 +109,11 @@ CL_{DXd}\propto(WT/66)^{0.298}(ALB/38)^{0.343}
 
 **表4　84日未満の投与と総量**
 
-| 比較条件 | 84日未満の投与回数 | 総投与量 |
+| Schedule | Doses before day 84 | Total dose |
 | --- | ---: | ---: |
-| 6 mg/kg・21日間隔 | 4回 | 24 mg/kg |
-| 4 mg/kg・14日間隔 | 6回 | 24 mg/kg |
-| 2 mg/kg・7日間隔 | 12回 | 24 mg/kg |
+| 6 mg/kg every 21 days | 4 | 24 mg/kg |
+| 4 mg/kg every 14 days | 6 | 24 mg/kg |
+| 2 mg/kg every 7 days | 12 | 24 mg/kg |
 
 84日時点の次の投与は含めず、その直前で評価する。66 kgでは、どの条件も総量1,584 mgとなる。比較はAUC₀–₈₄と、共通の42–84日間の平均濃度・ピーク、84日投与前濃度とした。42–84日は後半の比較区間であり、厳密な定常状態を証明した区間ではない。
 
@@ -125,7 +125,7 @@ CL_{DXd}\propto(WT/66)^{0.298}(ALB/38)^{0.343}
 
 **表5　後半曝露と84日投与前濃度の比**
 
-| 比較条件 | ADC平均42–84日 | DXd平均42–84日 | ADCピーク42–84日 | DXdピーク42–84日 | ADC投与前84日 | DXd投与前84日 |
+| Schedule | ADC mean days 42–84 | DXd mean days 42–84 | ADC peak days 42–84 | DXd peak days 42–84 | ADC predose day 84 | DXd predose day 84 |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | 6 mg/kg q21d | 1.000 | 1.000 | 1.000 | 1.000 | 1.000 | 1.000 |
 | 4 mg/kg q14d | 0.972 | 1.004 | 0.705 | 0.770 | 1.715 | 1.384 |
@@ -135,7 +135,7 @@ CL_{DXd}\propto(WT/66)^{0.298}(ALB/38)^{0.343}
 
 **表6　84日までの累積AUC比**
 
-| 条件 | ADC AUC₀–₈₄比 | DXd AUC₀–₈₄比 |
+| Schedule | ADC AUC₀–₈₄ ratio | DXd AUC₀–₈₄ ratio |
 | --- | ---: | ---: |
 | 6 mg/kg q21d | 1.000 | 1.000 |
 | 4 mg/kg q14d | 0.950 | 0.955 |
@@ -170,7 +170,7 @@ D_{total}=CL\,AUC_{0-84}+M_{nonlinear,0-84}
 
 **表7　有限期間ADC AUC差の構成成分**
 
-| 条件 | ADC AUC₀–₈₄の差 | 非線形消失量の差による成分 | 84日残量の差による成分 |
+| Schedule | ADC AUC₀–₈₄ difference | Nonlinear-elimination component | Remaining-mass component |
 | --- | ---: | ---: | ---: |
 | 6 mg/kg q21d | 0.0 | -0.0 | -0.0 |
 | 4 mg/kg q14d | -126.3 | -53.8 | -72.5 |
@@ -201,7 +201,7 @@ R_{DXd}^{cohort}(t)=
 
 **表8　生成時刻の扱いによる後半DXd曝露比**
 
-| 条件 | DXd平均比：公表式の更新 | DXd平均比：投与由来別 | DXdピーク比：公表式の更新 | DXdピーク比：投与由来別 |
+| Schedule | DXd mean, published reset | DXd mean, dose-specific | DXd peak, published reset | DXd peak, dose-specific |
 | --- | ---: | ---: | ---: | ---: |
 | 6 mg/kg q21d | 1.000 | 1.000 | 1.000 | 1.000 |
 | 4 mg/kg q14d | 1.004 | 1.000 | 0.770 | 0.750 |
@@ -217,12 +217,12 @@ R_{DXd}^{cohort}(t)=
 
 **表9　数値実装と原著結果の照合**
 
-| 確認 | 結果 |
+| Check | Result |
 | --- | --- |
-| hourとdayで同じ式を解く | 主要指標の最大相対差6.3e-11 |
-| 積分精度・最大刻み幅を変更 | 主要指標の最大相対差2.3e-10 |
-| ADCとpayloadの量の収支 | 最大相対差3e-15 |
-| [原著Figure 4](https://doi.org/10.1002/psp4.70118)の体重・albumin両端の4条件との照合 | 相対効果の最大差はADC0.51%、DXd3.23% |
+| Solve equivalent hour/day equations | Maximum metric relative difference 6.3e-11 |
+| Change integration precision and maximum step | Maximum metric relative difference 2.3e-10 |
+| ADC and payload mass accounting | Maximum relative difference 3e-15 |
+| Four weight/albumin-endpoint conditions in [original Figure 4](https://doi.org/10.1002/psp4.70118) | Maximum relative-effect discrepancies: ADC 0.51%, DXd 3.23% |
 
 [原著Figure 4](https://doi.org/10.1002/psp4.70118)の値は、固定効果の分散共分散から抽出したパラメータによる予測の中央値であり、今回の単一固定効果の計算と厳密に同じ対象ではない。この照合は公表モデルとの実装上の整合性確認であって、患者濃度を用いた独立の外部検証ではない。
 
@@ -230,10 +230,10 @@ R_{DXd}^{cohort}(t)=
 
 **表10　固定効果を一つずつ変えた曝露比の範囲**
 
-| 条件 | ADC平均比42–84日の範囲 | DXd平均比42–84日の範囲 | DXdピーク比42–84日の範囲 |
+| Schedule | ADC mean ratio, days 42–84 | DXd mean ratio, days 42–84 | DXd peak ratio, days 42–84 |
 | --- | --- | --- | --- |
-| 4 mg/kg q14d | 0.955〜0.981 | 1.004〜1.005 | 0.763〜0.780 |
-| 2 mg/kg q7d | 0.910〜0.962 | 1.024〜1.028 | 0.552〜0.587 |
+| 4 mg/kg q14d | 0.955–0.981 | 1.004–1.005 | 0.763–0.780 |
+| 2 mg/kg q7d | 0.910–0.962 | 1.024–1.028 | 0.552–0.587 |
 
 公表式の投与ごとの更新を使う、1パラメータずつの感度解析。外挿規則を変更した不確実性は、この範囲には含まれない。
 

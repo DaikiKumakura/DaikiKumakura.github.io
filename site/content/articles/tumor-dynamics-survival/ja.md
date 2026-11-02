@@ -18,15 +18,15 @@ frailtypack 3.8.1に収録された `colorectal` と `colorectalLongi` は、転
 
 <span id="table-1"></span>表1．データの整合性と解析上の扱い
 
-| 確認項目 | 確認結果と解析上の扱い |
+| Audit item | Finding and consequence |
 | --- | --- |
-| 参加者 | 150人。縦断計測906件、生存・反復イベント区間289件 |
-| 終末イベント | 除外前に死亡121人、右打切り29人 |
-| 記録の対応 | ファイル間で参加者IDと保存された臨床区分が一致 |
-| 時間の不整合 | 死亡記録より後の計測が1件あり、主解析では当該参加者を除外 |
-| 腫瘍値の尺度 | Box–Cox変換済み。lambdaは0.3、下限で打ち切られた計測が34件 |
-| 評価項目 | 全生存期間。新病変の記録を、定義が確認された無増悪生存期間として扱わない |
-| 年齢区分 | 保存された60歳未満、60–69歳、69歳超を使用。パッケージ説明との不一致は残す |
+| Participants | 150, with 906 longitudinal measurements and 289 survival/recurrent-event intervals |
+| Terminal outcome | 121 deaths and 29 right-censored participants before exclusions |
+| Record linkage | Participant IDs and stored clinical categories agreed across files |
+| Time inconsistency | One measurement followed recorded death; exclude the affected participant in the primary analysis |
+| Tumor scale | Box–Cox transformed, lambda 0.3; 34 measurements at a censoring floor |
+| Endpoint | Overall survival; new-lesion records are not a qualified PFS definition |
+| Age dictionary | Use stored <60, 60–69 and >69 years; preserve the discrepancy with the package help file |
 
 時間の不整合も年齢区分も、黙って修正しなかった。感度分析では、時間が不整合な計測だけを除き、当該参加者は残した。配布する付属資料に患者単位の記録は含めず、取得・書出しスクリプトで公式配布元から取得する。ソフトウェアのライセンスだけで、元の臨床データの利用権すべてが確認できるわけではない。
 
@@ -38,10 +38,10 @@ frailtypack 3.8.1に収録された `colorectal` と `colorectalLongi` は、転
 
 <span id="table-2"></span>表2．ランドマーク時点で利用できる予測因子
 
-| モデル | 予測因子 |
+| Model | Predictors available by the landmark |
 | --- | --- |
-| 臨床因子モデル | 治療群、年齢区分の二つの指示変数、WHO status ≥1、切除歴、変換後のベースライン腫瘍量 |
-| 臨床因子＋早期変化モデル | 臨床因子に加え、最後の早期腫瘍値からベースライン値を引いた差と、その計測時点 |
+| Clinical | Treatment arm, two age-category indicators, WHO status ≥1, previous resection, baseline transformed tumor burden |
+| Clinical + early change | Clinical predictors plus last early tumor value minus baseline and the time of that measurement |
 
 同じ変化量でも、早期の計測と16週に近い計測では観察窓が異なるため、計測時点も予測因子にした。拡張モデルは観測された特徴量を使うモデルであり、機序的な腫瘍増殖抑制モデルではない。少数の早期計測だけでは、個人ごとの増殖率と殺細胞率の推定は正当化できない。
 
@@ -71,11 +71,11 @@ frailtypack 3.8.1に収録された `colorectal` と `colorectalLongi` は、転
 
 <span id="table-3"></span>表3．主解析の未使用患者での予測性能
 
-| 指標 | 臨床因子 | 臨床因子＋早期変化 |
+| Primary result | Clinical | Clinical + early change |
 | --- | ---: | ---: |
-| Concordance | 0.532 | 0.581 |
-| 1年IPCW Brier score（小さい方が良い） | 0.2543 | 0.2492 |
-| 較正傾き | 0.266 | 0.464 |
+| Held-out concordance | 0.532 | 0.581 |
+| One-year IPCW Brier score, lower is better | 0.2543 | 0.2492 |
+| Held-out calibration slope | 0.266 | 0.464 |
 
 Concordanceの差は+0.049で、条件付き95%区間は−0.005から+0.106だった。Brier scoreの差は−0.0051、区間は−0.0272から+0.0172だった。どちらの区間も0を含んだ。拡張モデルの較正傾きは0.464（0.081–0.847）であり、1をかなり下回る傾きは、未使用患者のリスク差を強く予測しすぎている可能性を示す。
 
@@ -91,12 +91,12 @@ Concordanceの差は+0.049で、条件付き95%区間は−0.005から+0.106だ�
 
 <span id="table-4"></span>表4．ランドマークと整合性の感度分析
 
-| 条件 | 人数／死亡数 | 臨床因子C | 拡張C | 臨床因子Brier | 拡張Brier |
+| Landmark or integrity sensitivity | Participants / deaths | Clinical C | Extended C | Clinical Brier | Extended Brier |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| 12週 | 116 / 91 | 0.551 | 0.588 | 0.2531 | 0.2469 |
-| 16週の主解析 | 128 / 101 | 0.532 | 0.581 | 0.2543 | 0.2492 |
-| 24週 | 123 / 97 | 0.514 | 0.550 | 0.2479 | 0.2308 |
-| 16週で参加者を残し不整合な行だけ除外 | 129 / 102 | 0.531 | 0.572 | 0.2542 | 0.2485 |
+| Week 12 | 116 / 91 | 0.551 | 0.588 | 0.2531 | 0.2469 |
+| Week 16, primary | 128 / 101 | 0.532 | 0.581 | 0.2543 | 0.2492 |
+| Week 24 | 123 / 97 | 0.514 | 0.550 | 0.2479 | 0.2308 |
+| Week 16, retain participant but drop inconsistent row | 129 / 102 | 0.531 | 0.572 | 0.2542 | 0.2485 |
 
 ランドマークを変えると、適格性と利用可能な情報が変わる。24週の結果は、計測を遅くまで待つ方が臨床方針として優れる証拠ではない。下限値の感度分析では、主解析と同じ分割を使い、拡張モデルのBrier scoreの変化は0.000001未満だった。この小ささは今回の限定した数値上の仮定に対する結果であり、選択バイアスを除いたり、腫瘍尺度を検証したりするものではない。
 

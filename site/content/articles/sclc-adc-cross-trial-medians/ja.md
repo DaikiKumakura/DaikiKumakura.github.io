@@ -16,13 +16,13 @@
 
 **表1．指定投稿の五つの標的に対応する二次治療の報告値。期間の単位は月で、括弧内は95%信頼区間。**
 
-| 標的と薬剤 | 二次治療の人数 | PFS中央値 | OS中央値 | 資料 |
+| Target and drug | Second-line patients | Median PFS | Median OS | Report |
 | --- | ---: | --- | --- | --- |
-| B7-H3：ifinatamab deruxtecan | 32 | 5.6 (3.9–8.1) | 12.0 (7.3–19.1) | IDeate-Lung01、12 mg/kg ([4](#ref-4)) |
-| SEZ6：ABBV-706 | 17 | 6.77 (4.01–12.45) | 14.26 (7.75–NE) | 第I相、1.8 mg/kg ([5](#ref-5)) |
-| TROP2：sacituzumab govitecan | 43 | 4.40 (3.81–6.11) | 13.60 (6.57–14.78) | TROPiCS-03 ([6](#ref-6)) |
-| EGFR/HER3：izalontamab brengitecan | 22 | 6.2 (3.7–8.2) | 15.0 (8.7–NR) | 第Ib相 ([7](#ref-7)) |
-| DLL3：IDE849（SHR-4849） | 51 | 6.9 (5.5–8.3) | 17.4 (9.9–NR) | 2026年10月23日公表、1.8 mg/kg以上 ([8](#ref-8)) |
+| B7-H3: ifinatamab deruxtecan | 32 | 5.6 (3.9–8.1) | 12.0 (7.3–19.1) | IDeate-Lung01, 12 mg/kg ([4](#ref-4)) |
+| SEZ6: ABBV-706 | 17 | 6.77 (4.01–12.45) | 14.26 (7.75–NE) | Phase 1, 1.8 mg/kg ([5](#ref-5)) |
+| TROP2: sacituzumab govitecan | 43 | 4.40 (3.81–6.11) | 13.60 (6.57–14.78) | TROPiCS-03 ([6](#ref-6)) |
+| EGFR/HER3: izalontamab brengitecan | 22 | 6.2 (3.7–8.2) | 15.0 (8.7–NR) | Phase Ib ([7](#ref-7)) |
+| DLL3: IDE849 (SHR-4849) | 51 | 6.9 (5.5–8.3) | 17.4 (9.9–NR) | October 23, 2026 disclosure, doses ≥1.8 mg/kg ([8](#ref-8)) |
 
 NEは推定不能、NRは未到達という原資料の表記を保った。PFSはifinatamab deruxtecanでは盲検独立中央判定、ABBV-706とTROPiCS-03の採用値では治験担当医判定である。表の95%信頼区間は各中央値の推定不確実性を表し、薬剤間の差の信頼区間ではない。EGFRはepidermal growth factor receptor、HER3はhuman epidermal growth factor receptor 3。
 
@@ -36,12 +36,12 @@ ifinatamab deruxtecanの二次治療値は[原著Table 4](https://pmc.ncbi.nlm.n
 
 **表2．同じ報告内の混合集団と二次治療部分集団。期間の単位は月。**
 
-| 薬剤 | 混合集団 → 二次治療の人数 | PFS中央値の対応 | OS中央値の対応 |
+| Drug | Mixed-line → second-line patients | Median PFS | Median OS |
 | --- | --- | --- | --- |
-| ifinatamab deruxtecan | 137 → 32 | 4.9 → 5.6 | 10.3 → 12.0 |
-| ABBV-706（1.8 mg/kg） | 41 → 17 | 6.44 → 6.77 | 12.42 → 14.26 |
-| izalontamab brengitecan | 52 → 22 | 4.1 → 6.2 | 12.2 → 15.0 |
-| IDE849 | 公表値の全既治療SCLC 101 → 51 | 6.8 → 6.9 | 14.7 → 17.4 |
+| Ifinatamab deruxtecan | 137 → 32 | 4.9 → 5.6 | 10.3 → 12.0 |
+| ABBV-706 (1.8 mg/kg) | 41 → 17 | 6.44 → 6.77 | 12.42 → 14.26 |
+| Izalontamab brengitecan | 52 → 22 | 4.1 → 6.2 | 12.2 → 15.0 |
+| IDE849 | Disclosed all previously treated SCLC 101 → 51 | 6.8 → 6.9 | 14.7 → 17.4 |
 
 各行の入力は表1と同じ資料に由来する ([4](#ref-4), [5](#ref-5), [7](#ref-7), [8](#ref-8))。IDE849の公表資料にはSCLC登録103例、奏効評価101例、全体の生存イベントの分母102例という異なる人数もある。表2は公表された中央値の集団表記を保存し、これらの解析集団が完全に同一だったとは仮定しない。
 

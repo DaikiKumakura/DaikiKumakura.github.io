@@ -48,11 +48,11 @@ I_k=\frac{A^2}{\sigma^2}\sum_r t_r^2\exp(-2kt_r)
 
 **表1　測定時点の配置と局所情報**
 
-| 10測定の配置 | 情報行列の階数 | 振幅の不確実性を考慮したlog kの局所情報 |
+| Allocation of ten measurements | Information matrix rank | Local information about log k accounting for uncertain amplitude |
 |---|---:|---:|
-| 全て時刻0 | 1 | 0 |
-| 全て時刻1 | 1 | 0 |
-| 時刻0に5、時刻1に5 | 2 | 59.60 |
+| All at time zero | 1 | 0 |
+| All at time one | 1 | 0 |
+| Five at time zero and five at time one | 2 | 59.60 |
 
 出力：`results/designs.csv`。振幅を固定した条件付き情報と、振幅を未知として扱う情報を混同しないことが重要だ。二時点ならこの例では局所的に分離できるが、実データで十分に精密に推定できるかは別途確認する必要がある。
 
@@ -64,13 +64,13 @@ I_k=\frac{A^2}{\sigma^2}\sum_r t_r^2\exp(-2kt_r)
 
 **表2　摂動予測研究の比較対象**
 
-| 一次資料 | 公開時期・状態 | この記事で注目する点 |
+| Primary source | Release and status | Point examined here |
 |---|---|---|
-| Ahlmann-Eltze et al. ([3](#ref-3)) | 2025年8月、査読済み | 検討した設定で単純な線形ベースラインの強さを示した。全ての将来モデルへの結論ではない |
-| Systema ([4](#ref-4)) | 2025年8月オンライン公開、査読済み | 摂動に共通する変動と、標的に特異的な応答を区別して評価する |
-| Wei et al. ([5](#ref-5)) | 2025年12月オンライン公開、査読済み | 27手法・29データセット・6指標の比較。未知の摂動と未知の背景は分けて読む |
-| Miller et al. ([6](#ref-6)) | 2026年10月1日、査読済み | 14データセット・18指標を調べ、陽性対照で指標の感度を点検。一定の設定で深層モデルの改善を検出 |
-| AmbiModBench ([7](#ref-7)) | 2026年9月26日、プレプリント | 学習平均との比較、遺伝子座標の入れ替え、表現空間のカバレッジから、スコアが何を表すかを調べる |
+| Ahlmann-Eltze et al. ([3](#ref-3)) | August 2025; peer-reviewed | Strong simple linear baselines in the examined settings, rather than a conclusion about all future models |
+| Systema ([4](#ref-4)) | Online August 2025; peer-reviewed | Separate evaluation of shared perturbation variation and target-specific responses |
+| Wei et al. ([5](#ref-5)) | Online December 2025; peer-reviewed | Comparison of 27 methods, 29 datasets and six metrics; unseen perturbations and unseen backgrounds require separate interpretation |
+| Miller et al. ([6](#ref-6)) | October 1, 2026; peer-reviewed | Fourteen datasets and 18 metrics; positive controls test metric sensitivity and detect deep-model improvements in some settings |
+| AmbiModBench ([7](#ref-7)) | September 26, 2026; preprint | Training-mean comparisons, gene-coordinate permutation and representation-space coverage probe what a score measures |
 
 Millerらの論文は特に重要だ。同じ摂動の細胞を二分したtechnical duplicateと、弱い応答を平均値へ寄せるinterpolated duplicateを用い、陽性・陰性対照の差を指標がどれだけ拾うかを調べた。前者は有限細胞から作る推定なので、弱い信号では平均ベースラインよりばらつくこともある。真の条件付き平均を知る仮想的な予測器とは違い、独立した生物学的実験の再現性を保証するものでもない。
 
@@ -82,7 +82,7 @@ Millerらの論文は特に重要だ。同じ摂動の細胞を二分したtechn
 
 **表3　評価遺伝子数と期待MSE**
 
-| 評価遺伝子数 | 変化なし予測の期待MSE | 真の平均を知る予測の期待MSE | 差 |
+| Evaluated genes | Expected MSE predicting no change | Expected MSE knowing the true mean | Difference |
 |---:|---:|---:|---:|
 | 100 | 1.100 | 1.000 | 0.100 |
 | 1,000 | 1.010 | 1.000 | 0.010 |

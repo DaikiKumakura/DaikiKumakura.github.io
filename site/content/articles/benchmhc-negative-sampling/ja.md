@@ -46,12 +46,12 @@ a=P(Z=1\mid Y=1),\qquad b=P(Z=1\mid Y=0)
 
 表1. 配列一致だけをスコアにしたときの理論ROC-AUC
 
-| 条件 | 正例の一致率 \(a\) | decoyの一致率 \(b\) | ROC-AUC |
+| Condition | Positive matching probability \(a\) | Decoy matching probability \(b\) | ROC-AUC |
 | --- | ---: | ---: | ---: |
-| 報告範囲の下端を使用 | 0.86 | 0.12 | 0.870 |
-| 報告範囲の上端を使用 | 0.99 | 0.12 | 0.935 |
-| 一致率を揃える仮想対照 | 0.86 | 0.86 | 0.500 |
-| 両方とも必ず一致する仮想対照 | 1.00 | 1.00 | 0.500 |
+| Lower end of reported range | 0.86 | 0.12 | 0.870 |
+| Upper end of reported range | 0.99 | 0.12 | 0.935 |
+| Hypothetical matched distributions | 0.86 | 0.86 | 0.500 |
+| Hypothetical universal matches | 1.00 | 1.00 | 0.500 |
 
 0.870–0.935という値は、モデルがMHCによる選別を学んだ結果ではない。ラベル間の配列一致率の差だけで生じた。この例なら「高いAUCだった」という説明から結合の学習を逆算できないことが、式で分かる。
 

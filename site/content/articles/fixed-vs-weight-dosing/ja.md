@@ -75,7 +75,7 @@ Pembrolizumabとnivolumabの公表母集団PKを一般成人の体重分布へ�
 
 **表1　下限を下回る割合（%）**
 
-| 体重 | 2 mg/kg Q3W | 200 mg Q3W | 400 mg Q6W | 3 mg/kg Q2W | 240 mg Q2W | 480 mg Q4W |
+| Weight | 2 mg/kg Q3W | 200 mg Q3W | 400 mg Q6W | 3 mg/kg Q2W | 240 mg Q2W | 480 mg Q4W |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | <50 kg | 6.9 | 0.2 | 3.5 | 7.4 | 0.7 | 3.5 |
 | 50–60 kg | 6.1 | 0.6 | 6.0 | 6.9 | 1.7 | 6.8 |
@@ -116,16 +116,16 @@ Pembrolizumabとnivolumabの公表母集団PKを一般成人の体重分布へ�
 
 **表2　150 kg以上で下限を下回る割合**
 
-| 条件 | pembrolizumab 200 mg、≥150 kg | nivolumab 240 mg、≥150 kg |
+| Condition | pembrolizumab 200 mg, ≥150 kg | nivolumab 240 mg, ≥150 kg |
 | --- | ---: | ---: |
-| 主解析 | 13.3% | 18.5% |
-| 脚注の値（CL 0.202、指数0.578） | 12.9% | — |
-| 体重の指数を95% CIの下端 | 9.2% | 13.3% |
-| 体重の指数を95% CIの上端 | 14.4% | 24.4% |
-| アジア人の体重分布 | 20.6% | 20.6% |
-| 性を無視 | 10.7% | 18.8% |
-| 低アルブミン（pembrolizumab） | 12.5% | — |
-| 時間変化CLを無視（nivolumab） | — | 24.7% |
+| Main analysis | 13.3% | 18.5% |
+| Footnote values (CL 0.202, exponent 0.578) | 12.9% | — |
+| Weight exponent at the lower end of its 95% CI | 9.2% | 13.3% |
+| Weight exponent at the upper end of its 95% CI | 14.4% | 24.4% |
+| Asian weight distribution | 20.6% | 20.6% |
+| Ignoring sex | 10.7% | 18.8% |
+| Low albumin (pembrolizumab) | 12.5% | — |
+| Ignoring time-varying CL (nivolumab) | — | 24.7% |
 
 - **重い側の判定：** pembrolizumabは、体重の指数をCIの下端に置いた条件だけで10%を下回った。nivolumabは、すべての条件で10%を超えた。
 - **体重換算の方式：** すべての条件・帯で判定を満たした。

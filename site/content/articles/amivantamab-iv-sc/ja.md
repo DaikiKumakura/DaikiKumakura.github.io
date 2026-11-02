@@ -12,11 +12,11 @@ EGFRとMETを標的とする二重特異性抗体アミバンタマブでは、P
 
 **表1．** 問いと使用範囲。
 
-| 項目 | 定義 |
+| Item | Definition |
 | --- | --- |
-| QOI | PALOMA-3の投与日程と公開構造モデルを使った場合、SC/IVのAUC比とトラフ比はどう異なるか。単純なF補正、吸収速度、患者背景のどこが比較に影響するか。 |
-| COU | 投与経路のPKブリッジングを検討する研究で、必要な曝露指標と公開情報から再現できる範囲を整理する。患者への投与法や新しいSC用量を決めるためには使わない。 |
-| 解析の種類 | 推定済みパラメータによるODEの数値計算。新規パラメータ推定、患者別NLME再解析、臨床試験の再解析は行わない。 |
+| Question | How do SC/IV AUC and trough ratios differ under the PALOMA-3 schedule and public model? How do F correction, absorption and covariates affect comparison? |
+| Intended use | Research interpretation of PK bridging and reproducible public-model endpoints, not individual administration or selection of a new SC dose |
+| Analysis | ODE calculation with estimated parameters; no new fitting, individual NLME or trial reanalysis |
 
 本記事のモデルの役割は、既存のブリッジング結果を説明することにある。計算が誤っていた場合、吸収や投与日程の重要性を誤認するおそれがあるため、単位、投与イベント、質量収支、数値積分精度を確認する。臨床判断に単独で影響させる位置付けではない。
 
@@ -24,12 +24,12 @@ EGFRとMETを標的とする二重特異性抗体アミバンタマブでは、P
 
 **表2．** 公開資料と利用範囲。
 
-| 公開資料 | 取得した情報 | 注意点 |
+| Source | Information used | Limitation |
 | --- | --- | --- |
-| PALOMA-3原著 ([1](#ref-1)) | 観測PK指標、SC/IVの幾何平均比（GMR）と90% CI | 投与開始から異なる経路を比較した試験。既にIVを受けた個人をSCへ切り替える解析ではない。 |
-| EMA/61503/2025、pp.28–31、39、48–49 ([2](#ref-2)) | 構造、最終パラメータ、共変量式、試験日程、モデル診断 | 本文が指すTable 3ではなく、実際のパラメータ表はp.30のTable 4。表が画像なので目視照合した。 |
-| IV製剤のSmPC ([3](#ref-3)) | 初回350 mgと翌日の残量、点滴速度 | 他の適応・地域の現行日程を混ぜず、PALOMA-3の日程を優先した。 |
-| 2026年PALOMA原著 ([4](#ref-4)) | SC製剤の開発と複数投与間隔の背景 | 本記事ではQ3W・Q4Wへの拡張計算はしない。 |
+| PALOMA-3 ([1](#ref-1)) | Observed PK and geometric mean ratios, GMRs, with 90% CIs | Routes compared from treatment initiation, not switching an existing IV-treated individual |
+| EMA/61503/2025, pp. 28–31, 39, 48–49 ([2](#ref-2)) | Structure, coefficients, covariates, schedule and diagnostics | Not Table 3 as named in the text: p. 30 contains the actual Table 4; image checked visually |
+| IV SmPC ([3](#ref-3)) | Initial 350 mg, next-day remainder and infusion rates | PALOMA-3 schedule takes priority over other indications or regions |
+| 2026 PALOMA report ([4](#ref-4)) | SC development and alternative-interval context | No Q3W or Q4W simulation here |
 
 EMAのモデルはIV・SCを含む1,026人、21,860件の測定可能濃度から構築されている ([2](#ref-2))。ただし、元の患者別濃度と共変量の同時分布は今回の公開資料から取得していない。公表モデルに含まれる試験と、照合するPALOMA-3は重なるため、**以下の照合は独立データによる外部検証ではない**。
 
@@ -62,7 +62,7 @@ C_1=A_1/V_1,\qquad C_2=A_2/V_2
 
 **表3．** 基準の構造パラメータ。
 
-| パラメータ | 基準値 | 単位 |
+| Parameter | Reference | Unit |
 | --- | ---: | --- |
 | F | 0.683 | — |
 | \(k_a\) | 0.0172 | h⁻¹ |
@@ -103,7 +103,7 @@ PALOMA-3の28日Cycleを使う ([2](#ref-2))。両群ともlazertinibを併用�
 
 **表4．** PALOMA-3の体重別用量。
 
-| 体重 | IV | SC |
+| Weight | IV | SC |
 | --- | --- | --- |
 | <80 kg | 1050 mg | 1600 mg |
 | ≥80 kg | 1400 mg | 2240 mg |
@@ -140,11 +140,11 @@ SC 1600 mgとIV 1050 mgの、1回当たりのモデル上の全身流入量の�
 
 **表5．** 条件付き比と試験の集団GMR。
 
-| 指標 | 本計算：SC/IV条件付き比 | PALOMA-3：観測値のGMR（90% CI） ([2](#ref-2))（Table 11） | SC / IVの観測数 |
+| Endpoint | Conditional SC/IV | Observed PALOMA-3 GMR (90% CI), EMA Table 11 | Observed SC / IV n |
 | --- | ---: | --- | ---: |
-| Cycle 2 AUC Day 1–15 | 1.079 | 1.032（0.976–1.090） | 140 / 132 |
-| Cycle 2 Day 1トラフ | 1.191 | 1.145（1.040–1.261） | 160 / 142 |
-| Cycle 4 Day 1トラフ | 1.233 | 1.427（1.266–1.610） | 98 / 98 |
+| Cycle 2 AUC Day 1–15 | 1.079 | 1.032 (0.976–1.090) | 140 / 132 |
+| Cycle 2 Day 1 trough | 1.191 | 1.145 (1.040–1.261) | 160 / 142 |
+| Cycle 4 Day 1 trough | 1.233 | 1.427 (1.266–1.610) | 98 / 98 |
 
 本計算の数値は`analysis/run_analysis.py`の`outputs/tables/trial-context.csv`に保存した。
 
@@ -172,11 +172,11 @@ PALOMA-3のPK非劣性は、指定されたGMRの90% CI下限が0.80以上とい
 
 **表6．** 一因子ずつの固定効果感度解析。
 
-| 指標 | 基準比 | 一つずつパラメータを変えた比の範囲 |
+| Endpoint | Reference ratio | Range across individual parameter changes |
 | --- | ---: | ---: |
 | Cycle 2 AUC | 1.079 | 1.041–1.117 |
-| Cycle 2トラフ | 1.191 | 1.149–1.234 |
-| Cycle 4トラフ | 1.233 | 1.182–1.283 |
+| Cycle 2 trough | 1.191 | 1.149–1.234 |
+| Cycle 4 trough | 1.233 | 1.182–1.283 |
 
 数値積分の許容誤差を厳しくしたときの主要指標の相対差は1.2×10⁻⁹以下だった。全身流入量と、吸収・分布区画の残量＋累積消失量を照合した質量収支の相対差は6.3×10⁻¹⁶以下だった。これらは実装と積分精度の検査であり、患者濃度への適合性を証明する検査ではない。結果は`outputs/verification.json`に保存した。
 

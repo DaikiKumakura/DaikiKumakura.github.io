@@ -41,7 +41,7 @@ S_{A\to A}=S_{B\to B}=2500\alpha(1-\alpha).
 
 表1. 仮想的なRNA誤割当による発現積の変化。
 
-| 誤割当割合 | A→B | B→A | A→AとB→Bの各値 |
+| Misassigned fraction | A→B | B→A | Each of A→A and B→B |
 | --- | ---: | ---: | ---: |
 | 0% | 2500 | 0 | 0 |
 | 5% | 2256.25 | 6.25 | 118.75 |

@@ -40,7 +40,7 @@ E[C_m]=Np^m
 
 表1. 仮想8000項目での検出数の期待値
 
-| 1細胞での検出確率 \(p\) | 1細胞 | 2細胞に共通 | 10細胞すべてに共通 |
+| Per-cell detection probability \(p\) | One cell | Shared by two cells | Shared by all ten cells |
 | --- | ---: | ---: | ---: |
 | 0.50 | 4000.0 | 2000.0 | 7.8 |
 | 0.75 | 6000.0 | 4500.0 | 450.5 |

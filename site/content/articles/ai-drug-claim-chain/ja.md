@@ -25,12 +25,12 @@
 
 **表1．** 二次記事が使う数字と出所の帰属。
 
-| 媒体 | 日付 | 使っている数字 | 出どころの書き方 |
-|---|---|---|---|
-| Trey's Thoughts（Substack）([6](#ref-6)) | 2026年4月1日 | ヒト初回投与から承認まで6〜10年、第1相に入った候補の10〜15%が承認に至る | 年数の出典は記載なし。承認に至る割合も、直前の文に別の分析（Nature Communications）への言及はあるが、この数値の出典としては示されない（一部有料で未読） |
-| ProMarket（Santoro）([2](#ref-2)) | 2026年7月2日 | 第1相80〜90%、第2相約40%、全体の成功確率5〜10%から9〜18% | BCG（Boston Consulting Group）の分析に帰属。Jayatungaらの所属もBCGだが、論文の引用はない。5〜10%から9〜18%は、第3相が過去並みという仮定を置いた推計で、観測値ではない |
-| Petrie-Flom（Epstein & Niazi）([7](#ref-7)) | 2026年8月4日 | 「設計が10倍速い」 | Anthropicのモデル発表に帰属し、検証したとの記載はない。この記事は第2相の成功率には触れていない |
-| Clinical Trial Vanguard（Alsumidaie）([5](#ref-5)) | 2026年8月11日 | 追跡した117件のうち8件が第2相を通過、第1相80〜90%、約40% | 117と8、80〜90%は、LinkedInの投稿（企業のAI責任者のもの）に帰属。約40%は出典の記載なし。参考文献はLinkedInの投稿のみ |
+| Outlet | Date | Numbers used | Attribution |
+| --- | --- | --- | --- |
+| Trey's Thoughts, Substack ([6](#ref-6)) | 2026/4/1 | 6–10 years from first human dosing to approval; phase 1 entrants have 10–15% approval | No source stated for the duration. The approval fraction is also not sourced, although the preceding sentence mentions another analysis (Nature Communications) (some content paywalled) |
+| ProMarket, Santoro ([2](#ref-2)) | 2026/7/2 | Phase 1 80–90%; phase 2 approximately 40%; overall success from 5–10% to 9–18% | Attributed to Boston Consulting Group (BCG); the Jayatunga authors are also BCG-affiliated, but the paper is not cited. 5–10% to 9–18% assumes historical phase 3 performance and is not observed |
+| Petrie-Flom, Epstein and Niazi ([7](#ref-7)) | 2026/8/4 | Design “10 times faster” | Attributed to an Anthropic model announcement, without independent verification; no phase 2 success estimate |
+| Clinical Trial Vanguard, Alsumidaie ([5](#ref-5)) | 2026/8/11 | Of 117 tracked assets, 8 cleared phase 2; phase 1 80–90%; approximately 40% | 117 and 8, and 80–90%, attributed to a LinkedIn post (by a corporate AI head); approximately 40% has no stated source. The reference list consists of LinkedIn posts only |
 
 ProMarketは、数字をBCGの分析に帰属させている点で、確かめやすい ([2](#ref-2))。ただし、第3相に届くAI設計の薬の数は「意味のある一群」とだけ書かれ、件数は示されていない。
 

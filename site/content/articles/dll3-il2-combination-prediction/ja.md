@@ -10,10 +10,10 @@
 
 **表1．** 解析対象と投与条件。
 
-| モデル | TCE | TCEの投与 | IL2REHの投与 | 群別の報告n |
+| Model | TCE | TCE schedule | IL2REH schedule | Reported mice per arm |
 | --- | --- | --- | --- | --- |
-| B16メラノーマ | TRP2 TCE | 5 mg/kg・6日ごと | IL-2成分として3 µg・2日ごと | 対照5・TCE11・IL2REH5・併用11 |
-| KP1 SCLC | DLL3 TCE | 5 mg/kg・4日ごと | IL-2成分として3 µg・2日ごと | 各群10 |
+| B16 melanoma | TRP2 TCE | 5 mg/kg every 6 days | 3 µg IL-2 component every 2 days | Control 5; TCE 11; IL2REH 5; combination 11 |
+| KP1 SCLC | DLL3 TCE | 5 mg/kg every 4 days | 3 µg IL-2 component every 2 days | 10 in each arm |
 
 報告nはマウス数である。今回再取得したのは49個の図上の平均記号であり、個体別の49例ではない。群ごとの脱落、測定値の相関、個体別のばらつきは再構成していない。B16の標的であるTRP2（チロシナーゼ関連タンパク質2）のTCEとKP1のDLL3 TCEを一つの薬剤としてまとめず、別々のベンチマークとして計算した。
 
@@ -56,7 +56,7 @@ V_{TI}^{\mathrm{point}}(t)=V_{TI}(t_0)
 
 **表2．** 対照・単剤から推定した増殖速度。
 
-| モデル | 対照の速度 | TCEの速度 | IL2REHの速度 | 予測した併用速度 |
+| Model | Control rate | TCE rate | IL2REH rate | Predicted combination rate |
 | --- | ---: | ---: | ---: | ---: |
 | B16/TRP2 | 0.285 | 0.173 | 0.242 | 0.130 |
 | KP1/DLL3 | 0.245 | 0.190 | 0.190 | 0.135 |
@@ -65,10 +65,10 @@ V_{TI}^{\mathrm{point}}(t)=V_{TI}(t_0)
 
 **表3．** 併用群の観測平均と予測。
 
-| モデル・評価日 | 併用群の観測平均 | 指数近似による予測 | 実測平均比による予測 | 指数予測/観測 |
+| Model and comparison day | Observed combination mean | Exponential prediction | Pointwise prediction | Exponential / observed |
 | --- | ---: | ---: | ---: | ---: |
-| B16/TRP2・Day 19 | 22.7 | 122.4 | 144.8 | 5.39 |
-| KP1/DLL3・Day 22 | 384.8 | 809.8 | 761.7 | 2.10 |
+| B16/TRP2, day 19 | 22.7 | 122.4 | 144.8 | 5.39 |
+| KP1/DLL3, day 22 | 384.8 | 809.8 | 761.7 | 2.10 |
 
 体積の単位はmm³。出力は`outputs/tables/comparison.csv`。KP1の比較点はDay 18とDay 22の2点だけで、Day 22の指数予測/観測は2.10、Day 18は1.63である。指数近似を外しても、Day 22の予測値は観測の約1.98倍だった。したがって、この差を指数増殖の形だけに帰すことはできない。
 

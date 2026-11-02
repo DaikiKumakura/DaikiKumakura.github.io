@@ -26,12 +26,12 @@ siRNAは、意図した標的以外の転写産物にも作用しうる。Jackso
 
 表1．転写変化の由来と対応する比較。
 
-| 転写変化の由来 | 確認したい比較 |
+| Origin | Relevant comparison |
 | --- | --- |
-| 標的抑制による下流の応答 | 異なるseedのsiRNAでも、同程度の標的抑制で再現するか |
-| 配列に依存する意図しない作用 | seedとの相補性や、配列・化学修飾を変えたときの変化 |
-| 導入操作やオリゴ自体への応答 | 未処置、導入試薬、非標的siRNAとの比較 |
-| 細胞状態や測定条件の差 | 生存・増殖・細胞数・時点・プレートをそろえた比較 |
+| Downstream effects of target suppression | Reproduction across distinct seeds at comparable suppression |
+| Unintended sequence-dependent action | Seed complementarity and changes with sequence or chemistry |
+| Transfection or oligonucleotide response | Untreated, reagent and nontargeting controls |
+| Cell state or measurement conditions | Matched viability, proliferation, cell count, timing and plate |
 
 共通する変化だから必ず標的由来、とも言い切れない。共通の導入操作や、似た配列特性でも応答は重なる。逆に、配列を変えると異なるのは、標的抑制の速度や持続時間が違うからかもしれない。単一時点のmRNA抑制率が一致しても、タンパク質やそれまでの作用履歴まで同じとは限らない。
 
@@ -51,11 +51,11 @@ siRNAは、意図した標的以外の転写産物にも作用しうる。Jackso
 
 表2．読取幅によるPareto優越判定の変化。
 
-| 座標の扱い | 比較上後回しにできる点 | その判定がつかない点 |
+| Coordinate treatment | Dominated points | Points not established as dominated |
 | --- | ---: | ---: |
-| 読み取った概数をそのまま使う | 6 | 4 |
-| 各点に横±1遺伝子、縦±1パーセントポイントの幅 | 5 | 5 |
-| 各点に横±2遺伝子、縦±2パーセントポイントの幅 | 4 | 6 |
+| Approximate readings without ranges | 6 | 4 |
+| Each point ±1 gene and ±1 percentage point | 5 | 5 |
+| Each point ±2 genes and ±2 percentage points | 4 | 6 |
 
 幅を持たせた判定では、有利な候補の最も不利な値でも、比較相手の最も有利な値以上であることを要求した。これは読み取り誤差への感度分析であり、実験の統計的不確実性を評価したものではない。±1と±2の幅も、実測した誤差分布から求めてはいない。
 

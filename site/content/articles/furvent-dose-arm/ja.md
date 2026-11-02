@@ -10,15 +10,15 @@
 
 表1　FURVENTの企業トップライン発表値 ([1](#ref-1))。
 
-| | 240 mg | 160 mg | 化学療法 |
-| --- | --- | --- | --- |
-| PFS中央値（BICR） | 11.0か月 | 8.4か月 | 9.5か月 |
-| HR対化学療法（BICR、95%CI） | 0.75（0.55–1.02）、p=0.0654 | 0.91（0.67–1.25） | — |
-| PFS中央値（治験医師判定） | 11.1か月 | 8.3か月 | 7.1か月 |
-| HR対化学療法（治験医師判定） | 0.61（0.46–0.81） | 0.86（0.65–1.14） | — |
-| 確定奏効率（BICR） | 60% | 35% | 33% |
-| Grade 3以上の有害事象（因果関係を問わない） | 52% | 53% | 55% |
-| Grade 3以上の治療関連有害事象 | 26% | 22% | 40% |
+| | 240 mg | 160 mg | Chemotherapy |
+|---|---|---|---|
+| Median PFS, BICR | 11.0 months | 8.4 months | 9.5 months |
+| HR vs chemotherapy, BICR (95% CI) | 0.75 (0.55–1.02), p=0.0654 | 0.91 (0.67–1.25) | — |
+| Median PFS, investigator assessment | 11.1 months | 8.3 months | 7.1 months |
+| HR vs chemotherapy, investigator assessment | 0.61 (0.46–0.81) | 0.86 (0.65–1.14) | — |
+| Confirmed response rate, BICR | 60% | 35% | 33% |
+| Grade ≥3 adverse events, any causality | 52% | 53% | 55% |
+| Grade ≥3 treatment-related adverse events | 26% | 22% | 40% |
 
 出典は企業発表である ([1](#ref-1))。 全生存期間は未成熟とされ、数値は示されていない。どの比較にどれだけのαを割り当てたか、事前に想定したハザード比、計画したイベント数は公表されていない。この点は、以下の計算すべてに効く限界である。なお、p=0.0654はαを2つの用量群に分けなくても0.05を超えている。
 
@@ -44,8 +44,8 @@
 
 表2　固定登録数での近似検出力。実際のα配分は非公開。
 
-| 真のハザード比 | 3群（α 0.05） | 3群（α 0.025） | 仮想2群（α 0.05） |
-| --- | --- | --- | --- |
+| True HR | Three arms (alpha 0.05) | Three arms (alpha 0.025) | Hypothetical two arms (alpha 0.05) |
+|---|---|---|---|
 | 0.75 | 45% | 34% | 61% |
 | 0.65 | 78% | 69% | 92% |
 | 0.60 | 90% | — | 98% |
@@ -66,12 +66,12 @@
 
 表3　一次治療の試験別PFS中央値。試験間差の調整はしていない。
 
-| 試験 | 実薬群のPFS中央値（BICR） | 化学療法群のPFS中央値（BICR） |
-| --- | --- | --- |
-| PAPILLON（amivantamab＋化学療法）([5](#ref-5)) | 11.4か月 | 6.7か月 |
-| WU-KONG28（sunvozertinib）([4](#ref-4)) | 10.3か月 | 7.5か月 |
-| EXCLAIM-2（mobocertinib）([6](#ref-6)) | 9.6か月 | 9.6か月 |
-| FURVENT（firmonertinib 240 mg）([1](#ref-1)) | 11.0か月 | 9.5か月（治験医師判定では7.1か月） |
+| Trial | Active-arm median PFS, BICR | Chemotherapy median PFS, BICR |
+|---|---|---|
+| PAPILLON, amivantamab plus chemotherapy ([5](#ref-5)) | 11.4 months | 6.7 months |
+| WU-KONG28, sunvozertinib ([4](#ref-4)) | 10.3 months | 7.5 months |
+| EXCLAIM-2, mobocertinib ([6](#ref-6)) | 9.6 months | 9.6 months |
+| FURVENT, firmonertinib 240 mg ([1](#ref-1)) | 11.0 months | 9.5 months (7.1 months by investigators) |
 
 FURVENTの240 mg群の中央値は、成功した2試験の実薬群と大きくは違わない。化学療法群のBICRによる中央値は、PAPILLON・WU-KONG28より2〜3か月長いが、EXCLAIM-2（9.6か月）とはほぼ同じである。同じ化学療法でも、試験によって中央値は6.7〜9.6か月と幅がある。EXCLAIM-2は中間解析で無益性の境界を越えて中止された試験であり、化学療法群が長いことだけで失敗が決まるわけではない。
 

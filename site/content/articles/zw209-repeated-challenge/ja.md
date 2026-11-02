@@ -12,13 +12,13 @@
 
 比較対象はZW209、ZW209 CD28null、ポスターでAMG 757†と示された類似体である。最後の分子を市販製剤や臨床試験で使用した原薬と同一とはみなさない。Figure 2BにはZW209が5点、対照2分子がそれぞれ3点ある。ドナー数、独立実験数、分散はこのパネルに明示されていない。11点を11人の独立観測として扱うことはできない。
 
-| 項目 | 今回の定義 |
+| Item | Definition for this analysis |
 | --- | --- |
-| 問い（QOI） | 1・2回目の殺細胞活性から3回目をどの程度予測できるか |
-| 用途（COU） | この培養実験内の反復刺激の外挿を評価する |
-| 共通の検証対象 | 3分子の3回目の測定値 |
-| 追加の観測 | ZW209だけの4・5回目。対照の未報告値は補わない |
-| 対象外 | ヒトの投与量・投与間隔・臨床効果の推定 |
+| Question of interest | How accurately do the first two cytotoxicity measurements predict the third? |
+| Context of use | Assessment of extrapolation across restimulations within this assay |
+| Common evaluation | Third-stimulation measurements for all three molecules |
+| Additional observations | Fourth and fifth ZW209 measurements only; unreported controls are not imputed |
+| Outside scope | Human doses, dose intervals or clinical efficacy |
 
 ## 重なった点をPDFの描画情報から読む
 
@@ -26,11 +26,11 @@
 
 抽出結果は`data/processed/vector-observations.csv`に、PDF内の座標とともに保存した。元画像を生成し直して観測を増やしたわけではない。図形の座標は元のドナー別測定値でもなく、公表図の描画位置である。
 
-| 分子 | 1回目 | 2回目 | 3回目 |
+| Molecule | First stimulation | Second | Third |
 | --- | ---: | ---: | ---: |
 | ZW209 | 98.2% | 97.8% | 97.5% |
 | ZW209 CD28null | 97.7% | 97.1% | 4.5% |
-| AMG 757類似体 | 97.7% | 97.0% | 10.1% |
+| AMG 757 analogue | 97.7% | 97.0% | 10.1% |
 
 3回目を「反応なし」と表現する原ポスターの記述と、図上で0%を少し上回る値があることを区別した。今回の数値計算では抽出値を0に置き換えていない。
 
@@ -53,20 +53,20 @@ A_n=A_1r^{n-1},\qquad
 
 推定された\(r\)はZW209で0.9963、CD28nullで0.9944、AMG 757類似体で0.9937だった。いずれも初期2点がほぼ一定であることを表している。しかし3回目の結果は大きく異なった。
 
-| 分子 | 保持率モデルの予測 | 公表図の観測 | 予測−観測 |
+| Molecule | Retention-rule prediction | Source observation | Predicted minus observed |
 | --- | ---: | ---: | ---: |
 | ZW209 | 97.5% | 97.5% | −0.1 pp |
 | ZW209 CD28null | 96.6% | 4.5% | +92.0 pp |
-| AMG 757類似体 | 96.4% | 10.1% | +86.4 pp |
+| AMG 757 analogue | 96.4% | 10.1% | +86.4 pp |
 
 ![初期2点で校正した反復刺激後の予測](shared/zw209-repeated-challenge/figures/repeat-forecast.svg)
 
 ZW209についても、3回目への近い予測だけでその後の全刺激を予測できたとはしない。4・5回目はZW209だけに報告されており、その線上の観測を図に残した。対照について実施されていない、または掲載されていない後続点を0%として補っていない。
 
-| 方法 | 共通の3回目におけるRMSE | 平均絶対誤差 |
+| Method | Third-stimulation RMSE | Mean absolute error |
 | --- | ---: | ---: |
-| 一定保持率 | 72.9 pp | 59.5 pp |
-| 2回目を据え置き | 73.3 pp | 59.9 pp |
+| Geometric retention | 72.9 pp | 59.5 pp |
+| Carry second value | 73.3 pp | 59.9 pp |
 
 出力は`outputs/tables/common-round-scores.csv`である。このRMSEは3分子の図上の要約値を平均した記述量であり、患者集団に対する予測誤差ではない。保持率モデルの小さな改善より、両方法が対照2分子の急な変化を捉えなかったことが重要である。
 
@@ -76,11 +76,11 @@ ZW209についても、3回目への近い予測だけでその後の全刺激�
 
 3点それぞれの縦座標に独立な±0.5 PDF pointの変化を与え、固定シードで2,000通りを計算した。これは図形位置の取り方に対する感度分析であり、ドナー間変動や測定誤差の信頼区間ではない。
 
-| 分子 | 3回目の予測誤差の範囲 |
+| Molecule | Range of third-stimulation prediction error |
 | --- | ---: |
-| ZW209 | −1.50〜+1.45 pp |
-| ZW209 CD28null | +90.61〜+93.51 pp |
-| AMG 757類似体 | +84.93〜+87.79 pp |
+| ZW209 | −1.50 to +1.45 pp |
+| ZW209 CD28null | +90.61 to +93.51 pp |
+| AMG 757 analogue | +84.93 to +87.79 pp |
 
 対照での過大予測はこの範囲でも残った。反面、ZW209の誤差が−0.1 ppという細かい値を強調する根拠はない。描画位置の取り方だけでも符号が変わる程度の差だからである。
 

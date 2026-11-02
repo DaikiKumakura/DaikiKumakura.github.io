@@ -18,11 +18,11 @@ PIEの出力には、遺伝子ごとのDEG確率、log2 fold change、平均発�
 
 **表1．未知条件別の4 fold平均AUPRC。**
 
-| 評価設定 | 背景 | 摂動 | 4 fold平均AUPRCの再集計 |
+| Setting | Context | Perturbation | Four-fold mean AUPRC |
 | --- | --- | --- | ---: |
-| unseen_ctx | 未学習の細胞株 | 学習にある摂動 | 0.4155 |
-| unseen_pert | 学習にある三つの細胞株 | 未学習の摂動 | 0.3048 |
-| unseen_ctx_pert | 未学習の細胞株 | 未学習の摂動 | 0.2366 |
+| unseen_ctx | Held-out cell line | Present in training | 0.4155 |
+| unseen_pert | Three cell lines present in training | Held-out perturbation | 0.3048 |
+| unseen_ctx_pert | Held-out cell line | Held-out perturbation | 0.2366 |
 
 表は公開スコアを再集計した結果であり、モデルを再実行した性能ではない。摂動ごとの値を背景内で平均し、複数背景がある設定では背景を均等に平均してから、四つのfoldを均等に平均した。全評価行を一括で平均する場合とは重みが違う。
 
@@ -48,7 +48,7 @@ PIEの出力には、遺伝子ごとのDEG確率、log2 fold change、平均発�
 
 **表2．両方未知の条件におけるDEG陽性率とAP。**
 
-| 除外した背景 | 評価ペア数 | DEGゼロ | DEG数の中央値 | 陽性率の中央値 | 平均AP | 非ゼロDEG行のAP/陽性率の中央値 |
+| Held-out context | Evaluated pairs | Zero-DEG pairs | Median DEG count | Median prevalence | Mean AP | Median AP/prevalence among nonzero-DEG rows |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: |
 | HepG2 | 386 | 15 | 96.5 | 1.45% | 0.2444 | 3.47 |
 | Jurkat | 461 | 3 | 117 | 1.76% | 0.2140 | 5.01 |
@@ -67,12 +67,12 @@ DEGゼロの評価行は、未知背景で48/3,712、未知摂動で74/4,876、�
 
 **表3．同じ未知摂動を対応させた背景間のAP差。**
 
-| fold | 対応できた摂動数 | AP差の中央値：除外背景－既知背景平均 | 除外背景で低かった件数 |
+| Fold | Matched perturbations | Median AP difference: excluded context minus known-context mean | Cases with lower AP in excluded context |
 | --- | ---: | ---: | ---: |
 | HepG2 | 347 | −0.1229 | 303 |
 | Jurkat | 416 | −0.0542 | 299 |
 | K562 | 371 | −0.0805 | 294 |
-| RPE1 | 411 | ＋0.0317 | 155 |
+| RPE1 | 411 | +0.0317 | 155 |
 
 三つのfoldでは差の中央値が負だったが、RPE1では正だった。異なる背景では、真のDEG数や応答自体が変わる。同じ摂動名に揃えても、未学習背景による予測劣化と生物学的な背景差を因果的に分離できたわけではない。「背景を未知にすると必ず同じ割合だけ悪くなる」という読み方を避けるための対応表だ。
 

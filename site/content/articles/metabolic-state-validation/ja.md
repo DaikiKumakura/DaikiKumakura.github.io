@@ -20,11 +20,11 @@
 
 表1　転写データからの代謝推定と原著での検証対象。
 
-| 手法 | 主に推定するもの | 論文で示された主な検証 |
-| --- | --- | --- |
-| Compass ([2](#ref-2)) | 流束平衡解析に基づく反応の潜在的な活性（能力・流れ寄り） | 代謝アッセイでの確認、ポリアミン代謝への化学的・遺伝的介入、生体での介入による表現型の変化 |
-| scFEA ([3](#ref-3)) | 細胞ごとの代謝の流れ | 酸素条件と遺伝子操作を変えた細胞での、対応するメタボロミクスとの照合 |
-| MeRN ([1](#ref-1)) | 反応・経路の活性を表す状態 | 小腸の絨毛に沿ったタンパク質の測定との照合、他手法との比較、欠損胚や治療データへの適用 |
+| Method | Principal estimate | Main validation reported |
+|---|---|---|
+| Compass ([2](#ref-2)) | Potential reaction activity based on flux-balance analysis, related to capacity and flux | Metabolic assays; chemical and genetic intervention in polyamine metabolism; in-vivo phenotypic intervention |
+| scFEA ([3](#ref-3)) | Cell-wise metabolic flux | Comparison with matched metabolomics under altered oxygen and genetic conditions |
+| MeRN ([1](#ref-1)) | States representing reaction and pathway activity | Comparison with protein measurements along intestinal villi; method benchmarks; applications to knockout embryos and treatment data |
 
 どの手法も、何らかの独立した情報で確かめている。一方で、検証の対象は手法ごとに違う。Compassの介入実験は、予測から導いた仮説の**表現型**を確かめた。scFEAは流れの推定を**代謝物の量の変化**と照らし合わせた。MeRNは推定を**タンパク質**、つまり能力に近い量と照らし合わせた。推定した量そのものを、同じ種類の独立した測定で細胞ごとに確かめた例は、まだ少ない。
 
@@ -46,12 +46,12 @@ Liらは、454のがん細胞株で、代謝物ごとにLASSO回帰で遺伝子�
 
 表2　代謝状態の推定を照合する測定とその限界。
 
-| 照合の方法 | 確かめられること | 限界 |
-| --- | --- | --- |
-| 同じ試料のバルクのメタボロミクス、同位体標識と代謝フラックス解析 | 細胞集団の平均として、推定が量や流れと合うか | 細胞ごとの違いは確かめられない |
-| 空間メタボロミクス（質量分析イメージングなど）と空間トランスクリプトミクス | 組織の場所ごとの代謝物の分布と推定が合うか | 測れる代謝物と解像度に限りがある |
-| 細胞を分離してからのメタボロミクス | 細胞の種類ごとの量の違い | 分離の操作そのものが代謝物を変えうる |
-| 代謝への介入（栄養の除去、酵素の欠損、阻害剤） | 介入したときに、推定が予想どおりの方向に変わるか | 次の節で述べる |
+| Comparison | What it can establish | Limitation |
+|---|---|---|
+| Matched bulk metabolomics or isotope tracing and flux analysis | Agreement with abundance or flux averaged across a population | Cannot establish cell-wise variation |
+| Spatial metabolomics, including mass-spectrometry imaging, with spatial transcriptomics | Agreement with spatial metabolite distributions | Restricted metabolite coverage and resolution |
+| Metabolomics after cell separation | Abundance differences between cell types | Separation can itself change metabolites |
+| Metabolic intervention: nutrient removal, enzyme knockout or inhibitors | Whether estimates change in the expected direction | Interpretation depends on the issues below |
 
 既知の生物学（腸の場所による代謝の違いなど）を再現することは大切な確認である。ただ、それを強い証拠として読むには、細胞の種類の名前だけを使うような単純な基準と比べて、推定がどれだけ情報を足したかも示されているかが解釈を分ける。
 

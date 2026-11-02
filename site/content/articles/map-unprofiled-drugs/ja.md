@@ -26,12 +26,12 @@ MAPの原論文には、薬剤と細胞の組み合わせを未知にする設�
 
 **表1　除外情報と評価対象の違い**
 
-| 評価で未知にするもの | まだ利用できる情報 | 私がその評価で確かめたいこと |
+| Information held out | Information still available | Question addressed |
 | --- | --- | --- |
-| 薬剤と細胞の組み合わせ | 他の細胞で測った同じ薬剤の応答 | 細胞背景を変えたときの移植可能性 |
-| 薬剤そのものの転写応答 | 化合物の構造、学習済み表現、他の薬剤の応答 | 未測定薬剤への予測能力 |
-| 構造系列 | 遠い構造や既知の標的・経路の情報 | 近い類縁体への依存を減らした予測能力 |
-| 作用機序の群 | 構造や、別の作用を持つ薬剤の情報 | 既知機序の範囲を越えた予測能力 |
+| Drug–cell combination | The same drug's measured responses in other cells | Transfer across cell backgrounds |
+| The drug's transcriptional responses | Structure, learned representation and other drugs' responses | Prediction for an unprofiled drug |
+| Structural series | Distant structures and known targets/pathways | Prediction less dependent on close analogues |
+| Mechanism-of-action group | Structure and drugs with other mechanisms | Prediction beyond known mechanism groups |
 
 表1の下の二行は、本記事が追加で問う検証である。MAPの薬剤除外評価が、そのまま構造系列や作用機序の除外を意味するわけではない。薬剤のIDが違っても、よく似た化合物が学習側にあれば、近い例からの予測が可能だからだ。
 
@@ -61,12 +61,12 @@ d_{j,e}=r_{\mathrm{MAP},j,e}-r_{\mathrm{comparison},j,e}.
 
 **表2　評価回によって相関差の符号が変わった薬剤**
 
-| 薬剤 | 比較法 | 5回からの平均相関差 | 差の最小〜最大 | 差が正の評価回 |
+| Drug | Comparator | Mean correlation difference | Minimum–maximum | Evaluations with positive difference |
 | --- | --- | ---: | ---: | ---: |
-| Bergenin | XPert | 0.0084 | −0.058〜0.072 | 3/5 |
-| Balsalazide | CRISP | 0.0176 | −0.012〜0.050 | 3/5 |
-| Nafamostat | XPert | 0.0516 | −0.072〜0.134 | 4/5 |
-| Ralimetinib dimesylate | XPert | 0.0620 | −0.032〜0.120 | 4/5 |
+| Bergenin | XPert | 0.0084 | −0.058–0.072 | 3/5 |
+| Balsalazide | CRISP | 0.0176 | −0.012–0.050 | 3/5 |
+| Nafamostat | XPert | 0.0516 | −0.072–0.134 | 4/5 |
+| Ralimetinib dimesylate | XPert | 0.0620 | −0.032–0.120 | 4/5 |
 
 これは、平均の優位を否定する結果ではない。候補ごとに改善の幅が違い、小さい差は評価回によって符号も変わる、という結果である。私は、一つの全体平均から全化合物に同じ改善を期待することを避けたい。
 

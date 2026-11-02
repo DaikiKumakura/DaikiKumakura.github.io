@@ -56,12 +56,12 @@ $$
 
 表1. 同一の潜在分布に異なるデコーダーを置いた一次元例。
 
-| 寄せる強さ $\lambda$ | ラベル識別率 | 正しい向きのRMSE | 無視する場合 | 逆向きのRMSE |
+| Attraction strength $\lambda$ | Label accuracy | Correct-direction RMSE | Ignoring latent variable | Reversed-direction RMSE |
 | --- | ---: | ---: | ---: | ---: |
 | 0 | 50.0% | 1.00 | 1.00 | 1.00 |
 | 1 | 76.0% | 0.50 | 1.00 | 1.50 |
 | 4 | 96.3% | 0.20 | 1.00 | 1.80 |
-| 16 | 約100.0% | 0.06 | 1.00 | 1.94 |
+| 16 | Approximately 100.0% | 0.06 | 1.00 | 1.94 |
 
 ![同じ潜在分布でラベル識別率が上がっても、デコーダーの向きによって応答平均の誤差は改善・不変・悪化に分かれる](shared/perturbenergy-representation/figures/label-vs-response.png)
 
@@ -87,12 +87,12 @@ $$
 
 表2. 原著の真の上位50 DEGに対するRMSEの再集計。
 
-| データセット | 既存手法の最小RMSE | PerturbEnergy-Lang | PerturbEnergy-Mis |
+| Dataset | Lowest existing-method RMSE | PerturbEnergy-Lang | PerturbEnergy-Mis |
 | --- | ---: | ---: | ---: |
-| Replogle | 0.2024（STATE） | 0.1870 | 0.1780 |
-| PBMC | 0.0729（stVAE） | 0.0637 | 0.0654 |
-| Tahoe100M | 0.3293（stVAE） | 0.3114 | 0.3123 |
-| Norman2019 | 0.1248（PerturbDiff） | 0.1434 | 0.1376 |
+| Replogle | 0.2024 (STATE) | 0.1870 | 0.1780 |
+| PBMC | 0.0729 (stVAE) | 0.0637 | 0.0654 |
+| Tahoe100M | 0.3293 (stVAE) | 0.3114 | 0.3123 |
+| Norman2019 | 0.1248 (PerturbDiff) | 0.1434 | 0.1376 |
 
 この表の範囲では、既存手法の最小値に対し、ReplogleのMisは12.1%、PBMCのLangは12.6%、Tahoe100MのLangは5.4%、RMSEが小さい。一方、Norman2019のMisは10.3%大きい。データセットごとのよい方を示しているので、単一の変種がすべてで最適だと読むものでもない。[Original Table 2](https://arxiv.org/html/2610.18456v1#S4.T2)
 

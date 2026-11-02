@@ -21,12 +21,12 @@ Perturb-seqは、遺伝子への介入とsingle-cell RNA-seqを組み合わせ�
 
 **表1　未知条件の分け方**
 
-| 予測したい状況 | テストで未知にするもの | その結果だけでは示せないこと |
-| --- | --- | --- |
-| 同じ細胞背景で、新しい標的を試す | 摂動標的 | 新しい細胞型への移植可能性 |
-| 既知の摂動を、別の細胞背景で試す | 細胞型・細胞株・ドナーなど | 未知の標的への予測能力 |
-| 単独摂動から、組合せを予測する | 摂動の組合せ | 未知の単独摂動の予測能力 |
-| 他の実験で測った応答を新しい実験へ移す | データセット・実験条件 | 摂動応答を一切観測しない予測能力 |
+| Intended prediction | Held out in testing | Not established by that result alone |
+|---|---|---|
+| A new target in the same cellular background | Perturbation target | Transfer to a new cell type |
+| A known perturbation in another background | Cell type, line, donor or other context | Prediction for an unseen target |
+| Combinations from single perturbations | Perturbation combination | Prediction of unseen single perturbations |
+| Transfer of responses from another experiment | Dataset or experimental conditions | Prediction without any observed perturbation responses |
 
 これは本記事での整理であり、論文ごとの分割方法はさらに確認する必要がある。Weiらの広範なベンチマークも、未知の摂動と未知の細胞背景を区別している。論文は2025年12月にオンライン公開され、2026年の巻に掲載された ([4](#ref-4))。
 
@@ -66,12 +66,12 @@ PEREGGRNでは、closest-controlを使う設定で、標的の値を介入後の
 
 **表2　区別すべき評価上の問題**
 
-| 問題 | 何が起きるか | 確認すること |
-| --- | --- | --- |
-| 標的の直接効果が得点を支配する | 下流応答を外しても高得点になる | 標的込み・除外後を併記する |
-| 入力の入手条件が用途と合わない | 予測時には未知の実測値を与える | 何を事前に利用可能としたかを明示する |
-| 学習・評価データの混入 | 同じ実験などが両側に入る | 分割単位と事前学習データを監査する |
-| 正解と競合候補の標的の扱いが非対称 | 不正解候補の標的の直接効果だけが残る | どの標的を距離計算から除くかを点検する |
+| Problem | Consequence | What to inspect |
+|---|---|---|
+| Target direct effect dominates the score | High scores despite wrong downstream responses | Report scores with and without the target |
+| Input availability mismatches intended use | An unknown measurement is supplied at prediction time | State what is assumed available beforehand |
+| Training/evaluation contamination | The same experiment appears on both sides | Audit split units and pretraining data |
+| Asymmetric target handling in retrieval | Only incorrect candidates retain their targets' direct effects | Inspect targets excluded from distances |
 
 **標的名をモデルに与えること自体は、通常の摂動予測では情報漏洩ではない。** 何を介入したかは正当な入力である。「target-gene leakage」という表現を使う場合も、入力の漏洩なのか、評価の近道なのかを説明したい。
 
@@ -99,11 +99,11 @@ Arcの公開仕様には、この近道を使った予測の `pds_cosine` が、
 
 **表3　合成データの介入効果**
 
-| 摂動 | A | B | C | D | E |
-| --- | ---: | ---: | ---: | ---: | ---: |
-| Aを抑える | −5 | 0 | 0 | 1 | 0 |
-| Bを抑える | 0 | −5 | 0 | 0 | 1 |
-| Cを抑える | 0 | 0 | −5 | −1 | −1 |
+| Perturbation | A | B | C | D | E |
+|---|---:|---:|---:|---:|---:|
+| Suppress A | −5 | 0 | 0 | 1 | 0 |
+| Suppress B | 0 | −5 | 0 | 0 | 1 |
+| Suppress C | 0 | 0 | −5 | −1 | −1 |
 
 評価の近道だけを使う予測は、D・Eを常にゼロとし、自分以外の標的を+10にする。例えばA摂動の予測は \((0,10,10,0,0)\) となる。下流応答の情報を使っていない。
 
@@ -119,12 +119,12 @@ cosine距離を使うと、Aを除いた正解との内積はゼロで、距離�
 
 **表4　マスク方法による得点の違い**
 
-| 予測 | Row-mask | Panel-mask | Pairwise-mask |
-| --- | ---: | ---: | ---: |
-| Controlのまま：全効果ゼロ | 0.50 | 0.50 | 0.50 |
-| 他の標的を+10にする | **1.00** | **0.50** | **0.50** |
-| D・Eだけ正解を与えるoracle | 1.00 | 1.00 | 1.00 |
-| 全遺伝子の正解を与えるoracle | 1.00 | 1.00 | 1.00 |
+| Prediction | Row mask | Panel mask | Pairwise mask |
+|---|---:|---:|---:|
+| Control unchanged: all effects zero | 0.50 | 0.50 | 0.50 |
+| Raise other targets by +10 | **1.00** | **0.50** | **0.50** |
+| Oracle providing only correct D and E | 1.00 | 1.00 | 1.00 |
+| Oracle providing every correct gene | 1.00 | 1.00 | 1.00 |
 
 ![同じ予測の得点がマスク方法で変わる。標的のspikeはrow-maskだけで満点になる。](shared/virtual-cell-target-evaluation/figures/toy-scores.png)
 
@@ -169,13 +169,13 @@ AUCに似た勝率と考えると理解しやすいが、通常のROC-AUCや、�
 
 **表5　近年の研究と評価対象**
 
-| 研究・モデル | 主に報告する能力 | 今回の問題との関係 |
-| --- | --- | --- |
-| UCE、Nature 2026 | 多様な細胞の共通表現 | 良い埋め込みだけでは未知介入の予測は保証されない |
-| State、Cell 2026 | 細胞集団の異質性を考慮した、文脈をまたぐ摂動予測 | 平均だけでなく、集団の応答をどこまで評価するかが重要 |
-| Stack、2026年プレプリント | 推論時の細胞プロンプトを用いたin-context learning | どの条件の細胞をプロンプトとして観測済みかが重要 |
-| PIE、2026年10月のプレプリント | 生物学的な知識を入力し、集団レベルの摂動効果を予測 | 未知標的・未知文脈・両者が未知の設定を区別する必要がある |
-| Millerら、Nature Biotechnology 2026 | 指標の感度点検と、未知標的・未知組合せのモデル比較 | 高得点・低得点を指標の性質と切り離して解釈できない |
+| Study or model | Principal reported capability | Relation to this article's concern |
+|---|---|---|
+| UCE, Nature 2026 | Shared representations across diverse cells | Embeddings alone do not validate unseen-intervention prediction |
+| State, Cell 2026 | Context transfer with cellular heterogeneity | Population responses need evaluation beyond means |
+| Stack, 2026 preprint | In-context learning with inference-time cellular prompts | Specify which conditions have already been observed as prompts |
+| PIE, October 2026 preprint | Population-level perturbation effects informed by biological knowledge | Separate unseen target, unseen context and both unseen |
+| Miller et al., Nature Biotechnology 2026 | Metric sensitivity and comparisons on unseen targets or combinations | Interpret scores together with metric properties |
 
 能力の概要は、UCE・State・Stackの各原著とMillerらの報告に基づく ([13](#ref-13), [14](#ref-14), [15](#ref-15), [12](#ref-12))。表の「今回の問題との関係」は本記事の解釈である。Stackは、この調査ではプレプリントとして扱う。
 

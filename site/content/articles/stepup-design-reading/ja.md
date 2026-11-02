@@ -38,12 +38,12 @@ CD3を介してT細胞を動員する二重特異性抗体は、サイトカイ�
 
 表1. 二つの研究でCRSを説明した根拠と成立範囲。
 
-| | エラナタマブ | エプコリタマブ |
-|---|---|---|
-| CRSを説明した量 | 最初の用量の後の濃度と腫瘍量 | 設計（段の数）と手順。設計の中では曝露と一貫した関係なし |
-| 根拠の形 | 投与ごとのロジスティック回帰 | 別コホート間の比較、IL-6、累積のCRSの危険 |
-| 設計で変えたもの | （承認設計の中での）最初の用量の後の濃度の個人差 | 段の数、予防投与、水分補給 |
-| 説明できないこと | 2回目以降のCRS | 段の効果と予防投与の効果の切り分け |
+| | Elranatamab | Epcoritamab |
+| --- | --- | --- |
+| Explanatory variables | First-dose concentration and tumor burden | Regimen and procedure; no consistent within-regimen exposure relationship |
+| Evidence | Dose-specific logistic regression | Between-cohort comparison, IL-6 and cumulative CRS risk |
+| Source of variation | Individual first-dose concentrations within the approved regimen | Step count, prophylaxis and hydration |
+| Unresolved | CRS after dose 2 and later | Separating the added-step effect from prophylaxis |
 
 ### 最初の一歩の濃度で説明できる部分とできない部分がある {#_2}
 

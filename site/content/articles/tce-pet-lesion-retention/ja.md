@@ -8,15 +8,15 @@
 
 原研究では、⁸⁹Zr標識AMG 211の体内分布をPETで測定している。研究全体の対象は9患者だが、今回使用した公開Supplementary Table S3には、定量可能な37病変・6患者のSUVmaxが載っている。全体の人数と、今回の予測評価に使える人数を分ける必要がある（[Moek et al., 2019](https://pubmed.ncbi.nlm.nih.gov/30745297/)、[Supplementary Table S3](https://aacr.figshare.com/articles/journal_contribution/22470416)）。
 
-| 表中の患者ID | 記載病変数 | 3時点がそろう病変数 | 除外理由 |
+| Source patient ID | Tabulated lesions | Complete three-time-point lesions | Reason for exclusion |
 | --- | ---: | ---: | --- |
-| 1 | 13 | 0 | 3時間の撮像なし（ND） |
-| 2 | 4 | 4 | なし |
-| 3 | 4 | 4 | なし |
-| 5 | 7 | 7 | なし |
-| 7 | 8 | 0 | 6時間の技術的不成立（NE） |
-| 8 | 1 | 1 | なし |
-| 合計 | 37 | 16 | 完全例は4患者 |
+| 1 | 13 | 0 | No 3-hour imaging (ND) |
+| 2 | 4 | 4 | None |
+| 3 | 4 | 4 | None |
+| 5 | 7 | 7 | None |
+| 7 | 8 | 0 | 6-hour scan technically not evaluable (NE) |
+| 8 | 1 | 1 | None |
+| Total | 37 | 16 | Four complete-case patients |
 
 NDとNEはゼロに置き換えていない。単位は病変で、同じ患者の病変を別の患者として学習と評価に分けることもしない。解析用の表は公開DOCXのXMLから直接読み込んだ。図の曲線からの数値化ではない。
 
@@ -64,11 +64,11 @@ k_{3\to6}=\frac{\log(S_6/S_3)}{6-3},\qquad
 
 各患者の平均二乗対数誤差を計算し、4患者を等しい重みで平均した平方根を主指標とした。補助的に、患者ごとのSUV絶対誤差の平均も示す。
 
-| 方法 | 患者を等重みとした対数RMSE | 患者を等重みとしたSUVのMAE |
+| Method | Equal-patient log RMSE | Equal-patient SUV MAE |
 | --- | ---: | ---: |
-| 6時間値を使用 | 0.653 | 1.577 |
-| 早期対数変化率を延長 | 3.604 | 7,770.357 |
-| 他患者の残留係数 | 0.689 | 1.413 |
+| Carry 6 hours | 0.653 | 1.577 |
+| Continue early log slope | 3.604 | 7,770.357 |
+| Other-patient retention factor | 0.689 | 1.413 |
 
 出力は`outputs/tables/overall-scores.csv`。残留係数はMAEをやや小さくしたが、対数RMSEは改善しなかった。指標の選択によって見え方が異なるため、全体として予測を改善したとは結論しない。
 

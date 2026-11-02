@@ -24,11 +24,11 @@
 
 **表1　同じ週間量を投与する三つの配置**
 
-| 配置 | 1週間の投与日 | 投与間隔の最大値 | 位置づけ |
-| --- | --- | --- | --- |
-| 4日連続＋3日休薬 | Day 1, 2, 3, 4 | 84 h | 基準条件 |
-| 2日投与を2回 | Day 1, 2, 5, 6 | 60 h | 仮想の配置変更 |
-| 隔日を中心に4日投与 | Day 1, 3, 5, 7 | 36 h | 仮想の配置変更 |
+| Arrangement | Treatment days | Longest interdose interval | Role |
+|---|---|---|---|
+| Four consecutive days, three days off | Days 1, 2, 3, 4 | 84 h | Reference |
+| Two two-day blocks | Days 1, 2, 5, 6 | 60 h | Hypothetical rearrangement |
+| Four days, mainly alternating | Days 1, 3, 5, 7 | 36 h | Hypothetical rearrangement |
 
 「隔日を中心に」は完全な48時間周期ではない。週の境界ではDay 7から翌週Day 1まで連続した投与日になる。最大投与間隔は、最後の服薬から次の服薬までの時間であり、休薬日数に24 hを掛けた値とは異なる。たとえば基準条件ではDay 4の夕方からDay 8の朝まで84 hある。
 
@@ -42,19 +42,19 @@
 
 **表2　代表条件のモデルパラメータ**
 
-| パラメータ | 使用値 | 単位・役割 |
-| --- | --- | --- |
-| 初期CL/F | 59.6 | L/h |
-| 中心区画V/F | 49.0 | L |
-| 末梢区画V/F | 113, 103 | L |
-| 区画間Q/F | 2.52, 23.4 | L/h |
-| 一次吸収速度 | 0.441 | h⁻¹ |
-| 一次吸収の割合に関するlogit値 | 1.6 | 無次元 |
-| 一次吸収のラグ | 0.287 | h |
-| ゼロ次吸収の持続時間 | 45.0 | h |
-| クリアランス変化の係数 \(I_{\max}\) | −1.87 | 無次元・対数尺度 |
-| 時間変化の半減点 \(T_{50}\) | 126 | h |
-| 投与量による係数 | −0.00213 | mg⁻¹ |
+| Parameter | Value | Unit or role |
+|---|---|---|
+| Initial CL/F | 59.6 | L/h |
+| Central V/F | 49.0 | L |
+| Peripheral V/F | 113, 103 | L |
+| Intercompartmental Q/F | 2.52, 23.4 | L/h |
+| First-order absorption rate | 0.441 | h⁻¹ |
+| Logit of first-order absorption fraction | 1.6 | Dimensionless |
+| First-order absorption lag | 0.287 | h |
+| Zero-order absorption duration | 45.0 | h |
+| Clearance-change coefficient \(I_{\max}\) | −1.87 | Dimensionless, log scale |
+| Half-time of change \(T_{50}\) | 126 | h |
+| Dose coefficient | −0.00213 | mg⁻¹ |
 
 すべて見かけのパラメータであり、絶対的なバイオアベイラビリティを別に掛けない。一次吸収の割合は \(f_1=\operatorname{expit}(1.6)\)、残りをゼロ次吸収とする。一次吸収はラグの後に始まり、ゼロ次吸収は投与時点から45 h継続する。ゼロ次吸収の入力は服薬ごとに重なる。45 hはこのモデルの経験的な入力持続時間であり、食物や錠剤がその時間胃に留まることを示す値ではない。
 
@@ -101,11 +101,11 @@ I_{\max,i}=I_{\max}\{1+(D-480)\theta_D\}\exp(\eta_I)
 
 **表3　第4週の曝露と低濃度時間**
 
-| 配置 | 週間AUC（ng·h/mL） | 週間最大濃度（ng/mL） | 週間最低濃度（ng/mL） | 基準濃度未満の時間（h） |
-| --- | --- | --- | --- | --- |
-| 4日連続＋3日休薬 | 60,463 | 1,382 | 6.47 | 65.7 |
-| 2日投与を2回 | 60,463 | 1,372 | 10.78 | 59.9 |
-| 隔日を中心に4日投与 | 60,463 | 1,371 | 47.87 | 60.7 |
+| Arrangement | Weekly AUC (ng·h/mL) | Weekly maximum (ng/mL) | Weekly minimum (ng/mL) | Time below cutoff (h) |
+|---|---:|---:|---:|---:|
+| Four consecutive days, three off | 60,463 | 1,382 | 6.47 | 65.7 |
+| Two two-day blocks | 60,463 | 1,372 | 10.78 | 59.9 |
+| Four days, mainly alternating | 60,463 | 1,371 | 47.87 | 60.7 |
 
 数値は `analysis/run_analysis.py` が出力した `outputs/tables/typical.csv` による。基準濃度は約138.2 ng/mLである。最低濃度は週内の最小値であり、3条件共通の暦時刻のトラフではない。
 
@@ -135,10 +135,10 @@ I_{\max,i}=I_{\max}\{1+(D-480)\theta_D\}\exp(\eta_I)
 
 **表4　条件付き仮想個体内の曝露比と時間差**
 
-| 配置 | 週間AUC比 | 最大濃度比 | 最低濃度比 | 低濃度時間差（h） |
-| --- | --- | --- | --- | --- |
-| 2日投与を2回 | 1.00001 [1.00000, 1.00004] | 0.99 [0.97, 1.00] | 1.66 [1.63, 1.92] | -7.6 [-22.7, 3.7] |
-| 隔日を中心に4日投与 | 1.00001 [1.00000, 1.00005] | 0.99 [0.96, 1.00] | 7.42 [4.56, 11.88] | -6.1 [-42.4, 6.8] |
+| Arrangement | Weekly AUC ratio | Maximum ratio | Minimum ratio | Difference in low-concentration time (h) |
+|---|---|---|---|---|
+| Two two-day blocks | 1.00001 [1.00000, 1.00004] | 0.99 [0.97, 1.00] | 1.66 [1.63, 1.92] | -7.6 [-22.7, 3.7] |
+| Four days, mainly alternating | 1.00001 [1.00000, 1.00005] | 0.99 [0.96, 1.00] | 7.42 [4.56, 11.88] | -6.1 [-42.4, 6.8] |
 
 角括弧は条件付き仮想分布の5–95百分位。低濃度時間だけは比ではなく、基準条件との差である。出力は `outputs/tables/paired.csv`。
 
@@ -150,8 +150,8 @@ AUC比はほぼ1に集まる一方、最低濃度比は条件により大きく�
 
 **表5　基準濃度別の低濃度時間**
 
-| 基準ピークに対する割合 | 濃度（ng/mL） | 4日連続＋3日休薬 | 2日投与を2回 | 隔日を中心に4日投与 |
-| --- | --- | --- | --- | --- |
+| Fraction of reference peak | Concentration (ng/mL) | Four consecutive days, three off | Two two-day blocks | Four days, mainly alternating |
+|---|---:|---:|---:|---:|
 | 5% | 69.1 | 50.9 | 30.1 | 9.5 |
 | 10% | 138.2 | 65.7 | 59.9 | 60.7 |
 | 20% | 276.3 | 95.4 | 99.0 | 100.8 |
@@ -170,10 +170,10 @@ AUC比はほぼ1に集まる一方、最低濃度比は条件により大きく�
 
 **表6　固定効果を一つずつ変更した曝露比の範囲**
 
-| 配置 | 週間AUC比の範囲 | 最大濃度比の範囲 | 最低濃度比の範囲 |
-| --- | --- | --- | --- |
-| 2日投与を2回 | 1.000–1.000 | 0.990–0.995 | 1.439–1.943 |
-| 隔日を中心に4日投与 | 1.000–1.000 | 0.989–0.994 | 5.577–9.205 |
+| Arrangement | Weekly AUC ratio range | Maximum ratio range | Minimum ratio range |
+|---|---|---|---|
+| Two two-day blocks | 1.000–1.000 | 0.990–0.995 | 1.439–1.943 |
+| Four days, mainly alternating | 1.000–1.000 | 0.989–0.994 | 5.577–9.205 |
 
 この感度分析でも、週間AUCの差は小さい。最低濃度の差は残るが、倍率自体はパラメータに依存する。原著の推定値間の共分散は使っていないため、この範囲を95%信頼区間とは呼ばない。
 

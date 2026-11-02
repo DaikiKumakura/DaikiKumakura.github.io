@@ -16,11 +16,11 @@
 
 表1　扱った発表と入手できた情報。
 
-| 発表 | 標的・規模 | 本記事が使った情報 |
+| Report | Targets and scale | Information used here |
 | --- | --- | --- |
-| Bits to Binders（Kosonockyらの報告 ([3](#ref-3))） | CD20 1標的、12,000個（長さ80アミノ酸）、28チーム | 配列とプール選別の結果、チームの情報 ([4](#ref-4)) |
-| Anthropic（サソリ毒素の結合体の報告 ([1](#ref-1))） | 毒素5種、211個、2つの検査機関 | 全211個の結果の表（CC BY 4.0）([5](#ref-5)) |
-| Pythia-1（Pythia Labsの報告 ([2](#ref-2))） | 22標的（可溶性15、GPCR 7） | 論文本文の数値。設計ごとの表は、読んだ範囲では見つからなかった |
+| Bits to Binders (report by Kosonocky et al. ([3](#ref-3))) | One target (CD20), 12,000 designs (80 amino acids), 28 teams | Sequences, pooled-screen results and team information ([4](#ref-4)) |
+| Anthropic (report on scorpion-toxin binders ([1](#ref-1))) | 5 toxins, 211 designs, 2 laboratories | Table of results for all 211 designs (CC BY 4.0) ([5](#ref-5)) |
+| Pythia-1 (Pythia Labs report ([2](#ref-2))) | 22 targets (15 soluble, 7 GPCR) | Numbers in the main text; no per-design table was found in the portion read |
 
 データの区別を述べる。「64時間」「42か国」「Claudeが選んだ180個に、Claudeの助けで後から加えた31個を足して211個」「プールで3反復」は、発表元の記事や論文の記載であり、公開データからの再計算ではない。「IL11は48個のうち5個」もPythia Labsの論文本文の記載である ([2](#ref-2))。ほかの当たり数と区間は、固定した版の公開データから `analysis.py` で計算した。
 
@@ -52,11 +52,11 @@
 
 表2　Bits to Binders：「当たり」の定義による当たり数と当たり率（FDR 0.05未満）。
 
-| 定義 | 当たり数 | 分母が全12,000個 | 分母が回収された6,814個 |
+| Definition | Hits | Denominator: all 12,000 | Denominator: 6,814 recovered |
 | --- | ---: | ---: | ---: |
-| 濃縮の向きだけ（倍率の条件なし） | 1,137 | 9.5% | 16.7% |
-| 濃縮が2倍超（発表の定義） | 707 | 5.9% | 10.4% |
-| 濃縮が4倍超 | 86 | 0.7% | 1.3% |
+| Direction of enrichment only (no fold condition) | 1,137 | 9.5% | 16.7% |
+| Enrichment above 2-fold (the report's definition) | 707 | 5.9% | 10.4% |
+| Enrichment above 4-fold | 86 | 0.7% | 1.3% |
 
 - **分母：** 12,000個のうち、プール選別で検出されたのは6,814個で、5,186個（43%）は回収されなかった。回収されなかった設計は、合成や発現の失敗かもしれず、設計の良し悪しを反映しているとは限らない。
 - **閾値：** 濃縮の条件を2倍から4倍にすると、当たりは707個から86個になる。FDRを0.001未満にすると、473個（3.9%）になる。
@@ -87,14 +87,14 @@
 
 表3　Claudeの毒素結合体211個：基準を変えた当たり数と当たり率。
 
-| 基準 | 当たり数 | 当たり率（95%区間） |
+| Criterion | Hits | Hit rate (95% interval) |
 | --- | ---: | ---: |
-| 公表の基準（`binder_against` 列による。両検査機関、全反復、KD 1 µM以下、Rmax条件、CLEC12A陰性） | 17 | 8.1%（5.1–12.5%） |
-| 2つの検査機関の両方で結合（ほかの基準なし） | 34 | 16.1%（11.8–21.7%） |
-| 検査機関1つ（Twist）で結合 | 39 | 18.5%（13.8–24.3%） |
-| 検査機関1つ（Adaptyv）で結合 | 41 | 19.4%（14.7–25.3%） |
-| どちらかで結合 | 49 | 23.2%（18.0–29.4%） |
-| どちらかで結合、「弱い・曖昧」も含む（参考） | 62 | 29.4%（23.7–35.9%） |
+| Published criteria (from the `binder_against` column; both laboratories, all replicates, KD 1 µM or tighter, Rmax condition, CLEC12A negative) | 17 | 8.1% (5.1–12.5%) |
+| Binding at both laboratories (no other criteria) | 34 | 16.1% (11.8–21.7%) |
+| Binding at one laboratory (Twist) | 39 | 18.5% (13.8–24.3%) |
+| Binding at one laboratory (Adaptyv) | 41 | 19.4% (14.7–25.3%) |
+| Binding at either laboratory | 49 | 23.2% (18.0–29.4%) |
+| Either laboratory, including "weak or ambiguous" (reference) | 62 | 29.4% (23.7–35.9%) |
 
 注：LqhIIIはAdaptyv Bioのみで測定されたため、「Twist」「Adaptyv」「両方」の分母はいずれも211個だが、LqhIIIの扱いが非対称である。「Twistで結合」の39件は検査機関の判定そのものではなく、Anthropicが事後に適用した固定の規則による判定である ([5](#ref-5))。「弱い・曖昧」の62件も同様の規則による。主な幅は8.1–23.2%で、29.4%は基準の拡張の参考値である。区間は設計の独立を仮定し、事前の選別と毒素・設計セットによる群構造に由来する不確かさを含まない。
 
@@ -121,14 +121,14 @@ Claudeの基準（KD 1 µM以下、2つの検査機関、全反復、対照）�
 
 表4　3つの発表で異なる6つの条件。
 
-| 条件 | Bits to Binders | Claude | Pythia-1 |
+| Condition | Bits to Binders | Claude | Pythia-1 |
 | --- | --- | --- | --- |
-| 測定法 | CAR-Tの増殖で濃縮（プール） | SPR（2機関、一部BLI） | BLI、フローサイトメトリー |
-| 閾値 | FDR 0.05未満、濃縮2倍超 | KD 1 µM以下 | 応答0.06 nm超、KD 5 µM未満 |
-| 反復 | プールで3反復 | 全反復で結合 | BLIの5濃度（反復ではなく濃度系列） |
-| 対照 | 減少（Down）の数 | CLEC12A、OVA | 論文本文では未確認 |
-| 事前の選別 | チームによる | Claudeが選んだ180個に、Claudeの助けで後から加えた31個 | 最大48個に絞った後 |
-| 分母 | 全提出数と、回収数で別 | 試験した211個 | 標的ごとに最大48個 |
+| Assay | Enrichment under CAR-T proliferation (pooled) | SPR (2 laboratories, some BLI) | BLI, flow cytometry |
+| Threshold | FDR below 0.05, enrichment above 2-fold | KD 1 µM or tighter | Response above 0.06 nm, KD below 5 µM |
+| Replication | 3 replicates in the pool | Binding in all replicates | Five BLI concentrations (a concentration series, not replicates) |
+| Controls | Number of Down calls | CLEC12A, OVA | Not confirmed in the main text |
+| Prior selection | Depends on the team | 180 chosen by Claude plus 31 added later with Claude's help | After narrowing to at most 48 |
+| Denominator | Total submitted and recovered counted separately | 211 tested | At most 48 per target |
 
 この表以外にも、標的の難しさ、結合体の長さと形式（80アミノ酸のCAR結合ドメイン、毒素への結合体、完全長の抗体）、サンプルの大きさが異なる。サンプルの大きさだけでも、当たり率約8%の95%区間は、12個で1.5–35%、60個で3.6–18%、211個で5.1–12.5%、466個で5.8–10.8%と、大きく違う（区間幅の例は、各nに0.08をかけた整数の当たり数による）。
 

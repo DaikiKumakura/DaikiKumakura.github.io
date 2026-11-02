@@ -14,11 +14,11 @@ QOIは「親薬物のAUCを合わせる用量変更で、M2の曝露も保てる
 
 2026年の第I相試験では、健康成人男性16人にsavolitinib 300 mgを単回投与し、別期間にfluvoxamine 50 mg BID投与下で同じ300 mgを投与している。比較は固定順序の個人内比較であり、がん患者の反復投与試験ではない。M2は活性代謝物、M3は非活性代謝物として記載されている（[Miah et al., 2026](https://doi.org/10.1002/prp2.70321)）。
 
-| 指標 | 親薬物 | M2 | M3 |
+| Measure | Parent | M2 | M3 |
 | --- | ---: | ---: | ---: |
-| 同用量でのAUCinf比 | 3.25 | 0.37 | 3.27 |
-| AUCinf比の90% CI | 2.87–3.68 | 0.33–0.41 | 2.85–3.74 |
-| 同用量でのCmax比 | 1.95 | 0.12 | 1.58 |
+| Same-dose AUCinf ratio | 3.25 | 0.37 | 3.27 |
+| 90% CI of AUCinf ratio | 2.87–3.68 | 0.33–0.41 | 2.85–3.74 |
+| Same-dose Cmax ratio | 1.95 | 0.12 | 1.58 |
 
 数値は原著[Table 2](https://pmc.ncbi.nlm.nih.gov/articles/PMC13598373/)の幾何最小二乗平均比である。以下の計算にもこの比を使う。表に併記された幾何平均値を割り直した比とは、丸めや解析方法によりわずかに異なる。
 
@@ -42,13 +42,13 @@ d=\frac{1}{R_P},\qquad E_M=\frac{R_M}{R_P}.
 
 `analysis/run.py`が出力した結果を示す。
 
-| 計算項目 | 結果 |
+| Calculation | Result |
 | --- | ---: |
-| 親薬物AUCを合わせる用量倍率 | 0.3077 |
-| 300 mgに倍率を掛けた算術上の量 | 92.3 mg |
-| 調整後の親薬物AUC比 | 1.000 |
-| 調整後のM2 AUC比 | 0.1138 |
-| 調整後のM3 AUC比 | 1.0062 |
+| Dose multiplier matching parent AUC | 0.3077 |
+| Arithmetic amount obtained from 300 mg | 92.3 mg |
+| Adjusted parent AUC ratio | 1.000 |
+| Adjusted M2 AUC ratio | 0.1138 |
+| Adjusted M3 AUC ratio | 1.0062 |
 
 ![Observed exposure ratios and arithmetic parent-matched ratios](shared/savolitinib-parent-metabolite-ddi/figures/exposure-matching.svg)
 

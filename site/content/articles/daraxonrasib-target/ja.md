@@ -30,16 +30,16 @@
 
 表1．FDA審査報告から取った入力と申請者の記載。
 
-| 項目 | 値 | 記載の区分 |
+| Item | Value | Type of statement |
 |---|---|---|
-| 母集団薬物動態（[Table 59](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2026/220910Orig1s000MultidisciplineR.pdf#page=242)） | 2区画、一次吸収、ラグ0.305時間。CL/F（見かけのクリアランス）53.8 L/h、Vc/F（中心コンパートメントの見かけの分布容積）516 L、Q/F（見かけのコンパートメント間クリアランス）26.1 L/h、Vp/F（末梢コンパートメントの見かけの分布容積）255 L、ka（吸収速度定数）0.735 /h（160 mg以下では2.49倍） | 審査報告の最終PopPKモデル ([1](#ref-1)) |
-| 時間とともに下がる相対バイオアベイラビリティ | 最大の低下EM 0.357、半分に達する日数ET50 5.90日 | 同上 |
-| 個人間変動（分散） | CL 0.139、Vc 0.168（共分散0.0949）、ka 0.847 | 同上 |
-| 分子量 | 811.05 g/mol | 審査報告 ([1](#ref-1)) |
-| 前臨床の標的抑制（Capan-2異種移植、KRAS G12V、単回投与） | 腫瘍内濃度に対する腫瘍DUSP6 mRNAの抑制：EC50 54 nM、EC90 966 nM、最大抑制約99% | 審査報告の薬理の節 ([1](#ref-1)) |
-| 腫瘍と血液の曝露の比（マウス） | 腫瘍のAUCは血液の4〜7倍。腫瘍の濃度は血中より長く残る | 同上 |
-| 申請者の予測（申請者の記載） | 300 mgで90%以上の抑制100%、95%以上75%。200 mgで91%、38% | 申請者の記載 ([1](#ref-1)) |
-| 第3相（RASolute 302、申請者の記載） | 有効性（全生存期間、無増悪生存期間、奏効、奏効の持続）に有意な曝露反応なし。安全性（グレード3以上の有害事象、皮膚障害、口内炎など）は曝露と有意な関係があったが、200 mgと300 mgの予測差は10%以下。用量強度の中央値93.1%、1日平均投与量の中央値279.3 mg、休薬56.0%、減量36.1% |
+| Population PK ([Table 59](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2026/220910Orig1s000MultidisciplineR.pdf#page=242)) | 2 compartments, first-order absorption, lag 0.305 h. CL/F (apparent clearance) 53.8 L/h, Vc/F (apparent central volume of distribution) 516 L, Q/F (apparent intercompartmental clearance) 26.1 L/h, Vp/F (apparent peripheral volume of distribution) 255 L, ka (absorption rate constant) 0.735 /h (at 160 mg or below, 2.49-fold) | Final PopPK model in the review ([1](#ref-1)) |
+| Time-dependent relative bioavailability | Maximum decrease EM 0.357, days to half of it ET50 5.90 d | Same |
+| Between-subject variability (variance) | CL 0.139, Vc 0.168 (covariance 0.0949), ka 0.847 | Same |
+| Molecular weight | 811.05 g/mol | Review ([1](#ref-1)) |
+| Preclinical target inhibition (Capan-2 xenograft, KRAS G12V, single dose) | Inhibition of tumour DUSP6 mRNA against intratumour concentration: EC50 54 nM, EC90 966 nM, maximum inhibition about 99% | Pharmacology section of the review ([1](#ref-1)) |
+| Tumour-to-blood exposure ratio (mouse) | Tumour AUC is 4–7 times blood AUC. Tumour concentration persists longer than blood concentration | Same |
+| Applicant's prediction (applicant statement) | At 300 mg, at least 90% inhibition in 100% and at least 95% in 75%. At 200 mg, 91% and 38% | Applicant statement ([1](#ref-1)) |
+| Phase 3 (RASolute 302, applicant statement) | No significant exposure–response for efficacy (overall survival, progression-free survival, response, duration of response). Safety endpoints (grade 3 or higher adverse events, skin disorders, stomatitis and others) were significantly related to exposure, but the predicted difference between 200 mg and 300 mg was 10% or less. Median relative dose intensity 93.1%, median 1-day average dose 279.3 mg, interruption 56.0%, reduction 36.1% | Applicant statement ([1](#ref-1)) |
 
 注：出所のページは、分子量が p. 47、薬理の節が p. 37、申請者の予測が p. 75、曝露反応と用量強度が pp. 75–76、有効性の曝露反応の対象人数が p. 90である。ページは審査報告の印刷ページ番号で、PDF上のページ番号は1大きい。DUSP6はRAS経路の下流で発現が変わる遺伝子で、経路の活性の目印として使われる。EC50とEC90は、最大効果の50%と90%を生む濃度である。薬理の節の各段落が申請者の記載か否かは、確認していない。
 
@@ -85,9 +85,9 @@ AUCの近さは、時間とともに下がる相対バイオアベイラビリ�
 
 表2．固定した腫瘍・全血濃度比に基づく条件付き予測（28日目、各用量で仮想患者4,096人中の割合）。
 
-| 用量 | トラフの血中濃度（中央値） | 24時間平均で90%以上（R＝4） | 24時間平均で90%以上（R＝7） | トラフで90%以上（R＝4） | トラフで90%以上（R＝7） |
+| Dose | Trough blood concentration (median) | At least 90% by 24-hour average (R = 4) | At least 90% by 24-hour average (R = 7) | At least 90% at trough (R = 4) | At least 90% at trough (R = 7) |
 |---|---|---|---|---|---|
-| 300 mg | 68 ng/mL（84 nM） | 11.9% | 54.3% | 0.9% | 13.3% |
+| 300 mg | 68 ng/mL (84 nM) | 11.9% | 54.3% | 0.9% | 13.3% |
 | 240 mg | 55 ng/mL | 3.6% | 33.8% | 0.2% | 5.3% |
 | 200 mg | 46 ng/mL | 1.2% | 20.5% | 0.1% | 2.3% |
 | 160 mg | 33 ng/mL | 0.2% | 7.1% | 0.0% | 0.3% |

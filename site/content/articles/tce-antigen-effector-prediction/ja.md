@@ -20,11 +20,11 @@ Yuanらのモデルは、抗体の結合、T細胞の活性化・分化、腫瘍
 
 **表1．** 図から取得した観測平均と用途。
 
-| 資料 | 読み取ったもの | 今回の用途 |
+| Source | Extracted information | Use |
 | --- | --- | --- |
-| 補足Table S1 | 14細胞株の5T4分子数/cell | 未使用株の説明変数 |
-| 補足Figure S10 | E:T=4:1、72時間後の観測平均シンボル166点 | 株を丸ごと除外した検証 |
-| Figure 6 | MDA-MB-468、E:T=1・2・4・8:1の観測シンボル43点 | 比率を丸ごと除外した別の検証 |
+| Supplementary Table S1 | 14 lines: 5T4 molecules/cell | Predictor for held-out lines |
+| Supplementary Figure S10 | E:T=4:1, 72 hours: 166 observed-mean symbols | Leave-one-line-out evaluation |
+| Figure 6 | MDA-MB-468, E:T=1, 2, 4 and 8:1: 43 observed symbols | Separate leave-one-ratio-out evaluation |
 
 シンボルが観測平均、実線が原著モデルの推定である。**実線を観測値として読み取ってはいない。** 数値の元表は取得できなかったため、点の中心座標と軸の目盛から濃度・殺細胞率へ変換した。公開グラフからの数値抽出が評価者間で高い再現性を示した例はあるが、それは別のソフトウェアと別種のグラフに関する報告である ([3](#ref-3))。本解析の手動座標記録の精度はそこから借りず、後述の±2 pixelの感度分析で確認した。重なって中心を確定できないS10の低濃度青丸候補2点は除外し、位置と理由を配布ファイルに残した。
 
@@ -46,11 +46,11 @@ EC50はその曲線の最大効果の半分となる濃度であり、絶対値�
 
 **表2．** 比較したHillモデルの構造。
 
-| モデル名 | 株間で変わるもの | パラメータ数 |
+| Model | Variation between lines | Parameters |
 | --- | --- | --- |
-| shared | なし | 3 |
-| potency | 抗原量に応じたEC50 | 4 |
-| both | 抗原量に応じたEC50と最大効果 | 5 |
+| shared | None | 3 |
+| potency | Antigen-dependent EC50 | 4 |
+| both | Antigen-dependent EC50 and maximum | 5 |
 
 抗原量の影響は、例えば
 
@@ -68,7 +68,7 @@ EC50はその曲線の最大効果の半分となる濃度であり、絶対値�
 
 **表3．** 未使用細胞株での予測誤差。
 
-| モデル | 未使用株の平均RMSE | 平均MAE |
+| Model | Mean held-out RMSE | Mean MAE |
 | --- | ---: | ---: |
 | shared | 19.33 | 14.78 |
 | potency | 18.02 | 13.69 |
@@ -100,11 +100,11 @@ SCC-9では高濃度でも観測平均は約35%にとどまるが、未知株予
 
 **表4．** 読取中心位置変更による誤差の範囲。
 
-| モデル | 32通りでの平均RMSEの範囲 |
+| Model | Mean RMSE range |
 | --- | ---: |
-| shared | 19.22〜19.43 |
-| potency | 17.92〜18.10 |
-| both | 18.19〜18.37 |
+| shared | 19.22–19.43 |
+| potency | 17.92–18.10 |
+| both | 18.19–18.37 |
 
 この範囲の中心変更では結論は大きく動かなかった。ただし、読めない点の欠落、抗原定量の誤差、元のドナー間変動をこの操作で補えるわけではない。
 
@@ -116,13 +116,13 @@ E:Tはeffector-to-target ratio、すなわち開始時のT細胞数と腫瘍細�
 
 **表5．** 未使用E:T比に対する予測誤差。
 
-| 除外したE:T比 | sharedのRMSE | E:TでEC50を変えるモデルのRMSE |
+| Held-out E:T | Shared RMSE | E:T-dependent EC50 RMSE |
 | --- | ---: | ---: |
 | 1:1 | 14.29 | 7.68 |
 | 2:1 | 6.07 | 7.13 |
 | 4:1 | 11.19 | 13.39 |
 | 8:1 | 11.56 | 7.45 |
-| 4比率の平均 | 10.77 | 8.91 |
+| Mean over 4 ratios | 10.77 | 8.91 |
 
 単位はpp。1:1と8:1は、残る比率の範囲外への予測である。2:1と4:1は範囲内だが、すべて同じ株の条件変更であり、新しい株・ドナー・研究施設での検証ではない。
 

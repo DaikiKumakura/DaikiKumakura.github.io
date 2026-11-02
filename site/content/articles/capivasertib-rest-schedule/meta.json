@@ -25,7 +25,7 @@
     "summary": "Three equal-dose weekly schedules are compared with an independent implementation of published PK equations. Weekly AUC is nearly unchanged, while minima and cutoff-dependent low-concentration times differ. Conditional sensitivity simulations do not establish clinical equivalence or predict efficacy, toxicity, or recovery."
   },
   "reviewed": {
-    "en": "2877b71f01f2b22493d8a05f460e23aea21e5e96f9405f7caeae6b847c86977f"
+    "en": "e74bdb707fe1b1d8435c2ebf4ea1900a0cf83f004105b615c7e9c21844e0d973"
   },
   "updated": "2026-10-28"
 }

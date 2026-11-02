@@ -22,17 +22,17 @@ Nimotuzumabの原研究では、進行乳がん患者のデータに対して半
 
 <span id="table-1"></span>表1．配布データの実体と扱い
 
-| 項目 | 配布実体と扱い |
+| Item | Distributed content and handling |
 | --- | --- |
-| 被験者 | 12人。50 / 100 / 200 / 400 mgに各3人 |
-| イベント | 441行：投与120、濃度観測321 |
-| 反復投与 | 全員10回。実TIMEを連続使用 |
-| DV | 自然対数濃度。`exp(DV)`がµg/mL（mg/Lと同値） |
-| 時刻・投与量・速度 | h、mg、mg/h |
-| 点滴時間 | 記録AMT/RATEでは0.37–2.91 h。原研究の公称0.5 hとの対応は未解決 |
-| TAD | 143/321観測で直前投与からの時間と不整合。ODEには使用しない |
-| BLQ | 専用フラグなし。未収録BLQの有無は判断できない |
-| 独立な情報量 | 321行ではなく、まず12人。各用量の独立被験者は3人 |
+| Subjects | 12; 3 each at 50 / 100 / 200 / 400 mg |
+| Events | 441 rows: 120 doses and 321 concentration observations |
+| Repeated dosing | 10 doses for everyone; actual TIME used continuously |
+| DV | Natural-log concentration; `exp(DV)` is in µg/mL (equivalent to mg/L) |
+| Time, dose, rate | h, mg, mg/h |
+| Infusion duration | 0.37–2.91 h from the recorded AMT/RATE; correspondence with the nominal 0.5 h of the original study is unresolved |
+| TAD | Inconsistent with the time since the previous dose in 143/321 observations; not used in the ODE |
+| BLQ | No dedicated flag; whether unrecorded BLQ values exist cannot be determined |
+| Independent information | Not 321 rows but, first of all, 12 people; 3 independent subjects per dose |
 
 対数尺度は公式モデル例の`IPRED = log(conc)`と整合する ([3](#ref-3))。投与行のDV=0を濃度観測に混ぜない。投与間隔は記録上93.0–312.6 hであり、推定時に名目168 hへ丸めていない。
 
@@ -264,13 +264,13 @@ M3の用量比は1人ずつ除外しても約2.19–2.47で、線形の2と異�
 
 <span id="table-10"></span>表10．問いと支持される範囲
 
-| 判断 | 今回支持できる範囲 | 支持できない範囲 |
+| Judgment | What is supported here | What is not supported |
 | --- | --- | --- |
-| 実測データによるPopPK | 個体間変動を含む3候補の推定・比較を実行した | 元試験全体の完全再現 |
-| 構造の追加 | 学習適合は改善するが、予測改善は小さく不安定性が残る | 非線形モデルの採用確定 |
-| 線形モデルの十分性 | 単純な基準としての比較に使える | 用量比・絶対曝露が十分正確との保証 |
-| 投与条件比較 | 固定した候補モデル内の曝露・比の違いを数値化できる | 治療用量の最適化、臨床リスク予測 |
-| 不確実性 | IIV、構造差、再推定失敗を区別できる | bootstrap由来の信頼できる95%CI |
+| PopPK with measured data | Estimated and compared three candidates including between-subject variability | Full reproduction of the whole original study |
+| Adding structure | Training fit improves, but prediction improvement is small and instability remains | Confirming adoption of the nonlinear model |
+| Sufficiency of the linear model | Usable as a simple reference for comparison | Guaranteeing that dose ratios and absolute exposure are accurate enough |
+| Comparing dosing conditions | Exposure and ratio differences within fixed candidate models can be quantified | Optimizing therapeutic doses, predicting clinical risk |
+| Uncertainty | IIV, structural differences and re-estimation failures can be distinguished | Reliable 95% CIs from the bootstrap |
 
 ## 結論 {#article-conclusion}
 

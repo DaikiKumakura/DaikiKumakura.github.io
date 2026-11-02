@@ -14,10 +14,10 @@ M1/M2の限界そのものは新発見ではない。[2014年の実験ガイド�
 
 **表1．** 刺激条件とドナー別の細胞数。
 
-| 本文で使う元データのラベル | 刺激 | ドナー1の細胞数 | ドナー2の細胞数 |
+| Original label used here | Stimulus | Donor 1 cells | Donor 2 cells |
 | --- | --- | ---: | ---: |
-| M1 | LPS＋IFNγ | 3,884 | 4,537 |
-| M2a | IL-4＋IL-13 | 1,407 | 4,756 |
+| M1 | LPS + IFNγ | 3,884 | 4,537 |
+| M2a | IL-4 + IL-13 | 1,407 | 4,756 |
 | M2c | IL-10 | 3,631 | 3,014 |
 
 合計21,229細胞、独立したドナーは2人。GEOの記載では、マクロファージコロニー刺激因子（M-CSF）で6日間分化させた後、24時間刺激している。LPSはリポ多糖、IFNγはインターフェロンγ、ILはインターロイキンを指す。原著の方法欄でも、単一細胞RNA解析用のマクロファージは分化サイトカインの添加から24時間後に回収されたと記される。一方、機能実験用のマクロファージは、M-CSFで5日間分化させた後に48時間刺激し、第7日に回収された ([5](#ref-5))。RNAと機能実験では刺激の長さが違うため、同じ時点の測定として結び付けない。
@@ -32,14 +32,14 @@ M1/M2の限界そのものは新発見ではない。[2014年の実験ガイド�
 
 **表2．** 事前に選択した比較用遺伝子パネル。
 
-| パネル | 使用した遺伝子 |
+| Panel | Genes used |
 | --- | --- |
-| IFN関連 | STAT1、IRF1、GBP1、CXCL9、CXCL10、IDO1 |
-| 抗原処理関連 | HLA-A、HLA-B、B2M、TAP1、TAP2、PSMB8 |
-| 共刺激リガンド | CD80、CD86、ICOSLG |
-| チェックポイントリガンド | CD274、PDCD1LG2 |
-| type 2関連 | CCL17、CCL18、CCL22、ALOX15、TGM2 |
-| 取り込み受容体 | MRC1、CD163、MERTK、MSR1 |
+| IFN-related | STAT1, IRF1, GBP1, CXCL9, CXCL10, IDO1 |
+| Antigen processing | HLA-A, HLA-B, B2M, TAP1, TAP2, PSMB8 |
+| Costimulatory ligands | CD80, CD86, ICOSLG |
+| Checkpoint ligands | CD274, PDCD1LG2 |
+| Type 2-related | CCL17, CCL18, CCL22, ALOX15, TGM2 |
+| Uptake receptors | MRC1, CD163, MERTK, MSR1 |
 
 各ドナー・刺激条件で遺伝子の平均log1p発現を計算し、六つの標本平均を等しい重みで使って、遺伝子ごとに標準化した。そのzスコアをパネル内で平均する。細胞数の多い標本だけに基準を引っ張らせないためだ。
 

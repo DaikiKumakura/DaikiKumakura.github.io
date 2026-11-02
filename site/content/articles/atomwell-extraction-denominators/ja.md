@@ -14,10 +14,10 @@ Bindwellの技術ブログには、Datawellと受託研究機関（contract rese
 
 表1. 公表された照合件数から計算した一致と不一致。
 
-| 状態 | 件数 | 照合10,972件に対する割合 |
+| Status | Count | Percentage of 10,972 matched measurements |
 | --- | ---: | ---: |
-| 値が完全一致 | 8,566 | 78.1% |
-| 値が一致しない | 2,406 | 21.9% |
+| Exact-value agreement | 8,566 | 78.1% |
+| Values disagree | 2,406 | 21.9% |
 
 この78.1%は、両方が対応付けられる形で抽出した行の中での一致率である。一方だけが抽出した行も、両方が見落とした行も、この分母には入らない。したがって、元論文にある測定を何割回収したかという再現率には換算できない。
 
@@ -39,12 +39,12 @@ $$
 
 表2. 一致件数を変えずに構成できる正解率。実測結果ではない。
 
-| 正解の割当 | Aの正解率 | Bの正解率 |
+| Assignment of correctness | A accuracy | B accuracy |
 | --- | ---: | ---: |
-| 一致行はすべて正解・不一致行は双方誤り | 78.1% | 78.1% |
-| 一致行も不一致行も双方誤り | 0% | 0% |
-| 一致行はすべて正解・不一致行はAだけ正解 | 100% | 78.1% |
-| 一致行はすべて正解・不一致行はBだけ正解 | 78.1% | 100% |
+| All agreements correct; neither correct on disagreements | 78.1% | 78.1% |
+| Both wrong on agreements and disagreements | 0% | 0% |
+| All agreements correct; only A correct on disagreements | 100% | 78.1% |
+| All agreements correct; only B correct on disagreements | 78.1% | 100% |
 
 これは、両方が全件誤っていると疑うための表ではない。そうした可能性を一致件数だけでは排除できないという表である。共通の誤読や同じ単位変換があれば、一致は誤りを取り除く仕組みにならない。一方、一致行が実際に原文をよく写している可能性も否定していない。
 

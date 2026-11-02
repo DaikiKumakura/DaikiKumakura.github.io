@@ -16,13 +16,13 @@ Yuanらは、5T4×CD3抗体によるT細胞活性化と腫瘍細胞への作用�
 
 **表1．** 公開図から使った情報と除外条件。
 
-| 公開図から使った情報 | 扱い |
+| Information in the public figure | Treatment |
 | --- | --- |
-| 2株×9濃度×3時点の灰色の観測平均 | 54点を数値化 |
-| 各株の24・48時間 | 各18点を推定に使用 |
-| 各株の72時間 | 各9点を予測との比較に使用 |
-| MDA-MB-468の別の10濃度 | 72時間しか観測点がないため除外 |
-| 青いQSPモデル曲線 | 観測値として使わない |
+| Gray observed means for 2 lines × 9 concentrations × 3 times | 54 digitized points |
+| 24 and 48 hours in each line | 18 points per line used for fitting |
+| 72 hours in each line | 9 points per line used for prediction evaluation |
+| MDA-MB-468, another 10 concentrations | Excluded because observations exist only at 72 hours |
+| Blue QSP model curves | Not treated as observations |
 
 灰色の点と青い曲線を混ぜると、72時間まで使って推定された原著モデルから早期値を作り、その早期値で72時間を予測する循環になる。今回は観測シンボルだけを読んだ。
 
@@ -66,12 +66,12 @@ Yuanらは、5T4×CD3抗体によるT細胞活性化と腫瘍細胞への作用�
 
 **表2．** 早期データから推定したモデル係数。
 
-| 株 | モデル | \(k_{\max}\)［h⁻¹］ | \(EC_{50}\)［nM］ | 選択した遅れ［h］ |
+| Line | Model | \(k_{\max}\), h⁻¹ | \(EC_{50}\), nM | Selected lag, h |
 | --- | --- | ---: | ---: | ---: |
-| MDA-MB-231 | 遅れなし | 0.0150 | 0.376 | 0固定 |
-| MDA-MB-231 | 早期データで遅れを選択 | 0.0384 | 0.457 | 21 |
-| MDA-MB-468 | 遅れなし | 0.0387 | 0.141 | 0固定 |
-| MDA-MB-468 | 早期データで遅れを選択 | 0.0781 | 0.190 | 14 |
+| MDA-MB-231 | No lag | 0.0150 | 0.376 | Fixed at 0 |
+| MDA-MB-231 | Lag selected using early data | 0.0384 | 0.457 | 21 |
+| MDA-MB-468 | No lag | 0.0387 | 0.141 | Fixed at 0 |
+| MDA-MB-468 | Lag selected using early data | 0.0781 | 0.190 | 14 |
 
 21時間や14時間は、この経験式と集計値から得た推定である。T細胞の活性化が実際にその時間まで起きなかったと示す値ではない。上限100%、低濃度で反応0、単調に増える時間変化もモデルの仮定であり、全観測点に合うわけではない。
 
@@ -85,12 +85,12 @@ Yuanらは、5T4×CD3抗体によるT細胞活性化と腫瘍細胞への作用�
 
 **表3．** 72時間予測の誤差。
 
-| 方法 | MDA-MB-231のRMSE［pp］ | MDA-MB-468のRMSE［pp］ | 全18条件のRMSE［pp］ | 誤差10 pp以内 |
+| Method | MDA-MB-231 RMSE, pp | MDA-MB-468 RMSE, pp | RMSE across 18 conditions, pp | Errors within 10 pp |
 | --- | ---: | ---: | ---: | ---: |
-| 48時間をそのまま使う | 18.1 | 5.2 | 13.3 | 14/18 |
-| 直線外挿 | 10.2 | 14.4 | 12.5 | 13/18 |
-| 遅れなしモデル | 16.4 | 5.1 | 12.1 | 14/18 |
-| 早期データで遅れを選択 | 7.2 | 9.1 | 8.2 | 16/18 |
+| Carry 48 hours forward | 18.1 | 5.2 | 13.3 | 14/18 |
+| Linear extrapolation | 10.2 | 14.4 | 12.5 | 13/18 |
+| No-lag model | 16.4 | 5.1 | 12.1 | 14/18 |
+| Lag selected using early data | 7.2 | 9.1 | 8.2 | 16/18 |
 
 10 ppは結果を数えやすくするための例示的な幅であり、検証済みのアッセイ合格基準ではない。5・20 ppで数えた結果も配布表に残した。
 

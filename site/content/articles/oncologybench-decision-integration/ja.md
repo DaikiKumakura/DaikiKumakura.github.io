@@ -20,10 +20,10 @@
 
 **表1．固定コミットにある公開例題2件の採点ノード数。**
 
-| 公開例題 | 解析セクション | 数値許容差ノード | 数値範囲ノード | 条件判定ノード | 判断ルーブリックの加点／減点項目 |
+| Public example | Analytical sections | Numeric-tolerance nodes | Numeric-range nodes | Predicate nodes | Positive/negative Decision-rubric criteria |
 | --- | ---: | ---: | ---: | ---: | ---: |
-| 術後の分子情報・記録の統合 | 5 | 4 | 0 | 10 | 6／5 |
-| TGFβ・PD-L1関連の開発判断 | 4 | 9 | 2 | 6 | 7／4 |
+| Integration of postoperative molecular information and records | 5 | 4 | 0 | 10 | 6/5 |
+| TGFβ–PD-L1 development decision | 4 | 9 | 2 | 6 | 7/4 |
 
 これは採点構造の記述であり、独立した必須問題の数ではない。２件目には複数の定義を許容する枝もあり、すべての末端ノードを同時に満たす必要がある、と数えてはいけない。本番全体の難易度や合格率も、この２件からは推定できない。
 
@@ -33,13 +33,13 @@
 
 **表2．証拠を統合するときに保持する条件。**
 
-| 結果に付随する情報 | 統合時に区別すること |
+| Context attached to a result | Distinction during integration |
 | --- | --- |
-| ヒトの単剤・単群試験 | 併用療法の比較試験の結果とは区別する |
-| マウスの空間指標 | ヒトの臨床アウトカムとは測定対象が異なる |
-| 対照がvehicleの実験 | 単剤への上乗せ効果とは比較対象が異なる |
-| 抗体の種類が未記録の実験 | 特定の抗体による結果だと確定しない |
-| 所見が未記録の記録 | 所見がないと確認された記録と区別する |
+| Human single-arm monotherapy study | Distinguish it from a comparative combination-treatment trial |
+| Mouse spatial measurement | Its measured endpoint differs from a human clinical outcome |
+| Experiment using a vehicle comparator | It does not measure added benefit over monotherapy |
+| Experiment without recorded antibody identity | Do not assign the result to a specific antibody |
+| Record without a documented finding | Distinguish unrecorded status from confirmed absence |
 
 これらの違いは、結果を捨てる理由ではない。どの主張を直接支持でき、どの接続に追加の仮定やデータが必要かを示す情報になる。直接の臨床効果がまだ証明されていなくても、試験を行う価値はあり得る。
 
@@ -83,11 +83,11 @@ U_{\mathrm{追加実験}}
 
 **表3．仮想の成功確率に対する期待効用。値は任意単位。**
 
-| 仮定した \(q\) | 中止 | 今進む | 追加実験後に選び直す | 最大の期待効用を持つ行動 |
+| Assumed \(q\) | Stop | Continue now | Experiment and decide again | Action with maximum expected utility |
 | --- | ---: | ---: | ---: | --- |
-| 0.2 | 0 | −12 | 7.8 | 追加実験 |
-| 0.4 | 0 | 16 | 24.6 | 追加実験 |
-| 0.8 | 0 | 72 | 67 | 今進む |
+| 0.2 | 0 | −12 | 7.8 | Experiment |
+| 0.4 | 0 | 16 | 24.6 | Experiment |
+| 0.8 | 0 | 72 | 67 | Continue now |
 
 \(q=0.2\) では、そのまま進む期待効用は負だが、実験後に選び直す価値が費用を上回る。\(q=0.4\) では、進む判断が既に正の期待効用を持っていても、追加実験の方が大きい。
 

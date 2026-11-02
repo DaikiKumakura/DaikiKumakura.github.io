@@ -57,16 +57,16 @@ Normanらは、白血病細胞株K562で、単独と2遺伝子同時の遺伝子
 
 表1．非加法成分と加法予測の要約。
 
-| 指標（上位50遺伝子、標的を除く） | 値 |
+| Metric, top 50 genes excluding targets | Value |
 | --- | ---: |
-| Fの中央値（四分位範囲） | 0.09（0.05〜0.17） |
-| F > 0.2の組 | 27組（21%） |
-| 係数1つを掛けたときのFの中央値 | 0.06 |
-| 係数1つを掛けてもF > 0.2の組（131組全体） | 8組 |
-| 係数2つ（Normanらの形）を掛けたときのFの中央値 | 0.05 |
-| 単独摂動側のノイズを補正したFの中央値（事後） | 0.08 |
-| 加法の予測のR²の中央値（ノイズ込み） | 0.89 |
-| 重複しない2分割の観測どうしのR²の中央値 | 0.96 |
+| Median F, interquartile range | 0.09 (0.05–0.17) |
+| Pairs with F >0.2 | 27 (21%) |
+| Median F after one coefficient | 0.06 |
+| Pairs with F >0.2 after one coefficient, among all 131 | 8 |
+| Median F after two coefficients, Norman form | 0.05 |
+| Median F after single-perturbation noise correction, post hoc | 0.08 |
+| Median additive R², including noise | 0.89 |
+| Median R² between two observation groups | 0.96 |
 
 事前に決めた判断の規則は「中央値が0.2未満なら、加法モデルを超える余地は小さい」だった。結果は、この「余地は小さい」側に入る。
 
@@ -93,7 +93,7 @@ Fが0.2を超えた27組を、Fの大きい順に挙げる。
 
 表2．Fが0.2を超えた27組の内訳。
 
-| 組み合わせ | 細胞数 | F | c | 係数1つを掛けたF | 2回の観測のR² |
+| Pair | Cells | F | c | F after one coefficient | R² between observation groups |
 | --- | ---: | ---: | ---: | ---: | ---: |
 | ZC3HAV1 + CEBPE | 410 | 1.47 | 0.54 | 0.106 | 0.91 |
 | DUSP9 + MAPK1 | 290 | 1.35 | 0.56 | 0.121 | 0.81 |

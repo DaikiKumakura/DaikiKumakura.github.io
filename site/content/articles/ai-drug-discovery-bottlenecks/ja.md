@@ -54,14 +54,14 @@ AdaptyvのTREM2設計イベントでも、人間が設計ツールを運用す�
 
 <span id="table-1"></span>表1．生命科学関連事業の公表指標と比較上の条件
 
-| 対象 | 対象期間・範囲 | 公表された変化 | 解釈で注意する点 |
-| --- | --- | --- | --- |
-| Twist Bioscience | 2026年度第3四半期、6月30日までの全体売上 | 1億1,840万ドル、前年同期比+23% | 売上全体であり、AI向け実験の数量ではない |
-| GenScript Life Science Group | 2026年上期の部門売上 | 3億1,900万ドル、+28.8% | グループ全体の比較可能ベース+27.3%とは範囲が異なる |
-| Tecan | 2026年上期、全体売上の現地通貨ベース | +3.4% | 為替調整後の指標。AI関連売上だけを分離していない |
-| Revvity Life Sciences | 2026年第2四半期、pro forma organic売上 | −3% | 事業範囲・為替等を調整した指標 |
-| Charles River DSA | 2026年第2四半期、Discovery and Safety Assessment部門 | 報告売上−1.9%、organicでは+0.2% | 事業売却・為替調整で見え方が変わる |
-| Evotec | 2026年上期、全体売上 | 3億100万ユーロ、−19.2% | 提携収益の計上時期なども影響する |
+| Business | Period and scope | Reported change | Interpretation limit |
+|---|---|---|---|
+| Twist Bioscience | Total revenue, fiscal Q3 2026 ending June 30 | $118.4 million; +23% year over year | Total sales, not the quantity of AI-related experiments |
+| GenScript Life Science Group | Segment revenue, first half of 2026 | $319 million; +28.8% | Different scope from +27.3% on a comparable group-wide basis |
+| Tecan | Total sales in local currencies, first half of 2026 | +3.4% | Currency-adjusted measure; AI-specific sales not separated |
+| Revvity Life Sciences | Pro forma organic sales, Q2 2026 | −3% | Adjusted for business scope, currency and other factors |
+| Charles River DSA | Discovery and Safety Assessment, Q2 2026 | Reported −1.9%; organic +0.2% | Divestiture and currency adjustments alter the comparison |
+| Evotec | Total revenue, first half of 2026 | €301 million; −19.2% | Includes effects such as timing of partnership revenue |
 
 出典： ([8](#ref-8), [9](#ref-9), [10](#ref-10), [11](#ref-11), [12](#ref-12), [13](#ref-13))。
 
@@ -113,11 +113,11 @@ E=P\times R\times B
 
 <span id="table-2"></span>表2．実験数に関する仮定計算
 
-| 仮定の例 | プログラム数の倍率 | 反復回数の倍率 | 1反復の候補数の倍率 | 実験数の倍率 |
-| --- | ---: | ---: | ---: | ---: |
-| 選別だけが改善する | 1.0 | 1.0 | 0.5 | 0.5 |
-| 着手数が増え、選別も改善する | 3.0 | 1.0 | 0.5 | 1.5 |
-| 着手数が増え、必要な反復回数も減る | 3.0 | 0.5 | 0.5 | 0.75 |
+| Illustrative assumption | Program-count multiplier | Rounds multiplier | Candidates-per-round multiplier | Experiment-count multiplier |
+|---|---:|---:|---:|---:|
+| Selection alone improves | 1.0 | 1.0 | 0.5 | 0.5 |
+| More programs and better selection | 3.0 | 1.0 | 0.5 | 1.5 |
+| More programs and fewer required rounds | 3.0 | 0.5 | 0.5 | 0.75 |
 
 *表の値は筆者が設定した仮定であり、市場予測・実測値ではない。倍率は基準シナリオとの比較。年間の実験需要を直接予測する表ではない。*
 

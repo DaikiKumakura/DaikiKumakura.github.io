@@ -16,10 +16,10 @@
 
 **表1．製品情報の親薬物半減期による単純な時間換算。**
 
-| 親薬物半減期の回数 | 34–42時間を掛けた値 | 日数換算 |
+| Number of parent-drug half-lives | Multiplication by 34–42 hours | Days |
 | --- | --- | --- |
-| 3回 | 102–126時間 | 4.25–5.25日 |
-| 5回 | 170–210時間 | 7.08–8.75日 |
+| 3 | 102–126 hours | 4.25–5.25 days |
+| 5 | 170–210 hours | 7.08–8.75 days |
 
 ここで使う半減期は併用薬のものだ。オラパリブ自身の半減期で換算してはいけない。また、表は親薬物の代表範囲を掛けた算数であり、個人の半減期の推定、阻害の消失確認、すべての製剤・投与期間・患者への日数指定ではない。
 
@@ -33,12 +33,12 @@
 
 **表2．公開資料の範囲と今回の問いへの制約。**
 
-| 確認した資料 | 今回利用できる情報 | 今回の問いに不足するもの |
-|---|---|---|
-| 2019年PBPK研究 | モデル入力表、既知DDI条件と結果、補足資料 | 原著と同じ実行モデル一式、中止後を独立に検証する観測 |
-| 2023年PK-Sim研究 | 本文パラメータと補足PDF | 確認した掲載先では実行用プロジェクトを確認できない |
-| 2026年製剤研究 | 製剤差・変動を扱う別の用途の検証 | 今回の阻害薬中止後の問いを検証した資料ではない |
-| 製品情報 | 既に承認された併用・復量の扱い | 個人ごとの中止後濃度曲線や、代替復量条件の比較結果 |
+| Material examined | Available information | Missing for this question |
+| --- | --- | --- |
+| 2019 PBPK study | Input tables, known DDI conditions and results, supplementary material | Complete original executable model and independent post-withdrawal observations |
+| 2023 PK-Sim study | Parameters in the text and supplementary PDF | No executable project found at the examined publication location |
+| 2026 formulation study | Validation for another use involving formulation differences and variability | Not validation of inhibitor withdrawal |
+| Product labels | Approved coadministration and dose-restoration instructions | Individual post-withdrawal profiles or comparisons of alternative restoration conditions |
 
 公開情報が少ないから、単純なCL補正をPBPKと呼び替える、という進め方はしない。**原著PBPKを再現して復量条件を選ぶ解析は、今回の資料では保留**とした。以下は、別の狭い問いに答えるための縮約モデルである。
 
@@ -84,7 +84,7 @@ s=1-\frac{1}{R_0},\qquad x_0=\frac{s}{f-s}
 
 **表3．同じ初期倍率に校正した数式例。**
 
-| 仮定f | 校正したx₀ | R(0) | R(3) | R(5) | R=1.10までのn |
+| Assumed f | Calibrated x₀ | R(0) | R(3) | R(5) | n until R=1.10 |
 | --- | --- | --- | --- | --- | --- |
 | 0.75 | 5.231 | 2.70 | 1.421 | 1.118 | 5.25 |
 | 0.85 | 2.857 | 2.70 | 1.288 | 1.075 | 4.58 |

@@ -14,11 +14,11 @@
 
 表1. 技術構想を介入時期の問題へ読み替えた整理。右列は本記事の解釈であり、各技術がすでに実証した性能の一覧ではない。
 
-| 技術の出発点 | 介入時期を考える上での役割 | それだけでは決まらないこと |
+| Starting point | Role in reasoning about intervention timing | What remains unresolved |
 | --- | --- | --- |
-| 細胞状態の転写情報 | 何が変わり、どの細胞集団が関与するかを記述する | 発現が戻れば機能も回復するか |
-| 病態の時間的な位置付け | 標的やバイオマーカーが意味を持つ段階を区別する | その段階で薬を始める方がよいか |
-| 摂動と標的・機序の同定 | 選んだ操作が状態や機能を変えるかを確かめる | 別の病期・組織・患者でも同じ効果があるか |
+| Transcriptomic descriptions of cell state | Describe what changes and which cell populations are involved | Whether reversing expression restores function |
+| A temporal position within disease | Distinguish stages at which targets or biomarkers may matter | Whether initiating treatment at that stage is beneficial |
+| Perturbations and target or mechanism identification | Test whether an operation changes state or function | Whether its effect transfers to another stage, tissue, or patient |
 
 ケモプロテオミクスは、化合物とタンパク質の関係を調べる測定を含む。遺伝子を減らした結果と、薬が実際に結合して生じた結果をつなぐときに重要になる。ただし、標的への結合を確認したことと、回復可能な時期を特定したことは同じではない。
 

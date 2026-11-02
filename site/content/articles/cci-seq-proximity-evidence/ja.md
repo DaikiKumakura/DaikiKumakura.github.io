@@ -22,12 +22,12 @@ CCI-seqでは、部分的な解離後の細胞塊にインデックスを付け�
 
 **表1．反復別の細胞数と複数細胞塊。**
 
-| 反復 | QCを通過した細胞 | 複数細胞の塊に回収された細胞 | 複数細胞の塊 |
+| Replicate | QC-passing cells | Cells recovered in multicell clumps | Multicell clumps |
 | --- | ---: | ---: | ---: |
 | exp1 | 1,496 | 747 | 255 |
 | exp2 | 6,452 | 3,541 | 1,147 |
 | exp3 | 3,571 | 1,443 | 525 |
-| 合計 | 11,519 | 5,731 | 1,927 |
+| Total | 11,519 | 5,731 | 1,927 |
 
 細胞数や塊の数を、生物学的反復の数として数えていない。今回の生物学的反復数は三つで、細胞数や塊数とは別に記録する。
 
@@ -84,7 +84,7 @@ E[W_{AB}]=G\frac{2N_A N_B}{N(N-1)}
 
 **表2．頻度とランダム割付に対する共存濃縮。**
 
-| ペア | 原著Frequencyの再計算 | 観測/期待：全反復を混ぜる | 観測/期待：反復内で割付 |
+| Pair | Recalculated published Frequency | Observed/expected, pooled | Observed/expected, within-replicate reassignment |
 | --- | ---: | ---: | ---: |
 | PST–B | 3.571 | 3.43 | 3.31 |
 | CD-PC–CD-IC | 12.128 | 1.84 | 1.77 |

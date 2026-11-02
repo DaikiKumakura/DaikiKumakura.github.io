@@ -154,19 +154,19 @@ def figure(curves, out):
     for j, name in enumerate(["fast", "slow"]):
         c, r = curves[name], out[name]
         ax = axes[0, j]
-        ax.plot(t_fine, x_input(t_fine) * (max(c["y"]) / 1.0) * 0.9, color="#bbbbbb", lw=1, label="上流 x（縮尺は任意）")
-        ax.plot(T_OBS, c["y_obs"], "o", ms=3, color="#333333", label="観測 y")
-        ax.plot(T_OBS, c["fit"], color="#d55e00", lw=1.6, label="直接モデルの当てはめ")
-        ax.plot(T_OBS, c["fit2"], ":", color="#009e73", lw=1.8, label="隠れた区画を1つ入れた2段モデルの当てはめ")
-        lab = "速い媒介（λ = 10/日）" if name == "fast" else "遅い媒介（λ = 0.3/日）"
-        ax.set_title(f"{lab}　R²：直接 {r['direct']['r2']:.3f}、2段 {r['two_step']['r2']:.3f}", fontsize=10)
+        ax.plot(t_fine, x_input(t_fine) * (max(c["y"]) / 1.0) * 0.9, color="#bbbbbb", lw=1, label="Upstream x (arbitrary scaling)")
+        ax.plot(T_OBS, c["y_obs"], "o", ms=3, color="#333333", label="Observed y")
+        ax.plot(T_OBS, c["fit"], color="#d55e00", lw=1.6, label="Direct-model fit")
+        ax.plot(T_OBS, c["fit2"], ":", color="#009e73", lw=1.8, label="Two-step fit with one hidden compartment")
+        lab = "Fast mediator (lambda = 10/day)" if name == "fast" else "Slow mediator (lambda = 0.3/day)"
+        ax.set_title(f"{lab}: R2 direct {r['direct']['r2']:.3f}; two-step {r['two_step']['r2']:.3f}", fontsize=10)
         ax.set_ylabel("y")
         ax = axes[1, j]
-        ax.plot(T_OBS, c["y"], color="#333333", lw=1.4, label="真の系：介入なし")
-        ax.plot(T_OBS, c["y_lam5"], color="#0072b2", lw=1.8, label="真の系：媒介物の除去を5倍に")
-        ax.plot(T_OBS, c["p_true"], "--", color="#009e73", lw=1.4, label="2段モデルの予測：媒介物の速度を正しく選んだ場合")
-        ax.plot(T_OBS, c["p_swap"], ":", color="#cc79a7", lw=2.0, label="2段モデルの予測：もう一方の速度を媒介物と取り違えた場合")
-        ax.set_xlabel("時間（日）")
+        ax.plot(T_OBS, c["y"], color="#333333", lw=1.4, label="True system: no intervention")
+        ax.plot(T_OBS, c["y_lam5"], color="#0072b2", lw=1.8, label="True system: mediator removal x5")
+        ax.plot(T_OBS, c["p_true"], "--", color="#009e73", lw=1.4, label="Two-step prediction: correct mediator rate")
+        ax.plot(T_OBS, c["p_swap"], ":", color="#cc79a7", lw=2.0, label="Two-step prediction: swapped mediator rate")
+        ax.set_xlabel("Time (days)")
         ax.set_ylabel("y")
     h0, l0 = axes[0, 0].get_legend_handles_labels(); h1, l1 = axes[1, 0].get_legend_handles_labels()
     fig.legend(h0, l0, loc="upper center", ncol=2, frameon=False, fontsize=9, bbox_to_anchor=(0.5, 1.0))
@@ -178,9 +178,9 @@ def figure(curves, out):
 
     # schematic of the three structures
     fig, axes = plt.subplots(1, 3, figsize=(10, 2.4))
-    specs = [("直接", [("X", 0.1), ("Y", 0.9)], [(0, 1, "")]),
-             ("媒介", [("X", 0.1), ("M", 0.5), ("Y", 0.9)], [(0, 1, ""), (1, 2, "")]),
-             ("交絡", [("X", 0.1), ("U", 0.5), ("Y", 0.9)], [(1, 0, ""), (1, 2, "")])]
+    specs = [("Direct", [("X", 0.1), ("Y", 0.9)], [(0, 1, "")]),
+             ("Mediation", [("X", 0.1), ("M", 0.5), ("Y", 0.9)], [(0, 1, ""), (1, 2, "")]),
+             ("Confounding", [("X", 0.1), ("U", 0.5), ("Y", 0.9)], [(1, 0, ""), (1, 2, "")])]
     for ax, (title, nodes, edges) in zip(axes, specs):
         ax.set_xlim(0, 1); ax.set_ylim(0.15, 0.95); ax.set_aspect("equal"); ax.axis("off"); ax.set_title(title)
         pos = {}
@@ -196,7 +196,7 @@ def figure(curves, out):
             v = np.array([x1 - x0, y1 - y0]); v = v / np.linalg.norm(v)
             ax.annotate("", xy=(x1 - 0.1 * v[0], y1 - 0.1 * v[1]), xytext=(x0 + 0.1 * v[0], y0 + 0.1 * v[1]),
                         arrowprops=dict(arrowstyle="->", lw=1.5))
-    fig.text(0.5, 0.02, "破線の丸：観測されないことの多い変数", ha="center", fontsize=9, color="#0072b2")
+    fig.text(0.5, 0.02, "Dashed circles: often-unobserved variables", ha="center", fontsize=9, color="#0072b2")
     fig.tight_layout(rect=(0, 0.06, 1, 1))
     fig.savefig(HERE / "figures/three-structures.png", dpi=170)
     plt.close(fig)

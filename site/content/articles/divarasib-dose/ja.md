@@ -18,16 +18,16 @@ KRAS G12CはKRASタンパク質の変異で、非小細胞肺がん（NSCLC）�
 
 表1．入力に用いた公開集計値。
 
-| 項目 | 値 | 出所 |
+| Item | Value | Source |
 |---|---|---|
-| 400 mgの定常状態のAUC（0〜24時間の濃度曲線下面積） | 平均9,130 ng·h/mL（標準偏差3,160）、76人 | 第1相の論文（報道による） |
-| 400 mgの定常状態のCmax（最高濃度） | 平均657 ng/mL（標準偏差185） | 同上 |
-| 半減期（単回400 mg） | 17.6時間（標準偏差2.7）、4人 | 同上 |
-| 最高濃度到達時間の中央値 | 2.0時間 | 同上 |
-| 肺がんの確定奏効 | 全用量31/58人、400 mgは22/39人、400 mg未満は9/19人 | 同上（人数は割合から逆算） |
-| 大腸がんの確定奏効 | 全用量16/55人、400 mgは14/39人、400 mg未満は2/16人 | 同上（同） |
-| 肺がんの用量群の内訳 | 400 mgが44人、200 mgが10人、100 mgが5人、50 mgが6人 | 長期追跡の論文（PMC12527784、2024年4月の締め切り） |
-| 安全性（全用量） | 悪心74%、下痢61%、嘔吐58%（ほぼグレード1〜2）、減量14% | 第1相の論文（報道による） |
+| Steady-state AUC over 0–24 h at 400 mg | Mean 9,130 ng·h/mL (SD 3,160), 76 patients | Phase I paper through reporting |
+| Steady-state Cmax at 400 mg | Mean 657 ng/mL (SD 185) | Same |
+| Half-life after a single 400-mg dose | 17.6 h (SD 2.7), 4 patients | Same |
+| Median time to maximum concentration | 2.0 h | Same |
+| Confirmed NSCLC responses | All doses 31/58; 400 mg 22/39; below 400 mg 9/19 | Same; counts reconstructed from percentages |
+| Confirmed CRC responses | All doses 16/55; 400 mg 14/39; below 400 mg 2/16 | Same |
+| NSCLC dose counts at long-term follow-up | 400 mg: 44; 200 mg: 10; 100 mg: 5; 50 mg: 6 | PMC12527784, April 2024 cutoff |
+| Safety across doses | Nausea 74%, diarrhea 61%, vomiting 58% (mostly grade 1–2); dose reduction 14% | Phase I through reporting |
 
 400 mg未満の群の用量の内訳は、元の論文の数字が手元にない。そこで、長期追跡の肺がんの内訳（50:100:200 mg＝6:5:10）を、肺がんと大腸がんの両方に仮定した。長期追跡はNEJMの報告とデータの時点が違う ([3](#ref-3))。感度分析として、「全員が200 mg」と「全員が50 mg」の場合も計算した。
 
@@ -55,15 +55,15 @@ $AUC_{\text{ref}}$は400 mgの平均AUCである。$b$が傾きで、0なら曝�
 
 表2．仮定したモデルにおける事後分布の要約。区間は95%信用区間である。
 
-| | 肺がん | 大腸がん |
+| | NSCLC | CRC |
 |---|---|---|
-| 傾き$b$（95%区間） | 0.35（−0.63〜1.50） | 2.15（0.23〜7.10） |
-| 傾きが0以下の事後確率 | 26% | 0.8% |
-| 予測奏効率 200 mg | 51%（35〜66%） | 13%（3〜32%） |
-| 予測奏効率 300 mg | 54% | 25% |
-| 予測奏効率 400 mg | 57%（41〜72%） | 37%（23〜54%） |
-| 差 400 mg−200 mg | 6ポイント（−11〜23） | 24ポイント（3〜43） |
-| 差が10ポイントを超える事後確率 | 29% | 88% |
+| Slope b (95% interval) | 0.35 (−0.63–1.50) | 2.15 (0.23–7.10) |
+| Posterior probability of nonpositive slope | 26% | 0.8% |
+| Predicted response at 200 mg | 51% (35–66%) | 13% (3–32%) |
+| Predicted response at 300 mg | 54% | 25% |
+| Predicted response at 400 mg | 57% (41–72%) | 37% (23–54%) |
+| Difference, 400 minus 200 mg | 6 points (−11–23) | 24 points (3–43) |
+| Posterior probability of a difference above 10 points | 29% | 88% |
 
 大腸がんの傾きの上限（7.1）は、格子の上端（8）に近く、平坦な事前分布の影響を受けている。
 

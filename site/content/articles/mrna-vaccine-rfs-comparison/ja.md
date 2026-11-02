@@ -29,12 +29,12 @@ INTerpath-001の2026年10月22日付の公表資料、SWOG S1801とNADINAの原�
 
 この時点に限った相対リスク減少は約40.7%。見出しの42%に近いが、同じ計算ではない。ハザードは、その時点までイベントを経験していない人の中で、直後にイベントが起こる速さを表す。固定した2年までの累積確率とは区別する。
 
-| 計算対象 | 公表値からの計算 | 意味 |
+| Quantity | Calculation from printed estimates | Interpretation |
 | --- | ---: | --- |
-| 2年RFSの差 | 12.2ポイント | 2年時点での無再発生存確率の群間差 |
-| 2年イベント確率の比 | 0.593 | 17.8%を30.0%で割った値 |
-| その相対減少 | 40.7% | 固定した2年までのイベント確率の相対差 |
-| 差の逆数 | 8.20 | 2年の絶対差に対応するNNTの点推定 |
+| Difference in two-year RFS | 12.2 percentage points | Between-group difference in the probability of being recurrence-free and alive at two years |
+| Two-year event risk ratio | 0.593 | 17.8% divided by 30.0% |
+| Corresponding relative reduction | 40.7% | Relative difference in cumulative event probability by two years |
+| Reciprocal of the absolute difference | 8.20 | Point estimate of the number needed to treat at two years |
 
 表1　報告された2年RFSの丸め値から筆者が計算した。NNTはnumber needed to treat。患者数から直接割った観測割合ではなく、打切りを考慮した時点別推定値を入力にしている。
 
@@ -74,13 +74,13 @@ r_B=\frac{-\log(0.822)-0.5\lambda_0}{1.5\lambda_0}=0.399.
 
 SWOG S1801は、ペムブロリズマブを手術前後へ分ける戦略と、すべて手術後に投与する戦略を比較した。対象は臨床的に検出できる切除可能なステージIIIB–IVC黒色腫である。原著抄録では2年の無イベント生存率は72%と49%で、評価項目には手術へ進めないことや術後治療を開始できないことも含まれる ([2](#ref-2))。0.58というハザード比は[SWOGの公表スライド](https://www.swog.org/sites/default/files/docs/2023-04/ScientificImpact_Spr23.pdf#page=1)でも確認できる ([3](#ref-3))。
 
-| 比較 | INTerpath-001 | SWOG S1801 |
+| Comparison | INTerpath-001 | SWOG S1801 |
 | --- | --- | --- |
-| 無作為化時点 | 完全切除後 | 手術前 |
-| 主な問い | 術後ペムブロリズマブへワクチンを追加する効果 | ペムブロリズマブの一部を術前へ移す効果 |
-| 主な対象 | 切除後ステージIIB–IV | 臨床的に検出可能な切除可能IIIB–IVC |
-| 評価する転帰 | RFS | 無イベント生存（EFS） |
-| 手術へ進めないイベント | 無作為化前に切除済み | 評価項目に含まれる |
+| Randomization | After complete resection | Before surgery |
+| Main question | Adding vaccine to postoperative pembrolizumab | Moving part of pembrolizumab treatment before surgery |
+| Main population | Resected stage IIB–IV | Clinically detectable, resectable stage IIIB–IVC |
+| Outcome | RFS | Event-free survival (EFS) |
+| Failure to reach surgery | Resection completed before randomization | Included in the endpoint |
 
 表2　試験の評価対象の比較。INTerpath-001は公表資料、S1801は原著抄録による ([1](#ref-1), [2](#ref-2))。両試験の治療成績を同一集団へ標準化した表ではない。
 

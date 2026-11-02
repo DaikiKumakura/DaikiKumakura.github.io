@@ -12,11 +12,11 @@
 
 **表1．** 問いと解析の使用範囲。
 
-| 項目 | 定義 |
+| Item | Definition |
 | --- | --- |
-| QOI | 維持療法開始から84日までの記録を用いた個人更新は、その後28日間のANC予測を、直近ANCをそのまま使う予測や母集団パラメータだけの予測より改善するか。 |
-| COU | モデル補助投与の研究に進む前に、個人更新の予測性能と不確実性を評価する。患者の用量調整や臨床判断には使用しない。 |
-| 主な評価量 | 評価患者ごとのMAEを同じ重みで平均した値。差の95%区間は患者単位の再標本化で計算する。 |
+| Question | Does updating from the first 84 days improve ANC prediction over the next 28 days relative to last ANC or population-only prediction? |
+| Intended use | Assess prediction and uncertainty before model-assisted dosing research, not clinical adjustment |
+| Endpoint | Mean patient-level MAE, weighting patients equally; patient-bootstrap 95% intervals for differences |
 
 投与ルールを最適化する前に、その土台になる予測が単純な方法を上回るか確かめる。予測が悪ければ、精巧な投与シミュレーションを追加しても根拠は強くならない。
 
@@ -28,14 +28,14 @@ Jostらの原著には、116例の6-MP投与履歴、実測ANC、体格情報を
 
 **表2．** 入力データの監査。
 
-| 監査項目 | 件数・対応 |
+| Item | Count or treatment |
 | --- | --- |
-| 患者 | 116例 |
-| 全イベント | 55,305件 |
-| 正の投与量を持つ投与イベント | 49,408件 |
-| 実測ANC | 5,897件 |
-| 欠損セル／完全重複行 | 0／0 |
-| ANCが0と記録された観測 | 2件。いずれも評価群の112日より後にあり、今回の学習・校正・主要採点には入らない。対数モデル用の整形では検出限界を推測して置換せず除外 |
+| Patients | 116 |
+| Events | 55,305 |
+| Positive-dose events | 49,408 |
+| Measured ANC | 5,897 |
+| Missing cells / exact duplicate rows | 0 / 0 |
+| Zero ANC observations | Two, both after day 112 in evaluation patients, outside training, calibration and primary scoring; excluded from log-model formatting without inventing a detection limit |
 
 投与イベントがない日は、記録上の入力を0とする。ただし、それが実際の休薬、記録の欠落、服薬状況のどれを意味するかまでは確認できない。処方された量と実際に服用された量も同一とは限らない。
 
@@ -97,14 +97,14 @@ Jostらの原著には、116例の6-MP投与履歴、実測ANC、体格情報を
 
 **表3．** 母集団パラメータの推定値。
 
-| 推定値 | 値 | 単位・定義 |
+| Parameter | Value | Meaning |
 | --- | ---: | --- |
-| baseline | 1.661 | G/L、モデル上の基準ANC |
-| slope | 0.06157 | 固定モデル出力Eの逆尺度。実測6-TGNへの感受性ではない |
+| baseline | 1.661 | G/L, model baseline ANC |
+| slope | 0.06157 | Inverse scale of modeled E, not measured 6-TGN sensitivity |
 | ktr | 0.1398 | day⁻¹ |
-| gamma | 1.2 | 無次元 |
-| omega_baseline | 0.2792 | log Bの標準偏差、無次元 |
-| sigma_log | 0.4946 | 対数残差の標準偏差、無次元 |
+| gamma | 1.2 | Dimensionless |
+| omega_baseline | 0.2792 | SD of log B |
+| sigma_log | 0.4946 | Log-residual SD |
 
 母集団係数の信頼区間は計算していない。ランダム効果の標準偏差と、パラメータ推定の標準誤差は異なる。
 
@@ -116,10 +116,10 @@ Jostらの原著には、116例の6-MP投与履歴、実測ANC、体格情報を
 
 **表4．** 将来投与の入力条件。
 
-| 入力条件 | 84日以降に与える投与情報 | 解釈 |
+| Condition | Post-day-84 dosing | Interpretation |
 | --- | --- | --- |
-| 最終記録量を継続 | 84日までの最後の正の投与量を、以後毎日投与すると仮定 | 変更なしというシナリオ。実際の将来処方を知っているわけではない |
-| 将来の投与記録を使用 | 実際に記録された84日超112日までの投与量 | 投与履歴が既知の場合の後ろ向き条件付き予測。前向き予測とは呼ばない |
+| Continue last dose | Last positive dose through day 84 given daily thereafter | No-change scenario, not knowledge of actual future prescribing |
+| Recorded future doses | Actual recorded days 84–112 | Retrospective conditional prediction, not prospective forecasting |
 
 血球数が変わったために投与量が変更された可能性がある。後者には、血球数の変化を受けた治療行動の情報が含まれ得る。したがって、後者で誤差が小さくても、その性能をそのまま実際の投与判断時に期待できない。
 
@@ -135,14 +135,14 @@ Jostらの原著には、116例の6-MP投与履歴、実測ANC、体格情報を
 
 **表5．** 予測誤差と経験的誤差帯。
 
-| 将来投与の入力 | 予測 | MAE（G/L） | RMSE（G/L） | 90%誤差帯の被覆率 | 誤差帯の平均幅（G/L） |
+| Input | Prediction | MAE G/L | RMSE G/L | 90% band coverage | Mean width G/L |
 | --- | --- | ---: | ---: | ---: | ---: |
-| 最終記録量を継続 | 直近ANCを維持 | 0.791 | 1.192 | 89.8% | 4.821 |
-| 最終記録量を継続 | 母集団値のみ | 0.711 | 1.086 | 85.1% | 2.846 |
-| 最終記録量を継続 | 個人MAP更新 | 0.727 | 1.161 | 86.2% | 3.278 |
-| 将来の投与記録を使用 | 直近ANCを維持 | 0.791 | 1.192 | 89.8% | 4.821 |
-| 将来の投与記録を使用 | 母集団値のみ | 0.711 | 1.087 | 85.1% | 2.849 |
-| 将来の投与記録を使用 | 個人MAP更新 | 0.728 | 1.162 | 86.2% | 3.281 |
+| Continue last dose | Last ANC | 0.791 | 1.192 | 89.8% | 4.821 |
+| Continue last dose | Population | 0.711 | 1.086 | 85.1% | 2.846 |
+| Continue last dose | MAP | 0.727 | 1.161 | 86.2% | 3.278 |
+| Future records | Last ANC | 0.791 | 1.192 | 89.8% | 4.821 |
+| Future records | Population | 0.711 | 1.087 | 85.1% | 2.849 |
+| Future records | MAP | 0.728 | 1.162 | 86.2% | 3.281 |
 
 最終記録量を継続条件の「個人更新−直近ANC」のMAE差は-0.065 G/L、95%区間は-0.226〜0.100 G/Lだった。負の値が個人更新の誤差低下を意味する。
 
@@ -154,10 +154,10 @@ Jostらの原著には、116例の6-MP投与履歴、実測ANC、体格情報を
 
 **表6．** 最終量継続条件の探索的層別結果。
 
-| その後の記録上の投与 | 患者数 | 直近ANCのMAE | 母集団値のみのMAE | 個人更新のMAE |
+| Subsequent recorded dosing | Patients | Last ANC | Population | Updating |
 | --- | ---: | ---: | ---: | ---: |
-| 変更なし | 7 | 0.532 | 0.565 | 0.440 |
-| 変更あり | 24 | 0.867 | 0.753 | 0.810 |
+| Unchanged | 7 | 0.532 | 0.565 | 0.440 |
+| Changed | 24 | 0.867 | 0.753 | 0.810 |
 
 MAEの単位はG/L。変更なし群で個人更新の点推定が小さくても、7例という少数であり、投与変更の有無自体が患者の状態や治療判断と関係する。探索的な記述であり、投与法の有効性や個人更新の因果的利益を示さない。
 

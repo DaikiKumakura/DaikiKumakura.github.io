@@ -40,11 +40,11 @@ Boltz-2の[公式文書](https://github.com/jwohlwend/boltz/blob/main/docs/predi
 
 **表1　調整用ラベル数と候補選択の成績**
 
-| 調整用ラベル数 | AP：未調整→調整後 | 標的ごとのAP比の幾何平均 | 次の100候補の活性数：未調整→調整後 |
+| Adaptation labels | AP: unadapted → adapted | Geometric mean of per-target AP ratios | Active compounds in the next 100: unadapted → adapted |
 |---:|---:|---:|---:|
-| 40 | 0.0523 → 0.0685 | 1.24倍 | 10.75 → 17.63 |
-| 100 | 0.0523 → 0.0869 | 1.56倍 | 10.75 → 20.75 |
-| 300 | 0.0523 → 0.1339 | 2.14倍 | 10.75 → 34.38 |
+| 40 | 0.0523 → 0.0685 | 1.24× | 10.75 → 17.63 |
+| 100 | 0.0523 → 0.0869 | 1.56× | 10.75 → 20.75 |
+| 300 | 0.0523 → 0.1339 | 2.14× | 10.75 → 34.38 |
 
 APと活性数は8標的の算術平均。倍率は各標的で比を求めた後の幾何平均であり、表の平均APどうしの比ではない。各標的の値は添付CSVで確認できる。
 
@@ -96,11 +96,11 @@ H_{100}(M) \leq \min\{100, A(M)\}
 
 **表2　同じラベルを用いた候補選択と未知骨格の回収**
 
-| 方法 | 活性化合物数 | 学習集合にない骨格の活性化合物数 |
+| Method | Active compounds | Active compounds with scaffolds absent from the training set |
 |---|---:|---:|
-| 未調整のBoltz-2 | 10.75 | 7.63 |
-| 調整後のhead | 34.38 | 22.13 |
-| 既知の活性化合物への最大類似度 | 34.75 | 13.75 |
+| Unadapted Boltz-2 | 10.75 | 7.63 |
+| Adapted heads | 34.38 | 22.13 |
+| Maximum similarity to a known active | 34.75 | 13.75 |
 
 出典：[著者公開の骨格回収数CSV](https://github.com/ohuelab/BoltzFT/blob/a31c79a8420c1156a876f007dbdc52107cd0e957/figures/data/si_analyses/hit_scaffold_recovery.csv) ([2](#ref-2))。類似度はMorgan fingerprintのTanimoto係数、骨格はBemis–Murckoの定義に基づく。右列は活性化合物の数であり、骨格の種類数ではない。同じ骨格を持つ複数化合物も数える。
 

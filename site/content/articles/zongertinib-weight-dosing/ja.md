@@ -14,13 +14,13 @@ FDAの初回審査では、低曝露群のORRと高体重患者の曝露低下�
 
 **表1．比較の問いと条件。**
 
-| 項目 | 今回の定義 |
+| Item | Definition |
 | --- | --- |
-| QOI | 固定量・90 kgでの2段階用量・連続体重補正で、定常状態のAUC分布と境界付近の濃度はどう変わるか |
-| COU | 公開モデルによる曝露設計の監査と、追加研究で必要な比較の整理。個人の処方や試験用量の決定には使わない |
-| 基準 | 70 kg、120 mg QDの典型個体AUC。QDは24時間ごと |
-| 共通条件 | 年齢・人種・製剤の効果を固定。IOVと測定誤差を加えない条件付き比較 |
-| 仮想患者 | 体重層ごとに4096人。同じ個体差を全用量設計に使用し、実患者の体重頻度は仮定しない |
+| Question | How do fixed dosing, two bands at 90 kg and continuous weight adjustment change steady-state AUC distributions and concentrations near the boundary? |
+| Intended use | Audit of exposure design using a public model; not individual prescribing or trial-dose selection |
+| Reference | Typical-individual AUC at 70 kg and 120 mg QD, every 24 hours |
+| Common conditions | Age, race and formulation effects fixed; interoccasion variability, IOV, and measurement error excluded |
+| Virtual individuals | 4096 per weight stratum, sharing random effects across dose designs; no patient weight-frequency distribution assumed |
 
 ## まず用量比較表を数式に戻す {#_1}
 
@@ -28,17 +28,17 @@ FDAの初回審査では、低曝露群のORRと高体重患者の曝露低下�
 
 **表2．再構成に使ったPopPK係数。**
 
-| 量 | 公表値 | 扱い |
+| Quantity | Published value | Treatment in this calculation |
 | --- | ---: | --- |
-| CL/F | 7.22 L/h | 固定効果を使用 |
-| Vc/F、Vp/F | 82.6、48.2 L | 固定効果を使用 |
-| Q/F | 3.55 L/h | 固定効果を使用 |
-| 零次入力時間D1、一次吸収速度ka | 1.03 h、1.22 h⁻¹ | 濃度曲線の再構成に使用 |
-| MAT、MATfr | 1.85 h、0.443 | 公表吸収パラメータ。変動の実装範囲は後述 |
-| CL・Qの体重指数 | 0.75 | **元モデルで固定**された値 |
-| Vc・Vpの体重指数 | 1.0 | 元モデルで固定された値 |
-| CL、Vc、MATのIIV CV | 0.244、0.285、0.415 | CVから対数分散へ変換 |
-| CL–Vc相関 | 0.601 | 仮想患者の生成で保持 |
+| CL/F | 7.22 L/h | Fixed-effect coefficient |
+| Vc/F, Vp/F | 82.6, 48.2 L | Fixed-effect coefficients |
+| Q/F | 3.55 L/h | Fixed-effect coefficient |
+| Zero-order duration D1, first-order ka | 1.03 h, 1.22 h⁻¹ | Auxiliary concentration reconstruction |
+| MAT, MATfr | 1.85 h, 0.443 | Published absorption parameters; variability implementation described below |
+| Weight exponent for CL and Q | 0.75 | Fixed in the original model |
+| Weight exponent for Vc and Vp | 1.0 | Fixed in the original model |
+| IIV CV for CL, Vc and MAT | 0.244, 0.285, 0.415 | Converted from CV to log variance |
+| CL–Vc correlation | 0.601 | Retained in virtual-individual generation |
 
 定常状態の1日AUCは、同じ製剤・背景条件なら、
 
@@ -89,7 +89,7 @@ D_{continuous}(w)=120\left(\frac{w}{70}\right)^{0.75}.
 
 **表3．典型個体の体重と用量設計別AUC比。**
 
-| 体重 | 120 mg固定のAUC比 | 2段階用量のAUC比 | 連続補正のAUC比 |
+| Weight | Fixed 120 mg | Two-band regimen | Continuous adjustment |
 | --- | ---: | ---: | ---: |
 | 70 kg | 1.000 | 1.000 | 1.000 |
 | 89.9 kg | 0.829 | 0.829 | 1.000 |
@@ -124,14 +124,14 @@ CL_i=CL_{70}\left(\frac{w}{70}\right)^{0.75}e^{\eta_{CL,i}},
 
 **表4．4096人の仮想患者から得た条件付きAUC分布。**
 
-| 体重・設計 | AUC比の中央値［5–95%］ | 0.8倍未満 | 1.25倍超 |
+| Weight and design | Median AUC ratio [5th–95th percentile] | Below 0.8 | Above 1.25 |
 | --- | --- | ---: | ---: |
-| 70 kg・120 mg | 1.001［0.673–1.492］ | 17.8% | 17.4% |
-| 89.9 kg・2段階用量 | 0.830［0.558–1.237］ | 43.8% | 4.6% |
-| 90 kg・2段階用量 | 1.244［0.836–1.854］ | 3.5% | 49.2% |
-| 110 kg・120 mg固定 | 0.713［0.480–1.063］ | 67.9% | 0.9% |
-| 110 kg・2段階用量 | 1.070［0.720–1.595］ | 11.3% | 26.1% |
-| 110 kg・連続補正 | 1.001［0.673–1.492］ | 17.8% | 17.4% |
+| 70 kg, 120 mg | 1.001 [0.673–1.492] | 17.8% | 17.4% |
+| 89.9 kg, two bands | 0.830 [0.558–1.237] | 43.8% | 4.6% |
+| 90 kg, two bands | 1.244 [0.836–1.854] | 3.5% | 49.2% |
+| 110 kg, fixed 120 mg | 0.713 [0.480–1.063] | 67.9% | 0.9% |
+| 110 kg, two bands | 1.070 [0.720–1.595] | 11.3% | 26.1% |
+| 110 kg, continuous | 1.001 [0.673–1.492] | 17.8% | 17.4% |
 
 連続補正でも、5–95%幅は約0.67–1.49残った。体重の寄与を消しても、同じ体重内にあるCLの個体差は消えないからである。上表の5–95%は**仮想患者間の幅であり、推定値の信頼区間ではない**。
 

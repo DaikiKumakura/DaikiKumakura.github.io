@@ -28,12 +28,12 @@
 
 <span id="table-1"></span>表1．推定に用いた公開PK集約値
 
-| 時点 | 指標 | 幾何平均（CV%） | n | 単位 |
+| Time point | Metric | Geometric mean (CV%) | n | Unit |
 | --- | --- | --- | --- | --- |
-| Cycle 2 Day 1 | 投与前濃度 | 0.288 (48) | 16 | µg/mL |
+| Cycle 2 Day 1 | Pre-dose concentration | 0.288 (48) | 16 | µg/mL |
 | Cycle 2 Day 1 | Cmax | 2.8 (38) | 19 | µg/mL |
 | Cycle 2 Day 1 | AUC0–336h | 242 (41) | 18 | h·µg/mL |
-| Cycle 2 Day 15 | 投与前濃度 | 0.309 (47) | 12 | µg/mL |
+| Cycle 2 Day 15 | Pre-dose concentration | 0.309 (47) | 12 | µg/mL |
 | Cycle 2 Day 15 | Cmax | 2.65 (41) | 18 | µg/mL |
 | Cycle 2 Day 15 | AUC0–336h | 298 (48) | 15 | h·µg/mL |
 
@@ -101,7 +101,7 @@ J(\theta)=\sum_j\left\{\frac{\log Y_j^{\mathrm{model}}(\theta)-\log Y_j^{\mathrm
 
 <span id="table-2"></span>表2．パラメータ推定値と公開モデルとの比較
 
-| パラメータ | 今回の推定 | 公開PopPK値（比較用） | 単位 |
+| Parameter | Estimate here | Public PopPK value (for comparison) | Unit |
 | --- | --- | --- | --- |
 | CL | 0.845 | 0.649 | L/day |
 | Vc | 4.075 | 3.44 | L |
@@ -114,12 +114,12 @@ J(\theta)=\sum_j\left\{\frac{\log Y_j^{\mathrm{model}}(\theta)-\log Y_j^{\mathrm
 
 <span id="table-3"></span>表3．集約値への当てはまり
 
-| 時点 | 指標 | 公開値 | モデル予測 | 相対誤差 | 単位 |
+| Time point | Metric | Public value | Model prediction | Relative error | Unit |
 | --- | --- | --- | --- | --- | --- |
-| C2D1 | 投与前濃度 | 0.288 | 0.281 | -2.6% | µg/mL |
+| C2D1 | Pre-dose concentration | 0.288 | 0.281 | -2.6% | µg/mL |
 | C2D1 | Cmax | 2.8 | 2.714 | -3.1% | µg/mL |
 | C2D1 | AUC0–336h | 242 | 257.800 | +6.5% | h·µg/mL |
-| C2D15 | 投与前濃度 | 0.309 | 0.321 | +3.7% | µg/mL |
+| C2D15 | Pre-dose concentration | 0.309 | 0.321 | +3.7% | µg/mL |
 | C2D15 | Cmax | 2.65 | 2.754 | +3.9% | µg/mL |
 | C2D15 | AUC0–336h | 298 | 268.342 | -10.0% | h·µg/mL |
 
@@ -149,12 +149,12 @@ Cycle 2の一方の投与日の3値を除き、残った3値だけで4パラメ�
 
 <span id="table-4"></span>表4．投与日を除いたときの予測誤差
 
-| 除いた時点 | 指標 | 予測誤差 |
+| Time point removed | Metric | Prediction error |
 | --- | --- | --- |
-| C2D1 | 投与前濃度 | -4.2% |
+| C2D1 | Pre-dose concentration | -4.2% |
 | C2D1 | Cmax | -6.5% |
 | C2D1 | AUC0–336h | +19.3% |
-| C2D15 | 投与前濃度 | +6.8% |
+| C2D15 | Pre-dose concentration | +6.8% |
 | C2D15 | Cmax | +7.2% |
 | C2D15 | AUC0–336h | -15.1% |
 
@@ -168,7 +168,7 @@ Q2W、Q3W、Q4Wを、それぞれ14、21、28日間隔として比較した。�
 
 <span id="table-5"></span>表5．1回量固定の投与間隔比較
 
-| 投与 | Cmax（µg/mL） | Cavg（µg/mL） | Ctrough（µg/mL） | Cmax比 | Cavg比 | Ctrough比 |
+| Regimen | Cmax (µg/mL) | Cavg (µg/mL) | Ctrough (µg/mL) | Cmax ratio | Cavg ratio | Ctrough ratio |
 | --- | --- | --- | --- | --- | --- | --- |
 | 10 mg Q2W | 2.814 | 0.846 | 0.381 | 1.000 | 1.000 | 1.000 |
 | 10 mg Q3W | 2.651 | 0.564 | 0.218 | 0.942 | 0.667 | 0.573 |
@@ -205,7 +205,7 @@ C_{\mathrm{avg}}^{ss}=\frac{D}{CL\tau}.
 
 <span id="table-6"></span>表6．条件付き再推定による曝露比の範囲
 
-| 投与 | 指標 | 比の点推定 | 条件付き2.5–97.5%範囲 |
+| Regimen | Metric | Point estimate of ratio | Conditional 2.5–97.5% range |
 | --- | --- | --- | --- |
 | 10 mg Q3W | Cmax | 0.942 | 0.715–0.954 |
 | 10 mg Q3W | Ctrough | 0.573 | 0.395–0.665 |
@@ -220,7 +220,7 @@ C_{\mathrm{avg}}^{ss}=\frac{D}{CL\tau}.
 
 <span id="table-7"></span>表7．指標間相関の仮定による感度分析
 
-| 仮定した指標間相関 | CL | Vc | Vp | Q | Q4W/Q2Wトラフ比 |
+| Assumed correlation between metrics | CL | Vc | Vp | Q | Q4W/Q2W trough ratio |
 | --- | --- | --- | --- | --- | --- |
 | 0 | 0.845 | 4.075 | 10.162 | 0.792 | 0.371 |
 | 0.5 | 0.872 | 4.090 | 8.664 | 0.764 | 0.352 |
@@ -236,7 +236,7 @@ C_{\mathrm{avg}}^{ss}=\frac{D}{CL\tau}.
 
 <span id="table-8"></span>表8．投与強度一定の仮想レジメン比較
 
-| 仮想投与 | Cmax比 | Cavg比 | Ctrough比 |
+| Hypothetical regimen | Cmax ratio | Cavg ratio | Ctrough ratio |
 | --- | --- | --- | --- |
 | 10 mg Q2W | 1.000 | 1.000 | 1.000 |
 | 15 mg Q3W | 1.413 | 1.000 | 0.859 |
@@ -278,11 +278,11 @@ DeLLphi-301の10 mgコホートでは、初回・8日目・15日目の投与後�
 
 <span id="table-9"></span>表9．解析の問いと支持される範囲
 
-| 問い | 今回支持できること | 支持できないこと |
+| Question | What can be supported here | What cannot be supported |
 | --- | --- | --- |
-| 公開PKを説明できるか | 代表モデルで6個の集約値を約10%以内で説明した | 元のPopPKパラメータ・IIVの回復、個別濃度の再現 |
-| 投与間隔の影響はどうか | 線形PK下の平均濃度比はQ3Wで2/3、Q4Wで1/2 | 絶対濃度やトラフを精密な患者予測として使うこと |
-| 有効性・CRSへ接続できるか | 曝露指標と投与履歴を分ける必要性を示した | Q3W・Q4Wの有効性維持、CRS低減の保証 |
+| Can the public PK be explained? | A representative model explained the six summary values within about 10% | Recovering the original PopPK parameters and IIV, or reproducing individual concentrations |
+| What is the effect of the interval? | Under linear PK, the average-concentration ratio is 2/3 for Q3W and 1/2 for Q4W | Using absolute concentrations or troughs as precise patient predictions |
+| Can this be linked to efficacy and CRS? | Showed the need to separate exposure metrics and dosing history | Guaranteeing maintained efficacy or reduced CRS with Q3W or Q4W |
 
 PK指標間の共分散と、同じ患者の投与・採血・CRS時刻は得られていない。維持期トラフと増量時ピークを集団平均だけで結ぶことはできず、集約値を精密に補間してもこの不足は解消しない。今回の制約は、数値計算の精度より、値の定義と情報量にあった。
 

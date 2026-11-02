@@ -12,14 +12,14 @@ SevabertinibはHER2変異を持つ非小細胞肺癌を対象とする経口薬�
 
 **表1．比較の問いと条件。**
 
-| 項目 | 今回の定義 |
+| Item | Definition |
 | --- | --- |
-| QOI | 同じ40 mg/日で、投与回数と製剤を変えると親薬物のAUC・ピーク・最低濃度はどう変わるか。公開E–Rでどこまで判断できるか |
-| COU | 公開情報によるPK比較と、追加検証すべき測定項目の整理。患者の投与変更や臨床試験の用量決定には使用しない |
-| 基準 | 20 mg錠剤、12時間ごと。以下TAB BIDと略す |
-| 投与回数の比較 | 40 mg錠剤、24時間ごと。TAB QD |
-| 製剤も変わる比較 | 40 mg液剤、24時間ごと。LSF QD |
-| 比較条件 | 周期的定常状態、同じ個体内で比較。食事などの条件、服薬遵守、併用薬は変更しない |
+| Question of interest | At the same 40 mg/day, how do frequency and formulation affect parent-drug AUC, peak and minimum concentration? What can public E–R information establish? |
+| Context of use | Public-information PK comparisons and identification of quantities requiring further validation; not patient regimen changes or clinical-trial dose selection |
+| Reference | 20 mg tablets every 12 hours, abbreviated TAB BID |
+| Frequency comparison | 40 mg tablets every 24 hours, TAB QD |
+| Formulation-changing comparison | 40 mg liquid every 24 hours, LSF QD |
+| Conditions | Periodic steady state, paired within the same individual; food conditions, adherence and concomitant drugs held unchanged |
 
 錠剤については、初期開発の20 mg錠と現在の10 mg錠を区別する。FDA審査資料には両規格の探索的な比較もあるが、本記事は現在の錠剤を使った新たな同等性試験ではない。
 
@@ -69,15 +69,15 @@ FDA資料には、遅れを持つ吸収と2コンパートメント分布を組�
 
 **表2．再構成に使った公表係数。**
 
-| 係数 | 公表値 | 計算での役割 |
+| Coefficient | Published value | Role in this implementation |
 | --- | ---: | --- |
-| \(k_a\) | 7.90 h⁻¹ | 吸収区画間の移行速度として使用 |
-| \(CL^*\) | 3.09 L/h | 基準の見かけのクリアランス |
-| \(V_c^*,V_p^*\) | 30.0、20.4 L | 中央・末梢の見かけの体積 |
-| \(Q^*\) | 0.634 L/h | 区画間移行 |
-| 液剤の相対F | 0.639 | 主解析の液剤入力量。0.643とその区間は別に感度分析 |
-| 液剤の吸収速度倍率 | 1.491 | 液剤の吸収を錠剤より速くする |
-| \(\Omega_{ka},\Omega_{CL},\Omega_F\) | 0.330、0.135、0.0936 | 対数正規個体差の分散 |
+| \(k_a\) | 7.90 h⁻¹ | Transfer rate between absorption compartments |
+| \(CL^*\) | 3.09 L/h | Reference apparent clearance |
+| \(V_c^*,V_p^*\) | 30.0, 20.4 L | Apparent central and peripheral volumes |
+| \(Q^*\) | 0.634 L/h | Intercompartmental clearance |
+| Liquid relative F | 0.639 | Main liquid input; 0.643 and its interval assessed separately |
+| Liquid absorption-rate multiplier | 1.491 | Faster absorption for liquid than tablet |
+| \(\Omega_{ka},\Omega_{CL},\Omega_F\) | 0.330, 0.135, 0.0936 | Log-normal between-individual variances |
 
 公表された体重・アルブミン／総蛋白比の影響は、基準61 kg、比0.56に対する乗法の相対Fとして再構成した。指数はそれぞれ−0.517、−1.22である。これは共変量と製剤の交互作用まで検証した式ではない。
 
@@ -116,7 +116,7 @@ AUC_{0-24,ss}=\frac{D_{day}F_{rel,i}}{CL_i^*}
 
 **表3．基準個体における定常状態の曝露。**
 
-| 用法 | AUC0–24（ng·h/mL） | Cmax（ng/mL） | Cmin（ng/mL） | Cmax/Cmin |
+| Regimen | AUC0–24 (ng·h/mL) | Cmax (ng/mL) | Cmin (ng/mL) | Cmax/Cmin |
 | --- | ---: | ---: | ---: | ---: |
 | 20 mg TAB BID | 12945 | 868 | 300 | 2.89 |
 | 40 mg TAB QD | 12945 | 1349 | 166 | 8.11 |
@@ -134,14 +134,14 @@ Cminは各投与周期内の最低濃度である。吸収の遅れがあるた�
 
 **表4．同じ仮想患者内の用法比。**
 
-| 20 mg TAB BIDに対する比 | 中央値 | 個人内比の5–95%範囲 |
+| Ratio relative to 20 mg TAB BID | Median | 5th–95th percentile of paired ratios |
 | --- | ---: | ---: |
-| 40 mg TAB QD：AUC0–24 | 1.000 | 1.000–1.000 |
-| 同：Cmax | 1.551 | 1.333–1.796 |
-| 同：Cmin | 0.553 | 0.389–0.727 |
-| 40 mg LSF QD：AUC0–24 | 0.639 | 0.639–0.639 |
-| 同：Cmax | 1.022 | 0.867–1.203 |
-| 同：Cmin | 0.348 | 0.244–0.461 |
+| 40 mg TAB QD: AUC0–24 | 1.000 | 1.000–1.000 |
+| Same: Cmax | 1.551 | 1.333–1.796 |
+| Same: Cmin | 0.553 | 0.389–0.727 |
+| 40 mg LSF QD: AUC0–24 | 0.639 | 0.639–0.639 |
+| Same: Cmax | 1.022 | 0.867–1.203 |
+| Same: Cmin | 0.348 | 0.244–0.461 |
 
 液剤のAUC比が全員で0.639になるのは、製剤の相対Fを全員で一定としたためである。液剤への切替効果に個体差がないという臨床的な証明ではない。
 

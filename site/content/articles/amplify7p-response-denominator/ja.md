@@ -12,13 +12,13 @@ Camupepimut（ELI-002 7P）は7種類の変異KRASペプチドを含む。2026�
 
 使用したのは原著のFigure 5 Source Dataである。Figure 5bはワクチン抗原に対する患者別最大fold change、Figure 5iは腫瘍変異に対応した応答の最大fold changeを収録する。ただし前者に数値があるのは89人、後者は78人だった。図の行数91から「90人全員の応答強度がそろう」と判断すると、空欄を誤って埋めることになる。
 
-| 項目 | 確認できた件数 | 解釈 |
+| Quantity | Count | Interpretation |
 | --- | ---: | --- |
-| ワクチン群に無作為化 | 96 | 試験の割付集団 |
-| 免疫応答評価可能 | 90 | 今回の応答率の主な分母 |
-| Figure 5bの正の最大応答 | 89 | 何らかのワクチン抗原への応答者 |
-| Figure 5iの正の最大応答 | 78 | 腫瘍変異に対応する応答者 |
-| 両パネルの数値をIDで対応できる例 | 78 | 両方で正の要約値がある選択集団 |
+| Randomized to vaccine | 96 | Allocation population |
+| Immune evaluable | 90 | Main denominator for immune-response reporting |
+| Positive maximum summaries in Figure 5b | 89 | Any-vaccine-antigen responders |
+| Positive maximum summaries in Figure 5i | 78 | Tumor-matched responders |
+| Participants linked across both positive panels | 78 | Selected population with two positive summaries |
 
 78人のIDはすべて89人の集合に含まれ、パネル内のID重複はなかった。欠けた12人について、腫瘍変異へのfold changeをゼロとしたり、1としたりしていない。以下の再集計は`analysis/run.py`、行数・粒度の監査は`outputs/data-quality-audit.json`から再現できる。
 
@@ -34,11 +34,11 @@ Camupepimut（ELI-002 7P）は7種類の変異KRASペプチドを含む。2026�
 
 ここで(E)は免疫応答の評価が可能だったことを表す。生物学的な潜在応答の確率ではなく、報告された応答分類の割合として記述している。
 
-| 応答の定義 | 分子/分母 | 再集計率 | Wilson 95%区間 |
+| Definition | Count | Recalculated rate | Wilson 95% interval |
 | --- | ---: | ---: | ---: |
-| いずれかのワクチン抗原への応答 / 評価可能者 | 89/90 | 98.9% | 94.0–99.8% |
-| 腫瘍変異への応答 / 何らかの抗原への応答者 | 78/89 | 87.6% | 79.2–93.0% |
-| 腫瘍変異への応答 / 評価可能者 | 78/90 | 86.7% | 78.1–92.2% |
+| Any vaccine peptide / evaluable | 89/90 | 98.9% | 94.0–99.8% |
+| Tumor-matched peptide / any responder | 78/89 | 87.6% | 79.2–93.0% |
+| Tumor-matched peptide / evaluable | 78/90 | 86.7% | 78.1–92.2% |
 
 同じ90人で比べた差は12.2 percentage pointsだった（`outputs/tables/response-denominators.csv`）。これは異なる二つの治療群の差ではない。単一のワクチン群で、応答の定義を狭めたときの差である。独立した二標本の検定は行っていない。
 
@@ -68,10 +68,10 @@ Camupepimut（ELI-002 7P）は7種類の変異KRASペプチドを含む。2026�
 
 既に評価された90人の公表応答分類を固定した場合の範囲である。脱落の原因を説明するモデルや、未評価者の真の応答率を推定するモデルではない。
 
-| 定義 | 96人を分母にした範囲 |
+| Definition | Arithmetic range among all 96 |
 | --- | ---: |
-| いずれかのワクチン抗原への応答 | 92.7–99.0% |
-| 腫瘍変異に対応した応答 | 81.3–87.5% |
+| Any vaccine antigen | 92.7–99.0% |
+| Tumor-matched antigen | 81.3–87.5% |
 
 ![未評価6人の分類を変えた場合の算術的な幅](shared/amplify7p-response-denominator/figures/ascertainment-bounds.svg)
 

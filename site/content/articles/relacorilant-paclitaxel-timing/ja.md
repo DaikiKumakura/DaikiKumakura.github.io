@@ -24,11 +24,11 @@ Relacorilantはグルココルチコイド受容体（GR）の拮抗薬である
 
 **表1．** 第II相試験の群別paclitaxel集計PK。
 
-| 群 | Relacorilant | Nab-paclitaxel | Paclitaxel Cmax：幾何平均（幾何CV）、n | Paclitaxel AUC₀–₆：幾何平均（幾何CV）、n |
+| Arm | Relacorilant | Nab-paclitaxel | Paclitaxel Cmax: geometric mean (geometric CV), n | Paclitaxel AUC₀–₆: geometric mean (geometric CV), n |
 | --- | --- | --- | --- | --- |
-| 単独 | なし | 100 mg/m² | 1,038 ng/mL（96.3%）、49 | 1,964 ng·h/mL（83.4%）、43 |
-| 間欠併用 | 150 mg、点滴前日・当日・翌日 | 80 mg/m² | 1,574 ng/mL（88.8%）、50 | 2,606 ng·h/mL（70.4%）、33 |
-| 連日併用 | 100 mg、毎日 | 80 mg/m² | 1,639 ng/mL（88.1%）、40 | 2,689 ng·h/mL（66.4%）、28 |
+| Monotherapy | None | 100 mg/m² | 1,038 ng/mL (96.3%), 49 | 1,964 ng·h/mL (83.4%), 43 |
+| Intermittent combination | 150 mg the day before, on, and after infusion | 80 mg/m² | 1,574 ng/mL (88.8%), 50 | 2,606 ng·h/mL (70.4%), 33 |
+| Continuous combination | 100 mg daily | 80 mg/m² | 1,639 ng/mL (88.1%), 40 | 2,689 ng·h/mL (66.4%), 28 |
 
 Nab-paclitaxelはいずれもDay 1・8・15、28日周期。表の濃度・AUCはpaclitaxelの値であり、後述するrelacorilantの計算値とは別である。CmaxとAUCのnが異なるため、同じ人の二つの測定値として扱っていない。
 
@@ -50,10 +50,10 @@ SE(\log \widehat R_g)=\sqrt{\frac{\log(1+v_g^2)}{n_g}+\frac{\log(1+v_0^2)}{n_0}}
 
 **表2．** 単独群に対する用量補正曝露比。
 
-| 単独群に対する用量補正比 | Cmax（近似95%区間） | AUC₀–₆（近似95%区間） |
+| Combination versus monotherapy | Cmax (approximate 95% interval) | AUC₀–₆ (approximate 95% interval) |
 | --- | --- | --- |
-| 間欠併用 | 1.90（1.39–2.58） | 1.66（1.22–2.25） |
-| 連日併用 | 1.97（1.42–2.74） | 1.71（1.25–2.34） |
+| Intermittent | 1.90 (1.39–2.58) | 1.66 (1.22–2.25) |
+| Continuous | 1.97 (1.42–2.74) | 1.71 (1.25–2.34) |
 
 ![Paclitaxelの用量補正幾何平均比と近似95%区間。第II相試験の評価項目別集計値から計算。](shared/relacorilant-paclitaxel-timing/figures/paclitaxel-contrasts.png)
 
@@ -88,15 +88,15 @@ C(t)&=1000\frac{A_c(t)}{V_c}\quad[\mathrm{ng/mL}].
 
 **表3．** 食後条件のモデル再構成に使った係数。
 
-| 係数 | 食後条件の入力値 | 扱い |
+| Parameter | Input for fed conditions | Interpretation |
 | --- | --- | --- |
-| CL/F | 46.7 L/h | 公表最終値 |
-| Vc/F | 220 L | 公表最終値 |
-| Q/F | 45.0 L/h | 公表最終値 |
-| Vp/F | 850 L | 公表最終値 |
-| ka | 0.775 h⁻¹ | 食後の公表値 |
-| D₁ | 1.66 h | 食後の公表値 |
-| Frel | 2.13 | 空腹時に対する食後の相対値。絶対Fではない |
+| CL/F | 46.7 L/h | Published final value |
+| Vc/F | 220 L | Published final value |
+| Q/F | 45.0 L/h | Published final value |
+| Vp/F | 850 L | Published final value |
+| ka | 0.775 h⁻¹ | Published fed value |
+| D₁ | 1.66 h | Published fed value |
+| Frel | 2.13 | Fed relative to fasting; not absolute F |
 
 元の共変量式の中心化と相関構造を確認できなかったため、BMI・年齢の乗数を１に固定した条件付きの再構成とした。「平均的な患者」の同定や元のPopPK解析の完全再現ではない。現行の食後投与に合わせ、空腹時への切替比較は行わない。
 
@@ -116,12 +116,12 @@ Nab-paclitaxelの点滴を時刻0、168、336 hに置き、28日周期が反復�
 
 **表4．** 比較した投与時刻と周期投与量。
 
-| 計算条件 | 各点滴から見たRelacorilantの内服時刻 | 28日あたりの量 |
+| Condition | Relacorilant dosing relative to each infusion | Amount per 28 days |
 | --- | --- | --- |
-| Intermittent（基準） | −24、0、+24 hに150 mg | 1,350 mg |
-| Early（仮定） | −48、−24、0 hに150 mg | 1,350 mg |
-| Late（仮定） | 0、+24、+48 hに150 mg | 1,350 mg |
-| Continuous（公表連日条件） | 100 mgを24時間ごと | 2,800 mg |
+| Intermittent, reference | 150 mg at −24, 0, and +24 h | 1,350 mg |
+| Early, hypothetical | 150 mg at −48, −24, and 0 h | 1,350 mg |
+| Late, hypothetical | 150 mg at 0, +24, and +48 h | 1,350 mg |
+| Continuous, published daily condition | 100 mg every 24 hours | 2,800 mg |
 
 EarlyとLateは３回の窓全体をずらした仮想条件であり、飲み忘れ時の対処を表さない。
 
@@ -133,7 +133,7 @@ EarlyとLateは３回の窓全体をずらした仮想条件であり、飲み�
 
 **表5．** 条件固定モデルの親薬物曝露。
 
-| 条件固定モデル | 周期AUC（ng·h/mL） | 点滴後0–6 h AUCの合計（ng·h/mL） | 点滴時点濃度の平均（ng/mL） |
+| Condition | Cycle AUC (ng·h/mL) | Sum of 0–6 h post-infusion AUCs (ng·h/mL) | Mean concentration at infusion (ng/mL) |
 | --- | --- | --- | --- |
 | Intermittent | 61,574 | 9,229 | 58.6 |
 | Early | 61,574 | 9,706 | 87.1 |
@@ -160,11 +160,11 @@ Earlyでは基準より点滴時点の濃度が高い。しかし点滴後６時
 
 **表6．** 基準間欠条件に対する同一個体内の曝露比。
 
-| 基準に対する同一個体内比：中央値［5–95%点］ | Early | Late | Continuous |
+| Endpoint: median [5th–95th percentiles] | Early | Late | Continuous |
 | --- | --- | --- | --- |
-| 周期AUC | 1.00［1.00–1.00］ | 1.00［1.00–1.00］ | 2.07［2.07–2.07］ |
-| 点滴後0–6 h AUC合計 | 1.05［1.02–1.13］ | 0.90［0.79–0.96］ | 0.75［0.69–0.95］ |
-| 点滴時点濃度の平均 | 1.47［1.33–1.51］ | 0.11［0.01–0.37］ | 1.39［1.01–1.83］ |
+| Cycle AUC | 1.00 [1.00–1.00] | 1.00 [1.00–1.00] | 2.07 [2.07–2.07] |
+| Sum of 0–6 h post-infusion AUCs | 1.05 [1.02–1.13] | 0.90 [0.79–0.96] | 0.75 [0.69–0.95] |
+| Mean concentration at infusion | 1.47 [1.33–1.51] | 0.11 [0.01–0.37] | 1.39 [1.01–1.83] |
 
 ![同じ条件付き個体で比較した親薬物曝露比。点は中央値、線は個人間5–95%点。](shared/relacorilant-paclitaxel-timing/figures/paired-window-ratios.png)
 

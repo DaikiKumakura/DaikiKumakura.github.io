@@ -52,15 +52,15 @@ AI創薬の提携は、Generate–Zealand、Insilico–Lilly、Insilico–Servie
 
 表1　前払金の割合の群別の要約。
 
-| 群 | 件数 | 中央値（95%区間） | 四分位範囲 | 範囲 |
+| Group | n | Median (95% interval) | IQR | Range |
 | --- | ---: | ---: | ---: | ---: |
-| 前払金が公表された提携すべて | 15 | 4.1%（3.6〜7.9%） | 3.3〜7.6% | 2.5〜18.8% |
-| AI創薬の提携 | 5 | 3.0%（2.5〜4.2%） | 2.6〜3.6% | 2.5〜4.2% |
-| それ以外 | 10 | 6.1%（4.0〜9.7%） | 4.0〜8.6% | 2.6〜18.8% |
-| 売り手が中国企業 | 7 | 7.4%（3.9〜11.5%） | 4.0〜10.2% | 2.6〜18.8% |
-| 売り手が中国企業以外 | 8 | 3.8%（2.6〜4.8%） | 2.9〜4.3% | 2.5〜7.9% |
-| 総額が50億ドル以上 | 4 | 4.0%（2.6〜7.4%） | 3.6〜4.8% | 2.6〜7.4% |
-| 総額が50億ドル未満 | 11 | 4.2%（3.0〜8.8%） | 3.3〜8.3% | 2.5〜18.8% |
+| All deals with a disclosed upfront | 15 | 4.1% (3.6–7.9%) | 3.3–7.6% | 2.5–18.8% |
+| AI-discovery deals | 5 | 3.0% (2.5–4.2%) | 2.6–3.6% | 2.5–4.2% |
+| Other deals | 10 | 6.1% (4.0–9.7%) | 4.0–8.6% | 2.6–18.8% |
+| Chinese seller | 7 | 7.4% (3.9–11.5%) | 4.0–10.2% | 2.6–18.8% |
+| Non-Chinese seller | 8 | 3.8% (2.6–4.8%) | 2.9–4.3% | 2.5–7.9% |
+| Headline total of $5 billion or more | 4 | 4.0% (2.6–7.4%) | 3.6–4.8% | 2.6–7.4% |
+| Headline total below $5 billion | 11 | 4.2% (3.0–8.8%) | 3.3–8.3% | 2.5–18.8% |
 
 注：95%区間は、中央値のブートストラップ区間（2,000回）である。件数が10未満の群では区間が不安定で、5件の群の区間は範囲と一致する。4件の群の区間は参考値にとどまる。出典は`results/upfront-share-summary.csv`。
 
@@ -84,12 +84,12 @@ AI創薬の5件は、すべて4.2%以下だった。AI創薬群とそれ以外�
 
 表2　前払金の定義による割合の違い。
 
-| 提携 | 主な定義の前払金 | 別の定義 | 総額 | 割合（主 → 別） |
+| Deal | Upfront (main definition) | Alternative definition | Headline total | Share (main → alternative) |
 | --- | ---: | ---: | ---: | --- |
-| Generate–Zealand | 30百万ドル | 65百万ドル（早期の前臨床マイルストーン35百万ドルを含む） | 約1,200百万ドル | 2.5% → 5.4% |
-| Gilead–Vir | 90百万ドル（現金65、株式25） | 135百万ドル（最大45百万ドルの近い時期の前臨床マイルストーンを含む） | 1,870百万ドル | 4.8% → 7.2% |
-| BMS–Hengrui | 600百万ドル | 950百万ドル（近い時期の支払いを含む） | 15,200百万ドル | 3.9% → 6.3% |
-| Roche–Hansoh | 400百万ドル | 510百万ドル（1年後の110百万ドルを含む） | 15,510百万ドル以上 | 2.6% → 3.3% |
+| Generate–Zealand | $30 million | $65 million (includes $35 million in early preclinical milestones) | about $1,200 million | 2.5% → 5.4% |
+| Gilead–Vir | $90 million ($65 million cash, $25 million equity) | $135 million (includes up to $45 million in near-term preclinical milestones) | $1,870 million | 4.8% → 7.2% |
+| BMS–Hengrui | $600 million | $950 million (includes near-term payments) | $15,200 million | 3.9% → 6.3% |
+| Roche–Hansoh | $400 million | $510 million (includes the $110 million at the first anniversary) | $15,510 million or more | 2.6% → 3.3% |
 
 注：BMS–Hengruiの950/15,200は6.25%で、四捨五入（0.5を切り上げ）して6.3%と表記した。Gilead–Virの現金・株式の内訳と135百万ドルの内訳は、発表文書 ([6](#ref-6)) による。Roche–Hansohの1年後の支払いは報道 ([1](#ref-1)) による。Generate–Zealandの値は、発表文 ([8](#ref-8)) を読めなかったため、報道の要約に基づく。BMS–Hengruiの950百万ドルは、報道では600百万ドルの前払金に、初年度記念と後年の条件付きの各175百万ドルを加えた額と説明されている。この内訳は原資料まで確認していない。割合は`deals.csv`の値から計算した。
 

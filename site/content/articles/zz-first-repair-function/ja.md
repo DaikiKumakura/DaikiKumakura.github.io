@@ -24,11 +24,11 @@ ZZ-FIRSTは、高腫瘍量の転移性ホルモン未治療前立腺がんを対
 
 表1. 転写・増殖・修復機能の測定対象。
 
-| 測定 | 分かること | それだけでは決められないこと |
+| Measurement | What it describes | What it does not establish alone |
 | --- | --- | --- |
-| HRR関連RNAの発現 | 修復に関係する転写プログラムの状態 | 必要になったときに修復できるか |
-| 増殖・細胞周期の指標 | 増殖中の細胞や、そのプログラムの変化 | HRRが直接抑えられたか |
-| RAD51などの機能マーカー | 評価可能な細胞で修復応答を形成する状態 | PARP阻害薬を足したときの患者の利益 |
+| HRR-related RNA | State of a repair-associated transcriptional program | Capacity to repair damage when required |
+| Proliferation and cell-cycle markers | Changes in proliferating cells or their programs | Direct suppression of HRR |
+| Functional markers such as RAD51 | Formation of repair responses in evaluable cells | Patient benefit from adding a PARP inhibitor |
 
 「経路スコアが低い」は便利な要約だが、作用機序をひと言で確定するラベルではない。遺伝子集合が重なっていれば同じRNAを二度数えるし、集合を分けても、同じ細胞状態で一緒に動くことがある。共有遺伝子を除くだけで、この問題が全部消えるわけでもない。
 
@@ -55,11 +55,11 @@ $$
 
 表2. 12人の対応ペアによる独自小パネルの記述集計。
 
-| 記述量 | 修復関連小パネル | 細胞周期関連小パネル |
+| Summary | Repair-related panel | Cell-cycle-related panel |
 | --- | ---: | ---: |
-| 平均の患者内変化 | −0.548 | −0.807 |
-| 低下した患者数 | 8/12 | 10/12 |
-| 患者を1人ずつ除いた平均変化の範囲 | −0.621〜−0.469 | −0.922〜−0.679 |
+| Mean within-participant change | −0.548 | −0.807 |
+| Participants with a decrease | 8/12 | 10/12 |
+| Mean-change range leaving out 1 participant at a time | −0.621–−0.469 | −0.922–−0.679 |
 
 両パネルの**患者内変化同士**の相関はr=0.735だった。治療前と後をまとめた全検体の相関ではなく、「その患者でどれだけ動いたか」を比較している。全員で両パネルが下がったわけではない。
 
@@ -89,10 +89,10 @@ $$
 
 表3. ZZ-FIRSTの主要反応と重度有害事象の群別集計。
 
-| 項目 | talazoparib追加群 | 対照群 |
+| Outcome | Talazoparib addition | Control |
 | --- | ---: | ---: |
-| 12か月のPSA反応 | 27/37（73.0%） | 11/17（64.7%） |
-| Grade 3以上の治療下有害事象 | 25/37（67.6%） | 6/17（35.3%） |
+| PSA response at 12 months | 27/37 (73.0%) | 11/17 (64.7%) |
+| Grade 3 or higher treatment-emergent adverse events | 25/37 (67.6%) | 6/17 (35.3%) |
 
 追加群ではGrade 3以上の貧血が15/37に生じ、減量や中断も多かった。画像上の無増悪生存期間の群間ハザード比は0.64、95%信頼区間は0.28–1.42と幅がある。併用群の長期経過では致死的AMLが2人に報告され、背景のゲノム素因が確認されている。ただし、この人数から一般的な発生率を推定することはできない。
 

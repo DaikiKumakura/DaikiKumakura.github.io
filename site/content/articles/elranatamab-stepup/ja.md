@@ -52,12 +52,12 @@ logitは、確率をオッズ（起きる確率÷起きない確率）の対数�
 
 **表1．** 公表曝露と条件付きモデル出力の比較。
 
-| 指標（遊離エラナタマブ、幾何平均） | このモデル | 論文 | 比 |
-|---|---|---|---|
-| 最初のフル用量後（8〜15日）のCmax | 4,372 ng/mL | 3,795 ng/mL | 1.15 |
-| 同、平均濃度 | 3,570 ng/mL | 3,083 ng/mL | 1.16 |
-| 24週目（週1回）の平均濃度、全員 | 19,380 ng/mL | 32,025 ng/mL | 0.61 |
-| 同、CL ≤ 0.3 L/dayの人（仮想患者の61%） | 31,893 ng/mL | 32,025 ng/mL | 1.00 |
+| Endpoint, free elranatamab geometric mean | This implementation | Published | Ratio |
+| --- | --- | --- | --- |
+| Cmax after first full dose, days 8–15 | 4,372 ng/mL | 3,795 ng/mL | 1.15 |
+| Mean concentration over the same interval | 3,570 ng/mL | 3,083 ng/mL | 1.16 |
+| Week-24 mean concentration with weekly dosing, all individuals | 19,380 ng/mL | 32,025 ng/mL | 0.61 |
+| Same endpoint, CL ≤0.3 L/day, 61% of simulated individuals | 31,893 ng/mL | 32,025 ng/mL | 1.00 |
 
 初期の曝露は、約15%高めに出た。24週目の差は、効かない人の早期の脱落による可能性がある。[原著補足Fig. S2の説明](https://doi.org/10.1007/s40262-026-01663-z)では、CLが0.3 L/dayを超える仮想患者を約84日以降に除いている。同じ条件に揃えると一致したが、除く人の割合が大きいので、これは整合性の確認にとどまる。
 
@@ -73,12 +73,12 @@ logitは、確率をオッズ（起きる確率÷起きない確率）の対数�
 
 **表2．** 初回用量設計ごとの曝露と再校正後CRS予測。
 
-| 設計 | 4日目の濃度（幾何平均） | CRSの予測確率（腫瘍量 低・中） | CRSの予測確率（腫瘍量 高） | 8日目の投与直前の濃度（承認との比） |
-|---|---|---|---|---|
-| 12/32/76 mg（承認） | 240 ng/mL | 0.38（0.30〜0.46） | 0.61（0.46〜0.74） | 1.00 |
-| 4/20/76 mg（第1相） | 75 ng/mL | 0.13（0.09〜0.21） | 0.30（0.17〜0.49） | 0.49 |
-| 5/32/76 mg（仮想） | 94 ng/mL | 0.17（0.11〜0.25） | 0.36（0.22〜0.54） | 0.80 |
-| 32/76 mg（仮想、最初の段を省く） | 723 ng/mL | 0.68（0.56〜0.77） | 0.84（0.73〜0.91） | 0.72 |
+| Design | Day-4 concentration, geometric mean | Predicted CRS probability, low/moderate burden | Predicted CRS probability, high burden | Preday-8-dose concentration relative to approved design |
+| --- | --- | --- | --- | --- |
+| 12/32/76 mg, approved | 240 ng/mL | 0.38 (0.30–0.46) | 0.61 (0.46–0.74) | 1.00 |
+| 4/20/76 mg, phase I | 75 ng/mL | 0.13 (0.09–0.21) | 0.30 (0.17–0.49) | 0.49 |
+| 5/32/76 mg, hypothetical | 94 ng/mL | 0.17 (0.11–0.25) | 0.36 (0.22–0.54) | 0.80 |
+| 32/76 mg, hypothetical omission of first step | 723 ng/mL | 0.68 (0.56–0.77) | 0.84 (0.73–0.91) | 0.72 |
 
 括弧内は、係数と観測率を500回引き、そのたびに承認用量での予測を観測率に合わせ直したときの95%の範囲である。4/20/76 mgは、第1相試験（MagnetisMM-1のPart 2、43人）で使われた設計である。32/76 mgの8日目の比が1より小さいのは、4日目の2回目の投与がなく、8日目までの総投与量（32 mg）が承認設計（44 mg）より少ないためである。
 

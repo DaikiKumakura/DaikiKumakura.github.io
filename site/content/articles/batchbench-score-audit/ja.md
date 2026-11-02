@@ -28,7 +28,7 @@ BatchBenchは、この厄介さを評価の中心に置いた。JUMP Cell Painti
 
 表1。公開画像と非公開テスト画像の群別構成。
 
-| 画像群 | 公開側の画像数 | 公開側の比率 | 非公開テストの比率 |
+| Image group | Public images | Public proportion | Private test proportion |
 | --- | ---: | ---: | ---: |
 | POSCON | 48,574 | 51.0% | 36.2% |
 | TARGET | 23,455 | 24.6% | 54.9% |
@@ -48,9 +48,9 @@ BatchBenchは、この厄介さを評価の中心に置いた。JUMP Cell Painti
 
 表2。原著が報告した平均正解率（%）。
 
-| 手法 | 総合 | POSCON | TARGET | REST |
+| Method | Overall | POSCON | TARGET | REST |
 | --- | ---: | ---: | ---: | ---: |
-| 適応なしのResNet18 | 17.5 | 46.5 | 1.2 | 0.2 |
+| ResNet18 without adaptation | 17.5 | 46.5 | 1.2 | 0.2 |
 | deepCORAL | 20.1 | 50.2 | 3.4 | 0.7 |
 | AdaBN | 24.4 | 64.6 | 1.9 | 0.2 |
 | TENT | 24.9 | 66.1 | 1.7 | 0.2 |

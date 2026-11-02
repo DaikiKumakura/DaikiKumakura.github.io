@@ -22,14 +22,14 @@ PRISMは細胞株を混合し、barcodeを通じて薬剤処理後の相対的�
 
 **表1　選択対象と観測値**
 
-| 項目 | 今回の実体 |
+| Item | Data used |
 | --- | --- |
-| 対象 | HCC827、NCIH1581、NCIH1693、PC14、NCIH1650、RERFLCMS |
-| 濃度 | 約0.00061〜10 µM、8濃度、約4倍希釈 |
-| 候補測定値 | 720 |
-| 有限な観測値 | 528（192欠測） |
-| 評価できた曲線 | 29／予定30組 |
-| 同じ薬・株のscreen比較 | 11組 |
+| Cell lines | HCC827, NCIH1581, NCIH1693, PC14, NCIH1650, RERFLCMS |
+| Concentrations | Approximately 0.00061–10 µM; eight concentrations with approximately fourfold dilution |
+| Potential measurements | 720 |
+| Finite observations | 528; 192 missing |
+| Evaluable curves | 29 of 30 planned combinations |
+| Same-drug, same-line screen comparisons | 11 pairs |
 
 入力はreplicate未集約のlog2 fold changeであるが、すでにQC・対照正規化・ComBat補正を受けている ([2](#ref-2), [3](#ref-3))。 生の蛍光測定値ではない。検出plateによって残る測定が異なり、最大3plateが残る曲線と1plateしかない曲線を同列の独立反復数として数えない。
 
@@ -59,14 +59,14 @@ $L,U$ は高濃度・低濃度側の漸近値、$h$ はHill slopeである。$b_
 
 **表2　代表的なEC50推定値と条件付きprofile範囲**
 
-| 曲線 | EC50点推定（µM） | 条件付きprofileの許容範囲（µM） | 読み方 |
+| Curve | EC50 estimate (µM) | Conditional profile range (µM) | Interpretation |
 | --- | ---: | --- | --- |
-| erlotinib–HCC827、HTS002 | 0.0148 | 0.00768〜0.0241 | 遷移付近を追加測定する根拠になる |
-| erlotinib–HCC827、MTS010 | 0.0164 | 0.00879〜0.0362 | technical redoでも近い遷移 |
-| erlotinib–NCIH1581、HTS002 | 0.00237 | 探索境界まで開放 | 点推定で濃度を決めない |
-| erlotinib–NCIH1581、MTS010 | 11.4 | 探索境界まで開放 | 範囲外のEC50として確定しない |
-| palbociclib–HCC827、HTS002 | 0.449 | 0.297〜0.656 | このscreen条件での推定 |
-| palbociclib–HCC827、MTS010 | 15.8 | 探索境界まで開放 | 元screenの値を精密な値として移さない |
+| Erlotinib–HCC827, HTS002 | 0.0148 | 0.00768–0.0241 | Supports follow-up near the observed transition |
+| Erlotinib–HCC827, MTS010 | 0.0164 | 0.00879–0.0362 | Similar transition in technical redo |
+| Erlotinib–NCIH1581, HTS002 | 0.00237 | Open at search boundary | Do not choose concentrations from this point estimate |
+| Erlotinib–NCIH1581, MTS010 | 11.4 | Open at search boundary | Does not identify a definite out-of-range EC50 |
+| Palbociclib–HCC827, HTS002 | 0.449 | 0.297–0.656 | Estimate conditional on this screen |
+| Palbociclib–HCC827, MTS010 | 15.8 | Open at search boundary | Does not transfer the original-screen value as precise |
 
 29曲線で最適化は収束したが、12曲線のprofileが探索境界まで開放し、7曲線の点推定は測定範囲外だった。17曲線では漸近値またはslopeが設定した境界に接し、7曲線は1plateしか残っていない。**収束したことだけでは、EC50がデータから識別されるとは言えない。** また、閉じたprofileでも1plateだけから推定されたものがあり、狭い許容範囲を独立再現性の証拠とはしない。
 

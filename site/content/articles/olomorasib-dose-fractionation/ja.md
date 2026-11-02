@@ -20,7 +20,7 @@ Olomorasib（LY3537982）はKRAS G12C阻害剤である。2026年に報告され
 
 表1. 公開AUC12の用量別集計（BID）。AUC12は定常状態の12時間AUC（ng·h/mL）、CVは変動係数。
 
-| BIDの1回量（mg） | AUC件数 | AUC幾何平均 | AUC中央値 | 幾何CV（%） |
+| BID dose (mg) | AUC records | AUC geometric mean | AUC median | Geometric CV (%) |
 | --- | ---: | ---: | ---: | ---: |
 | 50 | 16 | 589 | 658 | 47.4 |
 | 100 | 37 | 1,393 | 1,329 | 62.9 |
@@ -75,10 +75,10 @@ M_1:\quad AUC_{12}(D)=\frac{A_{\max}D}{D_{50}+D}.
 
 表2. 用量–曝露モデルの当てはめ（対数AUC12、全212件）。
 
-| モデル | 推定係数 | 対数残差二乗和 |
+| Model | Estimated coefficients | Sum of squared log residuals |
 | --- | --- | ---: |
-| 比例 M0 | a = 12.452 ng·h/mL/mg | 62.867 |
-| 飽和 M1 | Amax = 14,587 ng·h/mL; D50 = 1,035 mg | 62.667 |
+| Proportional M0 | a = 12.452 ng·h/mL/mg | 62.867 |
+| Saturating M1 | Amax = 14,587 ng·h/mL; D50 = 1,035 mg | 62.667 |
 
 M1は1パラメータ多いが、残差二乗和の減少は0.32%だった。独立観測を前提とする有意差検定やAIC判定は行っておらず、この差だけで一方を選ばない。D50は観測範囲の50–200 mgより大きく、強い飽和を直接捉えた値とは言えない。原著の「150–200 mgで頭打ち」という記述と、本記事が比例モデルを排除できないことも矛盾ではない。前者は観測された曝露分布の記述で、後者は、異なる件数・背景を持つ用量群をこの2種類の式で比較したときの識別の弱さである。比例性が証明されたという意味でもない。
 
@@ -92,12 +92,12 @@ M1は1パラメータ多いが、残差二乗和の減少は0.32%だった。独
 
 表3. 時間曲線モデルと平均濃度点の最大相対差（4用量、各9点）。
 
-| 用量（mg） | 平均濃度点に対する最大相対差 | 用途 |
+| Dose (mg) | Maximum relative difference from mean concentration points | Purpose |
 | --- | ---: | --- |
-| 50 | 38.8% | 尺度を再調整した形の確認 |
-| 100 | 19.0% | 尺度を再調整した形の確認 |
-| 150 | 20.9% | 推定に使用 |
-| 200 | 30.7% | 尺度を再調整した形の確認 |
+| 50 | 38.8% | Shape check with rescaled concentration |
+| 100 | 19.0% | Shape check with rescaled concentration |
+| 150 | 20.9% | Used for estimation |
+| 200 | 30.7% | Shape check with rescaled concentration |
 
 他用量では濃度尺度だけを合わせ直したため、これは独立した絶対濃度の外部検証ではない。最大相対差が19.0–38.8%残るので、TIDの波形が実測で検証されたとは扱わない。
 
@@ -105,7 +105,7 @@ M1は1パラメータ多いが、残差二乗和の減少は0.32%だった。独
 
 表4. 同じ1日量の投与条件ごとの24時間指標（各モデルの150 mg BIDを1とした比）。
 
-| モデル | 条件 | 1日量（mg） | AUC24比 | Cmax比 | Cmin比 |
+| Model | Regimen | Daily dose (mg) | AUC24 ratio | Cmax ratio | Cmin ratio |
 | --- | --- | ---: | ---: | ---: | ---: |
 | linear | 150BID | 300 | 1.000 | 1.000 | 1.000 |
 | linear | 100TID | 300 | 1.000 | 0.775 | 1.785 |

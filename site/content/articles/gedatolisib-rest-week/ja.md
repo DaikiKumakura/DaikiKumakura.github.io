@@ -20,11 +20,11 @@
 
 **表1　比較する投与条件**
 
-| 条件 | 投与日 | 28日総量 | 位置付け |
+| Condition | Dosing days | 28-day total | Role |
 | --- | --- | ---: | --- |
-| 180 mg × 3回 | Day 1、8、15 | 540 mg | 推奨用法を参照 |
-| 135 mg × 4回 | Day 1、8、15、22 | 540 mg | 同じ総量で配分を変える仮想条件 |
-| 180 mg × 4回 | Day 1、8、15、22 | 720 mg | 総量増加との混同を確認する条件 |
+| 180 mg × 3 | Day 1, 8, 15 | 540 mg | Reference to the recommended regimen |
+| 135 mg × 4 | Day 1, 8, 15, 22 | 540 mg | Hypothetical redistribution of the same total |
+| 180 mg × 4 | Day 1, 8, 15, 22 | 720 mg | Condition to separate the effect of a larger total |
 
 全て30分の点滴とする。参照条件の用量と投与日は、添付文書の用法 ([1](#ref-1), [6](#ref-6)) に従う。135 mgを毎週投与する条件は、この解析で比較する仮説であり、承認された代替用法を示すものではない。180 mg × 4回の条件は、B2151009の180 mg毎週投与群（Arm C）と用量と間隔が対応する ([3](#ref-3), PDF p. 87)。ただし、その群の周期の区切りは確認していない。他の併用薬のPKや投与日程は計算していない。
 
@@ -53,7 +53,7 @@ Cは血漿中ng/mL。Rinは点滴中D/0.5 mg/h、それ以外は0とする。係
 
 **表2　使用した公表係数**
 
-| 公表係数 | 推定値 | 公表95%区間／今回の扱い | 単位 |
+| Published coefficient | Estimate | Published 95% interval / treatment here | Unit |
 | --- | ---: | --- | --- |
 | cl | 7.99 | 7.77–8.22 | L/h |
 | v1 | 7.31 | 6.86–7.75 | L |
@@ -63,9 +63,9 @@ Cは血漿中ng/mL。Rinは点滴中D/0.5 mg/h、それ以外は0とする。係
 | v3 | 98.1 | 90.1–106 | L |
 | q4 | 0.741 | 0.671–0.812 | L/h |
 | v4 | 279 | 236–322 | L |
-| ηclの分散 | 0.0507 | 今回は固定 | log尺度 |
-| ηv1の分散 | 0.195 | 今回は固定 | log尺度 |
-| ηq4の分散 | 0.204 | 今回は固定 | log尺度 |
+| Variance of ηcl | 0.0507 | Fixed here | log scale |
+| Variance of ηv1 | 0.195 | Fixed here | log scale |
+| Variance of ηq4 | 0.204 | Fixed here | log scale |
 
 CLの共変量効果は、
 
@@ -114,11 +114,11 @@ AUC_{28\mathrm{d}}=1000\frac{\text{28日間の総投与量}}{CL}
 
 **表3　基準個体の周期的な条件での曝露**
 
-| 周期的な条件 | 最高濃度（ng/mL） | 周期末濃度（ng/mL） | AUC28日（ng·h/mL） | 第4週AUC（ng·h/mL） |
+| Periodic condition | Maximum concentration (ng/mL) | End-of-cycle concentration (ng/mL) | AUC 28 d (ng·h/mL) | Week 4 AUC (ng·h/mL) |
 | --- | ---: | ---: | ---: | ---: |
-| 180 mg × 3回 | 14,802 | 5.80 | 67,584 | 1,288 |
-| 135 mg × 4回 | 11,103 | 9.16 | 67,584 | 16,896 |
-| 180 mg × 4回 | 14,803 | 12.22 | 90,113 | 22,528 |
+| 180 mg × 3 | 14,802 | 5.80 | 67,584 | 1,288 |
+| 135 mg × 4 | 11,103 | 9.16 | 67,584 | 16,896 |
+| 180 mg × 4 | 14,803 | 12.22 | 90,113 | 22,528 |
 
 出力は `outputs/tables/typical-regimens.csv` による。周期的な状態の最高濃度（14,802 ng/mL）は、前周期からの持ち越しを含むため、単回投与のピーク（14,791 ng/mL）とわずかに異なる。
 
@@ -140,13 +140,13 @@ AUC_{28\mathrm{d}}=1000\frac{\text{28日間の総投与量}}{CL}
 
 **表4　仮想個体内の比（CLとQ4の相関0）**
 
-| 135 mg × 4回／180 mg × 3回 | 個体内比の中央値 | 5–95パーセンタイル |
+| 135 mg × 4 / 180 mg × 3 | Median within-individual ratio | 5th–95th percentile |
 | --- | ---: | --- |
-| 最高濃度 | 0.750 | 0.750–0.750 |
-| 周期内最低濃度 | 1.613 | 1.543–1.909 |
-| 周期AUC0–28日 | 1.000 | 1.000–1.000 |
-| 第4週AUC | 13.170 | 7.602–24.997 |
-| 初回AUC0–28日 | 0.991 | 0.981–0.996 |
+| Maximum concentration | 0.750 | 0.750–0.750 |
+| Minimum concentration in the cycle | 1.613 | 1.543–1.909 |
+| Cycle AUC 0–28 d | 1.000 | 1.000–1.000 |
+| Week 4 AUC | 13.170 | 7.602–24.997 |
+| First-cycle AUC 0–28 d | 0.991 | 0.981–0.996 |
 
 出力は `outputs/tables/paired-summary.csv` による。ピーク比がほぼ0.75にそろうのは、線形モデルで1回量を25%減らし、1週間後のピークへの残存寄与が小さいためと解釈される。比の幅が狭くても、臨床的に高精度な予測を検証したことにはならない。
 
@@ -160,11 +160,11 @@ AUC_{28\mathrm{d}}=1000\frac{\text{28日間の総投与量}}{CL}
 
 **表5　係数を一つずつ変えた場合の比の範囲**
 
-| 指標 | 係数を一つずつ変えた場合の比の範囲 |
+| Metric | Range of ratios when coefficients are changed one at a time |
 | --- | --- |
-| 最高濃度比 | 0.750–0.750 |
-| 周期末濃度比 | 1.511–1.674 |
-| 第4週AUC比 | 12.391–13.987 |
+| Maximum concentration ratio | 0.750–0.750 |
+| End-of-cycle concentration ratio | 1.511–1.674 |
+| Week 4 AUC ratio | 12.391–13.987 |
 
 出力は `outputs/tables/fixed-parameter-sensitivity.csv` による。これは同時信頼区間でも、全ての構造的不確実性を覆う範囲でもない。体重50／100 kgやAST 16／64 IU/Lを別々に変えた条件では、第4週AUC比は約12.0–14.4だった（`outputs/tables/covariate-scenarios.csv`）。背景因子の相関や臨床上の投与判断はモデル化していない。
 

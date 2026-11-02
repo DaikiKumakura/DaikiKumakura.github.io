@@ -24,7 +24,7 @@ Table 2の1行は、データセット内のSAAP・BP配列対である。同じ
 
 表1. 公開補足表の行数と配列対数の再集計
 
-| 公開表 | 行数 | データセット内で重複を除いた配列対数 | データセットをまたいで重複を除いた配列対数 |
+| Published table | Rows | Distinct sequence pairs within datasets | Distinct sequence pairs across datasets |
 | --- | ---: | ---: | ---: |
 | Table 2 | 10,086 | 10,086 | 8,746 |
 | Table 3 | 19,480 | 10,285 | 8,944 |

@@ -31,6 +31,6 @@
     "summary": "A Japanese technical note that rebuilds 'doses from measured in vitro ADME' for the 325 OpenADMET-ExpansionRx compounds with transparent PK equations, showing that dose ranks are driven mainly by HLM CLint, that a constant-dose baseline already reaches a 2.4-2.8-fold error, and that the benchmark excludes potency and clinical doses."
   },
   "reviewed": {
-    "en": "53d0c78602984d851db2b1b22e8a4f05426635e54d9c982861ef0d31334edd15"
+    "en": "565b29150d5b4360d259612ac62cb2303289557241143a49d44c7592a3a37bb3"
   }
 }

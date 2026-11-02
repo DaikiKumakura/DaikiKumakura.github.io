@@ -30,11 +30,11 @@
 
 **表1　計算する区画と解釈の範囲**
 
-| 対象 | 今回計算するもの | そこから直接は言えないこと |
+| Compartment | Calculated here | Not directly established |
 |---|---|---|
-| 血漿 | ゲムシタビンのAUCとCmax | 活性化、腫瘍内曝露、薬効 |
-| PBMC | 公表モデルに基づくdFdCTPの相対曝露 | 腫瘍内dFdCTP、臨床的利益 |
-| 腫瘍 | 今回は計算しない | PBMCの結果を腫瘍の値へ置き換えない |
+| Plasma | Gemcitabine AUC and Cmax | Activation, tumor exposure or efficacy |
+| PBMC | Relative dFdCTP exposure under published equations | Tumor dFdCTP or clinical benefit |
+| Tumor | Not calculated | PBMC results cannot substitute for tumor values |
 
 ### 実装した部分モデル {#_2}
 
@@ -44,13 +44,13 @@
 
 **表2　代表条件に用いたパラメータ**
 
-| パラメータ | 使用値 | 出典 |
+| Parameter | Value | Original source |
 |---|---|---|
-| 血漿総CL、中央V、Q、末梢V | 425 L/h、114 L、10.1 L/h、101 L | [原著Table 2](https://doi.org/10.1038/bjc.2013.738) |
-| PBMC形成CL | 0.061または0.118 L/h | [原著Table 4](https://doi.org/10.1038/bjc.2013.738) |
-| PBMC消失CL、中央V | 0.00131 L/h、0.005 L | [原著Table 4](https://doi.org/10.1038/bjc.2013.738) |
-| PBMC末梢1のQ、V | 0.206 L/h、0.0288 L | [原著Table 4](https://doi.org/10.1038/bjc.2013.738) |
-| PBMC末梢2のQ、V | 0.00126 L/h、0.0877 L | [原著Table 4](https://doi.org/10.1038/bjc.2013.738) |
+| Plasma total CL, central V, Q, peripheral V | 425 L/h, 114 L, 10.1 L/h, 101 L | [Table 2](https://doi.org/10.1038/bjc.2013.738) |
+| PBMC formation CL | 0.061 or 0.118 L/h | [Table 4](https://doi.org/10.1038/bjc.2013.738) |
+| PBMC elimination CL, central V | 0.00131 L/h, 0.005 L | Table 4 |
+| PBMC peripheral compartment 1 Q, V | 0.206 L/h, 0.0288 L | Table 4 |
+| PBMC peripheral compartment 2 Q, V | 0.00126 L/h, 0.0877 L | Table 4 |
 
 血漿中央・末梢の濃度を \(C_c,C_p\)、PBMC側の中央・末梢濃度を \(M_c,M_j\) とすると、薬物量の式は
 
@@ -80,11 +80,11 @@
 
 **表3　固定効果による同量点滴の比較**
 
-| 点滴時間 | 速度 mg/m²/min | 血漿AUC∞ mg·h/L | 血漿Cmax mg/L | PBMC AUC∞比 | PBMC AUC0–72比 | PBMC Cmax比 |
+| Infusion duration | Rate mg/m²/min | Plasma AUC∞ mg·h/L | Plasma Cmax mg/L | PBMC AUC∞ ratio | PBMC AUC0–72 ratio | PBMC Cmax ratio |
 | --- | --- | --- | --- | --- | --- | --- |
-| 30分 | 33.33 | 4.141 | 6.892 | 1.000 | 1.000 | 1.000 |
-| 60分 | 16.67 | 4.141 | 3.961 | 1.934 | 1.933 | 1.920 |
-| 100分 | 10.00 | 4.141 | 2.429 | 1.934 | 1.930 | 1.892 |
+| 30 min | 33.33 | 4.141 | 6.892 | 1.000 | 1.000 | 1.000 |
+| 60 min | 16.67 | 4.141 | 3.961 | 1.934 | 1.933 | 1.920 |
+| 100 min | 10.00 | 4.141 | 2.429 | 1.934 | 1.930 | 1.892 |
 
 *いずれも今回の固定効果による計算値。細胞内の比は30分条件を1とする。AUC∞は投与開始から完全な消失まで、AUC0–72は点滴開始から共通の72時間。原著の採血時間「点滴終了後72時間」とは同じ窓ではない。*
 

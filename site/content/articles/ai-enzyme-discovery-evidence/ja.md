@@ -28,10 +28,10 @@ GenBankの[MarsHill（MW248466.1）](https://www.ncbi.nlm.nih.gov/nuccore/MW2484
 
 **表1　既知モチーフのヒット数と開始間隔**
 
-| ゲノム | 全ゲノム・両鎖のヒット数 | 上流窓のヒット数 | 隣り合うコアの開始間隔（塩基） |
+| Genome | Whole-genome, both-strand hits | Upstream-window hits | Adjacent core-start spacings, bases |
 | --- | ---: | ---: | --- |
-| MarsHill | 5 | 5 | 213、197、210、173 |
-| SA1 | 6 | 5 | 212、171、201、176 |
+| MarsHill | 5 | 5 | 213, 197, 210, 173 |
+| SA1 | 6 | 5 | 212, 171, 201, 176 |
 
 上流には両者とも5コピーがあり、開始間隔の平均はそれぞれ198.25、190塩基だった。これはスペーサーだけの長さではなく、コアを含む開始点間の距離だ。既知モチーフを指定して見ると、コード領域の外に繰り返しが並ぶことを確認できる。
 
@@ -45,16 +45,16 @@ SA1には、上流窓の外にも1ヒットあった。31,724番からのヒッ�
 
 **表2　報告された探索の各段階と計数単位**
 
-| 記録された段階 | 数と単位 |
+| Recorded stage | Count and unit |
 | --- | --- |
-| 探索対象 | 約19.4億のタンパク質クラスター |
-| フィルター後のRT | 198,290クラスター |
-| 近傍を調べた対象 | 10,983座位 |
-| パートナー候補 | 3,564タンパク質ファミリー |
-| 詳細に調べた候補 | 16＋追加1ファミリー |
-| 新しい対応として報告上保持された候補 | 3ファミリー |
-| 最終報告 | 19件 |
-| 実行の記録 | 119タスク、949セッション |
+| Search space | Approximately 1.94 billion protein clusters |
+| Filtered RTs | 198,290 clusters |
+| Neighborhoods examined | 10,983 loci |
+| Candidate partners | 3,564 protein families |
+| Deeply examined candidates | 16 plus one additional family |
+| Retained novel associations in reports | 3 families |
+| Final reports | 19 |
+| Execution accounting | 119 tasks, 949 sessions |
 
 これは一本の単純なファネルではない。クラスター、座位、ファミリー、報告は別の単位である。最終19報告には、新しいRT系統に関する3報告も含まれる。17候補のうち2候補が一つの報告にまとまるため、候補数と報告数も一致しない。
 
@@ -72,11 +72,11 @@ SA1には、上流窓の外にも1ヒットあった。31,724番からのヒッ�
 
 **表3　評価で測る能力と報告値**
 
-| 評価 | 測っている能力 | 原著の結果 |
+| Evaluation | Capability evaluated | Reported result |
 | --- | --- | --- |
-| 大規模な探索を再実行 | 対象へ到達し、特徴を見つける | 識別子による監査範囲で再発見0/10 |
-| ART座位を直接本文へ入れる | 与えられた対象の特徴を認識する | 高性能4モデルで反復配列の認識が90%以上 |
-| ART座位をファイルとツールで渡す | ファイルを調べて特徴を認識する | 例としてOpus 5の入力レベル4で32% |
+| Repeat large-scale search | Reach a target and identify its features | 0/10 rediscoveries within the identifier-based audit |
+| Supply ART loci in prompt text | Recognize supplied-target features | At least 90% repeat recognition for four leading models |
+| Supply ART files and tools | Inspect files and recognize features | Example: Opus 5 at level 4, 32% |
 
 下二行は、既知のARTを入力し、Mythos 5による採点で反復配列の主張を認めた割合だ。非ARTをARTだと言ってしまう頻度まで測った指標ではない。また、90%以上は報告された下限であり、正確に90回だったと置き換えていない。大規模な探索の成功確率に、そのまま使うこともできない。
 
