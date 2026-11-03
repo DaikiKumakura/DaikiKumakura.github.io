@@ -6,15 +6,15 @@
   "version": "1.0",
   "locales": {
     "ja": {
-      "title": "「アイデアから有望なマウス結果まで18か月未満」は何を指すか：Anthropicによる一人会社Mithril Medicine買収の発表を読む",
-      "summary": "Anthropicの発表記事と技術報告書だけを手がかりに、18か月の終点、予備的なマウス試験の統計的な限界、1週間の事例に記されたAIと人間の分担を確かめる。執筆に使ったAIは買収側のモデルである。",
-      "seo_description": "Mithril Medicine買収の発表にある「18か月未満」の終点と、マウス試験のlitter単位の検定（P = 0.057）、AIと人間の分担を、Anthropicの二つの資料で確認する。",
+      "title": "Mithril Medicine買収の発表にある18か月は何を指すか",
+      "summary": "Anthropicの公式発表が示す18か月の終点と、条件付きのヒト試験開始見通しを区別する。原文を再確認できない実験の詳細数値は掲載しない。",
+      "seo_description": "Mithril Medicine買収の公式発表を読む。18か月はマウスでの結果までの期間であり、ヒト試験開始や臨床効果を示す期間とは区別する。",
       "seo_title": "Mithril Medicine買収の18か月未満を読む"
     },
     "en": {
-      "title": "What does \"under 18 months from idea to promising mouse results\" refer to? Reading Anthropic's announcement of the one-person company Mithril Medicine",
-      "summary": "Using only Anthropic's announcement and technical report, this article checks the end point of the 18-month interval, the statistical limits of the pilot mouse study, and the division of labor between Claude and the team in a one-week case. The AI used to write it is the acquirer's model.",
-      "seo_description": "Anthropic's two documents on the Mithril Medicine acquisition: what the 18-month interval ends at, the litter-level P = 0.057 in the pilot mouse study, and the AI-human division of labor.",
+      "title": "What does the Mithril Medicine announcement mean by 18 months?",
+      "summary": "The announced interval ends at mouse results. Human-trial readiness is a separate conditional projection; unverified experimental details are omitted.",
+      "seo_description": "Reading the Mithril Medicine acquisition announcement: the 18-month endpoint, conditional trial outlook, and limits on attributing progress to AI.",
       "seo_title": "Mithril Medicine acquisition: reading the 18 months"
     }
   },
@@ -22,6 +22,6 @@
   "publish_at": "2026-12-08T18:00:00+09:00",
   "draft": false,
   "reviewed": {
-    "en": "4ee4f317cf615377b3e0ed7b6231687197cd639459b0fff532dfa65f64bd9209"
+    "en": "19474fdc591ed3e615457284300f42af623c8894de7f1c135cd81b5998e109a2"
   }
 }
