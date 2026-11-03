@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "category": "essay",
+  "math": false,
+  "author": "Daiki Kumakura",
+  "version": "1.0",
+  "locales": {
+    "ja": {
+      "title": "GWAS自動解釈PGIの回収率82.1%は何を数えた値か。分母と区間を並べて読む",
+      "summary": "GWAS自動解釈システムPGIのプレプリントの数値を、分母と区間で読み直した。82.1%は研究ごとの回収率の平均で、経路のレベルでは完全に回収されたのが21.0%、拡張を伴う回収を含めて81.9%だった。",
+      "seo_description": "PGI（Post-GWAS Intelligence）のプレプリントの、回収率82.1%、ベンチマーク86.3%、1,041のGWASと530,949の証拠単位を、分母と正確な区間で整理した。",
+      "seo_title": "PGIの数値を分母で読む"
+    },
+    "en": {
+      "title": "What does the 82.1% recovery of the GWAS interpretation system PGI count? Reading denominators and intervals side by side",
+      "summary": "The numbers in the preprint of the GWAS interpretation system PGI were reread by denominator and interval. The 82.1% is a mean of per-study recovery; at the path level, fully recovered paths were 21.0% and recoveries including extension 81.9%.",
+      "seo_description": "The recovery of 82.1%, the 86.3% benchmark, and the 1,041 GWAS with 530,949 evidence units in the PGI (Post-GWAS Intelligence) preprint, organized by denominator with exact intervals.",
+      "seo_title": "Reading PGI's numbers by denominator"
+    }
+  },
+  "date": "2026-12-14",
+  "publish_at": "2026-12-14T09:00:00+09:00",
+  "draft": false,
+  "reviewed": {
+    "en": "cea6cb0f9c33cafd595a7addc5c0da8d1853dc6514a07ca7b9e97fed15c9d39e"
+  }
+}
