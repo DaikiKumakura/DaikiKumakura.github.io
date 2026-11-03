@@ -32,6 +32,51 @@
     script.async = true;
     script.src = 'https://www.googletagmanager.com/gtag/js?id=' + id;
     document.head.appendChild(script);
+    try { trackEngagement(); } catch (_) { /* engagement events are optional */ }
+  }
+  function articleSlug() {
+    const match = location.pathname.match(/\/writing\/([^/]+?)(?:-en|-ja)?\.html$/);
+    return match ? match[1] : '';
+  }
+  // Engagement events after consent: a "read" is 30 s of visible time plus 75% scroll depth (fired once per page view);
+  // link clicks are labelled by page section. Only pathnames are sent, never query strings or fragments.
+  function trackEngagement() {
+    if (typeof document.addEventListener !== 'function' || typeof window.addEventListener !== 'function') return;
+    const slug = articleSlug();
+    const language = (document.documentElement && document.documentElement.lang) || '';
+    const send = (name, params) => window.gtag('event', name, Object.assign({article_slug: slug, content_language: language}, params));
+    if (slug) {
+      let visibleSeconds = 0, deepest = 0, sent = false;
+      const check = () => {
+        if (sent || visibleSeconds < 30 || deepest < 0.75) return;
+        sent = true;
+        send('article_read', {read_seconds: visibleSeconds});
+      };
+      window.addEventListener('scroll', () => {
+        const root = document.documentElement;
+        const total = root.scrollHeight - root.clientHeight;
+        if (total > 0) deepest = Math.max(deepest, (window.scrollY || root.scrollTop || 0) / total);
+        check();
+      }, {passive: true});
+      const timer = setInterval(() => {
+        if (document.visibilityState === 'visible') visibleSeconds += 1;
+        check();
+        if (sent) clearInterval(timer);
+      }, 1000);
+    }
+    document.addEventListener('click', event => {
+      const link = event.target && event.target.closest ? event.target.closest('a[href]') : null;
+      if (!link) return;
+      let name = '';
+      if (link.closest('.related')) name = 'related_click';
+      else if (link.closest('.terms')) name = 'glossary_click';
+      else if (link.closest('.languages')) name = 'language_switch';
+      else if (link.closest('.cite')) name = 'cite_click';
+      if (!name) return;
+      let target = '';
+      try { target = new URL(link.href, location.href).pathname; } catch (_) { /* ignore malformed links */ }
+      send(name, {link_path: target});
+    }, true);
   }
   function removeCookies() {
     for (const name of ['_ga', '_ga_' + id.slice(2).replaceAll('-', '_')]) {

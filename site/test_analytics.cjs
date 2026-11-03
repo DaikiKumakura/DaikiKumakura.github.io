@@ -48,3 +48,39 @@ assert.equal(storageBlocked.tags.length, 0);
 storageBlocked.elements['analytics-allow'].click();
 assert.equal(storageBlocked.tags.length, 1);
 console.log('Analytics consent, denial, revocation, storage failure, sanitized page data and no duplicate loading: PASS');
+
+function engagementPage() {
+  const listeners = {doc: {}, win: {}}, elements = {}, intervals = [];
+  for (const name of ['analytics-notice', 'analytics-allow', 'analytics-decline', 'analytics-settings']) {
+    elements[name] = {hidden: true, addEventListener() {}, scrollIntoView() {}, focus() {}};
+  }
+  const root = {scrollHeight: 2000, clientHeight: 1000, scrollTop: 0, lang: 'en'};
+  const document = {currentScript: {dataset: {measurementId: 'G-JCF6NTYHW3'}}, getElementById: id => elements[id], createElement: () => ({}),
+    head: {appendChild() {}}, referrer: '', documentElement: root, visibilityState: 'visible', addEventListener: (type, fn) => listeners.doc[type] = fn};
+  Object.defineProperty(document, 'cookie', {set() {}});
+  const window = {scrollY: 0, addEventListener: (type, fn) => listeners.win[type] = fn};
+  const context = {document, window, URL, Date, setInterval: fn => { intervals.push(fn); return intervals.length; }, clearInterval() {},
+    location: {hostname: 'daikikumakura.github.io', protocol: 'https:', origin: 'https://daikikumakura.github.io', pathname: '/writing/example-en.html', href: 'https://daikikumakura.github.io/writing/example-en.html', reload() {}},
+    localStorage: {getItem: () => 'granted', setItem() {}}};
+  vm.runInNewContext(code, context);
+  const events = () => window.dataLayer.filter(item => item[0] === 'event').map(item => [item[1], item[2]]);
+  return {listeners, intervals, window, events};
+}
+const engaged = engagementPage();
+assert.equal(engaged.events().length, 0);
+engaged.window.scrollY = 800;
+engaged.listeners.win.scroll();
+for (let i = 0; i < 29; i++) engaged.intervals[0]();
+assert.equal(engaged.events().length, 0);
+engaged.intervals[0]();
+engaged.intervals[0]();
+const reads = engaged.events().filter(([name]) => name === 'article_read');
+assert.equal(reads.length, 1);
+assert.equal(reads[0][1].article_slug, 'example');
+assert.equal(reads[0][1].content_language, 'en');
+const link = {href: '/writing/other.html?secret=1#frag', closest: selector => selector === '.related' ? {} : null};
+engaged.listeners.doc.click({target: {closest: () => link}});
+const clicks = engaged.events().filter(([name]) => name === 'related_click');
+assert.equal(clicks.length, 1);
+assert.equal(clicks[0][1].link_path, '/writing/other.html');
+console.log('Reading and navigation events after consent, once per page view, pathnames only: PASS');

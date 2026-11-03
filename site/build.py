@@ -371,6 +371,48 @@ def build(project=BASE, preview=False, strict_translations=False):
             if e['kind']=='term' and slug in e['meta'].get('related_articles',[]):
                 found.append(dict(title=e['meta']['locales'][language]['title'],href='../'+reference_file(e,language),url=SITE_URL+reference_file(e,language)))
         return found
+    STOPWORDS=set('about above after again against also among analysis analyses and any are because been before being below between both but can could did does doing down during each few for from further had has have having her here hers him his how into its itself just more most not off once only other our out over own same she should some such than that the their them then there these they this those through too under until very was were what when where which while who whom why will with would you your table figure fig data public model models'.split())
+    def article_vector(a):
+        """Term counts from the English text (code, math, URLs and reference lists removed)."""
+        folder=a['folder']; path=folder/'en.md' if (folder/'en.md').exists() else folder/(a['meta']['source_language']+'.md')
+        text=path.read_text(encoding='utf-8')
+        text=re.split(r'^## (?:References|参照)\s*$',text,flags=re.M)[0]
+        text=re.sub(r'```.*?```|\$\$.*?\$\$|\\\[.*?\\\]|\\\(.*?\\\)|\]\([^)]*\)|https?://\S+','',text,flags=re.S)
+        counts={}
+        for w in re.findall(r'[a-z][a-z0-9+-]{2,}',text.lower()):
+            if w not in STOPWORDS:counts[w]=counts.get(w,0)+1
+        return counts
+    vectors={a['slug']:article_vector(a) for a in entries}
+    doc_freq={}
+    for v in vectors.values():
+        for w in v:doc_freq[w]=doc_freq.get(w,0)+1
+    import math
+    def tfidf(v):
+        n=len(vectors)
+        vec={w:(1+math.log(c))*math.log((1+n)/(1+doc_freq[w])) for w,c in v.items() if doc_freq[w]>=2 and doc_freq[w]<=0.5*n}
+        norm=math.sqrt(sum(x*x for x in vec.values())) or 1.0
+        return {w:x/norm for w,x in vec.items()}
+    tfidf_vectors={s:tfidf(v) for s,v in vectors.items()}
+    term_sets={}
+    for e in reference:
+        if e['kind']=='term':
+            for s in e['meta'].get('related_articles',[]):term_sets.setdefault(s,set()).add(reference_file(e,'en'))
+    def related_articles(slug,language,limit=3,minimum=0.12):
+        """Other published articles ranked by TF-IDF cosine similarity of their text plus a bonus for shared glossary terms (deterministic)."""
+        a_vec=tfidf_vectors[slug]; scored=[]
+        for b in entries:
+            if b['slug']==slug or language not in b['meta']['locales']:continue
+            b_vec=tfidf_vectors[b['slug']]
+            cosine=sum(x*b_vec[w] for w,x in a_vec.items() if w in b_vec)
+            score=cosine+0.1*len(term_sets.get(slug,set())&term_sets.get(b['slug'],set()))
+            if score>=minimum:scored.append((-score,b['meta']['date'],b['slug'],b))
+        scored.sort(key=lambda x:(x[0],x[1],x[2]))
+        out=[]
+        for _,_,_,b in scored[:limit]:
+            bm=b['meta']
+            file=b['slug']+'.html' if language==bm['source_language'] else b['slug']+'-'+language+'.html'
+            out.append(dict(title=bm['locales'][language]['title'],href=file))
+        return out
     def output(name,page,lang='en',article=None,og_image=None,topics=None,terms=None):
         canonical=SITE_URL if name in ('index.html','home.html') else SITE_URL+name
         page=enrich(page,name,site,SITE_URL,article,og_image,topics,terms)
@@ -393,7 +435,7 @@ def build(project=BASE, preview=False, strict_translations=False):
         for language in m['locales']:
             body,toc=render_body(a,language)
             body=add_image_attributes(body,a)
-            page=env.get_template('article.html').render(site=site,lang=language,ui=ui,preview=preview,active='writing',root='../',alternatives=alternatives,title=m['locales'][language]['title'],description=m['locales'][language]['summary'],math=m.get('math',False),author=m.get('author',site['name']),date=m['date'],category=m['category'],version=m.get('version',''),draft=m['draft'],stale=a['stale'][language],body=body,toc=toc,has_abstract=bool(re.search(r'<h2[^>]*>(?:要旨|Abstract)</h2>',body)),key_findings=m['locales'][language].get('key_findings',[]),english=m.get('english') if language!='en' and 'en' not in m['locales'] else None,cite=cite_text(m,m['locales'][language]['title'],alternatives[language]),terms=glossary_terms(a['slug'],language))
+            page=env.get_template('article.html').render(site=site,lang=language,ui=ui,preview=preview,active='writing',root='../',alternatives=alternatives,title=m['locales'][language]['title'],description=m['locales'][language]['summary'],math=m.get('math',False),author=m.get('author',site['name']),date=m['date'],category=m['category'],version=m.get('version',''),draft=m['draft'],stale=a['stale'][language],body=body,toc=toc,has_abstract=bool(re.search(r'<h2[^>]*>(?:要旨|Abstract)</h2>',body)),key_findings=m['locales'][language].get('key_findings',[]),english=m.get('english') if language!='en' and 'en' not in m['locales'] else None,cite=cite_text(m,m['locales'][language]['title'],alternatives[language]),terms=glossary_terms(a['slug'],language),related=related_articles(a['slug'],language))
             output('writing/'+alternatives[language],page,language,m,og_card,terms=glossary_terms(a['slug'],language))
         for asset in (a['folder']/'shared').rglob('*'):
             if asset.is_file():outputs[f"writing/shared/{a['slug']}/{asset.relative_to(a['folder']/'shared').as_posix()}"]=asset.read_bytes()
