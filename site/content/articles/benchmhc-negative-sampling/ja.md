@@ -2,13 +2,15 @@
 
 BenchMHCの新しい報告は、この点を問い直している。著者らは、公開されたNetMHCpan-4.1の溶出リガンドデータでは、ヒトのプロテオームに見つかる割合が正例で86–99%、人工的な負例では約12%だったと報告した。提示能を判定する前に、配列の出自がラベルを教えてしまう余地がある ([1](#ref-1))。
 
+原著[Figure 3](https://www.biorxiv.org/content/10.64898/2026.10.22.760998v1.full#F3)の割合は、訓練データの重複を除いたペプチドがhg38に対応するヒトプロテオームに見つかる割合である。86–99%はデータ構成間の幅で、信頼区間でも、実際の評価集合から測定したAUCでもない ([1](#ref-1))。
+
 この不均衡だけを取り出すと、主要組織適合遺伝子複合体（MHC）との結合を一切使わなくても高い識別性能を作れる。以下の計算が示すのは、実際のモデルがそう学んだという証明ではない。**負例を作る操作だけで、評価をどこまで簡単にできるか**である。
 
 ## 対象と確認範囲
 
-2026年11月1日にBenchMHCの著者公開リポジトリと用語集を確認した。2026年11月3日にbioRxiv公式APIの原要旨を取得し、使用した割合と評価値が一致することを確認した。10月27日公開プレプリントの全文PDF・本文XMLは取得できず、数値の確認範囲は要旨に限る。以下はモデルの再学習でも、患者の抗原候補の再解析でもない ([1](#ref-1), [2](#ref-2))。
+2026年11月1日にBenchMHCの著者公開リポジトリと用語集を確認した。2026年11月3日にプレプリントの全文HTMLで、方法・結果・限界、原著Table 2と関連する図説明を照合した。以下はモデルの再学習でも、患者の抗原候補の再解析でもない ([1](#ref-1), [2](#ref-2))。
 
-公開READMEは部分公開と明記しており、モデル再現の一覧と新版の要旨を、完全に同じ公開状態だと見なすこともできない。この記事では、未取得の図表や方法を推測して補わない。
+公開READMEは部分公開と明記しており、モデル再現の一覧と新版の要旨を、完全に同じ公開状態だと見なすこともできない。論文の記載と現在の公開実装の完全な一致を、今回の閲覧だけで認定するものではない。
 
 ## 検出された正例と作られた負例
 
@@ -61,7 +63,16 @@ a=P(Z=1\mid Y=1),\qquad b=P(Z=1\mid Y=0)
 
 著者らは、正例の由来タンパク質の中からdecoyを引き直し、システインの有無も合わせた条件を報告している。再生成した評価集合ではMean Top-Kが0.734から0.755へ上がった一方、別のCD8エピトープ評価ではMedian FRANKが0.0025から0.0053へ上がったという ([1](#ref-1))。
 
-この二つは、同じ向きの改善ではない。Top-Kは上位に正例を何個回収できたかを測り、高いほどよい。FRANKは正例より高いスコアになったdecoyの割合で、低いほどよい指標である ([3](#ref-3))。評価集合と指標も違うため、数値を直接比較することはできないが、負例の変更がすべての評価を一様に改善しなかった点は残る。
+原著では、同一タンパク質内から候補を作り、システインの有無を合わせる候補がない場合は逆の状態へ切り替える。補正後の訓練データはv1.1.0、再生成したMS評価集合はv2.0.0である。表2は原著のEL出力の行を抜き出したもので、同じ評価集合の列内で比較する ([1](#ref-1), Section 4)。
+
+表2　原著[Table 2](https://www.biorxiv.org/content/10.64898/2026.10.22.760998v1.full#T2)のEL出力の結果。MSは質量分析由来のリガンド集合、CD8は別のエピトープ評価集合。矢印は望ましい方向を示す。
+
+| Training data / EL head | Mean Top-K: MS v0.0.0 ↑ | Mean Top-K: MS v2.0.0 ↑ | Median FRANK: CD8 epitopes ↓ |
+| --- | ---: | ---: | ---: |
+| Original v0.0.0 | 0.794 | 0.734 | 0.0025 |
+| Re-curated v1.1.0 | 0.733 | 0.755 | 0.0053 |
+
+この二つは、同じ向きの改善ではない。Top-Kは上位に正例を何個回収できたかを測り、高いほどよい。原著のFRANKは、エピトープの由来タンパク質から得られる候補ペプチドのうち、そのエピトープより高いスコアを持つものの割合であり、低いほどよい指標である ([1](#ref-1), Section 3)。評価集合と指標も違うため、数値を直接比較することはできないが、負例の変更がすべての評価を一様に改善しなかった点は残る。
 
 出自を合わせることは、不要な識別手掛かりを減らす操作にはなる。だからといって、その負例集合が、患者の腫瘍で比較したい候補を完全に代表するとは限らない。評価が難しくなることと、臨床上の候補選択に近づくことも別々に判断する必要がある。
 
@@ -73,7 +84,9 @@ MHCへの結合、細胞表面への提示、T細胞による認識、治療と�
 
 本計算の限界は明確である。一致率以外の配列特徴、MHCの型、候補間の依存、未検出正例の混入は扱っていない。報告の全データも再解析していない。結論はNetMHCpan全体の否定ではなく、評価の解釈に関するものだ。**何を負例にしたかが分からないAUCから、がんワクチンの候補を選ぶ能力は読み取れない。**
 
-*2026年11月3日改訂：公式APIの原要旨で入力割合と報告評価値を照合した。全文の方法・図表は未照合で、独自計算の結果は変更していない。*
+原著自身の限界として、由来とシステインの補正を同時に変更したため、それぞれの寄与は分離できない。各条件の結果は50個のMLPからなるアンサンブルの単回実行で、シード間の信頼区間は示されていない。50個を独立した効果推定の反復数とは扱えず、評価集合も再生成されているため、上がった指標だけから一般的な改善を結論できない ([1](#ref-1), Section 5)。
+
+*2026年11月3日改訂：全文HTMLを照合し、FRANKの候補集合、データの版、同時補正と単回アンサンブルの限界を明記した。独自計算の結果は変更していない。*
 
 ## データとコードの公開状況
 
@@ -81,6 +94,6 @@ MHCへの結合、細胞表面への提示、T細胞による認識、治療と�
 
 ## 参照
 
-1. <span id="ref-1"></span>Borck T, Chabrol M, Colombo D, Imbert A, Perier-Dulhoste M, Volzhenin K, et al. BenchMHC: a reproducible framework for peptide-MHC presentation prediction [Preprint]. bioRxiv; 2026. Version 1, 2026 Oct 27. [doi:10.64898/2026.10.22.760998](https://doi.org/10.64898/2026.10.22.760998). Original abstract checked on 2026 Nov 3 through the [official bioRxiv API](https://api.biorxiv.org/details/biorxiv/10.64898/2026.10.22.760998); full PDF and source XML unavailable. No full-text methods or figure audit.
+1. <span id="ref-1"></span>Borck T, Chabrol M, Colombo D, Imbert A, Perier-Dulhoste M, Volzhenin K, et al. BenchMHC: a reproducible framework for peptide-MHC presentation prediction [Preprint]. bioRxiv; 2026. Version 1, 2026 Oct 27. [doi:10.64898/2026.10.22.760998](https://doi.org/10.64898/2026.10.22.760998). Full HTML methods, results, limitations, original Table 2 and relevant figure captions checked on 2026 Nov 3: [version 1 full text](https://www.biorxiv.org/content/10.64898/2026.10.22.760998v1.full). No model retraining or raw sequence recount.
 2. <span id="ref-2"></span>InstaDeep. [BenchMHC-public: Open-source reproductions of peptide-MHC presentation prediction models](https://github.com/instadeepai/BenchMHC-public) [Software and documentation]. Partial public release; cited 2026 Nov 1.
 3. <span id="ref-3"></span>InstaDeep. [BenchMHC glossary](https://github.com/instadeepai/BenchMHC-public/blob/main/docs/guides/glossary.md) [Internet]. BenchMHC-public; publication date not specified [cited 2026 Nov 1].

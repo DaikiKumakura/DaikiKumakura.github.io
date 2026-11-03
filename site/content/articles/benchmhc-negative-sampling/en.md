@@ -2,13 +2,15 @@ What does an AI system for cancer-vaccine antigen selection learn to reject? Ide
 
 The new BenchMHC report makes this issue concrete. Its authors report that 86–99% of positive examples in public NetMHCpan-4.1 eluted-ligand datasets occur in the human proteome, compared with approximately 12% of the decoys. Sequence origin could therefore help distinguish the dataset labels before MHC suitability is considered ([1](#ref-1)).
 
+The proportions in original [Figure 3](https://www.biorxiv.org/content/10.64898/2026.10.22.760998v1.full#F3) concern unique training peptides found in the human proteome associated with hg38. The 86–99% range spans data configurations; it is neither a confidence interval nor an AUC measured on the evaluation set ([1](#ref-1)).
+
 Isolating that imbalance produces high discrimination without using MHC binding at all. The calculation below does not prove that an actual predictor learned this shortcut. It asks **how easy negative-example construction alone can make an evaluation**.
 
 ## Scope and sources
 
-I checked the authors' public repository and glossary on 1 November 2026. On 3 November 2026, the original abstract was retrieved through the official bioRxiv API and the proportions and evaluation values used here were checked. The full PDF and source XML of the 27 October preprint remained unavailable; numerical verification is limited to the abstract. This is neither a retraining of the model nor a reanalysis of patient antigen candidates ([1](#ref-1), [2](#ref-2)).
+I checked the authors' public repository and glossary on 1 November 2026. On 3 November 2026, I checked methods, results, limitations, original Table 2 and relevant figure captions in the full HTML preprint. This is neither a retraining of the model nor a reanalysis of patient antigen candidates ([1](#ref-1), [2](#ref-2)).
 
-The repository explicitly describes a partial release. Its reproduction list and the new abstract cannot be assumed to describe exactly the same public implementation state. No inaccessible figure or method is reconstructed by inference here.
+The repository explicitly describes a partial release. Its reproduction list and the new abstract cannot be assumed to describe exactly the same public implementation state. Reading the paper does not certify complete correspondence between its claims and the currently released implementation.
 
 ## Observed positives and constructed negatives
 
@@ -61,7 +63,16 @@ An actual sequence predictor may not receive this binary feature explicitly. Nor
 
 The authors also report redrawing decoys within each hit's source protein while matching cysteine status. Mean Top-K rises from 0.734 to 0.755 on a regenerated evaluation set, whereas Median FRANK rises from 0.0025 to 0.0053 in a separate CD8-epitope evaluation ([1](#ref-1)).
 
-Those changes do not both indicate improvement. Top-K measures recovery of positives among highly ranked candidates and is better when higher. FRANK measures the fraction of decoys scoring above the positive and is better when lower ([3](#ref-3)). Different datasets and metrics preclude direct numerical comparison, but the decoy change did not uniformly improve evaluation.
+The source-protein sampler matches cysteine status where possible and falls back to the opposite status when no matching candidate exists. Corrected training data are v1.1.0; the regenerated MS evaluation set is v2.0.0. Table 2 extracts the EL-head rows: compare models within the same evaluation-set column ([1](#ref-1), Section 4).
+
+Table 2. EL-head results from original [Table 2](https://www.biorxiv.org/content/10.64898/2026.10.22.760998v1.full#T2). MS denotes mass-spectrometry ligands; CD8 is a separate epitope evaluation. Arrows indicate the favorable direction.
+
+| Training data / EL head | Mean Top-K: MS v0.0.0 ↑ | Mean Top-K: MS v2.0.0 ↑ | Median FRANK: CD8 epitopes ↓ |
+| --- | ---: | ---: | ---: |
+| Original v0.0.0 | 0.794 | 0.734 | 0.0025 |
+| Re-curated v1.1.0 | 0.733 | 0.755 | 0.0053 |
+
+Those changes do not both indicate improvement. Top-K measures recovery of positives among highly ranked candidates and is better when higher. The paper defines FRANK as the fraction of candidate peptides from an epitope's source protein scoring above that epitope; lower is better ([1](#ref-1), Section 3). Different datasets and metrics preclude direct numerical comparison, but the decoy change did not uniformly improve evaluation.
 
 Matching origin can reduce an unwanted classification cue. It does not establish that the resulting competitors fully represent the candidates of interest in a patient's tumor. Making a benchmark harder and making it closer to a clinical selection problem remain separate judgments.
 
@@ -73,7 +84,9 @@ That restricted question still matters for cancer vaccines. With a limited numbe
 
 The calculation omits other sequence features, MHC alleles, dependence among candidates and undetected positives among competitors. The full reported dataset was not reanalyzed. The conclusion is about interpretation, not rejection of NetMHCpan as a whole: **an AUC without a specified negative-generation process cannot establish the ability to select cancer-vaccine candidates**.
 
-*Revised 3 November 2026: input proportions and reported evaluation values checked in the official original abstract. Full-text methods and figures remain unchecked; the independent calculations are unchanged.*
+The paper explicitly notes that source-species and cysteine corrections were applied together, preventing separation of their effects. Each condition is a single run of a 50-MLP ensemble, without seed-level confidence intervals. The 50 members are not 50 independent estimates of the intervention effect. The evaluation set was also regenerated, so reporting only the improving metric would not establish general improvement ([1](#ref-1), Section 5).
+
+*Revised 3 November 2026: full HTML checked; FRANK candidate set, dataset versions, joint-correction confounding and single-ensemble limitations clarified. Independent calculations are unchanged.*
 
 ## Data and code availability
 
@@ -81,6 +94,6 @@ The [code and results archive](shared/benchmhc-negative-sampling/benchmhc-negati
 
 ## References
 
-1. <span id="ref-1"></span>Borck T, Chabrol M, Colombo D, Imbert A, Perier-Dulhoste M, Volzhenin K, et al. BenchMHC: a reproducible framework for peptide-MHC presentation prediction [Preprint]. bioRxiv; 2026. Version 1, 2026 Oct 27. [doi:10.64898/2026.10.22.760998](https://doi.org/10.64898/2026.10.22.760998). Original abstract checked on 2026 Nov 3 through the [official bioRxiv API](https://api.biorxiv.org/details/biorxiv/10.64898/2026.10.22.760998); full PDF and source XML unavailable. No full-text methods or figure audit.
+1. <span id="ref-1"></span>Borck T, Chabrol M, Colombo D, Imbert A, Perier-Dulhoste M, Volzhenin K, et al. BenchMHC: a reproducible framework for peptide-MHC presentation prediction [Preprint]. bioRxiv; 2026. Version 1, 2026 Oct 27. [doi:10.64898/2026.10.22.760998](https://doi.org/10.64898/2026.10.22.760998). Full HTML methods, results, limitations, original Table 2 and relevant figure captions checked on 2026 Nov 3: [version 1 full text](https://www.biorxiv.org/content/10.64898/2026.10.22.760998v1.full). No model retraining or raw sequence recount.
 2. <span id="ref-2"></span>InstaDeep. [BenchMHC-public: Open-source reproductions of peptide-MHC presentation prediction models](https://github.com/instadeepai/BenchMHC-public) [Software and documentation]. Partial public release; cited 2026 Nov 1.
 3. <span id="ref-3"></span>InstaDeep. [BenchMHC glossary](https://github.com/instadeepai/BenchMHC-public/blob/main/docs/guides/glossary.md) [Internet]. BenchMHC-public; publication date not specified [cited 2026 Nov 1].
