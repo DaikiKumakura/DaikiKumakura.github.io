@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "category": "essay",
+  "math": true,
+  "author": "Daiki Kumakura",
+  "version": "1.0",
+  "locales": {
+    "ja": {
+      "title": "全体の偽発見率1%は新規ペプチドの誤り率を保証するか。ターゲット・デコイ法の部分集団での挙動を調べる",
+      "summary": "全体のFDRを1%に制御しても、新規の候補だけの誤りの割合は、仮定した条件で35〜51%に達した。主な原因は新規の事前の割合の低さで、新規の部分でFDRを別に定めると約1〜2%に下がるが、残る新規PSMは減る。",
+      "seo_description": "質量分析の新規ペプチドで、全体のFDR 1%が新規の候補の誤り率を保証しない理由を、ターゲット・デコイ競合のシミュレーションで示した。",
+      "seo_title": "新規ペプチドの偽発見率と探索空間"
+    },
+    "en": {
+      "title": "Does a global 1% false discovery rate bound the error rate of novel peptides? Target-decoy estimation in a rare subgroup",
+      "summary": "Even with the overall FDR controlled at 1%, the error proportion among novel candidates alone reached 35-51% under the assumed conditions. The main cause is the low prior share of novel peptides; setting the FDR within the novel part lowers it to about 1-2% at the cost of fewer novel PSMs.",
+      "seo_description": "A target-decoy competition simulation shows why a global 1% FDR does not guarantee the error rate among novel peptides found in an enlarged search space in mass spectrometry.",
+      "seo_title": "Novel peptide FDR and search space"
+    }
+  },
+  "date": "2026-12-12",
+  "publish_at": "2026-12-12T09:00:00+09:00",
+  "draft": false,
+  "reviewed": {
+    "en": "ebad4ea7914f7be716d099a95d1ee468729b8db2ca49d5089e868fd681474ddc"
+  }
+}
