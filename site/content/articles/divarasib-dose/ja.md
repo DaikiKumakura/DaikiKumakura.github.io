@@ -2,7 +2,7 @@
 
 ダイバラシブ（divarasib）400 mgを200 mgへ下げたときの奏効率は、肺がんと大腸がんで同じように変わるだろうか。第1相の用量群別の奏効と400 mgの薬物動態を組み合わせ、仮想患者4,096人で比較した。個人別の曝露反応解析ではなく、二つの群の集計値に依存する探索的な計算である。
 
-第3相Krascendo 1については、既治療の肺がん338人でソトラシブまたはアダグラシブと比較し、無増悪生存期間と全生存期間の改善が2026年7月に発表されていた。以下は詳細な第3相結果を取り込んだ再評価ではなく、その時点の発表と第1相資料を背景にした用量比較である。第1相の原著本文は確認できておらず、薬物動態と奏効の数値は報道と割合からの逆算に依存する ([1](#ref-1))。
+第3相Krascendo 1については、既治療の肺がん338人でソトラシブまたはアダグラシブと比較し、無増悪生存期間と全生存期間の改善が2026年7月に発表されていた。以下は詳細な第3相結果を取り込んだ再評価ではなく、その時点の発表と第1相資料を背景にした用量比較である。2026年11月3日にUCL機関リポジトリの原著本文を読み、薬物動態と奏効率・分母を照合した。奏効人数は、本文の分母と丸められた確認奏効率から逆算した ([1](#ref-1))。
 
 肺がんでは200 mgと400 mgの予測奏効率の差の中央値は6パーセントポイントだったが、95%区間は−11〜23ポイントと広い。大腸がんでは差の中央値は24ポイント（3〜43）だった。少数例の非無作為化比較と仮定した低用量の内訳から得た差であり、減量の可否や処方を決める根拠にはならない。
 
@@ -20,16 +20,18 @@ KRAS G12CはKRASタンパク質の変異で、非小細胞肺がん（NSCLC）�
 
 | Item | Value | Source |
 |---|---|---|
-| Steady-state AUC over 0–24 h at 400 mg | Mean 9,130 ng·h/mL (SD 3,160), 76 patients | Phase I paper through reporting |
+| Steady-state AUC over 0–24 h at 400 mg | Mean 9,130 ng·h/mL (SD 3,160), 76 patients | Original phase I article, p. 717 |
 | Steady-state Cmax at 400 mg | Mean 657 ng/mL (SD 185) | Same |
 | Half-life after a single 400-mg dose | 17.6 h (SD 2.7), 4 patients | Same |
 | Median time to maximum concentration | 2.0 h | Same |
-| Confirmed NSCLC responses | All doses 31/58; 400 mg 22/39; below 400 mg 9/19 | Same; counts reconstructed from percentages |
-| Confirmed CRC responses | All doses 16/55; 400 mg 14/39; below 400 mg 2/16 | Same |
+| Confirmed NSCLC responses | All doses 31/58; 400 mg 22/39; below 400 mg 9/19 | Original phase I article, pp. 714–716; counts inferred from n and rounded confirmed-response percentages |
+| Confirmed CRC responses | All doses 16/55; 400 mg 14/39; below 400 mg 2/16 | Original phase I article, pp. 715–716; same inference |
 | NSCLC dose counts at long-term follow-up | 400 mg: 44; 200 mg: 10; 100 mg: 5; 50 mg: 6 | PMC12527784, April 2024 cutoff |
-| Safety across doses | Nausea 74%, diarrhea 61%, vomiting 58% (mostly grade 1–2); dose reduction 14% | Phase I through reporting |
+| Safety across doses | Nausea 74%, diarrhea 61%, vomiting 58% (mostly grade 1–2); dose reduction 14% | Original phase I article, p. 714 / [Table 2](https://discovery.ucl.ac.uk/id/eprint/10176284/1/nejmoa2303810.pdf#page=5) |
 
-400 mg未満の群の用量の内訳は、元の論文の数字が手元にない。そこで、長期追跡の肺がんの内訳（50:100:200 mg＝6:5:10）を、肺がんと大腸がんの両方に仮定した。長期追跡はNEJMの報告とデータの時点が違う ([3](#ref-3))。感度分析として、「全員が200 mg」と「全員が50 mg」の場合も計算した。
+原著のデータ締切は2022年11月21日である。肺がんの投与例は60人だが、確認奏効率の分母はベースラインに測定可能病変がある58人であり、最良総合効果の人数とは区別した。400 mg未満の群の各用量の分母は、今回照合した本文からは確定していない ([1](#ref-1), pp. 712–716)。そこで、長期追跡の肺がんの内訳（50:100:200 mg＝6:5:10）を、肺がんと大腸がんの両方に仮定した。長期追跡はNEJMの報告とデータの時点が違う ([3](#ref-3))。感度分析として、「全員が200 mg」と「全員が50 mg」の場合も計算した。
+
+PKの定常状態の集計は、がん種を横断した評価可能76人で、評価時点は第1サイクル8日目または第2サイクル1日目である。半減期の評価可能例は4人だった。これらは用量別奏効の集団と同じ分母ではない ([1](#ref-1), p. 717)。
 
 ## モデル {#3}
 
@@ -95,9 +97,11 @@ $AUC_{\text{ref}}$は400 mgの平均AUCである。$b$が傾きで、0なら曝�
 
 ## 限界 {#_3}
 
-- 第1相の論文の本文は読めておらず、薬物動態と奏効の数字は報道と割合からの逆算による。400 mg未満の群の用量の内訳は仮定である。
+- 第1相の原著本文で主要PK値・確認奏効率・分母を照合したが、整数の奏効人数は分母と丸めた割合からの逆算である。400 mg未満の群の用量の内訳は仮定であり、補足表や患者個票を再構成したわけではない。
 - 薬物動態は用量比例を仮定した。
 - データ点が2群しかないので、傾きの推定は、事前分布、格子の範囲、用量の内訳の仮定に影響される。
+
+*2026年11月3日改訂：原著本文の主要PK値・確認奏効率・分母を照合した。入力の数値と解析結果は変更していない。*
 
 ## データとコードの公開状況 {#_4}
 
@@ -107,7 +111,7 @@ $AUC_{\text{ref}}$は400 mgの平均AUCである。$b$が傾きで、0なら曝�
 
 ## 参照 {#article-references}
 
-1. <span id="ref-1"></span>Sacher A, LoRusso P, Patel MR, Miller WH, Garralda E, Forster MD, et al. Single-agent divarasib (GDC-6036) in solid tumors with a KRAS G12C mutation. N Engl J Med. 2023;389(8):710–721. [doi:10.1056/NEJMoa2303810](https://doi.org/10.1056/NEJMoa2303810). Full text not read; numerical inputs were taken from secondary reporting and reconstructed percentages. The original reporting URLs were not retained in the analysis record.
+1. <span id="ref-1"></span>Sacher A, LoRusso P, Patel MR, Miller WH, Garralda E, Forster MD, et al. Single-agent divarasib (GDC-6036) in solid tumors with a KRAS G12C mutation. N Engl J Med. 2023;389(8):710–721. [doi:10.1056/NEJMoa2303810](https://doi.org/10.1056/NEJMoa2303810). Main-text PK and efficacy sections checked on 2026 Nov 3 in the [UCL Discovery version of record](https://discovery.ucl.ac.uk/id/eprint/10176284/1/nejmoa2303810.pdf), pp. 712–717. Integer response counts inferred from reported denominators and rounded confirmed-response percentages; supplementary tables not re-extracted.
 2. <span id="ref-2"></span>Kumakura D. How far does a dose-comparison trial support dose selection? Arm-level data for sotorasib 960 mg and 240 mg. [Related analysis](sotorasib-dose-comparison.html).
 3. <span id="ref-3"></span>Sacher AG, Miller WH Jr, Patel MR, Paz-Ares L, Santoro A, Ahn MJ, et al. Single-agent divarasib in patients with KRAS G12C-positive non-small cell lung cancer: long-term follow-up of a phase I study. J Clin Oncol. 2025;43(30):3249–3253. [doi:10.1200/JCO-25-00040](https://doi.org/10.1200/JCO-25-00040); [full text](https://pmc.ncbi.nlm.nih.gov/articles/PMC12527784/).
 4. <span id="ref-4"></span>Endres NF, Do S, Mroue R, Terrett JA, Saabye M, Oh A, et al. Discovery and characterization of divarasib (GDC-6036), a potent covalent inhibitor of KRAS G12C. J Med Chem. 2026;69(5):5147–5165. [doi:10.1021/acs.jmedchem.5c02272](https://doi.org/10.1021/acs.jmedchem.5c02272).

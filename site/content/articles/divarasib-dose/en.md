@@ -1,6 +1,6 @@
 How would reducing divarasib from 400 to 200 mg change response in lung and colorectal cancer? I combined phase I dose-group responses with 400-mg pharmacokinetics and compared doses in 4,096 virtual patients. This is an exploratory calculation from two grouped observations, not an individual-level exposure–response analysis.
 
-The phase III Krascendo 1 study compared divarasib with sotorasib or adagrasib in 338 previously treated patients with lung cancer. Improvements in progression-free and overall survival had been announced in July 2026. This analysis uses that historical announcement and phase I material rather than reassessing detailed phase III results. I did not read the original phase I full text; PK and response inputs came from secondary reporting and reconstruction of percentages ([1](#ref-1)).
+The phase III Krascendo 1 study compared divarasib with sotorasib or adagrasib in 338 previously treated patients with lung cancer. Improvements in progression-free and overall survival had been announced in July 2026. This analysis uses that historical announcement and phase I material rather than reassessing detailed phase III results. On 3 November 2026 I checked PK values, confirmed-response percentages and denominators against the original phase I article in UCL Discovery. Response counts were inferred from its denominators and rounded confirmed-response percentages ([1](#ref-1)).
 
 The median predicted 400-minus-200-mg response difference was 6 percentage points in lung cancer, with a wide 95% interval of −11 to 23, and 24 points (3–43) in colorectal cancer. These are conditional results from small nonrandomized groups and an assumed lower-dose mixture, not a basis for prescribing or deciding whether to reduce treatment.
 
@@ -16,16 +16,18 @@ Table 1. Published aggregate inputs. AUC is area under the concentration–time 
 
 | Item | Value | Source |
 |---|---|---|
-| Steady-state AUC over 0–24 h at 400 mg | Mean 9,130 ng·h/mL (SD 3,160), 76 patients | Phase I paper through reporting |
+| Steady-state AUC over 0–24 h at 400 mg | Mean 9,130 ng·h/mL (SD 3,160), 76 patients | Original phase I article, p. 717 |
 | Steady-state Cmax at 400 mg | Mean 657 ng/mL (SD 185) | Same |
 | Half-life after a single 400-mg dose | 17.6 h (SD 2.7), 4 patients | Same |
 | Median time to maximum concentration | 2.0 h | Same |
-| Confirmed NSCLC responses | All doses 31/58; 400 mg 22/39; below 400 mg 9/19 | Same; counts reconstructed from percentages |
-| Confirmed CRC responses | All doses 16/55; 400 mg 14/39; below 400 mg 2/16 | Same |
+| Confirmed NSCLC responses | All doses 31/58; 400 mg 22/39; below 400 mg 9/19 | Original phase I article, pp. 714–716; counts inferred from n and rounded confirmed-response percentages |
+| Confirmed CRC responses | All doses 16/55; 400 mg 14/39; below 400 mg 2/16 | Original phase I article, pp. 715–716; same inference |
 | NSCLC dose counts at long-term follow-up | 400 mg: 44; 200 mg: 10; 100 mg: 5; 50 mg: 6 | PMC12527784, April 2024 cutoff |
-| Safety across doses | Nausea 74%, diarrhea 61%, vomiting 58% (mostly grade 1–2); dose reduction 14% | Phase I through reporting |
+| Safety across doses | Nausea 74%, diarrhea 61%, vomiting 58% (mostly grade 1–2); dose reduction 14% | Original phase I article, p. 714 / [Table 2](https://discovery.ucl.ac.uk/id/eprint/10176284/1/nejmoa2303810.pdf#page=5) |
 
-The original below-400-mg dose composition was unavailable. I assumed the later NSCLC mixture, 50:100:200 mg = 6:5:10, for both cancers. That follow-up has a different cutoff from the NEJM report ([3](#ref-3)). Sensitivities place everyone at 200 mg or everyone at 50 mg.
+The original data cutoff was 21 November 2022. Sixty NSCLC patients were treated, but the confirmed-response denominator was 58 with measurable disease at baseline; confirmed responses are distinct from best overall responses. The individual dose denominators within the below-400-mg group were not established from the main text checked here ([1](#ref-1), pp. 712–716). I assumed the later NSCLC mixture, 50:100:200 mg = 6:5:10, for both cancers. That follow-up has a different cutoff from the NEJM report ([3](#ref-3)). Sensitivities place everyone at 200 mg or everyone at 50 mg.
+
+The steady-state PK summaries pool 76 evaluable patients across tumor types, assessed on cycle 1 day 8 or cycle 2 day 1. Half-life was evaluable in four patients. These are not the same denominators as the dose-specific response groups ([1](#ref-1), p. 717).
 
 ## Model and estimation
 
@@ -83,7 +85,9 @@ Divarasib's covalent KRAS G12C inhibition is described in the discovery study, b
 
 ## Limitations
 
-I did not read the original phase I full text. PK and response values depend on reporting and reconstructed percentages, and the lower-dose mixture is assumed. PK is dose proportional by assumption. With two dose groups, the prior, grid limits and mixture substantially influence the slope. No dose-specific safety model supports a reduction recommendation.
+The original phase I main text was checked for the principal PK values, confirmed-response percentages and denominators, but integer response counts remain inferred from denominators and rounded percentages. The lower-dose mixture remains assumed; supplementary tables and individual patient records were not reconstructed. PK is dose proportional by assumption. With two dose groups, the prior, grid limits and mixture substantially influence the slope. No dose-specific safety model supports a reduction recommendation.
+
+*Revised 3 November 2026: principal PK values, confirmed-response percentages and denominators checked against the original main text. Numerical inputs and analysis results are unchanged.*
 
 ## Data and code availability
 
@@ -91,7 +95,7 @@ I did not read the original phase I full text. PK and response values depend on 
 
 ## References {#article-references}
 
-1. <span id="ref-1"></span>Sacher A, LoRusso P, Patel MR, Miller WH, Garralda E, Forster MD, et al. Single-agent divarasib (GDC-6036) in solid tumors with a KRAS G12C mutation. N Engl J Med. 2023;389(8):710–721. [doi:10.1056/NEJMoa2303810](https://doi.org/10.1056/NEJMoa2303810). Full text not read; numerical inputs were taken from secondary reporting and reconstructed percentages. The original reporting URLs were not retained in the analysis record.
+1. <span id="ref-1"></span>Sacher A, LoRusso P, Patel MR, Miller WH, Garralda E, Forster MD, et al. Single-agent divarasib (GDC-6036) in solid tumors with a KRAS G12C mutation. N Engl J Med. 2023;389(8):710–721. [doi:10.1056/NEJMoa2303810](https://doi.org/10.1056/NEJMoa2303810). Main-text PK and efficacy sections checked on 2026 Nov 3 in the [UCL Discovery version of record](https://discovery.ucl.ac.uk/id/eprint/10176284/1/nejmoa2303810.pdf), pp. 712–717. Integer response counts inferred from reported denominators and rounded confirmed-response percentages; supplementary tables not re-extracted.
 2. <span id="ref-2"></span>Kumakura D. How far does a dose-comparison trial support dose selection? Arm-level data for sotorasib 960 mg and 240 mg. [Related analysis](sotorasib-dose-comparison-en.html).
 3. <span id="ref-3"></span>Sacher AG, Miller WH Jr, Patel MR, Paz-Ares L, Santoro A, Ahn MJ, et al. Single-agent divarasib in patients with KRAS G12C-positive non-small cell lung cancer: long-term follow-up of a phase I study. J Clin Oncol. 2025;43(30):3249–3253. [doi:10.1200/JCO-25-00040](https://doi.org/10.1200/JCO-25-00040); [full text](https://pmc.ncbi.nlm.nih.gov/articles/PMC12527784/).
 4. <span id="ref-4"></span>Endres NF, Do S, Mroue R, Terrett JA, Saabye M, Oh A, et al. Discovery and characterization of divarasib (GDC-6036), a potent covalent inhibitor of KRAS G12C. J Med Chem. 2026;69(5):5147–5165. [doi:10.1021/acs.jmedchem.5c02272](https://doi.org/10.1021/acs.jmedchem.5c02272).

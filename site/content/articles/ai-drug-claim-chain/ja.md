@@ -4,7 +4,7 @@
 
 「第2相で止まる」という言い方には、種類の違う三つの主張が混ざっている。第一は、第2相の成功率が過去の業界平均を上回らない、という割合の比較である。第二は、第2相まで進んだAI関連の資産がまだ少ない、という件数の記述である。第三は、律速は分子の設計ではなく臨床での検証にある、という議論である。それぞれ必要な根拠が違う。さらに、第一の主張が成り立っても、同じ定義の比較可能なコホートで第1相の通過率だけが高ければ、第1相に入った候補が第2相を越える確率は、過去より高くなる。第2相の成功率が過去と「同程度」であることは、「止まる」ことを意味しない。以下では、三つの主張を支える資料を順に確認する。
 
-確認した範囲は次のとおりである。Jayatungaらの論文は、Europe PMCの要旨だけを読んだ。ProMarket、Clinical Trial Vanguard、IQVIAのブログは本文を読み、Trey's Thoughtsは無料で公開された部分だけを読んだ。ASCOの抄録は二次資料の解説による。Petrie-Flom Centerの記事は、今回の再確認ではサイトのアクセス制限で開けず、前回の読了記録に依っている。XとLinkedInの投稿は直接読めておらず、記事に引用された範囲しか見ていない。ここに書く数値は各資料の転載で、派生した数値は `numbers.py` の出力である。
+確認した範囲は次のとおりである。Jayatungaらの論文は、Europe PMCの要旨だけを読んだ。ProMarket、Clinical Trial Vanguard、IQVIAのブログは本文を読み、Trey's Thoughtsは無料で公開された部分だけを読んだ。ASCO抄録は2026年11月3日にCrossrefの出版社登録レコードに収録された抄録本文を取得して照合した。出版社サイトのHTMLとPDFは直接取得できなかった。Petrie-Flom Centerの記事は、今回の再確認ではサイトのアクセス制限で開けず、前回の読了記録に依っている。XとLinkedInの投稿は直接読めておらず、記事に引用された範囲しか見ていない。ここに書く数値は各資料の転載で、派生した数値は `numbers.py` の出力である。
 
 ## 出発点は2024年の論文の要旨 {#1-2024}
 
@@ -34,11 +34,11 @@
 
 ProMarketは、数字をBCGの分析に帰属させている点で、確かめやすい ([2](#ref-2))。ただし、第3相に届くAI設計の薬の数は「意味のある一群」とだけ書かれ、件数は示されていない。
 
-Vanguardの117件と8件には、別の出どころがある。2026年の米国臨床腫瘍学会（ASCO）の抄録（*J Clin Oncol* 44(16) suppl、doi:10.1200/jco.2026.44.16_suppl.11072、データの締め切り2025年12月1日）は、AIを使った治療資産117件（63社）のうち、60件（51.3%）が第1相を完了、8件（6.8%）が第2相を完了、と報告している ([8](#ref-8))。抄録そのものは取得できず、数値は二次資料の解説による。数字が一致するので、LinkedInの投稿の元は、この抄録かもしれない。ただしVanguardの記事は、この抄録に言及していない。
+Vanguardの117件と8件は、2026年の米国臨床腫瘍学会（ASCO）の原抄録にも記載されている。2025年7月1日までに第1〜3相の介入試験へ入ったAI対応の治療資産117件（63社）を対象とし、進捗の締切は2025年12月1日で、60件（51.3%）が第1相を完了、8件（6.8%）が第2相を完了していた ([8](#ref-8))。Crossrefに収録された原抄録本文で対象・時点・件数を照合した。ただし、Vanguardの記事はこの抄録に言及しておらず、LinkedIn投稿との伝達経路は確定していない。
 
 この件数の読み方には三つの注意が要る。
 
-第一に、分母である。6.8%の分母は、試験に入った全資産で、まだ第1相や第2相を走っている途中の資産も含む。途中の資産は分母に含まれる一方、8件は成功数と確認できないため、8/117から成功率への過大・過小の方向まで一律には決められない。8を、第1相を完了した60で割った値も、同じ理由で成功率ではない。第二に、動詞である。ASCOの抄録（二次資料の記述）は第2相を「完了」した資産数を数えている。完了には、成功も失敗も含まれる。Vanguardは同じ8件を、第2相を「通過」したと書いている。完了と通過は別の量であり、この言い換えで件数の意味が変わっている。第三に、母集団である。ASCOの117件は、AI対応（AI-enabled）の資産という広い定義で数えられている。二次資料は、分子そのものをAIが設計した資産に限る狭い定義との違いを指摘している。Jayatungaらは、AIを中心に据えた新興企業の分子を集計しており、母集団も定義も同じとは限らない。したがって、8/117は、分母が違うだけでなく、約40%とは対象が違う可能性がある。Vanguardの記事は、「8件のみ」と「約40%」の両方を同じ記事の中に載せており、並べて読まれやすい。
+第一に、分母である。6.8%の分母は、対象とした試験参入資産117件であり、第2相の成否が確定した資産に限定した集合ではない。8件も成功数とは定義されていないため、8/117から成功率への過大・過小の方向まで一律には決められない。8を、第1相を完了した60で割った値も、同じ理由で成功率ではない。第二に、動詞である。原抄録は第2相を「完了」した資産数を数えているが、完了を有効性の成功と定義していない。Vanguardは同じ8件を、第2相を「通過」したと書いている。完了と通過は別の量であり、この言い換えで件数の意味が変わっている。第三に、母集団である。ASCOの117件は、AI対応（AI-enabled）の資産という広い定義で数えられている。原抄録は、発見または設計へのAIの寄与を示す根拠を資産ごとに求めている。分子そのものをAIが設計した候補だけに限定する定義とは同一ではない。Jayatungaらは、AIを中心に据えた新興企業の分子を集計しており、母集団も定義も同じとは限らない。したがって、8/117は、分母が違うだけでなく、約40%とは対象が違う可能性がある。Vanguardの記事は、「8件のみ」と「約40%」の両方を同じ記事の中に載せており、並べて読まれやすい。
 
 ## 業界調査の一文 {#3}
 
@@ -82,11 +82,13 @@ ProMarketが「これまでで最も明るい結果」と呼ぶのが、Insilico
 ## 限界 {#_2}
 
 - Jayatungaらの論文は要旨のみ。「成功」の定義と、第2相の分母・分子は、原著で確認していない。10件中4件は仮定である。
-- ASCO抄録とIQVIAの報告書は、二次資料とブログによる。ASCO抄録はそのものを取得できなかった。「AI対応」の定義の違いも二次資料による。
+- ASCO抄録の本文はCrossref登録レコードで照合したが、資産別の一覧や個々の成功・失敗は再集計していない。IQVIAの報告書はブログの記述による。
 - XとLinkedInの投稿、Redditは直接読めていない。Fast Companyの記事は取得できなかった。Petrie-Flomの記事は今回の再確認ではアクセス制限により開けなかった。
 - ProMarketのBCGの分析は、記事の記載の転載で、原文は読んでいない。BCGの分析とJayatungaらの論文が同一であるかは確認していない。
 - 失敗理由の割合 ([10](#ref-10)) は総説の記載で、元の解析は読んでいない。
 - Exscientia、Schrödinger、BCGの更新版、創薬の専門誌による集計は検索していない。読んだ記事は4本で、代表性は主張しない。
+
+*2026年11月3日改訂：原抄録の対象と二つの締切、117/60/8件の集計を照合し、完了を成功と読み替えないよう記述を修正した。派生計算は変更していない。*
 
 ## データとコードの公開状況
 
@@ -108,7 +110,7 @@ ProMarketが「これまでで最も明るい結果」と呼ぶのが、Insilico
 
 7. <span id="ref-7"></span>Epstein WN, Niazi SK. AI Can Invent Drugs Faster. It Still Has to Prove They Work [Internet]. Petrie-Flom Center, Harvard Law School; 2026 Aug 4. Not re-opened on 2026 Oct 29 (site access restriction); based on the earlier reading record. Available from: [https://petrieflom.law.harvard.edu/2026/08/04/ai-can-invent-drugs-faster-it-still-has-to-prove-they-work/](https://petrieflom.law.harvard.edu/2026/08/04/ai-can-invent-drugs-faster-it-still-has-to-prove-they-work/).
 
-8. <span id="ref-8"></span>Haque W, Sai-Palm K, Kasparcova MZ, Rana I, Verlingue L, Garassino MC, et al. Clinical-stage AI-enabled therapeutic assets: An industry-wide analysis of scale, clinical progression, and company characteristics. J Clin Oncol. 2026;44(16_suppl):11072. [doi:10.1200/jco.2026.44.16_suppl.11072](https://doi.org/10.1200/jco.2026.44.16_suppl.11072). Conference abstract, not obtained directly; numerical content used via [secondary commentary](https://intuitionlabs.ai/articles/ai-discovered-drugs-clinical-trials-2026) (read 2026 Oct 29).
+8. <span id="ref-8"></span>Haque W, Sai-Palm K, Kasparcova MZ, Rana I, Verlingue L, Garassino MC, et al. Clinical-stage AI-enabled therapeutic assets: An industry-wide analysis of scale, clinical progression, and company characteristics. J Clin Oncol. 2026;44(16_suppl):11072. [doi:10.1200/jco.2026.44.16_suppl.11072](https://doi.org/10.1200/jco.2026.44.16_suppl.11072). Conference abstract; abstract text checked on 2026 Nov 3 in the [publisher-deposited Crossref record](https://api.crossref.org/works/10.1200/JCO.2026.44.16_suppl.11072). Direct publisher HTML/PDF downloads were unavailable. No asset-level data reanalysis.
 
 9. <span id="ref-9"></span>IQVIA Institute. IQVIA Institute's Global R&D Trends 2026 report finds credible signal on AI-enabled programs [Internet]. IQVIA; 2026 May 14 [cited 2026 Oct 29]. Blog commentary; the report itself was not read. Available from: [https://www.iqvia.com/blogs/2026/05/iqvia-institutes-global-r-and-d-trends-2026-report-finds-credible-signal-on-ai-enabled-programs](https://www.iqvia.com/blogs/2026/05/iqvia-institutes-global-r-and-d-trends-2026-report-finds-credible-signal-on-ai-enabled-programs).
 
