@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "category": "essay",
+  "math": false,
+  "author": "Daiki Kumakura",
+  "version": "1.0",
+  "locales": {
+    "ja": {
+      "title": "RAS阻害薬の臨床成績を並べた図は試験間の比較としてどこまで読めるか",
+      "summary": "RAS阻害薬の臨床成績を並べた図の数値を、一次資料で確認できた範囲で再計算した。同じ試験の中の差は区間つきで読めるが、試験をまたぐ優劣は、対照群の違いと単群第1相の区間の広さのため読めない。",
+      "seo_description": "KRAS・RAS阻害薬の奏効率を、復元した例数からの正確な区間と、ランダム化試験の差の区間で再計算し、試験間比較で読める範囲と読めない範囲を整理した。",
+      "seo_title": "RAS阻害薬の試験間比較はどこまで読めるか"
+    },
+    "en": {
+      "title": "How far can a side-by-side figure of RAS inhibitor trial results be read as a cross-trial comparison?",
+      "summary": "Numbers in a figure lining up RAS inhibitor results were recalculated where primary sources could be checked. Within-trial differences can be read with intervals, but cross-trial rankings cannot, because control arms differ and single-arm phase 1 intervals are wide.",
+      "seo_description": "Response rates of KRAS and RAS inhibitors were recalculated with exact intervals from reconstructed counts and intervals for randomized differences, separating what can and cannot be read across trials.",
+      "seo_title": "Cross-trial comparison of RAS inhibitors"
+    }
+  },
+  "date": "2026-12-10",
+  "publish_at": "2026-12-10T09:00:00+09:00",
+  "draft": false,
+  "reviewed": {
+    "en": "108bd938fbc0e35a6bf19733c019ac30d6d934163db47f33814581b97746679b"
+  }
+}
