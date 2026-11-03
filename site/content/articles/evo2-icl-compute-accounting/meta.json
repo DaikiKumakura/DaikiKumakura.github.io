@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "category": "essay",
+  "math": true,
+  "author": "Daiki Kumakura",
+  "version": "1.0",
+  "locales": {
+    "ja": {
+      "title": "in-context learningは設計の計算量を下げるか。Evo 2の「81時間対900時間」を通過率と償却で分解する",
+      "summary": "Evo 2のin-context learningの計算時間の比較を、通過率と固定費の償却に分けて読み直した。CRISPR-Casでは節約は約900個の通過した設計までで、ファージでは通過率の16.7倍の差が主因だった。",
+      "seo_description": "Evo 2のin-context learningの計算時間（81時間対約900時間、2.1対約200 GPU時間）を、サンプルあたりの通過率と微調整の固定費の償却で分解し、損益分岐を計算した。",
+      "seo_title": "Evo 2のICLの計算量を分解する"
+    },
+    "en": {
+      "title": "Does in-context learning lower the compute of design? Decomposing Evo 2's \"81 hours versus 900 hours\" into yield and amortization",
+      "summary": "The reported compute comparison for Evo 2 in-context learning was reread as pass rate and amortization of a fixed cost. For CRISPR-Cas the saving lasts only up to about 900 passing designs; for phage a 16.7-fold difference in pass rate is the main source.",
+      "seo_description": "The reported compute times for Evo 2 in-context learning (81 versus about 900 hours; 2.1 versus about 200 GPU hours) were decomposed into per-sample pass rate and amortization of the fine-tuning cost, and break-even points were computed.",
+      "seo_title": "Decomposing Evo 2 ICL compute"
+    }
+  },
+  "date": "2026-12-13",
+  "publish_at": "2026-12-13T09:00:00+09:00",
+  "draft": false,
+  "reviewed": {
+    "en": "f3e746ec6fe4fad9d7a4a8f6a48178befe01608a5b367a8966db020b02b4ba8c"
+  }
+}
