@@ -104,6 +104,8 @@ The headline numbers did not contradict the sources that could be checked. Howev
 
 Update, November 2, 2026: VDPHL01 numbers were checked against the Form 8-K text; the reading level and registry-date difference were updated. The drug in the original social-media post remains unidentified.
 
+Recheck, November 3, 2026: no change was found in the approval status of the 10 items (lonvo-z is under review with a PDUFA target date of March 10, 2027; retatrutide's BLA submission is planned for the first quarter of 2027; dostarlimab remains under the accelerated approval of October 19; the registry start date of the rentosertib phase 3 is September 9, 2026). For INTerpath-001, one news report said the accepted paper is scheduled to appear in NEJM on November 11, 2026; this was not confirmed, and the text on the paper (accepted, not found in PubMed) stands as of October 31.
+
 ## References
 
 <span id="ref-1"></span>1. O'Reilly EM, Wainberg ZA, Hendifar AE, Borad MJ, Pietrantonio F, Pant S, et al. Daraxonrasib or chemotherapy in previously treated metastatic pancreatic cancer. N Engl J Med. 2026;395(4):325–337. [doi:10.1056/NEJMoa2605555](https://doi.org/10.1056/NEJMoa2605555).

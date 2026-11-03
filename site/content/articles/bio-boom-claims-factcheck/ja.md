@@ -104,6 +104,8 @@ Lancetの報告は、FDAの拡大アクセスのもとで計画された3例の�
 
 2026年11月2日更新：VDPHL01の数値をForm 8-K本文と照合し、確認水準と試験登録の時点差を追記した。元のSNS投稿で扱われた薬剤の特定はできていない。
 
+2026年11月3日再確認：10項目の承認状況に変更は見つからなかった（lonvo-zはPDUFA目標日2027年3月10日で審査中、retatrutideは2027年第1四半期にBLA提出予定、dostarlimabは10月19日の加速承認のまま、rentosertibの第3相は登録上の開始日が2026年9月9日）。INTerpath-001の論文については、受理済みの論文が2026年11月11日にNEJMへ掲載される予定と伝える報道が1件あったが、確認できておらず、本文の記述（論文として受理、PubMedでは見つからない）は10月31日時点のままである。
+
 ## 参照
 
 <span id="ref-1"></span>1. O'Reilly EM, Wainberg ZA, Hendifar AE, Borad MJ, Pietrantonio F, Pant S, et al. Daraxonrasib or chemotherapy in previously treated metastatic pancreatic cancer. N Engl J Med. 2026;395(4):325–337. [doi:10.1056/NEJMoa2605555](https://doi.org/10.1056/NEJMoa2605555).
