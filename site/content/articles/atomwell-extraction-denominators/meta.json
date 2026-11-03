@@ -15,7 +15,7 @@
       "title": "Reading Atomwell's training data: is 78% agreement an accuracy score?",
       "summary": "The reported 8,566 agreements among 10,972 matched Datawell and curated records separate extraction accuracy from selection of a validation set. Aggregate counts leave correctness unidentified.",
       "seo_title": "Atomwell training data and LLM extraction agreement",
-      "seo_description": "Recalculate Datawell–CRO agreement from Atomwell's technical blog, distinguish 78.1% agreement from extraction accuracy, and derive when a selected-set comparison extends to all matched records."
+      "seo_description": "Recalculate Atomwell's Datawell–CRO agreement and examine why 78.1% agreement is not extraction accuracy or agreement over all records."
     }
   },
   "date": "2026-12-15",

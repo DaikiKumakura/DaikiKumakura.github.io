@@ -14,7 +14,7 @@
     "en": {
       "title": "What comparator body weight do the subcutaneous nivolumab exposure ratios of 2.10 and 1.98 imply?",
       "summary": "Subcutaneous nivolumab exposure is about twice the intravenous value, but the comparator is dosed by body weight. Solving for the weight that matches each of four label ratios gives 71-84 kg, which do not coincide.",
-      "seo_description": "Cavg and Cmin ratios of subcutaneous nivolumab (Opdivo Qvantig) reread against a weight-based intravenous comparator. The steady-state Cavg ratio of about 2 follows from the dose difference, but one weight does not reproduce all four ratios.",
+      "seo_description": "Compare subcutaneous nivolumab exposure ratios with weight-based IV dosing; dose differences do not reproduce every reported ratio.",
       "seo_title": "Subcutaneous nivolumab exposure ratios and comparator weight"
     }
   },

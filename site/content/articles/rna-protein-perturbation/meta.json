@@ -17,7 +17,7 @@
       "title": "How far RNA changes reflect protein changes after perturbation: a check with surface proteins in the same cells",
       "summary": "Public CRISPR knockout data with RNA and surface proteins measured in the same cells were recomputed. The noise-corrected correlation between RNA and protein changes was 0.42, and for some knocked-out genes the protein fell while the gene's own mRNA barely changed.",
       "seo_title": "Does RNA reflect protein changes after perturbation?",
-      "seo_description": "Recomputation of public CRISPR data with RNA and surface proteins in the same cells: the noise-corrected correlation and gene-level differences show the limits of reading perturbation effects from RNA alone."
+      "seo_description": "Reanalyze matched RNA and surface-protein CRISPR data to assess noise-corrected correlation and limits of inferring protein changes from RNA."
     }
   },
   "publish_at": "2026-11-21T18:00:00+09:00",

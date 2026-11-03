@@ -6,7 +6,7 @@ Isolating that imbalance produces high discrimination without using MHC binding 
 
 ## Scope and sources
 
-I checked the authors' public repository and glossary on 1 November 2026. The full text of the 27 October preprint was not accessible; numerical claims are restricted to its abstract, consulted through a record imported from bioRxiv. This is neither a retraining of the model nor a reanalysis of patient antigen candidates ([1](#ref-1), [2](#ref-2)).
+I checked the authors' public repository and glossary on 1 November 2026. On 3 November 2026, the original abstract was retrieved through the official bioRxiv API and the proportions and evaluation values used here were checked. The full PDF and source XML of the 27 October preprint remained unavailable; numerical verification is limited to the abstract. This is neither a retraining of the model nor a reanalysis of patient antigen candidates ([1](#ref-1), [2](#ref-2)).
 
 The repository explicitly describes a partial release. Its reproduction list and the new abstract cannot be assumed to describe exactly the same public implementation state. No inaccessible figure or method is reconstructed by inference here.
 
@@ -73,12 +73,14 @@ That restricted question still matters for cancer vaccines. With a limited numbe
 
 The calculation omits other sequence features, MHC alleles, dependence among candidates and undetected positives among competitors. The full reported dataset was not reanalyzed. The conclusion is about interpretation, not rejection of NetMHCpan as a whole: **an AUC without a specified negative-generation process cannot establish the ability to select cancer-vaccine candidates**.
 
+*Revised 3 November 2026: input proportions and reported evaluation values checked in the official original abstract. Full-text methods and figures remain unchecked; the independent calculations are unchanged.*
+
 ## Data and code availability
 
 The [code and results archive](shared/benchmhc-negative-sampling/benchmhc-negative-sampling.zip) contains standard-library Python code, Table 1 as CSV, input definitions and environment information. Run `python analysis.py` to regenerate it. No sequence data, third-party model or source-study figures are redistributed. Checks enumerate all binary score pairs and verify the equal-distribution controls.
 
 ## References
 
-1. <span id="ref-1"></span>Borck T, Chabrol M, Colombo D, Imbert A, Perier-Dulhoste M, Volzhenin K, et al. BenchMHC: a reproducible framework for peptide-MHC presentation prediction [Preprint]. bioRxiv; 2026. Version 1, 2026 Oct 27. [doi:10.64898/2026.10.22.760998](https://doi.org/10.64898/2026.10.22.760998). Abstract consulted through the [Life Science Network record](https://www.lifescience.net/preprints/32854/benchmhc-a-reproducible-framework-for-peptide-mhc-/); full text not accessed.
+1. <span id="ref-1"></span>Borck T, Chabrol M, Colombo D, Imbert A, Perier-Dulhoste M, Volzhenin K, et al. BenchMHC: a reproducible framework for peptide-MHC presentation prediction [Preprint]. bioRxiv; 2026. Version 1, 2026 Oct 27. [doi:10.64898/2026.10.22.760998](https://doi.org/10.64898/2026.10.22.760998). Original abstract checked on 2026 Nov 3 through the [official bioRxiv API](https://api.biorxiv.org/details/biorxiv/10.64898/2026.10.22.760998); full PDF and source XML unavailable. No full-text methods or figure audit.
 2. <span id="ref-2"></span>InstaDeep. [BenchMHC-public: Open-source reproductions of peptide-MHC presentation prediction models](https://github.com/instadeepai/BenchMHC-public) [Software and documentation]. Partial public release; cited 2026 Nov 1.
 3. <span id="ref-3"></span>InstaDeep. [BenchMHC glossary](https://github.com/instadeepai/BenchMHC-public/blob/main/docs/guides/glossary.md) [Internet]. BenchMHC-public; publication date not specified [cited 2026 Nov 1].

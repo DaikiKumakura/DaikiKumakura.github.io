@@ -6,7 +6,7 @@ BenchMHCの新しい報告は、この点を問い直している。著者らは
 
 ## 対象と確認範囲
 
-2026年11月1日にBenchMHCの著者公開リポジトリと用語集を確認した。10月27日公開プレプリントの本文は取得できず、数値はbioRxivから転載された要旨で確認した範囲に限る。以下はモデルの再学習でも、患者の抗原候補の再解析でもない ([1](#ref-1), [2](#ref-2))。
+2026年11月1日にBenchMHCの著者公開リポジトリと用語集を確認した。2026年11月3日にbioRxiv公式APIの原要旨を取得し、使用した割合と評価値が一致することを確認した。10月27日公開プレプリントの全文PDF・本文XMLは取得できず、数値の確認範囲は要旨に限る。以下はモデルの再学習でも、患者の抗原候補の再解析でもない ([1](#ref-1), [2](#ref-2))。
 
 公開READMEは部分公開と明記しており、モデル再現の一覧と新版の要旨を、完全に同じ公開状態だと見なすこともできない。この記事では、未取得の図表や方法を推測して補わない。
 
@@ -73,12 +73,14 @@ MHCへの結合、細胞表面への提示、T細胞による認識、治療と�
 
 本計算の限界は明確である。一致率以外の配列特徴、MHCの型、候補間の依存、未検出正例の混入は扱っていない。報告の全データも再解析していない。結論はNetMHCpan全体の否定ではなく、評価の解釈に関するものだ。**何を負例にしたかが分からないAUCから、がんワクチンの候補を選ぶ能力は読み取れない。**
 
+*2026年11月3日改訂：公式APIの原要旨で入力割合と報告評価値を照合した。全文の方法・図表は未照合で、独自計算の結果は変更していない。*
+
 ## データとコードの公開状況
 
 [計算コードと結果](shared/benchmhc-negative-sampling/benchmhc-negative-sampling.zip)に、標準ライブラリだけで動くPythonコード、表1のCSV、入力の定義、実行環境を収めた。`python analysis.py`で再生成できる。配列データ、第三者モデル、原著の図表は含めていない。式の全組合せの列挙による照合と、ラベル間の特徴分布を揃える対照を実行した。
 
 ## 参照
 
-1. <span id="ref-1"></span>Borck T, Chabrol M, Colombo D, Imbert A, Perier-Dulhoste M, Volzhenin K, et al. BenchMHC: a reproducible framework for peptide-MHC presentation prediction [Preprint]. bioRxiv; 2026. Version 1, 2026 Oct 27. [doi:10.64898/2026.10.22.760998](https://doi.org/10.64898/2026.10.22.760998). Abstract consulted through the [Life Science Network record](https://www.lifescience.net/preprints/32854/benchmhc-a-reproducible-framework-for-peptide-mhc-/); full text not accessed.
+1. <span id="ref-1"></span>Borck T, Chabrol M, Colombo D, Imbert A, Perier-Dulhoste M, Volzhenin K, et al. BenchMHC: a reproducible framework for peptide-MHC presentation prediction [Preprint]. bioRxiv; 2026. Version 1, 2026 Oct 27. [doi:10.64898/2026.10.22.760998](https://doi.org/10.64898/2026.10.22.760998). Original abstract checked on 2026 Nov 3 through the [official bioRxiv API](https://api.biorxiv.org/details/biorxiv/10.64898/2026.10.22.760998); full PDF and source XML unavailable. No full-text methods or figure audit.
 2. <span id="ref-2"></span>InstaDeep. [BenchMHC-public: Open-source reproductions of peptide-MHC presentation prediction models](https://github.com/instadeepai/BenchMHC-public) [Software and documentation]. Partial public release; cited 2026 Nov 1.
 3. <span id="ref-3"></span>InstaDeep. [BenchMHC glossary](https://github.com/instadeepai/BenchMHC-public/blob/main/docs/guides/glossary.md) [Internet]. BenchMHC-public; publication date not specified [cited 2026 Nov 1].

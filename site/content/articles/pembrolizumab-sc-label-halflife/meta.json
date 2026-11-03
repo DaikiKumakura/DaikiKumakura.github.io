@@ -14,7 +14,7 @@
     "en": {
       "title": "Is the 22-day half-life in the subcutaneous pembrolizumab label consistent with its steady-state values?",
       "summary": "A typical-patient model needs a half-life of about 26-29 days to reproduce the label's steady-state values, but including between-patient variability in clearance reproduces them at 22 days.",
-      "seo_description": "The 22-day half-life in the subcutaneous pembrolizumab label was checked against the label's steady-state accumulation ratios and trough concentrations with a typical-patient model and a model with between-patient variability.",
+      "seo_description": "Check whether subcutaneous pembrolizumab label exposure summaries agree with half-life under typical-patient and population PK models.",
       "seo_title": "Subcutaneous pembrolizumab half-life consistency"
     }
   },

@@ -17,7 +17,7 @@
       "title": "GFH375 dose fractionation versus observed BID pharmacokinetics",
       "summary": "A model fitted to the public 600 mg QD mean profile predicts a lower peak and a higher trough with 300 mg BID in 2,048 virtual individuals, but the public three-patient BID mean has a higher peak and a lower trough than predicted.",
       "seo_title": "GFH375 split dosing versus observed BID pharmacokinetics",
-      "seo_description": "A model fitted to the public 600 mg QD mean profile predicts a lower peak and a higher trough with 300 mg BID in 2,048 virtual individuals, but the public three-patient BID mean has a higher peak and a lower trough than predicted."
+      "seo_description": "Fit public GFH375 PK and simulate split dosing; the predicted peak and trough disagree with the observed three-patient BID mean."
     }
   },
   "english": {
