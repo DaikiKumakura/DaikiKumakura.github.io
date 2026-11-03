@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "category": "essay",
+  "math": true,
+  "author": "Daiki Kumakura",
+  "version": "1.0",
+  "locales": {
+    "ja": {
+      "title": "適応的な投与は耐性の出方で利益が変わる。感受性細胞と耐性細胞の競合モデルで条件を調べる",
+      "summary": "感受性細胞と耐性細胞が競合する最小のモデルで、休薬を使う適応的な投与が連続投与より進行を遅らせる程度を、耐性の出方で走査した。利益は、感受性細胞による抑制の強さと耐性細胞の少なさで大きく変わり、薬が耐性細胞に部分的に効く一部の条件ではわずかに不利になった。",
+      "seo_description": "感受性細胞と耐性細胞の競合モデルで、適応的な投与と連続投与の進行までの時間の比を、競合の強さ、初期の耐性細胞の割合、薬の残る効果、耐性のコストで走査した。",
+      "seo_title": "適応的な投与が有利になる条件"
+    },
+    "en": {
+      "title": "How much adaptive dosing delays progression depends on how resistance arises: a sensitive–resistant competition model",
+      "summary": "A minimal sensitive–resistant competition model was scanned for how much adaptive dosing with treatment breaks delays progression compared with continuous dosing. The benefit varied greatly with the strength of suppression by sensitive cells and the number of resistant cells, and turned into a slight disadvantage in some conditions where the drug partly acted on resistant cells.",
+      "seo_description": "Ratios of time to progression for adaptive versus continuous dosing in a sensitive–resistant competition model, scanned over competition strength, initial resistant fraction, residual drug effect and cost of resistance.",
+      "seo_title": "When adaptive dosing helps"
+    }
+  },
+  "date": "2026-12-11",
+  "publish_at": "2026-12-11T18:00:00+09:00",
+  "draft": false,
+  "reviewed": {
+    "en": "8c97c38597e48fbc866df6077b728ed0baf580077e16154a506291cee460cae5"
+  }
+}
