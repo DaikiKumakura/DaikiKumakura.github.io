@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "category": "essay",
+  "math": true,
+  "author": "Daiki Kumakura",
+  "version": "1.0",
+  "locales": {
+    "ja": {
+      "title": "単一細胞のmRNA数がポアソン分布より散らばるのはなぜか。転写バーストのモデルと識別の限界",
+      "summary": "mRNA数の分散が平均の約4倍になる観測を、転写バーストのモデルと照らし、原著の測定値で確かめた。平均と分散のスナップショットからは、バーストの頻度とmRNAの消失の速さを別々には識別できない。",
+      "seo_description": "Goldingらの大腸菌の1分子計数（2005年）の測定値から、分散／平均がバーストの大きさに等しいことを導き、数値で確かめた。平均が同じでも分布は大きく異なる。",
+      "seo_title": "転写バーストとmRNA数の分散"
+    },
+    "en": {
+      "title": "Why do mRNA counts in single cells spread more than a Poisson distribution? A transcriptional bursting model and the limits of identification",
+      "summary": "A transcriptional bursting model was compared with a variance about four times the mean in single-cell mRNA counts and checked against the original measurements. Snapshots of the mean and variance cannot identify the burst frequency and the speed of mRNA loss separately.",
+      "seo_description": "Using the single-molecule counts in E. coli by Golding et al. (2005), variance / mean is derived to equal the burst size and checked numerically. Distributions differ greatly even at the same mean.",
+      "seo_title": "Transcriptional bursting and mRNA count variance"
+    }
+  },
+  "date": "2026-12-11",
+  "publish_at": "2026-12-11T09:00:00+09:00",
+  "draft": false,
+  "reviewed": {
+    "en": "fd221733ebf5aac21101724bef06351fc269c98c34bfaa93baff285f7d91812f"
+  }
+}
