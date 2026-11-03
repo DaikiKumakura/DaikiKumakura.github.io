@@ -56,7 +56,7 @@ The original three-compartment drug input uses mg and days, with 0.22 times dose
 \dot E=0.019\times9.9216X_c-k_E(BSA)E
 \]
 
-E is a fixed-model output corresponding to 6-TGN, not measured intracellular concentration. I used \(k_E=0.219(BSA/1\,\mathrm{m^2})^{1.16}\) from the day-unit [original Table 2](https://doi.org/10.3389/fphys.2020.00217). Equation 2 instead gives 0.00914, approximately 24-fold different. This unresolved discrepancy makes the implementation conditional on Table 2. CL, V and F are not estimated from concentrations; BSA is fixed to each patient's first recorded value.
+E is a fixed-model output corresponding to 6-TGN, not measured intracellular concentration. I used \(k_E=0.219(BSA/1\,\mathrm{m^2})^{1.16}\) from the day-unit [original Table 2](https://doi.org/10.3389/fphys.2020.00217). Equation 2 instead gives 0.00914, approximately 24-fold different. Multiplying 0.00914 by 24 gives 0.21936, consistent with rounding to 0.219 when converting an hourly coefficient to a daily coefficient. Table 2 explicitly labels its clearance coefficient L/day and the other rates day⁻¹, but Equation 2 gives no time unit. This is consistent with an unconverted hourly value in Equation 2; it is not evidence sufficient to establish the authors’ intended implementation. The calculation therefore remains conditional on the day-unit Table 2. CL, V and F are not estimated from concentrations; BSA is fixed to each patient's first recorded value.
 
 The proliferating compartment P, three maturation compartments and circulating ANC N obey:
 
@@ -170,6 +170,8 @@ The narrow conclusion is that this model, unable to estimate individual sensitiv
 Figures and aggregate tables are original calculations. Reproduction materials record input locations, hashes and commands. Original patient records and figures are not redistributed.
 
 [Code, aggregate tables and instructions](shared/6mp-anc-forecast/6mp-forecast.zip).
+
+Update, November 2, 2026: The approximately 24-fold difference between source Equation 2 and Table 2 was clarified as consistent with a time-unit conversion. The original implementation remains unconfirmed; calculated results and conditional conclusions are unchanged.
 
 ## References {#article-references}
 

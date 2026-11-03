@@ -4,7 +4,7 @@
 
 10項目は、SNSで広く読まれたと伝えられる一覧の見出しを伝聞で要約したものである。その投稿自体は見つけられておらず、元の文言は不明である。「87%が発作なし」と読める書き方が投稿にあったかどうかも分からない。以下では、見出しに近い数値を公開資料がどう定義しているかだけを示す。承認状況は2026年10月30日時点で、FDAのページと試験登録は10月31日に取得して確認した。その他の項目は同日に検索で承認の報道を探し、追加の承認は見つからなかった。
 
-確認の水準は次の5段階に分けて記録した。第1は雑誌論文の抄録で、PubMedのAPIから取得したXMLを読んだ。論文の全文は一つも読んでいない。第2は試験登録で、ClinicalTrials.govのAPIが返したレコードを読んだ。第3は企業発表の全文で、Merck・Modernaの発表はPDFから文字を抽出し、結果の節を読んだ。第4はウェブページの抽出で、FDA・企業・報道のページを、ページ取得ツールが要約して返した結果で読んだ。原文との逐語照合はしていない。第5は検索結果の抜粋で、ページ本体が取得できなかったものである。表1に項目ごとに確認できた資料の種類を示す。各数値の出所と水準は配布資料の `source-notes.md` に一覧した。
+確認の水準は次の5段階に分けて記録した。第1は雑誌論文の抄録で、PubMedのAPIから取得したXMLを読んだ。論文の全文は一つも読んでいない。第2は試験登録で、ClinicalTrials.govのAPIが返したレコードを読んだ。第3は企業発表の全文で、Merck・Modernaの発表はPDFから文字を抽出し、結果の節を読んだ。第4はウェブページの抽出で、FDA・企業・報道のページを、ページ取得ツールが要約して返した結果で読んだ。原文との逐語照合はしていない。第5は検索結果の抜粋で、ページ本体が取得できなかったものである。VDPHL01は11月2日にForm 8-Kの本文を確認し、検索抜粋だけの扱いから改めた。表1に項目ごとに確認できた資料の種類を示す。各数値の出所と水準は配布資料の `source-notes.md` に一覧した。
 
 表1　10項目の確認水準と状況（2026年10月30日時点）。
 
@@ -16,10 +16,10 @@
 | 4 | Personalized mRNA vaccine, 1,137 patients, 42% | Full text of the company release ([7](#ref-7)); extraction of a news report ([8](#ref-8)) | Not approved. Paper reported by the companies as accepted by NEJM, not yet published |
 | 5 | Retatrutide, about 28% weight loss | Extraction of the company's medical information page ([9](#ref-9)); extraction of the company release ([10](#ref-10)) | Not approved. BLA submission planned for the first quarter of 2027 |
 | 6 | Rentosertib, phase 3 | Trial registry ([11](#ref-11)); abstract of the phase 2a paper ([12](#ref-12)) | Not approved |
-| 7 | Oral hair-growth drug, phase 3 | Search-result excerpt of the company release only (numbers not checked) ([13](#ref-13)) | Not approved |
-| 8 | Dostarlimab, rectal cancer, FDA approval | Extraction of the FDA page ([14](#ref-14)); trial registry ([15](#ref-15)); journal abstract ([16](#ref-16)) | Accelerated approval (October 19, 2026) |
-| 9 | Pig kidney, 271 days | Journal abstract ([17](#ref-17)); extraction of the company release ([18](#ref-18)) | Not approved. Expanded access continues; the RESTORE trial has not started |
-| 10 | Transfer of chromosome-sized DNA between cells | Journal abstracts ([19](#ref-19), [20](#ref-20)) | Basic research, not subject to approval |
+| 7 | Oral hair-growth drug, phase 3 | Company Form 8-K, Item 8.01 ([13](#ref-13)); trial registry ([14](#ref-14)) | Not approved |
+| 8 | Dostarlimab, rectal cancer, FDA approval | Extraction of the FDA page ([15](#ref-15)); trial registry ([16](#ref-16)); journal abstract ([17](#ref-17)) | Accelerated approval (October 19, 2026) |
+| 9 | Pig kidney, 271 days | Journal abstract ([18](#ref-18)); extraction of the company release ([19](#ref-19)) | Not approved. Expanded access continues; the RESTORE trial has not started |
+| 10 | Transfer of chromosome-sized DNA between cells | Journal abstracts ([20](#ref-20), [21](#ref-21)) | Basic research, not subject to approval |
 
 本文中の差や比は、特に断らない限り原資料の報告値であり、筆者が引き算をした値には「筆者計算」と付ける。
 
@@ -27,17 +27,17 @@
 
 ### daraxonrasibの全生存期間
 
-FDAは2026年8月26日、daraxonrasib（製品名Rasonque）を、少なくとも1回の全身療法を受けた、または多剤の全身療法の対象にならない成人の転移性膵腺がんに対して承認した ([2](#ref-2), [21](#ref-21))。見出しの数値は第3相RASolute 302に由来する。500例が無作為化され（daraxonrasib群248例、化学療法群252例）、91.8%がRAS G12変異を持っていた。主要評価項目は、RAS G12変異集団での全生存期間と無増悪生存期間である ([1](#ref-1))。
+FDAは2026年8月26日、daraxonrasib（製品名Rasonque）を、少なくとも1回の全身療法を受けた、または多剤の全身療法の対象にならない成人の転移性膵腺がんに対して承認した ([2](#ref-2), [22](#ref-22))。見出しの数値は第3相RASolute 302に由来する。500例が無作為化され（daraxonrasib群248例、化学療法群252例）、91.8%がRAS G12変異を持っていた。主要評価項目は、RAS G12変異集団での全生存期間と無増悪生存期間である ([1](#ref-1))。
 
-RAS G12変異集団の全生存期間の中央値は13.2か月対6.6か月、全体集団では13.2か月対6.7か月で、ハザード比はどちらも0.40であった ([1](#ref-1))。「6.6」と「6.7」の違いは集団の違いであり、資料間の矛盾ではない。FDAのページでは、全体集団の中央値は13.2か月（95%信頼区間 10.0から推定不能）対6.7か月（5.8から8.0）、ハザード比は0.40（0.30から0.53）である ([2](#ref-2))。1年生存率53.3%対18.7%は、報道に記載されたG12集団の値であり、抄録には載っていない ([22](#ref-22))。対照は医師選択の化学療法で、試験はオープンラベルである ([1](#ref-1))。FDAのページは、通常承認か加速承認かを記載していない ([2](#ref-2))。
+RAS G12変異集団の全生存期間の中央値は13.2か月対6.6か月、全体集団では13.2か月対6.7か月で、ハザード比はどちらも0.40であった ([1](#ref-1))。「6.6」と「6.7」の違いは集団の違いであり、資料間の矛盾ではない。FDAのページでは、全体集団の中央値は13.2か月（95%信頼区間 10.0から推定不能）対6.7か月（5.8から8.0）、ハザード比は0.40（0.30から0.53）である ([2](#ref-2))。1年生存率53.3%対18.7%は、報道に記載されたG12集団の値であり、抄録には載っていない ([23](#ref-23))。対照は医師選択の化学療法で、試験はオープンラベルである ([1](#ref-1))。FDAのページは、通常承認か加速承認かを記載していない ([2](#ref-2))。
 
 ### dostarlimabの臨床的完全奏効
 
-FDAは2026年10月19日、dostarlimab（Jemperli）に、FDA認可の検査でMSI-HまたはdMMRと判定されたII期・III期の局所進行直腸がんの成人を対象とする加速承認を与えた ([14](#ref-14))。根拠はAZUR-1である。単群・オープンラベルで、前治療のない154例が治療を受けた。試験登録の区分は第2相である ([15](#ref-15))。主要評価項目は、治療終了後12か月持続する臨床的完全奏効（cCR12）である。FDAのページは、独立中央判定で47%（評価可能116例）、試験医師の判定で68%（144例）を示す ([14](#ref-14))。
+FDAは2026年10月19日、dostarlimab（Jemperli）に、FDA認可の検査でMSI-HまたはdMMRと判定されたII期・III期の局所進行直腸がんの成人を対象とする加速承認を与えた ([15](#ref-15))。根拠はAZUR-1である。単群・オープンラベルで、前治療のない154例が治療を受けた。試験登録の区分は第2相である ([16](#ref-16))。主要評価項目は、治療終了後12か月持続する臨床的完全奏効（cCR12）である。FDAのページは、独立中央判定で47%（評価可能116例）、試験医師の判定で68%（144例）を示す ([15](#ref-15))。
 
-二つの値は、判定者だけでなく評価可能例の範囲も異なる。独立中央判定で臨床的完全奏効に達しながら追跡が12か月に満たない例が38例（33%）あった ([14](#ref-14))。学会誌の抄録も、独立判定のcCR12は最初の奏効が確認された時点が遅く、試験医師の判定より成熟していないと記す ([16](#ref-16))。47%と68%は別々の評価であり、どちらかが誤りという関係ではない。
+二つの値は、判定者だけでなく評価可能例の範囲も異なる。独立中央判定で臨床的完全奏効に達しながら追跡が12か月に満たない例が38例（33%）あった ([15](#ref-15))。学会誌の抄録も、独立判定のcCR12は最初の奏効が確認された時点が遅く、試験医師の判定より成熟していないと記す ([17](#ref-17))。47%と68%は別々の評価であり、どちらかが誤りという関係ではない。
 
-FDAのページには、別の試験（研究者主導の単群、50例）のcCR12 93%と奏効率100%も記載されている。これらはAZUR-1の値ではない ([14](#ref-14))。加速承認は、制度上、臨床的有用性を確かめる追加試験の実施が求められる ([23](#ref-23))。dostarlimabのページから抽出した範囲には、確認試験の記述は含まれなかった ([14](#ref-14))。追跡期間の中央値は26.3か月で、cCR12、cCR、ほぼ完全奏効に達した例に進行はなかったとFDAは記す ([14](#ref-14))。単群試験であり、標準治療との直接比較はない。
+FDAのページには、別の試験（研究者主導の単群、50例）のcCR12 93%と奏効率100%も記載されている。これらはAZUR-1の値ではない ([15](#ref-15))。加速承認は、制度上、臨床的有用性を確かめる追加試験の実施が求められる ([24](#ref-24))。dostarlimabのページから抽出した範囲には、確認試験の記述は含まれなかった ([15](#ref-15))。追跡期間の中央値は26.3か月で、cCR12、cCR、ほぼ完全奏効に達した例に進行はなかったとFDAは記す ([15](#ref-15))。単群試験であり、標準治療との直接比較はない。
 
 ## 数値の定義が見出しの読みと異なる4項目
 
@@ -69,27 +69,29 @@ TRIUMPH-1は、糖尿病のない肥満または過体重の成人2,339例を80�
 
 ClinicalTrials.govの登録によると、rentosertibの第3相は特発性肺線維症を対象とする無作為化・二重盲検・プラセボ対照試験で、1日1回、52週投与する。予定登録数は320例、開始は2026年9月9日、主要評価項目は52週間の努力性肺活量の年間低下率、主要評価項目の完了予定は2029年10月30日である ([11](#ref-11))。第3相の開始は、効果を示した結果ではない。有効性に関する公表データは第2a相のみである。第2a相は71例を12週間、30 mg 1日1回・30 mg 1日2回・60 mg 1日1回・プラセボに割り付け、主要評価項目は有害事象の発現割合であった。努力性肺活量の変化は副次評価項目で、60 mg 1日1回群が+98.4 mL（95%信頼区間 10.9から185.9）、プラセボ群が−20.3 mL（−116.1から75.6）であり、区間は重なる ([12](#ref-12))。
 
-### 発毛の飲み薬の第3相（数値は未照合）
+### 発毛の飲み薬の第3相
 
-見出しの薬は特定できていない。候補は、Veradermicsの徐放性経口ミノキシジルVDPHL01である。同社の2026年10月19日の発表を検索結果の抜粋で見た範囲では、第3相Study 304は男性型脱毛症の男性536例を、8.5 mgの1日1回、1日2回、プラセボに割り付け、6か月時点の非軟毛の本数が+28.6本/cm²、+36.4本/cm²、プラセボ+6.6本/cm²であった。差は22.0と29.8本/cm²である（筆者計算）。ページ本体は取得できず、試験登録も読めていないため、これらの数値は原文と照合していない ([13](#ref-13))。企業の発表であり、査読論文ではない。見出しの薬がこれかどうかは確認できず、他の候補を排除していない。
+見出しの薬は特定できていない。候補のVDPHL01は徐放性経口ミノキシジルである。2026年11月2日、Veradermicsが10月19日に公表したForm 8-KのItem 8.01を確認した。Study 304は男性型脱毛症の男性536例を、8.5 mgの1日1回、8.5 mgの1日2回、プラセボに無作為割付したと記す。6か月時点の非軟毛の標的領域毛髪数のベースラインからの平均増加は、それぞれ28.6、36.4、6.6本/cm²であった ([13](#ref-13))。プラセボとの差は22.0と29.8本/cm²である（筆者計算）。毛髪数の変化であり、発毛した患者の割合ではない。企業が公表したトップライン結果であり、査読論文の確認ではない。
+
+試験登録NCT06972264も確認した。ただし、取得した登録は2026年2月12日更新で、予定登録数480例と記す。これは10月の発表の536例と同じ時点の情報ではなく、登録記録には結果の掲載がない ([14](#ref-14))。結果の数値はForm 8-Kに基づき、登録から再確認できたとは扱わない。元の見出しがこの薬を指すかどうかは依然として不明である。
 
 ## 1例の報告と基礎研究
 
 ### ブタの腎臓の271日
 
-Lancetの報告は、FDAの拡大アクセスのもとで計画された3例の研究の最初の1例である。遺伝子改変ブタ腎臓EGEN-2784（糖鎖抗原の欠失、ブタ内在性レトロウイルスの不活化、ヒト導入遺伝子7個）を2025年1月25日に移植し、271日間透析から離脱した。移植後14日にT細胞性拒絶があり、治療で改善した。免疫抑制を減らした後に微小血管の炎症が進み、血栓性微小血管症で移植腎が機能を失った。摘出の82日後にヒトの腎臓を移植し、231日の追跡で感作は認められなかった ([17](#ref-17))。1例の経過であり、一般化はできない。
+Lancetの報告は、FDAの拡大アクセスのもとで計画された3例の研究の最初の1例である。遺伝子改変ブタ腎臓EGEN-2784（糖鎖抗原の欠失、ブタ内在性レトロウイルスの不活化、ヒト導入遺伝子7個）を2025年1月25日に移植し、271日間透析から離脱した。移植後14日にT細胞性拒絶があり、治療で改善した。免疫抑制を減らした後に微小血管の炎症が進み、血栓性微小血管症で移植腎が機能を失った。摘出の82日後にヒトの腎臓を移植し、231日の追跡で感作は認められなかった ([18](#ref-18))。1例の経過であり、一般化はできない。
 
-「記録」という表現にも留保がある。eGenesisの2026年9月3日の発表は、拡大アクセスで5例が移植を受け、別の1例が9か月を超えて透析なしで試験を継続しており、世界記録を更新したと述べる ([18](#ref-18))。同社は、FDAが承認した第1/2/3相のRESTORE試験（50歳から70歳の33例）を2027年第1四半期に始める予定とする ([18](#ref-18))。271日が最長とは、同社自身の発表からは言えない。
+「記録」という表現にも留保がある。eGenesisの2026年9月3日の発表は、拡大アクセスで5例が移植を受け、別の1例が9か月を超えて透析なしで試験を継続しており、世界記録を更新したと述べる ([19](#ref-19))。同社は、FDAが承認した第1/2/3相のRESTORE試験（50歳から70歳の33例）を2027年第1四半期に始める予定とする ([19](#ref-19))。271日が最長とは、同社自身の発表からは言えない。
 
 ### 染色体サイズのDNAの細胞間移動
 
-2026年のCell論文は、微小核や断片化した染色体に由来する細胞質DNAが、接触依存性のナノチューブを通って隣接するヒト細胞へ移ることを示した。移った断片は受容細胞で安定に受け継がれる。対象はヒト培養細胞である ([19](#ref-19))。2025年のScience論文は、ヒト染色体をヒト細胞からマウス胚性幹細胞へ移し、再びヒト細胞へ戻して内在染色体を除く方法を報告した ([20](#ref-20))。見出しがどちらを指すかは確認できず、「染色体サイズ」が抄録で確認できるのは後者の方法論である。どちらも培養細胞の基礎研究であり、承認の対象ではない。
+2026年のCell論文は、微小核や断片化した染色体に由来する細胞質DNAが、接触依存性のナノチューブを通って隣接するヒト細胞へ移ることを示した。移った断片は受容細胞で安定に受け継がれる。対象はヒト培養細胞である ([20](#ref-20))。2025年のScience論文は、ヒト染色体をヒト細胞からマウス胚性幹細胞へ移し、再びヒト細胞へ戻して内在染色体を除く方法を報告した ([21](#ref-21))。見出しがどちらを指すかは確認できず、「染色体サイズ」が抄録で確認できるのは後者の方法論である。どちらも培養細胞の基礎研究であり、承認の対象ではない。
 
 ## 限界
 
 - 元の投稿を確認できていない。見出しの正確な文言が不明なため、投稿が数値を誤って伝えたとは言えない。
 - 論文の全文は一つも読んでいない。87%、62%、42%などの数値のうち、抄録に載らないもの（発作なし62%、1年生存率、全生存期間のハザード比）は、企業発表や報道の抽出に基づく。
-- FDA・企業・報道のページは、要約して返すツールの抽出で読んだ。原文の画面や文書との逐語照合はしていない。Veradermicsの発表は検索結果の抜粋のみで、数値は未照合である。
+- FDA・企業・報道のページは、要約して返すツールの抽出で読んだ。原文の画面や文書との逐語照合はしていない。VDPHL01だけは11月2日にForm 8-KのItem 8.01の本文と照合した。査読論文や登録結果データによる独立検証ではない。
 - 承認状況は2026年10月30日時点の記述であり、公開までに変わりうる。
 - dostarlimabの独立判定47%の信頼区間は、原文を直接確認できなかったため扱わない。
 - 本記事の執筆にはAI（Claude）を使い、同じ筆者の指示で3つのAIによる査読を受けた。人間の第三者による確認ではない。
@@ -99,6 +101,8 @@ Lancetの報告は、FDAの拡大アクセスのもとで計画された3例の�
 2026年10月30日時点（10月31日再確認）で、確認できた範囲では、10項目のうち薬・ワクチン・治療法にあたる8項目で承認済みは2項目である。daraxonrasibの膵がんはFDAに承認され、dostarlimabの直腸がんは加速承認された。lonvo-zはBLAが受理され審査中であり、他の5項目は申請前または開発の途中である。ブタの腎臓とDNAの移動は承認の対象ではない。
 
 見出しの数値は、確認できた資料の記載と矛盾しなかった。ただし、数値が指す量には条件がつく。遺伝性血管性浮腫の87%は発作回数の減少率で、発作なしは62%である。LDLの62%は最高用量群の平均で、ワクチンの42%はハザードの減少であり、最初の6か月のハザード比は差がなかった。retatrutideの約28%は、治療中断などの事象を除いた推定対象の値で、遵守にかかわらない推定対象では約25%である。dostarlimabの47%と68%は判定者と評価可能例が異なる別の評価である。元の投稿が確認できないため、これらの条件が投稿でどう書かれていたかは判断できない。
+
+2026年11月2日更新：VDPHL01の数値をForm 8-K本文と照合し、確認水準と試験登録の時点差を追記した。元のSNS投稿で扱われた薬剤の特定はできていない。
 
 ## 参照
 
@@ -126,24 +130,26 @@ Lancetの報告は、FDAの拡大アクセスのもとで計画された3例の�
 
 <span id="ref-12"></span>12. Xu Z, Ren F, Wang P, Cao J, Tan C, Ma D, et al. A generative AI-discovered TNIK inhibitor for idiopathic pulmonary fibrosis: a randomized phase 2a trial. Nat Med. 2025;31(8):2602–2610. [doi:10.1038/s41591-025-03743-2](https://doi.org/10.1038/s41591-025-03743-2).
 
-<span id="ref-13"></span>13. Veradermics. Veradermics' oral VDPHL01 achieved early, consistent, and robust hair growth in positive phase 3 '304' clinical trial in male pattern hair loss [press release]. Business Wire; 2026 Oct 19 [cited 2026 Oct 31]. Available from: [https://www.businesswire.com/news/home/20261019684103/en/Veradermics-Oral-VDPHL01-Achieved-Early-Consistent-and-Robust-Hair-Growth-in-Positive-Phase-3-304-Clinical-Trial-in-Male-Pattern-Hair-Loss](https://www.businesswire.com/news/home/20261019684103/en/Veradermics-Oral-VDPHL01-Achieved-Early-Consistent-and-Robust-Hair-Growth-in-Positive-Phase-3-304-Clinical-Trial-in-Male-Pattern-Hair-Loss) (page not retrievable; content seen only as search-result excerpts).
+<span id="ref-13"></span>13. Veradermics, Incorporated. Current report, Form 8-K, October 19, 2026. Item 8.01: Other events [Internet]. U.S. Securities and Exchange Commission; 2026 Oct 19 [cited 2026 Nov 2]. Available from: [https://www.sec.gov/Archives/edgar/data/1827635/000182763526000036/mane-20261019.htm](https://www.sec.gov/Archives/edgar/data/1827635/000182763526000036/mane-20261019.htm).
 
-<span id="ref-14"></span>14. U.S. Food and Drug Administration. FDA grants accelerated approval to dostarlimab for locally advanced rectal cancer [Internet]. Silver Spring (MD): FDA; 2026 Oct 19 [cited 2026 Oct 31]. Available from: [https://www.fda.gov/drugs/resources-information-approved-drugs/fda-grants-accelerated-approval-dostarlimab-locally-advanced-rectal-cancer](https://www.fda.gov/drugs/resources-information-approved-drugs/fda-grants-accelerated-approval-dostarlimab-locally-advanced-rectal-cancer).
+<span id="ref-14"></span>14. Veradermics, Inc. Safety and efficacy of VDPHL01 in males with AGA; ClinicalTrials.gov identifier NCT06972264 [Internet]. National Library of Medicine (US); last update posted 2026 Feb 12 [cited 2026 Nov 2]. Available from: [https://clinicaltrials.gov/study/NCT06972264](https://clinicaltrials.gov/study/NCT06972264).
 
-<span id="ref-15"></span>15. GlaxoSmithKline. A study of dostarlimab in untreated dMMR/MSI-H locally advanced rectal cancer (AZUR-1); ClinicalTrials.gov identifier NCT05723562 [Internet]. National Library of Medicine (US); last update posted 2026 May 26 [cited 2026 Oct 31]. Available from: [https://clinicaltrials.gov/study/NCT05723562](https://clinicaltrials.gov/study/NCT05723562).
+<span id="ref-15"></span>15. U.S. Food and Drug Administration. FDA grants accelerated approval to dostarlimab for locally advanced rectal cancer [Internet]. Silver Spring (MD): FDA; 2026 Oct 19 [cited 2026 Oct 31]. Available from: [https://www.fda.gov/drugs/resources-information-approved-drugs/fda-grants-accelerated-approval-dostarlimab-locally-advanced-rectal-cancer](https://www.fda.gov/drugs/resources-information-approved-drugs/fda-grants-accelerated-approval-dostarlimab-locally-advanced-rectal-cancer).
 
-<span id="ref-16"></span>16. Cercek A, Bachet JB, Folprecht G, Bando H, Seligmann J, Starling N, et al. Clinical complete response with dostarlimab monotherapy in dMMR/MSI-H locally advanced rectal cancer: first results from the global AZUR-1 trial. Ann Oncol. 2026 Oct 25:S0923-7534(26)08070-1 [Epub ahead of print]. [doi:10.1016/j.annonc.2026.10.1280](https://doi.org/10.1016/j.annonc.2026.10.1280).
+<span id="ref-16"></span>16. GlaxoSmithKline. A study of dostarlimab in untreated dMMR/MSI-H locally advanced rectal cancer (AZUR-1); ClinicalTrials.gov identifier NCT05723562 [Internet]. National Library of Medicine (US); last update posted 2026 May 26 [cited 2026 Oct 31]. Available from: [https://clinicaltrials.gov/study/NCT05723562](https://clinicaltrials.gov/study/NCT05723562).
 
-<span id="ref-17"></span>17. Riella LV, Borges TJ, Rosales IA, Avillach CT, Palsson R, Hullekes F, et al. Porcine kidney xenotransplantation as a bridge to allotransplantation: a first-in-human study. Lancet. 2026;408(10559):1029–1040. [doi:10.1016/S0140-6736(26)01295-X](https://doi.org/10.1016/S0140-6736(26)01295-X).
+<span id="ref-17"></span>17. Cercek A, Bachet JB, Folprecht G, Bando H, Seligmann J, Starling N, et al. Clinical complete response with dostarlimab monotherapy in dMMR/MSI-H locally advanced rectal cancer: first results from the global AZUR-1 trial. Ann Oncol. 2026 Oct 25:S0923-7534(26)08070-1 [Epub ahead of print]. [doi:10.1016/j.annonc.2026.10.1280](https://doi.org/10.1016/j.annonc.2026.10.1280).
 
-<span id="ref-18"></span>18. eGenesis. eGenesis announces clinical update in ongoing expanded access study of EGEN-2784 in patients with kidney failure [press release]. Cambridge (MA): eGenesis; 2026 Sep 3 [cited 2026 Oct 31]. Available from: [https://egenesisbio.com/news-media/press-releases/egenesis-announces-clinical-update-in-ongoing-expanded-access-study-of-egen-2784-in-patients-with-kidney-failure](https://egenesisbio.com/news-media/press-releases/egenesis-announces-clinical-update-in-ongoing-expanded-access-study-of-egen-2784-in-patients-with-kidney-failure).
+<span id="ref-18"></span>18. Riella LV, Borges TJ, Rosales IA, Avillach CT, Palsson R, Hullekes F, et al. Porcine kidney xenotransplantation as a bridge to allotransplantation: a first-in-human study. Lancet. 2026;408(10559):1029–1040. [doi:10.1016/S0140-6736(26)01295-X](https://doi.org/10.1016/S0140-6736(26)01295-X).
 
-<span id="ref-19"></span>19. Maurais EG, Mazzagatti A, Lin YF, Narozna M, Hu Q, Dahiya R, et al. Genome instability triggers intercellular DNA transfer between human cells. Cell. 2026;189(15):4548–4561.e14. [doi:10.1016/j.cell.2026.04.041](https://doi.org/10.1016/j.cell.2026.04.041).
+<span id="ref-19"></span>19. eGenesis. eGenesis announces clinical update in ongoing expanded access study of EGEN-2784 in patients with kidney failure [press release]. Cambridge (MA): eGenesis; 2026 Sep 3 [cited 2026 Oct 31]. Available from: [https://egenesisbio.com/news-media/press-releases/egenesis-announces-clinical-update-in-ongoing-expanded-access-study-of-egen-2784-in-patients-with-kidney-failure](https://egenesisbio.com/news-media/press-releases/egenesis-announces-clinical-update-in-ongoing-expanded-access-study-of-egen-2784-in-patients-with-kidney-failure).
 
-<span id="ref-20"></span>20. Petris G, Grazioli S, van Bijsterveldt L, Murat P, Liu KC, Birnbaum J, et al. High-fidelity human chromosome transfer and elimination. Science. 2025;390(6777):1038–1043. [doi:10.1126/science.adv9797](https://doi.org/10.1126/science.adv9797).
+<span id="ref-20"></span>20. Maurais EG, Mazzagatti A, Lin YF, Narozna M, Hu Q, Dahiya R, et al. Genome instability triggers intercellular DNA transfer between human cells. Cell. 2026;189(15):4548–4561.e14. [doi:10.1016/j.cell.2026.04.041](https://doi.org/10.1016/j.cell.2026.04.041).
 
-<span id="ref-21"></span>21. U.S. Food and Drug Administration. FDA approves first in class targeted therapy for metastatic pancreatic cancer [Internet]. Silver Spring (MD): FDA; 2026 Aug 26 [cited 2026 Oct 31]. Available from: [https://www.fda.gov/news-events/press-announcements/fda-approves-first-class-targeted-therapy-metastatic-pancreatic-cancer](https://www.fda.gov/news-events/press-announcements/fda-approves-first-class-targeted-therapy-metastatic-pancreatic-cancer).
+<span id="ref-21"></span>21. Petris G, Grazioli S, van Bijsterveldt L, Murat P, Liu KC, Birnbaum J, et al. High-fidelity human chromosome transfer and elimination. Science. 2025;390(6777):1038–1043. [doi:10.1126/science.adv9797](https://doi.org/10.1126/science.adv9797).
 
-<span id="ref-22"></span>22. The ASCO Post. Daraxonrasib nearly doubles survival in previously treated metastatic pancreatic cancer [Internet]. The ASCO Post; 2026 Jun 10 [cited 2026 Oct 31]. Available from: [https://ascopost.com/news/june-2026/daraxonrasib-nearly-doubles-survival-in-previously-treated-metastatic-pancreatic-cancer/](https://ascopost.com/news/june-2026/daraxonrasib-nearly-doubles-survival-in-previously-treated-metastatic-pancreatic-cancer/).
+<span id="ref-22"></span>22. U.S. Food and Drug Administration. FDA approves first in class targeted therapy for metastatic pancreatic cancer [Internet]. Silver Spring (MD): FDA; 2026 Aug 26 [cited 2026 Oct 31]. Available from: [https://www.fda.gov/news-events/press-announcements/fda-approves-first-class-targeted-therapy-metastatic-pancreatic-cancer](https://www.fda.gov/news-events/press-announcements/fda-approves-first-class-targeted-therapy-metastatic-pancreatic-cancer).
 
-<span id="ref-23"></span>23. U.S. Food and Drug Administration. Accelerated approval program [Internet]. Silver Spring (MD): FDA; content current as of 2026 Aug 25 [cited 2026 Oct 31]. Available from: [https://www.fda.gov/drugs/nda-and-bla-approvals/accelerated-approval-program](https://www.fda.gov/drugs/nda-and-bla-approvals/accelerated-approval-program).
+<span id="ref-23"></span>23. The ASCO Post. Daraxonrasib nearly doubles survival in previously treated metastatic pancreatic cancer [Internet]. The ASCO Post; 2026 Jun 10 [cited 2026 Oct 31]. Available from: [https://ascopost.com/news/june-2026/daraxonrasib-nearly-doubles-survival-in-previously-treated-metastatic-pancreatic-cancer/](https://ascopost.com/news/june-2026/daraxonrasib-nearly-doubles-survival-in-previously-treated-metastatic-pancreatic-cancer/).
+
+<span id="ref-24"></span>24. U.S. Food and Drug Administration. Accelerated approval program [Internet]. Silver Spring (MD): FDA; content current as of 2026 Aug 25 [cited 2026 Oct 31]. Available from: [https://www.fda.gov/drugs/nda-and-bla-approvals/accelerated-approval-program](https://www.fda.gov/drugs/nda-and-bla-approvals/accelerated-approval-program).

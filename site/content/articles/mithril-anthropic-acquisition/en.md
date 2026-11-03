@@ -6,15 +6,15 @@ On 27 October 2026, Anthropic announced that it had acquired Mithril Medicine, a
 
 Two documents are examined. The first is Anthropic's article published on 27 October 2026, which contains the acquisition announcement ([1](#ref-1)). The second is a technical report on Mithril Medicine's antibody work dated 26 October 2026. Each page of this report carries the label "Not peer reviewed", so it is not treated as a peer-reviewed paper ([2](#ref-2)). Both documents were produced by the acquiring party.
 
-Both documents were retrieved and checked on 31 October 2026. The article was read in full; for the report, the main text, figure legends, Methods and the limitations discussion were read. Facts are as of the same date. The report's numbers were checked against text extracted from the PDF and against figure legends. Individual values in the supplementary tables were not verified.
+The announcement was reread in full on 2 November 2026. The technical report could not be retrieved in the current verification environment, and no PDF or extracted text corresponding to the earlier reading notes was retained. Report-derived numbers, page references and experimental conditions below therefore remain provisional transcriptions from those notes, rather than results rechecked against the primary document in this audit. In particular, Table 2 effect sizes and confidence intervals, experimental group details and Claude workflow counts remain unverified against the original and should not be quoted as established values. Individual animal records and supplementary-table values have not been validated either.
 
 This article does not reanalyze any statistics. It performs only an arithmetic check (2/35) on the lower bound of the report's P value. Because there is no computational deliverable, no data and code availability section is provided. Transaction terms, and the timing and investor details that appear only in secondary news reports, could not be confirmed in the primary sources and are not used.
 
 ## What the sources state
 
-Table 1 lists the items that can be confirmed from the two documents.
+Table 1 lists the announcement claims and the report description retained in earlier reading notes.
 
-Table 1. Items confirmed from the acquisition announcement and the technical report.
+Table 1. Announcement claims and report description. Report-derived entries have not been reverified in this audit.
 
 | Item | What the sources state |
 | --- | --- |
@@ -30,9 +30,9 @@ Table 1. Items confirmed from the acquisition announcement and the technical rep
 
 The announcement states that the founder used Claude to organize contracts, logistics and experiments with 11 external laboratories, and delegated many other aspects of the company's operations to Claude. As a result, the possible treatment for one form of muscular dystrophy went from an idea to "promising results in mice" in less than 18 months ([1](#ref-1)).
 
-This interval has two features. First, its end point is a mouse result. The announcement expects that a drug could be ready to start clinical trials in humans as soon as the end of the 2020s, counted from the announcement, if the candidates continue to hold up ([1](#ref-1)). That is a conditional projection, separate from the 18 months. Second, the figure of 18 months appears only in the announcement. The report text contains no passage corresponding to 18 months, and its start point (the "idea") cannot be defined from it. The timeline of the pilot study in Figure 10C was not used to examine the interval ([2](#ref-2)).
+This interval has two features. First, its end point is a mouse result. The announcement expects that a drug could be ready to start clinical trials in humans as soon as late 2028, counted from the announcement, if the candidates continue to hold up ([1](#ref-1)). That is a conditional projection, separate from the 18 months. Second, the figure of 18 months appears only in the announcement. The earlier reading notes record no passage corresponding to 18 months in the report text, and its start point (the "idea") cannot be defined from it. The timeline of the pilot study in Figure 10C was not used to examine the interval ([2](#ref-2)).
 
-Near the end point, the report itself states the status of the experiments. They were exploratory and not conducted under Good Laboratory Practice. Unless stated otherwise, experiments were neither randomized nor blinded, group sizes were not set by a sample-size calculation, and no primary endpoint was prespecified ([2](#ref-2), PDF p. 25). Statements about an investigational new drug application (IND), toxicology studies or costs were not found in the report text.
+Near the end point, the report itself states the status of the experiments. They were exploratory and not conducted under Good Laboratory Practice. Unless stated otherwise, experiments were neither randomized nor blinded, group sizes were not set by a sample-size calculation, and no primary endpoint was prespecified ([2](#ref-2), PDF p. 25). The earlier notes record no statements about an investigational new drug application (IND), toxicology studies or costs; this absence could not be rechecked against the report.
 
 The molecules tested also need to be identified. The report states that the hypothesis was tested with two "tool molecules" built on published variable regions. It says that testing and optimizing novel constructs (individual molecular designs) requires screens far larger than the work with two tool molecules, and describes a panel of 113 constructs that was produced for that purpose ([2](#ref-2)). The result at the end of the 18 months therefore comes from tool molecules based on published sequences, which appears to precede selection among novel constructs (the author's reading).
 
@@ -87,13 +87,13 @@ These values are the report authors' description of their own work. The report i
 
 - Both sources were produced by the acquiring party. The report was drafted with the involvement of Claude. There is no third-party verification.
 - The report is not peer reviewed. The mouse experiment is a single pilot study, and no independent replication is reported.
-- This article does not reanalyze the mouse data. The report's numbers were checked against the PDF text and figure legends; individual supplementary-table values were not checked.
-- The 18 months was not compared with other programs. IND, toxicology and cost are not in the sources and are not discussed.
-- Facts are as of 31 October 2026; later updates to Anthropic's article or report, and any disclosure of transaction terms, are not reflected.
+- This article does not reanalyze the mouse data. Report-derived numbers remain provisional because the original PDF could not be rechecked; individual supplementary-table values were not validated.
+- The 18 months was not compared with other programs. No verified information on IND, toxicology or cost is used.
+- The announcement was checked on 2 November 2026; later updates to Anthropic's article or report, and any disclosure of transaction terms, are not reflected.
 
 ## Conclusion
 
-"Under 18 months from idea to promising mouse results" is the interval stated in Anthropic's announcement, and its end point is the result of a preliminary mouse study. The report text does not state this interval, and its start point cannot be defined from the report. Because the sources also contain no statements on an IND, toxicology studies or costs, the interval is not the time needed to prepare for clinical trials. The prospect of being ready to start trials in humans is a conditional projection: as soon as the end of the 2020s, counted from the announcement, if the candidates continue to hold up.
+"Under 18 months from idea to promising mouse results" is the interval stated in Anthropic's announcement, and its end point is the result of a preliminary mouse study. The report’s treatment of this interval, its start point, IND, toxicology and costs could not be rechecked against the original. The announcement itself places the end point before readiness for clinical trials. The prospect of being ready to start trials in humans is a conditional projection: as soon as late 2028, counted from the announcement, if the candidates continue to hold up.
 
 The mouse result remains a pilot showing a tendency toward higher force in the 2+2 group. P = 0.057 for the litter-level test is the smallest value attainable with seven litters, and the design lacked randomization and blinding. The report itself calls the result a proof of principle and asks for a concurrent, blinded replication. The report therefore supports neither the 18-month interval itself nor the size of the AI's contribution directly. What it supports is the scope of the preliminary mouse study and the one-week description of the work. The latter includes both the five errors Claude found itself and errors that reached an external party even after human editing.
 

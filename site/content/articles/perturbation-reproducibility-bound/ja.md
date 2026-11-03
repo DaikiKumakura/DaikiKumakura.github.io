@@ -8,7 +8,7 @@
 
 公開データから得られる相関が小さくても、それだけで「応答は背景で大きく変わる」と解釈することはできない。同じ細胞株で繰り返した実験の再現性と、測定誤差の影響を先に区別する必要がある。
 
-以下の数値は、Nadigらの2024年プレプリント本文から確認した。2025年の正式出版版は今回の確認では取得できず、版間の差は照合していない。Nadigらは、K562・RPE1・HepG2・Jurkatの必須遺伝子のPerturb-seqを使い、同じ問いをすでに調べていた。([2](#ref-2)) まず、K562で別々に行われた2つのスクリーン（ゲノム全体を対象にしたものと、必須遺伝子を対象にしたもの）の間で、同じノックダウンのlog fold changeの相関を比べている。点推定どうしの相関の中央値は、わずか0.16だった。ところが、推定誤差をモデル化した手法（TRADE）で真の効果どうしの相関を推定すると、中央値は0.90になった。
+以下の数値は、2026年11月2日にNadigらの2025年掲載論文の公開著者原稿と照合した。独立スクリーン間の相関、対象摂動数、細胞株間の6組の相関は、先に確認した2024年プレプリントと一致する。出版社の組版版ではなく、同じDOIに対応するPMCの著者原稿を確認した。Nadigらは、K562・RPE1・HepG2・Jurkatの必須遺伝子のPerturb-seqを使い、同じ問いをすでに調べていた。([2](#ref-2)) まず、K562で別々に行われた2つのスクリーン（ゲノム全体を対象にしたものと、必須遺伝子を対象にしたもの）の間で、同じノックダウンのlog fold changeの相関を比べている。点推定どうしの相関の中央値は、わずか0.16だった。ところが、推定誤差をモデル化した手法（TRADE）で真の効果どうしの相関を推定すると、中央値は0.90になった。
 
 つまり、同じ細胞株の同じノックダウンでも、生の相関は低く出る。一細胞あたりの読み取りは少なく、多くの遺伝子の変化は推定誤差に埋もれる。互いに無関係な誤差は、相関を0の方向へ引き下げる。生の相関の小ささを、そのまま生物学的な違いと読むことはできない。
 
@@ -47,6 +47,6 @@
 ## 参照 {#article-references}
 
 1. <span id="ref-1"></span>Arc Institute. The 2026 Virtual Cell Challenge. 2026 Aug 20. [Challenge announcement](https://arcinstitute.org/news/virtual-cell-challenge-2026).
-2. <span id="ref-2"></span>Nadig A, Replogle JM, Pogson AN, McCarroll SA, Weissman JS, Robinson EB, et al. Transcriptome-wide characterization of genetic perturbations [Preprint]. bioRxiv; 2024. Version 1, posted 2024 Jul 3; not peer reviewed. [doi:10.1101/2024.07.03.601903](https://doi.org/10.1101/2024.07.03.601903). [Full text and Figure 4 checked](https://pmc.ncbi.nlm.nih.gov/articles/PMC11244993/). A later journal version exists: [doi:10.1038/s41588-025-02169-3](https://doi.org/10.1038/s41588-025-02169-3); its full text was not checked in this audit.
+2. <span id="ref-2"></span>Nadig A, Replogle JM, Pogson AN, Murthy M, McCarroll SA, Weissman JS, et al. Transcriptome-wide analysis of differential expression in perturbation atlases. Nature Genetics. 2025;57(5):1228–1237. [doi:10.1038/s41588-025-02169-3](https://doi.org/10.1038/s41588-025-02169-3). [Published-study author manuscript and Figure 4](https://pmc.ncbi.nlm.nih.gov/articles/PMC13063516/#F4). [Earlier 2024 preprint](https://doi.org/10.1101/2024.07.03.601903).
 3. <span id="ref-3"></span>Viñas Torné R, Wiatrak M, Piran Z, Fan S, Jiang L, Teichmann SA, et al. Systema: a framework for evaluating genetic perturbation response prediction beyond systematic variation. Nature Biotechnology. 2026;44(6):1050–1059. [doi:10.1038/s41587-025-02777-8](https://doi.org/10.1038/s41587-025-02777-8).
 4. <span id="ref-4"></span>Miller HE, Mejia GM, Leblanc FJA, Swain B, Wang B, de Lima Camillo LP. Deep learning perturbation models can outperform baselines on calibrated metrics. Nature Biotechnology. 2026 Oct 1. Published online. [doi:10.1038/s41587-026-03307-w](https://doi.org/10.1038/s41587-026-03307-w).
