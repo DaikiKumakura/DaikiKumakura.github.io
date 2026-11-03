@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "category": "essay",
+  "math": false,
+  "author": "Daiki Kumakura",
+  "version": "1.0",
+  "locales": {
+    "ja": {
+      "title": "EMBERの改善幅はベースラインと分割のばらつきの中でどれだけか。補足表から読む",
+      "summary": "EMBERの補足表の平均と標準偏差から、改善幅を比較対象と分割間のばらつきに位置付けた。細胞株をまたぐ設定ではAUPRCで0.03〜0.06、同じ細胞株の未知の摂動では0.006〜0.017で、遺伝的相互作用の値の回帰は比較対象と同程度だった。",
+      "seo_description": "遺伝子基盤モデルEMBERのプレプリントの補足表S5・S6の平均と標準偏差から、最良の外部ベースラインとの差と分割間のばらつきに対する大きさを再計算した。",
+      "seo_title": "EMBERの改善幅を補足表で読む"
+    },
+    "en": {
+      "title": "How large are EMBER's gains against baselines and split-to-split variability? Reading the supplementary tables",
+      "summary": "From the means and standard deviations in EMBER's supplementary tables, the gains were placed against the baselines and split variability: 0.03-0.06 AUPRC when crossing cell lines, 0.006-0.017 for unseen perturbations in a cell line, and no difference in regression of genetic-interaction values.",
+      "seo_description": "Differences from the best external baseline and their size against split-to-split variability were recomputed from the means and standard deviations in Supplementary Tables S5 and S6 of the EMBER gene foundation model preprint.",
+      "seo_title": "EMBER gains in the supplementary tables"
+    }
+  },
+  "date": "2026-12-12",
+  "publish_at": "2026-12-12T18:00:00+09:00",
+  "draft": false,
+  "reviewed": {
+    "en": "90babb1497a48e525ae3f22aa864e1e8134e55d41f4538815cb72ea3d46b82b4"
+  }
+}
