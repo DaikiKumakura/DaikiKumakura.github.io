@@ -1,3 +1,5 @@
+A flat dose (also called a fixed dose) is the same dose given to every patient regardless of body weight; a weight-based dose scales with body weight (mg/kg). For antibodies, the two differ mainly at the ends of the weight distribution.
+
 ## Definition
 
 - **Weight-based dosing:** the dose is proportional to body weight, for example 2 mg/kg.

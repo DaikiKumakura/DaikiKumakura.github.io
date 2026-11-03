@@ -11,8 +11,8 @@
     "en": {
       "title": "Fixed (flat) dosing versus weight-based dosing",
       "summary": "Fixed dosing gives every patient the same dose; weight-based dosing scales it by body weight (mg/kg). For antibodies the difference matters mainly at the ends of the weight distribution.",
-      "seo_title": "Fixed (flat) dosing versus weight-based dosing",
-      "seo_description": "What fixed (flat) and weight-based dosing mean for monoclonal antibodies, and why exposure differs at extreme body weights (pembrolizumab, nivolumab).",
+      "seo_title": "Flat dose (fixed dose) vs weight-based dosing: meaning",
+      "seo_description": "What a flat (fixed) dose and a weight-based dose mean for monoclonal antibodies, and why exposure differs at extreme body weights (pembrolizumab, nivolumab).",
       "faq": [
         {
           "q": "Is there a body-weight threshold above which flat dosing stops working?",
