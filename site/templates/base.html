@@ -2,6 +2,7 @@
 <html lang="{{ lang }}">
 <head>
   <meta charset="utf-8">
+  {% if not preview and site.get('analytics_measurement_id') %}<script defer src="{{ root }}assets/analytics.js" data-measurement-id="{{ site.analytics_measurement_id }}"></script>{% endif %}
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="description" content="{{ description }}">
   <meta name="msvalidate.01" content="A42DD6F42D7C8A9C0421BB6EB7F4D09E">
@@ -21,6 +22,12 @@
 <body>
 <a class="skip" href="#main">{{ ui.skip }}</a>
 <div class="shell">
+{% if not preview and site.get('analytics_measurement_id') %}
+<section id="analytics-notice" class="analytics-notice" aria-label="{% if lang == 'ja' %}アクセス解析の設定{% else %}Analytics preferences{% endif %}" hidden>
+<p>{% if lang == 'ja' %}閲覧状況の把握にGoogle Analyticsを使用します。解析用Cookieを許可しますか？{% else %}I use Google Analytics to understand site visits. Allow optional analytics cookies?{% endif %} <a href="{{ root }}privacy.html">{% if lang == 'ja' %}プライバシー{% else %}Privacy{% endif %}</a></p>
+<div class="analytics-actions"><button type="button" id="analytics-allow">{% if lang == 'ja' %}許可{% else %}Allow{% endif %}</button><button type="button" id="analytics-decline">{% if lang == 'ja' %}拒否{% else %}Decline{% endif %}</button></div>
+</section>
+{% endif %}
 {% if preview %}<p class="notice">{{ ui.preview }}</p>{% endif %}
 <header>
   <div class="top"><a class="brand" href="{{ root }}index.html">{{ site.name }}</a>
@@ -31,7 +38,7 @@
 <main id="main" tabindex="-1">
 {% block content %}{% endblock %}
 </main>
-<footer><span>© {{ site.name }}{% if about_page %} · <a href="{{ root }}{{ about_page }}">About these analyses</a>{% endif %}</span><span><a href="{{ site.github }}" rel="me">GitHub</a> · <a href="{{ site.qiita }}" rel="me">Qiita</a> · <a href="{{ site.docker }}" rel="me">Docker</a> · <a href="{{ site.linkedin }}" rel="me">LinkedIn</a> · <a href="{{ site.orcid }}" rel="me">ORCID</a> · <a href="{{ site.scholar }}" rel="me">Google Scholar</a></span></footer>
+<footer><span>© {{ site.name }}{% if about_page %} · <a href="{{ root }}{{ about_page }}">About these analyses</a>{% endif %} · <a href="{{ root }}privacy.html">Privacy</a>{% if not preview and site.get('analytics_measurement_id') %} · <button type="button" id="analytics-settings" class="text-button">{% if lang == 'ja' %}アクセス解析の設定{% else %}Analytics settings{% endif %}</button>{% endif %}</span><span><a href="{{ site.github }}" rel="me">GitHub</a> · <a href="{{ site.qiita }}" rel="me">Qiita</a> · <a href="{{ site.docker }}" rel="me">Docker</a> · <a href="{{ site.linkedin }}" rel="me">LinkedIn</a> · <a href="{{ site.orcid }}" rel="me">ORCID</a> · <a href="{{ site.scholar }}" rel="me">Google Scholar</a></span></footer>
 </div>
 </body>
 </html>

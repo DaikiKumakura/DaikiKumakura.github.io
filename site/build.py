@@ -58,6 +58,8 @@ def safe_relative(name):
     return p
 
 def validate_site(site):
+    if site.get('analytics_measurement_id') and not re.fullmatch(r'G-[A-Z0-9]+', site['analytics_measurement_id']):
+        raise ValueError('Invalid Analytics measurement ID')
     for key in ('name','profile','expertise'):
         if not isinstance(site.get(key),str) or not site[key]:raise ValueError('Missing text: '+key)
     for collection in ('software','publications','activities'):
@@ -420,7 +422,8 @@ def build(project=BASE, preview=False, strict_translations=False):
     groups=[dict(heading=REFERENCE_HEADINGS[kind],items=[dict(en=e['meta']['locales']['en'],ja=e['meta']['locales']['ja'],en_href=reference_file(e,'en'),ja_href=reference_file(e,'ja')) for e in reference if e['kind']==kind]) for kind in REFERENCE_KINDS]
     groups=[g for g in groups if g['items']]
     output('reference.html',env.get_template('reference-index.html').render(site=site,lang='en',ui=ui,preview=preview,active='writing',root='',alternatives={},title='Tools and reference',description='Interactive tools, a glossary of pharmacometrics terms and catalogs that accompany the analyses by Daiki Kumakura, in Japanese and English.',math=False,groups=groups))
-    canonical_pages=['index.html']+[key+'.html' for key in NAV if key!='home']+['writing-ja.html']+[name for name in outputs if name.startswith(('writing/','topics/','software/','about/','tools/','glossary/','catalog/','reference.html')) and name.endswith('.html')]
+    output('privacy.html',env.get_template('privacy.html').render(site=site,lang='en',ui=ui,preview=preview,active='',root='',alternatives={},title='Privacy and analytics',description='Optional Google Analytics, cookies and privacy choices on the Daiki Kumakura website.',math=False))
+    canonical_pages=['index.html','privacy.html']+[key+'.html' for key in NAV if key!='home']+['writing-ja.html']+[name for name in outputs if name.startswith(('writing/','topics/','software/','about/','tools/','glossary/','catalog/','reference.html')) and name.endswith('.html')]
     if not preview:
         redirects=dict(LEGACY_REDIRECTS)
         redirects.update({path:'writing.html' for path in site.get('legacy_topic_paths',[])})
