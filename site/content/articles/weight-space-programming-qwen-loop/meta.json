@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "category": "essay",
+  "math": true,
+  "author": "Daiki Kumakura",
+  "version": "1.0",
+  "locales": {
+    "ja": {
+      "title": "LLMによる0.016%の重みの編集でMATH-500が7.9%から48.1%になった報告は何を数えた値か。公開ログで読む",
+      "summary": "LLMによる0.016%の重みの編集でMATH-500が7.9%から48.1%になった報告を、公開ログで読み直した。差は500問の中で明確だが、基準は93%が長さ上限で打ち切られるモデルで、10回・25回・50回の予算は別々の編集の実行だった。",
+      "seo_description": "Weight-Space Programmingのブログ（Qwen3.5-0.8Bの0.016%の重みの編集でMATH-500が約6倍）を、公開ログのMATH-500の問題ごとの採点から、区間、打ち切りの割合、予算ごとの編集の違い、他のベンチマークとの関係で読み直した。",
+      "seo_title": "0.016%の重みの編集の報告を読む"
+    },
+    "en": {
+      "title": "What does the reported rise in MATH-500 from 7.9% to 48.1% after an LLM edited 0.016% of the weights count? Reading it from the public logs",
+      "summary": "A reported rise in MATH-500 from 7.9% to 48.1% after an LLM edited 0.016% of a model's weights was reread from the public logs. The difference is clear within 500 problems, but the baseline has 93% of samples cut at the length limit and the three budgets are separate runs with different edits.",
+      "seo_description": "The Weight-Space Programming blog's claim (about 6x on MATH-500 from 0.016% of Qwen3.5-0.8B's weights) was reread from the public per-problem scores: intervals, share of cut-off outputs, the different edits behind each budget, and the relation to other benchmarks.",
+      "seo_title": "Reading a 0.016% weight-edit report"
+    }
+  },
+  "date": "2026-12-19",
+  "publish_at": "2026-12-19T09:00:00+09:00",
+  "draft": false,
+  "reviewed": {
+    "en": "544990362ed0880236eda3e815dcd8a2edf50cf7dfc3ae5272887d15f6b64e69"
+  }
+}

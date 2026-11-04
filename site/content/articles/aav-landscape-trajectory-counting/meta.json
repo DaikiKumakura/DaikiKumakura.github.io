@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "category": "essay",
+  "math": true,
+  "author": "Daiki Kumakura",
+  "version": "1.0",
+  "locales": {
+    "ja": {
+      "title": "数千の標本から数十億の機能的な経路と言えるのはなぜか。適応度地形の論文の数を数える単位と分母で読む",
+      "summary": "AAVカプシドの適応度地形のプレプリントが報告する「数十億の経路」「最大667段」などの数を、数える単位と分母で読み直した。数十億は15個の種の並べ方871億通りの約6%にあたる回路の数で、生存を保った経路の割合は分母により27%か46%になった。",
+      "seo_description": "AAVカプシドの適応度地形のプレプリント（bioRxiv 2026.10.18.759989）の数十億の経路、最大667段、経路の発見率、除外規則の的中率を、印刷された数から数える単位と分母で計算し直した。",
+      "seo_title": "適応度地形の数を単位と分母で読む"
+    },
+    "en": {
+      "title": "Why can a sample of a few thousand support \"billions of functional trajectories\"? Reading a fitness-landscape preprint by its counting units and denominators",
+      "summary": "The counts reported in an AAV capsid fitness-landscape preprint (billions of trajectories, up to 667 steps and so on) were reread by counting unit and denominator. Billions is about 6% of the 87 billion orderings of 15 seeds, and the proportion of paths that stayed viable is 27% or 46% depending on the denominator.",
+      "seo_description": "The billions of trajectories, maximum 667 steps, path discovery rate and exclusion-rule predictive values of an AAV capsid fitness-landscape preprint (bioRxiv 2026.10.18.759989) were recomputed from the printed numbers by counting unit and denominator.",
+      "seo_title": "Reading landscape counts by unit and denominator"
+    }
+  },
+  "date": "2026-12-19",
+  "publish_at": "2026-12-19T13:00:00+09:00",
+  "draft": false,
+  "reviewed": {
+    "en": "5ba189e6baae17aab9c0cd26964ac707b92d581ca5d1cf68f581f0e50038ae6c"
+  }
+}

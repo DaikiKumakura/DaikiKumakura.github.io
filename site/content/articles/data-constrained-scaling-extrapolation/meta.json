@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "category": "essay",
+  "math": true,
+  "author": "Daiki Kumakura",
+  "version": "1.0",
+  "locales": {
+    "ja": {
+      "title": "データ制約下のスケーリング則を5兆トークンまで外挿すると何が決まるか。Q Labsの「7,000倍」を適合範囲と損失の平坦さで読む",
+      "summary": "Q Labsの「5兆トークン・10の29乗FLOPsで約7,000倍」を、プレプリントの式と定数から再現して読み直した。適合範囲の内側は再現でき、外挿先の処方は領域の置き方で約1,600倍から約13,000倍まで動き、損失の差は0.014 nats以内だった。",
+      "seo_description": "データ制約下のスケーリング則（arXiv:2610.37842）の印刷された定数から式を再構成し、適合範囲の内側での処方の再現と、5兆トークン・10の29乗FLOPsへの外挿の決まり方、損失の平坦さ、指数への感度を計算した。",
+      "seo_title": "Q Labsの7,000倍を外挿として読む"
+    },
+    "en": {
+      "title": "What does extrapolating a data-constrained scaling law to 5 trillion tokens decide? Reading Q Labs' \"7,000x\" against the fitted range and the flatness of the loss",
+      "summary": "Q Labs' \"about 7,000x at 5 trillion tokens and 10^29 FLOPs\" was reread by rebuilding the equation from the preprint's printed constants. Prescriptions inside the fitted range are reproduced; at the extrapolated point they move from about 1,600x to about 13,000x depending on the domain, with loss differing by at most 0.014 nats.",
+      "seo_description": "The data-constrained scaling law of arXiv:2610.37842 was rebuilt from its printed constants to check reproduction inside the fitted range, how the 5-trillion-token, 10^29 FLOPs prescription is determined, the flatness of the loss and sensitivity to the exponents.",
+      "seo_title": "Reading Q Labs' 7,000x as an extrapolation"
+    }
+  },
+  "date": "2026-12-17",
+  "publish_at": "2026-12-17T13:00:00+09:00",
+  "draft": false,
+  "reviewed": {
+    "en": "23a10612f15c3f7f0f393e0d1c96e140943d7aa876a0aa76154d35a87a859254"
+  }
+}

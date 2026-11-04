@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "category": "essay",
+  "math": false,
+  "author": "Daiki Kumakura",
+  "version": "1.0",
+  "locales": {
+    "ja": {
+      "title": "Latent Sparse Attentionの「22.7倍と72.4倍」は何と何を比べた速度か。層単位の速度と基準の違いを論文の数値で読む",
+      "summary": "LSAの「22.7倍と72.4倍」は、別のモデルの別の基準に対する、1,000万トークンでの1つの注意層の速度だった。サーバーでのモデル全体の速度向上は小さく、Qwenの疎な注意の対照と比べると1.15〜6.8倍の範囲だった。",
+      "seo_description": "Latent Sparse Attention（arXiv:2610.42147）の22.7倍と72.4倍を、モデル、基準、計測の単位、モデル全体の速度向上、インデクサの上限、精度の標本の大きさで、論文の数値から読み直した。",
+      "seo_title": "LSAの22.7倍と72.4倍を読む"
+    },
+    "en": {
+      "title": "What do the \"22.7x and 72.4x\" speedups of Latent Sparse Attention compare? Reading per-layer speed and baselines from the paper's numbers",
+      "summary": "The 22.7x and 72.4x of LSA are speeds of one attention layer at 10 million tokens for different models against different baselines. Whole-model speedups on a server are smaller, and relative to the sparse control for Qwen they range from 1.15x to 6.8x.",
+      "seo_description": "The 22.7x and 72.4x of Latent Sparse Attention (arXiv:2610.42147) were reread from the paper's numbers by model, baseline, unit of measurement, whole-model speedup, the indexer ceiling and the sample sizes behind the accuracy claims.",
+      "seo_title": "Reading LSA's 22.7x and 72.4x"
+    }
+  },
+  "date": "2026-12-20",
+  "publish_at": "2026-12-20T18:00:00+09:00",
+  "draft": false,
+  "reviewed": {
+    "en": "cef1905c47260094acea9e5d2b377929e0590466a008729e4bce1536302cf25a"
+  }
+}
