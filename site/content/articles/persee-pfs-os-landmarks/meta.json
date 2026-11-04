@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "category": "essay",
+  "math": true,
+  "author": "Daiki Kumakura",
+  "version": "1.0",
+  "locales": {
+    "ja": {
+      "title": "PD-L1高発現の肺がんでpembrolizumabに化学療法を足したPFSの差は全生存期間にどこまで残るか。PERSEE試験の公表数値を時点別の生存率で読む",
+      "summary": "PERSEE試験（pembrolizumab±化学療法、PD-L1 50%以上）の公表数値を時点別の生存率で読み直した。PFSの生存率の差は12〜36か月で約20ポイント、OSの差は確定せず、グレード3以上の治療関連有害事象の割合は34.5ポイント高かった。",
+      "seo_description": "PERSEE試験（Ann Oncol 2026）のPFS、OS、奏効率、毒性の公表数値を、中央値とハザード比の違い、ランドマークでの絶対差、OSの近似のp値の観点から計算し直した。",
+      "seo_title": "PERSEE試験の数値をランドマークで読む"
+    },
+    "en": {
+      "title": "How much of the PFS difference from adding chemotherapy to pembrolizumab in PD-L1-high lung cancer remains in overall survival? Reading the published PERSEE numbers by survival at fixed times",
+      "summary": "The published numbers of PERSEE (pembrolizumab with or without chemotherapy, PD-L1 of 50% or higher) were reread by survival at fixed times. The PFS rate difference is about 20 points at 12 to 36 months, the OS difference is not established, and grade 3 or higher treatment-related AEs are 34.5 points higher.",
+      "seo_description": "The published PFS, OS, response and toxicity numbers of PERSEE (Ann Oncol 2026) were recomputed: medians versus hazard ratio, absolute differences at landmarks and an approximate p value for OS.",
+      "seo_title": "Reading PERSEE numbers by landmark"
+    }
+  },
+  "date": "2026-12-19",
+  "publish_at": "2026-12-19T18:00:00+09:00",
+  "draft": false,
+  "reviewed": {
+    "en": "e1dda1acbe4f21f296235f00c0f5799b03742a5c2cb7f42b172c6cf26fd77256"
+  }
+}

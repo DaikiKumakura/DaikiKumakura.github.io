@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "category": "essay",
+  "math": false,
+  "author": "Daiki Kumakura",
+  "version": "1.0",
+  "locales": {
+    "ja": {
+      "title": "奏効率の差とPFSの差が一致しない2つのランダム化試験。OptiTROP-Lung06とMIROVAの公表数値で奏効率を読む",
+      "summary": "OptiTROP-Lung06（奏効率50.2%対47.3%でPFSのハザード比0.49）とMIROVA（奏効率66.2%対32.8%でPFSのハザード比1.0）の公表数値を、割合の区間、分母、観察期間で読み直した。奏効率とPFSの食い違いの例で、頻度や代替指標としての妥当性は示さない。",
+      "seo_description": "OptiTROP-Lung06（NEJM 2026）とMIROVA（ESMO婦人科2026）の奏効率とPFSの公表数値を、差の区間、分母の違い、奏効期間、観察期間で計算し直し、奏効率の読み方を整理した。",
+      "seo_title": "奏効率とPFSの2つの食い違い"
+    },
+    "en": {
+      "title": "Two randomized trials in which the difference in response rate and the difference in PFS do not match: reading response rates from the published numbers of OptiTROP-Lung06 and MIROVA",
+      "summary": "The published numbers of OptiTROP-Lung06 (ORR 50.2% vs 47.3%, PFS HR 0.49) and MIROVA (ORR 66.2% vs 32.8%, PFS HR 1.0) were reread by intervals, denominators and follow-up. They are cases of mismatch, not evidence of frequency or surrogate validity.",
+      "seo_description": "Response rates and PFS of OptiTROP-Lung06 (NEJM 2026) and MIROVA (ESMO Gynaecological 2026) were recomputed by intervals for differences, denominators, duration of response and follow-up to organize how to read a response rate.",
+      "seo_title": "Two mismatches between ORR and PFS"
+    }
+  },
+  "date": "2026-12-20",
+  "publish_at": "2026-12-20T09:00:00+09:00",
+  "draft": false,
+  "reviewed": {
+    "en": "0a1344d6ba7103f2d656c9e0943f0b7d1f0d992a107ebe29963f2a98c13c9146"
+  }
+}
