@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "category": "essay",
+  "math": true,
+  "author": "Daiki Kumakura",
+  "version": "1.0",
+  "locales": {
+    "ja": {
+      "title": "イボネスチマブの用量と投与間隔の比較に公開集計データはどこまで使えるか",
+      "summary": "公開された用量群の集計値から、イボネスチマブのPK・PD-1占有率・VEGF変化・レジメン別の奏効と毒性を再解析した。等しい用量強度の20 mg/kg Q2Wと30 mg/kg Q3Wで最高濃度は約1.34倍、最低濃度は0.58–0.78倍と予測できたが、占有率の飽和と少数例の用量反応のため、用量と間隔の最適化は公開データから決められなかった。",
+      "seo_description": "イボネスチマブ（AK112、PD-1×VEGF二重特異性抗体）の公開集計データで、線形PKモデルの校正、20 mg/kg Q2Wと30 mg/kg Q3Wの定常状態曝露、PD-1占有率の飽和、奏効率と毒性のBeta-二項解析、識別できない点を整理した。",
+      "seo_title": "イボネスチマブの用量と間隔を公開データで比較"
+    },
+    "en": {
+      "title": "How far can public aggregate data support a comparison of ivonescimab dose and dosing interval?",
+      "summary": "Public group-level data on ivonescimab PK, PD-1 occupancy, VEGF change and regimen-level response and toxicity were reanalysed. For equal dose intensity, 20 mg/kg Q2W versus 30 mg/kg Q3W was predicted to differ by about 1.34-fold in peak and 0.58-0.78-fold in trough, but occupancy saturation and small-sample dose-response meant that dose and interval optimisation could not be decided from public data.",
+      "seo_description": "Using public aggregate data for ivonescimab (AK112, a PD-1 x VEGF bispecific antibody): calibration of a linear PK model, steady-state exposure of 20 mg/kg Q2W versus 30 mg/kg Q3W, PD-1 occupancy saturation, Beta-Binomial analysis of response and toxicity, and what is not identifiable.",
+      "seo_title": "Comparing ivonescimab dose and interval with public data"
+    }
+  },
+  "date": "2026-12-21",
+  "publish_at": "2026-12-21T09:00:00+09:00",
+  "draft": false,
+  "reviewed": {
+    "en": "5228525377d2f38655fd4425584f6061baed67aa0e39d033f304a05e0b5763cc"
+  }
+}

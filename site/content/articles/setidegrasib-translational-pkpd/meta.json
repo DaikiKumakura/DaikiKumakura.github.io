@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "category": "essay",
+  "math": true,
+  "author": "Daiki Kumakura",
+  "version": "1.0",
+  "locales": {
+    "ja": {
+      "title": "Setidegrasibの投与間隔を決めるのは血漿半減期か腫瘍内滞留か。マウスのPK/PDデータの分解モデルで決まることと決まらないこと",
+      "summary": "血漿濃度が下がった後もKRAS G12Dの分解が続く理由を、腫瘍内の滞留でも標的の再合成の遅さでも同程度に説明できた。投与間隔の順位はこの構造の選択に支配され、マウスの公開データだけでは同定できなかった。",
+      "seo_description": "Setidegrasib（ASP3082）のマウスPK/PDの公開データから、腫瘍内滞留とKRAS再合成を含む分解モデルを構築し、未学習の用量と別の腫瘍モデルでの予測、QW・BIW・Q2Wの順位の構造依存、ヒト外挿シナリオを計算した。",
+      "seo_title": "Setidegrasibの投与間隔を決める要因"
+    },
+    "en": {
+      "title": "Is setidegrasib's dosing interval set by plasma half-life or intratumoral retention? What a mouse PK/PD degradation model can and cannot decide",
+      "summary": "Continued KRAS G12D degradation after plasma concentration falls was explained equally well by intratumoral retention or slow target resynthesis. The ranking of dosing intervals was dominated by this structural choice and could not be identified from public mouse data alone.",
+      "seo_description": "From public mouse PK/PD data for setidegrasib (ASP3082), a degradation model with intratumoral retention and KRAS resynthesis was built and used to predict untrained doses and other tumor models, to test how the QW, BIW and Q2W ranking depends on structure, and to run human extrapolation scenarios.",
+      "seo_title": "What sets setidegrasib's dosing interval"
+    }
+  },
+  "date": "2026-12-21",
+  "publish_at": "2026-12-21T18:00:00+09:00",
+  "draft": false,
+  "reviewed": {
+    "en": "133eac6687acdee8e1b8a6c4801275b1f5758827dd123fe3cedd4f25e2ed7d71"
+  }
+}
