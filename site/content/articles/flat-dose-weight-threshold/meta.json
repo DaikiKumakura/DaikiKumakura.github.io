@@ -1,0 +1,37 @@
+{
+  "source_language": "ja",
+  "category": "essay",
+  "math": true,
+  "author": "Daiki Kumakura",
+  "version": "1.0",
+  "locales": {
+    "ja": {
+      "title": "フラット用量に体重の閾値はあるか。9種類の抗体で公表されたクリアランスの体重指数から計算した",
+      "summary": "公表された母集団PKモデルのクリアランスの体重指数から、曝露が基準の±20%に収まる体重帯を抗体ごとに計算した。フラット用量の上限側は96–141 kgで、指数の標準誤差だけでも幅を持った。曝露の差は効果の差ではなく、用量は推奨しない。",
+      "seo_description": "pembrolizumabなど9種類の抗体で、クリアランスの体重指数からフラット用量とmg/kg用量の曝露が基準から外れる体重を計算し、指数の不確実性、b = 0.5での分散の交差、体重分布への感度、トラフとの違いを示した。",
+      "seo_title": "フラット用量に体重の閾値はあるか",
+      "key_findings": [
+        "曝露が基準の±20%に収まる体重帯は、フラット用量で下限側40–62 kg、上限側96–141 kgだった。限界は指数・基準体重・用量の対応づけで決まり、原資料の体重範囲の端では外挿を含みうる。",
+        "AUC（または平均濃度）の対数の分散は体重だけに由来する分でb = 0.5で両方式が等しく、点推定がこれを下回ったのは4種類だが、標準誤差だけでb < 0.5の確率が0.99以上だったのはavelumabとdurvalumabだけだった。",
+        "閾値は曝露比の定義であり、臨床上のカットオフでも用量の推奨でもない。曝露の差は効果の差ではない。"
+      ]
+    },
+    "en": {
+      "title": "Is there a body-weight threshold for flat dosing? Computed from published clearance weight exponents of nine antibodies",
+      "summary": "From the clearance weight exponents of published population PK models, the weight band in which exposure stays within 20% of the reference was computed for nine antibodies. The heavy-side limit of flat dosing was 96 to 141 kg and was uncertain even from the exponent's standard error alone. A difference in exposure is not a difference in efficacy; no dose is recommended.",
+      "seo_description": "For nine antibodies including pembrolizumab, weights at which flat and mg/kg exposure leave a reference band were computed from clearance weight exponents, with exponent uncertainty, the b = 0.5 variance crossover, weight-distribution sensitivity and the trough difference.",
+      "seo_title": "Is there a body-weight threshold for flat dosing?",
+      "key_findings": [
+        "The weight band in which exposure stays within 20% of the reference was 40 to 62 kg (light side) and 96 to 141 kg (heavy side) for flat dosing. The limits depend on the exponent, the reference weight and the dose matching, and may be extrapolated at the ends of the source weight ranges.",
+        "The variance of log AUC (or average concentration) due to weight alone is equal for flat and mg/kg dosing at b = 0.5; the point estimate was below it for four antibodies, but the probability from the standard error alone was at least 0.99 only for avelumab and durvalumab.",
+        "A threshold is a definition of an exposure ratio, not a clinical cut-off or a dose recommendation. A difference in exposure is not a difference in efficacy."
+      ]
+    }
+  },
+  "date": "2026-12-22",
+  "publish_at": "2026-12-22T18:00:00+09:00",
+  "draft": false,
+  "reviewed": {
+    "en": "37c59725aafeea037ca123a77c38809bbca3d1efc88e1d6f125a606cf33c29fb"
+  }
+}
