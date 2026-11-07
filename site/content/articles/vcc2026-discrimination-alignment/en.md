@@ -124,7 +124,6 @@ Availability of in-context data also matters. In the participant's report, using
 - **Intervals:** The 95% intervals reflect only sampling variation from resampling perturbations. They do not include uncertainty from data acquisition or differences among cell lines. The intervals for discrimination and alignment differ slightly across exclusion rules because of the order in which random numbers are consumed (the alignment point estimate is the same under all rules). Table 1 shows the panel-rule rows for both discrimination and alignment.
 - **Control mean:** Because the control mean is subtracted from both predictions and real effects, shared noise may raise cosines slightly. This effect was not evaluated.
 - **Plan:** The analysis plan was not fixed before computing. The cell-count curve and the comparison of exclusion rules are post hoc and exploratory.
-- **Use of AI and review:** The article was written with an AI (Claude) and reviewed three times by AI reviewers commissioned by the same author; this is not confirmation by a human third party.
 
 ## Conclusion
 

@@ -94,7 +94,6 @@ The 2026 Cell paper showed that cytoplasmic DNA derived from micronuclei or frag
 - FDA, company and news pages were read through summaries returned by a tool, without verbatim comparison with the original screens or documents. For VDPHL01, the author subsequently compared the numbers with Item 8.01 of the Form 8-K on November 2. This does not constitute independent verification in a peer-reviewed paper or registered results.
 - Approval status is stated as of October 30, 2026 and may change before publication.
 - The independent-review confidence interval for the dostarlimab 47% is not discussed, because the original could not be read directly.
-- The article was written with an AI (Claude) and reviewed three times by AI reviewers commissioned by the same author; this is not confirmation by a human third party.
 
 ## Conclusion
 

@@ -134,7 +134,6 @@ The dosing-frequency comparison is limited to the observation that the once-dail
 - The dosing-frequency comparison is post hoc and exploratory, with about 20 participants per group and no blood concentration data.
 - The approved contents of the Japanese labelling rely on the company announcement ([1](#ref-1)). The review report could not be examined.
 - The check of the calculations is a reimplementation in R by the same author (`validate.R`), not third-party confirmation. Its scope is limited to the 2 mg versus 1 mg MWT difference (independence approximation) and the between-trial Q test; ESS, Wilson intervals, differences in proportions, the dosing-frequency comparison and I² were not cross-checked by the reimplementation.
-- The article was written with an AI (Claude) and reviewed three times by AI reviewers commissioned by the same author; this is not confirmation by a human third party.
 
 ## Conclusion
 

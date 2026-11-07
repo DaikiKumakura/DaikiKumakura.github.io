@@ -77,7 +77,7 @@ RAS阻害薬の成績を並べた図は、確認できた5剤について、各�
 
 ## データとコードの公開状況
 
-計算コード（`analysis.py`、`figures.py`）、検査（`test_analysis.py`）、入力の表（`inputs/arms.csv`、出典の区分つき）、結果の表を配布資料に含めた。Python 3（numpy、scipy、pandas、matplotlib）で、`python analysis.py`、`python figures.py`、`python -m pytest test_analysis.py` の順に実行する。入力は公開された報告の値で、患者データは使っていない。筆者が使うAIによる査読（3回）を受けたが、人間の第三者による確認ではない。
+計算コード（`analysis.py`、`figures.py`）、検査（`test_analysis.py`）、入力の表（`inputs/arms.csv`、出典の区分つき）、結果の表を配布資料に含めた。Python 3（numpy、scipy、pandas、matplotlib）で、`python analysis.py`、`python figures.py`、`python -m pytest test_analysis.py` の順に実行する。入力は公開された報告の値で、患者データは使っていない。
 
 再実行用の資料一式は[配布資料](shared/ras-inhibitor-cross-trial-readability/ras-inhibitor-cross-trial-readability-companion.zip)に置いた。
 

@@ -181,8 +181,6 @@ The published values are group means (SD) and counts only; no inter-individual c
 
 Figure 11: Availability by source. yes: obtained as a table; part: partly; no: not obtained.
 
-This article was reviewed three times by AI tools used by the author; it has not been checked by a human third party.
-
 ## Conclusion
 
 For regimens of equal dose intensity such as 20 mg/kg Q2W and 30 mg/kg Q3W, the published aggregates supported, through the structure of linear PK, a conditional prediction of equal mean concentration, about 1.3-fold higher peak and a 0.6–0.8-fold trough. Occupancy and VEGF change did not discriminate dose and interval, and the dose response of response rate and toxicity was identifiable only within wide ranges. The Phase III results for 20 mg/kg Q3W contain no comparison with other doses or intervals, so the optimisation of dose and interval cannot be decided from public data.

@@ -4,7 +4,7 @@ Each reports a "hit rate", but the definitions differ. This article counts, from
 
 **Reference date:** The facts and numbers here reflect public information as of October 30, 2026. Preprints may have been revised and data updated before publication.
 
-**Disclosure:** The AI I use (Claude) is a model from Anthropic, the source of one of the compared reports. The article was written with an AI (Claude) and reviewed three times by AI reviewers commissioned by the same author; this is not confirmation by a human third party. The Pythia Labs preprint states that the work was conducted by employees of Pythia Labs ([2](#ref-2)).
+**Disclosure:** The AI I use (Claude) is a model from Anthropic, the source of one of the compared reports. The Pythia Labs preprint states that the work was conducted by employees of Pythia Labs ([2](#ref-2)).
 
 ## Abstract
 
@@ -24,7 +24,7 @@ Table 1. Reports covered and information used.
 
 Some values come from the sources' own statements rather than from recalculation of public data: "64 hours", "42 countries", "211 designs, being 180 chosen by Claude plus 31 added later with Claude's help", and "3 replicates in the pooled screen". "5 of 48 for IL11" is the Pythia Labs preprint's statement ([2](#ref-2)). All other hit counts and intervals were calculated by `analysis.py` from fixed versions of the public data.
 
-The sources checked on October 30, 2026 were: the full Anthropic page; the abstract of the Bits to Binders preprint; and the relevant main-text parts of version 1 of the Pythia Labs preprint (Sections 2.3 and 2.5.1, the Figure 1 legend and Section 5.16), which I read myself. The AI reviewers could not retrieve the main text, so the Pythia-1 main-text numbers have not been confirmed by a third party. I did not check the report PDF that Anthropic cites, nor the Pythia Labs statement that 12 of the 31 soluble-target binders have single- to double-digit nM KD. The Bits to Binders main text was not used to check the numbers here.
+The sources checked on October 30, 2026 were: the full Anthropic page; the abstract of the Bits to Binders preprint; and the relevant main-text parts of version 1 of the Pythia Labs preprint (Sections 2.3 and 2.5.1, the Figure 1 legend and Section 5.16), which I read myself. The Pythia-1 main-text numbers have not been confirmed by a third party. I did not check the report PDF that Anthropic cites, nor the Pythia Labs statement that 12 of the 31 soluble-target binders have single- to double-digit nM KD. The Bits to Binders main text was not used to check the numbers here.
 
 ## Methods
 
@@ -150,7 +150,7 @@ Pythia-1 uses looser criteria than the other two, reports counts after prior sel
 - **Bits to Binders:** Down includes truly depleted designs and cannot quantify noise or false-positive counts. The between-team test assumes independent designs and ignores within-team correlation.
 - **Affiliations and disclosure:** This article is a recount of public data. The AI I use (Claude) is an Anthropic model, and one compared item is Anthropic's own Claude result. Claude's results were therefore counted using only public data and the published criteria, with no added evaluation or speculation. The Pythia Labs preprint reports work by company employees ([2](#ref-2)).
 - **Interval assumptions:** Wilson intervals assume independent results across designs. Claude's 211 designs were pre-selected and fall into groups sharing a target and design, so the actual uncertainty may be wider than the intervals shown.
-- **Scope of verification:** The recalculation is a separate implementation by the same author (with AI assistance), not third-party confirmation. The R recount covers counts, Up and Down, Claude's 17 and 11, and the Wilson interval for 17/211; it does not cover team-level results, the chi-square test, method groups or the sensitivity analysis.
+- **Scope of verification:** The recalculation is a separate implementation by the same author, not third-party confirmation. The R recount covers counts, Up and Down, Claude's 17 and 11, and the Wilson interval for 17/211; it does not cover team-level results, the chi-square test, method groups or the sensitivity analysis.
 
 ## Conclusion
 

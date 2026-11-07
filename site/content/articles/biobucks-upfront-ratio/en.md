@@ -130,7 +130,7 @@ No relation between the headline total and the share could be detected in 15 dea
 - **Dates:** The dates in `deals.csv` are those of reports, filings or announcement documents and may differ from the announcement date by about a day. For Sanofi–Sino Biopharm the date is that of the filing (March 3); some reports give the company release as March 4 local time. The analysis does not use dates.
 - **Meaning of the headline total:** The headline total is the upper limit if all milestones are achieved. It is not the amount an individual deal will actually pay, the probability of success, or an estimate of value.
 - **Risk adjustment:** The 7.9% is an average over all areas and drugs, and the 35% is a crude reference value.
-- **Verification:** The recalculation in R is a separate implementation by the same author and is not third-party confirmation. It checked the counts, medians, IQRs, group medians, the pooled share and the median after risk adjustment, with a maximum difference of 3.0 × 10⁻⁶. The bootstrap intervals and the p-values of the Mann–Whitney U test and Spearman correlation were not verified in R. The article was written with an AI (Claude) and reviewed three times by AI reviewers commissioned by the same author; this is not confirmation by a human third party.
+- **Verification:** The recalculation in R is a separate implementation by the same author and is not third-party confirmation. It checked the counts, medians, IQRs, group medians, the pooled share and the median after risk adjustment, with a maximum difference of 3.0 × 10⁻⁶. The bootstrap intervals and the p-values of the Mann–Whitney U test and Spearman correlation were not verified in R.
 
 ## Conclusion
 

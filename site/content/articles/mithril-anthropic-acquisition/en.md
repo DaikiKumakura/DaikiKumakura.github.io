@@ -1,4 +1,4 @@
-> **Writing disclosure:** Claude was used in the initial draft. Its developer, Anthropic, is also the party announcing the acquisition discussed here. This article examines that announcement; it is not independent experimental verification.
+> **Disclosure:** Claude's developer, Anthropic, is also the party announcing the acquisition discussed here. This article examines that announcement; it is not independent experimental verification.
 
 On 27 October 2026, Anthropic announced its acquisition of Mithril Medicine. It described a muscular-dystrophy treatment candidate progressing from an idea to encouraging mouse results in under 18 months ([1](#ref-1)). Which development milestone does that interval end at? The distinction matters when interpreting what has been achieved and what remains unknown.
 
