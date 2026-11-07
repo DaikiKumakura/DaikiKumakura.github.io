@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "math": true,
+  "author": "Daiki Kumakura",
+  "version": "1.0",
+  "locales": {
+    "ja": {
+      "title": "摂動の当てものを一つの識別力で結ぶ：top-10・倍率・識別スコアの換算とExPert公開値への当てはめ",
+      "summary": "摂動の retrieval 指標を、等分散ガウスの M 択強制選択モデルの一つの識別力 d′ で換算できるかを、ExPert の公開された recall@k に当てはめて探索的に調べた。問い合わせごとの違い、候補数、倍率の定義、棄権が読み方に与える影響を示す。",
+      "seo_description": "top-k recall・MRR・識別スコア・倍率を d′ と候補数で換算し、ExPert の公開値へ当てはめた探索的な解析。",
+      "seo_title": "摂動 retrieval 指標を一つの識別力で結ぶ"
+    },
+    "en": {
+      "title": "Putting perturbation-retrieval metrics on one discriminability scale: top-k, fold over chance and discrimination scores applied to ExPert's released values",
+      "summary": "An exploratory check of whether perturbation-retrieval metrics convert through one discriminability d′ in an equal-variance Gaussian M-alternative forced-choice model, fitted to ExPert's released recall@k. It shows how query heterogeneity, candidate count, fold definitions and abstention change how reported numbers read.",
+      "seo_description": "Converting top-k recall, MRR, discrimination scores and fold over chance through d′ and candidate count, applied to ExPert's released values.",
+      "seo_title": "Perturbation retrieval metrics on one scale"
+    }
+  },
+  "date": "2026-12-14",
+  "publish_at": "2026-12-14T09:00:00+09:00",
+  "draft": false,
+  "reviewed": {
+    "en": "1a82df6c2693bf8f12d5c14b86058faa72e36109fdbc7b9e3e5b0d07cb114ccb"
+  }
+}
