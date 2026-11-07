@@ -1,7 +1,7 @@
 {
   "source_language": "ja",
   "category": "note",
-  "date": "2026-11-15",
+  "date": "2026-11-14",
   "draft": false,
   "math": false,
   "version": "1.0",
@@ -18,7 +18,7 @@
       "seo_title": "Atomwell affinity scores and conditional noise ceilings"
     }
   },
-  "publish_at": "2026-11-15T09:00:00+09:00",
+  "publish_at": "2026-11-14T09:00:00+09:00",
   "english": {
     "title": "Reading an affinity-prediction R² of 0.43 against the measurement-noise ceiling",
     "summary": "ChEMBL cross-document IC50 differences yield conditional R² ceiling scenarios, with duplicate handling, assay heterogeneity and calibration limitations."

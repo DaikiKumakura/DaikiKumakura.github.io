@@ -18,8 +18,8 @@
       "seo_description": "When can RNA-seq counts sharing an Ensembl ID be summed? Examples separate molecule overlap, gene and transcript levels, and UMI versus Smart-seq2 input."
     }
   },
-  "date": "2026-12-12",
-  "publish_at": "2026-12-12T09:00:00+09:00",
+  "date": "2026-12-03",
+  "publish_at": "2026-12-03T18:00:00+09:00",
   "draft": false,
   "reviewed": {
     "en": "b1f4025577157944bf802f1a011d44837daeefd1214737c19eb851826c45cf52"

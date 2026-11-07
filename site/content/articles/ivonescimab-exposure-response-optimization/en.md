@@ -215,4 +215,4 @@ The full re-run materials are in the [companion archive](shared/ivonescimab-expo
 
 ## Cite this article
 
-Kumakura D. How far can public aggregate data support a comparison of ivonescimab dose and dosing interval? [Internet]. DaikiKumakura.github.io; 2026 Dec 21 [English version]. Available from: https://daikikumakura.github.io/writing/ivonescimab-exposure-response-optimization-en.html (Japanese version: https://daikikumakura.github.io/writing/ivonescimab-exposure-response-optimization.html)
+Kumakura D. How far can public aggregate data support a comparison of ivonescimab dose and dosing interval? [Internet]. DaikiKumakura.github.io; 2026 Dec 12 [English version]. Available from: https://daikikumakura.github.io/writing/ivonescimab-exposure-response-optimization-en.html (Japanese version: https://daikikumakura.github.io/writing/ivonescimab-exposure-response-optimization.html)

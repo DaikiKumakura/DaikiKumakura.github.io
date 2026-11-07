@@ -215,4 +215,4 @@ Q5（20 mg/kg Q3W）：支持されるのは、この用量の谷濃度でも占
 
 ## この記事の引用
 
-Kumakura D. How far can public aggregate data support a comparison of ivonescimab dose and dosing interval? [Internet]. DaikiKumakura.github.io; 2026 Dec 21 [Japanese version]. Available from: https://daikikumakura.github.io/writing/ivonescimab-exposure-response-optimization.html (English version: https://daikikumakura.github.io/writing/ivonescimab-exposure-response-optimization-en.html)
+Kumakura D. How far can public aggregate data support a comparison of ivonescimab dose and dosing interval? [Internet]. DaikiKumakura.github.io; 2026 Dec 12 [Japanese version]. Available from: https://daikikumakura.github.io/writing/ivonescimab-exposure-response-optimization.html (English version: https://daikikumakura.github.io/writing/ivonescimab-exposure-response-optimization-en.html)
