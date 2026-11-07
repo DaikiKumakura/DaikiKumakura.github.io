@@ -1,0 +1,37 @@
+{
+  "source_language": "ja",
+  "category": "essay",
+  "math": true,
+  "author": "Daiki Kumakura",
+  "version": "1.0",
+  "locales": {
+    "ja": {
+      "title": "Kumakura-Lite: 機能分業型の微生物増殖モデルを2状態へ縮約する条件と実測データでの予測力",
+      "summary": "バッチ培養では代謝物と基質の式が菌体密度に比例するため、時計を取り替えると2状態が閉じる。厳密縮約・準定常近似・弱フィードバック近似の成立条件と誤差を検証し、16菌株の希釈系列で新しい資源応答則Lite-Mを既存の増殖則と比べた。補間では優位だったが外挿では確認できなかった。",
+      "seo_description": "機能分業型の微生物増殖モデルの縮約条件と誤差を検証し、16菌株の希釈系列でMonod・Hill型と予測を比べた。",
+      "seo_title": "機能分業型の微生物増殖モデルの縮約と予測力",
+      "key_findings": [
+        "バッチ培養では、時計をdτ=N dtに取ると基質と代謝物の2状態がNから独立に閉じる。代謝物の分解がなく収率が等しい場合の厳密縮約Lite-Sは、3状態解との差が積分の許容誤差（Nの相対誤差3.9×10⁻¹¹）まで下がった。",
+        "準定常近似の時間尺度比はNに依存しない。誤差は準定常曲線上から始めた場合にのみ一次補正で改善し、M(0)=0では初期境界層が残った。原著の数値例のパラメータはM(0)=0の開始でどの縮約の条件にも入らず、Nの誤差は44–66%だった。",
+        "16菌株の希釈系列で、飽和取り込みと機能配分の積であるLite-Mは、未使用濃度の補間でMonodより小さい誤差を示した（比0.70と0.77、第1の分割では全16菌株）。この改善は配分の因子と非増殖機能の基質消費の組合せと整合し、外挿では優位を確認できなかった。縮約モデルはMonodを上回らなかった。"
+      ]
+    },
+    "en": {
+      "title": "Kumakura-Lite: when the functional-specialization growth model reduces to two states, and what the reduced and reformulated models predict on measured growth curves",
+      "summary": "In batch culture the substrate and metabolite equations are proportional to cell density, so a change of clock closes a two-state system. Conditions and errors of the exact, quasi-steady-state and weak-feedback reductions were checked, and the new resource-response law Lite-M was compared with existing growth laws on 16 dilution series. It was better in interpolation but not confirmed in extrapolation.",
+      "seo_description": "Reduction conditions and errors of a functional-specialization growth model, and prediction against Monod and Hill laws on 16 dilution series.",
+      "seo_title": "Reducing a functional-specialization growth model",
+      "key_findings": [
+        "In batch culture, with the clock dτ = N dt the substrate and metabolite form a closed two-state system independent of N. The exact reduction Lite-S, for no metabolite degradation and equal yields, differed from the three-state solution only by the integrator tolerance (relative error of N, 3.9×10⁻¹¹).",
+        "The time-scale ratio of the quasi-steady-state approximation does not depend on N. The first-order correction improved the error only when starting on the quasi-steady curve, and an initial boundary layer remained for M(0) = 0. For the start M(0) = 0, the parameters of the original numerical example fall under none of the reductions, with 44–66% error in N.",
+        "On 16 dilution series, Lite-M (a product of saturating uptake and functional allocation) had a smaller error than Monod in interpolation to unused concentrations (ratio 0.70 and 0.77; all 16 strains in the first split). The gain is consistent with the allocation factor combined with continued substrate consumption, and no advantage was confirmed in extrapolation. The reduced models did not exceed Monod."
+      ]
+    }
+  },
+  "date": "2026-12-23",
+  "publish_at": "2026-12-23T18:00:00+09:00",
+  "draft": false,
+  "reviewed": {
+    "en": "208b4bf950c0264338daa4fea9f3e5751a2f55944041ccc734d939427d0ffd5e"
+  }
+}
