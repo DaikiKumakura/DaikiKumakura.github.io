@@ -162,7 +162,6 @@ For evaluation design, under the Gaussian model the required d′ grows only slo
 - **Unread sources:** I read the first half of the RNA fingerprinting paper ([4](#ref-4)) and the first half of PerturBench ([3](#ref-3)). I did not read the second halves. Forward-prediction literature such as Systema is not cited because its full text was not read.
 - **Data:** ExPert's released data are figure summaries, not a recomputation from raw data. ExPert is a preprint and has not been peer reviewed. The authors' competing interests are as stated in the paper (one author is affiliated with NVIDIA, and another is a consultant to several companies).
 - **Exploratory analysis:** the mixture fits, the held-out-k check and the screen-level effective d′ were added after seeing results.
-- **Use of AI and review:** the article was written with an AI (Claude) and reviewed three times by AI reviewers commissioned by the same author; this is not confirmation by a human third party.
 
 ## Conclusion
 
