@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "math": true,
+  "author": "Daiki Kumakura",
+  "version": "1.0",
+  "locales": {
+    "ja": {
+      "title": "細胞の家系図を読む生成AI。Lineage inpaintingで発生を追う",
+      "summary": "Lineage inpaintingが追加する細胞系譜の情報を、同じ発現分布を持つ人工例で説明する。観測された木、推定された祖先、摂動応答の仮説を区別して読む。",
+      "seo_title": "Lineage inpaintingと細胞系譜の生成モデル",
+      "seo_description": "Lineage inpaintingが使う系譜情報を人工例から説明し、観測された木と推定祖先、摂動応答の仮説を区別する。"
+    },
+    "en": {
+      "title": "Lineage inpainting: a generative model that reads cellular family trees",
+      "summary": "An artificial probability example explains what lineage context adds to expression distributions, separating observed trees, inferred ancestors and perturbation hypotheses.",
+      "seo_title": "Lineage inpainting and cellular family trees",
+      "seo_description": "An artificial probability example explains lineage context in lineage inpainting, separating observed trees, inferred ancestors and intervention hypotheses."
+    }
+  },
+  "date": "2026-12-23",
+  "publish_at": "2026-12-23T13:00:00+09:00",
+  "draft": false,
+  "reviewed": {
+    "en": "eb07595cc9ec2b6f089998f62265f1f46c9f8a0a0647f7d19f195af187e10019"
+  }
+}

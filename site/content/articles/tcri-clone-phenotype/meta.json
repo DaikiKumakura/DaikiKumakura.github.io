@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "math": true,
+  "author": "Daiki Kumakura",
+  "version": "1.0",
+  "locales": {
+    "ja": {
+      "title": "免疫療法に応答する患者のT細胞は多様なのか。TCRとRNAを情報量でつなぐ",
+      "summary": "TCRiの同時分布という考え方から、T細胞クローンの多様性と転写状態の依存を分ける。人工的な100細胞の例で情報量を計算し、患者の治療応答との関連を読む。",
+      "seo_title": "TCRiと免疫療法応答を読む情報理論",
+      "seo_description": "TCRiを入口にT細胞の多様性とクローン・状態の依存を分ける。100細胞の人工例で情報量を計算する。"
+    },
+    "en": {
+      "title": "Do patients who respond to immunotherapy have more diverse T cells? Connecting TCR and RNA with information theory",
+      "summary": "A 100-cell artificial example separates T cell diversity from clone–state dependence and helps interpret TCRi's association with patient immunotherapy response.",
+      "seo_title": "TCRi, information theory and immunotherapy response",
+      "seo_description": "A 100-cell artificial example separates T cell diversity from clone–state dependence when interpreting TCRi and patient immunotherapy response."
+    }
+  },
+  "date": "2026-12-24",
+  "publish_at": "2026-12-24T09:00:00+09:00",
+  "draft": false,
+  "reviewed": {
+    "en": "b9223109ce8b264c1d2c2515a136421f08e005cb591b2d8a67405175b015852c"
+  }
+}

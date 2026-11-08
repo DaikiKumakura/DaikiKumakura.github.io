@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "math": true,
+  "author": "Daiki Kumakura",
+  "version": "1.0",
+  "locales": {
+    "ja": {
+      "title": "AlphaFold 3はRNAの形をどこまで当てられるか",
+      "summary": "AlphaFold 3のRNA予測を形と相対配置に分け、未知RNAへの信頼度の読み方を考える。文献の確認範囲を明示し、人工例で候補構成と採用精度の関係を示す。",
+      "seo_title": "AlphaFold 3のRNA予測と信頼度",
+      "seo_description": "AlphaFold 3のRNA予測を形と相対配置に分けて読む。人工例で未知候補の割合と採用精度の関係を示す。"
+    },
+    "en": {
+      "title": "How reliably does AlphaFold 3 predict RNA structure?",
+      "summary": "Separate RNA folding from relative placement in AlphaFold 3 predictions. An explicitly artificial example shows how target composition changes selection precision.",
+      "seo_title": "AlphaFold 3 RNA prediction and confidence",
+      "seo_description": "Separate RNA folding from relative placement in AlphaFold 3. An artificial example shows how novel-target composition changes selection precision."
+    }
+  },
+  "date": "2026-12-15",
+  "publish_at": "2026-12-15T18:00:00+09:00",
+  "draft": false,
+  "reviewed": {
+    "en": "594e121f7ee057579118ae812129776a76d2bcf91bb86bc504e6a20a7d034d61"
+  }
+}

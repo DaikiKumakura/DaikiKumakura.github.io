@@ -1,0 +1,21 @@
+{
+  "AF3_threshold_illustration": {
+    "selected": [
+      {
+        "group": "familiar",
+        "selected": 100,
+        "acceptable": 90,
+        "precision": 0.9
+      },
+      {
+        "group": "novel",
+        "selected": 100,
+        "acceptable": 50,
+        "precision": 0.5
+      }
+    ],
+    "pooled_precision": 0.7,
+    "illustrative_novel_fraction": 0.8,
+    "target_precision": 0.5800000000000001
+  }
+}

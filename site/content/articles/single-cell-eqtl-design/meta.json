@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "math": true,
+  "author": "Daiki Kumakura",
+  "version": "1.0",
+  "locales": {
+    "ja": {
+      "title": "単一細胞eQTLは細胞数を増やせば強くなるのか",
+      "summary": "単一細胞eQTLにおける細胞数とドナー数の違いを、分散既知の人工モデルで計算する。SAIGE-QTLの原著を入口に、繰り返し観測と研究設計を分けて考える。",
+      "seo_title": "単一細胞eQTLの細胞数とドナー数",
+      "seo_description": "単一細胞eQTLの細胞数とドナー数の違いを人工的な分散計算で示し、SAIGE-QTLと研究設計の問いを分ける。"
+    },
+    "en": {
+      "title": "Does increasing cell count strengthen single-cell eQTL analysis?",
+      "summary": "A known-variance artificial model distinguishes more cells from more donors in single-cell eQTL study design, motivated by the SAIGE-QTL paper.",
+      "seo_title": "Cell counts and donor counts in single-cell eQTL",
+      "seo_description": "A known-variance artificial model explains cells versus donors in single-cell eQTL design, motivated by SAIGE-QTL rather than a software benchmark."
+    }
+  },
+  "date": "2026-12-24",
+  "publish_at": "2026-12-24T13:00:00+09:00",
+  "draft": false,
+  "reviewed": {
+    "en": "83074f7e68174907890bc6b4ad4b1bcfd5734e98f2636c793b753870174a60ee"
+  }
+}

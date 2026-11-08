@@ -1,0 +1,38 @@
+{
+  "TCR": {
+    "independent": {
+      "n_cells": 100,
+      "counts": [
+        [
+          25,
+          25
+        ],
+        [
+          25,
+          25
+        ]
+      ],
+      "H_clone_bits": 1.0,
+      "H_state_bits": 1.0,
+      "MI_bits": 0.0,
+      "H_state_given_clone_bits": 1.0
+    },
+    "associated": {
+      "n_cells": 100,
+      "counts": [
+        [
+          50,
+          0
+        ],
+        [
+          0,
+          50
+        ]
+      ],
+      "H_clone_bits": 1.0,
+      "H_state_bits": 1.0,
+      "MI_bits": 1.0,
+      "H_state_given_clone_bits": 0.0
+    }
+  }
+}

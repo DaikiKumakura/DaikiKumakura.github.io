@@ -1,0 +1,24 @@
+{
+  "protein_turnover": [
+    {
+      "half_lives_elapsed": 0,
+      "production_fraction": 0.1,
+      "P_over_P0": 1.0
+    },
+    {
+      "half_lives_elapsed": 1,
+      "production_fraction": 0.1,
+      "P_over_P0": 0.55
+    },
+    {
+      "half_lives_elapsed": 3,
+      "production_fraction": 0.1,
+      "P_over_P0": 0.21250000000000002
+    },
+    {
+      "half_lives_elapsed": 5,
+      "production_fraction": 0.1,
+      "P_over_P0": 0.12812500000000002
+    }
+  ]
+}

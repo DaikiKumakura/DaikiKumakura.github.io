@@ -1,0 +1,28 @@
+{
+  "donor_design": [
+    {
+      "n_donors": 50,
+      "cells_per_donor": 20,
+      "total_cells": 1000,
+      "tau2": 1.0,
+      "sigma2": 4.0,
+      "se_beta": 0.15491933384829668
+    },
+    {
+      "n_donors": 50,
+      "cells_per_donor": 100,
+      "total_cells": 5000,
+      "tau2": 1.0,
+      "sigma2": 4.0,
+      "se_beta": 0.14422205101855956
+    },
+    {
+      "n_donors": 100,
+      "cells_per_donor": 20,
+      "total_cells": 2000,
+      "tau2": 1.0,
+      "sigma2": 4.0,
+      "se_beta": 0.10954451150103323
+    }
+  ]
+}

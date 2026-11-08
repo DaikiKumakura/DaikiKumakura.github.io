@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "math": true,
+  "author": "Daiki Kumakura",
+  "version": "1.0",
+  "locales": {
+    "ja": {
+      "title": "AIは薬の飲み合わせリスクをどこまで予測できるか",
+      "summary": "CYP阻害予測から薬物相互作用の評価までに必要な曝露と代謝経路を整理する。OpenADMETの公開結果と人工的なAUC比計算を使い、pIC50と阻害定数の違いも説明する。",
+      "seo_title": "AIのCYP阻害予測と薬物相互作用",
+      "seo_description": "CYP阻害予測から臨床の薬物相互作用までに必要な情報を、OpenADMETと人工的なAUC比計算から考える。"
+    },
+    "en": {
+      "title": "How far can AI predict drug–drug interaction risk?",
+      "summary": "Use the OpenADMET challenge and an artificial AUC-ratio calculation to distinguish CYP inhibition prediction from clinical drug-interaction assessment.",
+      "seo_title": "AI CYP inhibition prediction and drug interactions",
+      "seo_description": "Read OpenADMET CYP predictions alongside an artificial AUC-ratio model to distinguish enzyme inhibition from clinical drug-interaction risk."
+    }
+  },
+  "date": "2026-12-23",
+  "publish_at": "2026-12-23T09:00:00+09:00",
+  "draft": false,
+  "reviewed": {
+    "en": "8a34c388a8a103996ed27507ac7bf13c7c5c8d3003fe8c52fef57b0840e8cb4a"
+  }
+}

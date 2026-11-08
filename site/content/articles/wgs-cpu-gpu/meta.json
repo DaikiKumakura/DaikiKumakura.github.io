@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "math": true,
+  "author": "Daiki Kumakura",
+  "version": "1.0",
+  "locales": {
+    "ja": {
+      "title": "WGS解析にGPUは必要か。bwa-mem3とParabricksの比較を読む",
+      "summary": "bwa-mem3とParabricksの公開比較を読み、処理範囲、高速モードの出力、費用と変異精度を分ける。独立ベンチマークではなく、報告値の解釈と条件付きの費用計算である。",
+      "seo_title": "WGSのbwa-mem3とParabricks比較",
+      "seo_description": "bwa-mem3とParabricksの公開比較を処理範囲・出力・費用・変異精度に分けて読む。独立したWGSベンチマークではない。"
+    },
+    "en": {
+      "title": "Does WGS analysis need a GPU? Reading the bwa-mem3 and Parabricks comparison",
+      "summary": "Examine the public bwa-mem3 versus Parabricks comparison through processing scope, fast-mode output, cost and variant accuracy. This is not an independent WGS benchmark.",
+      "seo_title": "WGS: bwa-mem3 versus Parabricks",
+      "seo_description": "Examine bwa-mem3 versus Parabricks through workflow scope, output, cost and variant accuracy. This is not an independent WGS benchmark."
+    }
+  },
+  "date": "2026-12-25",
+  "publish_at": "2026-12-25T09:00:00+09:00",
+  "draft": false,
+  "reviewed": {
+    "en": "ac134fa99752f61ad28d69abdaa016c1831a8ab948ed613e3235c45dce684a15"
+  }
+}

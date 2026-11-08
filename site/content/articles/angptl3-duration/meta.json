@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "math": true,
+  "author": "Daiki Kumakura",
+  "version": "1.0",
+  "locales": {
+    "ja": {
+      "title": "1回の遺伝子編集はどれだけ長く効くのか。ANGPTL3の3年追跡を読む",
+      "summary": "ANGPTL3塩基編集研究の公開抄録を読み、非ヒト霊長類の3年にわたる標的タンパク質低下を解釈する。人工的な産生・分解モデルで投与成分と標的作用の時間を分ける。",
+      "seo_title": "ANGPTL3遺伝子編集の3年追跡と薬効持続",
+      "seo_description": "ANGPTL3塩基編集の公開抄録を読み、非ヒト霊長類の3年間の標的タンパク質低下を人工的な動態モデルで解釈する。"
+    },
+    "en": {
+      "title": "How long can a single gene-editing treatment act? Reading the three-year ANGPTL3 follow-up",
+      "summary": "Read the public ANGPTL3 base-editing abstract and distinguish three-year target-protein reduction in nonhuman primates from human clinical benefit using an artificial turnover model.",
+      "seo_title": "ANGPTL3 editing, three-year follow-up and duration",
+      "seo_description": "Read three-year ANGPTL3 protein reduction in nonhuman primates through an artificial turnover model, without projecting long-term human benefit."
+    }
+  },
+  "date": "2026-12-24",
+  "publish_at": "2026-12-24T18:00:00+09:00",
+  "draft": false,
+  "reviewed": {
+    "en": "bbd5738a0efc0e14f6c3b45bf96e2599ade813246b74b21ce431c33b431c36ae"
+  }
+}

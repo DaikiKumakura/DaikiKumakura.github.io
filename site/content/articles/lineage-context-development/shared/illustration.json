@@ -1,0 +1,36 @@
+{
+  "lineage": {
+    "same_marginals": true,
+    "P_Y1_given_X0_S0_model_A": 0.0,
+    "P_Y1_given_X0_S0_model_B": 1.0,
+    "definition": "X=0 always; S fair binary; A: Y=S; B: Y=1-S",
+    "joint_model_A": [
+      {
+        "X": 0,
+        "S": 0,
+        "Y": 0,
+        "probability": 0.5
+      },
+      {
+        "X": 0,
+        "S": 1,
+        "Y": 1,
+        "probability": 0.5
+      }
+    ],
+    "joint_model_B": [
+      {
+        "X": 0,
+        "S": 0,
+        "Y": 1,
+        "probability": 0.5
+      },
+      {
+        "X": 0,
+        "S": 1,
+        "Y": 0,
+        "probability": 0.5
+      }
+    ]
+  }
+}
