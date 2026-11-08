@@ -432,6 +432,13 @@ class BuildTests(unittest.TestCase):
   for name,links in (('index.html',('orcid','scholar','linkedin','github')),('profile.html',('orcid','scholar','linkedin','github')),('publication.html',('orcid','scholar'))):
    for key in links:self.assertIn('href="'+site[key]+'" rel="me"',body(name),(name,key))
 
+ def test_llms_full_text_has_reference_answers_and_articles(self):
+  self.publish_fixtures();self.add_term();build.build(self.root)
+  full=self.text('llms-full.txt')
+  self.assertIn('Sample term',full);self.assertIn('What is it?',full);self.assertIn('An example.',full)
+  self.assertIn('Plotting logistic growth in R (sample)',full);self.assertIn('llms-full.txt',self.text('llms.txt'))
+  build.build(self.root,preview=True);self.assertFalse((self.root/'dist/llms-full.txt').exists())
+
 if __name__=='__main__':unittest.main()
 
 

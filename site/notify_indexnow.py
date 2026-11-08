@@ -12,6 +12,8 @@ SITE_URL = f'https://{HOST}/'
 KEY = '97b1692a1baf4e05a1e1ef4f47021a95'
 KEY_URL = f'{SITE_URL}{KEY}.txt'
 SITEMAP_URL = f'{SITE_URL}sitemap.xml'
+# The package documentation sites are published under this host with their own sitemaps.
+EXTRA_SITEMAPS = tuple(f'{SITE_URL}{name}/sitemap.xml' for name in ('rsemflow', 'pkident', 'retiaudit'))
 ENDPOINT = 'https://api.indexnow.org/indexnow'
 
 
@@ -36,6 +38,12 @@ def main() -> None:
             if get(f'{KEY_URL}?attempt={attempt}').decode().strip() != KEY:
                 raise ValueError('Published IndexNow key does not match')
             urls = urls_from_sitemap(get(f'{SITEMAP_URL}?attempt={attempt}'))
+            for extra in EXTRA_SITEMAPS:
+                try:
+                    urls += urls_from_sitemap(get(extra))
+                except (OSError, ValueError, ET.ParseError):
+                    pass  # a documentation site that is not published must not stop the notification
+            urls = list(dict.fromkeys(urls))
             break
         except (OSError, ValueError, ET.ParseError) as error:
             last_error = error

@@ -30,6 +30,8 @@ WRITING_TITLE_JA = '記事一覧'
 WRITING_DESCRIPTION_JA = '熊倉大騎による、公開データの解析、技術メモ、チュートリアルの一覧（日本語）。母集団PK、PK/PD、用量選択、腫瘍動態などを扱う。各記事に英語版へのリンクがある。'
 WRITING_LEAD = {'en': 'This is the English list. Each article is also available in Japanese; the link under each entry opens the other language.',
                 'ja': 'これは日本語の一覧です。各記事の下のリンクから、英語版を開けます。'}
+# Crawlers of AI search and assistants, allowed by name so that the intent is explicit (all of them are also covered by *).
+AI_CRAWLERS = ('GPTBot', 'OAI-SearchBot', 'ChatGPT-User', 'ClaudeBot', 'Claude-SearchBot', 'Claude-User', 'PerplexityBot', 'Perplexity-User', 'Google-Extended', 'Applebot-Extended', 'Bingbot', 'BraveBot')
 RECENT_ON_HOME = 3
 FEED_SIZE = 50
 BASE = Path(__file__).resolve().parent
@@ -507,9 +509,10 @@ def build(project=BASE, preview=False, strict_translations=False):
     if not preview:
         outputs['feed.xml']=atom_feed(site,entries)
         for code in ('en','ja'):outputs[f'feed-{code}.xml']=atom_feed(site,entries,code)
-    outputs['robots.txt']=('User-agent: *\n'+('Disallow: /\n' if preview else 'Allow: /\nSitemap: '+SITE_URL+'sitemap.xml\nSitemap: '+SITE_URL+'feed.xml\nSitemap: '+SITE_URL+'feed-en.xml\nSitemap: '+SITE_URL+'feed-ja.xml\n'+''.join('Sitemap: '+SITE_URL+path+'\n' for path in EXTRA_SITEMAPS))).encode('utf-8')
+    outputs['robots.txt']=('User-agent: *\n'+('Disallow: /\n' if preview else 'Allow: /\n'+''.join('\nUser-agent: '+bot+'\nAllow: /\n' for bot in AI_CRAWLERS)+'\nSitemap: '+SITE_URL+'sitemap.xml\nSitemap: '+SITE_URL+'feed.xml\nSitemap: '+SITE_URL+'feed-en.xml\nSitemap: '+SITE_URL+'feed-ja.xml\n'+''.join('Sitemap: '+SITE_URL+path+'\n' for path in EXTRA_SITEMAPS))).encode('utf-8')
     if not preview:
         outputs['llms.txt']=llms_txt(site,entries,reference=reference)
+        outputs['llms-full.txt']=llms_full_txt(site,entries,reference)
     outputs['.nojekyll'] = b''
     # Only remove obsolete files that this builder previously generated.
     # Do not recursively delete directories or touch unrelated files.
@@ -532,6 +535,33 @@ def build(project=BASE, preview=False, strict_translations=False):
         target.write_bytes(data)
     manifest.write_text(json.dumps(sorted(outputs), indent=2), encoding='utf-8')
     return dict(files=len(outputs), articles=len(entries), warnings=warnings, seo_warnings=seo_warnings(entries, site['name'])+reference_warnings(reference))
+
+def llms_full_txt(site, entries, reference):
+    """Full text of the answer pages for language models (llmstxt.org "llms-full"): the English text of every
+    glossary term, tool, catalog and policy page with its questions and answers, and the summary and key findings
+    of every live article. Articles stay short here; each entry links to the full page."""
+    lines = ['# ' + site['name'] + ' (' + site['alternate_name'] + '): full text of the reference pages', '',
+             '> ' + site.get('bio', site['profile']), '',
+             'All analyses use public data or simulation only and are not clinical or regulatory work. Short index: ' + SITE_URL + 'llms.txt', '',
+             '# Reference pages', '']
+    for e in reference:
+        en = e['meta']['locales']['en']
+        body = (e['folder'] / 'en.md').read_text(encoding='utf-8').strip()
+        lines += [f"## {en['title']}", '', f"URL: {SITE_URL}{reference_file(e, 'en')} ({REFERENCE_LABELS[e['kind']]}; Japanese: {SITE_URL}{reference_file(e, 'ja')})", '', en['summary'], '', body, '']
+        faq = en.get('faq', [])
+        if faq:
+            lines += ['### Questions and answers', '']
+            for item in faq:
+                lines += [f"**{item['q']}**", '', item['a'], '']
+    lines += ['# Articles', '']
+    for a in entries:
+        m = a['meta']; loc = m['locales'].get('en') or m.get('english') or m['locales'][m['source_language']]
+        url = SITE_URL + 'writing/' + a['slug'] + ('-en' if 'en' in m['locales'] and m['source_language'] != 'en' else '') + '.html'
+        lines += [f"## {loc['title']}", '', f'URL: {url}', f"Date: {m['date']}", '', loc['summary'], '']
+        findings = loc.get('key_findings', [])
+        if findings:
+            lines += ['Key findings:', ''] + ['- ' + f for f in findings] + ['']
+    return ('\n'.join(lines) + '\n').encode('utf-8')
 
 def llms_txt(site, entries, reference=()):
     """Plain-text site guide (llmstxt.org format) for language models and agents.
@@ -558,6 +588,7 @@ def llms_txt(site, entries, reference=()):
         for e in reference:
             en = e['meta']['locales']['en']
             lines.append(f"- [{en['title']}]({SITE_URL}{reference_file(e, 'en')}) ({REFERENCE_LABELS[e['kind']]}; Japanese: {SITE_URL}{reference_file(e, 'ja')}): {en['summary']}")
+    lines += ['', '## Full text', '', f'- [llms-full.txt]({SITE_URL}llms-full.txt): the English text of every reference page with its questions and answers, and the summary and key findings of every article.']
     lines += ['', '## Writing', '']
     for a in entries:
         m = a['meta']; loc = m['locales'][m['source_language']]; english = m.get('english')
