@@ -12,7 +12,7 @@
       "title": "Fixed (flat) dosing versus weight-based dosing",
       "summary": "Fixed dosing gives every patient the same dose; weight-based dosing scales it by body weight (mg/kg). For antibodies the difference matters mainly at the ends of the weight distribution.",
       "seo_title": "Flat dose (fixed dose) vs weight-based dosing: meaning",
-      "seo_description": "Flat (fixed) dose vs weight-based dose for antibodies, and is there a weight threshold? No clinical threshold; simulated trough falls below the trial range at about 100-150 kg.",
+      "seo_description": "Flat vs weight-based dosing for antibodies: is there a weight threshold? No clinical one; simulated trough drops below the trial range at about 100–150 kg.",
       "faq": [
         {
           "q": "Is there a body-weight threshold above which flat dosing stops working?",
