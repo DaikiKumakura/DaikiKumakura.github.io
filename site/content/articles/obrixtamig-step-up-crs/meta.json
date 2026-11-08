@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "math": true,
+  "author": "Daiki Kumakura",
+  "version": "1.0",
+  "locales": {
+    "ja": {
+      "title": "少量から投与を始めるとCRSは減るか：Obrixtamigの投与レジメン別CRSを公開データで調べる",
+      "summary": "Obrixtamigの第1相の4レジメンについて、患者単位のCRSと、公開図から再構成した投与回別のCRSを調べた。初回投与が少量のB3で初回のCRSは低く見えたが、非同時のコホート間比較であり、開始用量の効果とは特定できない。",
+      "seo_description": "Obrixtamig第1相の4つの投与レジメンのCRSを、ベイズ推定と投与回別の再構成、条件付きPKの模式計算で整理した探索的な解析。",
+      "seo_title": "少量から始めるとCRSは減るか"
+    },
+    "en": {
+      "title": "Does starting at a low dose reduce CRS? Examining CRS by dosing regimen of obrixtamig with public data",
+      "summary": "For the four phase 1 regimens of obrixtamig, I examined patient-level CRS and per-administration CRS reconstructed from a published figure. CRS at the first administration looked lower with B3, which started at a lower dose, but this is a comparison between non-concurrent cohorts and cannot be attributed to the starting dose.",
+      "seo_description": "Exploratory analysis of CRS across the four phase 1 dosing regimens of obrixtamig using Bayesian estimation, per-administration reconstruction and a conditional PK schematic.",
+      "seo_title": "Does starting low reduce CRS?"
+    }
+  },
+  "date": "2026-12-15",
+  "publish_at": "2026-12-15T09:00:00+09:00",
+  "draft": false,
+  "reviewed": {
+    "en": "eb24cb6458b39e7cf2e33d405550b0ee68b10117eb7ef39850f9b93d9d8ee932"
+  }
+}

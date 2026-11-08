@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "math": true,
+  "author": "Daiki Kumakura",
+  "version": "1.0",
+  "locales": {
+    "ja": {
+      "title": "Tambotatug pelitecanは2.4 mg/kgへの増量が必要か：有効性・骨髄毒性・ILDを公開臨床データで比べる",
+      "summary": "第1相/1b相の補足表と2026年ESMOのILD統合解析から、2.0 mg/kgと2.4 mg/kgの曝露、奏効、毒性、ILDを比べた。癌種で標準化するとORRの上積みは確認できず、Grade 3以上のTRAEは2.4 mg/kgで高く、ILDは追跡期間と割付の不明点のため差を判断できない。",
+      "seo_description": "Tam-Peliの2.0と2.4 mg/kgについて、PK、癌種で標準化したORR・Grade 3以上TRAE、ILDの追跡期間とmCRPC割付への感度解析を公開データで行った探索的な解析。",
+      "seo_title": "Tam-Peliは2.4 mg/kgへの増量が必要か"
+    },
+    "en": {
+      "title": "Is escalation of tambotatug pelitecan to 2.4 mg/kg necessary? Comparing efficacy, myelosuppression and ILD with public clinical data",
+      "summary": "Using the supplementary tables of the phase 1/1b trial and the pooled ILD analysis from ESMO 2026, I compared exposure, response, toxicity and ILD at 2.0 and 2.4 mg/kg. After standardizing for tumor type, no ORR gain could be confirmed and Grade 3 or higher TRAE was higher at 2.4 mg/kg; ILD cannot be judged because of follow-up and allocation uncertainty.",
+      "seo_description": "Exploratory analysis of tambotatug pelitecan 2.0 versus 2.4 mg/kg: PK, tumor-type-standardized ORR and Grade 3 or higher TRAE, and ILD sensitivity to follow-up and mCRPC allocation, from public data.",
+      "seo_title": "Tam-Peli: is 2.4 mg/kg necessary?"
+    }
+  },
+  "date": "2026-12-15",
+  "publish_at": "2026-12-15T13:00:00+09:00",
+  "draft": false,
+  "reviewed": {
+    "en": "3222b0910d372e844d0bc6d9659b715031ac368a1450b930138f027b647dc6b0"
+  }
+}

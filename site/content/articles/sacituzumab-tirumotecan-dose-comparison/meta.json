@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "math": true,
+  "author": "Daiki Kumakura",
+  "version": "1.0",
+  "locales": {
+    "ja": {
+      "title": "Sacituzumab tirumotecanを4 mg/kgから5 mg/kgに増やす価値はあるか：公開データで効果と毒性を比べる",
+      "summary": "第1相の補足表S3のPK要約値と第2相TNBCコホートの集計値から、4 mg/kgと5 mg/kgの曝露、奏効、毒性を比べた。奏効の上積みは同定できず、好中球数減少と口内炎は5 mg/kg群で多く観測されたが、探索的な比較で多重性の補正後は有意とは言えない。非無作為化比較のため増量の因果効果ではない。",
+      "seo_description": "Sac-TMTの4 mg/kgと5 mg/kgについて、公開PK要約と第2相TNBCの奏効・毒性をベイズ推定で比較した探索的な解析。",
+      "seo_title": "Sac-TMTを5 mg/kgに増やす価値は"
+    },
+    "en": {
+      "title": "Is it worth increasing sacituzumab tirumotecan from 4 mg/kg to 5 mg/kg? Comparing efficacy and toxicity with public data",
+      "summary": "Using PK summaries from phase 1 supplementary Table S3 and tallies from the phase 2 TNBC cohorts, I compared exposure, response and toxicity at 4 and 5 mg/kg. A response gain cannot be identified, and decreased neutrophil count and stomatitis were more frequent at 5 mg/kg but are not significant after multiplicity adjustment; this is a non-randomized comparison and not a causal effect of the increase.",
+      "seo_description": "Exploratory comparison of sac-TMT 4 and 5 mg/kg using published PK summaries and phase 2 TNBC response and toxicity counts with Bayesian estimation.",
+      "seo_title": "Sac-TMT 4 vs 5 mg/kg: worth the increase?"
+    }
+  },
+  "date": "2026-12-14",
+  "publish_at": "2026-12-14T13:00:00+09:00",
+  "draft": false,
+  "reviewed": {
+    "en": "de7181b4a92a3cd076250f47c35432aa28439dcd3bba9b74a24f1309eea194fe"
+  }
+}
