@@ -11,11 +11,11 @@
     "en": {
       "title": "Fixed (flat) dosing versus weight-based dosing",
       "summary": "Fixed dosing gives every patient the same dose; weight-based dosing scales it by body weight (mg/kg). For antibodies the difference matters mainly at the ends of the weight distribution.",
-      "seo_title": "Flat dose (fixed dose) vs weight-based dosing: meaning",
+      "seo_title": "Flat dose vs weight-based dosing: meaning, weight threshold",
       "seo_description": "Flat vs weight-based dosing for antibodies: is there a weight threshold? No clinical one; simulated trough drops below the trial range at about 100–150 kg.",
       "faq": [
         {
-          "q": "Is there a body-weight threshold above which flat dosing stops working?",
+          "q": "Is there a weight threshold for flat dosing?",
           "a": "There is no clinical threshold. In a simulation of published models on an adult weight distribution, the share of patients whose trough fell below the lower limit of the trial-tested range exceeded 10% at about 150 kg and above for pembrolizumab 200 mg (13.3%) and at about 100 kg and above for nivolumab 240 mg. That is a comparison of exposure under assumptions, not a point at which efficacy is lost."
         },
         {
