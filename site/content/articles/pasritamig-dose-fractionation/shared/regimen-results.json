@@ -1,0 +1,2745 @@
+{
+  "assumptions": [
+    "Instantaneous IV input",
+    "Linear time-invariant PK",
+    "Nonnegative exponential components",
+    "No PK/PD fitting",
+    "No JNJ-9401 PK inferred"
+  ],
+  "maintenance": {
+    "reference_mg": 300,
+    "reference_interval_days": 42,
+    "split_mg": 150,
+    "split_interval_days": 21,
+    "common_rate_mg_day": 7.142857142857143
+  },
+  "window": {
+    "origin": "Day 1 = t0",
+    "horizon_days": 56,
+    "target_start_days": 14,
+    "stepup_mg": [
+      3.5,
+      18
+    ],
+    "stepup_days": [
+      0,
+      7
+    ]
+  },
+  "reported_half_life_scenarios": [
+    {
+      "half_life_days": 13.8,
+      "fast_auc_fraction": 0,
+      "hypothetical_fast_half_days": 1,
+      "steady_peak_ratio": 0.674132919126256,
+      "steady_trough_ratio": 1.9356848851694504,
+      "early_auc_split_ratio": 0.8798501662312026,
+      "early_auc_full_load_ratio": 1.344994600594969,
+      "matched_first_target_mg": 188.74597594609747,
+      "matched_auc_ratio": 1.0,
+      "reference_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          300
+        ],
+        [
+          56,
+          300
+        ]
+      ],
+      "split_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          150
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "full_load_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          300
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "matched_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          188.74597594609747
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "reference_normalized_auc": 283.3671138433141
+    },
+    {
+      "half_life_days": 15.2,
+      "fast_auc_fraction": 0,
+      "hypothetical_fast_half_days": 1,
+      "steady_peak_ratio": 0.6918992599043701,
+      "steady_trough_ratio": 1.8027668794792828,
+      "early_auc_split_ratio": 0.8710533255651287,
+      "early_auc_full_load_ratio": 1.335974913345497,
+      "matched_first_target_mg": 191.6027168313982,
+      "matched_auc_ratio": 1.0,
+      "reference_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          300
+        ],
+        [
+          56,
+          300
+        ]
+      ],
+      "split_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          150
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "full_load_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          300
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "matched_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          191.6027168313982
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "reference_normalized_auc": 275.11048699531676
+    },
+    {
+      "half_life_days": 16.5,
+      "fast_auc_fraction": 0,
+      "hypothetical_fast_half_days": 1,
+      "steady_peak_ratio": 0.7069383199712028,
+      "steady_trough_ratio": 1.7080894444044474,
+      "early_auc_split_ratio": 0.8639626785367512,
+      "early_auc_full_load_ratio": 1.3286905042096107,
+      "matched_first_target_mg": 193.90870761814816,
+      "matched_auc_ratio": 1.0,
+      "reference_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          300
+        ],
+        [
+          56,
+          300
+        ]
+      ],
+      "split_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          150
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "full_load_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          300
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "matched_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          193.90870761814816
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "reference_normalized_auc": 267.48111941978186
+    },
+    {
+      "half_life_days": 18.3,
+      "fast_auc_fraction": 0,
+      "hypothetical_fast_half_days": 1,
+      "steady_peak_ratio": 0.7256969795301124,
+      "steady_trough_ratio": 1.6076798658116078,
+      "early_auc_split_ratio": 0.8555431990850837,
+      "early_auc_full_load_ratio": 1.3200237797060168,
+      "matched_first_target_mg": 196.65107873459476,
+      "matched_auc_ratio": 1.0,
+      "reference_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          300
+        ],
+        [
+          56,
+          300
+        ]
+      ],
+      "split_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          150
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "full_load_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          300
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "matched_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          196.65107873459476
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "reference_normalized_auc": 257.1399732124941
+    }
+  ],
+  "hypothetical_distribution_sensitivity": [
+    {
+      "half_life_days": 13.8,
+      "fast_auc_fraction": 0,
+      "hypothetical_fast_half_days": 1,
+      "steady_peak_ratio": 0.674132919126256,
+      "steady_trough_ratio": 1.9356848851694504,
+      "early_auc_split_ratio": 0.8798501662312026,
+      "early_auc_full_load_ratio": 1.344994600594969,
+      "matched_first_target_mg": 188.74597594609747,
+      "matched_auc_ratio": 1.0,
+      "reference_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          300
+        ],
+        [
+          56,
+          300
+        ]
+      ],
+      "split_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          150
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "full_load_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          300
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "matched_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          188.74597594609747
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "reference_normalized_auc": 283.3671138433141
+    },
+    {
+      "half_life_days": 13.8,
+      "fast_auc_fraction": 0,
+      "hypothetical_fast_half_days": 3,
+      "steady_peak_ratio": 0.674132919126256,
+      "steady_trough_ratio": 1.9356848851694504,
+      "early_auc_split_ratio": 0.8798501662312026,
+      "early_auc_full_load_ratio": 1.344994600594969,
+      "matched_first_target_mg": 188.74597594609747,
+      "matched_auc_ratio": 1.0,
+      "reference_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          300
+        ],
+        [
+          56,
+          300
+        ]
+      ],
+      "split_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          150
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "full_load_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          300
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "matched_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          188.74597594609747
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "reference_normalized_auc": 283.3671138433141
+    },
+    {
+      "half_life_days": 13.8,
+      "fast_auc_fraction": 0.25,
+      "hypothetical_fast_half_days": 1,
+      "steady_peak_ratio": 0.5345361879262831,
+      "steady_trough_ratio": 1.935692830676123,
+      "early_auc_split_ratio": 0.9128205108884392,
+      "early_auc_full_load_ratio": 1.378354211068043,
+      "matched_first_target_mg": 178.09017555912504,
+      "matched_auc_ratio": 1.0000000000000002,
+      "reference_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          300
+        ],
+        [
+          56,
+          300
+        ]
+      ],
+      "split_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          150
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "full_load_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          300
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "matched_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          178.09017555912504
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "reference_normalized_auc": 292.9003353824685
+    },
+    {
+      "half_life_days": 13.8,
+      "fast_auc_fraction": 0.25,
+      "hypothetical_fast_half_days": 3,
+      "steady_peak_ratio": 0.5764221585157834,
+      "steady_trough_ratio": 1.978078429480594,
+      "early_auc_split_ratio": 0.911826757618368,
+      "early_auc_full_load_ratio": 1.377360009091663,
+      "matched_first_target_mg": 178.41040100870975,
+      "matched_auc_ratio": 1.0000000000000002,
+      "reference_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          300
+        ],
+        [
+          56,
+          300
+        ]
+      ],
+      "split_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          150
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "full_load_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          300
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "matched_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          178.41040100870975
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "reference_normalized_auc": 292.8957011439566
+    },
+    {
+      "half_life_days": 13.8,
+      "fast_auc_fraction": 0.5,
+      "hypothetical_fast_half_days": 1,
+      "steady_peak_ratio": 0.5132662667736518,
+      "steady_trough_ratio": 1.9357087216894668,
+      "early_auc_split_ratio": 0.9437122925512843,
+      "early_auc_full_load_ratio": 1.409610717901846,
+      "matched_first_target_mg": 168.12231091134163,
+      "matched_auc_ratio": 1.0000000000000002,
+      "reference_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          300
+        ],
+        [
+          56,
+          300
+        ]
+      ],
+      "split_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          150
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "full_load_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          300
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "matched_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          168.12231091134163
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "reference_normalized_auc": 302.4335569216229
+    },
+    {
+      "half_life_days": 13.8,
+      "fast_auc_fraction": 0.5,
+      "hypothetical_fast_half_days": 3,
+      "steady_peak_ratio": 0.537665863451347,
+      "steady_trough_ratio": 2.0626933963131604,
+      "early_auc_split_ratio": 0.9417883538199505,
+      "early_auc_full_load_ratio": 1.4076859212108148,
+      "matched_first_target_mg": 168.74177402536628,
+      "matched_auc_ratio": 1.0,
+      "reference_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          300
+        ],
+        [
+          56,
+          300
+        ]
+      ],
+      "split_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          150
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "full_load_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          300
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "matched_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          168.74177402536628
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "reference_normalized_auc": 302.42428844459914
+    },
+    {
+      "half_life_days": 15.2,
+      "fast_auc_fraction": 0,
+      "hypothetical_fast_half_days": 1,
+      "steady_peak_ratio": 0.6918992599043701,
+      "steady_trough_ratio": 1.8027668794792828,
+      "early_auc_split_ratio": 0.8710533255651287,
+      "early_auc_full_load_ratio": 1.335974913345497,
+      "matched_first_target_mg": 191.6027168313982,
+      "matched_auc_ratio": 1.0,
+      "reference_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          300
+        ],
+        [
+          56,
+          300
+        ]
+      ],
+      "split_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          150
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "full_load_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          300
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "matched_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          191.6027168313982
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "reference_normalized_auc": 275.11048699531676
+    },
+    {
+      "half_life_days": 15.2,
+      "fast_auc_fraction": 0,
+      "hypothetical_fast_half_days": 3,
+      "steady_peak_ratio": 0.6918992599043701,
+      "steady_trough_ratio": 1.8027668794792828,
+      "early_auc_split_ratio": 0.8710533255651287,
+      "early_auc_full_load_ratio": 1.335974913345497,
+      "matched_first_target_mg": 191.6027168313982,
+      "matched_auc_ratio": 1.0,
+      "reference_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          300
+        ],
+        [
+          56,
+          300
+        ]
+      ],
+      "split_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          150
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "full_load_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          300
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "matched_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          191.6027168313982
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "reference_normalized_auc": 275.11048699531676
+    },
+    {
+      "half_life_days": 15.2,
+      "fast_auc_fraction": 0.25,
+      "hypothetical_fast_half_days": 1,
+      "steady_peak_ratio": 0.5360691774893972,
+      "steady_trough_ratio": 1.8027738722758988,
+      "early_auc_split_ratio": 0.9072018667549775,
+      "early_auc_full_load_ratio": 1.3725836002032679,
+      "matched_first_target_mg": 179.910327342704,
+      "matched_auc_ratio": 1.0,
+      "reference_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          300
+        ],
+        [
+          56,
+          300
+        ]
+      ],
+      "split_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          150
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "full_load_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          300
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "matched_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          179.910327342704
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "reference_normalized_auc": 286.70786524647053
+    },
+    {
+      "half_life_days": 15.2,
+      "fast_auc_fraction": 0.25,
+      "hypothetical_fast_half_days": 3,
+      "steady_peak_ratio": 0.580946211111924,
+      "steady_trough_ratio": 1.8401595032868308,
+      "early_auc_split_ratio": 0.9061865587031106,
+      "early_auc_full_load_ratio": 1.3715678312971633,
+      "matched_first_target_mg": 180.23760736244384,
+      "matched_auc_ratio": 1.0,
+      "reference_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          300
+        ],
+        [
+          56,
+          300
+        ]
+      ],
+      "split_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          150
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "full_load_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          300
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "matched_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          180.23760736244384
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "reference_normalized_auc": 286.70323100795866
+    },
+    {
+      "half_life_days": 15.2,
+      "fast_auc_fraction": 0.5,
+      "hypothetical_fast_half_days": 1,
+      "steady_peak_ratio": 0.5137455821672694,
+      "steady_trough_ratio": 1.8027878578691299,
+      "early_auc_split_ratio": 0.9405396742112141,
+      "early_auc_full_load_ratio": 1.406345774651202,
+      "matched_first_target_mg": 169.14755701974101,
+      "matched_auc_ratio": 0.9999999999999998,
+      "reference_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          300
+        ],
+        [
+          56,
+          300
+        ]
+      ],
+      "split_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          150
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "full_load_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          300
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "matched_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          169.14755701974101
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "reference_normalized_auc": 298.3052434976243
+    },
+    {
+      "half_life_days": 15.2,
+      "fast_auc_fraction": 0.5,
+      "hypothetical_fast_half_days": 3,
+      "steady_peak_ratio": 0.5392392719747443,
+      "steady_trough_ratio": 1.9148111045717697,
+      "early_auc_split_ratio": 0.9385890102535973,
+      "early_auc_full_load_ratio": 1.4043942379913565,
+      "matched_first_target_mg": 169.77575156615976,
+      "matched_auc_ratio": 1.0,
+      "reference_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          300
+        ],
+        [
+          56,
+          300
+        ]
+      ],
+      "split_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          150
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "full_load_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          300
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "matched_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          169.77575156615976
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "reference_normalized_auc": 298.29597502060057
+    },
+    {
+      "half_life_days": 16.5,
+      "fast_auc_fraction": 0,
+      "hypothetical_fast_half_days": 1,
+      "steady_peak_ratio": 0.7069383199712028,
+      "steady_trough_ratio": 1.7080894444044474,
+      "early_auc_split_ratio": 0.8639626785367512,
+      "early_auc_full_load_ratio": 1.3286905042096107,
+      "matched_first_target_mg": 193.90870761814816,
+      "matched_auc_ratio": 1.0,
+      "reference_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          300
+        ],
+        [
+          56,
+          300
+        ]
+      ],
+      "split_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          150
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "full_load_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          300
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "matched_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          193.90870761814816
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "reference_normalized_auc": 267.48111941978186
+    },
+    {
+      "half_life_days": 16.5,
+      "fast_auc_fraction": 0,
+      "hypothetical_fast_half_days": 3,
+      "steady_peak_ratio": 0.7069383199712028,
+      "steady_trough_ratio": 1.7080894444044474,
+      "early_auc_split_ratio": 0.8639626785367512,
+      "early_auc_full_load_ratio": 1.3286905042096107,
+      "matched_first_target_mg": 193.90870761814816,
+      "matched_auc_ratio": 1.0,
+      "reference_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          300
+        ],
+        [
+          56,
+          300
+        ]
+      ],
+      "split_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          150
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "full_load_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          300
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "matched_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          193.90870761814816
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "reference_normalized_auc": 267.48111941978186
+    },
+    {
+      "half_life_days": 16.5,
+      "fast_auc_fraction": 0.25,
+      "hypothetical_fast_half_days": 1,
+      "steady_peak_ratio": 0.537233489921641,
+      "steady_trough_ratio": 1.7080957883727599,
+      "early_auc_split_ratio": 0.9028756068471441,
+      "early_auc_full_load_ratio": 1.3681283736051906,
+      "matched_first_target_mg": 181.31342791241212,
+      "matched_auc_ratio": 1.0,
+      "reference_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          300
+        ],
+        [
+          56,
+          300
+        ]
+      ],
+      "split_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          150
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "full_load_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          300
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "matched_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          181.31342791241212
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "reference_normalized_auc": 280.98583956481934
+    },
+    {
+      "half_life_days": 16.5,
+      "fast_auc_fraction": 0.25,
+      "hypothetical_fast_half_days": 3,
+      "steady_peak_ratio": 0.5844941253959582,
+      "steady_trough_ratio": 1.742065688204386,
+      "early_auc_split_ratio": 0.9018395512592949,
+      "early_auc_full_load_ratio": 1.3670918456510093,
+      "matched_first_target_mg": 181.6474899502784,
+      "matched_auc_ratio": 1.0,
+      "reference_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          300
+        ],
+        [
+          56,
+          300
+        ]
+      ],
+      "split_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          150
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "full_load_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          300
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "matched_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          181.6474899502784
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "reference_normalized_auc": 280.9812053263075
+    },
+    {
+      "half_life_days": 16.5,
+      "fast_auc_fraction": 0.5,
+      "hypothetical_fast_half_days": 1,
+      "steady_peak_ratio": 0.5141029372102238,
+      "steady_trough_ratio": 1.7081084763093843,
+      "early_auc_split_ratio": 0.938219604408969,
+      "early_auc_full_load_ratio": 1.4039491668552493,
+      "matched_first_target_mg": 169.89794096380461,
+      "matched_auc_ratio": 1.0,
+      "reference_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          300
+        ],
+        [
+          56,
+          300
+        ]
+      ],
+      "split_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          150
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "full_load_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          300
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "matched_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          169.89794096380461
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "reference_normalized_auc": 294.4905597098568
+    },
+    {
+      "half_life_days": 16.5,
+      "fast_auc_fraction": 0.5,
+      "hypothetical_fast_half_days": 3,
+      "steady_peak_ratio": 0.5404348854374306,
+      "steady_trough_ratio": 1.8099079892635792,
+      "early_auc_split_ratio": 0.936243598706697,
+      "early_auc_full_load_ratio": 1.4019722747368937,
+      "matched_first_target_mg": 170.53440272459272,
+      "matched_auc_ratio": 1.0,
+      "reference_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          300
+        ],
+        [
+          56,
+          300
+        ]
+      ],
+      "split_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          150
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "full_load_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          300
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "matched_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          170.53440272459272
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "reference_normalized_auc": 294.4812912328331
+    },
+    {
+      "half_life_days": 18.3,
+      "fast_auc_fraction": 0,
+      "hypothetical_fast_half_days": 1,
+      "steady_peak_ratio": 0.7256969795301124,
+      "steady_trough_ratio": 1.6076798658116078,
+      "early_auc_split_ratio": 0.8555431990850837,
+      "early_auc_full_load_ratio": 1.3200237797060168,
+      "matched_first_target_mg": 196.65107873459476,
+      "matched_auc_ratio": 1.0,
+      "reference_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          300
+        ],
+        [
+          56,
+          300
+        ]
+      ],
+      "split_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          150
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "full_load_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          300
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "matched_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          196.65107873459476
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "reference_normalized_auc": 257.1399732124941
+    },
+    {
+      "half_life_days": 18.3,
+      "fast_auc_fraction": 0,
+      "hypothetical_fast_half_days": 3,
+      "steady_peak_ratio": 0.7256969795301124,
+      "steady_trough_ratio": 1.6076798658116078,
+      "early_auc_split_ratio": 0.8555431990850837,
+      "early_auc_full_load_ratio": 1.3200237797060168,
+      "matched_first_target_mg": 196.65107873459476,
+      "matched_auc_ratio": 1.0,
+      "reference_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          300
+        ],
+        [
+          56,
+          300
+        ]
+      ],
+      "split_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          150
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "full_load_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          300
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "matched_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          196.65107873459476
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "reference_normalized_auc": 257.1399732124941
+    },
+    {
+      "half_life_days": 18.3,
+      "fast_auc_fraction": 0.25,
+      "hypothetical_fast_half_days": 1,
+      "steady_peak_ratio": 0.5385342069540939,
+      "steady_trough_ratio": 1.6076855491548123,
+      "early_auc_split_ratio": 0.8980374286568202,
+      "early_auc_full_load_ratio": 1.36313058236599,
+      "matched_first_target_mg": 182.88456426309983,
+      "matched_auc_ratio": 1.0,
+      "reference_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          300
+        ],
+        [
+          56,
+          300
+        ]
+      ],
+      "split_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          150
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "full_load_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          300
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "matched_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          182.88456426309983
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "reference_normalized_auc": 273.2299799093535
+    },
+    {
+      "half_life_days": 18.3,
+      "fast_auc_fraction": 0.25,
+      "hypothetical_fast_half_days": 3,
+      "steady_peak_ratio": 0.588587408047992,
+      "steady_trough_ratio": 1.6381684032348043,
+      "early_auc_split_ratio": 0.8969718812113012,
+      "early_auc_full_load_ratio": 1.3620645464381673,
+      "matched_first_target_mg": 183.22825529997652,
+      "matched_auc_ratio": 1.0,
+      "reference_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          300
+        ],
+        [
+          56,
+          300
+        ]
+      ],
+      "split_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          150
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "full_load_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          300
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "matched_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          183.22825529997652
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "reference_normalized_auc": 273.22534567084165
+    },
+    {
+      "half_life_days": 18.3,
+      "fast_auc_fraction": 0.5,
+      "hypothetical_fast_half_days": 1,
+      "steady_peak_ratio": 0.5144946852410756,
+      "steady_trough_ratio": 1.607696915841221,
+      "early_auc_split_ratio": 0.9358051791048194,
+      "early_auc_full_load_ratio": 1.401442771618054,
+      "matched_first_target_mg": 170.67965149098956,
+      "matched_auc_ratio": 1.0000000000000002,
+      "reference_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          300
+        ],
+        [
+          56,
+          300
+        ]
+      ],
+      "split_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          150
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "full_load_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          300
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "matched_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          170.67965149098956
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "reference_normalized_auc": 289.31998660621286
+    },
+    {
+      "half_life_days": 18.3,
+      "fast_auc_fraction": 0.5,
+      "hypothetical_fast_half_days": 3,
+      "steady_peak_ratio": 0.5417714153171133,
+      "steady_trough_ratio": 1.6990568837464677,
+      "early_auc_split_ratio": 0.9337937807975016,
+      "early_auc_full_load_ratio": 1.3994304681062009,
+      "matched_first_target_mg": 171.32764266873787,
+      "matched_auc_ratio": 1.0,
+      "reference_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          300
+        ],
+        [
+          56,
+          300
+        ]
+      ],
+      "split_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          150
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "full_load_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          300
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "matched_doses": [
+        [
+          0,
+          3.5
+        ],
+        [
+          7,
+          18
+        ],
+        [
+          14,
+          171.32764266873787
+        ],
+        [
+          35,
+          150
+        ],
+        [
+          56,
+          150
+        ]
+      ],
+      "reference_normalized_auc": 289.3107181291892
+    }
+  ],
+  "central_half_life_days": 15.2,
+  "threshold_scenarios": [
+    {
+      "threshold_over_steady_mean": 0.5,
+      "reference_fraction_above": 0.7844081873152019,
+      "split_fraction_above": 1.0
+    },
+    {
+      "threshold_over_steady_mean": 1,
+      "reference_fraction_above": 0.42250342541043995,
+      "split_fraction_above": 0.46039900902178277
+    },
+    {
+      "threshold_over_steady_mean": 1.5,
+      "reference_fraction_above": 0.2108027108637358,
+      "split_fraction_above": 0.03699757992837442
+    },
+    {
+      "threshold_over_steady_mean": 2,
+      "reference_fraction_above": 0.06059866350567805,
+      "split_fraction_above": 0.0
+    }
+  ],
+  "interpretation": "These are conditional design calculations, not actual pasritamig or combination exposure predictions or dose recommendations."
+}

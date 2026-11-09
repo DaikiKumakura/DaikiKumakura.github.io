@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "math": true,
+  "author": "Daiki Kumakura",
+  "version": "1.0",
+  "locales": {
+    "ja": {
+      "title": "Pasritamigの同量分割で曝露は同じになるか",
+      "summary": "Pasritamigの6週300 mgと3週150 mgを条件付きPKモデルで比較する。維持期平均が同じでも初期8週間の曝露が異なることを示し、曝露一致の初回量を逆算する。",
+      "seo_title": "Pasritamigの同量分割で曝露は同じになるか",
+      "seo_description": "Pasritamigの6週300 mgと3週150 mgを条件付きPKモデルで比較する。維持期平均が同じでも初期8週間の曝露が異なることを示し、曝露一致の初回量を逆算する。"
+    },
+    "en": {
+      "title": "Does fractionating pasritamig preserve exposure?",
+      "summary": "A conditional PK comparison of pasritamig 300 mg every six weeks and 150 mg every three weeks separates steady-state mean exposure from initial eight-week exposure and solves an exposure-matching inverse problem.",
+      "seo_title": "Does fractionating pasritamig preserve exposure?",
+      "seo_description": "Compare pasritamig dose fractionation using conditional PK models: equal maintenance dose rates do not imply equal initial eight-week exposure."
+    }
+  },
+  "date": "2026-12-25",
+  "publish_at": "2026-12-25T13:00:00+09:00",
+  "draft": false,
+  "reviewed": {
+    "en": "45818971265762f1af130ce34dc28f8da8d9c72f4a01396a3435ba4a8239186a"
+  }
+}
