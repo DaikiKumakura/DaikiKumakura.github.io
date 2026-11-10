@@ -721,26 +721,6 @@
         {
           "url": "https://daikikumakura.github.io/rsemverse/",
           "label": "Documentation"
-        },
-        {
-          "url": "https://daikikumakura.github.io/rsemverse/articles/rsemverse.html",
-          "label": "Get started"
-        },
-        {
-          "url": "https://daikikumakura.github.io/rsemverse/articles/installation.html",
-          "label": "Installation"
-        },
-        {
-          "url": "https://daikikumakura.github.io/rsemverse/articles/tutorial.html",
-          "label": "Tutorial"
-        },
-        {
-          "url": "https://daikikumakura.github.io/rsemverse/articles/how-it-works.html",
-          "label": "How it works"
-        },
-        {
-          "url": "https://daikikumakura.github.io/rsemverse/articles/real-data.html",
-          "label": "Real-data check"
         }
       ],
       "note": "Ensembl version suffixes are removed before the symbol lookup, rows that share a symbol are summed, and genes without a symbol keep their original ID. On six ENCODE K562 RSEM files (59,526 genes each), 36,385 genes received a symbol, 23,141 kept their ID, and the column sums equalled the input (November 10, 2026). R CMD check passes on Linux, macOS and Windows in CI. Not on CRAN or Bioconductor.",
