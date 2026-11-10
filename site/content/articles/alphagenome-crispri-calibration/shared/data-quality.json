@@ -1,0 +1,82 @@
+{
+  "Fulco": {
+    "grain": "enhancer-gene pair",
+    "keys": [
+      "gene_id",
+      "enh_loc"
+    ],
+    "common_pairs": 62,
+    "common_genes": 20,
+    "sources": {
+      "AlphaGenome": {
+        "pairs": 63,
+        "duplicate_keys": 0,
+        "required_nulls": 0,
+        "excluded_from_common": 1,
+        "fractional_formula_check_available": true
+      },
+      "Borzoi": {
+        "pairs": 63,
+        "duplicate_keys": 0,
+        "required_nulls": 0,
+        "excluded_from_common": 1,
+        "fractional_formula_check_available": true
+      },
+      "Enformer": {
+        "pairs": 62,
+        "duplicate_keys": 0,
+        "required_nulls": 0,
+        "excluded_from_common": 0,
+        "fractional_formula_check_available": false
+      },
+      "NTv3": {
+        "pairs": 63,
+        "duplicate_keys": 0,
+        "required_nulls": 0,
+        "excluded_from_common": 1,
+        "fractional_formula_check_available": true
+      }
+    },
+    "checks": "one-to-one join; positive observed decrease; finite values; labels and distances consistent across models; selection excludes candidate negatives"
+  },
+  "Gasperini": {
+    "grain": "enhancer-gene pair",
+    "keys": [
+      "gene_id",
+      "enh_loc"
+    ],
+    "common_pairs": 352,
+    "common_genes": 256,
+    "sources": {
+      "AlphaGenome": {
+        "pairs": 438,
+        "duplicate_keys": 0,
+        "required_nulls": 0,
+        "excluded_from_common": 86,
+        "fractional_formula_check_available": true
+      },
+      "Borzoi": {
+        "pairs": 417,
+        "duplicate_keys": 0,
+        "required_nulls": 0,
+        "excluded_from_common": 65,
+        "fractional_formula_check_available": true
+      },
+      "Enformer": {
+        "pairs": 352,
+        "duplicate_keys": 0,
+        "required_nulls": 0,
+        "excluded_from_common": 0,
+        "fractional_formula_check_available": false
+      },
+      "NTv3": {
+        "pairs": 438,
+        "duplicate_keys": 0,
+        "required_nulls": 0,
+        "excluded_from_common": 86,
+        "fractional_formula_check_available": true
+      }
+    },
+    "checks": "one-to-one join; positive observed decrease; finite values; labels and distances consistent across models; selection excludes candidate negatives"
+  }
+}

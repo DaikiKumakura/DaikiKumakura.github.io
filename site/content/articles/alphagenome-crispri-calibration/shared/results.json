@@ -1,0 +1,756 @@
+{
+  "source_commit": "b4917f5b1a5ccdac8800d00ed31f65cfcb483093",
+  "seed": 20261110,
+  "bootstrap_draws": 2000,
+  "primary_estimand": "Pair-weighted error among selected experimentally validated pairs, common published coverage.",
+  "calibration": "Leave-one-gene-out affine ordinary least squares, without clipping.",
+  "bootstrap": "Gene-cluster resampling with full weighted leave-one-gene-out refitting.",
+  "datasets": [
+    {
+      "dataset": "Fulco",
+      "pairs": 62,
+      "genes": 20,
+      "enhancers": 51,
+      "components": 14,
+      "source_counts": {
+        "AlphaGenome": 63,
+        "Borzoi": 63,
+        "Enformer": 62,
+        "NTv3": 63
+      },
+      "source_gene_counts": {
+        "AlphaGenome": 20,
+        "Borzoi": 20,
+        "Enformer": 20,
+        "NTv3": 20
+      },
+      "shared_enhancers": 8,
+      "mean_observed_decrease": 0.2039147432773344,
+      "median_observed_decrease": 0.1518086194992065,
+      "mean_AlphaGenome_prediction": 0.07761827322115078,
+      "scores": {
+        "mean": {
+          "rmse": 0.18768419112601842,
+          "mae": 0.12295661702977921,
+          "bias": 0.0016786240515345638,
+          "pearson": -0.6380711056638069,
+          "spearman": -0.6301050067015069,
+          "outside_0_1": 0,
+          "rmse_95ci": [
+            0.0926011157333082,
+            0.2663252146987956
+          ],
+          "mae_95ci": [
+            0.06380226112826333,
+            0.2010863574723377
+          ],
+          "gene_uniform_rmse": 0.1733075808330766
+        },
+        "distance": {
+          "rmse": 0.17882369184149632,
+          "mae": 0.1224873072823905,
+          "bias": 0.0005028811610411592,
+          "pearson": 0.21975307859141804,
+          "spearman": 0.2628742665760117,
+          "outside_0_1": 0,
+          "rmse_95ci": [
+            0.08831799645254768,
+            0.25540791822268044
+          ],
+          "mae_95ci": [
+            0.063618703174077,
+            0.18939309378127978
+          ],
+          "gene_uniform_rmse": 0.17515737169112178
+        },
+        "AlphaGenome_raw": {
+          "rmse": 0.18544755348163733,
+          "mae": 0.13978444971919737,
+          "bias": -0.12629647005618358,
+          "pearson": 0.6723288529094206,
+          "spearman": 0.5393215985495203,
+          "outside_0_1": 11,
+          "rmse_95ci": [
+            0.12275211591137897,
+            0.2500317050253074
+          ],
+          "mae_95ci": [
+            0.10275393358932707,
+            0.19021887097823026
+          ],
+          "gene_uniform_rmse": 0.17954653608454466
+        },
+        "AlphaGenome_affine": {
+          "rmse": 0.1488816586504017,
+          "mae": 0.09772766239174636,
+          "bias": 0.0008649448899524877,
+          "pearson": 0.5765606324377066,
+          "spearman": 0.39039560826974895,
+          "outside_0_1": 0,
+          "rmse_95ci": [
+            0.07035669808356695,
+            0.23221623843746647
+          ],
+          "mae_95ci": [
+            0.057862035705908185,
+            0.15500934235384384
+          ],
+          "gene_uniform_rmse": 0.13390777197637488
+        },
+        "Borzoi_raw": {
+          "rmse": 0.2234258946873338,
+          "mae": 0.17477261687607495,
+          "bias": -0.17357576946882822,
+          "pearson": 0.6602004738611568,
+          "spearman": 0.485885522902974,
+          "outside_0_1": 20,
+          "rmse_95ci": [
+            0.15698534871273034,
+            0.2938062195368769
+          ],
+          "mae_95ci": [
+            0.13265921595924268,
+            0.22912713844089466
+          ],
+          "gene_uniform_rmse": 0.22338011715298114
+        },
+        "Borzoi_affine": {
+          "rmse": 0.1455546700199007,
+          "mae": 0.09806681318561512,
+          "bias": -0.001280248352804276,
+          "pearson": 0.5949279322437787,
+          "spearman": 0.33121805041424296,
+          "outside_0_1": 1,
+          "rmse_95ci": [
+            0.08678073210555276,
+            0.22817286467220155
+          ],
+          "mae_95ci": [
+            0.06596792414199751,
+            0.15423909411641928
+          ],
+          "gene_uniform_rmse": 0.14196256724629375
+        },
+        "Enformer_raw": {
+          "rmse": 0.2193005471154668,
+          "mae": 0.16633548754790323,
+          "bias": -0.1644134742497455,
+          "pearson": 0.5981171842471967,
+          "spearman": 0.32310946589106293,
+          "outside_0_1": 20,
+          "rmse_95ci": [
+            0.14600512763869247,
+            0.29609657404060086
+          ],
+          "mae_95ci": [
+            0.1203347795528274,
+            0.22309720767548166
+          ],
+          "gene_uniform_rmse": 0.21023265246915568
+        },
+        "Enformer_affine": {
+          "rmse": 0.15386831110583496,
+          "mae": 0.09970585941043711,
+          "bias": -0.001937110461801956,
+          "pearson": 0.5272103189434874,
+          "spearman": 0.12266122736773188,
+          "outside_0_1": 0,
+          "rmse_95ci": [
+            0.08720449094100985,
+            0.2701813380731776
+          ],
+          "mae_95ci": [
+            0.06467267862255723,
+            0.1700026986471273
+          ],
+          "gene_uniform_rmse": 0.1374350298175504
+        },
+        "NTv3_raw": {
+          "rmse": 0.24380880274795483,
+          "mae": 0.18250022508291971,
+          "bias": -0.18211557302806192,
+          "pearson": 0.5090401532209248,
+          "spearman": 0.2633779053662713,
+          "outside_0_1": 18,
+          "rmse_95ci": [
+            0.16132859636924152,
+            0.3248587679302167
+          ],
+          "mae_95ci": [
+            0.13223583097498132,
+            0.24732611665627555
+          ],
+          "gene_uniform_rmse": 0.23376170766346696
+        },
+        "NTv3_affine": {
+          "rmse": 0.17645619365412393,
+          "mae": 0.11482458224267852,
+          "bias": -0.0011369109920901445,
+          "pearson": 0.286305064064271,
+          "spearman": 0.16869381279746165,
+          "outside_0_1": 0,
+          "rmse_95ci": [
+            0.09280815808405288,
+            0.2572196936192113
+          ],
+          "mae_95ci": [
+            0.06677800405559894,
+            0.17947520633017727
+          ],
+          "gene_uniform_rmse": 0.15854421659682214
+        }
+      },
+      "paired_comparisons": {
+        "AlphaGenome_affine_minus_mean": {
+          "rmse_difference": -0.03880253247561671,
+          "rmse_difference_95ci": [
+            -0.09399824443564198,
+            0.015073327093547268
+          ]
+        },
+        "AlphaGenome_affine_minus_distance": {
+          "rmse_difference": -0.02994203319109462,
+          "rmse_difference_95ci": [
+            -0.0808788738685013,
+            0.015398766563632319
+          ]
+        },
+        "AlphaGenome_affine_minus_AlphaGenome_raw": {
+          "rmse_difference": -0.036565894831235624,
+          "rmse_difference_95ci": [
+            -0.06818352500502121,
+            0.020638906014744846
+          ]
+        },
+        "Borzoi_affine_minus_mean": {
+          "rmse_difference": -0.04212952110611773,
+          "rmse_difference_95ci": [
+            -0.09971299773433129,
+            0.014049898684222326
+          ]
+        },
+        "Borzoi_affine_minus_distance": {
+          "rmse_difference": -0.033269021821595635,
+          "rmse_difference_95ci": [
+            -0.08629592092006778,
+            0.013238442797483636
+          ]
+        },
+        "Borzoi_affine_minus_Borzoi_raw": {
+          "rmse_difference": -0.0778712246674331,
+          "rmse_difference_95ci": [
+            -0.10687226656081103,
+            -0.014223061533012843
+          ]
+        },
+        "Enformer_affine_minus_mean": {
+          "rmse_difference": -0.03381588002018346,
+          "rmse_difference_95ci": [
+            -0.09341348467516518,
+            0.04126160123152979
+          ]
+        },
+        "Enformer_affine_minus_distance": {
+          "rmse_difference": -0.024955380735661364,
+          "rmse_difference_95ci": [
+            -0.08036912450080694,
+            0.040555763241301834
+          ]
+        },
+        "Enformer_affine_minus_Enformer_raw": {
+          "rmse_difference": -0.06543223600963183,
+          "rmse_difference_95ci": [
+            -0.0914999845549891,
+            0.021875376396168402
+          ]
+        },
+        "NTv3_affine_minus_mean": {
+          "rmse_difference": -0.011227997471894485,
+          "rmse_difference_95ci": [
+            -0.0665034107242581,
+            0.03420101303255887
+          ]
+        },
+        "NTv3_affine_minus_distance": {
+          "rmse_difference": -0.002367498187372391,
+          "rmse_difference_95ci": [
+            -0.05481222320031954,
+            0.03456705049516187
+          ]
+        },
+        "NTv3_affine_minus_NTv3_raw": {
+          "rmse_difference": -0.0673526090938309,
+          "rmse_difference_95ci": [
+            -0.11619258540458954,
+            -0.007556266269051141
+          ]
+        },
+        "AlphaGenome_affine_minus_Borzoi_affine": {
+          "rmse_difference": 0.0033269886305010155,
+          "rmse_difference_95ci": [
+            -0.038363157064728086,
+            0.041876028468790294
+          ]
+        },
+        "AlphaGenome_affine_minus_Enformer_affine": {
+          "rmse_difference": -0.004986652455433255,
+          "rmse_difference_95ci": [
+            -0.06687523504532195,
+            0.03498010220349836
+          ]
+        },
+        "AlphaGenome_affine_minus_NTv3_affine": {
+          "rmse_difference": -0.027574535003722228,
+          "rmse_difference_95ci": [
+            -0.06829096266738957,
+            0.011672812827541155
+          ]
+        }
+      },
+      "bootstrap_rank_deficiencies": {
+        "mean": 0,
+        "distance": 0,
+        "AlphaGenome_affine": 0,
+        "Borzoi_affine": 0,
+        "Enformer_affine": 0,
+        "NTv3_affine": 0
+      },
+      "distance_bands": [
+        {
+          "band": "<10 kb",
+          "pairs": 27,
+          "genes": 14,
+          "raw_bias": -0.13242040733433796,
+          "affine_bias": -0.017379107889949737
+        },
+        {
+          "band": "10-50 kb",
+          "pairs": 26,
+          "genes": 10,
+          "raw_bias": -0.11946133286007368,
+          "affine_bias": 0.016188264488014966
+        },
+        {
+          "band": ">=50 kb",
+          "pairs": 9,
+          "genes": 7,
+          "raw_bias": -0.12767061012159356,
+          "affine_bias": 0.011329735501923142
+        }
+      ],
+      "sensitivity": {
+        "component_holdout": {
+          "alpha_affine": {
+            "rmse": 0.14862703413687428,
+            "mae": 0.09885659827089231,
+            "bias": 0.0034517960910339625,
+            "pearson": 0.5784465234844088,
+            "spearman": 0.3938203520435144,
+            "outside_0_1": 0
+          },
+          "mean": {
+            "rmse": 0.19170066786419754,
+            "mae": 0.1274235949103331,
+            "bias": 0.005224377063060565,
+            "pearson": -0.5113930215894192,
+            "spearman": -0.5179838648387398,
+            "outside_0_1": 0
+          }
+        },
+        "native_alpha_coverage": {
+          "pairs": 63,
+          "genes": 20,
+          "raw": {
+            "rmse": 0.1841614958282914,
+            "mae": 0.1386238526324147,
+            "bias": -0.12534996788468683,
+            "pearson": 0.6738917578176626,
+            "spearman": 0.5402745775729647,
+            "outside_0_1": 11
+          },
+          "affine": {
+            "rmse": 0.14779986937419073,
+            "mae": 0.09682948977031777,
+            "bias": 0.0007650984677610386,
+            "pearson": 0.5802411444998096,
+            "spearman": 0.3964093701996928,
+            "outside_0_1": 0
+          }
+        }
+      }
+    },
+    {
+      "dataset": "Gasperini",
+      "pairs": 352,
+      "genes": 256,
+      "enhancers": 340,
+      "components": 244,
+      "source_counts": {
+        "AlphaGenome": 438,
+        "Borzoi": 417,
+        "Enformer": 352,
+        "NTv3": 438
+      },
+      "source_gene_counts": {
+        "AlphaGenome": 325,
+        "Borzoi": 306,
+        "Enformer": 256,
+        "NTv3": 325
+      },
+      "shared_enhancers": 12,
+      "mean_observed_decrease": 0.3232930436391722,
+      "median_observed_decrease": 0.266811341047287,
+      "mean_AlphaGenome_prediction": 0.19754158461567076,
+      "scores": {
+        "mean": {
+          "rmse": 0.1733096714033632,
+          "mae": 0.13635152113746402,
+          "bias": 3.649970928132225e-05,
+          "pearson": -0.7946007840569209,
+          "spearman": -0.8377905945383183,
+          "outside_0_1": 0,
+          "rmse_95ci": [
+            0.15621540213885396,
+            0.18990169037666538
+          ],
+          "mae_95ci": [
+            0.12222962815205252,
+            0.15152810079285056
+          ],
+          "gene_uniform_rmse": 0.1810334560417796
+        },
+        "distance": {
+          "rmse": 0.17381250990891586,
+          "mae": 0.13665759054600135,
+          "bias": 7.429562598973995e-05,
+          "pearson": -0.3259874290685968,
+          "spearman": -0.24326039871365643,
+          "outside_0_1": 0,
+          "rmse_95ci": [
+            0.1566618342160275,
+            0.191025851696947
+          ],
+          "mae_95ci": [
+            0.1226848725163643,
+            0.15207351093150082
+          ],
+          "gene_uniform_rmse": 0.18162297293923346
+        },
+        "AlphaGenome_raw": {
+          "rmse": 0.24745418579403952,
+          "mae": 0.19970807199122323,
+          "bias": -0.12575145902350143,
+          "pearson": 0.4645868296255396,
+          "spearman": 0.48377433079982646,
+          "outside_0_1": 30,
+          "rmse_95ci": [
+            0.22408206867031377,
+            0.2685935107791377
+          ],
+          "mae_95ci": [
+            0.18230656628104572,
+            0.21630424063562065
+          ],
+          "gene_uniform_rmse": 0.25093080573644394
+        },
+        "AlphaGenome_affine": {
+          "rmse": 0.15399034276995696,
+          "mae": 0.1137239689225189,
+          "bias": 3.3750537813625395e-05,
+          "pearson": 0.4530593612515392,
+          "spearman": 0.4717635606445804,
+          "outside_0_1": 0,
+          "rmse_95ci": [
+            0.13569075914976392,
+            0.17178153821973458
+          ],
+          "mae_95ci": [
+            0.09970931866308927,
+            0.12883228485650447
+          ],
+          "gene_uniform_rmse": 0.16037991075271552
+        },
+        "Borzoi_raw": {
+          "rmse": 0.2802863313159473,
+          "mae": 0.23044763852432915,
+          "bias": -0.19983546300515273,
+          "pearson": 0.3434538144215207,
+          "spearman": 0.3480063766890962,
+          "outside_0_1": 36,
+          "rmse_95ci": [
+            0.2566902039926924,
+            0.3015078584770727
+          ],
+          "mae_95ci": [
+            0.21279574208615845,
+            0.24819509560839045
+          ],
+          "gene_uniform_rmse": 0.28262469076354024
+        },
+        "Borzoi_affine": {
+          "rmse": 0.16327528895959065,
+          "mae": 0.12409246650035755,
+          "bias": 2.2790427271314093e-06,
+          "pearson": 0.3265851128042222,
+          "spearman": 0.32675331435954663,
+          "outside_0_1": 0,
+          "rmse_95ci": [
+            0.1455624248829998,
+            0.18094554460621234
+          ],
+          "mae_95ci": [
+            0.109988142016934,
+            0.13970818340236227
+          ],
+          "gene_uniform_rmse": 0.16948090001831073
+        },
+        "Enformer_raw": {
+          "rmse": 0.30952251919844637,
+          "mae": 0.253665621535881,
+          "bias": -0.228425235038313,
+          "pearson": 0.2963559086267469,
+          "spearman": 0.2723431746094635,
+          "outside_0_1": 77,
+          "rmse_95ci": [
+            0.28341583526198577,
+            0.3351443439923061
+          ],
+          "mae_95ci": [
+            0.2342626957144734,
+            0.2753706652800691
+          ],
+          "gene_uniform_rmse": 0.309522727895986
+        },
+        "Enformer_affine": {
+          "rmse": 0.16608154053097318,
+          "mae": 0.12597387932130663,
+          "bias": -5.0328972303994e-05,
+          "pearson": 0.2753324258876148,
+          "spearman": 0.23641404236305083,
+          "outside_0_1": 0,
+          "rmse_95ci": [
+            0.14711149818267938,
+            0.18355757987136423
+          ],
+          "mae_95ci": [
+            0.11134232178493098,
+            0.14138590588219982
+          ],
+          "gene_uniform_rmse": 0.17219753946205324
+        },
+        "NTv3_raw": {
+          "rmse": 0.33901526374102303,
+          "mae": 0.2959646109464093,
+          "bias": -0.29574424425309515,
+          "pearson": 0.313826191287329,
+          "spearman": 0.3021586534334409,
+          "outside_0_1": 87,
+          "rmse_95ci": [
+            0.31572550109475217,
+            0.36083148854672653
+          ],
+          "mae_95ci": [
+            0.27695375818662255,
+            0.3142066369728456
+          ],
+          "gene_uniform_rmse": 0.34418475951668714
+        },
+        "NTv3_affine": {
+          "rmse": 0.1650376773961555,
+          "mae": 0.12935762757468558,
+          "bias": 2.4745543703933144e-05,
+          "pearson": 0.29582727288825306,
+          "spearman": 0.2664603652563992,
+          "outside_0_1": 0,
+          "rmse_95ci": [
+            0.14829797831389627,
+            0.18261753119661667
+          ],
+          "mae_95ci": [
+            0.11560301550205042,
+            0.14350152657838086
+          ],
+          "gene_uniform_rmse": 0.17262297898756868
+        }
+      },
+      "paired_comparisons": {
+        "AlphaGenome_affine_minus_mean": {
+          "rmse_difference": -0.01931932863340624,
+          "rmse_difference_95ci": [
+            -0.028275609211255347,
+            -0.010893398465840752
+          ]
+        },
+        "AlphaGenome_affine_minus_distance": {
+          "rmse_difference": -0.0198221671389589,
+          "rmse_difference_95ci": [
+            -0.029389902484200557,
+            -0.011543807069886284
+          ]
+        },
+        "AlphaGenome_affine_minus_AlphaGenome_raw": {
+          "rmse_difference": -0.09346384302408256,
+          "rmse_difference_95ci": [
+            -0.10714918988584789,
+            -0.07979601217702537
+          ]
+        },
+        "Borzoi_affine_minus_mean": {
+          "rmse_difference": -0.010034382443772555,
+          "rmse_difference_95ci": [
+            -0.017179880347722207,
+            -0.0037134367281037904
+          ]
+        },
+        "Borzoi_affine_minus_distance": {
+          "rmse_difference": -0.010537220949325216,
+          "rmse_difference_95ci": [
+            -0.018006173065517477,
+            -0.0043827138793039585
+          ]
+        },
+        "Borzoi_affine_minus_Borzoi_raw": {
+          "rmse_difference": -0.11701104235635668,
+          "rmse_difference_95ci": [
+            -0.12934858262641113,
+            -0.10384809129891595
+          ]
+        },
+        "Enformer_affine_minus_mean": {
+          "rmse_difference": -0.007228130872390021,
+          "rmse_difference_95ci": [
+            -0.014124254209988257,
+            -0.0016320572522324943
+          ]
+        },
+        "Enformer_affine_minus_distance": {
+          "rmse_difference": -0.007730969377942681,
+          "rmse_difference_95ci": [
+            -0.015035576465565964,
+            -0.0023233310730010944
+          ]
+        },
+        "Enformer_affine_minus_Enformer_raw": {
+          "rmse_difference": -0.14344097866747318,
+          "rmse_difference_95ci": [
+            -0.15834872735817737,
+            -0.12862923246992733
+          ]
+        },
+        "NTv3_affine_minus_mean": {
+          "rmse_difference": -0.008271994007207711,
+          "rmse_difference_95ci": [
+            -0.014276214771690558,
+            -0.0031882405883455834
+          ]
+        },
+        "NTv3_affine_minus_distance": {
+          "rmse_difference": -0.008774832512760372,
+          "rmse_difference_95ci": [
+            -0.015075460783657908,
+            -0.0038566885758484527
+          ]
+        },
+        "NTv3_affine_minus_NTv3_raw": {
+          "rmse_difference": -0.17397758634486754,
+          "rmse_difference_95ci": [
+            -0.186119183793874,
+            -0.160993598270929
+          ]
+        },
+        "AlphaGenome_affine_minus_Borzoi_affine": {
+          "rmse_difference": -0.009284946189633686,
+          "rmse_difference_95ci": [
+            -0.015554007370642206,
+            -0.0038338305891414343
+          ]
+        },
+        "AlphaGenome_affine_minus_Enformer_affine": {
+          "rmse_difference": -0.01209119776101622,
+          "rmse_difference_95ci": [
+            -0.02023375083480924,
+            -0.0044190661564261075
+          ]
+        },
+        "AlphaGenome_affine_minus_NTv3_affine": {
+          "rmse_difference": -0.01104733462619853,
+          "rmse_difference_95ci": [
+            -0.02012907209425213,
+            -0.0025409375620404936
+          ]
+        }
+      },
+      "bootstrap_rank_deficiencies": {
+        "mean": 0,
+        "distance": 0,
+        "AlphaGenome_affine": 0,
+        "Borzoi_affine": 0,
+        "Enformer_affine": 0,
+        "NTv3_affine": 0
+      },
+      "distance_bands": [
+        {
+          "band": "<10 kb",
+          "pairs": 116,
+          "genes": 100,
+          "raw_bias": -0.1343592642526864,
+          "affine_bias": -0.00024614148131200654
+        },
+        {
+          "band": "10-50 kb",
+          "pairs": 149,
+          "genes": 117,
+          "raw_bias": -0.10008200554962436,
+          "affine_bias": -0.0024395401687077357
+        },
+        {
+          "band": ">=50 kb",
+          "pairs": 87,
+          "genes": 62,
+          "raw_bias": -0.15823701259846956,
+          "affine_bias": 0.0046428055894257685
+        }
+      ],
+      "sensitivity": {
+        "component_holdout": {
+          "alpha_affine": {
+            "rmse": 0.15402090580425315,
+            "mae": 0.11376659967918844,
+            "bias": 5.616242322961525e-05,
+            "pearson": 0.4527491580063918,
+            "spearman": 0.47135745117331507,
+            "outside_0_1": 0
+          },
+          "mean": {
+            "rmse": 0.17330560876844978,
+            "mae": 0.1363486738054375,
+            "bias": 2.1123068656965632e-05,
+            "pearson": -0.7733781198066283,
+            "spearman": -0.8209227477474248,
+            "outside_0_1": 0
+          }
+        },
+        "native_alpha_coverage": {
+          "pairs": 438,
+          "genes": 325,
+          "raw": {
+            "rmse": 0.25560409309111426,
+            "mae": 0.20708581476436624,
+            "bias": -0.14308487153498764,
+            "pearson": 0.4461154130655106,
+            "spearman": 0.4524112503810372,
+            "outside_0_1": 44
+          },
+          "affine": {
+            "rmse": 0.15549216370422989,
+            "mae": 0.11430676378290906,
+            "bias": 2.102751807843626e-05,
+            "pearson": 0.43629273565643323,
+            "spearman": 0.43426813263899644,
+            "outside_0_1": 0
+          }
+        }
+      }
+    }
+  ]
+}

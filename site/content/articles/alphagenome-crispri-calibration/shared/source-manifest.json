@@ -1,0 +1,54 @@
+{
+  "repo": "Al-Murphy/seq2func_crispri_eval",
+  "commit": "b4917f5b1a5ccdac8800d00ed31f65cfcb483093",
+  "files": [
+    {
+      "path": "results/test_Fulco_alphagenome/Fulco_AlphaGenome_base_rna_seq_results.csv",
+      "url": "https://raw.githubusercontent.com/Al-Murphy/seq2func_crispri_eval/b4917f5b1a5ccdac8800d00ed31f65cfcb483093/results/test_Fulco_alphagenome/Fulco_AlphaGenome_base_rna_seq_results.csv",
+      "bytes": 13970,
+      "sha256": "ea2af6cad984acb9044a2a816c1e5d16ca1e24fc6904be40ebffc7431af87eb9"
+    },
+    {
+      "path": "results/test_Fulco_borzoi/Fulco_Borzoi_base_flashzoi_rna_ensemble_results.csv",
+      "url": "https://raw.githubusercontent.com/Al-Murphy/seq2func_crispri_eval/b4917f5b1a5ccdac8800d00ed31f65cfcb483093/results/test_Fulco_borzoi/Fulco_Borzoi_base_flashzoi_rna_ensemble_results.csv",
+      "bytes": 9682,
+      "sha256": "30fd120754c5964085379edced293d4904f6f2bc91372c3c1b50dc5fce6e0217"
+    },
+    {
+      "path": "results/test_Fulco_enformer/Fulco_base_enformer_results.csv",
+      "url": "https://raw.githubusercontent.com/Al-Murphy/seq2func_crispri_eval/b4917f5b1a5ccdac8800d00ed31f65cfcb483093/results/test_Fulco_enformer/Fulco_base_enformer_results.csv",
+      "bytes": 6981,
+      "sha256": "152aed62fc4600df5549cf75488858c98ab21ef8bb6988f8fab9f6d068913d6d"
+    },
+    {
+      "path": "results/test_Fulco_ntv3/Fulco_NTv3_InstaDeepAI_NTv3_tracks_1mb_rna_results.csv",
+      "url": "https://raw.githubusercontent.com/Al-Murphy/seq2func_crispri_eval/b4917f5b1a5ccdac8800d00ed31f65cfcb483093/results/test_Fulco_ntv3/Fulco_NTv3_InstaDeepAI_NTv3_tracks_1mb_rna_results.csv",
+      "bytes": 9977,
+      "sha256": "a48bdf53970434e58bb2b3d1ef49ce36dbc0882b5f5cc22951d66de13d8d07dc"
+    },
+    {
+      "path": "results/test_Gasperini_alphagenome/Gasperini_AlphaGenome_base_rna_seq_results.csv",
+      "url": "https://raw.githubusercontent.com/Al-Murphy/seq2func_crispri_eval/b4917f5b1a5ccdac8800d00ed31f65cfcb483093/results/test_Gasperini_alphagenome/Gasperini_AlphaGenome_base_rna_seq_results.csv",
+      "bytes": 65203,
+      "sha256": "62bb0458609a3b43057b3174bd21f07627940fd8e9a68977222ea5ca6dc9bb75"
+    },
+    {
+      "path": "results/test_Gasperini_borzoi/Gasperini_Borzoi_base_flashzoi_rna_ensemble_results.csv",
+      "url": "https://raw.githubusercontent.com/Al-Murphy/seq2func_crispri_eval/b4917f5b1a5ccdac8800d00ed31f65cfcb483093/results/test_Gasperini_borzoi/Gasperini_Borzoi_base_flashzoi_rna_ensemble_results.csv",
+      "bytes": 63230,
+      "sha256": "92d1eb55f80bef200f14336f8acafd85de9861608445bfbc7085c15966cfe078"
+    },
+    {
+      "path": "results/test_Gasperini_enformer/Gasperini_base_enformer_results.csv",
+      "url": "https://raw.githubusercontent.com/Al-Murphy/seq2func_crispri_eval/b4917f5b1a5ccdac8800d00ed31f65cfcb483093/results/test_Gasperini_enformer/Gasperini_base_enformer_results.csv",
+      "bytes": 38475,
+      "sha256": "31821179bc641cad485dabab03a14954461ff1b8d03ca0572899022f0c079ad8"
+    },
+    {
+      "path": "results/test_Gasperini_ntv3/Gasperini_NTv3_InstaDeepAI_NTv3_tracks_1mb_rna_results.csv",
+      "url": "https://raw.githubusercontent.com/Al-Murphy/seq2func_crispri_eval/b4917f5b1a5ccdac8800d00ed31f65cfcb483093/results/test_Gasperini_ntv3/Gasperini_NTv3_InstaDeepAI_NTv3_tracks_1mb_rna_results.csv",
+      "bytes": 67111,
+      "sha256": "24fa18654bb4904302b8b15eccd0dfea881f7e58b99dfc205b92b95b0ab3a85f"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "math": true,
+  "author": "Daiki Kumakura",
+  "version": "1.0",
+  "locales": {
+    "ja": {
+      "title": "AlphaGenomeの予測は実験の効果量まで合うのか",
+      "summary": "AlphaGenomeの公開CRISPRi予測を再解析する。相関と効果量誤差を分け、遺伝子を外した校正と平均基準を比較し、陽性例への選別が解釈をどう制限するかを検証した。",
+      "seo_title": "AlphaGenomeの予測は実験の効果量まで合うのか",
+      "seo_description": "AlphaGenomeの公開CRISPRi予測を再解析する。相関と効果量誤差を分け、遺伝子を外した校正と平均基準を比較し、陽性例への選別が解釈をどう制限するかを検証した。"
+    },
+    "en": {
+      "title": "Do AlphaGenome predictions match experimental effect sizes?",
+      "summary": "Published AlphaGenome CRISPRi predictions reanalyzed with gene-held-out calibration, effect-size errors and limits from positive-pair selection.",
+      "seo_title": "Do AlphaGenome predictions match experimental effect sizes?",
+      "seo_description": "Published AlphaGenome CRISPRi predictions reanalyzed with gene-held-out calibration, effect-size errors and limits from positive-pair selection."
+    }
+  },
+  "date": "2026-12-25",
+  "publish_at": "2026-12-25T18:00:00+09:00",
+  "draft": false,
+  "reviewed": {
+    "en": "7dffefcdd0c1683250d9599b12b0d05f9aed34721feba5753aac6015f0204819"
+  }
+}
