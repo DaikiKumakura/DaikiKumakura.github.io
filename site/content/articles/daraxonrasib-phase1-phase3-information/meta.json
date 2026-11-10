@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "math": true,
+  "author": "Daiki Kumakura",
+  "version": "1.0",
+  "locales": {
+    "ja": {
+      "title": "Phase 1の26人はPhase 3をどこまで絞ったか：ダラキソンラシブの奏効率と生存期間",
+      "summary": "ダラキソンラシブの第1相の二次治療26人（奏効9人）から、第3相RASolute 302のRAS G12集団の奏効率と生存期間をどこまで絞れたかを後ろ向きに照合した。試験間のずれが大きいと、コホートを増やしても予測区間はほとんど縮まない。",
+      "seo_description": "ダラキソンラシブの第1相26人のデータから、第3相の奏効率とPFS・OSの中央値を予測区間で照合し、コホートを増やす価値を事前事後の模擬で見積もった後ろ向きの解析。",
+      "seo_title": "Phase 1の26人はPhase 3をどこまで絞ったか"
+    },
+    "en": {
+      "title": "How far did 26 Phase 1 patients constrain Phase 3? Daraxonrasib response and survival in public data",
+      "summary": "From the 26 second-line patients (9 responders) of the daraxonrasib Phase 1 cohort, I checked retrospectively how far the response rate and survival in the RAS G12 population of the Phase 3 trial RASolute 302 were constrained. When the shift between trials is large, enlarging the cohort barely narrows the predictive interval.",
+      "seo_description": "A retrospective check of Phase 3 ORR and median PFS and OS against predictive intervals from the 26-patient daraxonrasib Phase 1 cohort, with a simulation of the value of a larger cohort.",
+      "seo_title": "How far did 26 Phase 1 patients constrain Phase 3?"
+    }
+  },
+  "date": "2026-12-26",
+  "publish_at": "2026-12-26T09:00:00+09:00",
+  "draft": false,
+  "reviewed": {
+    "en": "ca71b9b8785d04f7ff0c87b922a915e0afa4fa7a8d20fc216b3b7e2e7d7cfb7f"
+  }
+}
