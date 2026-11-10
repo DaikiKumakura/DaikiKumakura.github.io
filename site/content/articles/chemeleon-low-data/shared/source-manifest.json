@@ -1,0 +1,42 @@
+{
+  "repo": "JacksonBurns/chemeleon",
+  "commit": "b5e5bd88a7070c3f278e7e65e85b792617bf125c",
+  "files": [
+    {
+      "path": "analysis/cliffs/source_data.csv",
+      "url": "https://raw.githubusercontent.com/JacksonBurns/chemeleon/b5e5bd88a7070c3f278e7e65e85b792617bf125c/analysis/cliffs/source_data.csv",
+      "bytes": 195155,
+      "sha256": "8f86324dd6f9a4197690d36028cfc3e9c66070e5666d3176f9d421dc0ba0bf8b"
+    },
+    {
+      "path": "analysis/moleculeace_results/CheMeleon.md",
+      "url": "https://raw.githubusercontent.com/JacksonBurns/chemeleon/b5e5bd88a7070c3f278e7e65e85b792617bf125c/analysis/moleculeace_results/CheMeleon.md",
+      "bytes": 45129,
+      "sha256": "29d11d1beac15deaa40ea0d18c7b4332b69bba55fb2615d9329fad2a65aac350"
+    },
+    {
+      "path": "analysis/moleculeace_results/Chemprop.md",
+      "url": "https://raw.githubusercontent.com/JacksonBurns/chemeleon/b5e5bd88a7070c3f278e7e65e85b792617bf125c/analysis/moleculeace_results/Chemprop.md",
+      "bytes": 45136,
+      "sha256": "97a30e42fb4f25b936a3008c8af3ed5b1478af8814384ecfe1b625b9f2de4eea"
+    },
+    {
+      "path": "analysis/moleculeace_results/RF.md",
+      "url": "https://raw.githubusercontent.com/JacksonBurns/chemeleon/b5e5bd88a7070c3f278e7e65e85b792617bf125c/analysis/moleculeace_results/RF.md",
+      "bytes": 45149,
+      "sha256": "56ecb3d2a52c011e22d9203c192d6908bdcc482cd779ddbd24a5ae9611603ed2"
+    },
+    {
+      "path": "analysis/moleculeace_results/RF_Mordred.md",
+      "url": "https://raw.githubusercontent.com/JacksonBurns/chemeleon/b5e5bd88a7070c3f278e7e65e85b792617bf125c/analysis/moleculeace_results/RF_Mordred.md",
+      "bytes": 45135,
+      "sha256": "7c957a5a26140df94bba3a7de192f7d330fc169332f38fb88c01c67066f02b2e"
+    },
+    {
+      "path": "analysis/moleculeace_results/RF_Morgan.md",
+      "url": "https://raw.githubusercontent.com/JacksonBurns/chemeleon/b5e5bd88a7070c3f278e7e65e85b792617bf125c/analysis/moleculeace_results/RF_Morgan.md",
+      "bytes": 45134,
+      "sha256": "3dd2e15b9853a5821905e8d5424598f0aedfe48118a46f91fd554674b6773619"
+    }
+  ]
+}

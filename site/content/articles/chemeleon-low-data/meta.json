@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "math": true,
+  "author": "Daiki Kumakura",
+  "version": "1.0",
+  "locales": {
+    "ja": {
+      "title": "CheMeleonは少量データでどこまで強いのか",
+      "summary": "CheMeleonの公開30タスクを再解析し、ランダムフォレストとの誤差差を活動崖と訓練数で比較する。少量データでの優位と原著の勝率を区別した。",
+      "seo_title": "CheMeleonは少量データでどこまで強いのか",
+      "seo_description": "CheMeleonの公開30タスクを再解析し、ランダムフォレストとの誤差差を活動崖と訓練数で比較する。少量データでの優位と原著の勝率を区別した。"
+    },
+    "en": {
+      "title": "How strong is CheMeleon when data are scarce?",
+      "summary": "CheMeleon benchmark errors versus random forests across 30 tasks, activity cliffs and small training pools, with paired task-level uncertainty.",
+      "seo_title": "How strong is CheMeleon when data are scarce?",
+      "seo_description": "CheMeleon benchmark errors versus random forests across 30 tasks, activity cliffs and small training pools, with paired task-level uncertainty."
+    }
+  },
+  "date": "2026-12-26",
+  "publish_at": "2026-12-26T13:00:00+09:00",
+  "draft": false,
+  "reviewed": {
+    "en": "d861247c85f0a7a45cd7fcfe6e7deb434510cab46b3b1b17023affb479b1eba0"
+  }
+}
