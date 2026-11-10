@@ -711,6 +711,33 @@
       "related_articles": []
     },
     {
+      "id": "rsemverse",
+      "tech": "R",
+      "url": "https://github.com/DaikiKumakura/rsemverse",
+      "status": "R package (v0.1.0)",
+      "description": "An R package whose function rsem_read() reads RSEM *.genes.results files listed in a sample table (sample_id, ref) and returns expected counts or TPM as a data frame with one row per gene symbol and one column per sample, using org.Hs.eg.db or org.Mm.eg.db for human or mouse.",
+      "featured": false,
+      "links": [
+        {
+          "url": "https://github.com/DaikiKumakura/rsemverse#readme",
+          "label": "Usage"
+        }
+      ],
+      "note": "Ensembl version suffixes are removed before the symbol lookup, rows that share a symbol are summed, and genes without a symbol keep their original ID. On six ENCODE K562 RSEM files (59,526 genes each), 36,385 genes received a symbol, 23,141 kept their ID, and the column sums equalled the input (November 10, 2026). R CMD check passes on Linux, macOS and Windows in CI. Not on CRAN or Bioconductor.",
+      "slug": "rsemverse",
+      "headline": "rsemverse: RSEM to gene symbol tables in R",
+      "summary": "R package with one function, rsem_read(), that returns RSEM gene results as a gene symbol by sample table of counts or TPM for human or mouse.",
+      "details": [],
+      "install": [
+        {
+          "label": "R",
+          "code": "install.packages(\"BiocManager\")\nBiocManager::install(\"DaikiKumakura/rsemverse\")\nBiocManager::install(c(\"org.Hs.eg.db\", \"org.Mm.eg.db\"))"
+        }
+      ],
+      "install_note": "rsemverse needs R 4.1 or later; install the OrgDb package of the species you use (org.Hs.eg.db for human, org.Mm.eg.db for mouse).",
+      "related_articles": []
+    },
+    {
       "id": "retiaudit",
       "tech": "R",
       "url": "https://github.com/DaikiKumakura/retiaudit",
