@@ -2,7 +2,7 @@
 {% block content %}
 <article class="prose" lang="{{ lang }}">
 {% if alternatives|length > 1 %}<nav class="languages" aria-label="Page language">{% for code,href in alternatives.items() %}<a href="{{ href }}" lang="{{ code }}">{{ "日本語" if code == "ja" else "English" }}</a>{% endfor %}</nav>{% endif %}
-<nav class="crumbs meta" aria-label="Breadcrumb" lang="en"><a href="{{ root }}index.html">Home</a> › <a href="{{ root }}reference.html">Tools and reference</a> › {{ kind }}</nav>
+<nav class="crumbs meta" aria-label="Breadcrumb" lang="en"><a href="{{ root or './' }}">Home</a> › <a href="{{ root }}reference.html">Tools and reference</a> › {{ kind }}</nav>
 <h1>{{ title }}</h1>
 <p class="lead">{{ description }}</p>
 {{ body|safe }}

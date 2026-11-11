@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 <article class="prose">
-<nav class="crumbs meta" aria-label="Breadcrumb"><a href="{{ root }}index.html">Home</a> › <a href="{{ root }}software.html">Software</a> › {{ sw.id }}</nav>
+<nav class="crumbs meta" aria-label="Breadcrumb"><a href="{{ root or './' }}">Home</a> › <a href="{{ root }}software.html">Software</a> › {{ sw.id }}</nav>
 <h1>{{ sw.id }}</h1>
 <p class="meta">{{ sw.tech }} · {{ sw.status }}</p>
 <p class="lead">{{ sw.description }}</p>

@@ -30,10 +30,10 @@
 {% endif %}
 {% if preview %}<p class="notice">{{ ui.preview }}</p>{% endif %}
 <header>
-  <div class="top"><a class="brand" href="{{ root }}index.html">{{ site.name }}</a>
+  <div class="top"><a class="brand" href="{{ root or './' }}">{{ site.name }}</a>
 
   </div>
-  <nav aria-label="{{ ui.navigation }}" class="navigation">{% for key,label in ui.nav.items() %}<a href="{{ root }}{{ key }}.html" {% if active == key %}aria-current="page"{% endif %}>{{ label }}</a>{% endfor %}</nav>
+  <nav aria-label="{{ ui.navigation }}" class="navigation">{% for key,label in ui.nav.items() %}<a href="{{ (root or './') if key == 'home' else root ~ key ~ '.html' }}" {% if active == key %}aria-current="page"{% endif %}>{{ label }}</a>{% endfor %}</nav>
 </header>
 <main id="main" tabindex="-1">
 {% block content %}{% endblock %}

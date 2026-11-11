@@ -17,6 +17,7 @@ NAV = dict(home='Home', profile='Profile', writing='Writing', software='Software
 LEGACY_PAGES = {'index':'index.html', 'about':'profile.html', 'publications':'publication.html', 'activities':'activity.html', 'writing':'writing.html', 'software':'software.html'}
 LEGACY_REDIRECTS = {'japanese.html':'index.html', 'publication_jpn.html':'publication.html', 'cv.html':'profile.html', 'research.html':'profile.html', 'education.html':'activity.html#teaching', 'gallery.html':'writing.html', 'link.html':'writing.html', 'about.html':'profile.html', 'publications.html':'publication.html', 'activities.html':'activity.html'}
 LEGACY_REDIRECTS.update({f'{language}/{old}.html':new for language in ('ja','en') for old,new in LEGACY_PAGES.items()})
+LEGACY_REDIRECTS['writing/warfarin-pkpd-en.html'] = 'writing/warfarin-pkpd.html'
 # Documentation sites published under this domain by other repositories (pkgdown) with their own sitemaps.
 EXTRA_SITEMAPS = ('rsemflow/sitemap.xml', 'pkident/sitemap.xml', 'retiaudit/sitemap.xml')
 # Reference pages (tools, glossary terms, catalogs): one folder per page in content/reference,
@@ -497,13 +498,8 @@ def build(project=BASE, preview=False, strict_translations=False):
             # Figures of the article, so that they can appear in image search (relative to the article's folder).
             for src in dict.fromkeys(re.findall(r'<img[^>]+src="(shared/[^"]+\.(?:png|jpe?g))"',outputs[p].decode('utf-8'))):
                 tag+='<image:image><image:loc>'+html.escape(SITE_URL+'writing/'+src)+'</image:loc></image:image>'
-        if p in WRITING_ALTERNATIVES.values():
-            tag+=''.join('<xhtml:link rel="alternate" hreflang="'+code+'" href="'+html.escape(SITE_URL+name)+'"/>' for code,name in WRITING_ALTERNATIVES.items())+'<xhtml:link rel="alternate" hreflang="x-default" href="'+html.escape(SITE_URL+WRITING_ALTERNATIVES['en'])+'"/>'
-        for a in entries:
-            m=a['meta']; files={code:'writing/'+a['slug']+('' if code==m['source_language'] else '-'+code)+'.html' for code in m['locales']}
-            if p not in files.values() or len(files)<2:continue
-            for code,name in files.items():tag+='<xhtml:link rel="alternate" hreflang="'+code+'" href="'+html.escape(SITE_URL+name)+'"/>'
-            if 'en' in files:tag+='<xhtml:link rel="alternate" hreflang="x-default" href="'+html.escape(SITE_URL+files['en'])+'"/>'
+        for alternate in re.findall(r'<link rel="alternate" hreflang="[^"]+" href="[^"]+">', outputs[p].decode('utf-8')):
+            tag += '<xhtml:' + alternate[1:-1] + '/>'
         return tag+'</url>'
     outputs['sitemap.xml']=('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">'+''.join(sitemap_url(p) for p in canonical_pages if not preview or not p.startswith('writing/'))+'</urlset>').encode('utf-8')
     if not preview:
