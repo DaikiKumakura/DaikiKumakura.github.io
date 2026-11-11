@@ -1,0 +1,22 @@
+{
+  "kind": "term",
+  "updated": "2026-11-11",
+  "math": false,
+  "related_articles": [
+    "mosunetuzumab-public-pk"
+  ],
+  "locales": {
+    "en": {
+      "title": "Virtual patients and virtual populations",
+      "summary": "Virtual patients are sets of model inputs used to simulate plausible individual trajectories under specified scenarios.",
+      "seo_title": "Virtual patients and virtual populations",
+      "seo_description": "Virtual patients are sets of model inputs used to simulate plausible individual trajectories under specified scenarios."
+    },
+    "ja": {
+      "title": "仮想患者と仮想集団",
+      "summary": "仮想患者は、特定の条件下で個人の推移をシミュレーションするためのモデル入力の組である。",
+      "seo_title": "仮想患者と仮想集団",
+      "seo_description": "仮想患者は、特定の条件下で個人の推移をシミュレーションするためのモデル入力の組である。"
+    }
+  }
+}

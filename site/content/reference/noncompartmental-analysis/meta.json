@@ -1,0 +1,20 @@
+{
+  "kind": "term",
+  "updated": "2026-11-11",
+  "math": false,
+  "related_articles": [],
+  "locales": {
+    "en": {
+      "title": "Noncompartmental analysis (NCA)",
+      "summary": "NCA calculates PK summaries from sampled concentrations and dosing records without specifying a compartmental structure.",
+      "seo_title": "Noncompartmental analysis (NCA)",
+      "seo_description": "NCA calculates PK summaries from sampled concentrations and dosing records without specifying a compartmental structure."
+    },
+    "ja": {
+      "title": "ノンコンパートメント解析（NCA）",
+      "summary": "NCAは、コンパートメント構造を定めず、測定濃度と投与記録からPK指標を求める。",
+      "seo_title": "ノンコンパートメント解析（NCA）",
+      "seo_description": "NCAは、コンパートメント構造を定めず、測定濃度と投与記録からPK指標を求める。"
+    }
+  }
+}

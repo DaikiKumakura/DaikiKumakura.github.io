@@ -1,0 +1,23 @@
+{
+  "kind": "term",
+  "updated": "2026-11-11",
+  "math": false,
+  "related_articles": [
+    "nimotuzumab-poppk",
+    "warfarin-pkpd"
+  ],
+  "locales": {
+    "en": {
+      "title": "Pharmacometrics",
+      "summary": "Uses quantitative models of drug exposure, response and variability to support drug development decisions.",
+      "seo_title": "Pharmacometrics",
+      "seo_description": "Uses quantitative models of drug exposure, response and variability to support drug development decisions."
+    },
+    "ja": {
+      "title": "薬理計量学（Pharmacometrics）",
+      "summary": "薬物曝露・反応・ばらつきを数理モデルで表し、医薬品開発の判断に使う。",
+      "seo_title": "薬理計量学（Pharmacometrics）",
+      "seo_description": "薬物曝露・反応・ばらつきを数理モデルで表し、医薬品開発の判断に使う。"
+    }
+  }
+}

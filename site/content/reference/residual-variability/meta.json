@@ -1,0 +1,20 @@
+{
+  "kind": "term",
+  "updated": "2026-11-11",
+  "math": false,
+  "related_articles": [],
+  "locales": {
+    "en": {
+      "title": "Residual variability in population PK",
+      "summary": "Residual variability describes the difference between a concentration measurement and its individual model prediction.",
+      "seo_title": "Residual variability in population PK",
+      "seo_description": "Residual variability describes the difference between a concentration measurement and its individual model prediction."
+    },
+    "ja": {
+      "title": "母集団PKの残差変動",
+      "summary": "残差変動は、測定濃度と個人別のモデル予測との差を表す。",
+      "seo_title": "母集団PKの残差変動",
+      "seo_description": "残差変動は、測定濃度と個人別のモデル予測との差を表す。"
+    }
+  }
+}

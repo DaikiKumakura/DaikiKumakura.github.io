@@ -1,0 +1,20 @@
+{
+  "kind": "term",
+  "updated": "2026-11-11",
+  "math": false,
+  "related_articles": [],
+  "locales": {
+    "en": {
+      "title": "Toxicokinetics (TK)",
+      "summary": "Toxicokinetics measures systemic exposure in toxicity studies and relates it to dose, duration and observed findings.",
+      "seo_title": "Toxicokinetics (TK)",
+      "seo_description": "Toxicokinetics measures systemic exposure in toxicity studies and relates it to dose, duration and observed findings."
+    },
+    "ja": {
+      "title": "毒性動態（トキシコキネティクス）",
+      "summary": "毒性動態では、毒性試験で全身曝露を測り、用量・投与期間・毒性所見との関係を調べる。",
+      "seo_title": "毒性動態（トキシコキネティクス）",
+      "seo_description": "毒性動態では、毒性試験で全身曝露を測り、用量・投与期間・毒性所見との関係を調べる。"
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "kind": "term",
+  "updated": "2026-11-11",
+  "math": false,
+  "related_articles": [],
+  "locales": {
+    "en": {
+      "title": "Effect compartment models",
+      "summary": "An effect compartment represents a delay between plasma concentration and the concentration driving response.",
+      "seo_title": "Effect compartment models",
+      "seo_description": "An effect compartment represents a delay between plasma concentration and the concentration driving response."
+    },
+    "ja": {
+      "title": "効果コンパートメントモデル",
+      "summary": "効果コンパートメントは、血漿中濃度と反応を駆動する濃度の間の遅れを表す。",
+      "seo_title": "効果コンパートメントモデル",
+      "seo_description": "効果コンパートメントは、血漿中濃度と反応を駆動する濃度の間の遅れを表す。"
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "kind": "term",
+  "updated": "2026-11-11",
+  "math": false,
+  "related_articles": [
+    "mosunetuzumab-public-pk"
+  ],
+  "locales": {
+    "en": {
+      "title": "Same AUC with different dosing intervals",
+      "summary": "Equal exposure over the same time window can coexist with different peak and trough concentrations.",
+      "seo_title": "Same AUC with different dosing intervals",
+      "seo_description": "Equal exposure over the same time window can coexist with different peak and trough concentrations."
+    },
+    "ja": {
+      "title": "AUCが同じ場合の投与間隔と濃度推移",
+      "summary": "同じ期間のAUCが等しくても、ピーク濃度とトラフ濃度は異なり得る。",
+      "seo_title": "AUCが同じ場合の投与間隔と濃度推移",
+      "seo_description": "同じ期間のAUCが等しくても、ピーク濃度とトラフ濃度は異なり得る。"
+    }
+  }
+}

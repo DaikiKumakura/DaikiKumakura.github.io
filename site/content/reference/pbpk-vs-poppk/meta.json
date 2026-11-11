@@ -1,0 +1,20 @@
+{
+  "kind": "term",
+  "updated": "2026-11-11",
+  "math": false,
+  "related_articles": [],
+  "locales": {
+    "en": {
+      "title": "PBPK vs population PK",
+      "summary": "PBPK describes physiology and drug movement. Population PK estimates typical kinetics and variability from pooled observations.",
+      "seo_title": "PBPK vs population PK",
+      "seo_description": "PBPK describes physiology and drug movement. Population PK estimates typical kinetics and variability from pooled observations."
+    },
+    "ja": {
+      "title": "PBPKと母集団PKの違い",
+      "summary": "PBPKは生理と薬物移動を記述する。母集団PKは観測を集約して典型的な動態とばらつきを推定する。",
+      "seo_title": "PBPKと母集団PKの違い",
+      "seo_description": "PBPKは生理と薬物移動を記述する。母集団PKは観測を集約して典型的な動態とばらつきを推定する。"
+    }
+  }
+}

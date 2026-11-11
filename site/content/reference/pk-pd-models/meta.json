@@ -1,0 +1,22 @@
+{
+  "kind": "term",
+  "updated": "2026-11-11",
+  "math": false,
+  "related_articles": [
+    "warfarin-pkpd"
+  ],
+  "locales": {
+    "en": {
+      "title": "PK/PD models",
+      "summary": "A PK/PD model connects the concentration over time to a pharmacological response.",
+      "seo_title": "PK/PD models",
+      "seo_description": "A PK/PD model connects the concentration over time to a pharmacological response."
+    },
+    "ja": {
+      "title": "PK/PDモデル",
+      "summary": "PK/PDモデルは、濃度の時間推移と薬理反応をつなぐ。",
+      "seo_title": "PK/PDモデル",
+      "seo_description": "PK/PDモデルは、濃度の時間推移と薬理反応をつなぐ。"
+    }
+  }
+}

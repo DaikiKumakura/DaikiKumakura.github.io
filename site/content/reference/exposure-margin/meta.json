@@ -1,0 +1,20 @@
+{
+  "kind": "term",
+  "updated": "2026-11-11",
+  "math": false,
+  "related_articles": [],
+  "locales": {
+    "en": {
+      "title": "Exposure margins in toxicology",
+      "summary": "An exposure margin compares exposure at a defined nonclinical dose with exposure under a specified human regimen.",
+      "seo_title": "Exposure margins in toxicology",
+      "seo_description": "An exposure margin compares exposure at a defined nonclinical dose with exposure under a specified human regimen."
+    },
+    "ja": {
+      "title": "毒性評価における曝露マージン",
+      "summary": "曝露マージンは、非臨床試験のある用量での曝露と、特定のヒト投与条件での曝露を比較する。",
+      "seo_title": "毒性評価における曝露マージン",
+      "seo_description": "曝露マージンは、非臨床試験のある用量での曝露と、特定のヒト投与条件での曝露を比較する。"
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "kind": "term",
+  "updated": "2026-11-11",
+  "math": false,
+  "related_articles": [],
+  "locales": {
+    "en": {
+      "title": "Confounding in exposure–response analysis",
+      "summary": "An exposure–response association can reflect factors that influence both exposure and the clinical outcome.",
+      "seo_title": "Confounding in exposure–response analysis",
+      "seo_description": "An exposure–response association can reflect factors that influence both exposure and the clinical outcome."
+    },
+    "ja": {
+      "title": "曝露–反応解析における交絡",
+      "summary": "曝露と反応の関連には、曝露と臨床アウトカムの双方に影響する要因が反映され得る。",
+      "seo_title": "曝露–反応解析における交絡",
+      "seo_description": "曝露と反応の関連には、曝露と臨床アウトカムの双方に影響する要因が反映され得る。"
+    }
+  }
+}

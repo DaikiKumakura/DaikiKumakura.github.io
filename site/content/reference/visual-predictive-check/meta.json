@@ -1,0 +1,22 @@
+{
+  "kind": "term",
+  "updated": "2026-11-11",
+  "math": false,
+  "related_articles": [
+    "nimotuzumab-poppk"
+  ],
+  "locales": {
+    "en": {
+      "title": "Visual predictive check (VPC)",
+      "summary": "A VPC compares observed summaries with their distribution under repeated simulation of the study design.",
+      "seo_title": "Visual predictive check (VPC)",
+      "seo_description": "A VPC compares observed summaries with their distribution under repeated simulation of the study design."
+    },
+    "ja": {
+      "title": "Visual predictive check（VPC）",
+      "summary": "VPCは、観測の要約値と、試験デザインを再現して反復シミュレーションした要約値の分布を比較する。",
+      "seo_title": "Visual predictive check（VPC）",
+      "seo_description": "VPCは、観測の要約値と、試験デザインを再現して反復シミュレーションした要約値の分布を比較する。"
+    }
+  }
+}

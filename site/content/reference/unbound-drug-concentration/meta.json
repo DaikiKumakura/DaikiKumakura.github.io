@@ -1,0 +1,20 @@
+{
+  "kind": "term",
+  "updated": "2026-11-11",
+  "math": false,
+  "related_articles": [],
+  "locales": {
+    "en": {
+      "title": "Unbound drug concentration",
+      "summary": "Unbound concentration is the fraction of total drug concentration that is free of binding in the sampled matrix.",
+      "seo_title": "Unbound drug concentration",
+      "seo_description": "Unbound concentration is the fraction of total drug concentration that is free of binding in the sampled matrix."
+    },
+    "ja": {
+      "title": "非結合型薬物濃度",
+      "summary": "非結合型薬物濃度は、測定した試料中で結合していない薬物の濃度である。",
+      "seo_title": "非結合型薬物濃度",
+      "seo_description": "非結合型薬物濃度は、測定した試料中で結合していない薬物の濃度である。"
+    }
+  }
+}

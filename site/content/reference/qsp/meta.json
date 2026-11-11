@@ -1,0 +1,20 @@
+{
+  "kind": "term",
+  "updated": "2026-11-11",
+  "math": false,
+  "related_articles": [],
+  "locales": {
+    "en": {
+      "title": "Quantitative systems pharmacology (QSP)",
+      "summary": "QSP models connect drug action to interacting biological processes and their dynamics.",
+      "seo_title": "Quantitative systems pharmacology (QSP)",
+      "seo_description": "QSP models connect drug action to interacting biological processes and their dynamics."
+    },
+    "ja": {
+      "title": "定量的システム薬理学（QSP）",
+      "summary": "QSPは、薬物の作用と、相互作用する生物学的過程の時間変化を結び付ける。",
+      "seo_title": "定量的システム薬理学（QSP）",
+      "seo_description": "QSPは、薬物の作用と、相互作用する生物学的過程の時間変化を結び付ける。"
+    }
+  }
+}
