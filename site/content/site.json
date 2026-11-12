@@ -723,6 +723,14 @@
       "featured": true,
       "links": [
         {
+          "url": "https://daikikumakura.github.io/bulkdeconv/",
+          "label": "Documentation"
+        },
+        {
+          "url": "https://github.com/DaikiKumakura/bulkdeconv/releases/tag/v0.1.0",
+          "label": "Release 0.1.0"
+        },
+        {
           "url": "https://github.com/DaikiKumakura/bulkdeconv#readme",
           "label": "Examples and method requirements"
         }
