@@ -19,7 +19,7 @@ LEGACY_REDIRECTS = {'japanese.html':'index.html', 'publication_jpn.html':'public
 LEGACY_REDIRECTS.update({f'{language}/{old}.html':new for language in ('ja','en') for old,new in LEGACY_PAGES.items()})
 LEGACY_REDIRECTS['writing/warfarin-pkpd-en.html'] = 'writing/warfarin-pkpd.html'
 # Documentation sites published under this domain by other repositories (pkgdown) with their own sitemaps.
-EXTRA_SITEMAPS = ('rsemflow/sitemap.xml', 'pkident/sitemap.xml', 'retiaudit/sitemap.xml')
+EXTRA_SITEMAPS = ('rsemflow/sitemap.xml', 'pkident/sitemap.xml', 'retiaudit/sitemap.xml', 'rsemverse/sitemap.xml', 'bulkdeconv/sitemap.xml')
 # Reference pages (tools, glossary terms, catalogs): one folder per page in content/reference,
 # written in both languages. English is the default file name, Japanese ends in -ja.
 REFERENCE_KINDS = {'policy': 'about', 'tool': 'tools', 'term': 'glossary', 'catalog': 'catalog'}

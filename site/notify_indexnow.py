@@ -13,7 +13,7 @@ KEY = '97b1692a1baf4e05a1e1ef4f47021a95'
 KEY_URL = f'{SITE_URL}{KEY}.txt'
 SITEMAP_URL = f'{SITE_URL}sitemap.xml'
 # The package documentation sites are published under this host with their own sitemaps.
-EXTRA_SITEMAPS = tuple(f'{SITE_URL}{name}/sitemap.xml' for name in ('rsemflow', 'pkident', 'retiaudit'))
+EXTRA_SITEMAPS = tuple(f'{SITE_URL}{name}/sitemap.xml' for name in ('rsemflow', 'pkident', 'retiaudit', 'rsemverse', 'bulkdeconv'))
 ENDPOINT = 'https://api.indexnow.org/indexnow'
 
 
