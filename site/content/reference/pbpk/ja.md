@@ -11,3 +11,9 @@ PBPKは、生理学的な情報と薬物固有の性質を使って、臓器・�
 ## 参照
 
 - [FDA. Physiologically Based Pharmacokinetic Analyses: Format and Content. 2018.](https://www.fda.gov/media/101469/download)
+
+## 関連用語
+
+- [薬物動態学的な薬物相互作用（DDI）](drug-drug-interactions-ja.html)
+- [代謝寄与率（fm）](fraction-metabolized-ja.html)
+- [食事による薬物曝露の変化](food-effect-ja.html)

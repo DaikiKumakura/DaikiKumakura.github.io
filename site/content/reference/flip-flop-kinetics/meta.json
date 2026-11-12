@@ -1,0 +1,32 @@
+{
+  "kind": "term",
+  "updated": "2026-11-12",
+  "math": false,
+  "related_articles": [],
+  "locales": {
+    "en": {
+      "title": "Flip-flop kinetics",
+      "summary": "With slow absorption, the terminal slope after extravascular dosing can primarily reflect absorption.",
+      "seo_title": "Flip-flop kinetics",
+      "seo_description": "With slow absorption, the terminal slope after extravascular dosing can primarily reflect absorption.",
+      "faq": [
+        {
+          "q": "How can absorption and elimination be distinguished?",
+          "a": "Compare with an IV profile or independently constrain elimination. In a first-order one-compartment oral model, the slower of the absorption and elimination rates dominates the terminal slope."
+        }
+      ]
+    },
+    "ja": {
+      "title": "フリップフロップ動態",
+      "summary": "吸収が遅いと、血管外投与後の終末相は主に吸収速度を反映し得る。",
+      "seo_title": "フリップフロップ動態",
+      "seo_description": "吸収が遅いと、血管外投与後の終末相は主に吸収速度を反映し得る。",
+      "faq": [
+        {
+          "q": "吸収と消失のどちらが遅いかどう見分けるか？",
+          "a": "静注時の濃度推移と比較するか、独立した情報で消失速度を絞る。一次吸収・一次消失の経口1区画モデルでは、遅い方の速度が終末相を支配する。"
+        }
+      ]
+    }
+  }
+}

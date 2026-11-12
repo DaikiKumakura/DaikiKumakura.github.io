@@ -1,0 +1,32 @@
+{
+  "kind": "term",
+  "updated": "2026-11-12",
+  "math": false,
+  "related_articles": [],
+  "locales": {
+    "en": {
+      "title": "Interoccasion variability",
+      "summary": "Interoccasion variability represents changes in an individual PK parameter between prespecified occasions.",
+      "seo_title": "Interoccasion variability",
+      "seo_description": "Interoccasion variability represents changes in an individual PK parameter between prespecified occasions.",
+      "faq": [
+        {
+          "q": "How does IOV differ from residual error?",
+          "a": "An occasion effect on clearance can shift several concentrations from the same occasion together. Independent residual errors act at the individual observation level."
+        }
+      ]
+    },
+    "ja": {
+      "title": "機会間変動（IOV）",
+      "summary": "同じ人のPKパラメータが、あらかじめ定義した投与期間や来院回の間で変わることを表す。",
+      "seo_title": "機会間変動（IOV）",
+      "seo_description": "同じ人のPKパラメータが、あらかじめ定義した投与期間や来院回の間で変わることを表す。",
+      "faq": [
+        {
+          "q": "機会間変動と残差変動はどう違うか？",
+          "a": "クリアランスの機会効果は同じ回の複数の濃度を一緒に動かし得る。独立な残差誤差は測定値ごとに作用する。"
+        }
+      ]
+    }
+  }
+}

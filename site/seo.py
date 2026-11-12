@@ -123,7 +123,8 @@ def enrich(page, name, site, site_url, article=None, og_image=None, topics=None,
    schema=dict(base,**{'@type':'CollectionPage','name':headline,'description':description,'about':person})
   hreflangs=dict(re.findall(r'<link rel="alternate" hreflang="([^"]+)" href="([^"]+)"',page))
   if {'ja','en'}<=set(hreflangs):metadata.append('<link rel="alternate" hreflang="x-default" href="'+html.escape(hreflangs['en'],quote=True)+'">')
-  faq=[(h,a) for h,a in re.findall(r'<h3>(.*?)</h3>\s*<p>(.*?)</p>',page.split('data-faq',1)[1],flags=re.S)] if 'data-faq' in page else []
+  faq_section = re.search(r'<section\b[^>]*\bdata-faq\b[^>]*>(.*?)</section>', page, flags=re.S)
+  faq = re.findall(r'<h3>(.*?)</h3>\s*<p>(.*?)</p>', faq_section[1], flags=re.S) if faq_section else []
   if faq:
    questions={'@context':'https://schema.org','@type':'FAQPage','inLanguage':lang,'mainEntity':[{'@type':'Question','name':html.unescape(q),'acceptedAnswer':{'@type':'Answer','text':html.unescape(re.sub(r'<[^>]+>','',a))}} for q,a in faq]}
    metadata.append('<script type="application/ld+json">'+json.dumps(questions,ensure_ascii=False).replace('<','\\u003c')+'</script>')

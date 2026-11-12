@@ -1,0 +1,32 @@
+{
+  "kind": "term",
+  "updated": "2026-11-12",
+  "math": false,
+  "related_articles": [],
+  "locales": {
+    "en": {
+      "title": "Eta shrinkage in PopPK",
+      "summary": "Individual random-effect estimates can cluster toward zero when the data carry little information about each patient.",
+      "seo_title": "Eta shrinkage in PopPK",
+      "seo_description": "Individual random-effect estimates can cluster toward zero when the data carry little information about each patient.",
+      "faq": [
+        {
+          "q": "Why does shrinkage matter for covariate plots?",
+          "a": "High shrinkage can obscure a real relationship or distort apparent patterns in empirical Bayes estimates. Compare models fitted to the original concentrations and check how informative the sampling design is."
+        }
+      ]
+    },
+    "ja": {
+      "title": "母集団PKのη縮小",
+      "summary": "各患者の情報が少ないと、個人別変量効果の推定値がゼロ付近に縮みやすくなる。",
+      "seo_title": "母集団PKのη縮小",
+      "seo_description": "各患者の情報が少ないと、個人別変量効果の推定値がゼロ付近に縮みやすくなる。",
+      "faq": [
+        {
+          "q": "縮小が共変量探索にどう影響するか？",
+          "a": "縮小が大きいと経験ベイズ推定値を使った図で本来の関係が見えにくくなったり、見かけのパターンが歪んだりする。元の濃度データでモデルを比較し、採血デザインの情報量を確かめる。"
+        }
+      ]
+    }
+  }
+}

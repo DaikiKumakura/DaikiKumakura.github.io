@@ -1,0 +1,32 @@
+{
+  "kind": "term",
+  "updated": "2026-11-12",
+  "math": false,
+  "related_articles": [],
+  "locales": {
+    "en": {
+      "title": "Model-informed drug development (MIDD)",
+      "summary": "MIDD integrates data and quantitative models to inform a defined drug development decision.",
+      "seo_title": "Model-informed drug development (MIDD)",
+      "seo_description": "MIDD integrates data and quantitative models to inform a defined drug development decision.",
+      "faq": [
+        {
+          "q": "What makes a simulation useful for a decision?",
+          "a": "State the alternatives, the outcome used to compare them and what would change the choice. Assess model performance and propagate important uncertainty for that context."
+        }
+      ]
+    },
+    "ja": {
+      "title": "モデルに基づく医薬品開発（MIDD）",
+      "summary": "MIDDでは、医薬品開発の具体的な判断にデータと定量モデルを組み合わせる。",
+      "seo_title": "モデルに基づく医薬品開発（MIDD）",
+      "seo_description": "MIDDでは、医薬品開発の具体的な判断にデータと定量モデルを組み合わせる。",
+      "faq": [
+        {
+          "q": "判断に使えるシミュレーションの条件は？",
+          "a": "比較する選択肢、比較に用いる指標、どの結果なら判断が変わるかを明示する。その用途に照らしてモデルの性能を評価し、重要な不確実性を結果に反映する。"
+        }
+      ]
+    }
+  }
+}

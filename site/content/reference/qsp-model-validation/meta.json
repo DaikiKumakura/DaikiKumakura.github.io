@@ -1,0 +1,32 @@
+{
+  "kind": "term",
+  "updated": "2026-11-12",
+  "math": false,
+  "related_articles": [],
+  "locales": {
+    "en": {
+      "title": "QSP model verification and validation",
+      "summary": "Verification checks the implementation. Validation assesses whether model predictions reproduce relevant observations for the intended use.",
+      "seo_title": "QSP model verification and validation",
+      "seo_description": "Verification checks the implementation. Validation assesses whether model predictions reproduce relevant observations for the intended use.",
+      "faq": [
+        {
+          "q": "Can calibration data validate a new regimen?",
+          "a": "Agreement with calibration data shows fit under the fitted conditions. Use independent conditions or datasets for a stronger test of predictions, and report uncertainty where direct testing is unavailable."
+        }
+      ]
+    },
+    "ja": {
+      "title": "QSPモデルの検証と妥当性評価",
+      "summary": "検証では実装が設計どおりかを確かめる。妥当性評価では、想定した用途に関係する観測を予測が再現できるかを調べる。",
+      "seo_title": "QSPモデルの検証と妥当性評価",
+      "seo_description": "検証では実装が設計どおりかを確かめる。妥当性評価では、想定した用途に関係する観測を予測が再現できるかを調べる。",
+      "faq": [
+        {
+          "q": "較正データで新規レジメンの予測を検証できるか？",
+          "a": "較正データとの一致は当てはめた条件での適合を示す。予測の検証には独立した条件やデータを用い、直接検証できない部分の不確実性を示す。"
+        }
+      ]
+    }
+  }
+}

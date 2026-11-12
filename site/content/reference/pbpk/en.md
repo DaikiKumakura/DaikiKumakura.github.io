@@ -11,3 +11,9 @@ For a perfusion-limited tissue with an equilibrium tissue-to-blood partition coe
 ## References
 
 - [FDA. Physiologically Based Pharmacokinetic Analyses: Format and Content. 2018.](https://www.fda.gov/media/101469/download)
+
+## Related terms
+
+- [Pharmacokinetic drug interactions (DDI)](drug-drug-interactions.html)
+- [Fraction metabolized (fm)](fraction-metabolized.html)
+- [Food effect on drug exposure](food-effect.html)

@@ -1,0 +1,32 @@
+{
+  "kind": "term",
+  "updated": "2026-11-12",
+  "math": false,
+  "related_articles": [],
+  "locales": {
+    "en": {
+      "title": "Apparent clearance and volume",
+      "summary": "After oral dosing, clearance and volume are commonly estimated relative to bioavailability as CL/F and V/F.",
+      "seo_title": "Apparent clearance and volume",
+      "seo_description": "After oral dosing, clearance and volume are commonly estimated relative to bioavailability as CL/F and V/F.",
+      "faq": [
+        {
+          "q": "Does higher CL/F mean faster elimination?",
+          "a": "Higher CL or lower F can both raise CL/F. IV data or independent bioavailability information can help distinguish them."
+        }
+      ]
+    },
+    "ja": {
+      "title": "見かけのクリアランスと分布容積",
+      "summary": "経口投与後は、クリアランスと分布容積を通常 CL/F と V/F として推定する。",
+      "seo_title": "見かけのクリアランスと分布容積",
+      "seo_description": "経口投与後は、クリアランスと分布容積を通常 CL/F と V/F として推定する。",
+      "faq": [
+        {
+          "q": "CL/Fが高ければ消失は速いか？",
+          "a": "CLの上昇とFの低下はどちらもCL/Fを上げる。静注データや独立したバイオアベイラビリティの情報が区別に役立つ。"
+        }
+      ]
+    }
+  }
+}

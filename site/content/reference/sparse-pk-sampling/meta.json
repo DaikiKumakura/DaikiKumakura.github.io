@@ -1,0 +1,34 @@
+{
+  "kind": "term",
+  "updated": "2026-11-12",
+  "math": false,
+  "related_articles": [
+    "nimotuzumab-poppk"
+  ],
+  "locales": {
+    "en": {
+      "title": "Sparse PK sampling",
+      "summary": "Population PK pools information across patients when each patient has only a few samples.",
+      "seo_title": "Sparse PK sampling",
+      "seo_description": "Population PK pools information across patients when each patient has only a few samples.",
+      "faq": [
+        {
+          "q": "What can trough-only sampling estimate?",
+          "a": "It can inform trough predictions and some parameter combinations. Absorption rate and peak exposure may be weakly identified unless early samples or external information are available."
+        }
+      ]
+    },
+    "ja": {
+      "title": "疎なPK採血",
+      "summary": "患者一人あたりの採血が少ないとき、母集団PKでは患者間で情報を共有する。",
+      "seo_title": "疎なPK採血",
+      "seo_description": "患者一人あたりの採血が少ないとき、母集団PKでは患者間で情報を共有する。",
+      "faq": [
+        {
+          "q": "トラフだけの採血で何を推定できるか？",
+          "a": "トラフの予測と一部のパラメータの組合せに情報を与える。投与後早期の採血や外部情報がなければ吸収速度やピーク曝露の識別は弱くなり得る。"
+        }
+      ]
+    }
+  }
+}

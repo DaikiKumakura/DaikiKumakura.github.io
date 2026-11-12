@@ -1,6 +1,6 @@
 {
   "kind": "term",
-  "updated": "2026-11-11",
+  "updated": "2026-11-12",
   "math": false,
   "related_articles": [
     "nimotuzumab-poppk"
@@ -10,13 +10,25 @@
       "title": "Visual predictive check (VPC)",
       "summary": "A VPC compares observed summaries with their distribution under repeated simulation of the study design.",
       "seo_title": "Visual predictive check (VPC)",
-      "seo_description": "A VPC compares observed summaries with their distribution under repeated simulation of the study design."
+      "seo_description": "A VPC compares observed summaries with their distribution under repeated simulation of the study design.",
+      "faq": [
+        {
+          "q": "Is a VPC prediction band a confidence interval for the mean?",
+          "a": "A common VPC plots simulation intervals for selected percentiles. These bands describe how a percentile varies across replicated datasets under the model and design."
+        }
+      ]
     },
     "ja": {
       "title": "Visual predictive check（VPC）",
       "summary": "VPCは、観測の要約値と、試験デザインを再現して反復シミュレーションした要約値の分布を比較する。",
       "seo_title": "Visual predictive check（VPC）",
-      "seo_description": "VPCは、観測の要約値と、試験デザインを再現して反復シミュレーションした要約値の分布を比較する。"
+      "seo_description": "VPCは、観測の要約値と、試験デザインを再現して反復シミュレーションした要約値の分布を比較する。",
+      "faq": [
+        {
+          "q": "VPCの帯は平均の信頼区間か？",
+          "a": "一般的なVPCでは、選んだ百分位点のシミュレーション区間を示す。帯は、モデルと試験デザインに従った反復データセット間で百分位点がどの程度変わるかを表す。"
+        }
+      ]
     }
   }
 }

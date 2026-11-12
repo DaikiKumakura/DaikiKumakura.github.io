@@ -1,6 +1,6 @@
 {
   "kind": "term",
-  "updated": "2026-11-11",
+  "updated": "2026-11-12",
   "math": false,
   "related_articles": [],
   "locales": {
@@ -8,13 +8,25 @@
       "title": "Exposure margins in toxicology",
       "summary": "An exposure margin compares exposure at a defined nonclinical dose with exposure under a specified human regimen.",
       "seo_title": "Exposure margins in toxicology",
-      "seo_description": "An exposure margin compares exposure at a defined nonclinical dose with exposure under a specified human regimen."
+      "seo_description": "An exposure margin compares exposure at a defined nonclinical dose with exposure under a specified human regimen.",
+      "faq": [
+        {
+          "q": "Can a Cmax margin be compared directly with an AUC margin?",
+          "a": "Both ratios are dimensionless, but one compares peaks and the other cumulative exposure over a window. Interpret each against the toxicity mechanism and finding."
+        }
+      ]
     },
     "ja": {
       "title": "毒性評価における曝露マージン",
       "summary": "曝露マージンは、非臨床試験のある用量での曝露と、特定のヒト投与条件での曝露を比較する。",
       "seo_title": "毒性評価における曝露マージン",
-      "seo_description": "曝露マージンは、非臨床試験のある用量での曝露と、特定のヒト投与条件での曝露を比較する。"
+      "seo_description": "曝露マージンは、非臨床試験のある用量での曝露と、特定のヒト投与条件での曝露を比較する。",
+      "faq": [
+        {
+          "q": "CmaxマージンとAUCマージンを直接比較できるか？",
+          "a": "どちらも無次元だが、一方はピーク、もう一方は一定期間の累積曝露を比較する。毒性機序と所見に照らしてそれぞれ解釈する。"
+        }
+      ]
     }
   }
 }

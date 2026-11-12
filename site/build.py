@@ -25,6 +25,26 @@ EXTRA_SITEMAPS = ('rsemflow/sitemap.xml', 'pkident/sitemap.xml', 'retiaudit/site
 REFERENCE_KINDS = {'policy': 'about', 'tool': 'tools', 'term': 'glossary', 'catalog': 'catalog'}
 REFERENCE_HEADINGS = {'policy': 'About these analyses', 'tool': 'Tools', 'term': 'Glossary', 'catalog': 'Catalogs'}
 REFERENCE_LABELS = {'policy': 'About page', 'tool': 'Tool', 'term': 'Glossary term', 'catalog': 'Catalog'}
+REFERENCE_TOPICS = (
+    ('pk', 'PK fundamentals', 'PKの基礎',
+     frozenset(('auc-area-under-the-curve bioavailability-f clearance-cl cmax-peak-concentration ctrough-trough-concentration dosing-interval-notation half-life noncompartmental-analysis same-auc-different-dosing-interval steady-state volume-of-distribution '
+                'one-compartment-pk two-compartment-pk accumulation-ratio flip-flop-kinetics apparent-clearance dose-proportionality').split())),
+    ('pop', 'Population PK and model diagnostics', '母集団PKとモデル診断',
+     frozenset(('allometric-scaling-covariates inter-individual-variability-iiv population-pk-nlme poppk-reimplementation practical-identifiability profile-likelihood residual-variability structural-identifiability visual-predictive-check '
+                'eta-shrinkage interoccasion-variability below-quantification-limit sparse-pk-sampling').split())),
+    ('er', 'PK/PD and exposure–response', 'PK/PDと曝露–反応',
+     frozenset(('c-index cytokine-release-syndrome dose-intensity effect-compartment emax-hill-model exposure-response exposure-response-confounding fixed-vs-weight-based-dosing indirect-response-model landmark-analysis pk-pd-models project-optimus receptor-occupancy step-up-dosing '
+                'concentration-qt exposure-metric-selection').split())),
+    ('pb', 'PBPK and drug interactions', 'PBPKと薬物相互作用',
+     frozenset(('pbpk pbpk-vs-poppk unbound-drug-concentration '
+                'drug-drug-interactions fraction-metabolized food-effect').split())),
+    ('tox', 'Toxicokinetics and safety', '毒性動態と安全性',
+     frozenset(('exposure-margin toxicokinetics '
+                'noael quantitative-systems-toxicology').split())),
+    ('qsp', 'QSP and model-informed development', 'QSPとモデルに基づく開発',
+     frozenset(('pharmacometrics qoi-cou qsp robust-mixture-prior t-cell-engager target-mediated-drug-disposition virtual-populations '
+                'model-informed-drug-development qsp-model-validation tumor-growth-inhibition').split())),
+)
 # The Writing index exists once per language so that every title on a page is in that page's language.
 WRITING_ALTERNATIVES = {'en': 'writing.html', 'ja': 'writing-ja.html'}
 WRITING_TITLE_JA = '記事一覧'
@@ -466,6 +486,17 @@ def build(project=BASE, preview=False, strict_translations=False):
             output(reference_file(e,language),page,language,m)
     groups=[dict(heading=REFERENCE_HEADINGS[kind],items=[dict(en=e['meta']['locales']['en'],ja=e['meta']['locales']['ja'],en_href=reference_file(e,'en'),ja_href=reference_file(e,'ja')) for e in reference if e['kind']==kind]) for kind in REFERENCE_KINDS]
     groups=[g for g in groups if g['items']]
+    glossary = next((group for group in groups if group['heading'] == REFERENCE_HEADINGS['term']), None)
+    if glossary:
+        terms = dict(zip((e['slug'] for e in reference if e['kind'] == 'term'), glossary['items']))
+        glossary['topics'] = [
+            dict(id=key, en=en, ja=ja, items=[item for slug, item in terms.items() if slug in slugs])
+            for key, en, ja, slugs in REFERENCE_TOPICS
+        ]
+        assigned = set().union(*(slugs for _, _, _, slugs in REFERENCE_TOPICS))
+        glossary['topics'].append(dict(id='other', en='Other terms', ja='その他の用語',
+                                       items=[item for slug, item in terms.items() if slug not in assigned]))
+        glossary['topics'] = [topic for topic in glossary['topics'] if topic['items']]
     output('reference.html',env.get_template('reference-index.html').render(site=site,lang='en',ui=ui,preview=preview,active='writing',root='',alternatives={},title='Tools and reference',description='Interactive tools, a glossary of pharmacometrics terms and catalogs that accompany the analyses by Daiki Kumakura, in Japanese and English.',math=False,groups=groups))
     output('privacy.html',env.get_template('privacy.html').render(site=site,lang='en',ui=ui,preview=preview,active='',root='',alternatives={},title='Privacy and analytics',description='Optional Google Analytics, cookies and privacy choices on the Daiki Kumakura website.',math=False))
     canonical_pages=['index.html','privacy.html']+[key+'.html' for key in NAV if key!='home']+['writing-ja.html']+[name for name in outputs if name.startswith(('writing/','topics/','software/','about/','tools/','glossary/','catalog/','reference.html')) and name.endswith('.html')]

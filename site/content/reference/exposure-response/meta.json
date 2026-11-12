@@ -1,6 +1,6 @@
 {
   "kind": "term",
-  "updated": "2026-10-28",
+  "updated": "2026-11-12",
   "math": false,
   "related_articles": [
     "fixed-vs-weight-dosing",
@@ -21,6 +21,10 @@
         {
           "q": "Does a flat exposure–response relationship mean the dose does not matter?",
           "a": "Only within the range of exposures studied; outside that range, or for safety, the relationship may not be flat."
+        },
+        {
+          "q": "Does a flat exposure–response curve justify dose reduction?",
+          "a": "Check whether the proposed lower-dose exposures were represented in the data, and whether the endpoint, precision and design can distinguish a relevant effect. A flat fit inside a narrow range gives little information about lower exposures outside it."
         }
       ]
     },
@@ -37,6 +41,10 @@
         {
           "q": "曝露反応が平坦なら、用量は関係ないのですか。",
           "a": "調べた曝露の範囲に限った話です。その範囲の外や安全性では、平坦とは限りません。"
+        },
+        {
+          "q": "曝露–反応曲線が平坦なら減量できるか？",
+          "a": "減量後に想定する曝露が観測範囲に含まれるか、評価項目・精度・デザインで意味のある効果差を識別できるかを確認する。狭い範囲での平坦な当てはめから、その範囲より低い曝露の効果はほとんど分からない。"
         }
       ]
     }

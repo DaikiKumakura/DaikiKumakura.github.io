@@ -1,6 +1,6 @@
 {
   "kind": "term",
-  "updated": "2026-11-11",
+  "updated": "2026-11-12",
   "math": false,
   "related_articles": [],
   "locales": {
@@ -8,13 +8,25 @@
       "title": "Residual variability in population PK",
       "summary": "Residual variability describes the difference between a concentration measurement and its individual model prediction.",
       "seo_title": "Residual variability in population PK",
-      "seo_description": "Residual variability describes the difference between a concentration measurement and its individual model prediction."
+      "seo_description": "Residual variability describes the difference between a concentration measurement and its individual model prediction.",
+      "faq": [
+        {
+          "q": "Should residual error be added when simulating individual AUC?",
+          "a": "For latent individual AUC, integrate the individual concentration prediction. Add residual error when simulating measured samples or a measurement-based estimator."
+        }
+      ]
     },
     "ja": {
       "title": "母集団PKの残差変動",
       "summary": "残差変動は、測定濃度と個人別のモデル予測との差を表す。",
       "seo_title": "母集団PKの残差変動",
-      "seo_description": "残差変動は、測定濃度と個人別のモデル予測との差を表す。"
+      "seo_description": "残差変動は、測定濃度と個人別のモデル予測との差を表す。",
+      "faq": [
+        {
+          "q": "個人AUCのシミュレーションに残差誤差を加えるか？",
+          "a": "潜在的な個人AUCは個人別の予測濃度を積分する。測定値や測定値に基づく推定量をシミュレーションするときに残差誤差を加える。"
+        }
+      ]
     }
   }
 }

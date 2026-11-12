@@ -1,0 +1,32 @@
+{
+  "kind": "term",
+  "updated": "2026-11-12",
+  "math": false,
+  "related_articles": [],
+  "locales": {
+    "en": {
+      "title": "No observed adverse effect level (NOAEL)",
+      "summary": "The NOAEL is the highest tested dose without an observed adverse effect under the study conditions.",
+      "seo_title": "No observed adverse effect level (NOAEL)",
+      "seo_description": "The NOAEL is the highest tested dose without an observed adverse effect under the study conditions.",
+      "faq": [
+        {
+          "q": "Does a NOAEL establish the threshold in humans?",
+          "a": "It depends on the tested doses, species, study duration and endpoints. Compare relevant exposures and findings across species before drawing conclusions for humans."
+        }
+      ]
+    },
+    "ja": {
+      "title": "無毒性量（NOAEL）",
+      "summary": "無毒性量は、試験条件下で有害な影響が観察されなかった最大の試験用量である。",
+      "seo_title": "無毒性量（NOAEL）",
+      "seo_description": "無毒性量は、試験条件下で有害な影響が観察されなかった最大の試験用量である。",
+      "faq": [
+        {
+          "q": "NOAELからヒトの毒性閾値は分かるか？",
+          "a": "試験用量、動物種、期間、評価項目に依存する。ヒトへの解釈には、関連する曝露と所見を種間で比較する必要がある。"
+        }
+      ]
+    }
+  }
+}

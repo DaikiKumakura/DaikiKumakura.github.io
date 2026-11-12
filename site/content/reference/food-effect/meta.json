@@ -1,0 +1,32 @@
+{
+  "kind": "term",
+  "updated": "2026-11-12",
+  "math": false,
+  "related_articles": [],
+  "locales": {
+    "en": {
+      "title": "Food effect on drug exposure",
+      "summary": "Food can change the rate or extent of absorption after oral administration.",
+      "seo_title": "Food effect on drug exposure",
+      "seo_description": "Food can change the rate or extent of absorption after oral administration.",
+      "faq": [
+        {
+          "q": "Can Cmax change while AUC stays similar?",
+          "a": "Yes. Slower absorption can lower and delay the peak while total exposure remains similar if the absorbed fraction and systemic clearance stay constant."
+        }
+      ]
+    },
+    "ja": {
+      "title": "食事による薬物曝露の変化",
+      "summary": "食事により経口投与後の吸収速度や吸収量が変化し得る。",
+      "seo_title": "食事による薬物曝露の変化",
+      "seo_description": "食事により経口投与後の吸収速度や吸収量が変化し得る。",
+      "faq": [
+        {
+          "q": "AUCがほぼ同じでもCmaxは変わるか？",
+          "a": "吸収が遅くなるとピークは下がって遅くなり得る。吸収される割合と全身クリアランスが一定なら総曝露はほぼ同じになり得る。"
+        }
+      ]
+    }
+  }
+}

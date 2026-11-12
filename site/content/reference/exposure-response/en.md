@@ -11,3 +11,8 @@
 ## On this site
 
 The [anti-PD-1 analysis](../writing/fixed-vs-weight-dosing-en.html) compares exposure only. It notes that the exposure–response relationship of these antibodies has been reported to be flat, and says that whether falling slightly below the lower limit of the range matters clinically is outside what an exposure comparison shows. The [sotorasib dose comparison](../writing/sotorasib-dose-comparison-en.html) works from arm-level outcomes, and the [RAS inhibitor analysis](../writing/ras-inhibitor-target-coverage.html) builds target-coverage scenarios from public PK/PD data.
+
+## Related terms
+
+- [Choosing an exposure metric](exposure-metric-selection.html)
+- [Concentration–QTc analysis](concentration-qt.html)

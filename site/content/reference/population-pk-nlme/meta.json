@@ -1,6 +1,6 @@
 {
   "kind": "term",
-  "updated": "2026-10-28",
+  "updated": "2026-11-12",
   "math": false,
   "related_articles": [
     "nimotuzumab-poppk",
@@ -21,6 +21,10 @@
         {
           "q": "Why can a population model use sparse data?",
           "a": "Because the data of all patients are analyzed together, so the typical profile and the variability are informed by the whole population, even if each patient has few samples."
+        },
+        {
+          "q": "Can sparse data estimate every PK parameter?",
+          "a": "The sampling times determine what is estimable. Many late samples can inform clearance but may leave absorption and early distribution weakly identified."
         }
       ]
     },
@@ -37,6 +41,10 @@
         {
           "q": "母集団モデルは、なぜ疎なデータでも使えますか。",
           "a": "全員のデータをまとめて解析するので、1人あたりのサンプルが少なくても、典型的な形とばらつきを、集団全体から決められるからです。"
+        },
+        {
+          "q": "疎な採血で全PKパラメータを推定できるか？",
+          "a": "何を推定できるかは採血時点で決まる。遅い時点の測定が多ければクリアランスの情報は得られても、吸収や早期分布は識別しにくい場合がある。"
         }
       ]
     }

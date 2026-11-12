@@ -1,6 +1,6 @@
 {
   "kind": "term",
-  "updated": "2026-10-28",
+  "updated": "2026-11-12",
   "math": false,
   "related_articles": [
     "warfarin-pkpd",
@@ -20,6 +20,10 @@
         {
           "q": "What does a Hill exponent above one mean?",
           "a": "The concentration–effect curve is steeper than the simple Emax model around the EC50, so the effect switches on over a narrower concentration range."
+        },
+        {
+          "q": "What does EC50 mean in an Emax model?",
+          "a": "It is the concentration that gives half of the modeled maximum change from baseline. It depends on the endpoint, measurement conditions and model."
         }
       ]
     },
@@ -36,6 +40,10 @@
         {
           "q": "Hill指数が1より大きいと、何を意味しますか。",
           "a": "EC50のまわりで、単純なEmaxモデルより濃度–効果の曲線が急で、効果が、より狭い濃度の範囲で立ち上がります。"
+        },
+        {
+          "q": "EmaxモデルのEC50は何を表すか？",
+          "a": "モデルが表すベースラインからの最大変化の半分を与える濃度である。評価項目、測定条件、モデルに依存する。"
         }
       ]
     }

@@ -11,3 +11,9 @@ A T-cell engager model might link drug exposure and target binding to T-cell act
 ## References
 
 - [Braakman et al. Evaluation framework for systems models. CPT Pharmacometrics Syst Pharmacol. 2022.](https://doi.org/10.1002/psp4.12755)
+
+## Related terms
+
+- [Model-informed drug development (MIDD)](model-informed-drug-development.html)
+- [QSP model verification and validation](qsp-model-validation.html)
+- [Tumor growth inhibition (TGI) models](tumor-growth-inhibition.html)

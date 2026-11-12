@@ -1,0 +1,32 @@
+{
+  "kind": "term",
+  "updated": "2026-11-12",
+  "math": false,
+  "related_articles": [],
+  "locales": {
+    "en": {
+      "title": "Two-compartment PK model",
+      "summary": "This model exchanges drug between central and peripheral compartments.",
+      "seo_title": "Two-compartment PK model",
+      "seo_description": "This model exchanges drug between central and peripheral compartments.",
+      "faq": [
+        {
+          "q": "Does the peripheral compartment represent one organ?",
+          "a": "In an empirical model, it represents distribution behavior inferred from concentration–time data. Its volume and intercompartmental clearance need independent evidence for an anatomical interpretation."
+        }
+      ]
+    },
+    "ja": {
+      "title": "2コンパートメントPKモデル",
+      "summary": "中心区画と末梢区画の間で薬物が移動するモデル。",
+      "seo_title": "2コンパートメントPKモデル",
+      "seo_description": "中心区画と末梢区画の間で薬物が移動するモデル。",
+      "faq": [
+        {
+          "q": "末梢コンパートメントは一つの臓器か？",
+          "a": "経験モデルでは濃度推移から推定した分布挙動を表す。容積や区画間クリアランスを解剖学的に解釈するには独立した根拠が要る。"
+        }
+      ]
+    }
+  }
+}

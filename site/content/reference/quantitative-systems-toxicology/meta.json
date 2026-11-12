@@ -1,0 +1,32 @@
+{
+  "kind": "term",
+  "updated": "2026-11-12",
+  "math": false,
+  "related_articles": [],
+  "locales": {
+    "en": {
+      "title": "Quantitative systems toxicology (QST)",
+      "summary": "QST links exposure and mechanisms of biological injury in a quantitative model.",
+      "seo_title": "Quantitative systems toxicology (QST)",
+      "seo_description": "QST links exposure and mechanisms of biological injury in a quantitative model.",
+      "faq": [
+        {
+          "q": "What could a QST model add to an exposure margin?",
+          "a": "A model could describe injury and recovery over time and distinguish schedules with the same AUC. Its usefulness depends on evidence for the mechanisms, the relevant tissue exposure and the prediction context."
+        }
+      ]
+    },
+    "ja": {
+      "title": "定量的システム毒性学（QST）",
+      "summary": "QSTは曝露と生体障害の機序を定量モデルで結び付ける。",
+      "seo_title": "定量的システム毒性学（QST）",
+      "seo_description": "QSTは曝露と生体障害の機序を定量モデルで結び付ける。",
+      "faq": [
+        {
+          "q": "曝露マージンにQSTは何を加えられるか？",
+          "a": "障害と回復の時間推移を表し、同じAUCの投与条件でも違いが生じる理由を検討できる。有用性は機序、関連組織の曝露、予測の用途についての根拠に依存する。"
+        }
+      ]
+    }
+  }
+}

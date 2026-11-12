@@ -1,6 +1,6 @@
 {
   "kind": "term",
-  "updated": "2026-10-22",
+  "updated": "2026-11-12",
   "math": false,
   "related_articles": [
     "tumor-dynamics-survival",
@@ -21,6 +21,10 @@
         {
           "q": "Why is the question stated before the analysis?",
           "a": "So that the question is not adjusted to the results. A prespecified question and a prespecified context of use limit what the analysis may claim."
+        },
+        {
+          "q": "How do the question of interest and context of use differ?",
+          "a": "The question of interest states what must be answered. The context of use specifies what the model will do and how its results inform the decision."
         }
       ]
     },
@@ -37,6 +41,10 @@
         {
           "q": "なぜ問いを解析の前に書くのですか。",
           "a": "結果に合わせて問いを変えないためです。前もって決めた問いと使いみちは、解析が主張できる範囲を限ります。"
+        },
+        {
+          "q": "QOIとCOUはどう違うか？",
+          "a": "QOIは何に答える必要があるかを定める。COUはモデルの役割と、結果を判断にどう使うかを定める。"
         }
       ]
     }

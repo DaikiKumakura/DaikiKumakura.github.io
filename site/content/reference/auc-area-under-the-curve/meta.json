@@ -1,6 +1,6 @@
 {
   "kind": "term",
-  "updated": "2026-10-28",
+  "updated": "2026-11-12",
   "math": false,
   "related_articles": [
     "fixed-vs-weight-dosing",
@@ -20,6 +20,10 @@
         {
           "q": "Does the same AUC mean the same trough?",
           "a": "No. Regimens with the same dose rate have the same average concentration, but a longer interval gives a higher peak and a lower trough."
+        },
+        {
+          "q": "Can AUC values over different windows be compared directly?",
+          "a": "Use the same time window or a suitable normalized measure such as average concentration. Check whether each value is from the first dose or steady state."
         }
       ]
     },
@@ -36,6 +40,10 @@
         {
           "q": "AUCが同じなら、トラフも同じですか。",
           "a": "いいえ。投与速度が同じ方式は平均濃度が同じですが、間隔が長いほど、ピークは高く、トラフは低くなります。"
+        },
+        {
+          "q": "測定期間が異なるAUCを直接比較できるか？",
+          "a": "同じ時間窓か、平均濃度など適切に正規化した指標を使う。初回投与時か定常状態かも確認する。"
         }
       ]
     }

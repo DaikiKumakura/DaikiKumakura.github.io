@@ -1,6 +1,6 @@
 {
   "kind": "term",
-  "updated": "2026-11-11",
+  "updated": "2026-11-12",
   "math": false,
   "related_articles": [
     "mosunetuzumab-public-pk"
@@ -10,13 +10,25 @@
       "title": "Same AUC with different dosing intervals",
       "summary": "Equal exposure over the same time window can coexist with different peak and trough concentrations.",
       "seo_title": "Same AUC with different dosing intervals",
-      "seo_description": "Equal exposure over the same time window can coexist with different peak and trough concentrations."
+      "seo_description": "Equal exposure over the same time window can coexist with different peak and trough concentrations.",
+      "faq": [
+        {
+          "q": "Does equal AUC establish regimen equivalence?",
+          "a": "Equal AUC over a common window establishes equality of that exposure summary. Differences in peaks, troughs or time above a concentration can still matter to the clinical endpoint."
+        }
+      ]
     },
     "ja": {
       "title": "AUCが同じ場合の投与間隔と濃度推移",
       "summary": "同じ期間のAUCが等しくても、ピーク濃度とトラフ濃度は異なり得る。",
       "seo_title": "AUCが同じ場合の投与間隔と濃度推移",
-      "seo_description": "同じ期間のAUCが等しくても、ピーク濃度とトラフ濃度は異なり得る。"
+      "seo_description": "同じ期間のAUCが等しくても、ピーク濃度とトラフ濃度は異なり得る。",
+      "faq": [
+        {
+          "q": "AUCが等しければレジメンは同等か？",
+          "a": "共通の期間でAUCが等しければ、その曝露指標は等しい。ピーク、トラフ、ある濃度以上にある時間の差は、臨床評価項目に影響し得る。"
+        }
+      ]
     }
   }
 }

@@ -11,3 +11,9 @@
 ## ソフトウェア
 
 よく使われるのは、NONMEM、Monolix、nlmixr2（R）である。このサイトでは、[nimotuzumab](../writing/nimotuzumab-poppk.html)と[warfarin](../writing/warfarin-pkpd-ja.html)の解析でnlmixr2とrxode2を使い、[mosunetuzumab](../writing/mosunetuzumab-public-pk.html)のように、[公表モデルを表から再実装](poppk-reimplementation-ja.html)している。
+
+## 関連用語
+
+- [疎なPK採血](sparse-pk-sampling-ja.html)
+- [母集団PKのη縮小](eta-shrinkage-ja.html)
+- [定量下限未満（BLQ）のPKデータ](below-quantification-limit-ja.html)

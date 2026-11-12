@@ -11,3 +11,9 @@ A **population PK (PopPK) model** describes the drug's typical profile in a pati
 ## Software
 
 Commonly used tools are NONMEM, Monolix and nlmixr2 (R). On this site, nlmixr2 and rxode2 were used in the [nimotuzumab](../writing/nimotuzumab-poppk-en.html) and [warfarin](../writing/warfarin-pkpd.html) analyses, and [published models were reimplemented](poppk-reimplementation.html) from their tables, as for [mosunetuzumab](../writing/mosunetuzumab-public-pk-en.html).
+
+## Related terms
+
+- [Sparse PK sampling](sparse-pk-sampling.html)
+- [Eta shrinkage in PopPK](eta-shrinkage.html)
+- [Below the limit of quantification (BLQ)](below-quantification-limit.html)

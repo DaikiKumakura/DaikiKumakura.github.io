@@ -1,0 +1,34 @@
+{
+  "kind": "term",
+  "updated": "2026-11-12",
+  "math": false,
+  "related_articles": [
+    "mosunetuzumab-public-pk"
+  ],
+  "locales": {
+    "en": {
+      "title": "Choosing an exposure metric",
+      "summary": "The exposure metric and time window should match the biological question and outcome timing.",
+      "seo_title": "Choosing an exposure metric",
+      "seo_description": "The exposure metric and time window should match the biological question and outcome timing.",
+      "faq": [
+        {
+          "q": "When should Cmax be compared with AUC or trough?",
+          "a": "A peak-related event suggests checking Cmax, a sustained target effect suggests checking trough or time above a threshold, and cumulative effects suggest checking AUC. Correlation among these metrics can make their effects hard to distinguish."
+        }
+      ]
+    },
+    "ja": {
+      "title": "曝露指標の選び方",
+      "summary": "曝露指標と集計期間は、薬理学的な問いと評価項目の発生時点に合わせる。",
+      "seo_title": "曝露指標の選び方",
+      "seo_description": "曝露指標と集計期間は、薬理学的な問いと評価項目の発生時点に合わせる。",
+      "faq": [
+        {
+          "q": "CmaxとAUCやトラフをどのように選ぶか？",
+          "a": "ピーク近傍の事象ならCmax、持続的な標的作用ならトラフや閾値以上の時間、累積的な作用ならAUCが候補になる。指標間の相関が強ければ、効果を区別しにくい。"
+        }
+      ]
+    }
+  }
+}

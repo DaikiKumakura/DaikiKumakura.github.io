@@ -11,3 +11,9 @@ T細胞エンゲージャーのモデルでは、曝露・標的結合からT細
 ## 参照
 
 - [Braakman et al. Evaluation framework for systems models. CPT Pharmacometrics Syst Pharmacol. 2022.](https://doi.org/10.1002/psp4.12755)
+
+## 関連用語
+
+- [モデルに基づく医薬品開発（MIDD）](model-informed-drug-development-ja.html)
+- [QSPモデルの検証と妥当性評価](qsp-model-validation-ja.html)
+- [腫瘍増殖抑制（TGI）モデル](tumor-growth-inhibition-ja.html)

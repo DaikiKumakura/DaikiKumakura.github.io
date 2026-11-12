@@ -11,3 +11,8 @@
 ## 参照
 
 - [ICH. S3A: The Assessment of Systemic Exposure in Toxicity Studies. 1994.](https://www.fda.gov/media/71990/download)
+
+## 関連用語
+
+- [無毒性量（NOAEL）](noael-ja.html)
+- [定量的システム毒性学（QST）](quantitative-systems-toxicology-ja.html)

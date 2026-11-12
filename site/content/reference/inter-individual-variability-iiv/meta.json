@@ -1,6 +1,6 @@
 {
   "kind": "term",
-  "updated": "2026-10-28",
+  "updated": "2026-11-12",
   "math": false,
   "related_articles": [
     "fixed-vs-weight-dosing",
@@ -20,6 +20,10 @@
         {
           "q": "Is IIV the same as variability in the measurements?",
           "a": "No. IIV is the spread of the true parameter between patients; measurement and model misfit are the residual error."
+        },
+        {
+          "q": "Does between-patient variability measure the precision of the typical value?",
+          "a": "It quantifies how individual parameters vary. Standard errors or intervals around the typical value describe uncertainty in its estimate."
         }
       ]
     },
@@ -36,6 +40,10 @@
         {
           "q": "IIVは、測定のばらつきと同じですか。",
           "a": "いいえ。IIVは真のパラメータの患者間のばらつきで、測定やモデルの当てはまりの差は、残差誤差です。"
+        },
+        {
+          "q": "個体間変動は典型値の推定精度を表すか？",
+          "a": "個体間変動は個人別パラメータのばらつきである。典型値の推定の不確実性は標準誤差や区間で表す。"
         }
       ]
     }

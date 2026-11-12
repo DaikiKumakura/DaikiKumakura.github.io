@@ -1,0 +1,32 @@
+{
+  "kind": "term",
+  "updated": "2026-11-12",
+  "math": false,
+  "related_articles": [],
+  "locales": {
+    "en": {
+      "title": "Fraction metabolized (fm)",
+      "summary": "The fraction metabolized describes how much of overall elimination is attributable to a specified metabolic pathway under defined conditions.",
+      "seo_title": "Fraction metabolized (fm)",
+      "seo_description": "The fraction metabolized describes how much of overall elimination is attributable to a specified metabolic pathway under defined conditions.",
+      "faq": [
+        {
+          "q": "Why does fm matter for inhibition?",
+          "a": "If a pathway accounts for 75% of clearance, complete inhibition would yield a fourfold AUC increase in a simplified linear model with unchanged bioavailability and all other clearance pathways fixed."
+        }
+      ]
+    },
+    "ja": {
+      "title": "代謝寄与率（fm）",
+      "summary": "代謝寄与率は、所定の条件で全消失に占める特定の代謝経路の割合である。",
+      "seo_title": "代謝寄与率（fm）",
+      "seo_description": "代謝寄与率は、所定の条件で全消失に占める特定の代謝経路の割合である。",
+      "faq": [
+        {
+          "q": "阻害の予測にfmがなぜ重要か？",
+          "a": "ある経路がクリアランスの75%を担う場合、バイオアベイラビリティと他の消失経路が一定の単純な線形モデルでは、その経路を完全に阻害するとAUCは4倍になる。"
+        }
+      ]
+    }
+  }
+}

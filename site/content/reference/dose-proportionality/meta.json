@@ -1,0 +1,32 @@
+{
+  "kind": "term",
+  "updated": "2026-11-12",
+  "math": false,
+  "related_articles": [],
+  "locales": {
+    "en": {
+      "title": "Dose proportionality",
+      "summary": "An exposure metric is dose proportional when it increases by the same factor as dose across a specified range.",
+      "seo_title": "Dose proportionality",
+      "seo_description": "An exposure metric is dose proportional when it increases by the same factor as dose across a specified range.",
+      "faq": [
+        {
+          "q": "How is it tested with a power model?",
+          "a": "Fit log(exposure) = α + β log(dose). A slope of 1 represents proportionality. Interpret its interval against bounds chosen for the dose range and the decision."
+        }
+      ]
+    },
+    "ja": {
+      "title": "用量比例性",
+      "summary": "所定の範囲で用量を増やした倍率と曝露指標の増加倍率が等しいとき、用量比例性がある。",
+      "seo_title": "用量比例性",
+      "seo_description": "所定の範囲で用量を増やした倍率と曝露指標の増加倍率が等しいとき、用量比例性がある。",
+      "faq": [
+        {
+          "q": "べき乗モデルでどう調べるか？",
+          "a": "log(曝露) = α + β log(用量) を当てはめる。傾き1が比例を表す。信頼区間は対象用量範囲と判断目的に応じて定めた許容範囲と照合する。"
+        }
+      ]
+    }
+  }
+}

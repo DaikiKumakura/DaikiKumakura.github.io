@@ -11,3 +11,8 @@
 ## このサイトでは
 
 [抗PD-1抗体の解析](../writing/fixed-vs-weight-dosing.html)は、曝露だけを比べている。この抗体の曝露反応は平坦と報告されていること、範囲の下限を少し下回ることが臨床で問題になるかは、曝露の比較では分からないことを書いている。[sotorasibの用量比較](../writing/sotorasib-dose-comparison.html)は、群別の転帰から、[RAS阻害薬の解析](../writing/ras-inhibitor-target-coverage-ja.html)は、公開されたPK/PDデータから標的の占有のシナリオを作っている。
+
+## 関連用語
+
+- [曝露指標の選び方](exposure-metric-selection-ja.html)
+- [濃度–QTc解析](concentration-qt-ja.html)

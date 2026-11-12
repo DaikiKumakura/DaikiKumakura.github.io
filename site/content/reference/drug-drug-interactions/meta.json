@@ -1,0 +1,32 @@
+{
+  "kind": "term",
+  "updated": "2026-11-12",
+  "math": false,
+  "related_articles": [],
+  "locales": {
+    "en": {
+      "title": "Pharmacokinetic drug interactions (DDI)",
+      "summary": "A drug interaction can alter exposure through changes in enzymes, transporters or absorption.",
+      "seo_title": "Pharmacokinetic drug interactions (DDI)",
+      "seo_description": "A drug interaction can alter exposure through changes in enzymes, transporters or absorption.",
+      "faq": [
+        {
+          "q": "How is a PK interaction reported?",
+          "a": "Compare exposure with and without the interacting drug, commonly using geometric mean ratios for AUC and Cmax with confidence intervals. Clinical relevance depends on the affected drug and its exposure–response relationship."
+        }
+      ]
+    },
+    "ja": {
+      "title": "薬物動態学的な薬物相互作用（DDI）",
+      "summary": "薬物相互作用では酵素・トランスポーター・吸収の変化によって曝露が変わり得る。",
+      "seo_title": "薬物動態学的な薬物相互作用（DDI）",
+      "seo_description": "薬物相互作用では酵素・トランスポーター・吸収の変化によって曝露が変わり得る。",
+      "faq": [
+        {
+          "q": "PK相互作用の大きさはどう報告するか？",
+          "a": "併用時と非併用時の曝露を、通常はAUCとCmaxの幾何平均比と信頼区間で比較する。臨床上の意味は影響を受ける薬物とその曝露–反応関係に依存する。"
+        }
+      ]
+    }
+  }
+}

@@ -1,6 +1,6 @@
 {
   "kind": "term",
-  "updated": "2026-11-11",
+  "updated": "2026-11-12",
   "math": false,
   "related_articles": [],
   "locales": {
@@ -8,13 +8,25 @@
       "title": "Toxicokinetics (TK)",
       "summary": "Toxicokinetics measures systemic exposure in toxicity studies and relates it to dose, duration and observed findings.",
       "seo_title": "Toxicokinetics (TK)",
-      "seo_description": "Toxicokinetics measures systemic exposure in toxicity studies and relates it to dose, duration and observed findings."
+      "seo_description": "Toxicokinetics measures systemic exposure in toxicity studies and relates it to dose, duration and observed findings.",
+      "faq": [
+        {
+          "q": "Which exposure should be compared across species?",
+          "a": "Match the analyte and sampling window. The choice between AUC, Cmax and other metrics depends on the finding, its timing and the plausible toxicity mechanism."
+        }
+      ]
     },
     "ja": {
       "title": "毒性動態（トキシコキネティクス）",
       "summary": "毒性動態では、毒性試験で全身曝露を測り、用量・投与期間・毒性所見との関係を調べる。",
       "seo_title": "毒性動態（トキシコキネティクス）",
-      "seo_description": "毒性動態では、毒性試験で全身曝露を測り、用量・投与期間・毒性所見との関係を調べる。"
+      "seo_description": "毒性動態では、毒性試験で全身曝露を測り、用量・投与期間・毒性所見との関係を調べる。",
+      "faq": [
+        {
+          "q": "種間比較にはどの曝露指標を使うか？",
+          "a": "測定対象と集計期間を揃える。AUC、Cmaxなどのどれを使うかは、所見の種類、発生時点、想定される毒性機序に依存する。"
+        }
+      ]
     }
   }
 }

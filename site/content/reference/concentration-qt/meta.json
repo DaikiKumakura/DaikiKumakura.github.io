@@ -1,0 +1,32 @@
+{
+  "kind": "term",
+  "updated": "2026-11-12",
+  "math": false,
+  "related_articles": [],
+  "locales": {
+    "en": {
+      "title": "Concentration–QTc analysis",
+      "summary": "A concentration–QTc analysis assesses the association between exposure and heart-rate-corrected QT interval.",
+      "seo_title": "Concentration–QTc analysis",
+      "seo_description": "A concentration–QTc analysis assesses the association between exposure and heart-rate-corrected QT interval.",
+      "faq": [
+        {
+          "q": "Why align PK and ECG times?",
+          "a": "Each concentration should describe exposure near the ECG measurement. Evaluate time-matched controls and check delayed effects before interpreting a contemporaneous concentration–QTc slope."
+        }
+      ]
+    },
+    "ja": {
+      "title": "濃度–QTc解析",
+      "summary": "薬物曝露と心拍数補正QT間隔との関連を調べる解析。",
+      "seo_title": "濃度–QTc解析",
+      "seo_description": "薬物曝露と心拍数補正QT間隔との関連を調べる解析。",
+      "faq": [
+        {
+          "q": "なぜ採血と心電図の時点を揃えるか？",
+          "a": "心電図測定時点の近くの曝露を濃度で表すためである。同時点の対照を評価し、同時点濃度とQTcの傾きを解釈する前に効果の遅れを確認する。"
+        }
+      ]
+    }
+  }
+}

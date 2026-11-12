@@ -1,6 +1,6 @@
 {
   "kind": "term",
-  "updated": "2026-10-28",
+  "updated": "2026-11-12",
   "math": false,
   "related_articles": [
     "fixed-vs-weight-dosing",
@@ -20,6 +20,10 @@
         {
           "q": "Does a higher dose reach steady state sooner?",
           "a": "No. For linear PK the time to steady state depends on the half-life, not on the dose."
+        },
+        {
+          "q": "Does steady state mean a flat concentration curve?",
+          "a": "With periodic dosing, the peak and trough can differ. At steady state, the concentration profile repeats over the dosing interval."
         }
       ]
     },
@@ -36,6 +40,10 @@
         {
           "q": "用量が高いと、定常状態に早く達しますか。",
           "a": "いいえ。線形のPKでは、定常状態に達する時間は用量ではなく、半減期で決まります。"
+        },
+        {
+          "q": "定常状態では濃度が一定になるか？",
+          "a": "間欠投与ではピークとトラフが異なり得る。定常状態では同じ濃度推移が各投与間隔で繰り返される。"
         }
       ]
     }

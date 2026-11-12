@@ -1,6 +1,6 @@
 {
   "kind": "term",
-  "updated": "2026-11-11",
+  "updated": "2026-11-12",
   "math": false,
   "related_articles": [
     "mosunetuzumab-public-pk"
@@ -10,13 +10,25 @@
       "title": "Virtual patients and virtual populations",
       "summary": "Virtual patients are sets of model inputs used to simulate plausible individual trajectories under specified scenarios.",
       "seo_title": "Virtual patients and virtual populations",
-      "seo_description": "Virtual patients are sets of model inputs used to simulate plausible individual trajectories under specified scenarios."
+      "seo_description": "Virtual patients are sets of model inputs used to simulate plausible individual trajectories under specified scenarios.",
+      "faq": [
+        {
+          "q": "Does simulating more virtual patients reduce parameter uncertainty?",
+          "a": "More draws reduce Monte Carlo noise for a fixed input distribution. Parameter and distribution uncertainty require separate propagation or sensitivity analysis."
+        }
+      ]
     },
     "ja": {
       "title": "仮想患者と仮想集団",
       "summary": "仮想患者は、特定の条件下で個人の推移をシミュレーションするためのモデル入力の組である。",
       "seo_title": "仮想患者と仮想集団",
-      "seo_description": "仮想患者は、特定の条件下で個人の推移をシミュレーションするためのモデル入力の組である。"
+      "seo_description": "仮想患者は、特定の条件下で個人の推移をシミュレーションするためのモデル入力の組である。",
+      "faq": [
+        {
+          "q": "仮想患者数を増やせばパラメータの不確実性は減るか？",
+          "a": "入力分布を固定した場合、抽出回数を増やすとモンテカルロ誤差が減る。パラメータや分布自体の不確実性は別に伝播させるか、感度分析で評価する。"
+        }
+      ]
     }
   }
 }

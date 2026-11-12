@@ -1,0 +1,32 @@
+{
+  "kind": "term",
+  "updated": "2026-11-12",
+  "math": false,
+  "related_articles": [],
+  "locales": {
+    "en": {
+      "title": "Tumor growth inhibition (TGI) models",
+      "summary": "TGI models describe longitudinal tumor measurements and the effects of treatment on growth or shrinkage.",
+      "seo_title": "Tumor growth inhibition (TGI) models",
+      "seo_description": "TGI models describe longitudinal tumor measurements and the effects of treatment on growth or shrinkage.",
+      "faq": [
+        {
+          "q": "Can a tumor-size model directly predict overall survival?",
+          "a": "An explicit survival model and linked outcome data are needed to evaluate that prediction. Imaging intervals, early discontinuation and post-progression treatment can affect the apparent association."
+        }
+      ]
+    },
+    "ja": {
+      "title": "腫瘍増殖抑制（TGI）モデル",
+      "summary": "TGIモデルは腫瘍測定値の推移と、治療が増殖・縮小に与える効果を記述する。",
+      "seo_title": "腫瘍増殖抑制（TGI）モデル",
+      "seo_description": "TGIモデルは腫瘍測定値の推移と、治療が増殖・縮小に与える効果を記述する。",
+      "faq": [
+        {
+          "q": "腫瘍径のモデルから全生存期間を直接予測できるか？",
+          "a": "予測を評価するには、生存モデルと腫瘍測定値に対応する転帰データが必要である。画像評価間隔、早期中止、増悪後治療は観測される関連に影響し得る。"
+        }
+      ]
+    }
+  }
+}

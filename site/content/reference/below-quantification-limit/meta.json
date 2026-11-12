@@ -1,0 +1,32 @@
+{
+  "kind": "term",
+  "updated": "2026-11-12",
+  "math": false,
+  "related_articles": [],
+  "locales": {
+    "en": {
+      "title": "Below the limit of quantification (BLQ)",
+      "summary": "A BLQ record indicates that a concentration falls below the assay's quantifiable range.",
+      "seo_title": "Below the limit of quantification (BLQ)",
+      "seo_description": "A BLQ record indicates that a concentration falls below the assay's quantifiable range.",
+      "faq": [
+        {
+          "q": "Can BLQ concentrations be set to zero?",
+          "a": "For a censored observation, the likelihood can use the probability of a value below the assay limit. Replacing all BLQ records with zero can distort the terminal phase or estimated variability."
+        }
+      ]
+    },
+    "ja": {
+      "title": "定量下限未満（BLQ）のPKデータ",
+      "summary": "BLQは濃度が測定法の定量可能範囲を下回った記録である。",
+      "seo_title": "定量下限未満（BLQ）のPKデータ",
+      "seo_description": "BLQは濃度が測定法の定量可能範囲を下回った記録である。",
+      "faq": [
+        {
+          "q": "BLQの濃度をゼロに置き換えてよいか？",
+          "a": "打ち切り観測として、定量下限を下回る確率を尤度に使える。BLQを一律ゼロにすると終末相や変動の推定が歪み得る。"
+        }
+      ]
+    }
+  }
+}

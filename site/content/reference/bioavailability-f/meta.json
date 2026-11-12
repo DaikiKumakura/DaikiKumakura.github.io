@@ -1,6 +1,6 @@
 {
   "kind": "term",
-  "updated": "2026-10-28",
+  "updated": "2026-11-12",
   "math": false,
   "related_articles": [
     "warfarin-pkpd"
@@ -19,6 +19,10 @@
         {
           "q": "How is absolute bioavailability measured?",
           "a": "By comparing the AUC after an oral dose with the AUC after an intravenous dose in the same subjects, with a correction for the dose."
+        },
+        {
+          "q": "Does lower peak concentration mean lower bioavailability?",
+          "a": "Slower absorption can lower the peak without changing the fraction reaching systemic circulation. Compare AUC under appropriate conditions."
         }
       ]
     },
@@ -35,6 +39,10 @@
         {
           "q": "絶対的バイオアベイラビリティは、どう測りますか。",
           "a": "同じ被験者で、経口投与後のAUCと静注後のAUCを、用量で補正して比べます。"
+        },
+        {
+          "q": "ピークが低ければバイオアベイラビリティも低いか？",
+          "a": "吸収が遅いと、全身循環に到達する割合が同じでもピークが低くなり得る。適切な条件を揃えてAUCを比較する。"
         }
       ]
     }
