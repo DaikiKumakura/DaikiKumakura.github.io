@@ -100,9 +100,12 @@ def enrich(page, name, site, site_url, article=None, og_image=None, topics=None,
  elif key=='publication':
   works=[{'@type':'ListItem','position':i+1,'item':{'@type':'Thesis' if p['kind']=='thesis' else 'ScholarlyArticle','name':p.get('title_translation',p['title']),'url':'https://doi.org/'+p['doi'],'identifier':{'@type':'PropertyValue','propertyID':'DOI','value':p['doi']},'datePublished':str(p['year']),'isPartOf':{'@type':'Periodical' if p['kind']!='thesis' else 'CreativeWork','name':p['venue']},'author':[{'@type':'Person','name':a['name']} for a in p['author_list']]}} for i,p in enumerate(sorted(site['publications'],key=lambda p:p['year'],reverse=True))]
   schema={'@context':'https://schema.org','@type':'CollectionPage','url':canonical,'name':'Publication | '+site['name'],'mainEntity':{'@type':'ItemList','itemListElement':works}}
- elif key=='software':
-  works=[{'@type':'ListItem','position':i+1,'item':{'@type':'SoftwareSourceCode','name':s['id'],'description':s['description'],'codeRepository':s['url'],'programmingLanguage':s['tech'],'author':{'@id':site_url+'#person'}}} for i,s in enumerate(site['software'])]
-  schema={'@context':'https://schema.org','@type':'CollectionPage','url':canonical,'name':'Software | '+site['name'],'about':person,'mainEntity':{'@type':'ItemList','itemListElement':works}}
+ elif key in ('software','software-ja'):
+  text=(lambda s:s['ja']['description']) if lang=='ja' else (lambda s:s['description'])
+  works=[{'@type':'ListItem','position':i+1,'item':{'@type':'SoftwareSourceCode','name':s['id'],'description':text(s),'codeRepository':s['url'],'programmingLanguage':s['tech'],'author':{'@id':site_url+'#person'}}} for i,s in enumerate(site['software'])]
+  schema={'@context':'https://schema.org','@type':'CollectionPage','url':canonical,'name':title,'inLanguage':lang,'about':person,'mainEntity':{'@type':'ItemList','itemListElement':works}}
+  hreflangs=dict(re.findall(r'<link rel="alternate" hreflang="([^"]+)" href="([^"]+)"',page))
+  if {'ja','en'}<=set(hreflangs):metadata.append('<link rel="alternate" hreflang="x-default" href="'+html.escape(hreflangs['en'],quote=True)+'">')
  elif name.startswith('topics/'):
   schema={'@context':'https://schema.org','@type':'CollectionPage','url':canonical,'name':headline,'description':description,'inLanguage':'en','about':person,'isPartOf':{'@type':'WebSite','@id':site_url+'#website','url':site_url}}
  elif name.startswith('software/'):

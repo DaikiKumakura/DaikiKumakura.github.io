@@ -1,3 +1,4 @@
+from markupsafe import escape
 import json
 import re
 import shutil
@@ -315,6 +316,26 @@ class BuildTests(unittest.TestCase):
    self.assertIn(url,self.text('software.html'));self.assertIn(url,self.text('sitemap.xml'))
    self.assertIn(sw['id'],self.text('llms.txt'))
   self.assertIn('remotes::install_github',self.text('software/pkident.html'))
+ def test_software_list_exists_once_per_language(self):
+  build.build(self.root)
+  site=build.read_json(self.root/'content/site.json')
+  en=self.text('software.html');ja=self.text('software-ja.html')
+  self.assertIn('<html lang="en">',en);self.assertIn('<html lang="ja">',ja)
+  for sw in site['software']:
+   for key in ('status','description','note'):
+    self.assertIn(str(escape(sw[key])),en,sw['id']);self.assertNotIn(str(escape(sw[key])),ja,sw['id'])
+    self.assertIn(str(escape(sw['ja'][key])),ja,sw['id']);self.assertNotIn(str(escape(sw['ja'][key])),en,sw['id'])
+   self.assertIn(sw['url'],ja);self.assertIn('software/'+sw['slug']+'.html',ja)
+  for page in (en,ja):
+   self.assertIn('hreflang="ja" href="'+build.SITE_URL+'software-ja.html"',page);self.assertIn('hreflang="x-default" href="'+build.SITE_URL+'software.html"',page)
+  self.assertIn('<link rel="canonical" href="'+build.SITE_URL+'software-ja.html">',ja)
+  self.assertIn('"inLanguage": "ja"',ja)
+  sitemap=self.text('sitemap.xml');self.assertIn(build.SITE_URL+'software-ja.html',sitemap);self.assertIn('hreflang="ja" href="'+build.SITE_URL+'software-ja.html"',sitemap)
+  self.assertIn('software-ja.html',self.text('llms.txt'))
+ def test_software_needs_japanese_text(self):
+  p=self.root/'content/site.json';site=json.loads(p.read_text(encoding='utf-8'))
+  del site['software'][0]['ja']['note'];p.write_text(json.dumps(site),encoding='utf-8')
+  with self.assertRaisesRegex(ValueError,'Japanese software text'):build.build(self.root,preview=True)
  def test_software_page_needs_a_summary_of_search_length(self):
   p=self.root/'content/site.json';site=build.read_json(p)
   site['software'][0]['summary']='Too short.';p.write_text(json.dumps(site),encoding='utf-8')

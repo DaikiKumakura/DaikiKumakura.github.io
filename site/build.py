@@ -51,6 +51,10 @@ WRITING_TITLE_JA = '記事一覧'
 WRITING_DESCRIPTION_JA = '熊倉大騎による、公開データの解析、技術メモ、チュートリアルの一覧（日本語）。母集団PK、PK/PD、用量選択、腫瘍動態などを扱う。各記事に英語版へのリンクがある。'
 WRITING_LEAD = {'en': 'This is the English list. Each article is also available in Japanese; the link under each entry opens the other language.',
                 'ja': 'これは日本語の一覧です。各記事の下のリンクから、英語版を開けます。'}
+# The Software list exists once per language, like the Writing index. The pages of single tools are English.
+SOFTWARE_ALTERNATIVES = {'en': 'software.html', 'ja': 'software-ja.html'}
+SOFTWARE_TITLE_JA = 'ソフトウェア'
+SOFTWARE_DESCRIPTION_JA = '熊倉大騎が公開している研究用ソフトウェアの一覧（日本語）。PK/PDの識別可能性を調べるpkident、細胞型デコンボリューションのbulkdeconv、RNA-seq用のrsemflowとrsemverseなど。'
 # Crawlers of AI search and assistants, allowed by name so that the intent is explicit (all of them are also covered by *).
 AI_CRAWLERS = ('GPTBot', 'OAI-SearchBot', 'ChatGPT-User', 'ClaudeBot', 'Claude-SearchBot', 'Claude-User', 'PerplexityBot', 'Perplexity-User', 'Google-Extended', 'Applebot-Extended', 'Bingbot', 'BraveBot')
 RECENT_ON_HOME = 3
@@ -91,6 +95,7 @@ def validate_site(site):
     for row in site['software']:
         for key in ('status','description','note'):
             if not isinstance(row.get(key),str) or not row[key]:raise ValueError('Missing software text')
+            if not isinstance(row.get('ja',{}).get(key),str) or not row['ja'][key]:raise ValueError('Missing Japanese software text: '+row['id'])
     software_slugs=[]
     for row in site['software']:
         if 'slug' in row:
@@ -442,11 +447,13 @@ def build(project=BASE, preview=False, strict_translations=False):
         page=page.replace('</head>',f'<link rel="canonical" href="{canonical}">\n</head>')
         outputs[name]=page.encode('utf-8')
     for key,title in NAV.items():
-        page=env.get_template('page.html').render(site=site,lang='en',ui=ui,preview=preview,active=key,root='',title=site['name'] if key=='home' else title,description=site['profile'],math=False,articles=listings_en if key in ('home','writing') else listings,recent=listings_en[:RECENT_ON_HOME],working_papers=[a for a in listings if a['category']=='paper'],alternatives=WRITING_ALTERNATIVES if key=='writing' else {},lead=WRITING_LEAD['en'] if key=='writing' else '')
+        page=env.get_template('page.html').render(site=site,lang='en',ui=ui,preview=preview,active=key,root='',title=site['name'] if key=='home' else title,description=site['profile'],math=False,articles=listings_en if key in ('home','writing') else listings,recent=listings_en[:RECENT_ON_HOME],working_papers=[a for a in listings if a['category']=='paper'],alternatives=WRITING_ALTERNATIVES if key=='writing' else SOFTWARE_ALTERNATIVES if key=='software' else {},lead=WRITING_LEAD['en'] if key=='writing' else '')
         output(key+'.html',page)
         if key=='home':outputs['index.html']=outputs['home.html']
     page=env.get_template('page.html').render(site=site,lang='ja',ui=ui,preview=preview,active='writing',root='',title=WRITING_TITLE_JA,description=WRITING_DESCRIPTION_JA,math=False,articles=listings_ja,recent=[],working_papers=[],alternatives=WRITING_ALTERNATIVES,lead=WRITING_LEAD['ja'])
     output('writing-ja.html',page,'ja')
+    page=env.get_template('page.html').render(site=site,lang='ja',ui=ui,preview=preview,active='software',root='',title=SOFTWARE_TITLE_JA,description=SOFTWARE_DESCRIPTION_JA,math=False,articles=[],recent=[],working_papers=[],alternatives=SOFTWARE_ALTERNATIVES,lead='')
+    output('software-ja.html',page,'ja')
     for a in entries:
         m=a['meta']; original=m['source_language']
         # The 1200x630 social card sits beside the article, not in shared/, so it is
@@ -499,7 +506,7 @@ def build(project=BASE, preview=False, strict_translations=False):
         glossary['topics'] = [topic for topic in glossary['topics'] if topic['items']]
     output('reference.html',env.get_template('reference-index.html').render(site=site,lang='en',ui=ui,preview=preview,active='writing',root='',alternatives={},title='Tools and reference',description='Interactive tools, a glossary of pharmacometrics terms and catalogs that accompany the analyses by Daiki Kumakura, in Japanese and English.',math=False,groups=groups))
     output('privacy.html',env.get_template('privacy.html').render(site=site,lang='en',ui=ui,preview=preview,active='',root='',alternatives={},title='Privacy and analytics',description='Optional Google Analytics, cookies and privacy choices on the Daiki Kumakura website.',math=False))
-    canonical_pages=['index.html','privacy.html']+[key+'.html' for key in NAV if key!='home']+['writing-ja.html']+[name for name in outputs if name.startswith(('writing/','topics/','software/','about/','tools/','glossary/','catalog/','reference.html')) and name.endswith('.html')]
+    canonical_pages=['index.html','privacy.html']+[key+'.html' for key in NAV if key!='home']+['writing-ja.html','software-ja.html']+[name for name in outputs if name.startswith(('writing/','topics/','software/','about/','tools/','glossary/','catalog/','reference.html')) and name.endswith('.html')]
     if not preview:
         redirects=dict(LEGACY_REDIRECTS)
         redirects.update({path:'writing.html' for path in site.get('legacy_topic_paths',[])})
@@ -606,6 +613,8 @@ def llms_txt(site, entries, reference=()):
         lines.append(f'- [{label}]({page})')
         if key == 'writing':
             lines.append(f'- [記事一覧（日本語）]({SITE_URL}writing-ja.html)')
+        if key == 'software':
+            lines.append(f'- [ソフトウェア（日本語）]({SITE_URL}software-ja.html)')
     pages = [x for x in site['software'] if 'slug' in x]
     if pages:
         lines += ['', '## Software', '']

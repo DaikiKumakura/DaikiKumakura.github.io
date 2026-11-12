@@ -632,6 +632,11 @@
         }
       ],
       "note": "Ten reference models with expected results fixed from the literature or by derivation are reproduced, and two independent structural methods agree at every point. Expected standard errors agreed with the spread of repeated estimates on simulated data. R CMD check passes on Linux and Windows in CI (October 5, 2026). Decisions are local; population designs are not covered.",
+      "ja": {
+        "status": "Rパッケージ（v0.1.0）",
+        "description": "rxode2で書いたPK/PDの常微分方程式モデルについて、構造的識別可能性と実用的識別可能性を調べるRパッケージ。与えた出力と投与からどのパラメータが決まるか、採血計画でどの程度の精度で推定できるか、nlmixr2の当てはめの尤度プロファイルが有界か平坦かを調べる。",
+        "note": "文献または導出で期待結果を固定した10個の参照モデルを再現し、独立した2つの構造的手法がすべての点で一致した。期待標準誤差は、シミュレーションデータでの反復推定のばらつきと一致した。R CMD checkはCIのLinuxとWindowsで通過（2026年10月5日）。判定は局所的で、母集団デザインは対象外。"
+      },
       "slug": "pkident",
       "headline": "pkident: PK/PD identifiability in R",
       "summary": "R package for structural and practical identifiability of PK/PD ODE models built on rxode2: what can be determined, how precisely, whether a profile is flat.",
@@ -693,6 +698,11 @@
         }
       ],
       "note": "Human and mouse data. Mismatched samples, inconsistent gene tables, missing model values and confounded designs stop the run instead of producing results. Simple effects from interaction models are tested against the reparameterized model. On ENCODE K562 knockdown data, each target gene is among the most significant decreases in its own knockdown. R CMD check passes on Linux, macOS and Windows in CI (October 6, 2026). Not on CRAN or Bioconductor; no figures are produced.",
+      "ja": {
+        "status": "Rパッケージ・CLI（v0.1.1）",
+        "description": "RSEMの*.genes.resultsファイルと通常のサンプルメタデータ表から、バルクRNA-seqの標準的な結果をTSVの表で出力するRパッケージ兼コマンドラインツール。発現の要約、正規化、PCA、サンプル間相関、明示した計画でのDESeq2による発現変動解析、順位付きGSEA、GSVA/ssGSEAスコア、遺伝子アノテーションを扱う。",
+        "note": "ヒトとマウスのデータに対応。サンプルの不一致、遺伝子表の不整合、モデル変数の欠損、交絡した計画では、結果を出さずに停止する。交互作用モデルの単純効果は、再パラメータ化したモデルと照合して検査している。ENCODEのK562ノックダウンデータでは、各標的遺伝子がそのノックダウンで最も有意に減少した遺伝子群に入る。R CMD checkはCIのLinux・macOS・Windowsで通過（2026年10月6日）。CRANとBioconductorには未登録。図は出力しない。"
+      },
       "slug": "rsemflow",
       "headline": "rsemflow: RSEM to RNA-seq results in R",
       "summary": "R package and CLI that turns RSEM gene results and a sample table into standard bulk RNA-seq outputs: PCA, DESeq2, preranked GSEA and GSVA, as TSV tables.",
@@ -736,6 +746,11 @@
         }
       ],
       "note": "Check each method's species, input scale and interpretation. Some methods return abundance scores rather than proportions.",
+      "ja": {
+        "status": "Rパッケージ（v0.1.0）",
+        "description": "ヒトとマウスの腫瘍バルクRNA-seqから、細胞型の組成または存在量を1つの関数で推定するRパッケージ。",
+        "note": "手法ごとに、対応する生物種、入力のスケール、結果の解釈を確認すること。一部の手法は、割合ではなく存在量のスコアを返す。"
+      },
       "slug": "bulkdeconv",
       "headline": "bulkdeconv: cell-type deconvolution in R",
       "summary": "Estimate cell-type composition or abundance in human and mouse tumor bulk RNA-seq with one R function.",
@@ -763,6 +778,11 @@
         }
       ],
       "note": "Ensembl version suffixes are removed before the symbol lookup, rows that share a symbol are summed, and genes without a symbol keep their original ID. On six ENCODE K562 RSEM files (59,526 genes each), 36,385 genes received a symbol, 23,141 kept their ID, and the column sums equalled the input (November 10, 2026). R CMD check passes on Linux, macOS and Windows in CI. Not on CRAN or Bioconductor.",
+      "ja": {
+        "status": "Rパッケージ（v0.1.0）",
+        "description": "関数rsem_read()が、サンプル表（sample_id、ref）に並べたRSEMの*.genes.resultsファイルを読み、期待カウントまたはTPMを、遺伝子シンボルごとに1行、サンプルごとに1列のデータフレームで返すRパッケージ。ヒトはorg.Hs.eg.db、マウスはorg.Mm.eg.dbを使う。",
+        "note": "シンボルを引く前にEnsemblのバージョン接尾辞を除き、同じシンボルの行は合計し、シンボルのない遺伝子は元のIDを残す。ENCODEのK562のRSEMファイル6個（各59,526遺伝子）では、36,385遺伝子にシンボルが付き、23,141遺伝子は元のIDのままで、列の合計は入力と一致した（2026年11月10日）。R CMD checkはCIのLinux・macOS・Windowsで通過。CRANとBioconductorには未登録。"
+      },
       "slug": "rsemverse",
       "headline": "rsemverse: RSEM to gene symbol tables in R",
       "summary": "R package with one function, rsem_read(), that returns RSEM gene results as a gene symbol by sample table of counts or TPM for human or mouse.",
@@ -798,6 +818,11 @@
         }
       ],
       "note": "Initial version, not on CRAN. R package checks pass in CI on Linux, Windows and macOS (October 5, 2026). It reports visible hints and does not reproduce reticulate's own discovery; use reticulate's diagnostics for actual configuration.",
+      "ja": {
+        "status": "Rパッケージ（v0.1.0）",
+        "description": "reticulateを補う、依存パッケージのない小さなRパッケージ。Pythonの起動前に、Pythonの選択を上書きする設定とプロジェクトの目印を報告し、py_require()で管理した要件が使われない原因を調べる。",
+        "note": "初版で、CRANには未登録。RパッケージのチェックはCIのLinux・Windows・macOSで通過（2026年10月5日）。見えている手がかりを報告するもので、reticulate自身の探索は再現しない。実際の構成はreticulateの診断機能で確認すること。"
+      },
       "slug": "retiaudit",
       "headline": "retiaudit: reticulate Python audit",
       "summary": "Dependency-free R companion to reticulate that reports Python selection overrides and project markers before Python starts.",
@@ -824,6 +849,11 @@
       "featured": true,
       "links": [],
       "note": "All six figure scripts parsed, and a small CCM example using original functions ran with legacy rEDM 0.7.3 on October 3, 2026. A reproduction README and automated smoke check are provided. Complete figure analyses have not been rerun.",
+      "ja": {
+        "status": "研究用コード",
+        "description": "組成時系列データの変換と、CCM（Convergent Cross Mapping）による動的な相互作用の推定を調べるRスクリプト。シミュレーションと図の作成コードを含む。",
+        "note": "2026年10月3日に、図の作成スクリプト6本すべてが構文解析を通り、元の関数を使った小さなCCMの例が旧版のrEDM 0.7.3で動いた。再現用のREADMEと自動の簡易チェックがある。図の解析全体は再実行していない。"
+      },
       "slug": "rlr-transform",
       "headline": "RLR_transform: compositional CCM scripts",
       "summary": "R scripts for transformations of compositional time series and dynamic interaction inference with Convergent Cross Mapping (CCM).",
@@ -848,6 +878,11 @@
         }
       ],
       "note": "Invocation, failure handling and marker-alignment validation are implemented. Nine smoke tests passed locally and in Linux CI on October 3, 2026. Installed CLI execution was checked; the complete phylogenetic workflow with external tools remains unvalidated.",
+      "ja": {
+        "status": "試作",
+        "description": "ゲノムからのマーカー遺伝子の探索・抽出を、アラインメント、配列の連結、系統推定へつなぐPythonのCLI。",
+        "note": "起動、失敗時の処理、マーカーのアラインメントの検証を実装済み。2026年10月3日に、9件の簡易テストがローカルとLinuxのCIで通過した。インストールしたCLIの実行は確認済み。外部ツールを使う系統解析の全工程は未検証。"
+      },
       "slug": "crism",
       "headline": "CRiSM: ribosomal marker phylogenomics CLI",
       "summary": "Python CLI connecting ribosomal marker-gene discovery and extraction with alignment, concatenation and phylogenetic inference.",
@@ -870,6 +905,11 @@
         }
       ],
       "note": "Scripts now check inputs, references and existing outputs, stop on tool failures, and retain diagnostic files. Eight local control-flow tests passed on October 3, 2026; automated Linux checks are configured. Full real-data Docker analysis remains unvalidated.",
+      "ja": {
+        "status": "チュートリアル（日本語）",
+        "description": "Dockerを使うショットガンメタゲノム解析の日本語チュートリアルとシェルスクリプト。品質管理と機能プロファイリングを扱う。",
+        "note": "スクリプトは、入力、参照データ、既存の出力を確認し、ツールが失敗すると停止し、診断用のファイルを残す。2026年10月3日に、制御の流れを確かめるローカルのテスト8件が通過した。Linuxでの自動チェックを設定済み。実データを使うDockerでの解析全体は未検証。"
+      },
       "slug": "shotgunmetagenomics",
       "headline": "ShotgunMetagenomics: Docker tutorial",
       "summary": "Japanese tutorial and Shell scripts for Docker-based shotgun metagenomic analysis: quality control and functional profiling.",
@@ -886,6 +926,11 @@
       "status": "Analysis environments",
       "description": "Dockerfiles for running existing bioinformatics tools in containers, including genome and metagenome analysis environments.",
       "note": "MAFFT and SeqKit environments were refreshed and passed Docker builds plus small FASTA execution checks in Linux CI on October 3, 2026. Other environment definitions remain historical and unverified.",
+      "ja": {
+        "status": "解析環境",
+        "description": "既存のバイオインフォマティクスツールをコンテナで動かすためのDockerfile集。ゲノム解析とメタゲノム解析の環境を含む。",
+        "note": "MAFFTとSeqKitの環境を更新し、2026年10月3日にLinuxのCIで、Dockerのビルドと小さなFASTAでの実行確認が通過した。他の環境定義は過去のもので、未検証。"
+      },
       "links": [],
       "slug": "dockerfiles",
       "headline": "Dockerfiles: bioinformatics tool containers",
