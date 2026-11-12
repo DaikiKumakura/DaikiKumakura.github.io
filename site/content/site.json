@@ -699,7 +699,11 @@
       "details": [],
       "install": [
         {
-          "label": "R",
+          "label": "R-universe",
+          "code": "install.packages(\"BiocManager\")\ninstall.packages(\"rsemflow\", repos = c(\"https://daikikumakura.r-universe.dev\", BiocManager::repositories()))"
+        },
+        {
+          "label": "GitHub",
           "code": "install.packages(\"BiocManager\")\nBiocManager::install(\"DaikiKumakura/rsemflow\")"
         },
         {
@@ -708,6 +712,33 @@
         }
       ],
       "install_note": "rsemflow needs R 4.3 or later and several Bioconductor packages; human and mouse data are supported.",
+      "related_articles": []
+    },
+    {
+      "id": "bulkdeconv",
+      "tech": "R",
+      "url": "https://github.com/DaikiKumakura/bulkdeconv",
+      "status": "R package (v0.1.0)",
+      "description": "An R package for estimating cell-type composition or abundance from human and mouse tumor bulk RNA-seq through one function.",
+      "featured": true,
+      "links": [
+        {
+          "url": "https://github.com/DaikiKumakura/bulkdeconv#readme",
+          "label": "Examples and method requirements"
+        }
+      ],
+      "note": "Check each method's species, input scale and interpretation. Some methods return abundance scores rather than proportions.",
+      "slug": "bulkdeconv",
+      "headline": "bulkdeconv: cell-type deconvolution in R",
+      "summary": "Estimate cell-type composition or abundance in human and mouse tumor bulk RNA-seq with one R function.",
+      "details": [],
+      "install": [
+        {
+          "label": "GitHub",
+          "code": "install.packages(c(\"remotes\", \"BiocManager\"))\nremotes::install_github(\"DaikiKumakura/bulkdeconv\", repos = BiocManager::repositories())"
+        }
+      ],
+      "install_note": "See the package README for supported input scales and any method-specific dependencies.",
       "related_articles": []
     },
     {

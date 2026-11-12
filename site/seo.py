@@ -8,7 +8,7 @@ DESCRIPTIONS = {
  'home': 'Daiki Kumakura (熊倉大騎), mathematical biologist and bioinformatics researcher. PK/PD and dosing analyses of public data, research software and publications.',
  'profile': 'Profile of Daiki Kumakura: mathematical modeling and statistical inference, with public-data analyses of population PK, PK/PD, exposure–response and dosing.',
  'writing': 'Analysis tutorials, technical notes, blog posts and working papers by Daiki Kumakura. Each article is available in its original language.',
- 'software': 'Research software by Daiki Kumakura: pkident for PK/PD identifiability, rsemflow and rsemverse for RNA-seq, retiaudit, RLR_transform and CRiSM.',
+ 'software': 'Research software by Daiki Kumakura: pkident for PK/PD, bulkdeconv for cell-type deconvolution, rsemflow and rsemverse for RNA-seq, and retiaudit.',
  'publication': 'Research publications by Daiki Kumakura: mathematical models, biological dynamics, antibiotic response, compositional time series and bioinformatics.',
  'activity': 'Conference presentations, teaching, event organization, outreach and media activities by Daiki Kumakura, grouped by year and category.'}
 
