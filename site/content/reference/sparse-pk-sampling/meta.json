@@ -10,7 +10,7 @@
       "title": "Sparse PK sampling",
       "summary": "Population PK pools information across patients when each patient has only a few samples.",
       "seo_title": "Sparse PK sampling",
-      "seo_description": "Population PK pools information across patients when each patient has only a few samples.",
+      "seo_description": "Population PK pools information across patients when each patient has only a few samples. It can inform trough predictions and some parameter combinations.",
       "faq": [
         {
           "q": "What can trough-only sampling estimate?",
@@ -22,7 +22,7 @@
       "title": "疎なPK採血",
       "summary": "患者一人あたりの採血が少ないとき、母集団PKでは患者間で情報を共有する。",
       "seo_title": "疎なPK採血",
-      "seo_description": "患者一人あたりの採血が少ないとき、母集団PKでは患者間で情報を共有する。",
+      "seo_description": "患者一人あたりの採血が少ないとき、母集団PKでは患者間で情報を共有する。トラフの予測と一部のパラメータの組合せに情報を与える。",
       "faq": [
         {
           "q": "トラフだけの採血で何を推定できるか？",

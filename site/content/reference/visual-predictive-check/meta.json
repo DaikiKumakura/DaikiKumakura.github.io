@@ -22,7 +22,7 @@
       "title": "Visual predictive check（VPC）",
       "summary": "VPCは、観測の要約値と、試験デザインを再現して反復シミュレーションした要約値の分布を比較する。",
       "seo_title": "Visual predictive check（VPC）",
-      "seo_description": "VPCは、観測の要約値と、試験デザインを再現して反復シミュレーションした要約値の分布を比較する。",
+      "seo_description": "VPCは、観測の要約値と、試験デザインを再現して反復シミュレーションした要約値の分布を比較する。一般的なVPCでは、選んだ百分位点のシミュレーション区間を示す。",
       "faq": [
         {
           "q": "VPCの帯は平均の信頼区間か？",

@@ -10,7 +10,7 @@
       "title": "One-compartment PK model",
       "summary": "A one-compartment model treats the drug amount as a single well-mixed pool.",
       "seo_title": "One-compartment PK model",
-      "seo_description": "A one-compartment model treats the drug amount as a single well-mixed pool.",
+      "seo_description": "A one-compartment model treats the drug amount as a single well-mixed pool. With linear elimination, C(t) = D/V × exp(−CL × t/V).",
       "faq": [
         {
           "q": "What is the IV bolus equation?",
@@ -22,7 +22,7 @@
       "title": "1コンパートメントPKモデル",
       "summary": "薬物量を一つの均一な区画で表すモデル。",
       "seo_title": "1コンパートメントPKモデル",
-      "seo_description": "薬物量を一つの均一な区画で表すモデル。",
+      "seo_description": "薬物量を一つの均一な区画で表すモデル。線形消失なら C(t) = D/V × exp(−CL × t/V)。投与直後の採血で分布相が分かれて見える場合は、このモデルの限界が分かる。",
       "faq": [
         {
           "q": "静注ボーラス後の濃度はどう表すか？",

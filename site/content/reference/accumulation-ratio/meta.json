@@ -8,7 +8,7 @@
       "title": "PK accumulation ratio",
       "summary": "An accumulation ratio compares the same exposure metric after repeated dosing and after the first dose.",
       "seo_title": "PK accumulation ratio",
-      "seo_description": "An accumulation ratio compares the same exposure metric after repeated dosing and after the first dose.",
+      "seo_description": "An accumulation ratio compares the same exposure metric after repeated dosing and after the first dose. It equals 2 when the interval τ equals the half-life.",
       "faq": [
         {
           "q": "How much does a drug accumulate if the interval equals its half-life?",
@@ -20,7 +20,7 @@
       "title": "薬物動態の蓄積比",
       "summary": "蓄積比は反復投与後と初回投与後で同じ曝露指標を比較した比である。",
       "seo_title": "薬物動態の蓄積比",
-      "seo_description": "蓄積比は反復投与後と初回投与後で同じ曝露指標を比較した比である。",
+      "seo_description": "蓄積比は反復投与後と初回投与後で同じ曝露指標を比較した比である。線形1区画の静注ボーラスでは定常状態と初回のピーク比が 1/(1 − exp(−kτ)) となる。",
       "faq": [
         {
           "q": "投与間隔が半減期と同じとき蓄積比はどうなるか？",
