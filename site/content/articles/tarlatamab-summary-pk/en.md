@@ -22,7 +22,7 @@ The **context of use (COU)** is model reconstruction and scenario comparison bas
 
 ## Methods {#2-how-to-read-the-data}
 
-The main analysis used six values — maximum concentration, AUC and pre-dose concentration — from the Cycle 2 Day 1 and Day 15 PK table in the PMDA package insert ([1](#ref-1)). The package insert's "Ctrough", shown here as "Pre-dose concentration" in Table 1, is explicitly labeled "pre-dose concentration" in the corresponding Table 23 of the review report ([2](#ref-2)). In this analysis it was therefore matched to the time just before the dose on that day. Replacing it with the concentration 14 days after a dose would misalign the time points of the fit.
+The main analysis used six values — maximum concentration, AUC and pre-dose concentration — from the Cycle 2 Day 1 and Day 15 PK table in the PMDA package insert ([1](#ref-1)). The package insert's "Ctrough", shown here as "Pre-dose concentration" in Table 1, is explicitly labeled "pre-dose concentration" in [Table 23 of the review report](https://www.pmda.go.jp/drugs/2025/P20250114001/112292000_30600AMX00310_A100_1.pdf#page=24) ([2](#ref-2)). In this analysis it was therefore matched to the time just before the dose on that day. Replacing it with the concentration 14 days after a dose would misalign the time points of the fit.
 
 Table 1 presents the corresponding values and conditions.
 

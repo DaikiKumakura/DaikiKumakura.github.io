@@ -85,7 +85,7 @@ I compared pooling all replicates with reassigning only within each replicate. T
 
 Pooling made relatively little difference here. Rare-pair replicate ratios were unstable: PST–B was 2.31 in exp2 and 53.56 in exp3. Exp3 has only one B cell and one co-clump; its expected weight of approximately 0.0187 makes the ratio large. This is not evidence of strong communication established in numerous observations.
 
-I also ran 1,999 within-replicate label permutations, distributing comparisons between their mean and the exact expectation. Permutation p values include ties and add 1 to numerator and denominator, giving minimum 0.0005. Permutations do not increase the biological replicate count. These reassignment and p-value definitions differ from the paper, so its p values were not reproduced.
+I also ran 1,999 within-replicate label permutations, and included a table comparing the permutation mean with the exact expectation. Permutation p values include ties and add 1 to numerator and denominator, giving minimum 0.0005. Permutations do not increase the biological replicate count. These reassignment and p-value definitions differ from the paper, so its p values were not reproduced.
 
 The null preserves neither anatomical regions nor type-specific dissociation, recovery and QC biases. Ratios measure co-occurrence enrichment relative to random labels, not its physical or functional cause.
 
@@ -109,7 +109,7 @@ This reaggregation traced kidney Frequency calculations and their dependence on 
 
 ## Data and code availability {#_7}
 
-[Download code, annotations, reference frequencies and original figures](shared/cci-seq-proximity-evidence/cci-seq-proximity-evidence.zip). Python and numpy run aggregation, permutations and 11 tests; figure generation requires matplotlib. Instructions retrieve only the needed annotations and numerical tables from the public ZIP and verify CRC and SHA-256. Original figures, third-party notebooks, raw reads and RNA matrices are not distributed.
+[Download code, annotations, reference frequencies and figures generated for this article](shared/cci-seq-proximity-evidence/cci-seq-proximity-evidence.zip). Python and numpy run aggregation, permutations and 11 tests; figure generation requires matplotlib. Instructions retrieve only the needed annotations and numerical tables from the public ZIP and verify CRC and SHA-256. Figures from the source paper, third-party notebooks, raw reads and RNA matrices are not distributed.
 
 `input-provenance.json` records pinned versions, selected members and hashes; `REPRODUCE.md` records denominators and calculation methods. This exploratory audit follows examination of the paper's examples. It does not independently validate experiments, images, all QC, expression-based inference, causal communication or generalization to human disease.
 
