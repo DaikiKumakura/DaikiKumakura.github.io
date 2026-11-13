@@ -541,9 +541,13 @@ def build(project=BASE, preview=False, strict_translations=False):
         return tag+'</url>'
     outputs['sitemap.xml']=('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">'+''.join(sitemap_url(p) for p in canonical_pages if not preview or not p.startswith('writing/'))+'</urlset>').encode('utf-8')
     if not preview:
+        # Google kept a 2024 copy of /sitemap.xml and did not read it again. The same list is therefore also published
+        # under a second name, and an index names it together with the sitemaps of the documentation sites.
+        outputs['sitemap-pages.xml']=outputs['sitemap.xml']
+        outputs['sitemap_index.xml']=('<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+''.join('<sitemap><loc>'+SITE_URL+path+'</loc></sitemap>' for path in ('sitemap-pages.xml',)+EXTRA_SITEMAPS)+'</sitemapindex>').encode('utf-8')
         outputs['feed.xml']=atom_feed(site,entries)
         for code in ('en','ja'):outputs[f'feed-{code}.xml']=atom_feed(site,entries,code)
-    outputs['robots.txt']=('User-agent: *\n'+('Disallow: /\n' if preview else 'Allow: /\n'+''.join('\nUser-agent: '+bot+'\nAllow: /\n' for bot in AI_CRAWLERS)+'\nSitemap: '+SITE_URL+'sitemap.xml\nSitemap: '+SITE_URL+'feed.xml\nSitemap: '+SITE_URL+'feed-en.xml\nSitemap: '+SITE_URL+'feed-ja.xml\n'+''.join('Sitemap: '+SITE_URL+path+'\n' for path in EXTRA_SITEMAPS))).encode('utf-8')
+    outputs['robots.txt']=('User-agent: *\n'+('Disallow: /\n' if preview else 'Allow: /\n'+''.join('\nUser-agent: '+bot+'\nAllow: /\n' for bot in AI_CRAWLERS)+'\nSitemap: '+SITE_URL+'sitemap.xml\nSitemap: '+SITE_URL+'sitemap_index.xml\nSitemap: '+SITE_URL+'feed.xml\nSitemap: '+SITE_URL+'feed-en.xml\nSitemap: '+SITE_URL+'feed-ja.xml\n'+''.join('Sitemap: '+SITE_URL+path+'\n' for path in EXTRA_SITEMAPS))).encode('utf-8')
     if not preview:
         outputs['llms.txt']=llms_txt(site,entries,reference=reference)
         outputs['llms-full.txt']=llms_full_txt(site,entries,reference)
