@@ -25,6 +25,6 @@
     "summary": "A one-marker, known-condition diagnostic on public 4i data compares mean-based predictions and a quantile map. Distributional agreement is separated from lineage identification, biological replication and resistance. No CellOT or CMonge model was trained."
   },
   "reviewed": {
-    "en": "68c0f71ac83276cd37f7014d055454ba7ea6c9f02d77d6d257a873eae6093824"
+    "en": "ad7cfeb0078b7842919f5e81da0ee6ca0ab2c8ac07fd24de7c1d78d0f63d9869"
   }
 }

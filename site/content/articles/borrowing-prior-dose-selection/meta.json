@@ -36,7 +36,7 @@
     "summary": "Existing-drug dose comparisons inform priors for hypothetical new drugs. Under the defined utility and deterioration tolerance, weight 0.5 was acceptable in the main condition and 0.25 across all sensitivity conditions; these are not general borrowing rules."
   },
   "reviewed": {
-    "en": "7cd0745dc256d36cd73e0eeed127c5c28ad3ec345be91dab76ac37cfd76d2c46"
+    "en": "5186f895d4bcf2df430ce7b2f5e42591ce06fd9a4c7ca384d35bfec469274783"
   },
   "updated": "2026-10-28"
 }

@@ -31,7 +31,7 @@
     "summary": "A Japanese review of perturbation forecasting, target-gene masking and recent benchmarks, with a reproducible synthetic example distinguishing evaluation shortcuts from downstream prediction. The example does not establish real-data performance or the superiority of pairwise masking."
   },
   "reviewed": {
-    "en": "21abb80bf69b0837d04d9bfbafc10ab4615e14d40a0f1dbeedee6c2c4cac6c56"
+    "en": "d4db0183d54a5e701a9b2f00467abbdbff124dd97a3bbebe9698023c9ae0951a"
   },
   "updated": "2026-10-27"
 }

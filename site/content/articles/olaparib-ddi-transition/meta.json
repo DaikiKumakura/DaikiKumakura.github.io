@@ -9,9 +9,9 @@
   "author": "Daiki Kumakura",
   "locales": {
     "ja": {
-      "title": "オラパリブと一時的な併用薬：AUC倍率だけで復量時期は決められるか",
-      "summary": "公開PBPK研究と製品情報を点検し、一つの併用時AUC倍率だけでは中止後の経過を決められないことを縮約モデルで示す。異なる回復速度が同じ併用時倍率に対応し、復量の時点は特定されない。",
-      "seo_title": "オラパリブと一時的な併用薬：復量時期はAUC倍率で決まるか"
+      "title": "オラパリブと一時的な併用薬：AUC倍率だけで元の用量に戻す時期は決められるか",
+      "summary": "公開PBPK研究と製品情報を点検し、一つの併用時AUC倍率だけでは中止後の経過を決められないことを縮約モデルで示す。異なる回復速度が同じ併用時倍率に対応し、元の用量に戻す時点は特定されない。",
+      "seo_title": "オラパリブは併用薬の中止後いつ元の用量に戻すか"
     },
     "en": {
       "title": "Olaparib and temporary comedication: can an AUC ratio determine dose-restoration timing?",
@@ -25,6 +25,6 @@
     "summary": "An evidence audit and reversible-inhibition counterexample demonstrate that a scalar coadministration ratio does not identify post-cessation behavior. This is not a reconstruction of published PBPK models, a prediction of patient exposure, or a dose-restoration recommendation."
   },
   "reviewed": {
-    "en": "5db23ec4357828ee9f96f788273fc3f6ea4d35783fa23dfc11de12e26369fe74"
+    "en": "92fa2fba4a6b5286d6b833f2531b3172bac2ef9fb6defc4a437663a2c3fdf728"
   }
 }

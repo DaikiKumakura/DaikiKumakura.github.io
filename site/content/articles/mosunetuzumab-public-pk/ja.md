@@ -34,7 +34,7 @@
 
 ### 使用した資料 {#revision-section-1}
 
-構造モデルとNONMEMコード、ROの式はBenderらのPopPK論文と補足資料から取得した。最終推定値、個体間変動（interindividual variability、IIV）、CRS回帰式はLiらの曝露反応（exposure–response、E–R）論文の補足資料でも確認した ([2](#ref-2), [3](#ref-3))。
+構造モデルとNONMEMコード、ROの式はBenderらのPopPK論文と補足資料から取得した。最終推定値、個体間変動（interindividual variability、IIV）、CRS回帰式はLiらの曝露–反応（exposure–response、E–R）論文の補足資料でも確認した ([2](#ref-2), [3](#ref-3))。
 
 表2に以下の項目を示す。
 
@@ -165,7 +165,7 @@ Table S12の見出しはGrade 2と記載されているが、論文本文のGrad
 
 ## 結果 {#revision-section-4}
 
-### 公表曝露要約との照合 {#1}
+### 公表された曝露の集計値との照合 {#1}
 
 ![参照レジメンの典型パラメータによる濃度時間曲線。投与量と投与時刻を併記した。](shared/mosunetuzumab-public-pk/figures/pk.svg)
 
@@ -173,7 +173,7 @@ Table S12の見出しはGrade 2と記載されているが、論文本文のGrad
 
 表5に以下の項目を示す。
 
-<span id="table-5"></span>表5．公表曝露要約と典型値による計算
+<span id="table-5"></span>表5．公表された曝露の集計値と典型値による計算
 
 | Metric and unit | Published geometric mean | Recalculated typical value | Difference (%) |
 | --- | --- | --- | --- |
@@ -267,7 +267,7 @@ ROの競合結合のみを変える条件と、CLbase共変量も変える条件
 
 ![残存anti-CD20の4条件について、結合競合だけを変えた場合とCLbase共変量も変えた場合の最大ROとCRS式出力。](shared/mosunetuzumab-public-pk/figures/ro-crs.svg)
 
-*図4．参照レジメン・典型患者での感度解析。点を結ぶ線は比較を見やすくするためであり、薬剤間の連続的な用量反応曲線ではない。CRS式の出力は個人のリスク予測ではない。独自計算。*
+*図4．比較の基準としたレジメンでの感度解析（共変量は基準値）。点を結ぶ線は比較を見やすくするためであり、薬剤間の連続的な用量反応曲線ではない。CRS式の出力は個人のリスク予測ではない。独自計算。*
 
 この条件では、CLbase共変量の反映による差より、RO式の競合結合による差が大きかった。ただし、4つの濃度条件を同じ割合で集団に混ぜたり、記事の表をそのまま実患者の発現率としたりする根拠はない。
 

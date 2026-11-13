@@ -121,7 +121,7 @@ Jostらの原著には、116例の6-MP投与履歴、実測ANC、体格情報を
 | Continue last dose | Last positive dose through day 84 given daily thereafter | No-change scenario, not knowledge of actual future prescribing |
 | Recorded future doses | Actual recorded days 84–112 | Retrospective conditional prediction, not prospective forecasting |
 
-血球数が変わったために投与量が変更された可能性がある。後者には、血球数の変化を受けた治療行動の情報が含まれ得る。したがって、後者で誤差が小さくても、その性能をそのまま実際の投与判断時に期待できない。
+血球数が変わったために投与量が変更された可能性がある。後者には、血球数の変化を受けた投与量を変更したという情報が含まれ得る。したがって、後者で誤差が小さくても、その性能をそのまま実際の投与判断時に期待できない。
 
 比較する予測は、直近ANCを維持する単純予測、母集団値だけの予測、個人更新した予測の3つとした。
 

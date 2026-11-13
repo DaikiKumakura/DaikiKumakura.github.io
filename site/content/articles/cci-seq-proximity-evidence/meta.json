@@ -9,9 +9,9 @@
   "author": "Daiki Kumakura",
   "locales": {
     "ja": {
-      "title": "同じ細胞塊にいることは通信の証拠になるか。CCI-seqを再集計する",
-      "summary": "マウス腎臓の公開注釈から共存塊数とFrequencyを再計算する。希少なPST–B細胞の実数、反復別の母数、帰無と塊サイズによる濃縮比の違いを調べ、近接と因果的な通信を分ける。",
-      "seo_title": "同じ細胞塊にいるだけで通信と言えるか：CCI-seq"
+      "title": "同じ細胞塊にいればシグナルは伝わるのか。CCI-seqを再集計する",
+      "summary": "マウス腎臓の公開注釈から共存塊数とFrequencyを再計算する。希少なPST–B細胞の実数、反復別の母数、帰無と塊サイズによる濃縮比の違いを調べ、細胞の近接からシグナル伝達についてどこまで分かるかを検討する。",
+      "seo_title": "CCI-seqで細胞の近接とシグナル伝達をどこまで見分けられるか"
     },
     "en": {
       "title": "Co-clump proximity versus cellular communication: auditing CCI-seq",
@@ -25,6 +25,6 @@
     "summary": "Public mouse-kidney metadata reproduces heterotypic Frequency scores while separating co-clump counts, cell pairs and random-label enrichment. Rare-pair denominators, replicate structure and recovered clump sizes define what proximity evidence can support."
   },
   "reviewed": {
-    "en": "7a490b73da277080d3920e092b78d4f3f3bf730e6b1e771b8573525ac80f2185"
+    "en": "d768f575d577d66154546dd5b5253fbce9afad802ab43b652c9cb9504e12bc9f"
   }
 }

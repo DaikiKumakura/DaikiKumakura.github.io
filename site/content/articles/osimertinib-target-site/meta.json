@@ -24,6 +24,6 @@
     "summary": "An independent implementation audits public target-site PBPK equations. Conditional dose comparisons distinguish plasma, modeled lung-tumor amounts and reversible binding states. Absorption conventions are examined without claiming clinical validation or dose selection."
   },
   "reviewed": {
-    "en": "02bebab6adcf741f45c510f96b63b3c747c7843cb86a5fd05fba48aafa25c2f2"
+    "en": "dbdf5b0f3a641983698567a677c80b64e07749c18dd079862ce5f5e5e02d33fc"
   }
 }

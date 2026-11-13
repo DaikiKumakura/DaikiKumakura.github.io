@@ -25,6 +25,6 @@
     "summary": "A semi-synthetic experiment on public measurements from two healthy bone-marrow donors contrasts crossed and confounded artificial batches. Fixed CytoVI runs separate coarse cell-label readability from within-type reference contrasts; this is not a disease-preservation validation."
   },
   "reviewed": {
-    "en": "fb20e066542904cd2bf82e89be1e61fce94ee2c8524ea317eb6df533df76c11f"
+    "en": "259a56e2546fd6975de5ef12d25d29b800993d4e5147cc82b4ce43e6403f9f24"
   }
 }

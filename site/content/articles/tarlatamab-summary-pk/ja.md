@@ -141,7 +141,7 @@ Vcには比較的鋭い最小値がある。一方、CLは低い値の方向、Q
 
 推定モデルの終末半減期は約 19.0日だった。公開NCAの中央値6.21日と同じ値ではない。NCAの観測窓、集団の要約統計量、モデルの長時間の漸近相は同じ対象を測っていないため、両者の差だけでモデルを棄却することも、一致しない半減期を無視することも適切ではない。今回の集約値だけで終末相が十分同定されたとは扱わない。
 
-### Hold-outは外部検証にはならない {#hold-out}
+### 同じ資料内の留保データによる検証 {#hold-out}
 
 Cycle 2の一方の投与日の3値を除き、残った3値だけで4パラメータを再推定した。
 
@@ -262,7 +262,7 @@ P(\mathrm{DCR})=E_{\max}\frac{E}{EC_{50}+E}.
 
 この式では最大効果の90%・95%に対応する曝露は、それぞれ \(9EC_{50}=444.6\) ng/mL、\(19EC_{50}=938.6\) ng/mLとなる。これはDCRが90%・95%という意味ではない。
 
-また、ここでの \(E\) は**初回サイクルの平均濃度**である。維持期のCtroughへこの閾値を直接当て、「閾値を超えたのでQ4Wでも有効」と判断することはできない。公表された曝露反応（exposure–response、E–R）解析と今回の集約PK解析は、対象集団・曝露指標・推定方法が異なる ([5](#ref-5))。 単位が同じでも、説明変数を交換してよいわけではない。
+また、ここでの \(E\) は**初回サイクルの平均濃度**である。維持期のCtroughへこの閾値を直接当て、「閾値を超えたのでQ4Wでも有効」と判断することはできない。公表された曝露–反応（exposure–response、E–R）解析と今回の集約PK解析は、対象集団・曝露指標・推定方法が異なる ([5](#ref-5))。 単位が同じでも、説明変数を交換してよいわけではない。
 
 ### CRSの低下と投与履歴 {#crs}
 
@@ -288,7 +288,7 @@ PK指標間の共分散と、同じ患者の投与・採血・CRS時刻は得ら
 
 ## データとコードの公開状況 {#_7}
 
-[Download analysis code, input CSV and result tables](https://daikikumakura.github.io/writing/shared/tarlatamab-summary-pk/tarlatamab-analysis.zip)。乱数seedは20261003。推定、30-start、profile、300回bootstrap、hold-out、共分散の感度分析、独立ODE実装との比較を一つのスクリプトで実行できる。患者レベルデータは含まない。
+[Download analysis code, input CSV and result tables](https://daikikumakura.github.io/writing/shared/tarlatamab-summary-pk/tarlatamab-analysis.zip)。乱数seedは20261003。推定、30-start、profile、300回bootstrap、留保データでの検証、共分散の感度分析、独立ODE実装との比較を一つのスクリプトで実行できる。患者レベルデータは含まない。
 
 ZIPを展開したフォルダで、次を実行する。入力は `data/observations.csv`、出力は `results/`・`figures/` に保存される。
 
