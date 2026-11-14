@@ -110,7 +110,7 @@ def enrich(page, name, site, site_url, article=None, og_image=None, topics=None,
   schema={'@context':'https://schema.org','@type':'CollectionPage','url':canonical,'name':headline,'description':description,'inLanguage':'en','about':person,'isPartOf':{'@type':'WebSite','@id':site_url+'#website','url':site_url}}
  elif name.startswith('software/'):
   sw=next((x for x in site['software'] if x.get('slug')==key.split('/',1)[1]),None)
-  if sw:schema={'@context':'https://schema.org','@type':'SoftwareSourceCode','@id':canonical+'#software','url':canonical,'name':sw['id'],'description':sw['summary'],'codeRepository':sw['url'],'programmingLanguage':sw['tech'],'author':person,'isAccessibleForFree':True}
+  if sw:schema={'@context':'https://schema.org','@type':'SoftwareSourceCode','@id':canonical+'#software','url':canonical,'name':sw['id'],'description':sw['summary'],'codeRepository':sw['url'],'programmingLanguage':sw['tech'],'author':person,'isAccessibleForFree':True,**({'identifier':'https://doi.org/'+sw['doi'],'sameAs':'https://doi.org/'+sw['doi']} if sw.get('doi') else {})}
  elif name.startswith(('about/','tools/','glossary/','catalog/')):
   entry=article or {}
   hub=site_url+'reference.html'

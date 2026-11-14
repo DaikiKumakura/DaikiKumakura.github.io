@@ -637,6 +637,7 @@
         "description": "rxode2で書いたPK/PDの常微分方程式モデルについて、構造的識別可能性と実用的識別可能性を調べるRパッケージ。与えた出力と投与からどのパラメータが決まるか、採血計画でどの程度の精度で推定できるか、nlmixr2の当てはめの尤度プロファイルが有界か平坦かを調べる。",
         "note": "文献または導出で期待結果を固定した10個の参照モデルを再現し、独立した2つの構造的手法がすべての点で一致した。期待標準誤差は、シミュレーションデータでの反復推定のばらつきと一致した。R CMD checkはCIのLinuxとWindowsで通過（2026年10月5日）。判定は局所的で、母集団デザインは対象外。"
       },
+      "doi": "10.5281/zenodo.24210472",
       "slug": "pkident",
       "headline": "pkident: PK/PD identifiability in R",
       "summary": "R package for structural and practical identifiability of PK/PD ODE models built on rxode2: what can be determined, how precisely, whether a profile is flat.",
@@ -703,6 +704,7 @@
         "description": "RSEMの*.genes.resultsファイルと通常のサンプルメタデータ表から、バルクRNA-seqの標準的な結果をTSVの表で出力するRパッケージ兼コマンドラインツール。発現の要約、正規化、PCA、サンプル間相関、明示した計画でのDESeq2による発現変動解析、順位付きGSEA、GSVA/ssGSEAスコア、遺伝子アノテーションを扱う。",
         "note": "ヒトとマウスのデータに対応。サンプルの不一致、遺伝子表の不整合、モデル変数の欠損、交絡した計画では、結果を出さずに停止する。交互作用モデルの単純効果は、再パラメータ化したモデルと照合して検査している。ENCODEのK562ノックダウンデータでは、各標的遺伝子がそのノックダウンで最も有意に減少した遺伝子群に入る。R CMD checkはCIのLinux・macOS・Windowsで通過（2026年10月6日）。CRANとBioconductorには未登録。図は出力しない。"
       },
+      "doi": "10.5281/zenodo.24210478",
       "slug": "rsemflow",
       "headline": "rsemflow: RSEM to RNA-seq results in R",
       "summary": "R package and CLI that turns RSEM gene results and a sample table into standard bulk RNA-seq outputs: PCA, DESeq2, preranked GSEA and GSVA, as TSV tables.",
@@ -751,6 +753,7 @@
         "description": "ヒトとマウスの腫瘍バルクRNA-seqから、細胞型の組成または存在量を1つの関数で推定するRパッケージ。",
         "note": "手法ごとに、対応する生物種、入力のスケール、結果の解釈を確認すること。一部の手法は、割合ではなく存在量のスコアを返す。"
       },
+      "doi": "10.5281/zenodo.24210482",
       "slug": "bulkdeconv",
       "headline": "bulkdeconv: cell-type deconvolution in R",
       "summary": "Estimate cell-type composition or abundance in human and mouse tumor bulk RNA-seq with one R function.",
@@ -787,6 +790,7 @@
         "description": "関数rsem_read()が、サンプル表（sample_id、ref）に並べたRSEMの*.genes.resultsファイルを読み、期待カウントまたはTPMを、遺伝子シンボルごとに1行、サンプルごとに1列のデータフレームで返すRパッケージ。ヒトはorg.Hs.eg.db、マウスはorg.Mm.eg.dbを使う。続けて、遺伝子のフィルタ、サンプル間の正規化、値の変換、組み込みの遺伝子群の選択、サンプル情報付きの長い形式への変換を行う関数がある。",
         "note": "rsem_read()は、シンボルを引く前にEnsemblのバージョン接尾辞を除き、同じシンボルの行は合計し、シンボルのない遺伝子は元のIDを残す。ENCODEのK562のRSEMファイル6個（各59,526遺伝子）では、36,385遺伝子にシンボルが付き、23,141遺伝子は元のIDのままで、列の合計は入力と一致した（2026年11月10日）。バージョン0.2.0で、rsem_filter()（edgeRのfilterByExprの規則、検出のしきい値、変動の大きい遺伝子）、rsem_normalize()（CPM、TMM、上位四分位、DESeq2のmedian of ratios、分位点正規化）、rsem_transform()（log2、zスコア、順位）、rsem_subset()（タンパク質コード、ミトコンドリア、リボソーム、ヘモグロビン、性染色体、ERCCの遺伝子群。OrgDbから判定し、遺伝子リストは不要）、rsem_long()を追加した。同じENCODEのファイルで、新しい関数はすべて59,427行で動き、edgeRの規則で残る12,808遺伝子はedgeR::filterByExpr()と同一で、正規化の値はedgeR・DESeq2・limmaと相対誤差3e-16以内で一致した（2026年11月14日）。R CMD checkはCIのLinux・macOS・Windowsで通過。CRANとBioconductorには未登録。"
       },
+      "doi": "10.5281/zenodo.24210460",
       "slug": "rsemverse",
       "headline": "rsemverse: RSEM gene tables in R",
       "summary": "R package that reads RSEM gene results into a gene symbol by sample table of counts or TPM, then filters, normalizes, transforms and subsets it.",
@@ -827,6 +831,7 @@
         "description": "reticulateを補う、依存パッケージのない小さなRパッケージ。Pythonの起動前に、Pythonの選択を上書きする設定とプロジェクトの目印を報告し、py_require()で管理した要件が使われない原因を調べる。",
         "note": "初版で、CRANには未登録。RパッケージのチェックはCIのLinux・Windows・macOSで通過（2026年10月5日）。見えている手がかりを報告するもので、reticulate自身の探索は再現しない。実際の構成はreticulateの診断機能で確認すること。"
       },
+      "doi": "10.5281/zenodo.24210476",
       "slug": "retiaudit",
       "headline": "retiaudit: reticulate Python audit",
       "summary": "Dependency-free R companion to reticulate that reports Python selection overrides and project markers before Python starts.",
