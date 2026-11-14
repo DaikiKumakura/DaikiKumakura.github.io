@@ -1,0 +1,51 @@
+{
+  "kind": "term",
+  "updated": "2026-11-14",
+  "math": false,
+  "related_articles": [
+    "fixed-vs-weight-dosing",
+    "tarlatamab-summary-pk"
+  ],
+  "locales": {
+    "en": {
+      "title": "Drug exposure (AUC, Cmax, Ctrough)",
+      "summary": "Drug exposure is how much drug is in the body over time, summarized by AUC, Cmax, Ctrough or an average concentration. The same dose gives different exposure in different patients.",
+      "seo_title": "Drug exposure in PK: AUC, Cmax, Ctrough explained",
+      "seo_description": "What drug exposure means in pharmacokinetics: how it differs from dose, how AUC, Cmax and Ctrough summarize it, and why it varies between patients.",
+      "faq": [
+        {
+          "q": "What is the difference between dose and exposure?",
+          "a": "The dose is the amount administered. The exposure is the concentration–time profile that results, summarized by metrics such as AUC, Cmax and Ctrough. Patients who receive the same dose can have different exposure because clearance and volume of distribution differ."
+        },
+        {
+          "q": "Which exposure metric should be used?",
+          "a": "It depends on the question: Cmax for a peak-related event, Ctrough or time above a threshold for a sustained target effect, and AUC for cumulative effects. Choose the metric and the time window before analyzing the outcome."
+        },
+        {
+          "q": "Is exposure the same as the concentration at the target?",
+          "a": "Not necessarily. Exposure is usually measured in plasma or serum. The unbound concentration and the concentration at the site of action can differ from it."
+        }
+      ]
+    },
+    "ja": {
+      "title": "薬物曝露（AUC、Cmax、Ctrough）",
+      "summary": "薬物曝露は、体内の薬物の量を時間を通して表す尺度で、AUC、Cmax、Ctrough、平均濃度で要約する。同じ用量でも、患者によって曝露は異なる。",
+      "seo_title": "薬物曝露とは：AUC・Cmax・Ctroughの違いと個人差",
+      "seo_description": "薬物動態での曝露（exposure）の意味を説明する。用量との違い、AUC・Cmax・Ctroughでの要約、患者によって曝露が異なる理由、曝露反応解析での使い方。",
+      "faq": [
+        {
+          "q": "用量と曝露は、どう違いますか。",
+          "a": "用量は投与した量です。曝露は、その結果の濃度–時間プロファイルで、AUC、Cmax、Ctroughなどの指標で要約します。クリアランスや分布容積が異なるため、同じ用量でも患者によって曝露は異なります。"
+        },
+        {
+          "q": "どの曝露指標を使えばよいですか。",
+          "a": "問いによります。ピークに関連する事象ならCmax、持続的な標的への作用ならCtroughや閾値を超える時間、累積的な作用ならAUCです。指標と時間窓は、転帰を解析する前に決めます。"
+        },
+        {
+          "q": "曝露は、標的部位の濃度と同じですか。",
+          "a": "同じとは限りません。曝露は通常、血漿や血清で測ります。非結合型の濃度や作用部位の濃度は、それと異なることがあります。"
+        }
+      ]
+    }
+  }
+}

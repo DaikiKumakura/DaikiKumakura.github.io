@@ -28,13 +28,13 @@ REFERENCE_LABELS = {'policy': 'About page', 'tool': 'Tool', 'term': 'Glossary te
 REFERENCE_TOPICS = (
     ('pk', 'PK fundamentals', 'PKの基礎',
      frozenset(('auc-area-under-the-curve bioavailability-f clearance-cl cmax-peak-concentration ctrough-trough-concentration dosing-interval-notation half-life noncompartmental-analysis same-auc-different-dosing-interval steady-state volume-of-distribution '
-                'one-compartment-pk two-compartment-pk accumulation-ratio flip-flop-kinetics apparent-clearance dose-proportionality').split())),
+                'one-compartment-pk two-compartment-pk accumulation-ratio flip-flop-kinetics apparent-clearance dose-proportionality drug-exposure').split())),
     ('pop', 'Population PK and model diagnostics', '母集団PKとモデル診断',
      frozenset(('allometric-scaling-covariates inter-individual-variability-iiv population-pk-nlme poppk-reimplementation practical-identifiability profile-likelihood residual-variability structural-identifiability visual-predictive-check '
                 'eta-shrinkage interoccasion-variability below-quantification-limit sparse-pk-sampling').split())),
     ('er', 'PK/PD and exposure–response', 'PK/PDと曝露–反応',
      frozenset(('c-index cytokine-release-syndrome dose-intensity effect-compartment emax-hill-model exposure-response exposure-response-confounding fixed-vs-weight-based-dosing indirect-response-model landmark-analysis pk-pd-models project-optimus receptor-occupancy step-up-dosing '
-                'concentration-qt exposure-metric-selection').split())),
+                'concentration-qt exposure-metric-selection auprc').split())),
     ('pb', 'PBPK and drug interactions', 'PBPKと薬物相互作用',
      frozenset(('pbpk pbpk-vs-poppk unbound-drug-concentration '
                 'drug-drug-interactions fraction-metabolized food-effect').split())),

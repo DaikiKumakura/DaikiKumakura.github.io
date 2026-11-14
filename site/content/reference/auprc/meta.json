@@ -1,0 +1,51 @@
+{
+  "kind": "term",
+  "updated": "2026-11-14",
+  "math": false,
+  "related_articles": [
+    "pie-deg-prioritization",
+    "proteome-degrader-toxicity"
+  ],
+  "locales": {
+    "en": {
+      "title": "AUPRC (area under the precision–recall curve)",
+      "summary": "AUPRC summarizes how well a classifier ranks positives above negatives, with attention to precision. A random classifier scores the prevalence of positives, so the baseline depends on the data.",
+      "seo_title": "AUPRC: area under the precision-recall curve, baseline",
+      "seo_description": "What AUPRC means, why its random baseline equals prevalence, when it is preferred over AUROC for rare positives, and the pitfalls in comparing values.",
+      "faq": [
+        {
+          "q": "What is the baseline AUPRC of a random classifier?",
+          "a": "It equals the prevalence, the share of positives in the data. A value of 0.3 is well above baseline when 1% of cases are positive and below it when 50% are."
+        },
+        {
+          "q": "When is AUPRC better than AUROC?",
+          "a": "When positives are rare and the question is how many top-ranked candidates are correct. A very large number of negatives can keep AUROC high even when precision among the top candidates is low."
+        },
+        {
+          "q": "Does a high AUPRC mean that the top candidates are correct?",
+          "a": "Not directly. AUPRC summarizes the whole ranking. Report the precision at the number of candidates that will actually be tested."
+        }
+      ]
+    },
+    "ja": {
+      "title": "AUPRC（適合率–再現率曲線の下の面積）",
+      "summary": "AUPRCは、分類器が陽性を陰性より上位に並べられるかを、適合率に注目して要約する。ランダムな分類器のAUPRCは陽性の有病率に等しく、ベースラインはデータに依存する。",
+      "seo_title": "AUPRCとは：適合率–再現率曲線の面積とベースライン",
+      "seo_description": "AUPRCの意味、ランダムなベースラインが有病率に等しい理由、陽性が少ないときにAUROCよりAUPRCが適する場合、値を比べるときの落とし穴を説明する。",
+      "faq": [
+        {
+          "q": "ランダムな分類器のAUPRCは、いくつですか。",
+          "a": "有病率（データ中の陽性の割合）に等しくなります。0.3は、陽性が1%なら基準を大きく上回り、50%なら下回ります。"
+        },
+        {
+          "q": "AUROCよりAUPRCが適するのは、どんなときですか。",
+          "a": "陽性が少なく、上位の候補のうち正しいものがどれだけあるかが問いのときです。陰性が非常に多いと、上位の候補の適合率が低くてもAUROCは高いままになり得ます。"
+        },
+        {
+          "q": "AUPRCが高ければ、上位の候補は正しいですか。",
+          "a": "直接はそうとは限りません。AUPRCは順位全体の要約です。実際に試す候補数での適合率を報告します。"
+        }
+      ]
+    }
+  }
+}
