@@ -5,8 +5,11 @@ In dosing regimens, **Q** stands for the Latin *quaque*, "every". A number and a
 | Notation | Meaning |
 | --- | --- |
 | QD | once daily |
+| Q2D, QOD | every 2 days (every other day) |
 | BID | twice daily |
+| Q12H | every 12 hours |
 | Q8H | every 8 hours |
+| BIW | twice a week |
 | Q1W (QW) | every week |
 | Q2W | every 2 weeks |
 | Q3W | every 3 weeks |

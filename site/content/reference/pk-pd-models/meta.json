@@ -16,7 +16,7 @@
       "title": "PK/PDモデル",
       "summary": "PK/PDモデルは、濃度の時間推移と薬理反応をつなぐ。",
       "seo_title": "PK/PDモデル",
-      "seo_description": "PK/PDモデルは、濃度の時間推移と薬理反応をつなぐ。"
+      "seo_description": "PK/PDモデルとは何か。薬物濃度の時間推移（PK）と薬理反応（PD）をつなぐモデルの考え方と、Emaxモデルや効果コンパートメントなどの代表例を説明する。"
     }
   }
 }

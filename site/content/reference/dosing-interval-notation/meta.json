@@ -25,6 +25,10 @@
         {
           "q": "Is 240 mg Q2W the same dose rate as 480 mg Q4W?",
           "a": "Yes: both deliver 120 mg per week on average. The longer interval gives a higher peak and a lower trough."
+        },
+        {
+          "q": "What does Q2D or QOD mean?",
+          "a": "Q2D and QOD both mean every 2 days, that is, every other day. QD is once daily and Q12H is every 12 hours."
         }
       ]
     },
@@ -45,6 +49,10 @@
         {
           "q": "240 mg Q2Wと480 mg Q4Wは、投与速度が同じですか。",
           "a": "同じです。どちらも平均して1週あたり120 mgです。間隔が長い方が、ピークは高く、トラフは低くなります。"
+        },
+        {
+          "q": "Q2DやQODは何を意味しますか。",
+          "a": "Q2DとQODはどちらも2日ごと、つまり隔日の意味です。QDは1日1回、Q12Hは12時間ごとです。"
         }
       ]
     }

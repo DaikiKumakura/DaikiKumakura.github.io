@@ -13,6 +13,10 @@ Exposure depends on weight through clearance and volume, but not in proportion t
 
 In a simulation of published models for pembrolizumab and nivolumab on an adult body-weight distribution, the share of patients whose steady-state trough was below the lower limit exceeded 10% at about 150 kg and above for pembrolizumab 200 mg (13.3%) and at about 100 kg and above for nivolumab 240 mg. Weight-based dosing was worse on the light side in the first interval. These are comparisons of exposure, not of effect.
 
+## Which is better?
+
+Neither is better in general. Fixed dosing is simpler to prepare and reduces dosing errors; weight-based dosing follows body size more closely. For an antibody the choice rests on population PK, on how flat the exposure–response relationship is, and on the weight range of the treated population.
+
 ## Try it
 
 The [exposure explorer](../tools/anti-pd1-exposure.html) looks up these numbers by body weight, and the [article](../writing/fixed-vs-weight-dosing-en.html) gives the methods and limits.

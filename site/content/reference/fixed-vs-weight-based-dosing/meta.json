@@ -25,6 +25,14 @@
         {
           "q": "Does lower exposure at a very high weight mean lower efficacy?",
           "a": "Not necessarily. Exposure–response relationships of anti-PD-1 antibodies are reported to be flat, so whether falling slightly below the lower limit matters clinically is outside what the exposure comparison shows."
+        },
+        {
+          "q": "What does flat dose mean?",
+          "a": "A flat dose, also called a fixed dose, is the same amount given to every patient regardless of body weight, for example 200 mg. A weight-based dose is scaled by body weight, for example 2 mg/kg."
+        },
+        {
+          "q": "Why are some drugs still dosed by body weight?",
+          "a": "The choice rests on population PK and exposure–response evidence for each drug. Weight-based dosing is also common where body weight varies widely, such as in children, and where the evidence supports it."
         }
       ]
     },
@@ -45,6 +53,14 @@
         {
           "q": "体重が非常に重く曝露が低いと、効果も下がりますか。",
           "a": "そうとは限りません。抗PD-1抗体の曝露反応は平坦と報告されています。範囲の下限を少し下回ることが臨床で問題になるかは、曝露の比較では分かりません。"
+        },
+        {
+          "q": "固定用量（flat dose）とは、どういう意味ですか。",
+          "a": "固定用量（フラット用量）は、体重によらず全員に同じ量を投与する方法で、たとえば200 mgです。体重換算用量は、体重に比例させる方法で、たとえば2 mg/kgです。"
+        },
+        {
+          "q": "体重換算で投与される薬が今もあるのはなぜですか。",
+          "a": "薬ごとに、母集団PKと曝露反応の根拠に基づいて選びます。体重のばらつきが大きい小児などで、根拠が支持する場合にも、体重換算が使われます。"
         }
       ]
     }
