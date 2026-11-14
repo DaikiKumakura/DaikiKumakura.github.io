@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "math": true,
+  "author": "Daiki Kumakura",
+  "version": "1.0",
+  "locales": {
+    "ja": {
+      "title": "RNAスコアで臨床試験はどこまで小さくなるか：POPLARの12か月無増悪生存の4つの割合を仮定した設計別の必要症例数",
+      "summary": "RNA基盤モデルLadonの技術報告にあるPOPLARの12か月PFS（4つの割合）が成り立つと仮定し、全員組み入れ・スコア調整・交互作用検定・濃縮の4設計の必要症例数を計算した。減るのは主に濃縮で、スコア調整は2.6%にとどまり、4つの割合の標本誤差だけで必要症例数は大きく振れる。",
+      "seo_description": "Ladon技術報告のPOPLARの12か月PFS（4つの割合）を入力に、全員組み入れ・スコア調整・交互作用検定・濃縮の必要症例数を計算し、標本誤差と陽性的中率への感度を調べた。",
+      "seo_title": "RNAスコアで臨床試験はどこまで小さくなるか"
+    },
+    "en": {
+      "title": "How much smaller could a trial be with an RNA-model score? Required patients by design, assuming four published POPLAR 12-month progression-free survival percentages",
+      "summary": "Assuming the four 12-month PFS percentages for POPLAR in the Ladon technical report hold, I computed the patients needed by four designs: all-comers, score-adjusted, interaction test and enriched. Enrichment accounts for most of the reduction, adjusting for the score gives 2.6%, and the sampling error of the four percentages alone makes the numbers swing widely.",
+      "seo_description": "Required patients for four trial designs from four POPLAR PFS12 percentages, with sampling error and sensitivity to the positive predictive value.",
+      "seo_title": "How much smaller could a trial be with an RNA-model score?"
+    }
+  },
+  "date": "2026-12-27",
+  "publish_at": "2026-12-27T13:00:00+09:00",
+  "draft": false,
+  "reviewed": {
+    "en": "fc6409d146bf8cb9bbe786d153f0a8b859dca83455ab6ae44b37a1c8383410d0"
+  }
+}
