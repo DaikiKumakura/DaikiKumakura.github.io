@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "math": true,
+  "author": "Daiki Kumakura",
+  "version": "1.0",
+  "locales": {
+    "ja": {
+      "title": "半減期は経口薬の1日1回投与をどこまで説明するか：承認された単一成分93剤",
+      "summary": "FDAが2020〜2024年に承認した経口低分子薬のうち単一成分93剤で、半減期が1日1回かどうかをどこまで説明するかを記述的に調べた。半減期は弱い手がかりで、標本外の予測は基準率との差を示せなかった。",
+      "seo_description": "FDA承認の経口低分子薬のうち単一成分93剤の公開データで、消失半減期が1日1回投与かどうかをどこまで説明するかを、標本外の予測と単純な閾値の規則で調べた記述的な解析。",
+      "seo_title": "半減期は経口薬の1日1回投与をどこまで説明するか"
+    },
+    "en": {
+      "title": "How much does half-life explain once-daily dosing of oral drugs? 93 single-ingredient FDA approvals, 2020–2024",
+      "summary": "Among 93 single-ingredient oral small-molecule drugs approved by the FDA in 2020–2024, I checked descriptively how much half-life explains whether a drug is dosed once daily. Half-life was a weak cue, and out-of-sample prediction could not be separated from the base rate.",
+      "seo_description": "A descriptive analysis of 93 single-ingredient FDA-approved oral small-molecule drugs: how far elimination half-life explains once-daily dosing, with out-of-sample prediction and simple threshold rules.",
+      "seo_title": "How much does half-life explain once-daily dosing?"
+    }
+  },
+  "date": "2026-12-26",
+  "publish_at": "2026-12-26T18:00:00+09:00",
+  "draft": false,
+  "reviewed": {
+    "en": "30140c729aacf1dfa45f90974f6df8580c35eca1d7740a140dc32b1d50f20b35"
+  }
+}
