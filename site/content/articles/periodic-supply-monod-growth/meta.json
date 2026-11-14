@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "math": true,
+  "author": "Daiki Kumakura",
+  "version": "1.0",
+  "locales": {
+    "ja": {
+      "title": "周期的な栄養供給で増殖はいつ遅くなるか：Jensenの不等式と輸送体モデル",
+      "summary": "平均の栄養濃度が同じとき、周期的な供給が一定供給より増殖を遅くする条件を、増殖率が供給に遅れて追随するモデルで証明し、数値で検算した。増殖率を保つのに必要な供給の速度 g が凸なら遅くなり、凸でなければ速くなる例がある。",
+      "seo_description": "平均の栄養濃度が同じとき、周期供給の長期増殖率が一定供給を超えない条件を証明し、数値で検算した。輸送体モデルでは常に遅くなり、凸でない場合は反例がある。",
+      "seo_title": "周期的な栄養供給で増殖はいつ遅くなるか"
+    },
+    "en": {
+      "title": "When does a periodic nutrient supply slow growth? Jensen's inequality in a transporter-based model",
+      "summary": "In a model where the growth rate follows the nutrient supply with a delay, the conditions under which a periodic supply with the same mean concentration slows long-run growth are proved and checked numerically. A convex g makes it slower; a non-convex g allows a counterexample.",
+      "seo_description": "When does a periodic nutrient supply slow growth compared with a constant supply of the same mean? Proofs, a non-convex counterexample and numerical checks.",
+      "seo_title": "When does periodic supply slow growth?"
+    }
+  },
+  "date": "2026-12-27",
+  "publish_at": "2026-12-27T09:00:00+09:00",
+  "draft": false,
+  "reviewed": {
+    "en": "725b99065d2c73e69290dd995d23c2b41d0443ad759a97ae1c25b7f0e418e552"
+  }
+}
