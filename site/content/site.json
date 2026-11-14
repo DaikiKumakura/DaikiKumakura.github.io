@@ -775,13 +775,17 @@
         {
           "url": "https://daikikumakura.github.io/rsemverse/",
           "label": "Documentation"
+        },
+        {
+          "url": "https://github.com/DaikiKumakura/rsemverse/releases/tag/v0.2.0",
+          "label": "Release 0.2.0"
         }
       ],
-      "note": "rsem_read(): Ensembl version suffixes are removed before the symbol lookup, rows that share a symbol are summed, and genes without a symbol keep their original ID. On six ENCODE K562 RSEM files (59,526 genes each), 36,385 genes received a symbol, 23,141 kept their ID, and the column sums equalled the input (November 10, 2026). Version 0.2.0 adds rsem_filter() (edgeR filterByExpr rule, detection thresholds, most variable genes), rsem_normalize() (CPM, TMM, upper quartile, DESeq2 median of ratios, quantile), rsem_transform() (log2, z-score, ranks), rsem_subset() (protein-coding, mitochondrial, ribosomal, hemoglobin, sex-chromosome and ERCC genes from the OrgDb, with no gene list needed) and rsem_long(). The normalized values equal those of edgeR, DESeq2 and limma in the tests on simulated counts; the new functions have not been run on the ENCODE files. R CMD check passes on Linux, macOS and Windows in CI. Not on CRAN or Bioconductor.",
+      "note": "rsem_read(): Ensembl version suffixes are removed before the symbol lookup, rows that share a symbol are summed, and genes without a symbol keep their original ID. On six ENCODE K562 RSEM files (59,526 genes each), 36,385 genes received a symbol, 23,141 kept their ID, and the column sums equalled the input (November 10, 2026). Version 0.2.0 adds rsem_filter() (edgeR filterByExpr rule, detection thresholds, most variable genes), rsem_normalize() (CPM, TMM, upper quartile, DESeq2 median of ratios, quantile), rsem_transform() (log2, z-score, ranks), rsem_subset() (protein-coding, mitochondrial, ribosomal, hemoglobin, sex-chromosome and ERCC genes from the OrgDb, with no gene list needed) and rsem_long(). On the same ENCODE files, every new function ran on all 59,427 rows, the edgeR rule kept the same 12,808 genes as edgeR::filterByExpr(), and the normalized values were within 3e-16 (relative) of edgeR, DESeq2 and limma (November 14, 2026). R CMD check passes on Linux, macOS and Windows in CI. Not on CRAN or Bioconductor.",
       "ja": {
         "status": "Rパッケージ（v0.2.0）",
         "description": "関数rsem_read()が、サンプル表（sample_id、ref）に並べたRSEMの*.genes.resultsファイルを読み、期待カウントまたはTPMを、遺伝子シンボルごとに1行、サンプルごとに1列のデータフレームで返すRパッケージ。ヒトはorg.Hs.eg.db、マウスはorg.Mm.eg.dbを使う。続けて、遺伝子のフィルタ、サンプル間の正規化、値の変換、組み込みの遺伝子群の選択、サンプル情報付きの長い形式への変換を行う関数がある。",
-        "note": "rsem_read()は、シンボルを引く前にEnsemblのバージョン接尾辞を除き、同じシンボルの行は合計し、シンボルのない遺伝子は元のIDを残す。ENCODEのK562のRSEMファイル6個（各59,526遺伝子）では、36,385遺伝子にシンボルが付き、23,141遺伝子は元のIDのままで、列の合計は入力と一致した（2026年11月10日）。バージョン0.2.0で、rsem_filter()（edgeRのfilterByExprの規則、検出のしきい値、変動の大きい遺伝子）、rsem_normalize()（CPM、TMM、上位四分位、DESeq2のmedian of ratios、分位点正規化）、rsem_transform()（log2、zスコア、順位）、rsem_subset()（タンパク質コード、ミトコンドリア、リボソーム、ヘモグロビン、性染色体、ERCCの遺伝子群。OrgDbから判定し、遺伝子リストは不要）、rsem_long()を追加した。正規化の値は、模擬カウントを使うテストでedgeR・DESeq2・limmaの結果と一致した。新しい関数はENCODEのファイルでは実行していない。R CMD checkはCIのLinux・macOS・Windowsで通過。CRANとBioconductorには未登録。"
+        "note": "rsem_read()は、シンボルを引く前にEnsemblのバージョン接尾辞を除き、同じシンボルの行は合計し、シンボルのない遺伝子は元のIDを残す。ENCODEのK562のRSEMファイル6個（各59,526遺伝子）では、36,385遺伝子にシンボルが付き、23,141遺伝子は元のIDのままで、列の合計は入力と一致した（2026年11月10日）。バージョン0.2.0で、rsem_filter()（edgeRのfilterByExprの規則、検出のしきい値、変動の大きい遺伝子）、rsem_normalize()（CPM、TMM、上位四分位、DESeq2のmedian of ratios、分位点正規化）、rsem_transform()（log2、zスコア、順位）、rsem_subset()（タンパク質コード、ミトコンドリア、リボソーム、ヘモグロビン、性染色体、ERCCの遺伝子群。OrgDbから判定し、遺伝子リストは不要）、rsem_long()を追加した。同じENCODEのファイルで、新しい関数はすべて59,427行で動き、edgeRの規則で残る12,808遺伝子はedgeR::filterByExpr()と同一で、正規化の値はedgeR・DESeq2・limmaと相対誤差3e-16以内で一致した（2026年11月14日）。R CMD checkはCIのLinux・macOS・Windowsで通過。CRANとBioconductorには未登録。"
       },
       "slug": "rsemverse",
       "headline": "rsemverse: RSEM gene tables in R",
