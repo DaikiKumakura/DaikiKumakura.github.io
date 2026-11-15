@@ -25,7 +25,7 @@
     "summary": "Mosunetuzumab PK recalculated from the published paper and its supplement. A paired analysis of 2,000 virtual patients examines the effects of dose and interval and how far exposure can be translated to CD20 occupancy and CRS. Figures, Python code and CSV files included."
   },
   "reviewed": {
-    "en": "5d29653c840c803427ebeb08066297e427de82d473fdc4c247590a7a4188d2c9"
+    "en": "7cd1dd14e9e861ce5bc12e37c6fe41ad43033fe5d1a71653e0e89082c9c9d9da"
   },
   "updated": "2026-10-28"
 }
