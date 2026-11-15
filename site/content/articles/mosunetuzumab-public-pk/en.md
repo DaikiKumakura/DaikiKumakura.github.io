@@ -292,7 +292,7 @@ Patient-level PK observations, the joint distribution of covariates and residual
 
 ## Conclusion {#revision-section-6}
 
-This evidence alone does not allow the conclusion that "the PK model has been qualified" on the basis of closeness to published values. What this analysis achieved is **verifying the computational implementation of the public PK model and comparing regimen exposure within that model**. The translation to RO–CRS can be explored as a sensitivity analysis but cannot be validated as a prediction of incidence in a patient population.
+This evidence alone does not allow the conclusion that "the PK model has been qualified" on the basis of closeness to published values. What this analysis achieved is **verifying the computational implementation of the public PK model and comparing regimen exposure within that model**. The sensitivity analysis shows how assumptions about residual antibodies change RO and the output of the CRS regression. Validating CRS incidence in a patient population would require data linking dosing history to CRS onset.
 
 ## Data and code availability {#code-and-results-for-rerunning}
 

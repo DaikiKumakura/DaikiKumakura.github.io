@@ -2,7 +2,7 @@ Literature and public materials checked on October 6, 2026. This article examine
 
 What interests me about AI drug discovery is less which model is smartest than **what becomes the next constraint when one part of development gets faster**.
 
-Proposing many molecules does not make it possible to build and test all of them. Faster experiments do not necessarily predict efficacy in patients. Shortening enrollment and operational delays in trials does not shorten the observation of disease or long-term safety by the same amount.
+Proposing many molecules does not make it possible to build and test all of them. Running experiments faster does not make their measurements more predictive of efficacy in patients. Shortening enrollment and operational delays in trials does not shorten the observation of disease or long-term safety by the same amount.
 
 My view is that **the ability to turn experimental results into evidence for development decisions is becoming more important alongside the ability to generate candidates**. That is different from claiming an industry-wide shortage of experimental capacity. Publicly documented changes need to be separated from hypotheses about their consequences.
 
@@ -20,7 +20,7 @@ AI developers made conspicuous moves into life sciences in 2026. OpenAI introduc
 
 An experimental example came from Anthropic in August: Claude was combined with specialist protein-design tools. Across 1,320 designs from multiple configurations, 354 binders were obtained against 14 of 15 targets. The pooled fraction is 26.8%, but this is not the performance of one model in one 48-hour run. Results differed by configuration ([3](#ref-3), [4](#ref-4)).
 
-In Adaptyv's TREM2 design event, ten teams of people operating design tools and six autonomous-agent teams submitted candidates. One hundred candidates selected by computational ranking were tested. Binding was observed in 37: 25/65 human-team candidates and 12/35 agent-team candidates. An unclear difference does not establish general equivalence of human and agent abilities. There was one target, and experimental candidates had been selected from 141 submissions ([5](#ref-5)).
+In Adaptyv's TREM2 design event, ten teams of people operating design tools and six autonomous-agent teams submitted candidates. One hundred candidates selected by computational ranking were tested. Binding was observed in 37: 25/65 human-team candidates and 12/35 agent-team candidates. This comparison does not establish equivalence between human and agent performance across design tasks. There was one target, and experimental candidates had been selected from 141 submissions ([5](#ref-5)).
 
 These examples support a bounded conclusion: agents can generate candidates with experimentally confirmed binding in particular design tasks. Binding, function, pharmacokinetics, safety and patient benefit remain separate stages of validation.
 

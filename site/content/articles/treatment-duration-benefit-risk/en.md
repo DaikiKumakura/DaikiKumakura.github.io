@@ -87,7 +87,7 @@ This later report adds context; its survival follow-up is not merged with the ea
 
 A potentially attractive endpoint is the probability of being disease-free at three years without important neuropathy. Marginal survival and marginal toxicity do not identify that probability: it depends on which people experienced both outcomes. Even if both margins came from the same population, their joint probability would require additional information or explicit bounds. Here, the denominator mismatch comes first.
 
-Similarly, the covariance of the two treatment-effect estimates is unknown. A simulated probability of positive net benefit would depend on a fabricated joint distribution unless its assumptions were stated. This analysis therefore does not generate that probability or label one schedule “optimal.”
+Similarly, the covariance of the two treatment-effect estimates is unknown. Estimating the probability of positive net benefit would require assumptions about how the two effect estimates vary together. This analysis therefore does not generate that probability or label one schedule “optimal.”
 
 As a purely hypothetical preference calculation, suppose both marginal differences could be transported to one population and define benefit as DFS probability plus w times avoided grade ≥2 neuropathy. At the point estimates, −0.004 + w×0.3342 changes sign at **w=0.0120**. Replacing the point efficacy loss with the largest loss in the reported DFS interval moves that arithmetic threshold to **0.0778**. These numbers are not preference estimates, confidence limits for a utility, or recommendations. Their purpose is to make the required valuation and transport assumptions visible.
 

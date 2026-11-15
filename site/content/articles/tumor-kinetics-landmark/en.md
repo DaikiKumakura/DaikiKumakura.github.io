@@ -20,7 +20,7 @@ Figure 1 shows this comparison.
 
 *Figure 1. Follow-up measurements available by each landmark. Most participants have only one follow-up at 16 weeks, limiting individual kinetic estimation. Original analysis.*
 
-At 16 weeks, 89 of 128 patients have a single follow-up measurement; with one point after baseline, a patient's slope is the one-point change divided by time. Individual kinetics only become estimable at 24 weeks (111 of 123 with two or more) and 32 weeks (111 of 113). The primary comparisons are therefore at 24 and 32 weeks, with 16 weeks reported for continuity.
+At 16 weeks, 89 of 128 patients have a single follow-up measurement; with one point after baseline, a patient's slope is the one-point change divided by time. Follow-up is denser at 24 weeks (111 of 123 with two or more) and 32 weeks (111 of 113). The primary comparisons are therefore at 24 and 32 weeks, with 16 weeks reported for continuity.
 
 ### Models and validation {#three-models-with-the-same-number-of-tumor-terms}
 

@@ -42,7 +42,7 @@ No genes or threshold were selected using this cohort's response labels. Change 
 
 Two ridge logistic models were fixed: baseline primary score alone, and baseline plus its change. PRCR was compared with SD/PD; stable disease was not reclassified as response. There were only nine responders, so no extra clinical interactions, nonlinear terms, or outcome-selected cutoffs were added.
 
-Three patient-stratified folds were repeated 20 times. Centering, scaling and coefficients were estimated in the training fold only. Both visits from a participant stayed together. The slope penalty was fixed at one; it was not selected to maximize the result. Repeated held-out probabilities were averaged per participant.
+Three-fold cross-validation, stratified by response and split by patient, was repeated 20 times. Centering, scaling and coefficients were estimated in the training fold only. Both visits from a participant stayed together. The slope penalty was fixed at one; it was not selected to maximize the result. Repeated held-out probabilities were averaged per participant.
 
 ## Results {#article-results}
 

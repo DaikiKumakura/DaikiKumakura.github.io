@@ -40,7 +40,7 @@ Supplements were obtained through Europe PMC's public distribution. Original tex
 
 ### Autoinduction implementation {#_3}
 
-The reference individual is an adult patient weighing 70 kg receiving oral doses. Food is initially fixed to fasted; other categories are compared later. The model has first-order absorption with lag and two distribution compartments:
+The reference individual is an adult patient weighing 70 kg receiving oral doses. The main analysis assumes fasted dosing. Other food conditions are compared in a sensitivity analysis. The model has first-order absorption with lag and two distribution compartments:
 
 \[
 \frac{dA_g}{dt}=-k_aA_g
@@ -204,7 +204,7 @@ Safety timing also matters. In the 2026 TRIDENT-1 analysis, median time to dizzi
 
 The published E–R analysis uses mean exposure over the first 56 days for ORR and time-dependent cumulative mean exposure for PFS and safety ([3](#ref-3)). The present 28-day AUC and peak cannot be substituted directly into those prediction equations. I calculated neither response nor adverse-event probabilities.
 
-These validate numerical implementation, not patient concentrations or clinical events. Original population averages, EBE-derived exposure and prescribing-information reference values have different weight, food and patient conditions. I did not force a typical-patient calculation to match them and call that successful reproduction.
+The numerical checks verify the implementation. Validation against patient concentrations or clinical events requires observations under the regimens being compared. Original population averages, EBE-derived exposure and prescribing-information reference values have different weight, food and patient conditions. I did not force a typical-patient calculation to match them and call that successful reproduction.
 
 Remaining limitations include absent individual observations and dosing histories, absent estimation covariance, no rerun of the original NONMEM code and no clinical validation of alternative escalation times. Seven- and 21-day lead-ins are hypothetical research conditions, not recommended regimens.
 

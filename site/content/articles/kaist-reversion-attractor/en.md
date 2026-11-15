@@ -4,7 +4,7 @@ Literature checked on October 12, 2026. I distinguish the papers' reports, my in
 
 Social-media descriptions of KAIST colorectal-cancer research have referred to a molecular switch returning cancer cells to normal. The papers instead use terms such as normal-like. Two related studies are Gong and colleagues and Shin and colleagues ([1](#ref-1), [2](#ref-2)). This article reanalyzes the former's public cell-line counts; the latter is discussed separately below. Gong and colleagues inferred a Boolean network from single-cell data and reported that simultaneous MYB, HDAC2 and FOXA2 knockdown induces normal-like enterocyte differentiation.
 
-The question is how far the public RNA measurements support that transition, rather than whether a model-guided experiment forms an appealing narrative.
+How far do the public RNA measurements support that transition?
 
 ## Boolean models identify candidate control targets {#1}
 

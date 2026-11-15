@@ -93,7 +93,7 @@ The document date should not be assumed to be an operational change date. A raw 
 
 ## Synthetic example {#5-3}
 
-Before examining large datasets, I constructed a minimal example: suppress A, B or C and measure downstream genes D and E. These synthetic changes relative to nontargeting control are not experimental data.
+To test the scoring rule, I constructed three perturbations targeting A, B or C, with synthetic responses for downstream genes D and E. These synthetic changes relative to nontargeting control are not experimental data.
 
 **Table 3. Synthetic intervention effects**
 
@@ -153,7 +153,7 @@ This presentation and interpretation build on Kernfeld's original proposal ([1](
 
 An AUC-like win fraction is an intuition, not equivalence to ordinary ROC-AUC or ranking by one fixed distance. Pair-dependent coordinates need not produce a common distance ordering across candidates.
 
-Third-party targets irrelevant to a pair can remain. That is not always beneficial: validation must consider retained direct effects, gene dependence, multitarget perturbations, weak responses and cosine's norm dependence. Blocking the same spike in one toy example does not establish an optimal solution.
+Targets of other perturbations can remain in the comparison. That is not always beneficial: validation must consider retained direct effects, gene dependence, multitarget perturbations, weak responses and how masking changes vector norms in the cosine-distance calculation. Blocking the same spike in one toy example does not establish an optimal solution.
 
 ## What recent studies support {#7}
 

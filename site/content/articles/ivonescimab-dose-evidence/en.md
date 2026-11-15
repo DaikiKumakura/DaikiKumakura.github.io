@@ -114,7 +114,7 @@ Uncertainty about direction and magnitude, not merely sample size, constrains as
 
 ## Discussion {#7}
 
-The public evidence does not establish higher-dose superiority or inferiority. High trough PD-1 occupancy cannot select a dose within the studied range, and it does not address VEGF action. The monotherapy contrast suggests one possible information gap, but it rests on four small nonrandomized groups of 12–21 participants and does not establish a trial recommendation. The 0.12 probability of a −10-point-or-worse contrast also prevents concluding that 10 mg/kg is sufficient.
+The public evidence does not establish higher-dose superiority or inferiority. High trough PD-1 occupancy cannot select a dose within the studied range, and it does not address VEGF action. The monotherapy contrast suggests one possible information gap, but it rests on four small nonrandomized groups of 12–21 participants and does not establish a trial recommendation. The model assigns probability 0.12 to a contrast of −10 points or lower. It also leaves room for a higher ORR with the higher dose, so these data do not establish that 10 mg/kg is sufficient.
 
 ORR alone does not determine a recommended dose. Safety/tolerability, other E–R outcomes, OS/PFS dose effects, weight/race influences and regulatory outcomes were not estimated.
 

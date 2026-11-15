@@ -1,6 +1,6 @@
 ## Abstract {#article-abstract}
 
-Published Dato-DXd PopPK equations were independently implemented to compare equal total doses over 84 days at three dosing intervals. Relative to 6 mg/kg every 21 days, 4 mg/kg every 14 days gave late-window ADC and DXd mean ratios of 0.972 and 1.004, with a DXd peak ratio of 0.770. Finite-period cumulative exposure differed from late-window averages. An unestimated alternative formation clock changed DXd predictions without changing total ADC PK. These conditional extrapolations do not establish preserved efficacy or reduced toxicity.
+Published Dato-DXd PopPK equations were independently implemented to compare equal total doses over 84 days at three dosing intervals. Relative to 6 mg/kg every 21 days, 4 mg/kg every 14 days gave late-window ADC and DXd mean ratios of 0.972 and 1.004, with a DXd peak ratio of 0.770. Finite-period cumulative exposure differed from late-window averages. Tracking the time since each dose separately changed DXd predictions while leaving total ADC concentrations unchanged. These conditional extrapolations do not establish preserved efficacy or reduced toxicity.
 
 Literature checked on October 18, 2026. Calculations use public equations and estimated parameters, without refitting patient concentrations. Clinically evaluated regimens and mathematical comparison conditions are distinguished.
 
@@ -197,7 +197,7 @@ R_{DXd}^{cohort}(t)=
 
 ![Published reset clock versus an unvalidated dose-specific clock](shared/dato-dxd-dose-intensity/figures/02-clock-ratios.png)
 
-**Figure 3. Alternative formation-clock assumptions.** Each formulation is normalized to its own 21-day reference.
+**Figure 3. Alternative formation-clock assumptions.** Each model is normalized to its own 21-day reference.
 
 **Table 8. Late-window DXd ratios under alternative clocks**
 
@@ -207,9 +207,9 @@ R_{DXd}^{cohort}(t)=
 | 4 mg/kg q14d | 1.004 | 1.000 | 0.770 | 0.750 |
 | 2 mg/kg q7d | 1.026 | 1.002 | 0.566 | 0.506 |
 
-Reference 21-day DXd means are 0.7180 ng/mL for the published clock and 0.7162 ng/mL for the extension. Absolute predictions differ already at reference; the extension was not recalibrated. Ratios use each formulation's own reference.
+Reference 21-day DXd means are 0.7180 ng/mL for the published clock and 0.7162 ng/mL for the extension. Absolute predictions differ already at reference; the extension was not recalibrated. Ratios use each model's own reference.
 
-Means stay near reference, while peak reductions change. Remaining-dose treatment therefore matters when transferring peak predictions to frequent dosing. These calculations cannot select the formulation closer to patient concentrations. Their difference is neither a patient predictive interval nor a biologically validated bound; peak reduction percentages are not toxicity-reduction percentages.
+Means stay near reference, while peak reductions change. Remaining-dose treatment therefore matters when transferring peak predictions to frequent dosing. These calculations cannot determine which model is closer to patient concentrations. Their difference is neither a patient predictive interval nor a biologically validated bound; peak reduction percentages are not toxicity-reduction percentages.
 
 ### Numerical checks and parameter scenarios {#_4}
 

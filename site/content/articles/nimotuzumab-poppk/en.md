@@ -2,7 +2,7 @@
 
 From published individual concentration data, I estimated three population pharmacokinetic (PopPK) models: linear one-compartment, linear two-compartment, and two-compartment with nonlinear elimination. The analysis asks **which structure is needed to compare exposure across dosing conditions, and how far the results can be trusted**.
 
-Here, the more complex models improved the fit to the training data. However, the improvement in internal validation with subjects left out was small, and convergence problems remained in resampling-based estimation. Although the models ranked the dosing conditions in the same order, absolute exposure and dose ratios did not agree. **The evidence was therefore insufficient either to adopt the nonlinear model or to conclude that the linear model is enough.** This article shows the calculations behind that conclusion and the missing information that limits the inference.
+Here, the more complex models improved the fit to the training data. However, the improvement in internal validation with subjects left out was small, and convergence problems remained in resampling-based estimation. Although the models ranked the dosing conditions in the same order, absolute exposure and exposure ratios between doses did not agree. **The evidence was therefore insufficient either to adopt the nonlinear model or to conclude that the linear model is enough.** This article shows the calculations behind that conclusion and the missing information that limits the inference.
 
 ## Introduction {#question-and-use}
 
@@ -208,7 +208,7 @@ Table 7 gives the corresponding comparison.
 
 **Figure 7.** Left: median and 10th–90th percentiles of AUC from IIV. Right: AUC ratios within the same virtual individuals. The bands are not confidence intervals for parameter estimates.
 
-In M1/M2, linearity makes the 400 mg to 200 mg AUC ratio exactly 2. The paired median for M3 was about 2.35. This difference in ratio exceeds the prespecified 10% criterion. On the other hand, M3 retains problems with identification of the nonlinear term and stability of re-estimation. It therefore cannot be concluded either that "2.35 is the correct dose ratio" or that "the linear 2 is enough". What can be supported here is that the model dependence was confirmed.
+In M1/M2, linearity makes the 400 mg to 200 mg AUC ratio exactly 2. The paired median for M3 was about 2.35. This difference in ratio exceeds the prespecified 10% criterion. On the other hand, M3 retains problems with identification of the nonlinear term and stability of re-estimation. It therefore cannot be concluded either that "2.35 is the correct dose ratio" or that "the linear 2 is enough". The comparison establishes how much the estimated exposure ratio depends on the model structure.
 
 Ten doses of 200 mg at intervals of 144 / 168 / 192 h were also compared. The total dose is the same but the total duration differs, so Cavg over the tenth interval is compared in addition to AUC. Higher concentrations with shorter intervals are not to be read as a safety or efficacy advantage.
 
@@ -216,7 +216,7 @@ Ten doses of 200 mg at intervals of 144 / 168 / 192 h were also compared. The to
 
 **Figure 8.** Median and 10th–90th percentiles from the IIV of each candidate solution. The length of the tenth interval itself differs by condition. Uncertainty in the fixed-effect estimates is not included in the bands.
 
-With the same parameters, changing a 0.5 h infusion to 1 h changed the paired median of first-dose Cmax by about −0.1% to −0.2% in all three models. This is a comparison in which "only the infusion was changed with the same pharmacokinetics", which differs from the input-history sensitivity below.
+With the same parameters, changing a 0.5 h infusion to 1 h changed the median within-individual change in first-dose Cmax by about −0.1% to −0.2% in all three models. This is a comparison in which "only the infusion was changed with the same pharmacokinetics", which differs from the input-history sensitivity below.
 
 ### What happens when the input-history and body-weight assumptions change {#what-happens-when-the-input-history-and-body-weight-assumptions-change}
 

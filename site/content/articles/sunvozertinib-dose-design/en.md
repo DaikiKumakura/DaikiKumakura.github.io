@@ -199,7 +199,7 @@ AUC units are ng·h/mL and concentration units ng/mL. These reflect variability 
 
 **Figure 3. Conditional regimen comparisons.** Paired-ratio ranges are 5th–95th percentiles across virtual individuals, not credible intervals for estimated parameters.
 
-The paired Cmax ratio has median 0.887 and percentiles 0.798–0.940; the trough ratio has median 1.143 and percentiles 1.073–1.261. Fractions therefore differ between individuals. Under linearity, 250 and 300 mg QD multiply every metric from 200 mg QD by 1.25 and 1.50.
+The paired Cmax ratio has median 0.887 and percentiles 0.798–0.940; the trough ratio has median 1.143 and percentiles 1.073–1.261. The effect of splitting the daily dose therefore varies between individuals. Under linearity, 250 and 300 mg QD multiply every metric from 200 mg QD by 1.25 and 1.50.
 
 At steady state with linear elimination and an unchanged absorption branch,
 

@@ -25,7 +25,7 @@
     "summary": "Between-subject variability simulated from a published population PK model, with efficacy exposure–response, period-specific CRS and maintenance exposure examined separately. Matching average exposure does not preserve peaks and troughs, and the analysis shows the limits of deciding from public information."
   },
   "reviewed": {
-    "en": "9e8494b33d94103d62488f506de71f51bb33ae6d3d39125c22cb632e266359a7"
+    "en": "730ca209e3d285f5fea7bd2314008bfc1e12fc9bbdf56d947f33bac82657f8f3"
   },
   "updated": "2026-10-27"
 }

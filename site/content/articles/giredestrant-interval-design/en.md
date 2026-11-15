@@ -1,6 +1,6 @@
 ## Background and objective {#article-introduction}
 
-Equal average daily dose gives equal steady-state mean concentration under linear, time-invariant PK with unchanged bioavailability. Peaks and predose concentrations can still differ. Whether those differences improve efficacy or adverse events requires separate evidence.
+Equal average daily dose gives equal steady-state mean concentration under linear, time-invariant PK with unchanged bioavailability. Peaks and predose concentrations can still differ. Whether those differences increase efficacy or reduce adverse events requires separate evidence.
 
 I fitted a small model to public single-dose summaries for the oral selective estrogen receptor degrader, SERD, giredestrant, checked it against repeated-dose summaries, and compared hypothetical 15 mg every 12 hours, 30 mg every 24 hours and 60 mg every 48 hours. Splitting doses lowered calculated peaks but did not establish less bradycardia.
 
@@ -87,7 +87,7 @@ These are additional summaries from the same trial, not participant-disjoint or 
 
 ## Equal average dose changes concentration fluctuation {#_5}
 
-All comparisons use periodic steady state, the same formulation, apparent F and absorption rate, and time-invariant parameters. A common 48-hour window aligns AUC across 12-, 24- and 48-hour intervals:
+All comparisons use periodic steady state, the same formulation, bioavailability and absorption rate, and time-invariant parameters. A common 48-hour window aligns AUC across 12-, 24- and 48-hour intervals:
 
 \[
 AUC_{48}=\frac{48}{\tau}\frac{1000D}{CL/F}.

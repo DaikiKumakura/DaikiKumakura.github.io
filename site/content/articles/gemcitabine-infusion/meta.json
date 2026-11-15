@@ -25,6 +25,6 @@
     "summary": "A fixed-effect plasma/PBMC subsystem from a published clinical model is implemented independently. Equal doses give equal plasma AUC, while PBMC AUC differences are determined by a categorical formation-clearance assumption. Constant-formation and tail scenarios clarify limits; no tumor, clinical benefit, safety or regimen recommendation is inferred."
   },
   "reviewed": {
-    "en": "e8705aae4959fe0061ce4b5d60d9a90b9561e3489d0a88aeb084b61b60b47e2e"
+    "en": "66b24b7a376d45585b5886732541f27ccb6e29190b44f7a3ac3eadd32121d572"
   }
 }

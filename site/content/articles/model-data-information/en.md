@@ -6,7 +6,7 @@ Literature checked on October 9, 2026. This article distinguishes peer-reviewed 
 
 ## Introduction {#article-introduction}
 
-When a new model cannot beat a predictor that returns the mean, two questions need separate consideration: **Does the data contain the difference we want to predict? Does the evaluation detect that difference?**
+When a new model cannot beat a predictor that returns the mean, two questions need separate consideration: **Do the data contain the difference we want to predict? Does the evaluation detect that difference?**
 
 These are separate problems. Some quantities cannot be estimated from uninformative observations. Yet a model may also fail to use information that is present, or an evaluation may miss a real improvement. A failure to beat the baseline does not distinguish these possibilities.
 
@@ -18,7 +18,7 @@ Single-cell datasets can contain large numbers of cells. More cells from one con
 
 More cells characterize a condition's mean and distribution more precisely. A single time point does not directly reveal what happened earlier. A single cell line does not test transfer to another line. Even with many cells, few independent experimental batches or donors leave uncertainty that cell counts alone cannot remove.
 
-Ten thousand cells from one culture, for example, should not automatically count as ten thousand independent biological replicates. Variation within cells and conditions needs to be distinguished from variation across cultures, donors and experimental days. Generalization across the latter requires independent replication.
+Ten thousand cells from one culture, for example, should not automatically count as ten thousand independent biological replicates. Variation among cells under the same condition needs to be distinguished from variation across cultures, donors and experimental days. Generalization across the latter requires independent replication.
 
 This does not make additional cells useless. The question is **which uncertainty an additional observation reduces**.
 
@@ -72,7 +72,7 @@ Reducing recent discussions to whether deep learning wins or loses hides the dif
 | Miller et al. ([6](#ref-6)) | October 1, 2026; peer-reviewed | Fourteen datasets and 18 metrics; positive controls test metric sensitivity and detect deep-model improvements in some settings |
 | AmbiModBench ([7](#ref-7)) | September 26, 2026; preprint | Training-mean comparisons, gene-coordinate permutation and representation-space coverage probe what a score measures |
 
-The Miller paper is particularly relevant. It uses technical duplicates made by splitting cells from the same perturbation, and interpolated duplicates that move weak responses toward the mean, to examine how well metrics distinguish positive and negative controls. A technical duplicate is an estimate from finite cells: for a weak signal it can vary more than a mean baseline. It is neither an oracle that knows the true conditional mean nor a guarantee of reproducibility across independent biological experiments.
+Miller and colleagues use technical duplicates made by splitting cells from the same perturbation, and interpolated duplicates that move weak responses toward the mean, to examine how well metrics distinguish positive and negative controls. A technical duplicate is an estimate from finite cells: for a weak signal it can vary more than a mean baseline. It is neither an oracle that knows the true conditional mean nor a guarantee of reproducibility across independent biological experiments.
 
 The paper also compares linear and additive baselines. Models outperforming additivity were reported for combination prediction in Wessels23, whereas additivity was strong in Norman19. Training coverage, response strength, dataset composition and model generation differ, so a single cause cannot be assigned to the difference. Neither universal failure nor universal success follows. This study also did not test generalization to unseen cellular backgrounds.
 
@@ -116,7 +116,7 @@ For parameters \(\theta\), existing data \(D\) and outcome \(Y_e\) of experiment
 e^*=\arg\max_e I(\theta;Y_e\mid D,e)
 \]
 
-It evaluates the expected change in the posterior before seeing the outcome. This requires a prior, an error model, candidate experiments and parameters of interest. A misspecified model can select experiments that are efficient only within that model.
+It measures how much the outcome is expected to reduce uncertainty about the parameters, before the experiment is run. This requires a prior, an error model, candidate experiments and parameters of interest. A misspecified model can select experiments that are efficient only within that model.
 
 Chaloner and Verdinelli ([14](#ref-14)) review expected information gain and utility-based design. Candidate models predicting different responses is not sufficient: those differences must also be measurable above noise, and the experiment must be feasible.
 

@@ -12,11 +12,11 @@ What if a metabolite released by A lies between them? Leaving a metabolite colum
 
 **An unobserved mediator does not disappear from the causal network.** Its column disappears from the data table, but its effects remain. Some parameters describing those effects can no longer be determined from the columns that remain.
 
-Eric Kernfeld's discussion of [unobserved layers in biological network inference](https://ekernf01.github.io/GRN_missing/) ([1](#ref-1)) points out what RNA-only measurements miss: proteins, modifications, complexes, hormones and chromatin states. Here I connect that problem to time-series mathematics, chemical-mediated microbial interactions, single-cell regulatory networks and drug mechanism evaluation. The distinction between prediction and mechanistic inference is developed in [an earlier article](prediction-vs-mechanism-en.html) ([2](#ref-2)). This continuation asks what an unmeasured variable prevents us from determining.
+Eric Kernfeld's discussion of [unobserved layers in biological network inference](https://ekernf01.github.io/GRN_missing/) ([1](#ref-1)) points out what RNA-only measurements miss: proteins, modifications, complexes, hormones and chromatin states. Here I connect that problem to time-series mathematics, chemically mediated microbial interactions, single-cell regulatory networks and drug mechanism evaluation. The distinction between prediction and mechanistic inference is developed in [an earlier article](prediction-vs-mechanism-en.html) ([2](#ref-2)). This continuation asks what an unmeasured variable prevents us from determining.
 
 ## Scope and sources {#article-scope}
 
-Selected work on time-series inference, chemical-mediated microbial interactions, regulatory networks and pharmacological mediation is compared. The original calculation uses a linear synthetic system with known input, rather than a reanalysis of measured data or an exhaustive review.
+Selected work on time-series inference, chemically mediated microbial interactions, regulatory networks and pharmacological mediation is compared. The original calculation uses a linear synthetic system with known input, rather than a reanalysis of measured data or an exhaustive review.
 
 ## Direct effects, mediation and confounding {#1}
 
@@ -27,7 +27,7 @@ First, the terminology.
 **Figure 1. Direct action, mediation and confounding.** Dashed circles indicate potentially unobserved variables. This conceptual diagram was created for this article.
 
 - **Total effect:** the change in Y caused by intervening on X, through all pathways.
-- **Direct effect:** the change in Y from changing X while holding M fixed.
+- **Controlled direct effect:** the change in Y from changing X while holding M fixed.
 - **Indirect or mediated effect:** the part operating through X changing M and M changing Y.
 
 In the **mediation** diagram, an effect reaches Y through M. This is causal: intervening on X changes Y. The total effect exists even without measuring M, but it does not establish a **direct** action from X to Y.
@@ -114,7 +114,7 @@ A hidden mediator can therefore allow a good fit while leaving **the parameter c
 
 Niehaus and colleagues built an experimentally constrained community model **explicitly including mediators such as metabolites and waste products**. Under strong interactions, connectivity mattered more for coexistence than the strengths of facilitation and inhibition; mediator consumption or degradation moderated interactions and promoted coexistence ([6](#ref-6)). If removal depends on consumption by other species, the analogue of \(\lambda\) varies with community composition. Effective species-to-species edge strengths then change with composition too.
 
-In a 2022 study I coauthored, Suzuki and colleagues generated time series from a **chemical-mediated model** based on Niehaus et al. and a model containing **direct species interactions only**, then compared five inference methods ([7](#ref-7)). These were Pearson and Spearman correlations, local similarity analysis (LSA) allowing time lags, convergent cross mapping (CCM) using state-space reconstruction under deterministic dynamical assumptions, and LIMITS, a regression method assuming generalized Lotka–Volterra interactions. Nutrient competition was represented separately from chemicals by the same total-abundance-dependent growth suppression in both models. Conditions with and without that competition were compared. Synthetic time series had process noise but no observation error, 100 points each, and network evaluation covered the five most abundant species.
+In a 2022 study I coauthored, Suzuki and colleagues generated time series from a **chemically mediated model** based on Niehaus et al. and a model containing **direct species interactions only**, then compared five inference methods ([7](#ref-7)). These were Pearson and Spearman correlations, local similarity analysis (LSA) allowing time lags, convergent cross mapping (CCM) using state-space reconstruction under deterministic dynamical assumptions, and LIMITS, a regression method assuming generalized Lotka–Volterra interactions. Nutrient competition was represented separately from chemicals by the same total-abundance-dependent growth suppression in both models. Conditions with and without that competition were compared. Synthetic time series had process noise but no observation error, 100 points each, and network evaluation covered the five most abundant species.
 
 Ground truth was the **effective species-to-species interaction matrix**, including effects through chemicals. The benchmark therefore tested detection of effective edges, not identification of mediators or separation of direct from mediated effects. This has the same effective-coefficient structure as [mediator elimination](#2).
 

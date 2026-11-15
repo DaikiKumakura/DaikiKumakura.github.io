@@ -24,6 +24,6 @@
     "summary": "Aggregate AUC ratios estimate relative bioavailability. Public PopPK coefficients compare paired schedules in 4096 conditional virtual patients. Unresolved peak reconstruction and the limits of AUC-only E-R are explicit."
   },
   "reviewed": {
-    "en": "4c4c1c6fb32edba3d3546125a7a90bfac2f10fbf8d6af6b952b7b4de12f52901"
+    "en": "41713badb91506a0078380e0303f12850c7a9e0dc59cd4211310bd99ef913611"
   }
 }

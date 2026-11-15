@@ -178,7 +178,7 @@ Persistence does not produce a universal answer. With the covalent model's inact
 
 *Figure 3. Reversible model, 14 half-life values × 18 reference exposure ratios, 2,000 subjects per grid point. Colors are probabilities or percentage-point differences; these are exploratory grid coordinates, not clinical dose boundaries.*
 
-In Figure 3, the largest gains occur where troughs are limiting but greater exposure can plausibly cross the threshold. If nearly everyone is below threshold even with BID, splitting cannot compensate for insufficient average exposure. If QD already covers almost everyone, the incremental coverage gain is small. This explains why “short half-life means BID” is an incomplete rule.
+In Figure 3, the largest gains occur where troughs are limiting and splitting can shorten the time below the threshold. If nearly everyone is below threshold even with BID, splitting cannot compensate for insufficient average exposure. If QD already covers almost everyone, the incremental coverage gain is small. This explains why “short half-life means BID” is an incomplete rule.
 
 A 10 pp convention classifies 48.0% of the sampled grid as having a material gain. Using 5 or 20 pp changes that to 60.7% or 30.2%. These are **grid fractions**, not proportions of possible drugs or patients: they depend on the chosen ranges and spacing.
 
@@ -192,7 +192,7 @@ The maximum pointwise binomial Monte Carlo SE on a 2,000-subject grid is about 1
 
 The mathematical Pareto comparison in Figure 4 uses four objectives: greater PTC90, lower daily AUC, lower peak, and fewer administrations. Splitting may improve coverage and reduce peak while requiring more administrations. Increasing total daily amount raises exposure burden. Without a measured safety relationship and preferences over these consequences, there is no justified single “optimal” action. Peak and AUC here are exposure costs, not predicted adverse events.
 
-The downloadable table marks non-dominated actions. Calling an action non-dominated means another sampled action does not improve every specified objective. It does not establish clinical superiority, and a larger action set could change the frontier.
+The downloadable table marks non-dominated actions. Calling an action non-dominated means no other sampled action is at least as good on every objective and better on at least one. It does not establish clinical superiority, and a larger action set could change the frontier.
 
 ### Sensitivity to unmeasured properties {#7-which-missing-properties-matter}
 

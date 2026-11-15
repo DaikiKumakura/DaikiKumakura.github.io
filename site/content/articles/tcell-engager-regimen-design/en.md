@@ -67,7 +67,7 @@ Table 3 summarizes published model parameters.
 | SD of η for Vc | 0.387 | 0.329–0.445 |
 | Correlation of ηCL and ηVc | 0.535 | 0.314–0.755 |
 
-Source: FDA Tables 66–67 ([2](#ref-2)). The IIV values 0.437 and 0.387 are used as **standard deviations and a correlation**, as presented in that table. They are not interpreted as CVs and converted back to log-SDs.
+Source: FDA Tables 66–67 ([2](#ref-2)). The between-subject standard deviations are 0.437 for log CL and 0.387 for log Vc, with a correlation of 0.535. I used them directly as reported in the FDA tables.
 
 \[
 CL_i=0.649\exp(\eta_{CL,i}),\quad
@@ -93,7 +93,7 @@ The analytical solution was checked against an independent matrix-exponential so
 
 Figure 1 shows the initial concentration profiles.
 
-The comparison is shown in Figure 1.
+
 
 ![Early concentration–time profiles generated from the published PopPK model. The band is the 5th–95th percentile of virtual subjects, not a confidence interval for an estimate.](shared/tcell-engager-regimen-design/figures/01-pk.png)
 
@@ -222,7 +222,7 @@ Across the range of the published fixed effects, the direction was maintained: w
 
 ## Discussion {#conclusion}
 
-With the public PopPK model, exposure comparisons within regimens, including between-subject variability, can be made in a reproducible way. A mismatch with the absolute exposure of the published population remains, and this does not amount to a new NLME estimation based on patient data.
+With the public PopPK model, exposure comparisons between regimens in the same virtual subjects, including between-subject variability, can be made in a reproducible way. A mismatch with the absolute exposure of the published population remains, and this does not amount to a new NLME estimation based on patient data.
 
 ## Conclusion {#revision-section-4}
 

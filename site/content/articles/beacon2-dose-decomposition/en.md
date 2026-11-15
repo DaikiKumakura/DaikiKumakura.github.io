@@ -12,7 +12,7 @@ Beacon-2 combines ADMET–PK predictions, potency prediction through FEP or a co
 
 The ExpansionRx evaluation uses 325 test compounds with complete measured ADME. Because potency was unavailable, all compounds were assigned 10 nM. The reference is a dose calculated by putting measured ADME through the same PK/PD module, rather than an observed clinical dose ([1](#ref-1)).
 
-The exact dose equation, assay inputs, exposure target and definition of average fold error were not disclosed. I interpret the last quantity as absolute average fold error, AAFE, based on mean absolute logarithmic error. A signed average fold error would mean something different. My transparent simplification of Page's framework is not Inductive's equation and does not reproduce its benchmark.
+The exact dose equation, assay inputs, exposure target and definition of average fold error were not disclosed. I interpret the last quantity as absolute average fold error, AAFE, based on mean absolute logarithmic error. A signed average fold error would mean something different. The simplified model I derived from Page's framework is not Inductive's equation and does not reproduce its benchmark.
 
 ## Data and calculation settings {#2}
 
@@ -116,7 +116,7 @@ Dose is a meaningful common unit for comparing tradeoffs among properties. Wang 
 
 Inductive's Mac1 example compares optimization by predicted dose with optimization by potency using the same model to score results. It is not wet-lab validation. Additional reported checks include QED, blinded medicinal-chemist preference of 87% and a rat-based alternative PK configuration ([1](#ref-1)).
 
-Under my transparent equations, the ExpansionRx correlation of 0.79 could largely reflect HLM CLint prediction. Inductive's undisclosed equation and inputs prevent identifying that contribution directly. Fixed-potency dose ranking and full clinical-dose prediction remain different evaluations.
+Under the model used here, the ExpansionRx correlation of 0.79 could largely reflect HLM CLint prediction. Inductive's undisclosed equation and inputs prevent identifying that contribution directly. Fixed-potency dose ranking and full clinical-dose prediction remain different evaluations.
 
 ## Limitations {#_3}
 

@@ -35,7 +35,7 @@
     "summary": "Published arm-level data from a randomized dose comparison are used to show the decision regions as the weights on benefit and harm change. The difference in severe toxicity is robust, but differences in response rate and OS are uncertain, and the conclusion depends on how harm is defined. No clinical dose is recommended."
   },
   "reviewed": {
-    "en": "8fbe68ace7b00fa32912d7f43e736c8f9b685340cd5b9e73ac88d7f92d25588f"
+    "en": "43e210081d2a26ed7892f8faf49fe7b449228842468b73ec50de410337bfddad"
   },
   "updated": "2026-10-28"
 }

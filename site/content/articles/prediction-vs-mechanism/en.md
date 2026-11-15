@@ -119,7 +119,7 @@ Likelihood was evaluated on a two-dimensional grid: 81 logarithmically spaced ko
 
 ![Parameter combinations compatible with the data give similar weekly-regimen predictions when only kout varies, but sharply different predictions during the first unobserved 24 hours.](shared/prediction-vs-mechanism/figures/identifiability.png)
 
-**Figure 1.** Synthetic data, not real observations. (a) Observations and fits for three parameter pairs in the 95% likelihood set; both kout and S differ slightly. Gray dashes show the turnover-free direct-effect model \(R=R_0/(1+S\,C)\). (b) kout profile likelihood: blue is the original design, purple adds samples at three and six hours; dashed threshold is 3.84, the one-degree-of-freedom 95% chi-square point. (c) Unobserved dosing of 25 mg weekly for 12 doses. (d) The first 24 h after 100 mg, with a vertical line at six hours.
+**Figure 1.** Synthetic data, not real observations. (a) Observations and fits for three parameter pairs in the likelihood region used to obtain the 95% profile intervals; both kout and S differ slightly. Gray dashes show the instantaneous direct-effect model \(R=R_0/(1+S\,C)\). (b) kout profile likelihood: blue is the original design, purple adds samples at three and six hours; dashed threshold is 3.84, the one-degree-of-freedom 95% chi-square point. (c) Unobserved dosing of 25 mg weekly for 12 doses. (d) The first 24 h after 100 mg, with a vertical line at six hours.
 
 Figure 1 and Table 1 summarize the results. Outputs are `results/summary.json`, `results/likelihood_set.csv` and `results/kout_profile.csv`.
 
@@ -135,7 +135,7 @@ Figure 1 and Table 1 summarize the results. Outputs are `results/summary.json`, 
 
 **First, kout has only a lower bound.** Likelihood improves slightly as kout increases, and no interior minimum was obtained on the explored grid: the negative log likelihood was smallest at its boundary of 1,000/day. Even noiseless data at the true values give only 0.017 for \(2\Delta\mathrm{NLL}\) at kout=1,000. The absent upper bound reflects the observation design rather than just this random realization.
 
-**Second, the observations cannot distinguish the presence from the absence of turnover.** They neither support nor refute it. The best negative log likelihood of the direct-effect model, 0.72033, matches that of the turnover model, 0.72034. The direct-effect model is its \(k_{\mathrm{out}}\to\infty\) limit. When concentration changes much more slowly than turnover, \(R\approx R_0/(1+S\,C)\), so the data primarily identify S. Such time-scale separation in indirect-response models has long been recognized ([12](#ref-12), [13](#ref-13)).
+**Second, the observations cannot distinguish a delayed response from an effectively instantaneous response.** Earlier measurements are needed to resolve the delay. The best negative log likelihood of the direct-effect model, 0.72033, matches that of the turnover model, 0.72034. The direct-effect model is its \(k_{\mathrm{out}}\to\infty\) limit. When concentration changes much more slowly than turnover, \(R\approx R_0/(1+S\,C)\), so the data primarily identify S. Such time-scale separation in indirect-response models has long been recognized ([12](#ref-12), [13](#ref-13)).
 
 **Third, whether non-identifiability matters depends on the question.** Uncertainty for 25 mg weekly in Figure 1c mainly comes from S. At fixed S, varying kout from about 0.8 to 1,000/day within the likelihood set changes day-84 R by only about two units and the minimum by about four. In the unobserved first hours, the same variation changes six-hour R from about 41 to 77. Weekly dosing still has concentration changes slower than turnover except immediately after each dose, permitting a quasi-steady approximation. The residual four-unit minimum difference comes from those transients. Short-half-life drugs or regimens with concentration changes over hours can violate that condition.
 
@@ -185,7 +185,7 @@ The example likewise shows why one goodness-of-fit value cannot simultaneously e
 
 Yang's result concerns a bounded statistical problem, but proves that model identification and regression estimation can conflict mathematically. In single-cell perturbation prediction, baselines and metrics also change what “successful prediction” establishes.
 
-Here models with and without turnover fit similarly. Coefficients in the 95% likelihood set produce close weekly-regimen predictions but diverge sharply immediately after dosing. Fit alone does not identify the short-term response or its mechanism.
+Here the delayed-response and instantaneous-response models fit similarly. Coefficients in the likelihood region used to obtain the 95% profile intervals produce close weekly-regimen predictions but diverge sharply immediately after dosing. Fit alone does not identify the short-term response or its mechanism.
 
 ## Data and code availability {#_1}
 

@@ -47,9 +47,9 @@ Because reasons are missing, the dropout mechanism cannot be estimated. The plan
 | 48 weeks, combination | −1.80 (28) | −1.37 (−1.80, −0.95) | −1.22 (−1.59, −0.83) |
 | 48 weeks, difference | | −0.75 (−1.27, −0.04) | −0.72 (−1.24, −0.19) |
 
-Figure 1 and Table 1 compare trajectory estimates. In the joint model, each unit of transformed tumor size multiplied the hazard of death by 1.37 (log-hazard 0.31, 95% credible interval 0.18 to 0.46). Adding the slope did not change anything (slope association −0.01, −0.23 to 0.22).
+Figure 1 and Table 1 compare trajectory estimates. In the joint model, each unit of transformed tumor size multiplied the hazard of death by 1.37 (log-hazard 0.31, 95% credible interval 0.18 to 0.46). Adding the current slope made little difference to the estimated trajectories (slope association −0.01, −0.23 to 0.22).
 
-Three points stand out. The observed mean suggested more shrinkage than the mixed-model estimate, with the largest reported gap at 48 weeks in the combination arm: −1.80 versus −1.37 in the combination arm at 48 weeks. The mixed model reduced most of that gap by extrapolating each dropout's trajectory under its assumptions. The joint model moved the 48-week estimates by a further 0.12 (sequential) and 0.15 (combination) towards less shrinkage, and left 24 weeks essentially unchanged because most deaths came later. The pre-specified rule called the joint model's change material only if it exceeded half the width of the mixed model's interval; it did not, at either time point.
+The observed mean suggested more shrinkage than the mixed-model estimate, with the largest reported gap at 48 weeks in the combination arm: −1.80 versus −1.37 in the combination arm at 48 weeks. The mixed model reduced most of that gap by extrapolating each dropout's trajectory under its assumptions. The joint model moved the 48-week estimates by a further 0.12 (sequential) and 0.15 (combination) towards less shrinkage, and left 24 weeks essentially unchanged because most deaths came later. The pre-specified rule called the joint model's change material only if it exceeded half the width of the mixed model's interval; it did not, at either time point.
 
 ### Delta-adjustment sensitivity {#how-much-worse-would-unmeasured-patients-need-to-be}
 
@@ -81,7 +81,7 @@ Figure 3 reports the synthetic-data checks.
 - **Arm difference.** Neither model was materially biased in any scenario with an association (|bias| ≤ 0.09), and the joint model was not better than the mixed model. A dropout mechanism shared by both arms shifts both arm means and largely cancels in the difference.
 - **MAR true.** At 48 weeks both models showed a bias of −0.13 to −0.16 in the combination arm and the difference, about two Monte Carlo standard errors. Thirty replicates cannot tell a small-sample effect from chance.
 
-The joint model therefore failed two of the pre-specified criteria, and, as the plan required, it is not used as the main evidence. It remains one plausible scenario. The check also explains the pattern in the real data: a common mechanism mostly distorts each arm's shrinkage, while only an arm-specific mechanism moves the difference, which is what the one-arm delta adjustment probes.
+The joint model therefore failed two of the pre-specified criteria, and, as the plan required, it is not used as the main evidence. It remains one plausible scenario. The check also explains the pattern in the real data: a common mechanism mostly distorts each arm's shrinkage, while arm-specific departures from the model can have a larger effect on the contrast, which is what the one-arm delta adjustment probes.
 
 ## Discussion {#what-can-and-cannot-be-concluded}
 

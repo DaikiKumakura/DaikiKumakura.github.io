@@ -131,7 +131,7 @@ ODEは点滴開始・終了時刻に整合した15分刻みの4次Runge–Kutta�
 
 ### RO–CRSモデルと残存薬の条件 {#revision-section-3}
 
-#### 残存anti-CD20との結合競合 {#anti-cd20}
+#### 残存抗CD20抗体との結合競合 {#anti-cd20}
 
 公開ROモデルを、すべてµg/mLの単位で次のように実装した。
 
@@ -208,7 +208,7 @@ AUCと投与間隔末濃度は近かったが、Cycle 1 Cmaxには約−4.0%の�
 
 ![同一仮想患者での曝露変化。初回ピーク、初回60 mg直前濃度、42日AUCの3指標を表示する。](shared/mosunetuzumab-public-pk/figures/paired.svg)
 
-*図2．点はpaired変化率の中央値、横線は仮想患者間の2.5–97.5パーセンタイル。推定値の95%信頼区間ではない。すべて同じ2,000例を使った。独自計算。*
+*図2．点は各仮想患者の変化率の中央値、横線は仮想患者間の2.5–97.5パーセンタイル。推定値の95%信頼区間ではない。すべて同じ2,000例を使った。独自計算。*
 
 #### 初回量と2回目量による直近の曝露変化 {#2_1}
 
@@ -250,13 +250,13 @@ AUCと投与間隔末濃度は近かったが、Cycle 1 Cmaxには約−4.0%の�
 | Concentration before first 60 mg (µg/mL) | 0.101 | 0.032–0.191 |
 | AUC 0–42 (µg·day/mL) | 123.830 | 55.519–193.473 |
 
-絶対曝露にはばらつきがある一方、paired解析では2回目量や間隔変更の効果の方向は維持された。しかし、この集団は参照共変量を固定してΩだけを反映したものであり、実患者の体重、腫瘍量、アルブミン、残存anti-CD20とIIVのjoint distributionを再現していない。患者集団の曝露分布として検証されたものではない。
+絶対曝露にはばらつきがある一方、同じ仮想患者で比較すると2回目量や間隔変更の効果の方向は維持された。しかし、この集団は参照共変量を固定してΩだけを反映したものであり、実患者の体重、腫瘍量、アルブミン、残存抗CD20抗体とIIVの同時分布を再現していない。患者集団の曝露分布として検証されたものではない。
 
 ### PK・RO・CRSの接続 {#4pkrocrs}
 
 ROの競合結合のみを変える条件と、CLbase共変量も変える条件を比較した。結果を表8と図4に示す。
 
-<span id="table-8"></span>表8．残存anti-CD20の条件別感度
+<span id="table-8"></span>表8．残存抗CD20抗体の条件別感度
 
 | Baseline anti-CD20 | Max RO: binding only | CRS equation output: binding only | Max RO: CL also changed | CRS equation output: CL also changed |
 | --- | --- | --- | --- | --- |
@@ -265,7 +265,7 @@ ROの競合結合のみを変える条件と、CLbase共変量も変える条件
 | OBI 10 µg/mL | 10.71% | 8.09% | 10.89% | 8.12% |
 | RTX 305 µg/mL | 0.53% | 6.73% | 0.54% | 6.73% |
 
-![残存anti-CD20の4条件について、結合競合だけを変えた場合とCLbase共変量も変えた場合の最大ROとCRS式出力。](shared/mosunetuzumab-public-pk/figures/ro-crs.svg)
+![残存抗CD20抗体の4条件について、結合競合だけを変えた場合とCLbase共変量も変えた場合の最大ROとCRS式出力。](shared/mosunetuzumab-public-pk/figures/ro-crs.svg)
 
 *図4．比較の基準としたレジメンでの感度解析（共変量は基準値）。点を結ぶ線は比較を見やすくするためであり、薬剤間の連続的な用量反応曲線ではない。CRS式の出力は個人のリスク予測ではない。独自計算。*
 
@@ -284,11 +284,11 @@ ROの競合結合のみを変える条件と、CLbase共変量も変える条件
 | Uncertainty | Local fixed-effect sensitivity and individual differences based on Ω | A full predictive distribution integrating fixed effects, covariates and model structure |
 | RO–CRS | How much results depend on assumptions about residual drug and the regression | Population CRS incidence for a modified regimen, individual risk, the optimal regimen |
 
-患者別のPK観測、共変量と残存anti-CD20濃度の同時分布、CRSの時点と投与履歴を結び付けたデータは今回の公開資料から得られなかった。また、元のRO–CRS関係が、仮想的な3.5日・14日間隔に輸送可能かを確認するデータもない。
+患者別のPK観測、共変量と残存抗CD20抗体濃度の同時分布、CRSの時点と投与履歴を結び付けたデータは今回の公開資料から得られなかった。また、元のRO–CRS関係が、仮想的な3.5日・14日間隔でも成り立つかを確認するデータもない。
 
 ## 結論 {#revision-section-5}
 
-公表値との近接性だけを根拠に「PKモデルをqualifyできた」と結論することは、この証拠だけではできない。本解析の到達点は、**公開PKモデルの計算実装を検証し、そのモデル内でのレジメン曝露比較を行った**ことである。RO–CRSへの翻訳は感度解析として探索できるが、患者集団の発現率予測としては検証できない。
+公表値との一致度だけでは、PKモデルが想定した用途に適しているかは判断できない。本解析の到達点は、**公開PKモデルの計算実装を検証し、そのモデル内でのレジメン曝露比較を行った**ことである。残存薬の仮定がROとCRS回帰式の出力をどれだけ変えるかは計算できる。患者集団でのCRS発現率を検証するには、投与履歴と発現時点を結び付けたデータが必要になる。
 
 ## データとコードの公開状況 {#_10}
 
@@ -298,7 +298,7 @@ Python 3.12で実行した。仮想患者の乱数、使用ライブラリ、数
 - [依存ライブラリ：requirements.txt](shared/mosunetuzumab-public-pk/requirements.txt)
 - [実行方法と前提：README](shared/mosunetuzumab-public-pk/README.md)
 - [公表値との照合CSV](shared/mosunetuzumab-public-pk/results/benchmark.csv)
-- [pairedレジメン比較CSV](shared/mosunetuzumab-public-pk/results/paired_regimens.csv)
+- [同一仮想患者でのレジメン比較CSV](shared/mosunetuzumab-public-pk/results/paired_regimens.csv)
 - [仮想集団の参照曝露CSV](shared/mosunetuzumab-public-pk/results/population_reference.csv)
 - [固定効果感度CSV](shared/mosunetuzumab-public-pk/results/parameter_sensitivity.csv)
 - [anti-CD20感度CSV](shared/mosunetuzumab-public-pk/results/anti_cd20_sensitivity.csv)

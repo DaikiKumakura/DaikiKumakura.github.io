@@ -112,7 +112,7 @@ The sequence recalculation confirms arrangements after the relevant features wer
 
 ## Conclusion {#article-conclusion}
 
-Claude's identification of unusual sequence organization initiated biological research. That finding differs from completing a genome-editing function or establishing a consistently reproducible discovery process. Known-motif confirmation, fixed-input recognition, search recovery and molecular function answer different questions.
+Claude's identification of unusual sequence organization initiated biological research. Demonstrating genome editing or showing that repeated searches can recover the finding would require separate evidence. Known-motif confirmation, fixed-input recognition, search recovery and molecular function answer different questions.
 
 ## Data and code availability {#_5}
 

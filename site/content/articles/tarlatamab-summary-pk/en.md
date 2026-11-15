@@ -10,7 +10,7 @@ In this analysis, the six summary values were explained within about 10%. Howeve
 
 For tarlatamab, the labeled regimen is 1 mg on the first day, 10 mg on Day 8, and 10 mg every 2 weeks from Day 15, each given intravenously over 1 hour ([1](#ref-1)). The initial step-up dosing and the subsequent maintenance dosing need to be treated as different questions.
 
-Early on, the issues are the rise of exposure and the timing of CRS. In maintenance, the issue is how the maximum concentration, average exposure and the concentration just before the next dose change with the dosing interval. It is hard for a single PK metric to represent both.
+Early on, the questions concern how quickly exposure rises and when cytokine release syndrome (CRS) occurs. In maintenance, the issue is how the maximum concentration, average exposure and the concentration just before the next dose change with the dosing interval. It is hard for a single PK metric to represent both.
 
 The **questions of interest (QOI)** are:
 
@@ -97,7 +97,7 @@ Figure 1 compares the public summaries with the fitted model.
 
 **Figure 1.** Points are public geometric means and crosses are model predictions. Error bars are 95% intervals for the geometric mean approximated on the log scale from the reported CV and number of patients, not the 95% range between patients. AUC, which has different units, is not overlaid on the same axis as concentrations.
 
-Table 2 presents the corresponding values and conditions.
+Table 2 compares the parameter estimates with published PopPK values.
 
 <span id="table-2"></span>Table 2. Estimated parameters and published model values
 
@@ -110,7 +110,7 @@ Table 2 presents the corresponding values and conditions.
 
 The maximum absolute relative error against the public summary values was 10.0%.
 
-Table 3 presents the corresponding values and conditions.
+Table 3 compares predictions with the six published PK summaries.
 
 <span id="table-3"></span>Table 3. Fit to the public summaries
 
@@ -145,7 +145,7 @@ The terminal half-life of the estimated model was about 19.0 days, not the same 
 
 The three values for one of the Cycle 2 dosing days were removed, and the four parameters were re-estimated from the remaining three values only.
 
-Table 4 presents the corresponding values and conditions.
+Table 4 shows the prediction error for each omitted dosing day.
 
 <span id="table-4"></span>Table 4. Prediction errors after leaving out a dosing day
 
@@ -164,7 +164,7 @@ The prediction error for AUC widened to about 15–19%. This is a diagnostic of 
 
 Q2W, Q3W and Q4W were compared as intervals of 14, 21 and 28 days. Each dose is 10 mg, so dose intensity is not maintained. Steady state was calculated directly from the condition that drug amounts return to the same state after one cycle, rather than approximated with many doses.
 
-Table 5 presents the corresponding values and conditions.
+Table 5 compares steady-state exposure at a fixed dose.
 
 <span id="table-5"></span>Table 5. Interval comparisons at a fixed dose
 
@@ -201,7 +201,7 @@ Summary values were generated around the six fitted predictions using the log-sc
 
 **Figure 4.** The bands are conditional widths with the structural model, dosing history, independent errors and parameter search range held fixed. They are not 95% prediction intervals for a future patient population. The band for the Cavg ratio coincides with the line because, by the mass balance above, the ratio is fixed algebraically.
 
-Table 6 presents the corresponding values and conditions.
+Table 6 shows ranges for the exposure ratios from bootstrap refits.
 
 <span id="table-6"></span>Table 6. Conditional resampling ranges for exposure ratios
 
@@ -216,7 +216,7 @@ The search range was CL 0.05–5 L/day, Vc 0.3–30 L, Vp 0.1–300 L and Q 0.01
 
 A sensitivity analysis was also performed assuming a common correlation among the three metrics on the same dosing day.
 
-Table 7 presents the corresponding values and conditions.
+Table 7 shows how those ranges change under different correlations.
 
 <span id="table-7"></span>Table 7. Sensitivity to assumed correlations
 
@@ -232,7 +232,7 @@ The correlations of 0.5 and 0.8 are not measured estimates but assumptions for e
 
 So far the dose per administration has been fixed at 10 mg. As a different question, hypothetical scenarios that keep the dose intensity \(D/\tau\) were also calculated. Relative to 10 mg Q2W, 15 mg Q3W and 20 mg Q4W give equal average exposure under linear PK.
 
-Table 8 presents the corresponding values and conditions.
+Table 8 compares regimens that keep dose intensity constant.
 
 <span id="table-8"></span>Table 8. Hypothetical equal-intensity regimen comparisons
 
@@ -274,7 +274,7 @@ This article does not fit a new CRS model that treats the three per-dose summari
 
 ## Conclusion {#7-answers-to-the-qoi-and-the-data-needed-next}
 
-Table 9 presents the corresponding values and conditions.
+Table 9 summarizes what the analysis can establish.
 
 <span id="table-9"></span>Table 9. Questions and scope of inference
 

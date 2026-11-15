@@ -43,13 +43,13 @@ These differences do not automatically invalidate evidence. They delimit which c
 
 ## Seven original evidence–claim examples {#7}
 
-I implemented this distinction in a small metadata checker. Seven original fixtures compare experimental system, intervention, comparator, endpoint and recording status with a proposed claim. Exact string matches are classified as compatible, different values as mismatched, and missing required information as unresolved. A claim that explicitly retains an unknown value is treated as compatible with that unknown record.
+I implemented this distinction in a small metadata checker. Seven constructed examples compare experimental system, intervention, comparator, endpoint and recording status with a proposed claim. Exact string matches are classified as compatible, different values as mismatched, and missing required information as unresolved. A claim that explicitly retains an unknown value is treated as compatible with that unknown record.
 
-![Evidence–claim compatibility in seven original fixtures.](shared/oncologybench-decision-integration/figures/01-evidence-scope.png)
+![Evidence–claim compatibility in seven constructed examples.](shared/oncologybench-decision-integration/figures/01-evidence-scope.png)
 
-**Figure 1.** Compatibility between evidence and claims in seven original fixtures. A gray dash indicates a field for which the claim requests no comparison.
+**Figure 1.** Compatibility between evidence and claims in seven constructed examples. A gray dash indicates a field for which the claim requests no comparison.
 
-The results were two compatible, three mismatched and two unresolved cases. These deliberately constructed fixtures check program behavior; they do not measure AI accuracy. The checker detects examples that substitute a human clinical endpoint for a mouse spatial measurement or confuse comparator groups. It cannot assess synonyms, experimental quality or causal relationships. Compatibility does not mean that efficacy or continued development is sufficiently supported.
+The results were two compatible, three mismatched and two unresolved cases. These deliberately constructed examples check program behavior; they do not measure AI accuracy. The checker detects examples that substitute a human clinical endpoint for a mouse spatial measurement or confuse comparator groups. It cannot assess synonyms, experimental quality or causal relationships. Compatibility does not mean that efficacy or continued development is sufficiently supported.
 
 Keeping comparator and missingness information alongside a result preserves context that a downstream decision maker needs. The same issue applies to rows in omics and spatial-analysis result tables: their underlying comparisons must remain traceable.
 
@@ -101,13 +101,13 @@ The sensitivity analysis combines costs of 0, 5 and 20 with three sensitivity–
 
 OncologyBench shows that attempts passing analytical Tasks can still fail the final Decision assessment. Rubric success, however, is not a validation of expected-utility maximization, and my mathematical example does not reevaluate the public benchmark.
 
-Connecting an analysis to a decision requires three explicit links: which intervention, comparator and endpoint the evidence concerns; how it updates beliefs about the future state of interest; and how losses from proceeding, forgone opportunities and information costs are compared.
+Connecting an analysis to a decision requires three explicit links: which intervention, comparator and endpoint the evidence concerns; how it changes the estimated probability of eventual success; and how losses from proceeding, forgone opportunities and information costs are compared.
 
 Identical analytical values can support different claims when comparator groups, unrecorded conditions or extrapolation assumptions differ. The value of an additional experiment also depends on whether its result changes an action. In these examples, evidence compatibility and decision value therefore require separate examination.
 
 ## Data and code availability {#_4}
 
-[Download the code, seven original fixtures, result tables and figures](shared/oncologybench-decision-integration/oncologybench-decision-integration.zip). The implementation was checked with Python 3.12, NumPy 1.26.4 and Matplotlib 3.9.1. Run `analysis.py`, the 13 unit tests and `plot.py` in sequence. Ordinary reruns do not use the network.
+[Download the code, seven constructed examples, result tables and figures](shared/oncologybench-decision-integration/oncologybench-decision-integration.zip). The implementation was checked with Python 3.12, NumPy 1.26.4 and Matplotlib 3.9.1. Run `analysis.py`, the 13 unit tests and `plot.py` in sequence. Ordinary reruns do not use the network.
 
 The public-example structure counts can be reproduced from the included summary JSON, which records source URLs and SHA-256 hashes. To compare with the original files, `audit_sources.py --fetch` downloads the two examples at the fixed commit. The distribution does not contain original task text, answer keys, third-party figures or patient data. No LLM evaluation was performed.
 

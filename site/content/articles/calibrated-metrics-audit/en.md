@@ -83,8 +83,8 @@ Effect size was the L2 norm of Δ estimated from all cells. MSE win rates increa
 Let $\mu_g$ be the true mean for gene $g$ under a perturbation, $\sigma_g^2$ the per-cell variance and $h$ the number of cells in each half. Assume independent sampling of the two halves, each with mean variance $\sigma_g^2/h$. The comparison is conditional on a fixed mean-baseline estimate $m_g$ obtained from other perturbations. The expected sums of squared errors are:
 
 \[
-\text{技術的な重複: } 2\sum_g \frac{\sigma_g^2}{h},\qquad
-\text{平均ベースライン: } \sum_g(\mu_g-m_g)^2+\sum_g\frac{\sigma_g^2}{h}.
+\text{Technical duplicate: } 2\sum_g \frac{\sigma_g^2}{h},\qquad
+\text{Mean baseline: } \sum_g(\mu_g-m_g)^2+\sum_g\frac{\sigma_g^2}{h}.
 \]
 
 MSE divides both expressions by the same number of genes. The duplicate therefore has a smaller **expected** squared error when:
@@ -137,7 +137,7 @@ The datasets use specific cell lines and interventions: THP-1 Cas13 combinatoria
 
 Splitting cells increases the variance of the duplicate mean and can disadvantage it under MSE. That is a property of this technical-duplicate construction, also defined in Miller and colleagues' paper, rather than evidence that the reference is noise-free. Top-50-gene selection and differential-expression weights use all cells and are not independent of the reference. Pearson correlation is undefined for the control prediction's zero-change vector; I assigned it 0.
 
-The main cell splits and metric calculations were unchanged. The DRF column, exploratory expected-error criterion and bootstrap intervals were added during examination and review after the main results were available; the original values remained unchanged. An independent implementation using seed 777 and 20 splits produced MSE and all-gene Pearson win rates of 0.801 and 0.910. This reviewer recalculation checks implementation on the same underlying cells, rather than providing new experimental replication.
+The main cell splits and metric calculations were unchanged. The DRF column, exploratory expected-error criterion and bootstrap intervals were added during examination and review after the main results were available; the original values remained unchanged. An independent implementation using seed 777 and 20 splits produced MSE and all-gene Pearson win rates of 0.801 and 0.910. This independent recalculation checks implementation on the same underlying cells, rather than providing new experimental replication.
 
 ## Data and code availability {#9}
 

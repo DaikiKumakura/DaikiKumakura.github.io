@@ -122,7 +122,7 @@ Values and counts in the [original Figure 2](https://doi.org/10.1038/s41591-025-
 
 The paper identifies 11 of 27 authors as sponsor employees. It reports external trial management, data processing and analysis by Fortrea Clinical Pharmacology Services, while sponsor authors participated in design, collection, analysis and interpretation. I have no conflicts with the paper's authors or related companies.
 
-The planned main calculations were supplemented after review with Welch t intervals and source-data checking of the normal interval. Independent grid-based posterior calculations and trial Monte Carlo simulation checked tipping values of 219.2 mL for a zero point estimate and 90.7 mL for positive area 0.80, and assurance at 30, 51, 100, 200 and 400 allocated participants per arm. Results agreed to two decimal places within simulation error.
+Additional checks used Welch t intervals and the source data to verify the normal-approximation interval. Independent grid-based posterior calculations and trial Monte Carlo simulation checked tipping values of 219.2 mL for a zero point estimate and 90.7 mL for positive area 0.80, and assurance at 30, 51, 100, 200 and 400 allocated participants per arm. Results agreed to two decimal places within simulation error.
 
 ## Data and code availability {#9}
 

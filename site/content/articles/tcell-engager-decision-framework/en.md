@@ -101,7 +101,7 @@ The observed all-grade proportions are 40.6%, 29.3% and 7.5% across D1–7, D8�
 
 **Figure 4.** Left: virtual median peaks in µg/mL. Right: observed aggregate window proportions. These are not patient-matched exposure–event pairs. The last window is twice as long as the first two.
 
-A shared monotone-increasing exposure-only model for the ordering in Figure 4 cannot describe this particular ordering under its assumptions. An unconstrained exposure-only model can instead learn a negative slope. Neither result proves biological adaptation: prophylaxis, changing disease burden, selection, timing and repeated events remain possible explanations. Administration-category terms provide another descriptive solution.
+A model in which CRS probability increases with exposure alone cannot reproduce the ordering in Figure 4. An unconstrained exposure-only model can instead learn a negative slope. Neither result proves biological adaptation: prophylaxis, changing disease burden, selection, timing and repeated events remain possible explanations. Administration-category terms provide another descriptive solution.
 
 Epcoritamab RTTE modeling in 600 subjects used stimulation and inhibition components and included prophylaxis and prior CAR-T effects ([10](#ref-10)). It supports considering exposure history, but its Grade ≥2 hazard parameters cannot be inserted into an all-grade tarlatamab probability model. No quantitative epcoritamab prior was borrowed here.
 
@@ -162,7 +162,7 @@ With prior centers of 5 versus 60 days, TH intervals shift to approximately 4.7�
 
 ### Step-up scenarios and their uncertainty {#9-step-up-scenarios-and-their-uncertainty}
 
-Fourteen prefixes are tested at 7-day spacing. After the first 10 mg target administration, another 10 mg is given 7 days later, then every 14 days. Thus the 1→10 prefix reproduces D1/D8/D15; direct 10 uses D1/D8/D22. This rule is a defined counterfactual geometry, not an approved direct-dose regimen. Cycle 1 is days 0–28 for every comparison.
+Fourteen prefixes are tested at 7-day spacing. After the first 10 mg target administration, another 10 mg is given 7 days later, then every 14 days. Thus the 1→10 prefix reproduces D1/D8/D15; direct 10 uses D1/D8/D22. This rule defines a hypothetical schedule for direct dosing. Cycle 1 is days 0–28 for every comparison.
 
 **Table 5. Selected step-up scenarios**
 
@@ -178,11 +178,11 @@ Fourteen prefixes are tested at 7-day spacing. After the first 10 mg target admi
 
 CRS summaries combine 400 posterior draws with 250 virtual subjects; sensitivity comparisons use 200 draws and 100 subjects. Marginal p intervals for every administration, full exposure distributions, and sensitivity results are supplied in the result tables. Maximum marginal probability is **not** the probability of any CRS over the complete schedule; event dependence prevents that calculation. The extension associates one peak with each observed window without fitting event-time hazards. Its administration outputs are not risks over a common follow-up duration: the 7/14-day observation-window difference cannot be corrected from these summaries.
 
-![Exploratory trade-off across step-up geometries.](shared/tcell-engager-decision-framework/figures/06-step-up.png)
+![Exploratory trade-off across step-up schedules.](shared/tcell-engager-decision-framework/figures/06-step-up.png)
 
 **Figure 7.** Points are medians, color is target day and size reflects step count. Labels are limited for legibility; all 14 schedules and intervals are available in CSV. The axes are transferred model outputs, not clinically validated outcomes. The Pareto analysis includes DCR, maximum marginal CRS, target day and administration count; being non-dominated is not a clinical recommendation.
 
-Figure 7 shows the exploratory trade-off across schedules. For direct 10, the sensitivity run gives approximately 59.6% (47.1–80.7%) in the baseline condition. This interval is conditional on the stated priors, likelihood treatment, integration population and schedule geometry; it is not an externally validated risk estimate.
+Figure 7 shows the exploratory trade-off across schedules. For a direct 10 mg first dose, the sensitivity run gives approximately 59.6% (47.1–80.7%) in the baseline condition. This interval is conditional on the stated priors, likelihood treatment, virtual population and dosing schedule; it is not an externally validated risk estimate.
 
 Very small priming doses do not necessarily minimize predicted CRS: a 0.1 mg prefix leaves less history attenuation before the target dose in this model. Conversely, this model cannot establish how much priming is sufficient. Changes in absolute CRS values or rankings under assumptions should be treated as fragility, not optimization evidence.
 
@@ -240,7 +240,7 @@ U=E-w_S S-w_P\max(0.8-P,0)
 
 Here E=Cavg/(Cavg+E90/9), including an assumed target-density multiplier. All weights are dimensionless preferences, not health utilities. I evaluate (wS,wP,wM)=(1,1,0.3), (2,1,0.3), and (1,2,0.6).
 
-Eight independent lognormal uncertainties are assigned to half-life, TDCC E90, cytokine E50, priming P50, history half-life, history strength, target-density factor and volume scale. Their assumed medians/log-SDs are in `data/generic-assumptions.json`. Independent 6,000-sample training and test draws prevent choosing and evaluating the same conditional decision on one sample.
+Eight independent lognormal uncertainties are assigned to half-life, TDCC E90, cytokine E50, priming P50, history half-life, history strength, target-density factor and volume scale. Their assumed medians/log-SDs are in `data/generic-assumptions.json`. Independent training and test sets of 6,000 draws each prevent choosing and evaluating the same conditional decision on one sample.
 
 EVPI is estimated as E[maxa U(a,θ)]−E[U(a0,θ)]. Partial information uses 12 bins of one parameter or its noisy log-measurement, selects an action in each training bin and evaluates that action out-of-sample. I report this as **binned EVPPI/EVSI approximation**, not exact posterior integration. Assay log-error SDs 0.15 and 0.40 are hypothetical.
 

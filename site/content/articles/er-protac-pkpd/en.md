@@ -2,7 +2,7 @@
 
 In designing doses for a targeted protein degrader (TPD), it is necessary to consider not only plasma concentration but also how far the target is reduced and how quickly it recovers. This article examines public data on ER-PROTACs and compares dosing frequencies with a minimal model of target degradation and recovery.
 
-In this **simulation based on assumptions**, the regimen with the highest maximal degradation did not necessarily sustain degradation best. However, public data alone cannot determine a particular drug's recovery rate, the degradation it requires, or its clinical dosing interval. The organization of measured values and the calculations used to understand the model structure need to be read separately.
+In this **simulation based on assumptions**, the regimen with the highest maximal degradation did not necessarily sustain degradation best. However, public data alone cannot determine a particular drug's recovery rate, the degradation it requires, or its clinical dosing interval. The reported measurements and the illustrative simulations address different questions.
 
 ## Introduction {#question-and-context-of-use}
 
@@ -153,9 +153,9 @@ Looking at PD alone, it is tempting to interpret persistent degradation as "the 
 
 ![Degradation trajectories at the same long-term average dose with different dosing frequencies.](shared/er-protac-pkpd/figures/03-schedules.png)
 
-**Figure 3:** Effect-site equilibration half-life of 2 h. The last 7 of 42 days are shown. Top: target half-life 6 h; bottom: 48 h. Reducing the frequency and increasing each dose creates both times of deeper degradation and times of recovery.
+**Figure 3:** Effect-site equilibration half-life of 2 h. The last 7 of 42 days are shown. Top: target half-life 6 h; bottom: 48 h. Reducing the frequency and increasing each dose can deepen degradation and give the target more time to recover before the next dose.
 
-The two scenarios with an effect-site half-life of 2 h are shown numerically. The minimum is the lowest degradation in the fixed 14-day window and is not the same as a "trough" summarizing all pre-dose values.
+The two scenarios with an effect-site half-life of 2 h are shown numerically. The minimum is the lowest degradation in the fixed 14-day window and is not the same as the degradation immediately before a dose.
 
 **Table 6. Degradation by target half-life and regimen**
 

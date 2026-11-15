@@ -58,7 +58,7 @@ PK is estimated first with first-order conditional estimation with interaction (
 
 ### Fit and diagnostics {#revision-section-1}
 
-Typical constant-PK estimates were CL/F 0.134 L/h, V/F 8.03 L, ka 1.22 h⁻¹ and lag time 0.99 h. Turnover estimates were IC50 1.46 mg/L, Hill exponent 1.28 and kout 0.0495 h⁻¹, corresponding to a turnover half-life of 14.0 h. With γ fixed to one (version 1.1), IC50 was 1.18 mg/L and kout 0.0536 h⁻¹. In version 1.0 (no lag, γ = 1) the estimates were CL/F 0.134 L/h, V/F 7.84 L, ka 0.567 h⁻¹, IC50 1.15 mg/L and kout 0.0515 h⁻¹. These are conditional estimates from this implementation, not replacements for a clinically qualified model.
+Typical PK estimates without weight scaling were CL/F 0.134 L/h, V/F 8.03 L, ka 1.22 h⁻¹ and lag time 0.99 h. Turnover estimates were IC50 1.46 mg/L, Hill exponent 1.28 and kout 0.0495 h⁻¹, corresponding to a turnover half-life of 14.0 h. With γ fixed to one (version 1.1), IC50 was 1.18 mg/L and kout 0.0536 h⁻¹. In version 1.0 (no lag, γ = 1) the estimates were CL/F 0.134 L/h, V/F 7.84 L, ka 0.567 h⁻¹, IC50 1.15 mg/L and kout 0.0515 h⁻¹. These are conditional estimates from this implementation, not replacements for a clinically qualified model.
 
 Table 2 summarizes the comparison.
 
@@ -84,7 +84,7 @@ All 147 refits (folds, resamples and sensitivity runs) start from the same gener
 
 ### Held-out prediction {#does-limited-pk-information-help-a-held-out-subject}
 
-Five deterministic folds split **subjects**, not observations. Each fold reestimates PK and both PD structures without its held-out subjects, from generic initial values. Baseline PCA is available in every strategy. Population prediction uses typical constant PK and PD parameters; weight prediction uses the fitted allometric PK parameters and the same turnover structure reestimated after allometric PK. Neither uses test-subject postdose measurements. The direct-effect comparison belongs to the constant-PK sequence; no unestimated allometric direct-effect result is shown.
+Five deterministic folds split **subjects**, not observations. Each fold reestimates PK and both PD structures without its held-out subjects, from generic initial values. Baseline PCA is available in every strategy. Population prediction uses typical PK and PD parameters without weight scaling; weight prediction uses the fitted allometric PK parameters and the same turnover structure reestimated after allometric PK. Neither uses test-subject postdose measurements. The direct-effect comparison belongs to the sequence using PK without weight scaling; no unestimated allometric direct-effect result is shown.
 
 PK-informed prediction estimates individual PK random effects (including the lag) by maximum a posteriori estimation (MAP) using only actual concentration measurements at or before 24 or 48 h, with the fitted population prior and combined measurement error. It does not use future PK or any postbaseline PCA. Subsequent PCA is scored strictly after the cutoff. Prediction integrates the turnover equation using typical PD sensitivity, because this strategy has not measured individual PD sensitivity. It is a conditional point-prediction comparison, not a claim that the MAP estimate is known truth or a fully Bayesian predictive distribution.
 
@@ -142,7 +142,7 @@ Table 5 summarizes the comparison.
 
 In this simulation, PK-informed dosing increased attainment of the arbitrary band by 4.0 percentage points with the 24 h concentration (paired 95% interval −0.3 to 8.0) and 8.3 points with 24 and 48 h (3.3 to 13.3) over the fixed dose; in version 1.1 the gains were 6.0 and 7.3 points, and in version 1.0 −0.7 and 2.7 points. The simulation assumes the fitted model is true, including the lag, so it can show a benefit that the held-out comparison above does not. The two results answer different questions and should not be combined.
 
-A further 20 evenly selected finite subject-bootstrap parameter sets repeat the experiment in 150 paired virtual subjects each, with the same seeds. They include estimation variation and PK measurement noise, but remain warning-dependent sensitivity rather than a formal probability of clinical success. Changing from constant PK to fitted allometry also changes the relation between weight and exposure:
+A further 20 evenly selected finite subject-bootstrap parameter sets repeat the experiment in 150 paired virtual subjects each, with the same seeds. They include estimation variation and PK measurement noise, but remain warning-dependent sensitivity rather than a formal probability of clinical success. Adding the fitted allometric weight adjustment to PK also changes the relation between weight and exposure:
 
 Table 6 summarizes the comparison.
 

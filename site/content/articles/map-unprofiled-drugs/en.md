@@ -94,7 +94,7 @@ I read this as evidence that prediction changes when information and pretraining
 
 ## Discussion {#_5}
 
-Doubling every true change still gives Pearson correlation one when the changes are nonconstant. A correlation advantage does not establish correct ranking of drug-induced change magnitudes.
+Doubling every true change still gives Pearson correlation one when the changes are nonconstant. High correlation does not establish accurate prediction of the magnitude of drug-induced expression changes.
 
 The top 50 genes selected from measured responses can diagnose recovery of changed genes, but are unknown when predicting an unprofiled drug [gene-selection procedure](https://www.nature.com/articles/s42256-026-01286-w#Sec44) ([1](#ref-1)).
 

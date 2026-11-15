@@ -14,7 +14,7 @@ This article compares purposes, input data and interpretation as well as definit
 
 ## PK, PD and overlapping model categories {#pkpd}
 
-**Pharmacokinetics (PK)** describes drug concentrations over time against absorption, distribution, metabolism and excretion (ADME). The relevant concentration may be plasma, whole blood, tissue or unbound drug, depending on the question.
+**Pharmacokinetics (PK)** describes how drug concentrations change over time through absorption, distribution, metabolism and excretion (ADME). The relevant concentration may be plasma, whole blood, tissue or unbound drug, depending on the question.
 
 **Pharmacodynamics (PD)** addresses exposure–action or exposure–response relationships, including receptor occupancy, biomarkers, tumor changes and adverse effects. Target occupancy is not clinical benefit.
 
@@ -101,7 +101,7 @@ Times use a 0.05-hour grid. PD assumptions alone change magnitude and timing; ob
 
 Fit is only one consideration. Peak timing, recovery, repeated-dose accumulation and history dependence matter, as do concentration ranges supporting separate EC50/maximum-effect estimates and sampling times distinguishing delays. Different equations can fit similarly over narrow doses.
 
-Exposure association does not guarantee the causal effect of changing exposure. Disease may alter clearance and outcomes simultaneously; discontinuation, missingness and concomitant therapy also matter. Biomarker improvement is not an unvalidated clinical benefit.
+Exposure association does not guarantee the causal effect of changing exposure. Disease may alter clearance and outcomes simultaneously; discontinuation, missingness and concomitant therapy also matter. Showing that a biomarker improves does not establish that patients benefit.
 
 ## PopPK: explaining concentration differences {#poppk}
 
