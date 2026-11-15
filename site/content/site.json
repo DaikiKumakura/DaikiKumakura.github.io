@@ -666,6 +666,47 @@
       ]
     },
     {
+      "id": "rsemverse",
+      "tech": "R",
+      "url": "https://github.com/DaikiKumakura/rsemverse",
+      "status": "R package (v0.2.0)",
+      "description": "An R package that turns RSEM *.genes.results files into analysis-ready gene tables for human and mouse bulk RNA-seq: rsem_read() reads them into a gene symbol by sample table of counts or TPM, rsem_filter(), rsem_subset(), rsem_normalize() and rsem_transform() prepare that table, and rsem_long() returns it as a long table with the sample information for plotting.",
+      "featured": false,
+      "links": [
+        {
+          "url": "https://daikikumakura.github.io/rsemverse/",
+          "label": "Documentation"
+        },
+        {
+          "url": "https://github.com/DaikiKumakura/rsemverse/releases/tag/v0.2.0",
+          "label": "Release 0.2.0"
+        },
+        {
+          "url": "https://daikikumakura.r-universe.dev/rsemverse",
+          "label": "R-universe"
+        }
+      ],
+      "note": "Every function takes and returns the same table, and no gene list or sample grouping is needed: gene symbols and gene groups (protein-coding, mitochondrial, ribosomal, hemoglobin, sex, ERCC) come from org.Hs.eg.db or org.Mm.eg.db. Filtering follows the edgeR filterByExpr rule or detection thresholds; normalization offers CPM, TMM, upper quartile, DESeq2 median of ratios and quantile; transformations are log2, z-score and ranks. On six ENCODE K562 RSEM files (59,526 genes each), rsem_read() gave symbols to 36,385 genes and kept the column sums; the edgeR rule kept the same 12,808 genes as edgeR::filterByExpr(), and the normalized values were within 3e-16 (relative) of edgeR, DESeq2 and limma (November 14, 2026). R CMD check passes on Linux, macOS and Windows in CI. Not on CRAN or Bioconductor.",
+      "ja": {
+        "status": "Rパッケージ（v0.2.0）",
+        "description": "RSEMの*.genes.resultsファイルを、ヒト・マウスのバルクRNA-seqの解析にそのまま使える遺伝子の表に仕上げるRパッケージ。rsem_read()で遺伝子シンボル×サンプルのカウントまたはTPMの表に読み込み、rsem_filter()・rsem_subset()・rsem_normalize()・rsem_transform()でその表を整え、rsem_long()でサンプル情報付きの作図用の長い表にする。",
+        "note": "どの関数も同じ形の表を受け取って返し、遺伝子リストやサンプルの群分けは要らない。遺伝子シンボルと遺伝子群（タンパク質コード、ミトコンドリア、リボソーム、ヘモグロビン、性染色体、ERCC）はorg.Hs.eg.dbまたはorg.Mm.eg.dbから判定する。フィルタはedgeRのfilterByExprの規則か検出のしきい値、正規化はCPM・TMM・上位四分位・DESeq2のmedian of ratios・分位点正規化、変換はlog2・zスコア・順位。ENCODEのK562のRSEMファイル6個（各59,526遺伝子）では、rsem_read()が36,385遺伝子にシンボルを付けて列の合計を保ち、edgeRの規則で残る12,808遺伝子はedgeR::filterByExpr()と同一で、正規化の値はedgeR・DESeq2・limmaと相対誤差3e-16以内で一致した（2026年11月14日）。R CMD checkはCIのLinux・macOS・Windowsで通過。CRANとBioconductorには未登録。"
+      },
+      "doi": "10.5281/zenodo.24210460",
+      "slug": "rsemverse",
+      "headline": "rsemverse: RSEM to analysis-ready gene tables in R",
+      "summary": "R package that turns RSEM gene results into analysis-ready gene tables: read, filter, select genes, normalize, transform and reshape for plotting.",
+      "details": [],
+      "install": [
+        {
+          "label": "R",
+          "code": "install.packages(\"BiocManager\")\nBiocManager::install(\"DaikiKumakura/rsemverse\")\nBiocManager::install(c(\"org.Hs.eg.db\", \"org.Mm.eg.db\"))"
+        }
+      ],
+      "install_note": "rsemverse needs R 4.1 or later; install the OrgDb package of the species you use (org.Hs.eg.db for human, org.Mm.eg.db for mouse).",
+      "related_articles": []
+    },
+    {
       "id": "rsemflow",
       "tech": "R",
       "url": "https://github.com/DaikiKumakura/rsemflow",
@@ -745,6 +786,10 @@
         {
           "url": "https://github.com/DaikiKumakura/bulkdeconv#readme",
           "label": "Examples and method requirements"
+        },
+        {
+          "url": "https://daikikumakura.r-universe.dev/bulkdeconv",
+          "label": "R-universe"
         }
       ],
       "note": "Fifteen methods (including quanTIseq, MCP-counter, xCell, xCell2, ESTIMATE, TIMER, mMCP-counter, seq-ImmuCC and BASE) are implemented in the package, reproduce the output of the original implementations in the tests and run after installation, with their reference data included; EPIC, DCQ and SSMD run from their original packages after bulkdeconv_install(). Methods that need registration (CIBERSORT, CIBERSORTx, EcoTyper, ImmuCC) are not included. Some methods return fractions, others abundance or enrichment scores, which compare one cell type across samples. R CMD check passes on Linux, macOS and Windows in CI. Not on CRAN or Bioconductor.",
@@ -765,43 +810,6 @@
         }
       ],
       "install_note": "See the package README for supported input scales and any method-specific dependencies.",
-      "related_articles": []
-    },
-    {
-      "id": "rsemverse",
-      "tech": "R",
-      "url": "https://github.com/DaikiKumakura/rsemverse",
-      "status": "R package (v0.2.0)",
-      "description": "An R package that turns RSEM *.genes.results files into analysis-ready gene tables for human and mouse bulk RNA-seq: rsem_read() reads them into a gene symbol by sample table of counts or TPM, rsem_filter(), rsem_subset(), rsem_normalize() and rsem_transform() prepare that table, and rsem_long() returns it as a long table with the sample information for plotting.",
-      "featured": false,
-      "links": [
-        {
-          "url": "https://daikikumakura.github.io/rsemverse/",
-          "label": "Documentation"
-        },
-        {
-          "url": "https://github.com/DaikiKumakura/rsemverse/releases/tag/v0.2.0",
-          "label": "Release 0.2.0"
-        }
-      ],
-      "note": "Every function takes and returns the same table, and no gene list or sample grouping is needed: gene symbols and gene groups (protein-coding, mitochondrial, ribosomal, hemoglobin, sex, ERCC) come from org.Hs.eg.db or org.Mm.eg.db. Filtering follows the edgeR filterByExpr rule or detection thresholds; normalization offers CPM, TMM, upper quartile, DESeq2 median of ratios and quantile; transformations are log2, z-score and ranks. On six ENCODE K562 RSEM files (59,526 genes each), rsem_read() gave symbols to 36,385 genes and kept the column sums; the edgeR rule kept the same 12,808 genes as edgeR::filterByExpr(), and the normalized values were within 3e-16 (relative) of edgeR, DESeq2 and limma (November 14, 2026). R CMD check passes on Linux, macOS and Windows in CI. Not on CRAN or Bioconductor.",
-      "ja": {
-        "status": "Rパッケージ（v0.2.0）",
-        "description": "RSEMの*.genes.resultsファイルを、ヒト・マウスのバルクRNA-seqの解析にそのまま使える遺伝子の表に仕上げるRパッケージ。rsem_read()で遺伝子シンボル×サンプルのカウントまたはTPMの表に読み込み、rsem_filter()・rsem_subset()・rsem_normalize()・rsem_transform()でその表を整え、rsem_long()でサンプル情報付きの作図用の長い表にする。",
-        "note": "どの関数も同じ形の表を受け取って返し、遺伝子リストやサンプルの群分けは要らない。遺伝子シンボルと遺伝子群（タンパク質コード、ミトコンドリア、リボソーム、ヘモグロビン、性染色体、ERCC）はorg.Hs.eg.dbまたはorg.Mm.eg.dbから判定する。フィルタはedgeRのfilterByExprの規則か検出のしきい値、正規化はCPM・TMM・上位四分位・DESeq2のmedian of ratios・分位点正規化、変換はlog2・zスコア・順位。ENCODEのK562のRSEMファイル6個（各59,526遺伝子）では、rsem_read()が36,385遺伝子にシンボルを付けて列の合計を保ち、edgeRの規則で残る12,808遺伝子はedgeR::filterByExpr()と同一で、正規化の値はedgeR・DESeq2・limmaと相対誤差3e-16以内で一致した（2026年11月14日）。R CMD checkはCIのLinux・macOS・Windowsで通過。CRANとBioconductorには未登録。"
-      },
-      "doi": "10.5281/zenodo.24210460",
-      "slug": "rsemverse",
-      "headline": "rsemverse: RSEM to analysis-ready gene tables in R",
-      "summary": "R package that turns RSEM gene results into analysis-ready gene tables: read, filter, select genes, normalize, transform and reshape for plotting.",
-      "details": [],
-      "install": [
-        {
-          "label": "R",
-          "code": "install.packages(\"BiocManager\")\nBiocManager::install(\"DaikiKumakura/rsemverse\")\nBiocManager::install(c(\"org.Hs.eg.db\", \"org.Mm.eg.db\"))"
-        }
-      ],
-      "install_note": "rsemverse needs R 4.1 or later; install the OrgDb package of the species you use (org.Hs.eg.db for human, org.Mm.eg.db for mouse).",
       "related_articles": []
     },
     {
@@ -886,11 +894,11 @@
           "label": "Usage"
         }
       ],
-      "note": "Invocation, failure handling and marker-alignment validation are implemented. Nine smoke tests passed locally and in Linux CI on October 3, 2026. Installed CLI execution was checked; the complete phylogenetic workflow with external tools remains unvalidated.",
+      "note": "Invocation, failure handling and marker-alignment validation are implemented. Eleven tests (name cleaning, concatenation rules, failure handling, installed command) pass in Linux CI (November 15, 2026). Installed CLI execution was checked; the complete phylogenetic workflow with external tools remains unvalidated.",
       "ja": {
         "status": "試作",
         "description": "ゲノムのFASTAファイルから、1つのコマンドで系統樹を作るPythonのコマンドラインツール。ProdigalとHMMERでマーカー遺伝子を探し、すべてのマーカーを持つゲノムを選び、マーカーごとにアラインメントとトリミングを行って連結し、IQ-TREE 2で系統推定する。16個・15個のリボソームタンパク質、RpS3、16S rRNA、GyrA、RecAのマーカーセットを同梱する。",
-        "note": "起動、失敗時の処理、マーカーのアラインメントの検証を実装済み。2026年10月3日に、9件の簡易テストがローカルとLinuxのCIで通過した。インストールしたCLIの実行は確認済み。外部ツールを使う系統解析の全工程は未検証。"
+        "note": "起動、失敗時の処理、マーカーのアラインメントの検証を実装済み。名前の整形、連結の規則、失敗時の処理、インストールしたコマンドを確かめる11件のテストが、LinuxのCIで通過している（2026年11月15日）。インストールしたCLIの実行は確認済み。外部ツールを使う系統解析の全工程は未検証。"
       },
       "slug": "crism",
       "headline": "CRiSM: ribosomal marker phylogenomics CLI",
@@ -2534,17 +2542,7 @@
     "activities": true
   },
   "alternate_name": "熊倉大騎",
-  "oss_contributions": [
-    {
-      "project": "mrgsolve",
-      "title": "Identify conflicting mixed-case NMTRAN column names",
-      "url": "https://github.com/metrumresearchgroup/mrgsolve/pull/1405",
-      "status": "Submitted · review pending",
-      "checked": "2026-10-03",
-      "description": "Improves warnings for conflicting upper- and lower-case NMTRAN column names without changing data conversion behavior. Adds regression tests for the warning and preservation of input values.",
-      "validation": "Source build and 224 expectations across four relevant test files passed locally on Windows. Upstream review and CI are pending; this change has not been merged."
-    }
-  ],
+  "oss_contributions": [],
   "bio": "Daiki Kumakura (熊倉大騎) is a mathematical biologist and bioinformatics researcher in the pharmaceutical industry, with a Ph.D. in Life Science from Hokkaido University (2025) and earlier work at RIKEN iTHEMS. The work applies mathematical modeling and statistical inference to dynamic systems. In personal technical notes based only on public data and simulation, it applies population PK, PK/PD, exposure–response and tumor-dynamics models to dose and regimen questions.",
   "alternate_names": [
     "熊倉大騎",
