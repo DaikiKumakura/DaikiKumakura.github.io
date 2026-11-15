@@ -1,10 +1,10 @@
 ## Abstract {#article-abstract}
 
-Published population PK models for pembrolizumab and nivolumab were applied to a general-adult weight distribution to compare flat and weight-based exposure. Under the specified model-derived exposure criteria, more than 10% fell below the trough floor at about ≥150 kg for pembrolizumab 200 mg and ≥100–120 kg for nivolumab 240 mg. Weight-based regimens gave lower first-interval troughs in light subjects. Extended-interval assessments depended on using trough versus average concentration. These criteria are proxies derived from models of trial-tested regimens, not efficacy or toxicity thresholds. Exposure differences do not establish clinical effect differences or recommended doses.
+Published population PK models for pembrolizumab and nivolumab were applied to a general-adult weight distribution to compare flat and weight-based exposure. Under the specified model-derived exposure criteria, more than 10% fell below the trough floor at about ≥150 kg for pembrolizumab 200 mg and the 100–120 kg band and above for nivolumab 240 mg. Weight-based regimens gave lower first-interval troughs in light subjects. Extended-interval assessments depended on using trough versus average concentration. These criteria are proxies derived from models of trial-tested regimens, not efficacy or toxicity thresholds. Exposure differences do not establish clinical effect differences or recommended doses.
 
 ## Introduction {#relation-to-previous-work}
 
-For the anti-PD-1 antibodies pembrolizumab and nivolumab, dosing moved from weight-based doses (2 mg/kg, 3 mg/kg) to flat doses (200 mg, 240 mg), and regimens with longer intervals (400 mg Q6W, 480 mg Q4W) were added. For patients near the middle of the weight distribution, exposure is almost the same under any regimen. The concern is the two ends of the distribution: very light and very heavy patients.
+For the anti-PD-1 antibodies pembrolizumab and nivolumab, dosing moved from weight-based doses (2 mg/kg, 3 mg/kg) to flat doses (200 mg, 240 mg), and regimens with longer intervals (400 mg Q6W, 480 mg Q4W) were added. For patients near the middle of the weight distribution, exposure is almost the same under any regimen. The comparison focuses on the two ends of the distribution: very light and very heavy patients.
 
 The move to flat dosing was justified for both drugs by population-PK comparisons of exposure.
 
@@ -15,7 +15,7 @@ The move to flat dosing was justified for both drugs by population-PK comparison
 
 All of these are comparisons over the whole trial population. This article adds three points.
 
-1. It looks only at the ends of the weight distribution (the lowest ~3% below 50 kg and the highest ~1.4% at 150 kg and above).
+1. It pays particular attention to the ends of the weight distribution (the lowest ~3% below 50 kg and the highest ~1.4% at 150 kg and above).
 2. It uses the weight distribution of the general adult population (NHANES) rather than the trial populations.
 3. It fixes what "stays in range" means as a numerical rule before any calculation.
 
