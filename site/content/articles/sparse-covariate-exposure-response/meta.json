@@ -1,0 +1,39 @@
+{
+  "source_language": "en",
+  "category": "note",
+  "date": "2026-12-28",
+  "publish_at": "2026-12-28T09:00:00+09:00",
+  "draft": false,
+  "math": false,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "en": {
+      "title": "Does sparse shrinkage of covariate effects change an exposure–response dose decision? Simulations with 20 candidate covariates",
+      "summary": "In simulated dose-ranging trials, a horseshoe prior kept almost no inactive covariates where stepwise selection kept 3 to 4, but the three covariate strategies chose the best feasible dose equally often.",
+      "key_findings": [
+        "With 20 candidate covariates and 120 patients, backward stepwise selection kept on average 3.6 (response) and 4.2 (toxicity) inactive covariates, against 0.11 and 0.07 for a horseshoe-prior probit model, which detected only 34% and 13% of the true effects.",
+        "The share of 150 trials choosing the best feasible dose was 74% (full model), 77% (stepwise) and 77% (horseshoe) at 120 patients, and 88%, 87% and 89% at 300; the differences were within sampling error.",
+        "The horseshoe model gave the exposure effect on toxicity closest to the truth at 120 patients (true 0.90; full model 1.51, stepwise 1.28, horseshoe 0.98) and reported how certain the dose choice was: a posterior probability above 0.8 in 8.7% of trials at 120 patients and 46% at 300.",
+        "The true effects were sparse and the trials randomized, which favors shrinkage; the results are not tested against other designs."
+      ],
+      "seo_title": "Sparse covariates in exposure–response and dose choice",
+      "seo_description": "Simulated dose-ranging trials: a horseshoe prior cleaned the covariate list, but stepwise, full and Bayesian models chose the best dose at similar rates."
+    },
+    "ja": {
+      "title": "共変量効果の疎な縮小は曝露反応の用量決定を変えるか 20個の候補共変量を持つ用量設定試験の数値実験",
+      "summary": "用量設定試験の数値実験で、ホースシュー事前分布は影響のない共変量をほとんど残さず（ステップワイズは3〜4個）、一方で3つの共変量戦略が実行可能な最良の用量を選ぶ頻度は同じだった。",
+      "seo_title": "曝露反応の疎な共変量選択が用量決定に与える影響",
+      "seo_description": "用量設定試験の数値実験で、ホースシュー事前分布は共変量の一覧と曝露の傾きを整えたが、全変数・ステップワイズ・ベイズの3モデルの用量選択は同程度だった。",
+      "key_findings": [
+        "20個の候補共変量と120例の条件で、後退型ステップワイズ選択は影響のない共変量を平均で反応側3.6個、毒性側4.2個残したが、ホースシュー事前分布のプロビットモデルは0.11個と0.07個で、真の効果の検出は34%と13%にとどまった。",
+        "実行可能な最良の用量を選んだ150試験の割合は、120例で74%（全変数モデル）、77%（ステップワイズ）、77%（ホースシュー）、300例で88%、87%、89%で、差は標本抽出の誤差の範囲内だった。",
+        "120例での毒性への曝露効果は、ホースシューが真の値に最も近く（真の値0.90、全変数モデル1.51、ステップワイズ1.28、ホースシュー0.98）、用量選択の確信も報告した（事後確率0.8以上は120例で8.7%、300例で46%）。",
+        "真の効果は疎でランダム化された試験であり、縮小に有利な設計である。ほかの設計では検証していない。"
+      ]
+    }
+  },
+  "reviewed": {
+    "ja": "36c60076f468e23ecb79a5ad9b121b01c6e6dbc1583614688292b895d3c82dbe"
+  }
+}

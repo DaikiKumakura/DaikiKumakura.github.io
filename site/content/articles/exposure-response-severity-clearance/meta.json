@@ -1,0 +1,39 @@
+{
+  "source_language": "en",
+  "category": "note",
+  "date": "2026-12-27",
+  "publish_at": "2026-12-27T18:00:00+09:00",
+  "draft": false,
+  "math": false,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "en": {
+      "title": "How often does an exposure–response analysis find a drug effect that is not there? Simulated trials with severity-driven clearance",
+      "summary": "In simulated dose-ranging trials where severity raises both clearance and the hazard of death, a Cox model of exposure reported a protective effect of an inactive drug in 38% to 88% of trials; analyzing the randomized dose kept the error at 2.1%.",
+      "key_findings": [
+        "With no drug effect and moderate confounding (clearance 28% and hazard 35% higher per SD of severity), a Cox model of baseline exposure reported a protective effect in 37.6% of 1,000 simulated trials, against 2.5% expected by chance.",
+        "Adjusting for a noisy severity marker (reliability 0.61) lowered the rate to 9.6% (26.4% under strong confounding); adjusting for the true severity or analyzing the randomized dose gave 1.6% and 2.1%.",
+        "Time-varying exposure was more biased than baseline exposure in every confounded scenario, and enlarging the trial from 400 to 1,000 patients raised the false-positive rate of the unadjusted analysis from 37.6% to 75.0%.",
+        "The randomized-dose analysis cost power (53% versus 64% at a true hazard ratio of 0.84 per doubling of exposure, without confounding) and needs at least two dose levels. All severity effects are assumed values, not estimates for any drug."
+      ],
+      "seo_title": "Exposure–response analysis: false positives from clearance",
+      "seo_description": "Simulated dose-ranging trials: when severity drives clearance, exposure–response analysis reports a protective effect of an inactive drug in 38–88% of trials."
+    },
+    "ja": {
+      "title": "重症度がクリアランスを左右するとき曝露反応解析は偽の効果をどれだけ報告するか",
+      "summary": "重症度がクリアランスと死亡ハザードの両方を高める用量設定試験の数値実験で、曝露のCox回帰は効果のない薬剤の保護効果を38〜88%の試験で報告した。ランダム化された用量の解析では2.1%だった。",
+      "seo_title": "曝露反応解析がクリアランスで偽陽性になる頻度の数値実験",
+      "seo_description": "重症度がクリアランスを左右する用量設定試験の数値実験で、曝露反応解析が効果のない薬剤の保護効果を報告する頻度を、推定法ごとに比べる。",
+      "key_findings": [
+        "効果のない薬剤で、重症度がクリアランスを28%、死亡ハザードを35%（重症度1 SDあたり）高める中程度の交絡では、ベースライン曝露のCox回帰が1,000試験の37.6%で保護効果を報告した（偶然の期待値は2.5%）。",
+        "誤差のある重症度指標（信頼性0.61）で調整すると9.6%（強い交絡では26.4%）に下がり、真の重症度で調整した場合とランダム化された用量の解析では1.6%と2.1%だった。",
+        "交絡のある8条件のすべてで時間変動曝露はベースライン曝露より偏りが大きく、試験を400例から1,000例に増やすと調整なしの偽陽性率は37.6%から75.0%に上がった。",
+        "ランダム化された用量の解析は検出力を失い（曝露2倍あたり真のハザード比0.84、交絡なしで53%対64%）、2つ以上の用量水準が必要である。重症度の影響はすべて仮定した値で、特定の薬剤の推定値ではない。"
+      ]
+    }
+  },
+  "reviewed": {
+    "ja": "847c7512a7f3989c53a70d8cb7be88c8f447f93d11118f2fc43e11b25b4cd1bc"
+  }
+}
