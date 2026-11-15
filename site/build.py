@@ -547,6 +547,7 @@ def build(project=BASE, preview=False, strict_translations=False):
         outputs['sitemap_index.xml']=('<?xml version="1.0" encoding="UTF-8"?>\n<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'+''.join('<sitemap><loc>'+SITE_URL+path+'</loc></sitemap>' for path in ('sitemap-pages.xml',)+EXTRA_SITEMAPS)+'</sitemapindex>').encode('utf-8')
         outputs['feed.xml']=atom_feed(site,entries)
         for code in ('en','ja'):outputs[f'feed-{code}.xml']=atom_feed(site,entries,code)
+        outputs['feed-r.xml']=r_full_feed(site,entries)
     outputs['robots.txt']=('User-agent: *\n'+('Disallow: /\n' if preview else 'Allow: /\n'+''.join('\nUser-agent: '+bot+'\nAllow: /\n' for bot in AI_CRAWLERS)+'\nSitemap: '+SITE_URL+'sitemap.xml\nSitemap: '+SITE_URL+'sitemap_index.xml\nSitemap: '+SITE_URL+'feed.xml\nSitemap: '+SITE_URL+'feed-en.xml\nSitemap: '+SITE_URL+'feed-ja.xml\n'+''.join('Sitemap: '+SITE_URL+path+'\n' for path in EXTRA_SITEMAPS))).encode('utf-8')
     if not preview:
         outputs['llms.txt']=llms_txt(site,entries,reference=reference)
@@ -684,6 +685,24 @@ def atom_feed(site, entries, language=None):
     head=('<?xml version="1.0" encoding="UTF-8"?>\n<feed xmlns="http://www.w3.org/2005/Atom"'+(f' xml:lang="{language}"' if language else '')+'><title>'+html.escape(label)+' | '+html.escape(site['name'])+'</title>'
           '<link rel="self" type="application/atom+xml" href="'+SITE_URL+name+'"/><link rel="alternate" type="text/html" href="'+SITE_URL+index+'"/>'
           '<id>'+SITE_URL+name+'</id><updated>'+updated+'</updated><author><name>'+html.escape(site['name'])+'</name><uri>'+SITE_URL+'</uri></author>')
+    return (head+''.join(items)+'</feed>').encode('utf-8')
+
+def r_full_feed(site, entries):
+    """Atom feed with the full English text of the articles flagged r_feed (R-only feed for R-bloggers)."""
+    items=[]
+    for a in entries:
+        m=a['meta']
+        if not m.get('r_feed') or 'en' not in m['locales']:continue
+        body,_=render_body(a,'en')
+        body=re.sub(r'(src|href)="(?!https?:|mailto:|#|/)([^"]+)"',lambda x:x[1]+'="'+SITE_URL+'writing/'+x[2]+'"',body)
+        url=SITE_URL+'writing/'+a['slug']+('-en' if m['source_language']!='en' else '')+'.html'
+        loc=m['locales']['en']
+        published=datetime.fromisoformat(m['publish_at']).isoformat() if m.get('publish_at') else m['date']+'T00:00:00+09:00'
+        items.append('<entry><title>'+html.escape(loc['title'])+'</title><link rel="alternate" type="text/html" href="'+url+'"/><id>'+url+'</id><published>'+published+'</published><updated>'+atom_time(m)+'</updated><category term="R"/><summary xml:lang="en">'+html.escape(loc['summary'])+'</summary><content type="html">'+html.escape(body)+'</content></entry>')
+    updated=max((atom_time(a['meta']) for a in entries if a['meta'].get('r_feed')),default='2026-01-01T00:00:00+09:00')
+    head=('<?xml version="1.0" encoding="UTF-8"?>\n<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en"><title>R and pharmacometrics (English, full text) | '+html.escape(site['name'])+'</title>'
+          '<link rel="self" type="application/atom+xml" href="'+SITE_URL+'feed-r.xml"/><link rel="alternate" type="text/html" href="'+SITE_URL+'writing.html"/>'
+          '<id>'+SITE_URL+'feed-r.xml</id><updated>'+updated+'</updated><author><name>'+html.escape(site['name'])+'</name><uri>'+SITE_URL+'</uri></author>')
     return (head+''.join(items)+'</feed>').encode('utf-8')
 
 def new_article(slug, language, title):
