@@ -731,7 +731,7 @@
       "tech": "R",
       "url": "https://github.com/DaikiKumakura/bulkdeconv",
       "status": "R package (v0.1.0)",
-      "description": "An R package for estimating cell-type composition or abundance from human and mouse tumor bulk RNA-seq through one function.",
+      "description": "An R package that runs 18 published cell-type deconvolution and cell-abundance methods for human and mouse tumor bulk RNA-seq through one function, bulkdeconv(), and returns the same kind of result for all of them: scores per sample and cell type, what the numbers are and what may be compared, and input and signature-coverage checks.",
       "featured": true,
       "links": [
         {
@@ -747,16 +747,16 @@
           "label": "Examples and method requirements"
         }
       ],
-      "note": "Check each method's species, input scale and interpretation. Some methods return abundance scores rather than proportions.",
+      "note": "Fifteen methods (including quanTIseq, MCP-counter, xCell, xCell2, ESTIMATE, TIMER, mMCP-counter, seq-ImmuCC and BASE) are implemented in the package, reproduce the output of the original implementations in the tests and run after installation, with their reference data included; EPIC, DCQ and SSMD run from their original packages after bulkdeconv_install(). Methods that need registration (CIBERSORT, CIBERSORTx, EcoTyper, ImmuCC) are not included. Some methods return fractions, others abundance or enrichment scores, which compare one cell type across samples. R CMD check passes on Linux, macOS and Windows in CI. Not on CRAN or Bioconductor.",
       "ja": {
         "status": "Rパッケージ（v0.1.0）",
-        "description": "ヒトとマウスの腫瘍バルクRNA-seqから、細胞型の組成または存在量を1つの関数で推定するRパッケージ。",
-        "note": "手法ごとに、対応する生物種、入力のスケール、結果の解釈を確認すること。一部の手法は、割合ではなく存在量のスコアを返す。"
+        "description": "ヒトとマウスの腫瘍バルクRNA-seqについて、公表された18の細胞型デコンボリューション・細胞存在量推定の手法を、1つの関数bulkdeconv()で実行するRパッケージ。どの手法でも、サンプル×細胞型のスコア、数値の意味と比較してよい範囲、入力とシグネチャー遺伝子の被覆の検査を、同じ形で返す。",
+        "note": "15手法（quanTIseq、MCP-counter、xCell、xCell2、ESTIMATE、TIMER、mMCP-counter、seq-ImmuCC、BASEなど）はパッケージ内に実装し、テストで元の実装の出力を再現する。参照データも同梱しており、インストールするだけで動く。EPIC・DCQ・SSMDは、bulkdeconv_install()で元のパッケージを入れて実行する。登録が必要な手法（CIBERSORT、CIBERSORTx、EcoTyper、ImmuCC）は含まない。割合を返す手法と、存在量やエンリッチメントのスコアを返す手法があり、スコアは同じ細胞型をサンプル間で比べるためのもの。R CMD checkはCIのLinux・macOS・Windowsで通過。CRANとBioconductorには未登録。"
       },
       "doi": "10.5281/zenodo.24210482",
       "slug": "bulkdeconv",
       "headline": "bulkdeconv: cell-type deconvolution in R",
-      "summary": "Estimate cell-type composition or abundance in human and mouse tumor bulk RNA-seq with one R function.",
+      "summary": "R package running 18 published cell-type deconvolution methods for human and mouse tumor bulk RNA-seq through one function, 15 of them built in.",
       "details": [],
       "install": [
         {
@@ -809,7 +809,7 @@
       "tech": "R",
       "url": "https://github.com/DaikiKumakura/retiaudit",
       "status": "R package (v0.1.0)",
-      "description": "A small, dependency-free R companion to reticulate that reports Python selection overrides and project markers before Python starts, for diagnosing why managed requirements from py_require() are not used.",
+      "description": "A small, dependency-free R package for when reticulate ignores managed Python requirements: before Python starts, it lists the settings that steer Python selection (explicit overrides, managed-environment flags, active environments, project markers) and checks them against the intended managed or existing environment.",
       "featured": false,
       "links": [
         {
@@ -828,13 +828,13 @@
       "note": "Initial version, not on CRAN. R package checks pass in CI on Linux, Windows and macOS (October 5, 2026). It reports visible hints and does not reproduce reticulate's own discovery; use reticulate's diagnostics for actual configuration.",
       "ja": {
         "status": "Rパッケージ（v0.1.0）",
-        "description": "reticulateを補う、依存パッケージのない小さなRパッケージ。Pythonの起動前に、Pythonの選択を上書きする設定とプロジェクトの目印を報告し、py_require()で管理した要件が使われない原因を調べる。",
+        "description": "reticulateがpy_require()で管理したPythonの要件を使わないときのための、依存パッケージのない小さなRパッケージ。Pythonの起動前に、Pythonの選択を左右する設定（明示的な上書き、管理環境の有効・無効、有効化された環境、プロジェクトの目印）を列挙し、意図した管理環境または既存環境と食い違いがないかを調べる。",
         "note": "初版で、CRANには未登録。RパッケージのチェックはCIのLinux・Windows・macOSで通過（2026年10月5日）。見えている手がかりを報告するもので、reticulate自身の探索は再現しない。実際の構成はreticulateの診断機能で確認すること。"
       },
       "doi": "10.5281/zenodo.24210476",
       "slug": "retiaudit",
       "headline": "retiaudit: reticulate Python audit",
-      "summary": "Dependency-free R companion to reticulate that reports Python selection overrides and project markers before Python starts.",
+      "summary": "Dependency-free R preflight for reticulate: why py_require() is ignored, from the Python selection hints, checked before Python starts.",
       "details": [],
       "install": [
         {
@@ -878,7 +878,7 @@
       "tech": "Python",
       "url": "https://github.com/DaikiKumakura/CRiSM",
       "status": "Prototype",
-      "description": "A Python CLI connecting marker-gene discovery and extraction from genomes with alignment, sequence concatenation, and phylogenetic inference.",
+      "description": "A Python command-line tool that builds a phylogenetic tree from genome FASTA files with one command: it finds marker genes with Prodigal and HMMER, keeps the genomes that have every marker, aligns and trims each marker, concatenates them and runs IQ-TREE 2. Marker sets for 16 and 15 ribosomal proteins, RpS3, 16S rRNA, GyrA and RecA are included.",
       "featured": true,
       "links": [
         {
@@ -889,7 +889,7 @@
       "note": "Invocation, failure handling and marker-alignment validation are implemented. Nine smoke tests passed locally and in Linux CI on October 3, 2026. Installed CLI execution was checked; the complete phylogenetic workflow with external tools remains unvalidated.",
       "ja": {
         "status": "試作",
-        "description": "ゲノムからのマーカー遺伝子の探索・抽出を、アラインメント、配列の連結、系統推定へつなぐPythonのCLI。",
+        "description": "ゲノムのFASTAファイルから、1つのコマンドで系統樹を作るPythonのコマンドラインツール。ProdigalとHMMERでマーカー遺伝子を探し、すべてのマーカーを持つゲノムを選び、マーカーごとにアラインメントとトリミングを行って連結し、IQ-TREE 2で系統推定する。16個・15個のリボソームタンパク質、RpS3、16S rRNA、GyrA、RecAのマーカーセットを同梱する。",
         "note": "起動、失敗時の処理、マーカーのアラインメントの検証を実装済み。2026年10月3日に、9件の簡易テストがローカルとLinuxのCIで通過した。インストールしたCLIの実行は確認済み。外部ツールを使う系統解析の全工程は未検証。"
       },
       "slug": "crism",
@@ -933,11 +933,11 @@
       "url": "https://github.com/DaikiKumakura/Dockerfiles",
       "featured": false,
       "status": "Analysis environments",
-      "description": "Dockerfiles for running existing bioinformatics tools in containers, including genome and metagenome analysis environments.",
+      "description": "Dockerfiles for 54 bioinformatics tools and environments (assembly, annotation, read processing, alignment, RNA-seq, metagenomics), published on Docker Hub as kumalpha/<name>; seqkit and MAFFT are the maintained ones.",
       "note": "MAFFT and SeqKit environments were refreshed and passed Docker builds plus small FASTA execution checks in Linux CI on October 3, 2026. Other environment definitions remain historical and unverified.",
       "ja": {
         "status": "解析環境",
-        "description": "既存のバイオインフォマティクスツールをコンテナで動かすためのDockerfile集。ゲノム解析とメタゲノム解析の環境を含む。",
+        "description": "バイオインフォマティクスの54のツール・環境（アセンブリ、アノテーション、リード処理、アラインメント、RNA-seq、メタゲノム）のDockerfile集。Docker Hubにkumalpha/<名前>として公開している。保守しているのはseqkitとMAFFTの2つ。",
         "note": "MAFFTとSeqKitの環境を更新し、2026年10月3日にLinuxのCIで、Dockerのビルドと小さなFASTAでの実行確認が通過した。他の環境定義は過去のもので、未検証。"
       },
       "links": [],
