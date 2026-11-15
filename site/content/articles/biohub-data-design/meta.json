@@ -25,6 +25,6 @@
     "summary": "Four designs allocate the same 28,800 cells across combinations, donors and cells per arm. Exact bias-variance calculations distinguish sampling precision from missing-combination assumptions and expose preparation overhead at equal cell counts."
   },
   "reviewed": {
-    "en": "63e1f0c2b008dd4fe3972e87cee15a6451a48e13828ed846ec686885ff7935e2"
+    "en": "8f3307ddd07e7133e39c909f5681e25c7ee1297200999d24a341da28a178b62e"
   }
 }
