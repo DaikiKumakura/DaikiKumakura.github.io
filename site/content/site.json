@@ -772,7 +772,7 @@
       "tech": "R",
       "url": "https://github.com/DaikiKumakura/bulkdeconv",
       "status": "R package (v0.1.0)",
-      "description": "An R package that runs 19 published cell-type deconvolution and cell-abundance methods for human and mouse tumor bulk RNA-seq through one function, bulkdeconv(), and returns the same kind of result for all of them: scores per sample and cell type, what the numbers are and what may be compared, and input and signature-coverage checks.",
+      "description": "An R package that runs 21 published cell-type deconvolution and cell-abundance methods for human and mouse tumor bulk RNA-seq through one function, bulkdeconv(), and returns the same kind of result for all of them: scores per sample and cell type, what the numbers are and what may be compared, and input and signature-coverage checks.",
       "featured": true,
       "links": [
         {
@@ -792,16 +792,16 @@
           "label": "R-universe"
         }
       ],
-      "note": "Fifteen methods (including quanTIseq, MCP-counter, xCell, xCell2, ESTIMATE, TIMER, mMCP-counter, seq-ImmuCC and BASE) are implemented in the package, reproduce the output of the original implementations in the tests and run after installation, with their reference data included; EPIC, BayesPrism, DCQ and SSMD run from their original packages after bulkdeconv_install(). BayesPrism comes with references for four mouse tumor models (B16F10, MC38, CT26, LLC), built from public scRNA-seq of each model; on pseudo-bulk samples from an independent dataset, the error of the malignant-cell fraction (RMSE) was 0.007-0.098. Methods that need registration (CIBERSORT, CIBERSORTx, EcoTyper, ImmuCC) are not included. Some methods return fractions, others abundance or enrichment scores, which compare one cell type across samples. R CMD check passes on Linux, macOS and Windows in CI. Not on CRAN or Bioconductor.",
+      "note": "Eighteen methods (including quanTIseq, MCP-counter, xCell, xCell2, ESTIMATE, TIMER, GEDIT, mMCP-counter, seq-ImmuCC and BASE) are implemented in the package and run after installation, with their reference data included; the first fifteen reproduce the output of the original implementations in the tests; EPIC, DCQ and SSMD run from their original packages after bulkdeconv_install(). Methods that need registration (CIBERSORT, CIBERSORTx, EcoTyper, ImmuCC) are not included. Some methods return fractions, others abundance or enrichment scores, which compare one cell type across samples. R CMD check passes on Linux, macOS and Windows in CI. Not on CRAN or Bioconductor.",
       "ja": {
         "status": "Rパッケージ（v0.1.0）",
-        "description": "ヒトとマウスの腫瘍バルクRNA-seqについて、公表された19の細胞型デコンボリューション・細胞存在量推定の手法を、1つの関数bulkdeconv()で実行するRパッケージ。どの手法でも、サンプル×細胞型のスコア、数値の意味と比較してよい範囲、入力とシグネチャー遺伝子の被覆の検査を、同じ形で返す。",
-        "note": "15手法（quanTIseq、MCP-counter、xCell、xCell2、ESTIMATE、TIMER、mMCP-counter、seq-ImmuCC、BASEなど）はパッケージ内に実装し、テストで元の実装の出力を再現する。参照データも同梱しており、インストールするだけで動く。EPIC・BayesPrism・DCQ・SSMDは、bulkdeconv_install()で元のパッケージを入れて実行する。BayesPrismには、マウス腫瘍モデル4種（B16F10、MC38、CT26、LLC）の参照を、各モデルの公開scRNA-seqから作って同梱した。別のデータセットから作った疑似バルクで、悪性細胞の割合の誤差（RMSE）は0.007〜0.098だった。登録が必要な手法（CIBERSORT、CIBERSORTx、EcoTyper、ImmuCC）は含まない。割合を返す手法と、存在量やエンリッチメントのスコアを返す手法があり、スコアは同じ細胞型をサンプル間で比べるためのもの。R CMD checkはCIのLinux・macOS・Windowsで通過。CRANとBioconductorには未登録。"
+        "description": "ヒトとマウスの腫瘍バルクRNA-seqについて、公表された21の細胞型デコンボリューション・細胞存在量推定の手法を、1つの関数bulkdeconv()で実行するRパッケージ。どの手法でも、サンプル×細胞型のスコア、数値の意味と比較してよい範囲、入力とシグネチャー遺伝子の被覆の検査を、同じ形で返す。",
+        "note": "18手法（quanTIseq、MCP-counter、xCell、xCell2、ESTIMATE、TIMER、GEDIT、mMCP-counter、seq-ImmuCC、BASEなど）はパッケージ内に実装し、最初の15手法はテストで元の実装の出力を再現する。参照データも同梱しており、インストールするだけで動く。EPIC・DCQ・SSMDは、bulkdeconv_install()で元のパッケージを入れて実行する。登録が必要な手法（CIBERSORT、CIBERSORTx、EcoTyper、ImmuCC）は含まない。割合を返す手法と、存在量やエンリッチメントのスコアを返す手法があり、スコアは同じ細胞型をサンプル間で比べるためのもの。R CMD checkはCIのLinux・macOS・Windowsで通過。CRANとBioconductorには未登録。"
       },
       "doi": "10.5281/zenodo.24210482",
       "slug": "bulkdeconv",
       "headline": "bulkdeconv: cell-type deconvolution in R",
-      "summary": "R package running 19 cell-type deconvolution methods for human and mouse tumor bulk RNA-seq through one function, including BayesPrism for mouse tumor models.",
+      "summary": "R package running 21 published cell-type deconvolution methods for human and mouse tumor bulk RNA-seq through one function, 18 of them built in.",
       "details": [],
       "install": [
         {
