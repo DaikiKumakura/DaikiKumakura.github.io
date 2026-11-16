@@ -38,7 +38,7 @@ The relative risk reduction at this fixed time is approximately 40.7%. It is clo
 
 Table 1. Author calculations from rounded two-year RFS estimates. NNT denotes number needed to treat. The inputs are time-specific survival estimates accounting for censoring, not crude observed proportions calculated directly from patient counts.
 
-Rounding NNT upward gives approximately nine. This is not a guarantee that treating nine particular people saves one life. The outcome is recurrence or death by two years, not lifetime mortality. Subtracting the endpoints of the two arm-specific confidence intervals also does not produce a valid 95% confidence interval for their difference. I have not estimated intervals for the difference or NNT; only point estimates are shown.
+Rounding the NNT point estimate up to a whole number gives nine. This is not a guarantee that treating nine particular people saves one life. The outcome is recurrence or death by two years, not lifetime mortality. Subtracting the endpoints of the two arm-specific confidence intervals also does not produce a valid 95% confidence interval for their difference. I have not estimated intervals for the difference or NNT; only point estimates are shown.
 
 ## A single number does not describe when benefit appears
 

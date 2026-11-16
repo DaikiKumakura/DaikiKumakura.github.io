@@ -22,7 +22,7 @@ A predicted maximum need not be experimentally favorable where the model is inac
 
 Loop 1 evaluates hidden known culture conditions. For example, condition 210, strongly inducing the megakaryocytic lineage, was withheld to test whether inverse design could approach it. Prospective culture testing of newly selected conditions begins in Loop 2 ([original Figures 3–4](https://doi.org/10.64898/2026.10.07.756550)).
 
-Loop 2 selects three conditions each for megakaryocytic progenitors (MgkPro), erythroid progenitors (EryPro), phenotypic HSCs (pHSC) and Pre-ProB cells. This reaggregation covers only those 12. Targets and uncertainty categories came from the authors' [analysis notebook](https://github.com/theislab/LabCompass-reproducibility/blob/0d0ffb093431b2e0a0ff765d0423071aa380c3dc/data_notebooks/loop2/data_analysis/experimental_results_analysis.ipynb) ([2](#ref-2)). Condition 245 is high uncertainty there but low uncertainty in the paper's Loop 3 description. Categories for 245 and 246 are therefore notebook-specific, not definitive uncertainty ranks.
+Loop 2 selects three conditions each for megakaryocytic progenitors (MgkPro), erythroid progenitors (EryPro), phenotypic hematopoietic stem cells (pHSCs) and Pre-ProB cells. This reaggregation covers only those 12. Targets and uncertainty categories came from the authors' [analysis notebook](https://github.com/theislab/LabCompass-reproducibility/blob/0d0ffb093431b2e0a0ff765d0423071aa380c3dc/data_notebooks/loop2/data_analysis/experimental_results_analysis.ipynb) ([2](#ref-2)). Condition 245 is high uncertainty there but low uncertainty in the paper's Loop 3 description. Categories for 245 and 246 are therefore notebook-specific, not definitive uncertainty ranks.
 
 The public dataset ([3](#ref-3)) supplies `loop2_annotated.h5ad` and `loop2p5_annotated.h5ad`, processed, annotated and subsampled files rather than all raw measurements. Together they contain 999,995 cells. Excluding 55,555 cells from out-of-scope condition 247 leaves 12 conditions, 67 wells and 944,440 cells.
 
@@ -45,7 +45,7 @@ Table 1. Loop 2 candidates and equally weighted mean target-cell fractions. Pre-
 | pHSC | 243 / 0.0124% | 244 / 0.0039% | 250 / 0.0039% |
 | Pre-ProB | 246 / 0.109% | 245 / 0.0614% | 251 / 0.105% |
 
-Low-uncertainty MgkPro condition 239 performed best. For EryPro, high-uncertainty condition 242 exceeded low-uncertainty 241. Predictive uncertainty and measured enrichment are different rankings.
+Low-uncertainty MgkPro condition 239 yielded a high target-cell fraction. For EryPro, high-uncertainty condition 242 exceeded low-uncertainty 241. Predictive uncertainty and measured enrichment are different rankings.
 
 Selected pHSC and Pre-ProB fractions were low. An HSC annotation does not demonstrate functional self-renewal. The paper acknowledges limited enrichment at this stage and later adds conditions affecting lymphoid and monocytic lineages to the design space. This code does not reaggregate those later results ([1](#ref-1), Loop 3 and Discussion).
 

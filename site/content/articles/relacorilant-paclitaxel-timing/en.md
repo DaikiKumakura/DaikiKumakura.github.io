@@ -4,9 +4,9 @@ The approved intermittent relacorilant–nab-paclitaxel regimen does not involve
 
 Relacorilant antagonizes the glucocorticoid receptor (GR). Its effects on taxane response through GR and changes in paclitaxel exposure through drug interactions require separate consideration ([2](#ref-2)).
 
-Two pharmacokinetic questions arise: how much the combination changes paclitaxel exposure, and how relacorilant's own exposure is positioned around the infusion. Observations addressing the first question do not necessarily predict the interaction after changing the timing of the second drug.
+Two pharmacokinetic questions arise: how much the combination changes paclitaxel exposure, and how relacorilant concentrations change before and after the infusion. Observations addressing the first question do not necessarily predict the interaction after changing the timing of the second drug.
 
-I reanalyzed published aggregate PK from the phase II trial and used relacorilant PopPK coefficients in the FDA review to quantify this distinction. **Dose-normalized paclitaxel AUC₀–₆ was 1.66 times higher with intermittent combination therapy than with monotherapy. Shifting the same nine relacorilant doses by 24 hours changed parent-drug concentrations at infusion without changing cycle AUC.**
+I reanalyzed published aggregate PK from the phase II trial and used relacorilant PopPK coefficients in the FDA review to quantify this distinction. **Dose-normalized paclitaxel AUC₀–₆ was 1.66 times as high with intermittent combination therapy as with monotherapy. Shifting the same nine relacorilant doses by 24 hours changed parent-drug concentrations at infusion without changing cycle AUC.**
 
 Sources were checked on October 22, 2026. Timing changes here are research comparisons using public information, not proposed changes to clinical treatment.
 

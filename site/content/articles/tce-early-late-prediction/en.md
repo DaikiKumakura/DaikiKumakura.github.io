@@ -60,7 +60,7 @@ The small concentration-dependent model is
 
 Concentration \(C\) is in nM, time \(t\) and lag \(\tau\) in hours, and \(k_{\max}\) in inverse hours. With an assumed 100% ceiling and initially \(\tau=0\), I fit \(k_{\max}\) and \(EC_{50}\) separately for each line. The nine concentrations at two early times receive equal weight in least-squares fitting.
 
-Here \(EC_{50}\) is the concentration halving the model's rate term, not the EC50 of the 72-hour concentration-response curve or binding KD. Nor is \(k_{\max}\) an individual T cell's killing rate.
+Here \(EC_{50}\) is the concentration at which the model's rate is half its maximum, not the EC50 of the 72-hour concentration-response curve or binding KD. Nor is \(k_{\max}\) an individual T cell's killing rate.
 
 I then fix lag at every integer hour from 0 through 47, refitting the two coefficients each time. The selected lag minimizes error at 24 and 48 hours, not error at 72 hours.
 
@@ -148,7 +148,7 @@ The comparison also varies concentration of one molecule rather than ranking dif
 
 The lag model has lower pooled error, but carrying 48 hours forward predicts MDA-MB-468 more accurately. Similar early fits can produce divergent later predictions, so average scores do not establish stable extrapolation.
 
-Low-response conditions contribute to the 18-series score, and donors and experimental days were not independently validated. Digitization sensitivity does not certify that any particular concentration can forgo a 72-hour measurement.
+Low-response conditions contribute to the 18-series score, and donors and experimental days were not independently validated. The digitization sensitivity analysis does not establish that the 72-hour measurement can be omitted at any particular concentration.
 
 ## Data and code availability
 

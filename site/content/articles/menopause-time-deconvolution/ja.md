@@ -1,6 +1,6 @@
 「閉経で全身の検査値が急に変わる」。そう聞くと、同じ人から何年も採血し、その変わり目を捉えた研究を想像する。今回おもしろいのは、別の道を通っているところだ。
 
-Pridham、Hayutらの研究は、年齢の異なる人たちの検査データから、最終月経を基準にした集団の時間変化を復元した。2026年10月12日にNature Medicineで公開され、[The journal also featured it on X](https://x.com/NatureMedicine/status/2110748336613732637) ([1](#ref-1))。
+Pridham、Hayutらの研究は、年齢の異なる人たちの検査データから、最終月経を基準にした集団の時間変化を復元した。2026年10月12日にNature Medicineで公開され、[同誌がXでも紹介した](https://x.com/NatureMedicine/status/2110748336613732637) ([1](#ref-1))。
 
 私は「崖」という言葉より、時計の合わせ方が気になった。50歳という年齢が同じでも、最終月経の前にいる人と後にいる人が混ざっている。その混ざり方が分かれば、ぼやけた変化をどこまで戻せるのだろう。
 
@@ -33,7 +33,7 @@ $$
 | NHANES | Age, menstrual status and self-reported FMP age for some participants | Latent FMP ages are multiply imputed; flexible regression models are compared and averaged |
 | Clalit | Age-specific laboratory measurements; menstrual status unavailable | A reference FMP-age distribution connects age-specific averages to a piecewise-linear response with a jump and slope change |
 
-NHANESでは15組の代入データを作り、不確実性を統合している。月経状態が分かれば、FMPが現在より前か後かという制約が入る。自己申告のFMP年齢がある人は、さらに情報が増える。年齢だけから全員の時計を当てているわけではない。
+NHANESでは15組の代入データを作り、不確実性を統合している。月経状態が分かれば、FMPが現在より前か後かという制約が入る。最終月経時の年齢を自己申告した人については、その情報も使える。年齢だけから全員の時計を当てているわけではない。
 
 Clalitの基本モデルには、次の形の項が含まれる。
 
@@ -78,7 +78,7 @@ $$
 
 ## 同じ年齢平均を違う変化から作れてしまう {#_4}
 
-まず \(\tau=1.5\) 年、\(\sigma_M=4\) 年と置く。観測曲線の幅パラメータは
+まず \(\tau=1.5\) 年、\(\sigma_M=4\) 年と置く。年齢で平均した曲線の尺度パラメータは
 
 $$
 \sqrt{1.5^2+4^2}=\sqrt{18.25}\simeq4.272\ \text{年}

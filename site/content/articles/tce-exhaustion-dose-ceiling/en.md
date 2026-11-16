@@ -70,7 +70,7 @@ Subtracting the same zero-concentration reading from all points introduces a sha
 
 The lower Tex than Teff signal at the upper observed concentrations, and the large error reduction when ceilings are state specific, indicate a difference that is difficult to summarize as a rightward shift alone. The close agreement between the observed highest-concentration ratio and the full-data fitted ceiling ratio is expected because the fit includes that highest-concentration point; it is not independent confirmation. A finite concentration range does not establish the true infinite-concentration maximum. Behavior outside that range remains unmeasured.
 
-This distinction matters when asking whether more drug restores a response. In these two donors, increasing concentration through the observed maximum did not bring Tex to the matched Teff luminescence signal. That does not establish that patient dose escalation is ineffective, and T-cell functional recovery was not measured here. The supported conclusion is narrower: summarizing a weak concentration response by EC50 alone can omit a response-ceiling difference present within the measured range.
+This distinction matters when asking whether more drug restores a response. In these two donors, increasing concentration through the observed maximum did not bring Tex to the matched Teff luminescence signal. That does not establish that patient dose escalation is ineffective, and T-cell functional recovery was not measured here. The supported conclusion is narrower: summarizing a weak concentration response by EC50 alone can omit a response difference at the upper end of the measured concentration range.
 
 ## Data and code availability
 

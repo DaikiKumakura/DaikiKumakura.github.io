@@ -78,13 +78,13 @@ Matching origin can reduce an unwanted classification cue. It does not establish
 
 ## Beyond antigen presentation
 
-MHC binding, cell-surface presentation, T-cell recognition and therapeutic effect are different observations. This calculation does not even resolve the first distinction: it concerns only separation of evaluation labels.
+MHC binding, cell-surface presentation, T-cell recognition and therapeutic effect are different observations. The calculation measures separation of dataset labels without modeling either binding or presentation.
 
 That restricted question still matters for cancer vaccines. With a limited number of experimental slots, the desired quantity is ranking among the actual candidate pool. Successful rejection of artificial decoys alone does not establish that ranking.
 
 The calculation omits other sequence features, MHC alleles, dependence among candidates and undetected positives among competitors. The full reported dataset was not reanalyzed. The conclusion is about interpretation, not rejection of NetMHCpan as a whole: **an AUC without a specified negative-generation process cannot establish the ability to select cancer-vaccine candidates**.
 
-The paper explicitly notes that source-species and cysteine corrections were applied together, preventing separation of their effects. Each condition is a single run of a 50-MLP ensemble, without seed-level confidence intervals. The 50 members are not 50 independent estimates of the intervention effect. The evaluation set was also regenerated, so reporting only the improving metric would not establish general improvement ([1](#ref-1), Section 5).
+The paper explicitly notes that source-protein and cysteine-status matching were applied together, preventing separation of their effects. Each condition is a single run of a 50-MLP ensemble, without seed-level confidence intervals. The 50 members are not 50 independent estimates of the intervention effect. The evaluation set was also regenerated, so reporting only the improving metric would not establish general improvement ([1](#ref-1), Section 5).
 
 *Revised 3 November 2026: full HTML checked; FRANK candidate set, dataset versions, joint-correction confounding and single-ensemble limitations clarified. Independent calculations are unchanged.*
 

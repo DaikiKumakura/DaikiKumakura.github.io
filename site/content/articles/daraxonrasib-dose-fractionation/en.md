@@ -2,7 +2,7 @@ Daraxonrasib (RMC-6236) is a RAS(ON) multi-selective inhibitor targeting active 
 
 Fractionation can reduce peaks without necessarily improving safety. In FDA analyses, grade 3 or higher treatment-emergent adverse events (TEAEs) are positively associated with minimum concentration, whereas grade 3 or higher treatment-related adverse events (TRAEs) are positively associated with maximum concentration. Moving those metrics in opposite directions creates competing interpretations.
 
-Using published population-PK coefficients, I simulated 4,096 paired conditional individuals to compare dose reduction with daily-dose-preserving fractionation. Relative to 300 mg once daily, 150 mg every 12 hours gives median within-person ratios of approximately 0.77 for maximum concentration and 1.49 for minimum concentration. This is an exposure tradeoff, not a prediction of improved safety.
+Using published population-PK coefficients, I simulated 4,096 virtual individuals at fixed reference covariates and evaluated every regimen in each individual to compare dose reduction with daily-dose-preserving fractionation. Relative to 300 mg once daily, 150 mg every 12 hours gives median within-person ratios of approximately 0.77 for maximum concentration and 1.49 for minimum concentration. This is an exposure tradeoff, not a prediction of improved safety.
 
 ## Question and scope
 
@@ -142,7 +142,7 @@ Table 5. Conditional odds ratios projecting published QD associations onto hypot
 | 100BID | 0.993 (0.723–1.07) | 0.599 (0.349–0.788) | 0.602 |
 | 200+100 | 1.30 (1.16–1.50) | 0.796 (0.615–0.925) | 1.000 |
 
-Medians and 5th–95th percentiles use point-estimate slopes. These are transported QD associations, not causal BID effects or validated safety predictions. For 150BID, the Cmax-based TRAE association decreases while the Cmin-based TEAE association increases. They cannot be combined into one safety score. Correlated exposure metrics, disease, treatment duration and selected model forms also prevent identifying peak and trough as separate causes.
+Medians and 5th–95th percentiles use point-estimate slopes. These calculations apply associations from QD data to hypothetical regimens, not causal BID effects or validated safety predictions. For 150BID, the Cmax-based TRAE association decreases while the Cmin-based TEAE association increases. They cannot be combined into one safety score. Correlated exposure metrics, disease, treatment duration and selected model forms also prevent identifying peak and trough as separate causes.
 
 Canceling an intercept does not eliminate dependence on absolute concentration differences. The approximately 20% discrepancy from the label and unequal aggregation conditions still affect OR magnitudes. These values illustrate direction and sensitivity rather than calibrated effect sizes.
 

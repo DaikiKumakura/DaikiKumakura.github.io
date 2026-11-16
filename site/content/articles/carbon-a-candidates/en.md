@@ -80,7 +80,7 @@ Comparative genomics and drug research can depend on whether a species lacks a g
 
 Approximately half the snapshot total comes from additional assemblies of the same species. Approximately 60%, 275 million, were estimated above confidence 0.5, with many high-confidence predictions matching RefSeq structures in annotated species. Missing or low-yield assemblies contribute gaps that are not captured by counting predicted loci alone.
 
-Providing confidence-ranked maps for thousands of poorly annotated species is valuable. But positional overlap, exact exon structure, transcription, translation and function remain different levels of support.
+The confidence-ranked maps provide candidate loci for thousands of poorly annotated species. In many assemblies with RefSeq, more than 90% of predictions overlapped annotated positions, while exact exon-boundary agreement varied strongly with confidence. Positional overlap can help establish where to look for a gene, whereas applications that need the protein sequence, such as structure prediction or ortholog comparisons, also depend on exon structure.
 
 The release reports approximately 62% complete-CDS support from Iso-Seq in four species, near the corresponding RefSeq value ([1](#ref-1)). This supports transcripts and structures, not protein translation or biological function. Ribosome profiling and mass spectrometry are identified as further evidence needed for the latter. Requirements also depend on the claim: a candidate transcript and a newly functional protein should not be described as equally established.
 

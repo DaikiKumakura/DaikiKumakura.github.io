@@ -1,4 +1,4 @@
-First place identifies the top row of a leaderboard, not necessarily a method reliably better than its competitors. I compared three 2026 examples: the OpenADMET PXR challenge, LifeSciBench and AIntibody. Published numbers were transcribed; derived quantities come from the distributed `numbers.py`. I could not read the AIntibody full paper or Inductive Bio release, so corresponding claims remain secondary-source observations.
+First place identifies the top row of a leaderboard, not necessarily a method reliably better than its competitors. I compared three 2026 examples: the OpenADMET PXR challenge, LifeSciBench and AIntibody. Published numbers were transcribed; derived quantities come from the distributed `numbers.py`. I could not read the AIntibody full paper or the Inductive Bio release. The AIntibody figures come from secondary sources and a company release. The Inductive Bio claim could not be assessed.
 
 ## Conditions behind a ranking
 
@@ -70,7 +70,7 @@ Table 4. Three challenges as described by secondary sources.
 | 2 Affinity ranking | Models beat selecting the most abundant clone in 9.8–13.8% of cases; the newsletter reports random selection beating models in 39%, but the precise interpretation of 39% is unresolved from the inspected source. |
 | 3 De novo CDR design | Best affinity 2.9 pM fails developability; best passing result 8.69 pM versus experimental 9.2 pM. Nonbinding submissions: 30.4%. |
 
-Here pM is a concentration unit for a dissociation constant. Under comparable conditions, a lower constant means higher affinity. The 94.7-pM value is 16.2% below 113 pM, or a 1.19-fold ratio (`results/summary.json`); this is not a general measure of binding being “16% stronger.” Measurement variation and repeat-assay details were absent from the inspected material. Challenge 2–3 values and the consensus baseline depend on one newsletter.
+Here pM is a concentration unit for a dissociation constant. Under comparable conditions, a lower constant means higher affinity. The 94.7-pM value is 16.2% below 113 pM, or a ratio of 113 to 94.7 of about 1.19 (`results/summary.json`); this is not a general measure of binding being “16% stronger.” Measurement variation and repeat-assay details were absent from the inspected material. Challenge 2–3 values and the consensus baseline depend on one newsletter.
 
 Aureka's headline says its AI design surpasses the best experimental result. Its release compares 94.7 and 113 pM and reports challenge-1 places 1, 2 and 5; challenge-2 place 3; and challenge-3 place 9, without significance, intervals or repeat-assay variation ([7](#ref-7)). Commentary calls the leading comparison a statistical tie and warns against interpreting it as field-wide computational superiority. Nondistinguishability is not a demonstrated equivalence margin.
 

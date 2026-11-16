@@ -56,7 +56,7 @@ Table 2. Conditional exposure scales under alternative aggregation assumptions.
 | GM + geometric CV | 4,106.0 | 3.44 (2.71–4.35) | 87.3 mg (69.0–110.5) |
 | AM + SD/mean CV | 3,805.7 | 3.18 (2.52–4.03) | 94.2 mg (74.4–119.2) |
 
-Parentheses are approximate location-sensitivity ranges from \(\log GM\pm t_{12,0.975}\sqrt{\log(1+CV^2)/13}\). The arithmetic-mean conversion simplifies variance-estimation uncertainty. These are not original-trial confidence intervals and do not resolve mismatched intervals, populations or definitions. Matching doses are calculated as \(300/K\), not proposed prescriptions. The 50 and 75 mg conditions do not instruct tablet splitting, which the label disallows ([sections 2.2 and 3](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2026/220910Orig1s000Lbl.pdf)).
+Parentheses are approximate location-sensitivity ranges from \(\log GM\pm t_{12,0.975}\sqrt{\log(1+CV^2)/13}\). The arithmetic-mean conversion simplifies variance-estimation uncertainty. These are not original-trial confidence intervals and do not resolve mismatched intervals, populations or definitions. The calculated matching doses are \(300/K\) (87.3 or 94.2 mg under the two assumptions). They do not constitute prescribing recommendations. The 50 and 75 mg conditions do not instruct tablet splitting, which the label disallows ([sections 2.2 and 3](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2026/220910Orig1s000Lbl.pdf)).
 
 ![Conditional scale under alternative mean definitions](shared/vopimetostat-daraxonrasib-exposure/figures/conditional-scale.png)
 
@@ -111,7 +111,7 @@ Table 4. Paired exposure ratios under two AUC-matched structures.
 
 Values are medians of within-individual ratios. Constant AUC ratios follow from common K and linear balance, not precise clinical prediction. Minimum concentration is the minimum within 24 hours and need not occur immediately before dosing because of lag.
 
-At 100 mg, AUC ratio is 1.15 in both structures, but Cmax ratios are 1.34 versus 0.794 and minimum ratios 1.09 versus 2.14. Cmax 5th–95th percentiles are 1.21–1.50 for input scaling and 0.616–1.03 for CL scaling. Matching AUC matches neither peaks nor troughs.
+At 100 mg, AUC ratio is 1.15 in both structures, but Cmax ratios are 1.34 versus 0.794 and minimum ratios 1.09 versus 2.14. Cmax 5th–95th percentiles are 1.21–1.50 for input scaling and 0.616–1.03 for CL scaling. Matching AUC does not guarantee matching peaks or minimum concentrations.
 
 ![Paired exposure ratios under two structural scenarios](shared/vopimetostat-daraxonrasib-exposure/figures/paired-exposure.png)
 

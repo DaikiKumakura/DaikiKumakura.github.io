@@ -70,7 +70,7 @@ Brier score is \(\frac{1}{n}\sum_i(Y_i-\widehat p_i)^2\), with smaller values in
 | Week 3 only | 0.1684 | 0.5175 |
 | Carry forward week-3 state | 0.2037 | Not reported |
 
-The main-model Brier-score difference was −0.02454. Combining week 3 with baseline was more accurate in this cohort than converting week-3 status alone into a probability.
+The main-model Brier-score difference was −0.02454. Adding week-3 status to the baseline-only model reduced prediction error in this cohort.
 
 ![Held-out prediction scores and calibration](shared/tebentafusp-early-ctdna/figures/heldout-calibration.svg)
 

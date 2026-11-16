@@ -83,7 +83,7 @@ The split unit also limits interpretation. Base identifiers were created by remo
 
 One training metadata row reports IC50 as “>0.032 µM”. That lower bound cannot determine whether the value is below 10 µM, so the audit records it as unknown. None of the 43 test rows is ambiguous at this threshold. The audit does not establish how that training row was ultimately handled during model fitting.
 
-## Respiration and AR degradation do not improve equally
+## Changes in respiratory function and AR degradation potency
 
 The reaggregation confirms lower saved scores, improved respiratory activity at 0.1–1 µM and a changed AR-degradation EC50. The study's strength lies in connecting off-target proteomic changes to functional assays and molecular redesign.
 

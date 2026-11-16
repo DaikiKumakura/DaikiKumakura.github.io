@@ -4,7 +4,7 @@ A mortality hazard ratio of 0.42 does not describe how much additional survival 
 
 These are neither differences in reported medians nor new estimates of lifetime survival. They compare time spent alive, or alive without progression, within the same 12-month window.
 
-## Aligning the window from maintenance randomization
+## Aligning the window from randomization to maintenance treatment
 
 DeLLphi-305 randomized patients with extensive-stage small-cell lung cancer who had not progressed after initial chemoimmunotherapy to tarlatamab plus durvalumab or durvalumab alone. The October 24, 2026 report gave median OS of 21.1 versus 12.7 months and an OS hazard ratio of 0.42 ([Pérol et al., 2026](https://doi.org/10.1056/NEJMoa2609482)).
 
@@ -87,7 +87,7 @@ The two-arm comparison also does not identify pharmacologic synergy, the separat
 
 The reproducible result from these public curves is an absolute time difference within a common 12-month horizon: approximately 1.91 months for OS and 3.80 months for PFS. Reading this quantity alongside hazard ratios and medians makes the meaning of benefit more explicit.
 
-## Analysis material
+## Data and code availability
 
 [Code, extracted coordinates and aggregate tables](shared/dellphi305-time-benefit/dellphi305-time-benefit-analysis.zip). Run `analysis/download_sources.py` to verify the public PDF hash, then `analysis/run.py` to regenerate the tables and figures. The original PDF and original slide images are excluded from the companion. The supplied figures are newly drawn and the numerical integrations are independent calculations.
 

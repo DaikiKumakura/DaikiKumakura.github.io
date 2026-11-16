@@ -20,7 +20,7 @@ For dissolved oxygen concentration \(C\), a minimal balance is
 
 Here \(C^*\) is the saturation concentration in equilibrium with the gas phase, \(k_La\) is the volumetric mass-transfer coefficient, and \(q(C)\) is oxygen consumption per unit culture volume. The first term supplies oxygen to the liquid; the second removes it.
 
-If biomass is represented separately, consumption can be written as \(q(C)=q_O(C)X\). Here biomass \(X\) is fixed and absorbed into the consumption term. Growth, death, substrate consumption and product accumulation are omitted.
+If cell density is represented separately, consumption can be written as \(q(C)=q_O(C)X\). Here cell density \(X\) is fixed and absorbed into the consumption term. Growth, death, substrate consumption and product accumulation are omitted.
 
 Replacing an unknown \(q\) with a neural network \(q_\theta\) makes the equipment parameter \(k_La\) an explicit place to change the model when moving between vessels. That makes the intervention easier to interpret than with a predictor that directly returns oxygen concentration. It does not guarantee that the data distinguish among different possible \(q_\theta\) functions satisfying the same balance.
 
@@ -80,13 +80,13 @@ If flexible biological consumption and equipment transfer are estimated together
 
 Independent information about equipment coefficients and coverage of the receiving process's concentration range serve different purposes. The former helps separate balance terms; the latter reduces extrapolation of the consumption curve. Counting culture runs alone does not reveal which information was added.
 
-The well-mixed model also erases local hypoxia and exposure history. Two vessels with the same average concentration may expose cells to different cycles between oxygen-rich and oxygen-poor regions. Predicting the average does not establish transportability of a cellular state that responds to those histories.
+The well-mixed model also erases local hypoxia and exposure history. Two vessels with the same average concentration may expose cells to different cycles between oxygen-rich and oxygen-poor regions. Predicting the average does not establish that the model reproduces how cells respond to those histories.
 
 For digital-twin control, the response to an operation matters in addition to prediction error. Predicting one operating condition and supporting decisions about gas supply or feeding are different validation targets. Comparisons with historical yield records also need to account for cell line, product, culture duration, quality, measurements and human interventions.
 
 ## Limitations and conclusion
 
-The calculation assumes fixed biomass, perfect mixing, constant saturation concentration and steady state. It predicts neither product concentration nor quality and does not convert uptake differences into yield differences. Temperature, carbon dioxide, pH, shear, metabolic switching and controller delay are omitted. No data establish which consumption curve is closer to real cells.
+The calculation assumes fixed cell density, perfect mixing, constant saturation concentration and steady state. It predicts neither product concentration nor quality and does not convert uptake differences into yield differences. Temperature, carbon dioxide, pH, shear, metabolic switching and controller delay are omitted. No data establish which consumption curve is closer to real cells.
 
 The calculation nevertheless clarifies a requirement for transfer. Embedding a learned model in physical equations creates a place to separate equipment from biology. Whether data support that separation remains an empirical question. **Moving from prediction in one vessel to use in another requires identifying the biological response when operating conditions change.**
 

@@ -72,7 +72,7 @@ Figure 1. Synthetic heating at 0.5 °C/min. Solid lines use the reference concen
 
 Although B's equilibrium midpoint is fixed at 69 °C, its \(T_{50,N}\) ranges from 68.04 to 68.90 °C. Slower heating leaves more time for loss, while higher concentration accelerates the assumed two-molecule process. The same changes have much smaller effects on A.
 
-A and B do not reverse rank in these conditions. This is not evidence that changing a protocol must reverse rankings. It shows a condition-dependent displacement of the observed half-loss temperature for a molecule whose equilibrium midpoint remains unchanged.
+A and B do not reverse rank in these conditions. This is not evidence that changing a protocol must reverse rankings. It shows a condition-dependent displacement of the temperature at which half the initial material remains as native monomers for a molecule whose equilibrium midpoint remains unchanged.
 
 I checked that native, unfolded and irreversibly lost fractions sum to one and that the loss fraction remains between zero and one. Relaxing the integrator's relative tolerance from \(10^{-10}\) to \(10^{-8}\) left the table unchanged at two decimal places. These are numerical checks, not biological validation.
 

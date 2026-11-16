@@ -6,7 +6,7 @@
 
 ## 同じ抗体形式でも測定系は異なる
 
-対象は2026年4月公開のpH応答性anti-CD3抗体研究のFigure 10である。親抗体40G5cと改変体Q90LE・T89LDを、同じ二価IgG形式で比較している。結合はJurkat細胞の平均蛍光強度、活性化は二つのドナー由来の初代T細胞における48時間後のCD4陽性細胞のCD69発現である。図の記号はtechnical duplicatesの平均で、活性化の生物学的ドナー数は2である（[La Sala et al., 2026, Figure 10](https://pmc.ncbi.nlm.nih.gov/articles/PMC13128029/#f0010)）。
+対象は2026年4月公開のpH応答性anti-CD3抗体研究のFigure 10である。親抗体40G5cと改変体Q90LE・T89LDを、同じ二価IgG形式で比較している。結合はJurkat細胞の平均蛍光強度、活性化は二つのドナー由来の初代T細胞における48時間後のCD4陽性細胞のCD69発現である。図の記号は各条件を二重測定した平均値で、T細胞の提供者は2人だった（[La Sala et al., 2026, Figure 10](https://pmc.ncbi.nlm.nih.gov/articles/PMC13128029/#f0010)）。
 
 | Antibody | Binding EC50, pH 6.5 | Binding EC50, pH 7.4 | Activation EC50, pH 6.5 (D1/D2) | Activation EC50, pH 7.4 (D1/D2) |
 | --- | ---: | ---: | ---: | ---: |
@@ -18,7 +18,7 @@
 
 結合アッセイは溶液中の抗体とJurkat細胞を4℃で反応させている。一方、活性化アッセイでは抗体をプレートにコートして洗浄した後、T細胞を培養する。活性化EC50の横軸はコート時の抗体濃度であり、培養中の遊離薬物濃度ではない。この違いを無視して二つのEC50を同じ機序パラメータとして結び付けることはできない（[原著のBinding assay on Jurkat cellsとPrimary T cell activation assay](https://pmc.ncbi.nlm.nih.gov/articles/PMC13128029/)）。
 
-本解析の問いは、親抗体における結合と活性化の倍率関係を、そのまま改変体へ移せるか、である。用途は、この抗体モジュールの評価系間の予測可能性を調べることに限定する。腫瘍標的とCD3を架橋する完成したTCEの薬効や、安全な投与濃度を予測するものではない。
+親抗体における結合と活性化の倍率関係を、そのまま改変体に適用できるかを調べた。用途は、この抗体モジュールの評価系間の予測可能性を調べることに限定する。腫瘍標的とCD3を架橋する完成したTCEの薬効や、安全な投与濃度を予測するものではない。
 
 ## 親抗体だけで変換係数を決める
 
@@ -86,7 +86,7 @@ D1の中性条件では、結合EC50はT89LDの方が低いのに、活性化EC5
 
 [解析コード・転記値・出力表](shared/ph-binding-activation-transfer/ph-binding-activation-transfer-analysis.zip)。`analysis/download_sources.py`で公開Figure 10を確認し、`analysis/run.py`で係数校正・未使用改変体の予測・図表作成を行う。`python -m unittest discover -s tests`で親抗体の再現と未使用結果の分離を検査する。原図は再配布せず、取得URLとSHA-256を記録した。
 
-## References
+## 参照
 
 La Sala G, Kroell KB, Pincha M, et al. Engineering of acidic pH-responsive anti-CD3 binding antibodies. *mAbs*. 2026;18(1):2658902. [doi:10.1080/19420862.2026.2658902](https://doi.org/10.1080/19420862.2026.2658902).
 

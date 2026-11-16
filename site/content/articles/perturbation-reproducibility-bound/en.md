@@ -4,7 +4,7 @@ Suppose we know the response to knocking down a gene in one cell line. What happ
 
 Is cross-context prediction difficult because the models are immature, or because the responses themselves change with context? Before answering, there is a more basic question: **how reproducible is the response when the same experiment is repeated in the same cell line?**
 
-## Raw correlations substantially underestimate reproducibility {#_1}
+## Error correction substantially changes the correlation between independent K562 screens {#_1}
 
 A small correlation in public data does not by itself establish that responses change greatly across backgrounds. Reproducibility between repeated experiments in the same cell line and the effects of measurement error must first be distinguished.
 
@@ -28,7 +28,7 @@ This directly affects evaluation of cross-context prediction.
 
 ### Measurement reproducibility and prediction ceilings
 
-A prediction–observation correlation of 0.2 cannot be judged without knowing the noise in the observations. The relevant bound depends on what is compared. For two measurements, such as copying an observed response from another cell line, the raw correlation r between within-context replicates is a reference. For a noise-free prediction against a noisy observation, the bound is approximately \(\sqrt{r}\) under additive errors of equal variance that are independent of each other and of the true effect; \(r=0.16\) gives about 0.40. The value 0.16 belongs to this dataset and processing procedure, not to Perturb-seq generally. Reliability differs by perturbation, so the square root of the median 0.16 is not an exact ceiling for an aggregate metric across all perturbations. A bound has to be estimated for each dataset, for example through split-half replicates.
+A prediction–observation correlation of 0.2 cannot be judged without knowing the noise in the observations. The relevant bound depends on what is compared. For two measurements, such as copying an observed response from another cell line, the raw correlation r between within-context replicates is a reference. For a noise-free prediction against a noisy observation, the bound is approximately \(\sqrt{r}\) if both replicates measure the same true effect with independent additive errors of equal variance; \(r=0.16\) gives about 0.40. The value 0.16 belongs to this dataset and processing procedure, not to Perturb-seq generally. Reliability differs by perturbation, so the square root of the median 0.16 is not an exact ceiling for an aggregate metric across all perturbations. The measurement-noise bound must be estimated for each dataset. A random split of cells (split-half) estimates reproducibility within the same experiment and does not capture variability between independent experiments.
 
 ### Baselines depend on available information
 

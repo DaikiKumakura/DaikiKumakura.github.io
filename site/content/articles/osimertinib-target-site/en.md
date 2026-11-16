@@ -195,13 +195,13 @@ so \(\overline C_{tumor,nonEGFR}\simeq K_{p,tumor}\overline C_{plasma}\). This s
 | Administered dose = body amount + eliminated amount + unabsorbed amount | Maximum relative error: 7.3e-15 |
 | Seven unit tests | Mass balance, binding bounds, Jacobian, dose proportionality without binding, absorption loss, and source parameters passed |
 
-Integration is segmented at daily dosing events, carrying predose amounts into the next integration. BDF and an analytical Jacobian handle stiff binding rates; Radau with tighter tolerances provides a comparison. Extending the horizon to 56 days also checks stability. Numerical stability is not clinical validity.
+Integration is segmented at daily dosing events, carrying predose amounts into the next integration. BDF and an analytical Jacobian handle the numerical stiffness associated with the binding kinetics; Radau with tighter tolerances provides a comparison. Extending the horizon to 56 days also checks stability. Numerical stability is not clinical validity.
 
 Outputs come from `analysis/run_analysis.py`; tables are `outputs/tables/exposure.csv` and `sensitivity.csv`; verification results are in `outputs/verification.json`. There is no random sampling, and plotted curves do not represent population intervals.
 
 ## Discussion {#_5}
 
-Plasma and total tumor amounts did not change by the same factor. Absolute binding fractions depended on the absorption interpretation, and the binding state itself did not represent irreversible inhibition.
+Plasma and total tumor concentrations did not increase by the same factor. Absolute binding fractions depended on the absorption interpretation, and the binding state itself did not represent irreversible inhibition.
 
 Observed total PET signal, modeled drug amount, and irreversible target binding are different quantities. This analysis does not validate irreversible binding or target turnover and does not evaluate CNS penetration from a lung-tumor result.
 

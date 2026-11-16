@@ -20,7 +20,7 @@ Figure 5 Source Data provides participant-level maximum fold changes across vacc
 | Positive maximum summaries in Figure 5i | 78 | Tumor-matched responders |
 | Participants linked across both positive panels | 78 | Selected population with two positive summaries |
 
-Every ID in the 78-participant panel was present in the 89-participant panel, with no duplicate IDs within either. The 12 absent tumor-matched numeric summaries were not assigned fold changes of zero or one. The calculations are implemented in `analysis/run.py`; the grain and row audit is saved in `outputs/data-quality-audit.json`.
+Every ID in the 78-participant panel was present in the 89-participant panel, with no duplicate IDs within either. The 12 absent tumor-matched numeric summaries were not assigned fold changes of zero or one. The calculations are implemented in `analysis/run.py`; the checks of row counts and what each row represents is saved in `outputs/data-quality-audit.json`.
 
 ## Conditioning on 89 responders or 90 evaluable participants
 
@@ -58,7 +58,7 @@ Measurements used ex vivo Fluorospot or intracellular cytokine staining (ICS). T
 
 The maxima are not synchronized measurements at a common sampling time. Their ratio cannot establish recognition of actual tumor cells, T-cell trafficking into tumors or cytotoxic potency.
 
-## Including the six unascertained participants
+## How the six unevaluated participants affect the response bounds
 
 The allocation population of 96 differs from the immune-evaluable population of 90 by six participants. Rather than impute their responses, the analysis calculates the arithmetic range obtained if none or all six satisfy a recorded response category:
 

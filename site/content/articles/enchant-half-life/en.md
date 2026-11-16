@@ -113,7 +113,7 @@ Terminal half-life depends on terminal distribution volume Vz and clearance: t½
 The log-half-life variance decomposes algebraically:
 
 - var(log t½) = 0.37, var(log Vss) = 0.40, var(log derived CL) = 0.42, and covariance of log Vss and log derived CL = 0.23, corresponding to correlation 0.55.
-- Relative to half-life variance, the Vss covariance contribution was 47% and the derived-CL contribution 53%; they sum to 100% by identity.
+- Subtracting the covariance from each component variance assigns 47% of log-half-life variance to Vss and 53% to derived CL; they sum to 100% by identity.
 
 Positive correlation between volume and clearance makes half-life variance, 0.37, much smaller than the sum of the individual variances, 0.82. Some positive correlation is mechanically induced because CL was derived using Vss. Measured clearance is needed to establish the biological relationship.
 
@@ -127,7 +127,7 @@ Positive correlation between volume and clearance makes half-life variance, 0.37
 
 Measured Vss was easier to predict from structure. Predictability of derived CL partly inherits that of Vss, so these results do not establish that actual clearance is difficult to predict. They show that half-life ranks were harder to predict than Vss ranks. A high half-life Spearman cannot identify whether volume or clearance was predicted correctly.
 
-For dosing, AUC is determined by bioavailability times dose divided by CL, whereas half-life influences interval and accumulation. A model predicting half-life primarily through volume could still mispredict exposure. That is an inference from PK relationships, not a result demonstrated by this analysis.
+For dosing, AUC equals the product of bioavailability and dose divided by CL, whereas half-life influences interval and accumulation. A model predicting half-life primarily through volume could still mispredict exposure. That is an inference from PK relationships, not a result demonstrated by this analysis.
 
 The Enchant white paper states that it tabulates other PK parameters ([3](#ref-3)). Separate clearance and volume results could address this question, but I could not establish their contents from the accessible text.
 

@@ -92,7 +92,7 @@ Within the published exposure–response relationship, starting dose largely det
 
 Several further questions remain outside this calculation:
 
-- **Later-dose CRS.** A lower start creates larger concentration increases after the second and third doses. The second-dose analysis found no significant exposure relationship, and too few first-full-dose events supported a model.
+- **Later-dose CRS.** A lower start creates larger concentration increases after the second and third doses. The second-dose analysis found no significant exposure relationship, and there were too few events after the first full dose to fit a model.
 - **Extrapolation to other designs.** The regression was estimated in 183 recipients of 12/32/76 mg. Concentrations such as 75 ng/mL lie away from the center of those data. The original regression also used individual post hoc exposures, whereas this article uses population-simulated exposures. I did not compare predictions with actual CRS outcomes for 4/20/76 mg.
 - **Efficacy.** Concentrations almost converge across designs after day 15, as Figure 1A shows, but the model cannot determine whether differences during the first two weeks alter response.
 - **Clinical benefit.** Differences in any-grade CRS probability do not establish differences in severe CRS, hospitalization duration, tocilizumab use, ICANS, or infections. Those outcomes were not evaluated.

@@ -16,7 +16,7 @@ Counts are normalized to 10,000 per cell and transformed with log1p, the natural
 
 Double-perturbation cells are randomly split into three fixed-seed groups. The first selects the 50 largest-changing genes, avoiding selection on the same sampling noise used for evaluation. Activated targets A and B are excluded after an initial analysis revision; changes before and after revision are reported below. At least one target was absent from the initial 7,812-gene set in 97 of 131 pairs. The other two groups provide nonoverlapping cell observations within the same experiment, not independent biological replicates.
 
-The nonadditive fraction F multiplies each observation's residual from the additive prediction and divides by the cross-product of observed changes. Independent mean-zero observation errors cancel in expectation in the cross-product. F=0 represents additivity; F=0.2 describes a nonadditive squared-change component equal to 20% of the change norm, not 20% of genes. Estimates can exceed one when residuals exceed total change or become negative through noise.
+The nonadditive fraction F multiplies each observation's residual from the additive prediction and divides by the cross-product of observed changes. Independent mean-zero observation errors cancel in expectation in the cross-product. F=0 represents additivity; F=0.2 describes a nonadditive squared-change component equal to 20% of the squared change norm, not 20% of genes. Estimates can exceed one when residuals exceed total change or become negative through noise.
 
 A one-coefficient comparison multiplies the additive prediction by c, fitted using the first split independently of the evaluation groups. c<1 attenuates the sum and c>1 amplifies it. I also fit separate coefficients c1 and c2 for A and B, as in Norman et al.; the single-coefficient form constrains c1=c2. The original study uses these coefficients among other information to classify synergy, suppression and dominance. This analysis revisits those patterns quantitatively.
 
@@ -41,7 +41,7 @@ Table 1. Nonadditivity and additive-prediction summaries, excluding target genes
 | Median additive R², including noise | 0.89 |
 | Median R² between two observation groups | 0.96 |
 
-The prespecified rule calls headroom small when median F<0.2. The result meets that rule. Interquartile range means the 25th–75th percentiles. Additive R² of 0.89 versus repeat-group agreement of 0.96 gives an orienting gap, not a universal model ceiling.
+The prespecified rule calls headroom small when median F<0.2. The result meets that rule. Interquartile range means the 25th–75th percentiles. Additive R² of 0.89 versus within-experiment agreement between splits of 0.96 gives an orienting gap, not a universal model ceiling.
 
 Excluding target genes changed median F from 0.090 to 0.094, left the count above 0.2 at 27, and changed scaled median F from 0.047 to 0.061. Moving coefficient estimation to the first split also contributes to the last change.
 
@@ -90,13 +90,13 @@ Both c and scaled F use c fitted on the first split. Scaling can worsen held-out
 
 Of these 27 pairs, 22 have c<1; their post hoc median c is 0.70. Many largely preserve change direction while attenuating magnitude. Two-coefficient fits additionally reveal attenuation of one contribution: for ZC3HAV1+CEBPE, coefficients are 0.96 and 0.46, respectively. This includes patterns resembling the original dominance category, beyond uniform attenuation. Three pairs have c>1.8: FEV+CBFA2T3, PTPN12+UBASH3A and CNN1+UBASH3A.
 
-Five of the 27 remain above F=0.2 after one coefficient, so 22 fall below it. These are not necessarily the same 22 with c<1. Three originally below 0.2 instead rise above it, giving eight among all 131. C3orf72+FOXL2 has only 59 cells and scaled F=1.83 versus unscaled 0.78. KIF18B+KIF2C has repeat-group R²=−0.16; its underlying change is poorly measured. C3orf72+FOXL2 has agreement 0.50. Such small-cell or weak-change estimates are unreliable.
+Five of the 27 remain above F=0.2 after one coefficient, so 22 fall below it. These are not necessarily the same 22 with c<1. Three originally below 0.2 instead rise above it, giving eight among all 131. C3orf72+FOXL2 has only 59 cells and scaled F=1.83 versus unscaled 0.78. KIF18B+KIF2C has between-split R²=−0.16; its underlying change is poorly measured. C3orf72+FOXL2 has agreement 0.50. Such small-cell or weak-change estimates are unreliable.
 
 Seven of the 27 pairs contain the granulocytic-differentiation transcription factor CEBPE. Its large single-perturbation response tends to weaken in combinations. This exploratory observation cannot distinguish biological interaction from guide efficiency or changed differentiation-state composition. Across all 131 pairs, median c is 0.99, interquartile range 0.82–1.19; 22% have c<0.8. Both attenuation and amplification occur.
 
 ## Interpreting predictive-model evaluations
 
-Additivity is a strong comparator here: it explains approximately 90% of squared response change at the median. A model improvement operates within the remaining component. Placing that gain alongside repeat-group agreement makes its scale clearer.
+Additivity is a strong comparator here: it explains approximately 90% of squared response change at the median. A model improvement operates within the remaining component. Placing that gain alongside within-experiment agreement between splits makes its scale clearer.
 
 Much of the large residual concerns magnitude, either uniform scaling or attenuation of one single-perturbation contribution. Predicting which combinations scale differently is therefore a concrete challenge, consistent with Norman et al.'s coefficient-based classification.
 

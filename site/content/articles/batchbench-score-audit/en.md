@@ -6,7 +6,7 @@ BatchBench, a preprint released on October 21, 2026 ([1](#ref-1)), benchmarks id
 
 Cell Painting stains intracellular structures to characterize morphological drug responses ([2](#ref-2)). Images also contain differences in microscopes, staining, plates and experiment dates. JUMP Cell Painting is a large public dataset imaged at 13 sources with different microscopes and workflows ([1](#ref-1), [3](#ref-3)), and batch effects across laboratories and equipment have been noted to limit the integration of image-based profiles ([4](#ref-4)).
 
-BatchBench makes this problem central. It selects the 2,000 most frequent compounds from JUMP Cell Painting and one field of view per well. Inputs are five-channel images; the task is to identify the administered compound among 2,000 classes ([1](#ref-1)).
+BatchBench makes this problem central. It selects the 2,000 most frequent compounds from JUMP Cell Painting and one field of view per well. Inputs are five-channel images; the task is to identify the compound added to the well among 2,000 classes ([1](#ref-1)).
 
 Eight of nine public sources provide training data, with source 2 reserved for validation. Four additional sources provide private test data, and test images also come from unseen batches and plates ([1](#ref-1)). This differs from randomly splitting images from the same source. Reaggregating public labels and source information confirmed 81,880 training images, 13,335 validation images, 2,000 training classes and 1,877 validation classes ([5](#ref-5)). No compound appeared only in validation.
 
@@ -96,7 +96,7 @@ Aggregate accuracy depends on the POSCON, TARGET and REST mixture. Macro accurac
 
 ## Conclusion {#conclusion}
 
-Of the improvement in aggregate accuracy with AdaBN, from 17.5% to 24.4%, approximately 94.5% is accounted for by images of the eight positive-control compounds, which make up 36.2% of private-test images. The TARGET gain (293 compounds) was 0.7 points, with an assumption-dependent approximate interval including zero, and REST did not change at the displayed precision. Most aggregate improvement comes from the strong-phenotype controls. The aggregate score alone does not establish comparable improvement for weak responses and compounds with few images. This conclusion depends on rounded three-seed means and descriptive calculations with subgroup accuracies held fixed. It is not a re-evaluation of models on the private test set, so actual performance under a changed composition of image groups is not estimated.
+Aggregate accuracy rose from 17.5% to 24.4% with AdaBN. When the gain was reconstructed from subgroup accuracies, approximately 94.5% came from images of the eight positive-control compounds, which accounted for 36.2% of private-test images. The TARGET gain (293 compounds) was 0.7 points, with an assumption-dependent approximate interval including zero, and REST did not change at the displayed precision. Most aggregate improvement comes from the strong-phenotype controls. The aggregate score alone does not establish comparable improvement for weak responses and compounds with few images. This conclusion depends on rounded three-seed means and descriptive calculations with subgroup accuracies held fixed. It is not a re-evaluation of models on the private test set, so actual performance under a changed composition of image groups is not estimated.
 
 ## Data and code availability {#_4}
 

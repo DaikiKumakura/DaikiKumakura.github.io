@@ -136,7 +136,7 @@ In B, omitting one sample can reverse the mean ranking. Sample composition there
 
 ## RNA coverage is not surface-antigen coverage
 
-These fractions count cells meeting RNA detection rules. They do not estimate surface density, antibody-accessible targets or killing by T-cell engagers (TCEs) or antibody–drug conjugates (ADCs). RNA non-detection cannot be separated from surface-antigen negativity; adding cells does not bridge that measurement difference.
+These fractions count cells meeting RNA detection rules. They do not estimate surface density, antibody-accessible targets or killing by T-cell engagers (TCEs) or antibody–drug conjugates (ADCs). These data cannot determine whether cells with undetected RNA lack surface antigen; adding cells does not bridge that measurement difference.
 
 The original study ([1](#ref-1)) examined response to tarlatamab using circulating tumor cells (CTCs). Its treatment-response population and the tissue single-cell populations analyzed here are not matched patients. Applying the original response rates to RNA coverage would not create an individual response model. Complementary RNA detection does not demonstrate combination efficacy or suppression of antigen escape.
 
@@ -153,7 +153,7 @@ python analysis/run.py
 python -m unittest discover -s tests -v
 ```
 
-Definitions in the original coexpression Methods, Figure 7 and public code were rechecked on October 29, 2026. Original worksheet row numbers are retained. `sample_coverage.csv` holds all 29 rows and exclusion flags, `group_summaries.csv` main and sensitivity results, and `frozen_rule_comparison.csv` uniform versus retrospective choices. The fixed seed is 2026102502 with 10,000 resamples. Tiny negative reconstructed-state values of absolute magnitude below \(10^{-7}\), caused by source rounding, are clipped only for plots; original values remain in outputs.
+Definitions in the [original coexpression Methods and Figure 7](https://doi.org/10.1158/2159-8290.32728810) and public code were rechecked on October 29, 2026. Original worksheet row numbers are retained. `sample_coverage.csv` holds all 29 rows and exclusion flags, `group_summaries.csv` main and sensitivity results, and `frozen_rule_comparison.csv` uniform versus retrospective choices. The fixed seed is 2026102502 with 10,000 resamples. Tiny negative reconstructed-state values of absolute magnitude below \(10^{-7}\), caused by source rounding, are clipped only for plots; original values remain in outputs.
 
 ## References
 

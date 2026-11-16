@@ -20,7 +20,7 @@ It does not itself implement population nonlinear mixed-effects estimation. Inst
 - **Conditions:** skill present, S1 and S2; absent, N1 and N2. In skill runs I placed its directory in the workspace and instructed the agent to read `SKILL.md` first. I did not use the skill's normal activation mechanism.
 - **Workspace:** a fresh directory per run containing only the 515-row `warfarin` dataset from nlmixr2data ([3](#ref-3)). Because my analysis existed elsewhere on the same computer and online, agents were instructed not to read outside the workspace, search the web or install packages. These were instructions, not technically enforced restrictions. R 4.5.3, nlmixr2est 7.1.0, rxode2 5.1.8 and Python 3.12 were available.
 - **Task:** inspect data; construct population PK and PK/PD models; report estimates, uncertainty, diagnostics, comparisons and limits; answer whether a person's concentrations up to 24 hours improve prediction of prothrombin complex activity (PCA) after 24 hours relative to a population prediction. The common prompt is distributed.
-- **Scoring:** criteria were set before the experiment using my analysis as a reference. Scoring was unblinded and performed by the reference analysis's authors, myself and my assistant. One analyst's analysis is a comparator, not ground truth.
+- **Scoring:** criteria were set before the experiment using my analysis as a reference. I assessed the outputs with help from my assistant. We knew which runs used the skill. One analyst's analysis is a comparator, not ground truth.
 
 Two runs per condition support description, not estimation of the skill's effect.
 
@@ -70,7 +70,7 @@ All answered that there was no evidence of improvement. Mean subject RMSE differ
 
 The population comparator differed from mine. Agents used a model-estimated baseline rather than the person's observed baseline PCA; my analysis normalized by baseline. An additional S2 comparison improved slightly when baseline PCA was added.
 
-My code checks found the 24-hour cutoff correctly respected in all runs. Refitting was less reliable. In two of S1's eight folds, PK estimates stayed at their initial values, rounded estimates from the full dataset. Predictions therefore retained information from data including held-out participants. S2's leave-one-out FOCEi fits also started from full-data estimates, without checking movement. N2 tested this approach, found 26 of 32 fits unchanged and supplemented it with SAEM. Although unlikely to reverse the overall direction, these failures mean part of the claimed cross-validation was not valid.
+My code checks found the 24-hour cutoff correctly respected in all runs. Refitting was less reliable. In two of S1's eight folds, PK estimates stayed at their initial values, rounded estimates from the full dataset. Predictions therefore retained information from data including held-out participants. S2's leave-one-out FOCEi fits also started from full-data estimates, without checking movement. N2 tested this approach, found 26 of 32 fits unchanged and supplemented it with SAEM. Although unlikely to reverse the overall direction, the folds that retained full-data estimates did not keep the evaluation data separate.
 
 ## Weaknesses found in the outputs
 

@@ -47,7 +47,7 @@ Table 2. Pareto judgments under alternative reading ranges.
 
 Robust dominance requires even the favorable candidate's worst values to match or exceed its comparator's best values. This is digitization sensitivity, not experimental statistical uncertainty. Neither range comes from a measured error distribution.
 
-For example, E0078 is approximately 15 genes and 81.8% knockdown, versus E0077 at 16 genes and 65.7%. Knockdown differs considerably, but gene counts differ by approximately one. With ±1-gene ranges, their ordering on that axis is unresolved and strict two-axis dominance fails.
+For example, E0078 is approximately 15 genes and 81.8% knockdown, versus E0077 at 16 genes and 65.7%. Knockdown differs considerably, but gene counts differ by approximately one. With ±1-gene ranges, their ordering on that axis is unresolved and the candidate no longer meets the dominance criterion after accounting for reading ranges.
 
 E0078 versus E0071 is approximately 15 versus 42 genes and 81.8 versus 78.5%. Dominance persists under ±1 ranges but disappears for this pair with ±2-percentage-point vertical ranges. E0071 remains dominated by another candidate. Pairwise comparisons and a candidate's overall status differ.
 
@@ -71,7 +71,7 @@ Here DRUG-seq costs approximately US$10,000 or 25% more than qPCR, even if cost 
 
 The poster describes the data as a machine-learning foundation but does not validate predictions for unseen siRNA sequences. Predicting another concentration for an existing sequence differs from extrapolation to new sequences, chemistry or cell backgrounds.
 
-Among these ten points, target suppression alone loses candidate differences. Adding response counts does not establish whether those changes are beneficial or undesirable. The figure cannot determine one superior candidate. Transfected HepG2 responses also exclude delivery, systemic PK, duration and other-tissue effects relevant to drug performance.
+Among these ten points, target suppression alone misses differences in transcriptional response. Adding response counts does not establish whether those changes are beneficial or undesirable. The figure cannot determine one superior candidate. Transfected HepG2 responses also exclude delivery, systemic PK, duration and other-tissue effects relevant to drug performance.
 
 ## Data and code availability
 

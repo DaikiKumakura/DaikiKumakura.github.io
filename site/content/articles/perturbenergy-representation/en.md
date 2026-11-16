@@ -92,7 +92,7 @@ The “true top 50 DEGs” are selected from measured responses. Error within th
 
 ## What is unseen at evaluation?
 
-According to [Appendix A.3.1](https://arxiv.org/html/2610.18456v1#A1.SS3.SSS1), 30% of perturbations from evaluation cell lines or donors are returned to training for Replogle, PBMC and Tahoe100M. Perturbation labels are observed somewhere in training, and the remaining conditions test transfer. Norman2019 holds out combinations of individually known genes.
+According to [Appendix A.3.1](https://arxiv.org/html/2610.18456v1#A1.SS3.SSS1), 30% of perturbations from evaluation cell lines or donors are included in the training set for Replogle, PBMC and Tahoe100M. Perturbation labels are observed somewhere in training, and the remaining conditions test transfer. Norman2019 holds out combinations of individually known genes.
 
 This does not directly test responses to entirely new compounds. Transferring a known drug to another cell background differs from extrapolating to a new compound. With a learned label table, a previously unseen compound still needs a representation, perhaps from chemical structure, targets or a few measured responses. Each option requires different data and evaluation splits. These results do not jointly validate unseen compounds, concentrations and time points.
 
@@ -100,7 +100,7 @@ This does not directly test responses to entirely new compounds. Transferring a 
 
 Drugs sharing a mechanism can produce similar responses despite distinct labels. The same drug can produce different responses at different concentrations or sampling times. A representation optimized for label recovery need not preserve all biologically relevant distinctions.
 
-The reported expression-RMSE improvements in transfer settings do not establish better follow-up hit rates, survival predictions or avoidance of unwanted responses. A gap remains between latent separation and useful candidate selection.
+The reported expression-RMSE improvements in transfer settings do not establish better follow-up hit rates, predictions of cell viability or avoidance of unwanted responses. A gap remains between latent separation and useful candidate selection.
 
 ## Data and code availability
 

@@ -36,7 +36,7 @@ where \(r\) is the E:T ratio, \(E\) is the ceiling, \(K\) the half-maximal ratio
 
 The horizontal-shift model changes \(K\) to \(qK\) under DEX while sharing the ceiling. The ceiling-change model shares \(K\) and changes the DEX ceiling to \(E/q\). Both have four parameters, \(E,K,h,q\), with \(q\ge1\). The main analysis constrains \(E\le100\), retains observed means slightly above 100 and uses equally weighted least squares.
 
-Both points at a given E:T ratio are removed together. The remaining eight points estimate the model, which predicts the excluded pair. This is repeated across five ratios. It is **validation across unused culture conditions**, not leave-one-donor-out validation.
+Both points at a given E:T ratio are removed together. The remaining eight points estimate the model, which predicts the excluded pair. This is repeated across five ratios. It is a **within-study prediction check across held-out culture conditions**, not leave-one-donor-out validation.
 
 ## Horizontal shift predicted unused conditions better
 
@@ -71,7 +71,7 @@ The original study also includes proliferation, time-course and mouse-tumor expe
 
 Treating the DEX-associated difference as the same fractional loss at every E:T ratio misses the measured response shape. Horizontal shift predicted unused conditions better than a uniform ceiling reduction, but the reference group's measurement range prevented precise quantification of that shift.
 
-## Reproduction
+## Data and code availability
 
 The [analysis code and tables](shared/tce-steroid-effector-ratio/tce-steroid-effector-ratio-analysis.zip) include marker coordinates, axis calibration, models and condition-holdout predictions. Run `python analysis/download_sources.py` to retrieve sources and `python analysis/run.py` to regenerate CSVs and figures. `python -m unittest discover -s tests -v` checks condition splits and numerical recalculation. Original article figures are not included in the companion ZIP.
 

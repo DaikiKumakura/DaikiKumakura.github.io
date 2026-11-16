@@ -98,7 +98,7 @@ Table 3. Exposure in conditional virtual populations after dose adjustment; inte
 | Moderate 6 mg QD | 1,171 [729–1,872] | 63.7 [40.1–100.2] | 35.5 [20.9–60.3] |
 | Severe 3 mg QD | 755 [470–1,207] | 38.8 [24.5–61.1] | 24.7 [14.8–41.1] |
 
-All intervals are conditional virtual-population percentiles. Individual records, joint background-factor distributions and renal-group model validity have not been reconstructed.
+All intervals show the 5th–95th percentiles in the conditional virtual population. Individual records, joint background-factor distributions and renal-group model validity have not been reconstructed.
 
 ![Paired AUC, peak and trough ratios at renal-adjusted doses](shared/inavolisib-renal-dose/figures/02-adjusted-exposure.png)
 

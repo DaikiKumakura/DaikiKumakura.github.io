@@ -28,7 +28,7 @@ A conventional 95% HR interval is the log estimate plus or minus 1.96 standard e
 
 For a balanced comparison, Schoenfeld's approximation gives log-HR variance of approximately \(4/D\), where \(D\) is the event count ([3](#ref-3)). This implies approximately 161 events for 240 mg versus chemotherapy. Rounding the interval limits to two decimal places alone permits roughly 154–169 events. The 160 mg comparison gives approximately 158.
 
-At this information size, two-sided significance at alpha 0.05 requires an observed HR below approximately 0.734. The reported 0.75 lies just outside. About 161 events provide 80% power for a true HR around 0.64, or 90% for around 0.60.
+At this information size, two-sided significance at alpha 0.05 requires an observed HR below approximately 0.734 to favor firmonertinib significantly. The reported 0.75 lies just outside. About 161 events provide 80% power for a true HR around 0.64, or 90% for around 0.60.
 
 These are approximations from public summary statistics. Stratified log-rank and Cox analyses can make the exact event count differ.
 
@@ -85,7 +85,7 @@ Because both dose arms share chemotherapy as control, their reported HR ratio ap
 
 Confirmed BICR response was 60% versus 35%. Assuming approximately 133 patients per arm gives a 25-percentage-point difference, with an approximate 95% CI of 13–37 points. Response favored 240 mg.
 
-Grade ≥3 adverse events of any causality were similar at 52%, 53% and 55%. Treatment-related rates were 26%, 22% and 40%; relatedness judgments may be biased in an open-label trial, and exposure duration may differ ([1](#ref-1)). The topline does not clearly establish a safety difference between doses.
+Grade ≥3 adverse events of any causality were similar at 52%, 53% and 55%. Rates of grade ≥3 treatment-related adverse events were 26%, 22% and 40%; relatedness judgments may be biased in an open-label trial, and exposure duration may differ ([1](#ref-1)). The topline does not clearly establish a safety difference between doses.
 
 The added arm showed lower response at 160 mg than at 240 mg in first-line treatment, at a cost to information in the primary comparison under fixed enrollment. Whether that exchange was worthwhile depends partly on whether the dose information could have been obtained earlier in a randomized phase 2 comparison. These materials do not settle that question.
 
@@ -105,7 +105,7 @@ One possible mechanism is informative censoring. An investigator progression dec
 
 ## Treatment context
 
-First-line treatment has changed since FURVENT was planned. Following PAPILLON's PFS HR of 0.40, the US approved amivantamab plus chemotherapy first line in March 2024 ([5](#ref-5)). This affects the relevance of chemotherapy-only control trials. Oral sunvozertinib 300 mg beat chemotherapy in WU-KONG28 ([4](#ref-4)), but was not first-line approved at the source-check date. Its US accelerated approval was after chemotherapy, at 200 mg. FURVENT belongs in this evolving treatment context.
+First-line treatment has changed since FURVENT was planned. Following PAPILLON's PFS HR of 0.40, the US approved amivantamab plus chemotherapy first line in March 2024 ([5](#ref-5)). This affects the relevance of chemotherapy-only control trials. Oral sunvozertinib 300 mg yielded longer PFS than chemotherapy in WU-KONG28 ([4](#ref-4)), but was not first-line approved at the source-check date. Its US accelerated approval was after chemotherapy, at 200 mg. FURVENT belongs in this evolving treatment context.
 
 ## Dose information and the cost in power
 

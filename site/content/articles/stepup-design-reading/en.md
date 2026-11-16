@@ -37,7 +37,7 @@ Table 1. Evidence explaining CRS and its limitations in the two studies.
 
 ### Concentration explains only part of the response
 
-The elranatamab model links initial concentration to initial CRS. The epcoritamab report instead describes a procedural change with lower CRS without a corresponding consistent exposure difference. CRS also depends on the speed of T-cell activation, target abundance and premedication. Target biology differs: soluble BCMA is relevant in myeloma, whereas CD20 is also expressed on normal B cells in lymphoma. These studies do not isolate all those contributions.
+The elranatamab model links initial concentration to initial CRS. The epcoritamab report instead describes a procedural change with lower CRS with no consistent exposure–CRS relationship within the three-step cohort. CRS also depends on the speed of T-cell activation, target abundance and premedication. Target biology differs: soluble BCMA is relevant in myeloma, whereas CD20 is also expressed on normal B cells in lymphoma. These studies do not isolate all those contributions.
 
 ### Adding a step differs from lowering the first dose
 

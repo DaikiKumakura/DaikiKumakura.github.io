@@ -125,7 +125,7 @@ Tumor-antigen KD alone also does not determine candidate rank. These molecules b
 
 The original paper additionally examines healthy jejunal organoids in [Figure 7](https://doi.org/10.1080/19420862.2025.2584374) and mouse experiments in [Figures 4, 8 and 10](https://doi.org/10.1080/19420862.2025.2584374) ([1](#ref-1)). These do not validate the present TNFα threshold against normal-tissue injury or in-vivo safety. In Figure 10, tolerability required a lower CD3-high dose than for the other molecules, precluding a simple equal-dose comparison. Those animal and normal-tissue results were not fitted or used to rank candidates here.
 
-AUCE also compresses time-course differences into one integrated value ([2](#ref-2)). Equal AUCE need not distinguish an early large response from a sustained later response. Choosing TNFα alone, using representative donor curves and sharing reference/background errors directly limit what these sparse observations establish. A smooth Hill curve cannot supply those unmeasured distinctions.
+AUCE also compresses time-course differences into one integrated value ([2](#ref-2)). A large early response and a sustained later response can yield the same AUCE. Choosing TNFα alone, using representative donor curves and sharing reference/background errors directly limit what these sparse observations establish. A smooth Hill curve cannot supply those unmeasured distinctions.
 
 ## Sparse measurements and boundaries constrain the result
 

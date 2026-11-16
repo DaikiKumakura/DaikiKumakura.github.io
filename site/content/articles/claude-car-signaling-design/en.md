@@ -85,7 +85,7 @@ In practice, mRNA-driven production continues for some time, while cell division
 
 ## How far does the evidence support compact design?
 
-The work can be read as a report of a compact design that retained function and yielded promising candidates in expression and cellular function. Several stages nevertheless separate design from a clinical dose: input mRNA, delivery to the intended T cells, surface CAR, antigen distribution and cellular response. A reduction in mRNA required in culture need not translate proportionally into a lower administered dose in patients.
+The compact design retained function and showed promising expression and cellular activity. Several stages nevertheless separate design from a clinical dose: input mRNA, delivery to the intended T cells, surface CAR, antigen distribution and cellular response. A reduction in mRNA required in culture need not translate proportionally into a lower administered dose in patients.
 
 Likewise, failure to detect IFN-γ without antigen does not establish the absence of every form of persistent basal signaling. Cytotoxicity, cytokine release, exhaustion and long-term persistence are distinct measurement targets. The report itself notes that exhaustion was not measured directly and in vivo performance remains to be established ([1](#ref-1)).
 

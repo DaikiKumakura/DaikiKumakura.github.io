@@ -12,11 +12,11 @@ The model's relative bioavailabilities were nearly equal for fed and two-hour fa
 
 Taletrectinib received FDA approval in 2025 for ROS1 fusion-positive non-small-cell lung cancer. The approved regimen is 600 mg once daily at least two hours before or after a meal.
 
-The FDA review considered the regimen generally acceptable but noted frequent ALT/AST elevations increasing with exposure. It also reported a flat exposure–efficacy relationship and considered the dose insufficiently optimized. Three observations supported further evaluation:
+The FDA review considered the regimen generally acceptable but noted frequent ALT/AST elevations increasing with exposure. It also reported no clear exposure–efficacy relationship and considered the dose insufficiently optimized. Three observations supported further evaluation:
 
 - In healthy participants, a high-fat meal increased AUC and Cmax approximately 1.5-fold versus 10-hour fasting, while fewer gastrointestinal events were observed: diarrhea 10% versus 28%, nausea 0% versus 12%.
 - In a small randomized dose cohort, Study G208 cohort 5 with approximately 20 participants, ROS1-inhibitor-naive patients had similar response rates at 400 and 600 mg, with fewer grade ≥3 adverse events at 400 mg.
-- Exposure–efficacy was flat while exposure–safety relationships were positive.
+- There was no clear exposure–efficacy relationship, while higher exposure was associated with more adverse events in the safety analysis.
 
 The FDA therefore requested a postmarketing study of safety, activity, and PK with 400 mg once daily with a regular meal in ROS1-inhibitor-naive patients.
 
@@ -42,7 +42,7 @@ With dose in mg and CL/F in L/h, the equation gives mg/L. Values in the tables a
 
 Here $\bar F_{\text{rel}}$ is the mean Frel weighted by the proportions of days in each food condition. This gives long-run average concentration for mixed food conditions, not the concentration time course on individual days. Individual Frel variability is assumed identical across food conditions; no additional day-to-day random variability is modeled.
 
-For hepatic toxicity, I used the updated analysis in [original Table 88](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/219713Orig1s000MultidisciplineR.pdf). The Cox proportional-hazards model describes time to grade ≥3 ALT/AST elevation. Hazard ratio per 1 ng/mL of steady-state average concentration was 1.0018, with a 95% interval of 1.0005–1.0032. Baseline hazard was not published. Only relative hazards between regimens in the same simulated individuals can therefore be calculated. The response relationship was flat, with odds ratio 0.99896 and p=0.31.
+For hepatic toxicity, I used the updated analysis in [original Table 88](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2025/219713Orig1s000MultidisciplineR.pdf). The Cox proportional-hazards model describes time to grade ≥3 ALT/AST elevation. Hazard ratio per 1 ng/mL of steady-state average concentration was 1.0018, with a 95% interval of 1.0005–1.0032. Baseline hazard was not published. Only relative hazards between regimens in the same simulated individuals can therefore be calculated. The association with response was statistically inconclusive (odds ratio 0.99896, p=0.31).
 
 Population settings approximate the 312-person exposure–response dataset: 77% Asian, mean weight 65 kg with standard deviation 13 kg.
 
@@ -55,7 +55,7 @@ Population settings approximate the 312-person exposure–response dataset: 77% 
 | This model, 4,096 simulated individuals | 377 ng/mL | 475 ng/mL | 606 ng/mL |
 | Regulatory exposure–response analysis, 312 participants | 407 ng/mL | 506 ng/mL | 616 ng/mL |
 
-Quartiles divide ordered values into four equal-sized groups. The modeled median was approximately 6% lower. Regulatory values are individual post hoc estimates incorporating model and participant data and may include dose reductions and differing food conditions. Model 1st–99th percentiles, 225–1,090 ng/mL, fall inside the observed minimum–maximum of 149–1,430 ng/mL. These are different summary statistics, so this is only an orienting comparison.
+Quartiles divide ordered values into four equal-sized groups. The modeled median was approximately 6% lower. Regulatory values are individual post hoc estimates incorporating model and participant data and may include dose reductions and differing food conditions. Model 1st–99th percentiles, 225–1,090 ng/mL, fall inside the reported range of post hoc estimates of 149–1,430 ng/mL. These are different summary statistics, so this is only an orienting comparison.
 
 ## Compare administration conditions {#4}
 
@@ -88,7 +88,7 @@ Under these model coefficients, 400 mg with food reduces average concentration b
 
 Interpretation remains limited in several respects:
 
-- **Efficacy.** Response was flat across the observed 149–1,430 ng/mL exposure range, but the analysis pooled ROS1-inhibitor-pretreated and naive patients. Preservation of activity at lower exposure has not been established in pretreated patients, including those with resistance mutations, or in brain metastases. Prospective evidence is particularly relevant to lower-exposure non-Asian patients.
+- **Efficacy.** No clear association with response was detected across the reported 149–1,430 ng/mL exposure range, but the analysis pooled ROS1-inhibitor-pretreated and naive patients. Preservation of activity at lower exposure has not been established in pretreated patients, including those with resistance mutations, or in brain metastases. Prospective evidence is particularly relevant to lower-exposure non-Asian patients.
 - **Overall safety.** The model describes only grade ≥3 ALT/AST elevation. Absolute hepatic-toxicity incidence cannot be calculated without baseline hazard. Gastrointestinal symptoms, interstitial lung disease, and QT prolongation are absent.
 - **Regular meals.** The coefficient comes from high-fat meals. The actual patient regular-meal effect could change the comparison.
 - **Other exposure determinants.** CYP3A inhibitors and inducers, acid-reducing agents, missed doses, and toxicity-related reductions or interruptions can materially affect exposure, potentially more than food conditions, but were not modeled.

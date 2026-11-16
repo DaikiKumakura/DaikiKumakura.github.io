@@ -1,6 +1,6 @@
 ## Introduction {#article-introduction}
 
-Does giving more drug to heavier people equalize exposure? For an antibody–drug conjugate, ADC, antibody-associated drug and circulating released payload need separate checks. In the public trastuzumab rezetecan model, their AUCs have nearly identical weight slopes. Both can be flattened algebraically, while albumin, AST and individual variability remain different. This article examines the limits of weight-only adjustment.
+Does giving more drug to heavier people equalize exposure? For an antibody–drug conjugate, ADC, antibody-associated drug and circulating released payload need separate checks. In the public trastuzumab rezetecan model, their AUCs have nearly identical weight slopes. The model predicts that one dose adjustment can flatten both slopes. Albumin and AST can still affect the two exposures differently, and between-patient variability remains. This article examines the limits of weight-only adjustment.
 
 ## Target and comparison conditions {#_1}
 
@@ -119,7 +119,7 @@ Following the supplementary diagonal Omega, I generated eight log-normal effects
 | Cmax | 116.1 [87.5–153.5] µg/mL | 1.60 [0.72–3.57] ng/mL |
 | Cmin | 13.10 [5.18–28.55] µg/mL | 0.190 [0.051–0.635] ng/mL |
 
-These are simulated individual percentiles, not confidence intervals. Payload absolute values depend on the scale reconstruction. The paper reports underprediction of high payload concentrations, further limiting translation of upper peaks to safety thresholds. Shared random terms cancel in paired weight ratios; a narrow curve is not precise equalization of actual patients.
+These are simulated individual percentiles, not confidence intervals. Payload absolute values depend on the scale reconstruction. The paper reports underprediction of high payload concentrations, further limiting translation of upper peaks to safety thresholds. Shared random terms cancel in paired weight ratios; A flat curve does not imply that actual patients have similar exposures.
 
 ## Coefficient uncertainty and other covariates {#_4}
 

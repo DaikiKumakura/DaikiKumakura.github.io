@@ -35,7 +35,7 @@ Jost and colleagues provide supplementary records for 116 patients ([1](#ref-1))
 
 Days without a dose event have recorded input zero, which cannot distinguish actual interruption, missing records or adherence. Prescribed and swallowed doses may differ. MTX coadministration also prevents interpreting sensitivity as pure 6-MP sensitivity; TPMT and NUDT15 genotypes are not inferred.
 
-The original analysis excluded 1,150 ANC observations within two weeks of CRP >5 mg/L, fitting 4,747 observations. This CSV has no CRP or exclusion flag, so that exclusion cannot be reproduced. The reanalysis starts from the full public CSV and can retain infection-related variation; errors cannot be attributed solely to updating performance.
+The original analysis excluded 1,150 of 5,897 ANC observations within two weeks of CRP >5 mg/L, fitting 4,747 observations. This CSV has no CRP or exclusion flag, so that exclusion cannot be reproduced. The reanalysis starts from the full public CSV and can retain infection-related variation; errors cannot be attributed solely to updating performance.
 
 ## Patient and temporal separation {#_2}
 
@@ -145,7 +145,7 @@ The seven unchanged patients are few, and dose-change status can relate to condi
 
 Bands use the 90th percentile of absolute log error in calibration patients, not full Bayesian parameter propagation. Calibration is observation-weighted whereas coverage summaries weight patients equally; 90% coverage is not guaranteed.
 
-Halving integration steps from 0.25 to 0.125 day changed predictions by at most 0.000246 G/L. Changing future inputs left pre-day-84 MAP unchanged; 96 MAP optimizations met termination criteria. At fixed coefficients, increasing quadrature from 17 to 25 points changed negative log likelihood by 0.484. These check numerics and information boundaries, not clinical validity.
+Halving integration steps from 0.25 to 0.125 day changed predictions by at most 0.000246 G/L. Changing doses after day 84 left the MAP estimate based on data through day 84 unchanged; 96 MAP optimizations met termination criteria. At fixed coefficients, increasing quadrature from 17 to 25 points changed negative log likelihood by 0.484. These check numerics and information boundaries, not clinical validity.
 
 An exploratory stress condition divided metabolite elimination and sensitivity by 24 while holding other coefficients and updates fixed. MAE was 0.739 G/L under either future-input condition. This is not a comparison of independently refitted models or adjudication of the original coefficient discrepancy. Equal steady-state scale need not preserve response delay.
 
@@ -153,9 +153,9 @@ An exploratory stress condition divided metabolite elimination and sensitivity b
 
 **Figure 3.** First three patients by ID, not selected for favorable errors. A/B/C are display aliases, not treatment recommendations. Updating need not predict abrupt ANC changes.
 
-## Gate before dose-rule comparison {#_5}
+## Criteria for comparing dose rules {#_5}
 
-The prespecified research gate required updating to beat last ANC in both input conditions with the upper 95% MAE-difference limit below zero, plus at least 80% coverage of empirical 90% bands. It was not met, so virtual-patient dose-rule optimization was not performed. Simulating treatment success solely in a model's own patients before checking forecasting risks favoring its assumptions.
+The prespecified criteria for comparing dose rules required updating to beat last ANC in both input conditions with the upper 95% MAE-difference limit below zero, plus at least 80% coverage of empirical 90% bands. The criteria were not met, so virtual-patient dose-rule optimization was not performed. Simulating treatment success solely in a model's own patients before checking forecasting risks favoring its assumptions.
 
 ANC measures marrow suppression, not relapse or survival. Even controlling ANC would not alone establish preserved antileukemic efficacy.
 

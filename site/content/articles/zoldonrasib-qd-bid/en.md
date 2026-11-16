@@ -77,7 +77,7 @@ Table 3. Dose-specific empirical input scales.
 | 900 | 1.136 |
 | 1200 | 1.042 |
 
-The 450 mg scale is interpolated linearly between 300 and 600 mg on log D and log f. Transport to BID assumes unchanged absorption shape and input scale for the same per-administration dose.
+The 450 mg scale is interpolated linearly between 300 and 600 mg on log D and log f. Predicting BID assumes unchanged absorption shape and input scale for the same per-administration dose.
 
 ## Mean QD description remains weak near the trough
 
@@ -151,7 +151,7 @@ The 8/16-hour result uses the smaller of two predose concentrations, not the glo
 
 ## Measured BID profiles remain unvalidated
 
-Describing mean 1200 mg QD does not validate 600 mg BID. Predictions transport assumptions about input, food, formulation and time-dependent PK. The 450 mg BID prediction also interpolates an unmeasured per-dose input scale.
+Describing mean 1200 mg QD does not validate 600 mg BID. The BID predictions apply the input, food, formulation and time-dependent PK assumptions used for QD. The 450 mg BID prediction also interpolates an unmeasured per-dose input scale.
 
 Tolerability, efficacy, target occupancy and effect thresholds are not evaluated, and monotherapy curves are not transported to combination exposure. Without checking BID predictions against measured profiles, clinical advantages of fractionation cannot be established.
 

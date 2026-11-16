@@ -6,7 +6,7 @@ I digitized observed means from public 5T4×CD3 figures and evaluated small conc
 
 The question is whether antigen abundance or E:T ratio improves prediction for cell lines or conditions whose response data were withheld. The intended use is to decide, for planning an in vitro experiment, whether antigen measurements alone suffice or line-specific response measurements remain necessary.
 
-The input comes from Yuan et al.'s quantitative systems pharmacology (QSP) analysis ([1](#ref-1)); Kemper et al. reported the experimental work ([2](#ref-2)). Kemper reports an inverse association between 5T4 expression and IC50, complete killing in some low-expression lines, and partial killing in SW780 despite higher expression. Sensitivity to Fas or IFNγ signaling is a proposed explanation, not an established cause. This article asks how well a small antigen-dependent model predicts an entirely excluded line rather than merely explaining known curves.
+The input comes from Yuan et al.'s quantitative systems pharmacology (QSP) analysis ([1](#ref-1)); Kemper et al. reported the experimental work ([2](#ref-2)). Kemper reports a significant inverse association between 5T4 expression and IC50, complete killing in some lines with expression as low as about 6,000 molecules/cell, and partial killing in SW780 despite higher expression. Sensitivity to Fas or IFNγ signaling is a proposed explanation, not an established cause. This article asks how well a small antigen-dependent model predicts an entirely excluded line rather than merely explaining known curves.
 
 The target is 5T4×CD3 cytotoxicity after 72 hours. Unseen cell lines and unseen E:T conditions are separate tasks. This does not extrapolate to DLL3, human doses, cytokine release syndrome (CRS) or clinical regimens.
 
@@ -104,7 +104,7 @@ The conclusion changes little within these shifts. They do not recover unreadabl
 
 ## E:T ratios evaluated separately within one line
 
-E:T is the initial T-cell-to-tumor-cell ratio. Yuan describes similar 72-hour responses at four ratios, with the strongest right shift at 1:1 ([1](#ref-1)). For MDA-MB-468 in Figure 6 only, I replace the EC50 predictor with \(\log((E:T)/4)\), fit three ratios, and predict the fourth.
+E:T is the initial T-cell-to-tumor-cell ratio. Yuan describes similar 72-hour responses at four ratios, with a right shift at 1:1 ([1](#ref-1)). For MDA-MB-468 in Figure 6 only, I replace the EC50 predictor with \(\log((E:T)/4)\), fit three ratios, and predict the fourth.
 
 **Table 5.** Held-out E:T prediction errors.
 

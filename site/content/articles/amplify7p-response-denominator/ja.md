@@ -10,7 +10,7 @@ Camupepimut（ELI-002 7P）は7種類の変異KRASペプチドを含む。2026�
 
 ここでの問い（QOI）は、免疫応答の対象と分母をそろえると、公表応答率がどう変わるかである。用途（COU）は、公開免疫学データの解釈とバイオマーカーの定義を点検することに限る。治療の有効性を再判定する解析や、患者選択モデルではない。
 
-使用したのは原著のFigure 5 Source Dataである。Figure 5bはワクチン抗原に対する患者別最大fold change、Figure 5iは腫瘍変異に対応した応答の最大fold changeを収録する。ただし前者に数値があるのは89人、後者は78人だった。図の行数91から「90人全員の応答強度がそろう」と判断すると、空欄を誤って埋めることになる。
+使用したのは原著のFigure 5 Source Dataである。Figure 5bはワクチン抗原に対する患者別最大の変化倍率、Figure 5iは腫瘍変異に対応した応答の最大の変化倍率を収録する。ただし前者に数値があるのは89人、後者は78人だった。図の行数91から「90人全員の応答強度がそろう」と判断すると、空欄を誤って埋めることになる。
 
 | Quantity | Count | Interpretation |
 | --- | ---: | --- |
@@ -20,7 +20,7 @@ Camupepimut（ELI-002 7P）は7種類の変異KRASペプチドを含む。2026�
 | Positive maximum summaries in Figure 5i | 78 | Tumor-matched responders |
 | Participants linked across both positive panels | 78 | Selected population with two positive summaries |
 
-78人のIDはすべて89人の集合に含まれ、パネル内のID重複はなかった。欠けた12人について、腫瘍変異へのfold changeをゼロとしたり、1としたりしていない。以下の再集計は`analysis/run.py`、行数・粒度の監査は`outputs/data-quality-audit.json`から再現できる。
+78人のIDはすべて89人の集合に含まれ、パネル内のID重複はなかった。欠けた12人について、腫瘍変異に対する応答の変化倍率をゼロとしたり、1としたりしていない。以下の再集計は`analysis/run.py`、行数と各行が表す単位の確認結果は`outputs/data-quality-audit.json`から再現できる。
 
 ## 89人を分母にする場合と90人を分母にする場合
 
@@ -40,7 +40,7 @@ Camupepimut（ELI-002 7P）は7種類の変異KRASペプチドを含む。2026�
 | Tumor-matched peptide / any responder | 78/89 | 87.6% | 79.2–93.0% |
 | Tumor-matched peptide / evaluable | 78/90 | 86.7% | 78.1–92.2% |
 
-同じ90人で比べた差は12.2 percentage pointsだった（`outputs/tables/response-denominators.csv`）。これは異なる二つの治療群の差ではない。単一のワクチン群で、応答の定義を狭めたときの差である。独立した二標本の検定は行っていない。
+同じ90人で比べた差は12.2パーセントポイントだった（`outputs/tables/response-denominators.csv`）。これは異なる二つの治療群の差ではない。単一のワクチン群で、応答の定義を狭めたときの差である。独立した二標本の検定は行っていない。
 
 ![応答の定義と分母を変えた再集計](shared/amplify7p-response-denominator/figures/response-denominators.svg)
 
@@ -54,13 +54,13 @@ Camupepimut（ELI-002 7P）は7種類の変異KRASペプチドを含む。2026�
 
 これは78人を選んだ後の記述統計である。90人全体の腫瘍変異への応答分布ではない。また、複数の抗原や測定機会から取った最大値と、特定の抗原に限定した最大値を比較している。前者が大きくなりやすいこと自体に、選択操作の影響が含まれる。
 
-測定はex vivo Fluorospotまたは細胞内サイトカイン染色（ICS）による。原著ではfold changeだけでなく、ベースラインからの増加とアッセイの絶対閾値を組み合わせて応答を判定している。今回のスクリプトで「fold changeが2以上」という条件だけから新たに免疫応答陽性と判定したわけではない。公表済みの正の要約値の件数を照合した。
+測定はex vivo Fluorospotまたは細胞内サイトカイン染色（ICS）による。原著では変化倍率だけでなく、ベースラインからの増加とアッセイの絶対閾値を組み合わせて応答を判定している。今回のスクリプトで「変化倍率が2以上」という条件だけから新たに免疫応答陽性と判定したわけではない。公表済みの正の要約値の件数を照合した。
 
 これらは採血時点をそろえた同時比較でもない。腫瘍細胞への実際の認識、腫瘍へのT細胞移行、殺細胞活性の大きさを、この比から推定することはできない。
 
 ## 評価できなかった6人を含めるとどうなるか
 
-96人の割付集団と90人の免疫評価集団には6人の差がある。ここではその6人に仮想の応答を割り当てず、全員が記録上の応答に該当しない場合と、全員が該当する場合の算術的な幅を計算した。
+96人の割付集団と90人の免疫評価可能集団には6人の差がある。ここではその6人に仮想の応答を割り当てず、全員が記録上の応答に該当しない場合と、全員が該当する場合の算術的な幅を計算した。
 
 \[
 \frac{k}{96}\le p_{\mathrm{all}}\le\frac{k+6}{96}.
@@ -89,7 +89,7 @@ Camupepimut（ELI-002 7P）は7種類の変異KRASペプチドを含む。2026�
 
 [再実行コードと集計表](shared/amplify7p-response-denominator/amplify7p-response-denominator-analysis.zip)。公開Source Dataをハッシュ確認して取得し、集計・図表を再生成する。元のワークブック、原図、患者別の派生表は配布しない。数値は`outputs/results.json`に保存した。
 
-## References
+## 参照
 
 George B, Singh H, Devoe CE, et al. Lymph node-targeted, mKRAS-specific amphiphile vaccine in pancreatic cancer: the randomized phase 2 AMPLIFY-7P trial. *Nature Medicine*. Published October 23, 2026. [doi:10.1038/s41591-026-04734-7](https://doi.org/10.1038/s41591-026-04734-7). Figure 5 Source Data, CC BY-NC-ND 4.0. This article reports independent calculations and newly drawn figures; original figures and participant records are not redistributed.
 

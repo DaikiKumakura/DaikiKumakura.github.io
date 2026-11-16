@@ -16,7 +16,7 @@ Within each document, repeated compound–target values were reduced to medians,
 
 For the ceiling calculation, assume each report equals the same latent value plus independent, zero-mean error with equal variance. Half the variance of cross-document differences then estimates a single measurement’s error variance. The reported Atomwell MSE and R² imply total benchmark variance 0.885/(1−0.434)=1.56, assuming the stated SSE-based R² definition. Nesso-1 and Boltz-2 reports imply the same variance. A hypothetical ceiling is then 1 minus noise variance divided by 1.56.
 
-Transportability is an additional assumption. Cross-assay systematic differences may be predictable when assay conditions are inputs; they are not necessarily irreducible noise. The 95% intervals use 2,000 compound-level bootstrap replicates and do not encompass all uncertainty in the transport assumption.
+Applying the ChEMBL error variance to the unpublished benchmark is an additional assumption. Cross-assay systematic differences may be predictable when assay conditions are inputs; they are not necessarily irreducible noise. The 95% intervals use 2,000 compound-level bootstrap replicates and do not encompass all uncertainty in the transport assumption.
 
 The analysis plan was fixed before computation. The planned primary analysis included exact matches, with a rule to describe substantial headroom when the ceiling was at least 0.9. Its result, 0.91, meets that rule. Excluding exact matches or ChEMBL duplicate flags and counting spikes were added after inspecting results. These alternative analyses aim to reduce nonindependent reuse but do not establish that all retained measurements are independent.
 

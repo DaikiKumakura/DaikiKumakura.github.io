@@ -1,6 +1,6 @@
 Measuring a cell once might reveal what happened to it before the measurement. That sounds as though RNA contains an experimental notebook. Such a record would be useful for studying responses that persist after a drug is removed or the sequence of signals that directs differentiation. Classifying a present response, however, is different from reconstructing past inputs.
 
-The IRIS paper published in Nature Methods in September 2026 provides a concrete case. An MIT overview followed in October. Its particularly useful feature is the experimental work that changes differentiation conditions on the basis of inferred responses ([1](#ref-1), [2](#ref-2)).
+The IRIS paper published in Nature Methods in September 2026 provides a concrete case. An MIT overview followed in October. The authors used the inferred pathway responses to design culture experiments that altered differentiation conditions ([1](#ref-1), [2](#ref-2)).
 
 ## RNA records responses rather than inputs themselves
 
@@ -66,7 +66,7 @@ Concentration changes as well. The Methods specify CHIR at 2 µM for the final d
 
 More WNT is not uniformly better. High activity reduces FOXF1 expression, whereas intermediate activity better preserves major markers. Improvement across multiple hES and hiPS cell lines supports reproducibility across lines. Evaluation, however, focuses on differentiation markers rather than full functional equivalence to respiratory mesenchyme in vivo. The authors also state that WNT adjustment alone is insufficient.
 
-The study does not virtually test every possible history and establish an optimal protocol. It uses an atlas to narrow candidates and then tests interventions in culture. That sequence is itself a substantial strength.
+The study does not virtually test every possible history and establish an optimal protocol. It uses an atlas to narrow candidates and then tests interventions in culture. The culture experiments test specific changes suggested by the atlas.
 
 ## Different signaling histories can produce similar RNA
 

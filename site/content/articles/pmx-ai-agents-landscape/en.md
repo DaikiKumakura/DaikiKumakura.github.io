@@ -64,7 +64,7 @@ The rules were adjusted on the same synthetic scenario with known truth, without
 
 ## Software and engineering descriptions
 
-The BSD-3-licensed R package nlmixr2llm supplies nlmixr2 knowledge through Claude Code or Codex plugins. K-Dense Scientific Agent Skills includes `pkpd-modeling` ([12](#ref-12)). Anthropic's October 2025 engineering article describes skills as folders containing SKILL.md, recommends trusted sources and begins with evaluation ([13](#ref-13)). Within the material I read, nlmixr2llm's README provided no validation guidance and the K-Dense paper abstract no task-level evaluation. This is an impression from README and abstract inspection, not an audit of complete repositories. Deployment components appear ahead of evaluation components.
+The BSD-3-licensed R package nlmixr2llm supplies nlmixr2 knowledge through Claude Code or Codex plugins. K-Dense Scientific Agent Skills includes `pkpd-modeling` ([12](#ref-12)). Anthropic's October 2025 engineering article describes skills as folders containing SKILL.md, recommends trusted sources and begins with evaluation ([13](#ref-13)). Within the material I read, nlmixr2llm's README provided no validation guidance and the K-Dense paper abstract no task-level evaluation. This is an impression from README and abstract inspection, not an audit of complete repositories. The documents I read describe setup in more detail than evaluation.
 
 ## Running an analysis is not validating it
 
