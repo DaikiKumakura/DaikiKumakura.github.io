@@ -6,7 +6,7 @@
 
 ## 37病変から16病変への絞り込み
 
-原研究では、⁸⁹Zr標識AMG 211の体内分布をPETで測定している。研究全体の対象は9患者だが、今回使用した公開Supplementary Table S3には、定量可能な37病変・6患者のSUVmaxが載っている。全体の人数と、今回の予測評価に使える人数を分ける必要がある（[Moek et al., 2019](https://pubmed.ncbi.nlm.nih.gov/30745297/)、[Supplementary Table S3](https://aacr.figshare.com/articles/journal_contribution/22470416)）。
+原研究では、⁸⁹Zr標識AMG 211の体内分布をPETで測定している。研究全体の対象は9患者だが、今回使用した公開された[原著のSupplementary Table S3](https://aacr.figshare.com/articles/journal_contribution/22470416)には、定量可能な37病変・6患者のSUVmaxが載っている。全体の人数と、今回の予測評価に使える人数を分ける必要がある([1](#ref-1), [2](#ref-2))。
 
 | Source patient ID | Tabulated lesions | Complete three-time-point lesions | Reason for exclusion |
 | --- | ---: | ---: | --- |
@@ -20,11 +20,11 @@
 
 NDとNEはゼロに置き換えていない。単位は病変で、同じ患者の病変を別の患者として学習と評価に分けることもしない。解析用の表は公開DOCXのXMLから直接読み込んだ。図の曲線からの数値化ではない。
 
-問いは、表で3・6・24時間とされた同じ病変のSUVmaxについて、24時間値を使わずに予測できるか、である。用途は研究段階での撮像時点の省略可能性を検討するベンチマークに限る。SUVmaxは病変内の放射能信号で、活性型TCEの濃度ではない。
+問いは、表で3・6・24時間とされた同じ病変のSUVmaxについて、24時間値を使わずに予測できるか、である。用途は研究段階での撮像時点の省略可能性を検討するベンチマークに限る。SUVmaxは病変内のPETの標準化集積値の最大値で、活性型TCEの濃度ではない。
 
 ![Figure 1. 同じ病変の3時点のSUVmax](shared/tce-pet-lesion-retention/figures/lesion-trajectories.svg)
 
-原表の撮像時点を3・6・24時間として計算した。患者別の正確な撮像開始時刻はこの表にないため、個別の実測経過時間を再構成していない。補足方法には、放射性標識体単独と非標識AMG 211を加えた投与条件が記されている。ここでは患者別投与条件による補正モデルを推定していない（[Supplementary methods](https://aacr.figshare.com/articles/journal_contribution/22470416)）。
+原表の撮像時点を3・6・24時間として計算した。患者別の正確な撮像開始時刻はこの表にないため、個別の実測経過時間を再構成していない。補足方法には、放射性標識体単独と非標識AMG 211を加えた投与条件が記されている。ここでは患者別投与条件による補正モデルを推定していない ([2](#ref-2))。
 
 ## 早期の変化率を延長する式
 
@@ -62,7 +62,7 @@ k_{3\to6}=\frac{\log(S_6/S_3)}{6-3},\qquad
 
 比較のため3パネルの縦軸をそろえた。極端に大きい予測も切り捨てていない。破線は予測と観測が等しい線である。
 
-各患者の平均二乗対数誤差を計算し、4患者を等しい重みで平均した平方根を主指標とした。補助的に、患者ごとのSUV絶対誤差の平均も示す。
+各患者の平均二乗対数誤差を計算し、4患者を等しい重みで平均した平方根を主指標とした。補助的に、患者内のSUV絶対誤差を平均した後に4患者で等重みの平均を取った値も示す。
 
 | Method | Equal-patient log RMSE | Equal-patient SUV MAE |
 | --- | ---: | ---: |
@@ -86,16 +86,16 @@ k_{3\to6}=\frac{\log(S_6/S_3)}{6-3},\qquad
 
 今回の4患者では、3–6時間の傾きを24時間まで伸ばす根拠は得られなかった。PETで見える早期の取り込みと翌日の残留は、同じ一定速度の過程として扱えない。6時間値からの簡単な予測にも誤差が残り、このデータは24時間の撮像を置き換えられることを支持していない。
 
-## 再実行資料
+## データとコードの公開状況
 
 [解析コード・抽出表・出力表](shared/tce-pet-lesion-retention/tce-pet-lesion-retention-analysis.zip)。`analysis/download_sources.py`で公開補足表を取得し、`analysis/run.py`で抽出・予測・図表作成を再実行する。`python -m unittest discover -s tests`で患者単位の除外と係数推定を検査する。原DOCXは配布物に含めず、取得URL・ライセンス・SHA-256を記録した。
 
-## References
+## 参照
 
-Moek KL, Waaijer SJH, Kok IC, et al. 89Zr-labeled Bispecific T-cell Engager AMG 211 PET Shows AMG 211 Accumulation in CD3-rich Tissues and Clear, Heterogeneous Tumor Uptake. *Clinical Cancer Research*. 2019;25(12):3517–3527. [doi:10.1158/1078-0432.CCR-18-2918](https://doi.org/10.1158/1078-0432.CCR-18-2918).
+<span id="ref-1"></span>1. Moek KL, Waaijer SJH, Kok IC, et al. 89Zr-labeled Bispecific T-cell Engager AMG 211 PET Shows AMG 211 Accumulation in CD3-rich Tissues and Clear, Heterogeneous Tumor Uptake. *Clinical Cancer Research*. 2019;25(12):3517–3527. [doi:10.1158/1078-0432.CCR-18-2918](https://doi.org/10.1158/1078-0432.CCR-18-2918).
 
-Moek KL, et al. Supplementary Data_clean. Supplementary methods and Table S3. [Publisher-linked public supplement](https://aacr.figshare.com/articles/journal_contribution/22470416). CC BY 4.0.
+<span id="ref-2"></span>2. Moek KL, et al. Supplementary Data_clean. Supplementary methods and Table S3. [Publisher-linked public supplement](https://aacr.figshare.com/articles/journal_contribution/22470416). CC BY 4.0.
 
-## Cite this article
+## この記事の引用
 
 Kumakura D. Can early PET predict next-day lesion retention of a T-cell engager? 2026. Independent reanalysis of published lesion-level SUVmax data.

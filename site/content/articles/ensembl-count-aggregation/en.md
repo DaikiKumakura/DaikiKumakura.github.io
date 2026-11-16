@@ -8,7 +8,7 @@ On November 1, 2026, I checked the official IDTrack 0.0.5 API documentation, Ens
 
 ## An identifier does not specify the counting operation
 
-Ensembl identifiers distinguish objects such as genes and transcripts and include model versions. Human gene and transcript identifiers are not interchangeable numbers with dispensable prefixes ([2](#ref-2)). A gene groups transcripts, so adding transcript-level rows to a gene-level row can mean adding children to their parent ([3](#ref-3)).
+Ensembl identifiers distinguish objects such as genes and transcripts and can carry version suffixes. Human gene and transcript identifiers are not interchangeable numbers with dispensable prefixes ([2](#ref-2)). A gene groups transcripts, so adding transcript-level rows to a gene-level row can mean adding children to their parent ([3](#ref-3)).
 
 IDTrack's `build_graph` can fix the Ensembl release, and its conversion classifications distinguish missing, one-to-one and one-to-many matches. External mappers also offer version-suffix stripping ([4](#ref-4)). Recording only that identifiers were converted is therefore insufficient: the original identifiers, destinations, release, assembly, object type and handling of ambiguous matches matter.
 
@@ -71,7 +71,7 @@ The useful record includes counting provenance, not just a conversion table. Tab
 | One-to-many and missing matches with selection rules | Were ambiguous mappings silently collapsed? |
 | Per-cell totals and retained features before and after aggregation | Did implementation lose or multiply entries? |
 
-Requantifying original data with a common annotation and counting procedure can at least align the observational units. With only aggregated matrices, the shared component in Table 1 may remain unidentifiable. Comparing analyses that retain or exclude questionable features can examine sensitivity to that uncertainty; it cannot recover the correct molecule count.
+Requantifying original data with a common annotation and counting procedure can at least align the observational units. With only aggregated matrices, the overlap between the counted molecule sets in Table 1 may remain unidentifiable. Comparing analyses that retain or exclude questionable features can examine sensitivity to that uncertainty; it cannot recover the correct molecule count.
 
 A shared Ensembl destination supports annotation harmonization. Whether counts should be added still depends on what the original rows counted. Before a more sophisticated normalization, the indispensable information is the counting definition that cannot be reconstructed once lost.
 

@@ -1,4 +1,4 @@
-Whether the target is B7-H3, DLL3 or SEZ6, are these drugs ultimately just delivering the same class of TOP1 inhibitor? An October 26, 2026 X post argued that different ADCs converge on median progression-free survival of 5–6 months and median overall survival of 12–14 months in second-line small-cell lung cancer ([1](#ref-1)). The implication went beyond similar numbers to question the value of changing targets.
+Whether the target is B7-H3, DLL3 or SEZ6, are these drugs ultimately just delivering the same class of TOP1 inhibitor? An October 26, 2026 X post argued that different ADCs converge on median progression-free survival of 5–6 months and median overall survival of 12–14 months in second-line small-cell lung cancer (SCLC) ([1](#ref-1)). The implication went beyond similar numbers to question the value of changing targets.
 
 Returning to the source tables reveals an earlier problem: the second-line numbers are not identical. Even within one drug's report, medians differ between the overall cohort and its second-line subgroup. Randomized comparisons against existing treatment have also been reported in 2026. Similar medians, equivalent treatment effects and identical mechanisms are separate claims.
 
@@ -12,7 +12,7 @@ Progression-free survival (PFS) and overall survival (OS) retain each report's o
 
 ## Extracting the second-line results
 
-Table 1 lists second-line results. In particular, the SEZ6 row represents 17 second-line patients receiving ABBV-706 at 1.8 mg/kg, not all 124 patients with small-cell lung cancer (SCLC). Matching the line-of-treatment label does not match dose, population, assessor or data cutoff.
+Table 1 lists second-line results. In particular, the SEZ6 row represents 17 second-line patients receiving ABBV-706 at 1.8 mg/kg, not the full cohort of 124 ABBV-706 recipients. Matching the line-of-treatment label does not match dose, population, assessor or data cutoff.
 
 **Table 1. Second-line results corresponding to the five targets in the post. Durations are in months; parentheses contain 95% confidence intervals.**
 
@@ -53,7 +53,7 @@ Horinouchi's post describes median PFS of 6.8 months, 12-month OS of 64.1% and m
 
 The other reports are not contemporaneous either. The ifinatamab deruxtecan paper uses a March 3, 2025 cutoff; ABBV-706 uses September 27, 2025; and the izalontamab brengitecan abstract reports data as of December 5, 2024 ([4](#ref-4), [5](#ref-5), [7](#ref-7)). Posts appearing together in 2026 do not necessarily describe equivalent observation periods.
 
-## A median ceiling is not the same question as randomized benefit
+## Benefit relative to existing treatment
 
 Skipping the existing-treatment comparator would miss important evidence. The phase III TAISHAN-302 trial, reported in 2026, randomized 451 patients to the B7-H3 ADC tambotatug pelitecan or topotecan. Median OS was 13.3 versus 9.4 months, with a death hazard ratio of 0.46 (95% confidence interval 0.35–0.62), at the prespecified interim analysis ([10](#ref-10)). A median in the thirteen-month range can coexist with demonstrated benefit against the trial's control.
 

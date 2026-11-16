@@ -10,7 +10,7 @@ This reanalysis fitted a model using public H226 experiments at 0 and 50 ng/mL s
 
 **COU: Examine how much concentration-setting predictions can miss when soluble antigen is ignored within the same nonclinical assay. This is not used to select a human dose or regimen from circulating antigen values.**
 
-Snell and colleagues compared the MSLN-bivalent NM28-2746 with monovalent NM28-1872. Only H226 in their Figure 4a is analysed here. C86 cells in the same figure are excluded, and antigen-density-based cell selection is not evaluated. The rightward shift caused by soluble antigen is already established in the original study. The question here is prediction of a higher unused condition from two lower conditions ([Snell et al., 2023](https://doi.org/10.1080/2162402X.2023.2233401)).
+Snell and colleagues compared the MSLN-bivalent NM28-2746 with monovalent NM28-1872. Only H226 in [the original Figure 4a](https://pmc.ncbi.nlm.nih.gov/articles/PMC10339761/#f0004) is analysed here. C86 cells in the same figure are excluded, and antigen-density-based cell selection is not evaluated. The rightward shift caused by soluble antigen is already established in the original study. The question here is prediction of a higher unused condition from two lower conditions ([1](#ref-1)).
 
 | Item | Conditions used |
 | --- | --- |
@@ -24,9 +24,9 @@ Snell and colleagues compared the MSLN-bivalent NM28-2746 with monovalent NM28-1
 
 ## Reading observed markers rather than source fit lines
 
-Sixty-six mean markers were digitized: two molecules, three conditions and 11 points. Each molecule contributes 22 training points and 11 prediction-evaluation points. Nominal concentrations follow the experimental dilution protocol; vertical pixel coordinates are converted using the zero and 100% axis marks. Smooth source fitted curves are not treated as observations ([original Figure 4](https://pmc.ncbi.nlm.nih.gov/articles/PMC10339761/#f0004)).
+Sixty-six mean markers were digitized: two molecules, three conditions and 11 points. Each molecule contributes 22 training points and 11 prediction-evaluation points. Nominal concentrations follow the experimental dilution protocol; vertical pixel coordinates are converted using the zero and 100% axis marks. Smooth source fitted curves are not treated as observations ([1](#ref-1)).
 
-The original Figure 4a shows means and SD from one representative experiment of at least two. The original within-condition replicate count is unspecified. The 66 points are aggregate plot markers, not 66 independent donors. Figure 4b summarizes EC50 across experiments and is not treated as the fit to the same individual experimental curve.
+[The original Figure 4a](https://pmc.ncbi.nlm.nih.gov/articles/PMC10339761/#f0004) shows means and SD from one representative experiment of at least two. The original within-condition replicate count is unspecified. The 66 points are aggregate plot markers, not 66 independent donors. [Figure 4b of the original paper](https://pmc.ncbi.nlm.nih.gov/articles/PMC10339761/#f0004) summarizes EC50 across experiments and is not treated as the fit to the same individual experimental curve.
 
 Untreated points enter estimation and error calculations. They are omitted only from logarithmic plots because zero cannot be displayed on that axis. Slightly negative marker readings are preserved rather than clipped to zero.
 
@@ -50,7 +50,7 @@ The comparator holds EC50 common across soluble-antigen conditions. Both models 
 
 ![Curves fitted to two lower conditions and predictions at 500 ng/mL](shared/tce-soluble-msln/figures/soluble-antigen-forecast.svg)
 
-Points are observed H226 means. Green includes the soluble-antigen EC50 shift; orange omits it. The lines in the right-hand 500 ng/mL panels are not refitted to those points.
+**Figure 1.** Points are observed H226 means. Green includes the soluble-antigen EC50 shift; orange omits it. The lines in the right-hand 500 ng/mL panels are not refitted to those points.
 
 | Molecule | Model | Training-condition RMSE | Prediction RMSE at 500 ng/mL |
 | --- | --- | ---: | ---: |
@@ -94,7 +94,7 @@ The soluble-antigen model retained its lower error under this reading sensitivit
 
 In these data, ignoring soluble MSLN missed the high-antigen response despite keeping the target cells and culture conditions fixed. The simple extrapolation from 0 and 50 ng/mL also overestimated EC50 to a molecule-dependent extent. Including soluble antigen in a model and transporting its coefficient to another assay or to patients are different operations. The supported prediction here is limited to conditions within this H226 40-hour assay.
 
-## Analysis material
+## Data and code availability
 
 The code contains the original-figure source and hash, observed-marker coordinates, nominal concentration series, estimation, prediction and reading sensitivity. Figures are newly drawn from public observations; original figures are not reproduced. Manuscript values are in `outputs/results.json`; condition-level predictions and every sensitivity calculation are in `outputs/tables/`.
 
@@ -102,7 +102,7 @@ The code contains the original-figure source and hash, observed-marker coordinat
 
 ## References
 
-1. Snell D, Gunde T, Warmuth S, et al. An engineered T-cell engager with selectivity for high mesothelin-expressing cells and activity in the presence of soluble mesothelin. *OncoImmunology*. 2023;12:2233401. [doi:10.1080/2162402X.2023.2233401](https://doi.org/10.1080/2162402X.2023.2233401). Original source: CC BY-NC 4.0. Changes: experimental mean-marker digitization, model fitting, withheld-condition prediction, reading sensitivity and new figures.
+1. <span id="ref-1"></span>Snell D, Gunde T, Warmuth S, et al. An engineered T-cell engager with selectivity for high mesothelin-expressing cells and activity in the presence of soluble mesothelin. *OncoImmunology*. 2023;12:2233401. [doi:10.1080/2162402X.2023.2233401](https://doi.org/10.1080/2162402X.2023.2233401). Original source: CC BY-NC 4.0. Changes: experimental mean-marker digitization, model fitting, withheld-condition prediction, reading sensitivity and new figures.
 
 ## Cite this article
 

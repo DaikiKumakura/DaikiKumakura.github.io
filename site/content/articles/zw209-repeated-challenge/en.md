@@ -6,11 +6,11 @@ A constant-retention model calibrated on the first two observations substantiall
 
 ## What was restimulated
 
-The October 23, 2026 development announcement for ZW209 supplies a current reason to examine this molecule. The data analyzed here, however, are preclinical observations from Figure 2B of an AACR 2025 poster, not clinical outcomes ([development announcement](https://ir.zymeworks.com/news-releases/news-release-details/zymeworks-enters-exclusive-global-license-and-collaboration/); [Lau et al., 2025, Figure 2](https://www.zymeworks.com/wp-content/uploads/2025/04/ZYME-AACR-2025-ZW209_final.pdf)).
+The October 23, 2026 development announcement for ZW209 supplies a current reason to examine this molecule. The data analyzed here, however, are preclinical observations from Figure 2B of an AACR 2025 poster, not clinical outcomes ([1](#ref-1), [2](#ref-2), [Lau et al., 2025, Figure 2](https://www.zymeworks.com/wp-content/uploads/2025/04/ZYME-AACR-2025-ZW209_final.pdf)).
 
 The assay used T cells and DLL3-positive NCI-H82 tumor cells. After each stimulation, T cells were collected, counted and restimulated with fresh tumor cells and antibody. Consequently, this is not an observation of a declining drug concentration in vivo.
 
-The plotted comparators are ZW209, ZW209 CD28null and the analogue labeled AMG 757† in the poster. The last comparator is not assumed to be identical to clinical or commercial drug material. Figure 2B contains five markers for ZW209 and three for each control. Donor counts, independent experiment counts and variance are not specified for this panel. Eleven plotted markers cannot be treated as eleven independent participants.
+The plotted comparators are ZW209, ZW209 CD28null and the analogue labeled AMG 757† in the poster. The last comparator is not assumed to be identical to clinical or commercial drug material. Figure 2B contains five markers for ZW209 and three for each control. Donor counts, independent experiment counts and variance are not specified for this panel. Eleven plotted markers cannot be counted as eleven independent experiments.
 
 | Item | Definition for this analysis |
 | --- | --- |
@@ -96,9 +96,8 @@ Likewise, exact calibration on two measurements is not evidence of forecasting a
 
 ## References
 
-Lau D, Repenning P, Canals Hernaez D, et al. ZW209, a DLL3 targeted trispecific T cell engager with integrated CD28 co-stimulation, demonstrates safety and potent preclinical efficacy in models of small cell lung cancer. AACR Annual Meeting 2025. Abstract 7318, Figure 2. [Public poster](https://www.zymeworks.com/wp-content/uploads/2025/04/ZYME-AACR-2025-ZW209_final.pdf). New analyses and figures were generated from displayed marker coordinates; the source poster is not redistributed.
-
-Zymeworks. Zymeworks Enters into an Exclusive Global License and Collaboration Agreement with Roche for ZW209, a Trispecific T cell Engager Targeting DLL3. October 23, 2026. [Development announcement](https://ir.zymeworks.com/news-releases/news-release-details/zymeworks-enters-exclusive-global-license-and-collaboration/).
+1. <span id="ref-1"></span>Zymeworks. Zymeworks Enters into an Exclusive Global License and Collaboration Agreement with Roche for ZW209, a Trispecific T cell Engager Targeting DLL3. October 23, 2026. [Development announcement](https://ir.zymeworks.com/news-releases/news-release-details/zymeworks-enters-exclusive-global-license-and-collaboration/).
+2. <span id="ref-2"></span>Lau D, Repenning P, Canals Hernaez D, et al. ZW209, a DLL3 targeted trispecific T cell engager with integrated CD28 co-stimulation, demonstrates safety and potent preclinical efficacy in models of small cell lung cancer. AACR Annual Meeting 2025. Abstract 7318, Figure 2. [Public poster](https://www.zymeworks.com/wp-content/uploads/2025/04/ZYME-AACR-2025-ZW209_final.pdf). New analyses and figures were generated from displayed marker coordinates; the source poster is not redistributed.
 
 ## Cite this article
 

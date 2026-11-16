@@ -46,7 +46,7 @@ Table 2. Accuracies that can be constructed without changing the agreement count
 | All agreements correct; only A correct on disagreements | 100% | 78.1% |
 | All agreements correct; only B correct on disagreements | 78.1% | 100% |
 
-The table is not an allegation that both sources are always wrong. It shows that the agreement count alone cannot exclude such assignments. Shared misreading or unit conversion can survive an agreement filter. Conversely, this calculation does not rule out high source fidelity among agreements.
+All of the assignments in the table produce the same agreement count. A correct transcription, a shared misreading, and the same unit conversion error can all count as agreements.
 
 Nor is 21.9% the error rate of A. A disagreement has not yet been assigned to an error by A, B, or both. It is a fraction of records on which at least one source is wrong under the stated assumptions, without identifying how errors are distributed between the extractors.
 
@@ -76,7 +76,7 @@ Agreement does not do the same job as adjudication. A shared evaluation set can 
 
 Establishing source fidelity requires checking agreements as well as disagreements against the original documents. Adjudicating only disagreements leaves shared errors unresolved. Estimating recall requires a set of relevant items defined independently of the two extraction outputs. These are different questions even when both involve human review.
 
-The published counts establish the selection from 10,972 to 8,566 records and allow an analysis of what remains unidentified after that selection. They do not determine Atomwell's predictive performance, Datawell's correctness, or the recovery rate of all measurements in the source texts. The 78.1% is best read as a description of the comparison set, rather than a substitute for accuracy.
+The published counts establish the selection from 10,972 to 8,566 records and show which quantities the agreement count leaves undetermined. They do not determine Atomwell's predictive performance, Datawell's correctness, or the recovery rate of all measurements in the source texts. The 78.1% is best read as a description of the comparison set, rather than a substitute for accuracy.
 
 ## Data and code availability
 

@@ -107,9 +107,9 @@ As a crude calculation, multiplying the full milestone amount by the Phase I-to-
 
 This calculation is crude. The 7.9% is an average over all areas and drugs, whereas the development stage differs between deals. Several factors act in different directions.
 
-- For preclinical deals, the probability of approval is lower than 7.9%, which makes the expected milestone value smaller still. The upfront share would be larger than 35%.
-- For late-stage (Phase II or later) deals, the probability is higher than 7.9% and the upfront share would be smaller than 35%.
-- Milestones paid at early stages have a high probability. Discounting them by 7.9% underestimates the expected value and makes the upfront share look larger.
+- If a preclinical deal is assigned a probability below 7.9%, the formula gives a lower expected milestone payment and a higher upfront share than applying 7.9% to that same deal.
+- If a later-stage deal (Phase II or later) is assigned a probability above 7.9%, the formula gives a lower upfront share for that same deal.
+- Milestones paid at early stages have a high probability. Multiplying them by 7.9% underestimates the expected value and makes the upfront share look larger.
 
 Because these factors act in different directions, I cannot say whether the calculation is too high or too low overall. The 35% is not an estimate of the value of an individual deal. It shows only that reading the headline total as value counts the contingent part (about 96% at the median) with the same weight as the upfront payment fixed at signing.
 

@@ -148,7 +148,7 @@ Pythia-1 uses looser criteria than the other two, reports counts after prior sel
 - **Claude's result:** Of the 17 under the published criteria, 15 are binding confirmed at both laboratories and the 2 LqhIII designs at Adaptyv Bio only. Binding is not neutralization, and no animal efficacy test was done; Anthropic's page states that neutralization was not confirmed ([1](#ref-1)).
 - **Pythia-1:** Per-design hit rates and the handling of controls could not be confirmed here.
 - **Bits to Binders:** Down includes truly depleted designs and cannot quantify noise or false-positive counts. The between-team test assumes independent designs and ignores within-team correlation.
-- **Affiliations and disclosure:** This article is a recount of public data. The AI I use (Claude) is an Anthropic model, and one compared item is Anthropic's own Claude result. Claude's results were therefore counted using only public data and the published criteria, with no added evaluation or speculation. The Pythia Labs preprint reports work by company employees ([2](#ref-2)).
+- **Scope of recount:** The recount of Claude's results uses the public data and published criteria.
 - **Interval assumptions:** Wilson intervals assume independent results across designs. Claude's 211 designs were pre-selected and fall into groups sharing a target and design, so the actual uncertainty may be wider than the intervals shown.
 - **Scope of verification:** The recalculation is a separate implementation by the same author, not third-party confirmation. The R recount covers counts, Up and Down, Claude's 17 and 11, and the Wilson interval for 17/211; it does not cover team-level results, the chi-square test, method groups or the sensitivity analysis.
 

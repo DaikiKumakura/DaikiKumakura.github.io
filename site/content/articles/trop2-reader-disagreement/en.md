@@ -4,7 +4,7 @@ The starting point was Raffaele Colombo's post about TROP2 antibody–drug conju
 
 ## Scope and sources
 
-On November 1, 2026, I read the post and visible replies, and the editorial's text and Figure 1 caption. Publisher access was intermittent, so I used the portions available through the search index. For the related assay study, I checked the bibliographic record, abstract and indexed methods and results. I did not obtain and recompute the individual reader scores ([2](#ref-2), [3](#ref-3)).
+On November 1, 2026, I read the post and visible replies, and the editorial's text and Figure 1 caption. I could not retrieve the publisher's page consistently, so I used the portions available through the search index. For the related assay study, I checked the bibliographic record, abstract and indexed methods and results. I did not obtain and recompute the individual reader scores ([2](#ref-2), [3](#ref-3)).
 
 The editorial's [Figure 1](https://doi.org/10.1093/jnci/djag275) describes 72 specimens evaluated by five pathologists, with classifications compared at different H-score cutoffs. The H-score weights percentages of cells at different staining intensities and ranges from 0 to 300. It is not a molecule count. At a cutoff of 220, approximately 67% of specimens had classifications that were not unanimous ([2](#ref-2)).
 

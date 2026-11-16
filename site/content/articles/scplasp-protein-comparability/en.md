@@ -22,7 +22,7 @@ Likewise, 135 samples/day does not guarantee 135 independent biological replicat
 
 The earlier scpLASP study reported different identification counts when single-cell data were analyzed using an in silico library or a library generated from ten-cell samples. The relevant comparison is [Figure 7B of the earlier study](https://pmc.ncbi.nlm.nih.gov/articles/PMC10999711/#fig7) ([2](#ref-2)). Identification depth therefore depends on the information supplied to search the data, as well as on the material entering the instrument.
 
-This does not make library use inappropriate. Information from multicell samples can reasonably assist analysis of low-input material. Whether the same depth transfers to an unfamiliar cell state or drug-treated sample is a separate question. The abstract alone does not establish how far that transfer was tested in the new report.
+This does not make library use inappropriate. Information from multicell samples can reasonably assist analysis of low-input material. Whether the workflow achieves the same depth to an unfamiliar cell state or drug-treated sample is a separate question. The abstract alone does not establish how far that transfer was tested in the new report.
 
 Nor do I interpret the difference between 2024 and 2026 identification counts as the isolated improvement of one step. Instrumentation, LC conditions, cells and libraries may differ.
 

@@ -1,4 +1,4 @@
-If olomorasib is given as 100 mg three times daily (TID) instead of 150 mg twice daily (BID), does the same 300 mg/day deliver more drug to the blood, or does mainly the shape of the concentration curve, its peak and its minimum, change? I estimated a small model from published measured pharmacokinetics (PK) to compare the two schedules.
+If olomorasib is given as 100 mg three times daily (TID) instead of 150 mg twice daily (BID), does the same 300 mg/day deliver more drug to the blood, or does mainly the shape of the concentration curve, its peak and its minimum, change? I fitted a model to published pharmacokinetic (PK) data to compare the two schedules.
 
 The published data did not clearly support an increase in total exposure from smaller, more frequent doses. The predicted minimum concentration differed, however, between dosing every 8 hours and dosing with a 12-hour overnight gap. The plateau of exposure with dose and the dosing interval need to be considered separately.
 
@@ -61,7 +61,7 @@ For the other doses, k, ka and lag time were fixed and only the concentration sc
 
 The periodic 24-hour steady state was calculated. Each dose is assumed to be absorbed independently and repeatedly, and dosing frequency itself is assumed not to change food conditions or the absorption mechanism. The data do not confirm that a dose–AUC curve derived from BID can be used for TID.
 
-The regimens were 150 mg BID (0 and 12 h), 100 mg TID (0, 8 and 16 h), 100 mg TID with a long night interval (0, 6 and 12 h, leaving a 12-hour gap until the next day; 100TID_6_6_12), and 100 mg and 200 mg BID. The metrics are the 24-hour AUC (AUC24), Cmax and Cmin, expressed as ratios to 150 mg BID within each model. Cmin is a numerical approximation of the minimum searched over the full 24 hours, not a value at an arbitrary sampling time or immediately before a dose. Results superimpose the periodic steady state and do not describe the transition from the first dose.
+The regimens were 150 mg BID (0 and 12 h), 100 mg TID (0, 8 and 16 h), 100 mg TID with a long night interval (0, 6 and 12 h, leaving a 12-hour gap until the next day; 100TID_6_6_12), and 100 mg and 200 mg BID. The metrics are the 24-hour AUC (AUC24), Cmax and Cmin, expressed as ratios to 150 mg BID within each model. Cmin is a numerical approximation of the minimum searched over the full 24 hours, not a value at an arbitrary sampling time or immediately before a dose. The predictions superimpose the contributions of individual doses at periodic steady state. They do not describe the transition from the first dose.
 
 Uncertainty was examined in two ways. First, I resampled original ID labels 1,000 times and re-estimated M1. This avoids separating different doses carrying the same label, but the identification of participants and dosing histories in the source was not verified. The upper bound of D50 in the optimization was 10,000,000 mg. Second, with M1 coefficients fixed at the point estimates, the centered log residuals of the dose model were resampled to 2,048 pairs as conditional exposure multipliers. Interindividual variability (IIV), differences between dosing occasions and measurement error cannot be separated in these multipliers.
 
@@ -120,7 +120,7 @@ Table 4. 24-hour metrics for regimens (ratio to 150 mg BID within each model).
 
 "linear" corresponds to M0 and "sat" to M1. 150BID is dosed at 0 and 12 h, and 100TID at 0, 8 and 16 h.
 
-In the proportional model, AUC24 is equal for the same daily dose. For 100TID in the saturating model, the AUC24 ratio was 1.044, the Cmax ratio 0.810 and the Cmin ratio 1.864. With the long night interval in 100TID_6_6_12, however, the Cmin ratio was 0.872. Three doses per day do not guarantee a higher minimum concentration at every dosing time.
+In the proportional model, AUC24 is equal for the same daily dose. For 100TID in the saturating model, the AUC24 ratio was 1.044, the Cmax ratio 0.810 and the Cmin ratio 1.864. With the long night interval in 100TID_6_6_12, however, the Cmin ratio was 0.872. Three doses per day can therefore yield a lower daily minimum than twice-daily dosing if the spacing changes.
 
 ![Comparison of dosing times and concentration metrics for the same 300 mg/day.](shared/olomorasib-dose-fractionation/figures/regimen-comparison.png)
 

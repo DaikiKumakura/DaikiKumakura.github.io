@@ -1,6 +1,6 @@
-Once RNA positions are measured, it is tempting to say that the conversations between neighboring cells can be read. One task comes first: deciding which cell owns each measured RNA molecule.
+Inferring interactions between neighboring cells from RNA positions requires assigning detected transcripts to individual cells.
 
-Move that boundary and the expression matrix moves with it. An analysis that links a ligand-producing cell to a receptor-expressing cell can acquire a different partner without a single RNA coordinate changing.
+Move that boundary and the expression matrix moves with it. An analysis that pairs cells with detected ligand transcripts and cells with detected receptor transcripts can acquire a different partner without a single RNA coordinate changing.
 
 A Nature Methods paper published on October 23, 2026 compared 11 segmentation methods across 15 datasets from five technologies: Stereo-seq, Xenium, CosMx, STARmap PLUS and MERFISH. It examined how segmentation choices affect expression specificity and downstream ligand–receptor inference ([1](#ref-1)).
 

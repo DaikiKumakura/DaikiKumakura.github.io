@@ -8,13 +8,13 @@ The starting point was a [post](https://x.com/osYZtdWoeHsph6C/status/21150362163
 
 The underlying paper is Elez et al.'s 2025 study, rather than a new experimental report from 2026. I compared the paper's text, [original Table 1](https://www.nature.com/articles/s41467-025-62139-5#Tab1), [original Figure 4](https://www.nature.com/articles/s41467-025-62139-5#Fig4), and the explanatory article. I did not rerun MD or experiments or evaluate additional compounds ([3](#ref-3), [4](#ref-4)).
 
-## The denominator of the 29-fold improvement
+## The computational cost behind the 29-fold result
 
 The approximately 29-fold result compares active-learning selection with random selection in a computational search for known inhibitors. It is not a ratio of enzyme inhibition, cellular efficacy, or animal survival. Core hours also measure accumulated resource use rather than elapsed time. Different degrees of parallelization can change waiting time without changing total resource consumption ([3](#ref-3)).
 
 The accounting boundary also needs qualification. The footnote to [original Table 1](https://www.nature.com/articles/s41467-025-62139-5#Tab1) states that marked times include approximately 8,000 h to generate the receptor ensemble. Yet marked entries include 3,403.0 h, which is smaller than 8,000 h. The displayed times and footnote do not provide a consistent account of that preparation cost. I therefore treat the approximately 29-fold figure as an author-reported result, not an independently audited total-cost ratio including preparation ([3](#ref-3)).
 
-Even with that qualification, the intended comparison concerns the cost of reaching a specified search endpoint. Making that search cheaper is useful. Its computational endpoint, however, is distinct from a therapeutic endpoint. Efficiently prioritizing candidates does not establish improved patient outcomes.
+Even with that qualification, the intended comparison concerns the cost of reaching a specified search endpoint. Reducing that computational cost is useful. Its computational endpoint, however, is distinct from a therapeutic endpoint. Efficiently prioritizing candidates does not establish improved patient outcomes.
 
 MD also has separate roles. The paper evaluates preparing an ensemble of receptor structures separately from moving candidate poses during scoring. In the DrugBank comparison involving known inhibitors, the latter provided limited additional benefit at greater computational cost. That finding does not negate the benefit of using an ensemble of receptor structures ([3](#ref-3)).
 

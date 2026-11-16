@@ -1,4 +1,4 @@
-A drug may move diseased cells toward a healthier state. Does the same opportunity remain open throughout the course of disease?
+A drug may move diseased cells toward a healthier state. Does it do so to the same extent at every stage of disease?
 
 Etcelera, announced on October 29, 2026, combines Cellarity's cell-state platform, Etiome's work on disease progression, and Empress Therapeutics' perturbation and multi-omics technologies. What interests me is not simply the number of cells in the training data. It is the attempt to address where along a disease trajectory an intervention should enter. That ambition needs to be distinguished from evidence that the right intervention time has been predicted ([1](#ref-1)).
 
@@ -57,7 +57,7 @@ For example, let time zero be a point at which patients are eligible for a compa
 
 Immediate initiation and a strategy of deferring initiation by \(d\) are compared in the same eligible population, from the same follow-up origin. A negative \(\Delta\) means lower disease burden under immediate initiation in that setting. This expression defines the question posed here; it is not an estimated result.
 
-Each strategy also needs to specify the drug and dose, standard care during deferral, rescue treatment after deterioration, and continuation or stopping rules. If immediate initiation produces longer treatment exposure, the contrast includes that difference. It estimates the effect of the full strategies rather than a pure biological effect of disease stage.
+Each strategy also needs to specify the drug and dose, standard care during deferral, rescue treatment after deterioration, and continuation or stopping rules. If immediate initiation produces longer treatment exposure, the contrast includes that difference. The contrast defines the effect of the full treatment strategies, including the exposure difference.
 
 An observational analysis that includes only eventual treatment initiators in its deferred group selects people who survived until initiation. Target-trial methodology explains why eligibility, strategy assignment, and the start of follow-up need to be aligned ([5](#ref-5)). Further conditions remain: adequate measurement of factors affecting both initiation and outcome, and patients who could plausibly follow either strategy. A larger cellular foundation model does not replace the design of this comparison.
 

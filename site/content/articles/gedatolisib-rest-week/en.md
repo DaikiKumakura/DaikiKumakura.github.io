@@ -14,7 +14,7 @@ Optimization of the regimen is also an open issue on the regulatory side. The FD
 
 ### Question and comparison conditions {#_1}
 
-The quantity of interest (QOI) is how the peak and week-4 exposure change when the same 540 mg per 28 days is divided into three or four doses.
+The question of interest (QOI) is how the peak and week-4 exposure change when the same 540 mg per 28 days is divided into three or four doses.
 
 The context of use (COU) is a simulation from public information to organize, in pharmacokinetic (PK) terms, how redistributing doses including the rest week changes exposure. It does not estimate parameters from new patient data. It must not be used to choose a therapeutic or trial dose, to conclude that efficacy is maintained, that stomatitis improves, or that a rest week is unnecessary.
 
@@ -186,7 +186,7 @@ An ASCO 2026 abstract reported that in PopPK and exposure analyses pooling phase
 
 The PK model here contains neither the onset nor the recovery of events such as stomatitis. Whether exposure shifted into week 4 would impede recovery or contribute to maintaining efficacy was not calculated, and no clinical superiority of weekly 135 mg is shown. Within the materials I checked, I found no report that calculated week-by-week exposure when the same total dose is given in a different distribution. This article provides only the minimal PK numbers that fill that gap.
 
-### What this calculation changes {#implications}
+### Exposure differences that cycle AUC cannot distinguish {#implications}
 
 An exposure–response analysis that uses cycle AUC as its exposure metric cannot distinguish the two distributions in this article. For the same individual the ratio of cycle AUC is 1.000, whereas the maximum concentration is 0.75-fold, the minimum concentration in the cycle is about 1.6-fold and the week-4 AUC is about 13-fold. To evaluate a difference in distribution, one must therefore first decide which exposure metric determines the response. In the FDA's analysis showing a relationship between Cmax and safety ([3](#ref-3)), a distribution that lowers Cmax moves toward lower risk if the relationship is causal and transfers to the new schedule. In the applicant's hypothesis that bases efficacy on the existence of a rest week ([3](#ref-3)), a distribution that increases week-4 exposure moves in the opposite direction. The two grounds point in opposite directions, and PK alone does not decide which prevails.
 

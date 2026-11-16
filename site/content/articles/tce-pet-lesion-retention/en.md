@@ -6,7 +6,7 @@ Extending the 3–6-hour log slope to 24 hours performed substantially worse tha
 
 ## From 37 tabulated lesions to 16 complete cases
 
-The source study measured the distribution of 89Zr-labeled AMG 211 by PET. The broader study enrolled nine patients, whereas public Supplementary Table S3 contains SUVmax measurements for 37 quantifiable lesions in six patients. Neither is the size of the present prediction cohort ([Moek et al., 2019](https://pubmed.ncbi.nlm.nih.gov/30745297/); [Supplementary Table S3](https://aacr.figshare.com/articles/journal_contribution/22470416)).
+The source study measured the distribution of 89Zr-labeled AMG 211 by PET. The broader study enrolled nine patients, whereas public [Supplementary Table S3](https://aacr.figshare.com/articles/journal_contribution/22470416) contains SUVmax measurements for 37 quantifiable lesions in six patients. Neither is the size of the present prediction cohort ([1](#ref-1), [2](#ref-2)).
 
 | Source patient ID | Tabulated lesions | Complete three-time-point lesions | Reason for exclusion |
 | --- | ---: | ---: | --- |
@@ -20,11 +20,11 @@ The source study measured the distribution of 89Zr-labeled AMG 211 by PET. The b
 
 ND and NE were not replaced by zero. Lesions from one patient were never split between training and evaluation as though they came from different people. The analysis table was extracted directly from the public DOCX XML, not digitized from curves.
 
-The question is whether the same lesion's SUVmax at the source's nominal 3, 6, and 24 hours can be predicted without using its 24-hour result. The context of use is a research benchmark for considering imaging-time-point reduction. SUVmax is a lesion radioactivity signal, not a concentration of active TCE.
+The question is whether the same lesion's SUVmax at the source's nominal 3, 6, and 24 hours can be predicted without using its 24-hour result. The context of use is a research benchmark for considering imaging-time-point reduction. SUVmax is the maximum standardized uptake value within a lesion, not a concentration of active TCE.
 
 ![Figure 1. Three SUVmax measurements for each complete lesion](shared/tce-pet-lesion-retention/figures/lesion-trajectories.svg)
 
-Calculations use the table's nominal 3, 6, and 24 hours. Individual exact scan-start timestamps are not given in that table and were not reconstructed. The supplemental methods describe tracer-alone and added-unlabeled-AMG-211 administration conditions. A patient-specific dose-adjustment model was not estimated here ([Supplementary methods](https://aacr.figshare.com/articles/journal_contribution/22470416)).
+Calculations use the table's nominal 3, 6, and 24 hours. Individual exact scan-start timestamps are not given in that table and were not reconstructed. The supplemental methods describe tracer-alone and added-unlabeled-AMG-211 administration conditions. A patient-specific dose-adjustment model was not estimated here ([2](#ref-2)).
 
 ## Extending the early slope
 
@@ -86,15 +86,15 @@ Complete-case selection is another limitation. Performance in the 21 excluded le
 
 The four-patient benchmark did not support continuing the 3–6-hour slope to 24 hours. Early uptake and next-day retention cannot be treated as the same constant-rate process here. Even simple predictions from 6 hours retained error, so these data do not support replacing the 24-hour scan.
 
-## Reproducibility
+## Data and code availability
 
 [Code, extracted tables, and outputs](shared/tce-pet-lesion-retention/tce-pet-lesion-retention-analysis.zip). Run `analysis/download_sources.py` to fetch the public supplement and `analysis/run.py` to reproduce extraction, prediction, figures, and tables. `python -m unittest discover -s tests` checks whole-patient exclusion and calibration. The original DOCX is not redistributed; its URL, license, and SHA-256 are recorded.
 
 ## References
 
-Moek KL, Waaijer SJH, Kok IC, et al. 89Zr-labeled Bispecific T-cell Engager AMG 211 PET Shows AMG 211 Accumulation in CD3-rich Tissues and Clear, Heterogeneous Tumor Uptake. *Clinical Cancer Research*. 2019;25(12):3517–3527. [doi:10.1158/1078-0432.CCR-18-2918](https://doi.org/10.1158/1078-0432.CCR-18-2918).
+<span id="ref-1"></span>1. Moek KL, Waaijer SJH, Kok IC, et al. 89Zr-labeled Bispecific T-cell Engager AMG 211 PET Shows AMG 211 Accumulation in CD3-rich Tissues and Clear, Heterogeneous Tumor Uptake. *Clinical Cancer Research*. 2019;25(12):3517–3527. [doi:10.1158/1078-0432.CCR-18-2918](https://doi.org/10.1158/1078-0432.CCR-18-2918).
 
-Moek KL, et al. Supplementary Data_clean. Supplementary methods and Table S3. [Publisher-linked public supplement](https://aacr.figshare.com/articles/journal_contribution/22470416). CC BY 4.0.
+<span id="ref-2"></span>2. Moek KL, et al. Supplementary Data_clean. Supplementary methods and Table S3. [Publisher-linked public supplement](https://aacr.figshare.com/articles/journal_contribution/22470416). CC BY 4.0.
 
 ## Cite this article
 

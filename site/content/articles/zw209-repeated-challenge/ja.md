@@ -2,15 +2,15 @@
 
 1回目と2回目の実験でほぼ同じ殺細胞活性を示したT-cell engager（TCE）が、3回目にも同じように働くとは限らない。DLL3×CD3×CD28抗体ZW209の公開ポスターでは、最初の2回には重なって見える三つの曲線が、3回目に分かれていた。
 
-初回の強さと、その後も活性を保つことを分けて調べるため、最初の2点だけから後の点を予測した。ZW209では3回目の予測誤差が小さかった一方、CD28機能を除いた対照とAMG 757類似体では約92、86 percentage points（pp）の過大予測になった。この差は原著がすでに示した現象であり、新たな生物学的発見ではない。今回追加したのは、初期の測定だけでその分岐を予測できるかという、固定した外挿式の検証である。
+初回の強さと、その後も活性を保つことを分けて調べるため、最初の2点だけから後の点を予測した。ZW209では3回目の予測誤差が小さかった一方、CD28機能を除いた対照とAMG 757類似体では約92、86パーセントポイント（pp）の過大予測になった。この差は原著がすでに示した現象であり、新たな生物学的発見ではない。今回追加したのは、初期の測定だけでその分岐を予測できるかという、固定した外挿式の検証である。
 
 ## 反復刺激の測定単位
 
-2026年10月23日、ZW209の初期臨床開発に関する契約が発表された。ただし、本解析のデータは臨床試験の結果ではなく、2025年AACR公開ポスターのFigure 2Bである（[開発発表](https://ir.zymeworks.com/news-releases/news-release-details/zymeworks-enters-exclusive-global-license-and-collaboration/)、[Lau et al., 2025, Figure 2](https://www.zymeworks.com/wp-content/uploads/2025/04/ZYME-AACR-2025-ZW209_final.pdf)）。
+2026年10月23日、ZW209の初期臨床開発に関する契約が発表された。ただし、本解析のデータは臨床試験の結果ではなく、2025年AACR公開ポスターのFigure 2Bである([1](#ref-1), [2](#ref-2), [Lau et al., 2025, Figure 2](https://www.zymeworks.com/wp-content/uploads/2025/04/ZYME-AACR-2025-ZW209_final.pdf))。
 
 この実験は、DLL3陽性NCI-H82細胞とT細胞を使い、各刺激の後にT細胞を回収・計数し、新しい腫瘍細胞と抗体を加える。したがって、薬物濃度が体内で減る過程をそのまま観察した試験ではない。
 
-比較対象はZW209、ZW209 CD28null、ポスターでAMG 757†と示された類似体である。最後の分子を市販製剤や臨床試験で使用した原薬と同一とはみなさない。Figure 2BにはZW209が5点、対照2分子がそれぞれ3点ある。ドナー数、独立実験数、分散はこのパネルに明示されていない。11点を11人の独立観測として扱うことはできない。
+比較対象はZW209、ZW209 CD28null、ポスターでAMG 757†と示された類似体である。最後の分子を市販製剤や臨床試験で使用した原薬と同一とはみなさない。Figure 2BにはZW209が5点、対照2分子がそれぞれ3点ある。ドナー数、独立実験数、分散はこのパネルに明示されていない。図の11点を、独立した11件の実験結果として数えることはできない。
 
 | Item | Definition for this analysis |
 | --- | --- |
@@ -59,7 +59,7 @@ A_n=A_1r^{n-1},\qquad
 | ZW209 CD28null | 96.6% | 4.5% | +92.0 pp |
 | AMG 757 analogue | 96.4% | 10.1% | +86.4 pp |
 
-![初期2点で校正した反復刺激後の予測](shared/zw209-repeated-challenge/figures/repeat-forecast.svg)
+![初期2点に当てはめた反復刺激後の予測](shared/zw209-repeated-challenge/figures/repeat-forecast.svg)
 
 ZW209についても、3回目への近い予測だけでその後の全刺激を予測できたとはしない。4・5回目はZW209だけに報告されており、その線上の観測を図に残した。対照について実施されていない、または掲載されていない後続点を0%として補っていない。
 
@@ -74,7 +74,7 @@ ZW209についても、3回目への近い予測だけでその後の全刺激�
 
 ## 座標の微小な違いでは説明できない
 
-3点それぞれの縦座標に独立な±0.5 PDF pointの変化を与え、固定シードで2,000通りを計算した。これは図形位置の取り方に対する感度分析であり、ドナー間変動や測定誤差の信頼区間ではない。
+各分子の最初の3点について、それぞれの縦座標を独立に±0.5 PDFポイントの範囲で動かし、固定シードで2,000通りを計算した。これは図形位置の取り方に対する感度分析であり、ドナー間変動や測定誤差の信頼区間ではない。
 
 | Molecule | Range of third-stimulation prediction error |
 | --- | ---: |
@@ -94,11 +94,10 @@ CD28nullとの比較はCD28機能の寄与を考える手掛かりになる。�
 
 [コード・抽出表・結果表](shared/zw209-repeated-challenge/zw209-repeated-challenge-analysis.zip)。`analysis/download_sources.py`で公開PDFを取得し、`analysis/run.py`でベクトル抽出・予測・感度計算・新しい図表を作成する。元PDFと元図は配布しない。11個のマーカーの座標、抽出条件、元ファイルのSHA-256を記録した。
 
-## References
+## 参照
 
-Lau D, Repenning P, Canals Hernaez D, et al. ZW209, a DLL3 targeted trispecific T cell engager with integrated CD28 co-stimulation, demonstrates safety and potent preclinical efficacy in models of small cell lung cancer. AACR Annual Meeting 2025. Abstract 7318, Figure 2. [Public poster](https://www.zymeworks.com/wp-content/uploads/2025/04/ZYME-AACR-2025-ZW209_final.pdf). New analyses and figures were generated from displayed marker coordinates; the source poster is not redistributed.
-
-Zymeworks. Zymeworks Enters into an Exclusive Global License and Collaboration Agreement with Roche for ZW209, a Trispecific T cell Engager Targeting DLL3. October 23, 2026. [Development announcement](https://ir.zymeworks.com/news-releases/news-release-details/zymeworks-enters-exclusive-global-license-and-collaboration/).
+1. <span id="ref-1"></span>Zymeworks. Zymeworks Enters into an Exclusive Global License and Collaboration Agreement with Roche for ZW209, a Trispecific T cell Engager Targeting DLL3. October 23, 2026. [Development announcement](https://ir.zymeworks.com/news-releases/news-release-details/zymeworks-enters-exclusive-global-license-and-collaboration/).
+2. <span id="ref-2"></span>Lau D, Repenning P, Canals Hernaez D, et al. ZW209, a DLL3 targeted trispecific T cell engager with integrated CD28 co-stimulation, demonstrates safety and potent preclinical efficacy in models of small cell lung cancer. AACR Annual Meeting 2025. Abstract 7318, Figure 2. [Public poster](https://www.zymeworks.com/wp-content/uploads/2025/04/ZYME-AACR-2025-ZW209_final.pdf). New analyses and figures were generated from displayed marker coordinates; the source poster is not redistributed.
 
 ## Cite this article
 

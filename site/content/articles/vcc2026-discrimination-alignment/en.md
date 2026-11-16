@@ -12,7 +12,7 @@ What is checked is whether numbers in the same region can arise in public data. 
 
 ## Abstract
 
-On 102 perturbations from a public dataset by Norman et al., I computed discrimination (PDS, the rank of the correct perturbation) and alignment (cosine similarity between predicted and real effects) for predictions built from real cells of the same perturbation. A prediction made from the average of just one real cell had alignment 0.11 and discrimination 0.83. With two cells it was 0.16 and 0.89. This is a region near the participant's report (alignment 0.084, discrimination 0.86). Conversely, a prediction returning the average effect of the other perturbations had alignment 0.50 and discrimination 0.49. A content-poor prediction that moved only the target gene itself had discrimination 0.98 without gene exclusion and 0.50 under cell-eval2's default rule (`vcc2026`). High discrimination does not imply high alignment, and high alignment does not imply that perturbations can be told apart. Discrimination also depends on the evaluation rule.
+On 102 perturbations from a public dataset by Norman et al., I computed discrimination (PDS, the rank of the correct perturbation) and alignment (cosine similarity between predicted and real effects) for predictions built from real cells of the same perturbation. A prediction made from the expression of just one real cell had alignment 0.11 and discrimination 0.83. With two cells it was 0.16 and 0.89. This is a region near the participant's report (alignment 0.084, discrimination 0.86). Conversely, a prediction returning the average effect of the other perturbations had alignment 0.50 and discrimination 0.49. A content-poor prediction that moved only the target gene itself had discrimination 0.98 without gene exclusion and 0.50 under cell-eval2's default rule (`vcc2026`). High discrimination does not imply high alignment, and high alignment does not imply that perturbations can be told apart. Discrimination also depends on the evaluation rule.
 
 ## Methods
 
@@ -20,7 +20,7 @@ On 102 perturbations from a public dataset by Norman et al., I computed discrimi
 
 - **Effect:** the mean expression of perturbed cells minus the mean expression of control cells, per gene.
 - **Discrimination (PDS):** for each perturbation, the rank of the correct reference among all perturbations' real effects when ordered by closeness to the predicted effect. A value of 1 means closest and 0.5 means no discrimination. Distance is cosine distance, and rank is converted as 1 − (rank ÷ (number of perturbations − 1)). Ties receive the mid-rank.
-- **Alignment:** cosine similarity between the predicted and real effects. A value of 1 is the same direction, and 0 is unrelated.
+- **Alignment:** cosine similarity between the predicted and real effects. A value of 1 is the same direction, and 0 means the two effect vectors are orthogonal.
 - **Target-gene exclusion:** cell-eval2 is a reimplementation of Arc Institute's cell-eval ([3](#ref-3)). The bundled AUTHORS file indicates that the maintainer is affiliated with Arc Institute. I have not confirmed agreement with the official VCC scoring. In cell-eval2's `vcc2026` preset, all target genes of the panel are removed from the evaluated genes (panel), so that target-gene changes alone cannot give discrimination. The older rule (row) removes only the perturbation's own target ([3](#ref-3)). I also computed the case without exclusion.
 
 ### Data
@@ -71,7 +71,7 @@ Figure 1. Discrimination (vertical) against alignment (horizontal). The blue lin
 
 Discrimination approaches its upper limit faster than alignment. As Table 1 shows, while alignment moves from 0.11 to 0.74, discrimination moves only from 0.83 to 0.98. A prediction with alignment 0.16 and one with alignment 0.74 look like a difference of only 0.89 versus 0.98 in discrimination.
 
-The following explanation seems likely. In a space of about 9,500 genes, cosines between unrelated directions cluster near 0 (the theoretical standard deviation is 1/√9,499 ≈ 0.0103; `results/summary.json`). A one-cell prediction is noisy, with a cosine of only 0.11 to the correct effect. But its cosine to wrong candidates is smaller still, 0.03 on average. The rank depends only on whether the cosine to the correct effect exceeds that to the wrong ones, not on how large the margin is.
+The following explanation seems likely. In a space of about 9,500 genes, cosines between two independent, uniformly sampled directions concentrate near 0 (the theoretical standard deviation is 1/√9,499 ≈ 0.0103; `results/summary.json`). A one-cell prediction is noisy, with a cosine of only 0.11 to the correct effect. But its cosine to wrong candidates is smaller still, 0.03 on average. The rank depends only on whether the cosine to the correct effect exceeds that to the wrong ones, not on how large the margin is.
 
 The participant's report (alignment 0.084, discrimination 0.86, agreement between real halves 0.65) lies in a region near the one-cell prediction in this dataset (alignment 0.11, discrimination 0.83). The data and definitions differ, however. This closeness shows only that low alignment and high discrimination can coexist as a property of the metrics; it does not show that the predictions were noisy.
 
@@ -79,7 +79,7 @@ The participant's report (alignment 0.084, discrimination 0.86, agreement betwee
 
 A prediction returning the average effect of the other perturbations (excluding the perturbation itself) had alignment 0.50 (0.44–0.56) and discrimination 0.49 (0.44–0.55) (panel rule; `results/predictions-summary.csv`).
 
-Real effects of different perturbations share a common component. The cosine between real effects of different perturbations has a median of 0.31 (5th–95th percentile range −0.29 to 0.64; `results/summary.json`). The average effect captures this shared component, so alignment is high. But it returns the same prediction for every perturbation and therefore cannot tell them apart. Predicting only a shared response, such as a stress response, can produce high alignment.
+Real effects of different perturbations share a common component. The cosine between real effects of different perturbations has a median of 0.31 (5th–95th percentile range −0.29 to 0.64; `results/summary.json`). The average effect captures this shared component, so alignment is high. Leaving each perturbation out of its own mean changes the prediction, but most of the signal remains shared. Discrimination was near chance in this example. Predicting only a shared response, such as a stress response, can produce high alignment.
 
 ### Discrimination depends on the evaluation rule
 

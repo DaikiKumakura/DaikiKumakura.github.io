@@ -1,4 +1,4 @@
-MSLNを標的とするT-cell engager（TCE）は、細胞表面の標的だけでなく培地中の可溶性MSLNにも出会う。標的細胞の性質を変えなくても、可溶性抗原の量が違えば、同じ濃度で得られる反応が変わる可能性がある。
+メソテリン（MSLN）を標的とするT-cell engager（TCE）は、細胞表面の標的だけでなく培地中の可溶性MSLNにも出会う。標的細胞の性質を変えなくても、可溶性抗原の量が違えば、同じ濃度で得られる反応が変わる可能性がある。
 
 公開されたH226細胞の実験を使い、可溶性MSLNが0・50 ng/mLのデータだけでモデルを推定し、500 ng/mLの濃度反応曲線を予測した。2分子とも、可溶性抗原を無視するモデルより誤差は小さくなった。ただし、500 ng/mLでのEC50は実測曲線への記述的な当てはめより高く予測され、とくに一方の分子では差が残った。
 
@@ -10,7 +10,7 @@ MSLNを標的とするT-cell engager（TCE）は、細胞表面の標的だけ�
 
 **COU：同じ非臨床実験系で、可溶性抗原を無視した濃度設定がどの程度外れるかを調べる。患者の血中値から投与量やレジメンを決める用途には使わない。**
 
-Snellらは、MSLNに対して二価のNM28-2746と、一価のNM28-1872を比較している。今回の対象は原著Figure 4aのH226だけである。同じ図にあるC86細胞の値は使わず、抗原発現量による細胞の選別も解析しない。可溶性抗原が曲線を右へずらすこと自体は、原著ですでに示されている。ここで検証するのは、低い2条件から高い未使用条件への予測である（[Snell et al., 2023](https://doi.org/10.1080/2162402X.2023.2233401)）。
+Snellらは、MSLNに対して二価のNM28-2746と、一価のNM28-1872を比較している。今回の対象は[原著のFigure 4a](https://pmc.ncbi.nlm.nih.gov/articles/PMC10339761/#f0004)のH226だけである。同じ図にあるC86細胞の値は使わず、抗原発現量による細胞の選別も解析しない。可溶性抗原が曲線を右へずらすこと自体は、原著ですでに示されている。ここで検証するのは、低い2条件から高い未使用条件への予測である ([1](#ref-1))。
 
 | Item | Conditions used |
 | --- | --- |
@@ -24,9 +24,9 @@ Snellらは、MSLNに対して二価のNM28-2746と、一価のNM28-1872を比�
 
 ## 原図の観測点だけを読む
 
-2分子×3条件×11点で、平均観測点66点を数値化した。各分子で推定に22点、予測評価に11点を使う。濃度は実験法の希釈系列から設定し、縦軸は画像のピクセルと0・100%の目盛りから換算した。原図の滑らかな当てはめ曲線を観測データとして読み取ってはいない（[original Figure 4](https://pmc.ncbi.nlm.nih.gov/articles/PMC10339761/#f0004)）。
+2分子×3条件×11点で、平均観測点66点を数値化した。各分子で推定に22点、予測評価に11点を使う。濃度は実験法の希釈系列から設定し、縦軸は画像のピクセルと0・100%の目盛りから換算した。原図の滑らかな当てはめ曲線を観測データとして読み取ってはいない ([1](#ref-1))。
 
-原著Figure 4aは、少なくとも2実験のうち代表的な1実験の平均とSDを示す。各条件の元の反復数は明記されていない。今回使う66点は独立したドナー66人のデータではなく、図の平均値である。Figure 4bのEC50は複数実験をまとめた値なので、4aの個別曲線への当てはまりと同一視しない。
+[原著のFigure 4a](https://pmc.ncbi.nlm.nih.gov/articles/PMC10339761/#f0004)は、少なくとも2実験のうち代表的な1実験の平均とSDを示す。各条件の元の反復数は明記されていない。今回使う66点は独立したドナー66人のデータではなく、図の平均値である。[原著のFigure 4b](https://pmc.ncbi.nlm.nih.gov/articles/PMC10339761/#f0004)のEC50は複数実験をまとめた値なので、4aの個別曲線への当てはまりと同一視しない。
 
 未処置点は推定と誤差計算に含めた。対数軸の図では0を表示できないため描画のみ省いている。わずかに負になる読み取り値も0へ切り詰めず保存した。
 
@@ -42,7 +42,7 @@ E(C,S)=b+E_{\max}\frac{C^h}{EC_{50}(S)^h+C^h}
 EC_{50}(S)=EC_{50}(0)\left(1+\frac{S}{K_{\mathrm{app}}}\right)
 \]
 
-\(b\) は基線、\(E_{\max}\) は基線からの反応幅、\(h\) はHill係数である。EC50はこの反応幅の半分に達する濃度で、絶対的な50% cytotoxicityの濃度とは区別する。\(K_{\mathrm{app}}\) はこの実験の曲線のずれを記述するng/mL単位の経験的な係数で、結合実験で得たKDではない。可溶性抗原が基線・最大反応・Hill係数を変えず、EC50だけを変えると仮定している。
+\(b\) は基線、\(E_{\max}\) は基線からの反応幅、\(h\) はHill係数である。EC50はこの反応幅の半分に達する濃度で、絶対的な50%の細胞傷害の濃度とは区別する。\(K_{\mathrm{app}}\) はこの実験の曲線のずれを記述するng/mL単位の経験的な係数で、結合実験で得たKDではない。可溶性抗原が基線・最大反応・Hill係数を変えず、EC50だけを変えると仮定している。
 
 比較対象は、\(EC_{50}\)を可溶性抗原に関係なく共通とするモデルとした。どちらも0・50 ng/mLだけを等しい重みの最小二乗で推定する。500 ng/mLの値は、係数推定にも開始値の選択にも使わない。図をすでに閲覧できる後ろ向きの条件除外評価であり、前向きに盲検化した実験ではない。
 
@@ -50,7 +50,7 @@ EC_{50}(S)=EC_{50}(0)\left(1+\frac{S}{K_{\mathrm{app}}}\right)
 
 ![低い2条件で推定した曲線と500 ng/mLへの予測](shared/tce-soluble-msln/figures/soluble-antigen-forecast.svg)
 
-図の点はH226の観測平均である。緑は可溶性抗原によるEC50の移動、橙は移動を含まないモデル。右列の500 ng/mLでは、点を使って線を引き直していない。
+**図1．** 点はH226の観測平均。緑は可溶性抗原によるEC50の移動、橙は移動を含まないモデル。右列の500 ng/mLでは、点を使って線を引き直していない。
 
 | Molecule | Model | Training-condition RMSE | Prediction RMSE at 500 ng/mL |
 | --- | --- | ---: | ---: |
@@ -59,7 +59,7 @@ EC_{50}(S)=EC_{50}(0)\left(1+\frac{S}{K_{\mathrm{app}}}\right)
 | NM28-1872 | No antigen-dependent shift | 10.39 | 24.30 |
 | NM28-1872 | EC50 shift | 2.31 | 5.96 |
 
-RMSEの単位はcytotoxicityのpercentage pointsである。基線と上限だけを平均的に合わせるより、可溶性MSLNによる濃度のずれを入れる方が、未使用条件の曲線を小さい誤差で予測した。
+二乗平均平方根誤差（RMSE）は細胞傷害率のパーセントポイントで表す。基線と上限だけを平均的に合わせるより、可溶性MSLNによる濃度のずれを入れる方が、未使用条件の曲線を小さい誤差で予測した。
 
 | Molecule | EC50(0) | Hill coefficient | Kapp | Predicted EC50(500) |
 | --- | ---: | ---: | ---: | ---: |
@@ -94,15 +94,15 @@ RMSEの単位はcytotoxicityのpercentage pointsである。基線と上限だ�
 
 今回のデータでは、細胞と培養条件を固定しても、可溶性MSLNを無視すると高い抗原条件の反応予測が外れた。一方、0・50 ng/mLからの単純な外挿も、分子によってEC50を高く見積もる。可溶性抗原の量を入れることと、その係数を別の実験系や患者へ移すことは異なる。この解析が支持するのは、H226のこの40時間アッセイ内での条件間予測までである。
 
-## 解析資料
+## データとコードの公開状況
 
 再実行コードには原図の取得先・ハッシュ、観測点のピクセル座標、濃度系列、推定・予測・読み取り感度分析を含む。図は公開観測値から新しく描いたもので、原図の転載ではない。本文の数値は`outputs/results.json`、条件別予測と全感度計算は`outputs/tables/`に保存した。
 
 [解析コードと集計出力](shared/tce-soluble-msln/tce-soluble-msln-analysis.zip)
 
-## References
+## 参照
 
-1. Snell D, Gunde T, Warmuth S, et al. An engineered T-cell engager with selectivity for high mesothelin-expressing cells and activity in the presence of soluble mesothelin. *OncoImmunology*. 2023;12:2233401. [doi:10.1080/2162402X.2023.2233401](https://doi.org/10.1080/2162402X.2023.2233401). Original source: CC BY-NC 4.0. Changes: experimental mean-marker digitization, model fitting, withheld-condition prediction, reading sensitivity and new figures.
+1. <span id="ref-1"></span>Snell D, Gunde T, Warmuth S, et al. An engineered T-cell engager with selectivity for high mesothelin-expressing cells and activity in the presence of soluble mesothelin. *OncoImmunology*. 2023;12:2233401. [doi:10.1080/2162402X.2023.2233401](https://doi.org/10.1080/2162402X.2023.2233401). Original source: CC BY-NC 4.0. Changes: experimental mean-marker digitization, model fitting, withheld-condition prediction, reading sensitivity and new figures.
 
 ## Cite this article
 
