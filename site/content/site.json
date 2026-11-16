@@ -798,7 +798,7 @@
         "description": "ヒトとマウスの腫瘍バルクRNA-seqについて、公表された24の細胞型デコンボリューション・細胞存在量推定の手法を、1つの関数bulkdeconv()で実行するRパッケージ。どの手法でも、サンプル×細胞型のスコア、数値の意味と比較してよい範囲、入力とシグネチャー遺伝子の被覆の検査を、同じ形で返す。",
         "note": "19手法（quanTIseq、MCP-counter、xCell、xCell2、ESTIMATE、TIMER、GEDIT、mMCP-counter、seq-ImmuCC、BASEなど）はパッケージ内に実装し、最初の15手法はテストで元の実装の出力を再現する。参照データも同梱しており、インストールするだけで動く。EPIC・DCQ・SSMD・mySORTはbulkdeconv_install()のあとで実行でき、PUREE（腫瘍純度）はbulkdeconv_install()でモデルを取得して実行する。登録が必要な手法（CIBERSORT、CIBERSORTx、EcoTyper、ImmuCC）は含まない。割合を返す手法と、存在量やエンリッチメントのスコアを返す手法があり、スコアは同じ細胞型をサンプル間で比べるためのもの。R CMD checkはCIのLinux・macOS・Windowsで通過。CRANとBioconductorには未登録。"
       },
-      "doi": "10.5281/zenodo.24210482",
+      "doi": "10.5281/zenodo.24271490",
       "slug": "bulkdeconv",
       "headline": "bulkdeconv: cell-type deconvolution in R",
       "summary": "R package running 24 published cell-type deconvolution methods for human and mouse tumor bulk RNA-seq through one function, 19 of them built in.",
