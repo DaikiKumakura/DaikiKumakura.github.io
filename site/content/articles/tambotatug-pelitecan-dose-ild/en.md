@@ -1,8 +1,6 @@
 Tambotatug pelitecan (YL201, Tam-Peli) is an antibody–drug conjugate (ADC) that targets B7-H3 and carries the topoisomerase I inhibitor payload YL0010014. In its phase 1/1b trial, 2.0 mg/kg and 2.4 mg/kg every 3 weeks were evaluated as recommended expansion doses ([1](#ref-1)). A higher dose might increase efficacy, but might also increase myelosuppression and interstitial lung disease (ILD).
 
-**QOI (the question this article tries to answer): Is escalation to 2.4 mg/kg necessary?**
-
-**COU (the use and scope of the analysis): To evaluate efficacy and adverse effects relative to 2.0 mg/kg.**
+I used public data to examine how much response and adverse events differed between the 2.0 mg/kg and 2.4 mg/kg groups.
 
 ## Abstract
 
@@ -32,7 +30,7 @@ For each dose group and stratum (SCLC, NPC, other), the count was modeled as $Y 
 
 ### Analysis of ILD
 
-For ILD, beta-binomial posteriors per dose group and their difference and ratio were obtained first. As a sensitivity analysis for the difference in follow-up, onset time was assumed lognormal (median 94.5 days; σ of 0.8, 1.0 or 1.3), and follow-up was set (i) fixed at each group's median, (ii) exponential with that median, or (iii) uniform from 0 to twice the median; $F_{\mathrm{eff}}$ is the mean probability that onset occurs within follow-up. The adjusted lifetime risk was taken as the observed risk divided by $F_{\mathrm{eff}}$, and the ratio of 2.4 mg/kg to 2.0 mg/kg was compared. σ = 1.0 is consistent with the poster's median onset time of 94.5 days (range 17–549 days, 22 patients). This sensitivity analysis ignores treatment discontinuation and risk windows and is not an estimate. For mCRPC, all 99 patients (no ILD) were assumed to be in either the 2.0 or the 2.4 mg/kg group, the number assumed to be at 2.4 mg/kg was varied from 0 to 99, and the ratio of ILD proportions among the other patients was computed.
+For ILD, beta-binomial posteriors per dose group and their difference and ratio were obtained first. As a sensitivity analysis for the difference in follow-up, onset time was assumed lognormal (median 94.5 days; σ of 0.8, 1.0 or 1.3), and follow-up was set (i) fixed at each group's median, (ii) exponential with that median, or (iii) uniform from 0 to twice the median; $F_{\mathrm{eff}}$ is the mean probability that onset occurs within follow-up. The adjusted model-based risk allowing for unobserved onset was taken as the observed risk divided by $F_{\mathrm{eff}}$, and the ratio of 2.4 mg/kg to 2.0 mg/kg was compared. σ = 1.0 is consistent with the poster's median onset time of 94.5 days (range 17–549 days, 22 patients). This sensitivity analysis ignores treatment discontinuation and risk windows and is not an estimate. For mCRPC, all 99 patients (no ILD) were assumed to be in either the 2.0 or the 2.4 mg/kg group, the number assumed to be at 2.4 mg/kg was varied from 0 to 99, and the ratio of ILD proportions among the other patients was computed.
 
 ## Results
 
@@ -121,7 +119,7 @@ Figure 4. ILD/pneumonitis at 2.0 and 2.4 mg/kg. Left, posterior density (Jeffrey
 
 The crude difference is −0.1 points (−2.9 to 2.7), the ratio 0.97 (0.42–2.21) and Fisher's exact test p = 1.00. The posterior probability that the ratio exceeds 1.5 is 0.15. The median time to onset is reported as 94.5 days (range 17–549 days) for all grades and 67 days (range 21–144 days) for Grade 3 ([3](#ref-3)). At the time of the phase 1 original article (312 patients), ILD was 4 patients (1.3%): 2/96 (2.1%) at 2.0 mg/kg and 2/195 (1.0%) at 2.4 mg/kg ([1](#ref-1), Table 2). The pooled analysis has 22 patients with ILD (3.0%), consistent with a larger population and longer follow-up.
 
-Median follow-up is reported as 9.2 months at 2.0 mg/kg and 16.8 months at 2.4 mg/kg ([3](#ref-3)). With the same number of events, the longer-followed 2.4 mg/kg group had more opportunity to show events. Table 4 and the left panel of Figure 5 give the follow-up-adjusted lifetime risk ratio of 2.4 mg/kg to 2.0 mg/kg when the onset-time distribution and the follow-up model are changed.
+Median follow-up is reported as 9.2 months at 2.0 mg/kg and 16.8 months at 2.4 mg/kg ([3](#ref-3)). With the same number of events, the longer-followed 2.4 mg/kg group had more opportunity to show events. Table 4 and the left panel of Figure 5 give the follow-up-adjusted model-based risk allowing for unobserved onset ratio of 2.4 mg/kg to 2.0 mg/kg when the onset-time distribution and the follow-up model are changed.
 
 Table 4. Sensitivity to follow-up (ILD, 2.4 mg/kg / 2.0 mg/kg; `analysis/03_ild.py`). All nine combinations. Onset time is lognormal (median 94.5 days). F_eff is the mean probability that onset is observed within follow-up.
 
@@ -139,7 +137,7 @@ Table 4. Sensitivity to follow-up (ILD, 2.4 mg/kg / 2.0 mg/kg; `analysis/03_ild.
 
 With σ = 1.0, 13.9% of onsets occur later than 9.2 months and 4.6% later than 16.8 months. Across the nine combinations the adjusted median ratio is 0.84 to 0.90, slightly below the observed ratio of 0.97 and small against the width of the interval (about 0.37–2.05). The longer-followed 2.4 mg/kg group has more opportunity to show events, and correcting for that moves the ratio downward. This is stated as a direction only. The onset-time distribution rests on events observed within follow-up, so its right tail may be missing, and the size of the correction may be too small or too large. The interval does not include the uncertainty of $F_{\mathrm{eff}}$, and follow-up was used, not treatment duration.
 
-![Follow-up-adjusted lifetime risk ratio of ILD for 2.4 versus 2.0 mg/kg under nine assumptions, and the ratio when the number of mCRPC patients allocated to 2.4 mg/kg is varied.](shared/tambotatug-pelitecan-dose-ild/figures/fig5_ild_sensitivity.png)
+![Follow-up-adjusted model-based risk allowing for unobserved onset ratio of ILD for 2.4 versus 2.0 mg/kg under nine assumptions, and the ratio when the number of mCRPC patients allocated to 2.4 mg/kg is varied.](shared/tambotatug-pelitecan-dose-ild/figures/fig5_ild_sensitivity.png)
 
 Figure 5. Sensitivity analyses of ILD. Left, the follow-up model; right, the effect of the unpublished allocation of the mCRPC patients (99 patients, no ILD).
 
@@ -157,7 +155,7 @@ The ORR difference is near 0 (1.9 points; −10.9 to 13.4), the intervals for Gr
 
 ## Discussion
 
-On the QOI, the public data show three things. First, an ORR gain from 2.4 mg/kg cannot be confirmed. The crude ORR looks lower at 2.4 mg/kg, but this is within what tumor-type composition can explain, and after standardization it is 1.9 points (−10.9 to 13.4). The interval is wide and cannot rule out a gain or a loss of around 10 points, but there is no evidence of a gain. Second, Grade ≥3 TRAE was higher at 2.4 mg/kg. The point estimates were in the same direction in all three strata, but every stratum interval includes 0, and region and treatment duration are not adjusted. Grade ≥3 leukopenia, neutropenia and anemia were also more frequent at 2.4 mg/kg (crude comparison, no correction). Third, ILD cannot be judged.
+First, an ORR gain from 2.4 mg/kg cannot be confirmed. The crude ORR looks lower at 2.4 mg/kg, but this is within what tumor-type composition can explain, and after standardization it is 1.9 points (−10.9 to 13.4). The interval is wide and cannot rule out a gain or a loss of around 10 points, but there is no evidence of a gain. Second, Grade ≥3 TRAE was higher at 2.4 mg/kg. The point estimates were in the same direction in all three strata, but every stratum interval includes 0, and region and treatment duration are not adjusted. Grade ≥3 leukopenia, neutropenia and anemia were also more frequent at 2.4 mg/kg (crude comparison, no correction). Third, ILD cannot be judged.
 
 Exposure is about 1.5 times higher in ADC AUC at 2.4 mg/kg than at 2.0 mg/kg; the point estimate is above the dose ratio of 1.2, but the interval includes the dose ratio. Free payload AUC is 1.3 times with a wide interval. Toxicity may be related to exposure, but data pairing individual PK with toxicity are not published and were not estimated here.
 
@@ -181,7 +179,7 @@ As a judgment on the value of escalation, the public data stay at "no efficacy g
 
 ## Conclusion
 
-On the QOI (is escalation to 2.4 mg/kg necessary), the public data support the following. An ORR gain from escalation to 2.4 mg/kg cannot be confirmed (the tumor-type-standardized difference is 1.9 points, −10.9 to 13.4; the interval cannot rule out a gain or a loss of around 10 points). The crude ORR looks lower at 2.4 mg/kg, which is explained by SCLC and NPC, with high ORR, being concentrated in the 2.0 mg/kg group. On the other hand, Grade ≥3 TRAE was higher at 2.4 mg/kg (standardized difference 17.0 points, 3.8 to 29.3; region and treatment duration not adjusted), with point estimates in the same direction in all three strata. ILD is 11/324 and 11/335; adjustment for the difference in follow-up changes the ratio only slightly to 0.84–0.90, but because the allocation of mCRPC patients is unknown the range is 0.67–1.37 and equivalence cannot be judged. This is a comparison between non-randomized cohorts and not a causal effect of escalation. The public data give no efficacy evidence that supports the necessity of escalation.
+An ORR gain from escalation to 2.4 mg/kg cannot be confirmed (the tumor-type-standardized difference is 1.9 points, −10.9 to 13.4; the interval cannot rule out a gain or a loss of around 10 points). The crude ORR looks lower at 2.4 mg/kg, which is explained by SCLC and NPC, with high ORR, being concentrated in the 2.0 mg/kg group. On the other hand, Grade ≥3 TRAE was higher at 2.4 mg/kg (standardized difference 17.0 points, 3.8 to 29.3; region and treatment duration not adjusted), with point estimates in the same direction in all three strata. ILD is 11/324 and 11/335; adjustment for the difference in follow-up changes the ratio only slightly to 0.84–0.90, but because the allocation of mCRPC patients is unknown the range is 0.67–1.37 and equivalence cannot be judged. This is a comparison between non-randomized cohorts and not a causal effect of escalation. The public data give no efficacy evidence that supports the necessity of escalation.
 
 ## Data and code availability
 

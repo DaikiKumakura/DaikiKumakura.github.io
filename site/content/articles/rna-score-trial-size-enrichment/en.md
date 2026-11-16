@@ -38,7 +38,7 @@ D2 (all-comers, adjusted for the score) estimates the proportions within each sc
 
 $$V_{\mathrm{adj}}=\mathrm{E}_S\bigl[p_1(S)(1-p_1(S))\bigr]+\mathrm{E}_S\bigl[p_0(S)(1-p_0(S))\bigr]+\tfrac12\,\mathrm{Var}_S\bigl(p_1(S)-p_0(S)\bigr)\tag{2}$$
 
-Its difference from the bracket of Equation (1) ($V_{\mathrm{unadj}}$) is $\mathrm{Var}_S(p_1)+\mathrm{Var}_S(p_0)-\tfrac12\mathrm{Var}_S(p_1-p_0)$. The last term expresses that when the treatment effect varies with the score (an interaction), the variance of the averaging step that produces the marginal effect eats into the precision gained. If the composition of the score groups is fixed by stratified allocation, this term vanishes.
+Its difference from the bracket of Equation (1) ($V_{\mathrm{unadj}}$) is $\mathrm{Var}_S(p_1)+\mathrm{Var}_S(p_0)-\tfrac12\mathrm{Var}_S(p_1-p_0)$. The last term expresses that when the treatment effect varies with the score (an interaction), the variance of the averaging step that produces the marginal effect eats into the precision gained. The term vanishes if the weights used to average over score groups are fixed in advance. Stratified randomisation balances treatment within score groups but does not itself fix the relative sizes of those groups.
 
 D3 (all-comers, test of the interaction) tests the interaction contrast $\psi=(p_{H1}-p_{H0})-(p_{L1}-p_{L0})$ with patients allocated equally to the four cells. The total sample size is
 
@@ -62,7 +62,7 @@ The sample sizes of D1 and D4 (Equation (1)) were also checked with the power fu
 
 Table 1 gives the sample sizes if the anchors hold. The average effect in the all-comers population is only 3.5 points (when the high group's share is 0.5). Groups with opposite directions cancel: $+14$ points in the high group ($0.28$ versus $0.14$) and $-7$ points in the low group ($0.06$ versus $0.13$). The all-comers design therefore needs 3,305 patients (Figure 1a).
 
-Table 1. Patients needed to detect the PFS12 difference at the anchors with 80% power. Randomised is the total over both arms (not per arm). The 350 for D3 is the power for the interaction contrast, not for the treatment effect in the high group.
+Table 1. Patients needed to detect the PFS12 difference at the anchors with 80% power. Randomised is the total over both arms (not per arm). The 350 patients for D3 give the specified power for the interaction contrast. Power for the treatment effect in the high group is a separate question.
 
 | Design | Effect used (pp of PFS12) | Randomised | Screened for the score |
 |---|---|---|---|
@@ -120,7 +120,7 @@ When the PPV $\rho$ falls from 1 to 0.9, 0.8, 0.7 and 0.6, the number randomised
 
 Figure 3. Randomised and tested patients for the enriched (high-group-only) design. (a) PPV of the positive call, (b) shrinkage of the effect in the high group, (c) assay failure. The dashed line is the number randomised in the all-comers design at the anchors (3,305).
 
-The share of patients called positive acts in proportion on the number tested. With shares of 0.2, 0.35, 0.5, 0.65 and 0.8, the number tested is 1,289, 737, 516, 397 and 322 (cell risks kept at the anchors). With assay failure of 10, 20, 30 and 40%, the number tested rises to 573, 645, 737 and 860. The all-comers average effect is a function of the high group's share $\pi$, $\delta(\pi)=0.21\pi-0.07$, which is zero at $\pi=1/3$. At a share of 0.35 the average effect is 0.35 points and the required number is about 300,000, and for $\pi<1/3$ the average effect is negative. The all-comers number changes extremely even when the high-score share departs only modestly from 0.5.
+With the number randomised and the assay success rate held fixed, the number tested is inversely proportional to the share called positive. With shares of 0.2, 0.35, 0.5, 0.65 and 0.8, the number tested is 1,289, 737, 516, 397 and 322 (cell risks kept at the anchors). With assay failure of 10, 20, 30 and 40%, the number tested rises to 573, 645, 737 and 860. The all-comers average effect is a function of the high group's share $\pi$, $\delta(\pi)=0.21\pi-0.07$, which is zero at $\pi=1/3$. At a share of 0.35 the average effect is 0.35 points and the required number is about 300,000, and for $\pi<1/3$ the average effect is negative. The all-comers number changes extremely even when the high-score share departs only modestly from 0.5.
 
 ### Results of the checks
 
@@ -144,7 +144,7 @@ The subject of the EMA's qualification opinion on PROCOVA is continuous outcomes
 - According to the technical report, the model of treatment-effect differences (the benefit head) was trained on five trials including OAK and applied to POPLAR. POPLAR is not part of that model's training, but the score threshold was set at the median of all 192 POPLAR patients, so the high/low split is in-sample for POPLAR. Whether POPLAR is in the encoder's pretraining data could not be confirmed from the text ([1](#ref-1)). This article did not re-evaluate the validity of the score. The report's methods describe a censoring-weighted logistic regression, but whether the four proportions come from that method or from Kaplan–Meier estimation could not be confirmed. These points bear on every conclusion that takes the four proportions as input.
 - The endpoint is binary PFS12, assuming that every patient's 12-month status is known. Real trials often use time-to-event analysis (hazard ratio, log-rank test, restricted mean survival time), and the required sample size for those needs a separate calculation. The effect of dropout was evaluated only at 10% and 20%, assuming non-informative dropout. This bears on the absolute required numbers.
 - The analysis uses a discrete score split into high and low. Choosing a threshold on a continuous score, re-tuning the threshold, and searching over several thresholds were not treated.
-- Uncertainty covers only the sampling error of the four proportions, with independence assumed. Jeffreys and integer-count priors were also tried (medians 265 and 357), but no other choices. Differences in population and assay in a new trial are represented by the sensitivity to $\rho$ and to shrinkage of the effect. The break-even treats the cost of testing and of randomising as equal. These bear on the conclusions about uncertainty and the break-even.
+- Uncertainty covers only the sampling error of the four proportions, with independence assumed. A Jeffreys prior and rounding the event counts to integers were also tried (medians 265 and 357), but no other choices. Differences in population and assay in a new trial are represented by the sensitivity to $\rho$ and to shrinkage of the effect. The break-even treats the cost of testing and of randomising as equal. These bear on the conclusions about uncertainty and the break-even.
 - The checks are by code the same author wrote after the derivation, not an independent implementation. There is no pre-registration.
 - The sample sizes here are indices for comparing designs, not planned values for any particular trial.
 

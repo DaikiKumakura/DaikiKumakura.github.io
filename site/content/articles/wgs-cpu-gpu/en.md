@@ -1,4 +1,4 @@
-Three hours using a central processing unit (CPU) versus 3.2 hours using a graphics processing unit (GPU): a Reddit post inspected on November 8, 2026, Japan Standard Time, reports these whole-genome sequencing, or WGS, processing times for bwa-mem3 fast mode and Parabricks [(1)](#ref-1).
+Three hours using a central processing unit (CPU) versus 3.2 hours using a graphics processing unit (GPU): a Reddit post inspected on November 8, 2026, Japan Standard Time, reports these whole-genome sequencing, or WGS, processing times for bwa-mem3 fast mode and Parabricks ([1](#ref-1)).
 
 The possibility that a GPU is not automatically faster is appealing. Before using those numbers to justify a migration, however, the comparison needs a defined endpoint and output. Different processing boundaries and different results create different interpretations of speed.
 
@@ -6,11 +6,11 @@ The possibility that a GPU is not automatically faster is appealing. Before usin
 
 I examined the Reddit post and visible comments, the associated public workflow and official bwa-mem3 and Parabricks documentation. No independent WGS run, alignment comparison or variant-accuracy evaluation was performed. This article evaluates the scope of the public comparison rather than determining empirical CPU–GPU superiority.
 
-The workflow makes commands and processing steps inspectable [(2)](#ref-2). Public instructions, however, are not evidence that all resulting outputs have been quality-validated.
+The workflow makes commands and processing steps inspectable ([2](#ref-2)). Public instructions, however, are not evidence that all resulting outputs have been quality-validated.
 
 ## Fast mode does not promise identical output
 
-The bwa-mem3 documentation explicitly states that `--fast` does not produce the same alignments as the default mode [(3)](#ref-3). The comparison therefore cannot be interpreted solely as a faster implementation of an identical operation.
+The bwa-mem3 documentation explicitly states that `--fast` does not produce the same alignments as the default mode ([3](#ref-3)). The comparison therefore cannot be interpreted solely as a faster implementation of an identical operation.
 
 Different alignments do not automatically mean worse variant calls. Reads can move between similarly plausible locations, or changes can affect reads excluded downstream. Conversely, a small global difference can matter if concentrated near a relevant variant or repetitive region.
 
@@ -18,7 +18,7 @@ Alignment agreement and recovery of true variants must therefore be distinguishe
 
 ## Where the stopwatch starts and stops
 
-WGS processing includes sorting, duplicate handling, base-quality recalibration and file input/output (I/O) beyond alignment. NVIDIA's documentation describes additional operations within `fq2bam`; recalibration depends on supplied input and output options [(4)](#ref-4).
+WGS processing includes sorting, duplicate handling, base-quality recalibration and file input/output (I/O) beyond alignment. NVIDIA's documentation describes additional operations within `fq2bam`; recalibration depends on supplied input and output options ([4](#ref-4)).
 
 Comparing one command's completion with another pipeline after extra processing can measure different endpoints. Identical command names do not solve this problem when options change the endpoint's contents. A runtime needs an explicit specification of what it measures.
 
@@ -38,7 +38,7 @@ Running multiple samples concurrently can also separate single-sample latency fr
 
 ## Quality requires a benchmark and an evaluation region
 
-When outputs differ, their mutual agreement cannot identify the better output. Both can agree on the same error. An independently defined benchmark sample and evaluation region are needed. Genome in a Bottle provides access points for public benchmark releases [(5)](#ref-5).
+When outputs differ, their mutual agreement cannot identify the better output. Both can agree on the same error. An independently defined benchmark sample and evaluation region are needed. Genome in a Bottle provides access points for public benchmark releases ([5](#ref-5)).
 
 Performance inside benchmark regions does not automatically extend to the whole genome. Single-nucleotide variants, insertions and deletions, easy regions and difficult regions can behave differently. Changing callers, reference sequences or benchmark versions adds differences beyond alignment.
 
@@ -52,7 +52,7 @@ With a fast mode, timing must be read alongside changed outputs. Was the process
 
 ## Data and code availability
 
-The cost boundary is calculated under `WGS` in the [script](shared/wgs-cpu-gpu/reproduce.py) and [output](shared/wgs-cpu-gpu/illustration.json). Runtime inputs are the poster's reported values, not independent measurements. The workflow was inspected at commit `ba6c6203fc91643d9018f2432bfab12173ca5174` [(2)](#ref-2). No WGS quality-evaluation results are provided here.
+The cost boundary is calculated under `WGS` in the [script](shared/wgs-cpu-gpu/reproduce.py) and [output](shared/wgs-cpu-gpu/illustration.json). Runtime inputs are the poster's reported values, not independent measurements. The workflow was inspected at commit `ba6c6203fc91643d9018f2432bfab12173ca5174` ([2](#ref-2)). No WGS quality-evaluation results are provided here.
 
 [Download code and results](shared/wgs-cpu-gpu/wgs-cpu-gpu.zip).
 

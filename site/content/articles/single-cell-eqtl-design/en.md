@@ -1,6 +1,6 @@
 A million cells sounds impressive. For genotype–expression associations, however, the information depends on how many donors produced those cells. Sampling more cells from the same person does not add another person with a new genotype.
 
-Published on November 6, 2026, the SAIGE-QTL paper directly models single-cell expression counts while accounting for repeated cells within donors and relationships between donors [(1)](#ref-1). Its significance is the ability to retain repeated observations in the model, not to turn them into independent samples.
+Published on November 6, 2026, the SAIGE-QTL paper directly models single-cell expression counts while accounting for repeated cells within donors and relationships between donors ([1](#ref-1)). Its significance is the ability to retain repeated observations in the model, not to turn them into independent samples.
 
 ## Scope and sources
 
@@ -48,7 +48,7 @@ SE: standard error. Expression is in arbitrary units and genotype is dimensionle
 
 With 50 donors, increasing cell count fivefold reduces the standard error from 0.155 to 0.144. Doubling donors instead gives 0.110 with only 2,000 total cells. Under these assumptions, more total cells do not guarantee a smaller standard error.
 
-This does not imply that additional cells are worthless. When cells per donor are initially scarce, \(\sigma^2/m\) can dominate. More cells can also be needed to sample a rare cell type. The calculation shows why total count alone cannot compare these investments.
+When cells per donor are initially scarce, \(\sigma^2/m\) can dominate. More cells can also be needed to sample a rare cell type. The calculation shows why total count alone cannot compare these investments.
 
 ## Pseudobulk is not automatically a crude method
 
@@ -56,7 +56,7 @@ Pseudobulk analysis aggregates cells within a donor and cell type to obtain dono
 
 The example has equal cell counts and cell-specific variances. Regression on donor means follows naturally. Rewriting it at cell level does not create additional genotype information.
 
-Real single-cell data have unequal cell counts, sequencing depths, states and count distributions. SAIGE-QTL uses a Poisson mixed model for the repeated structure [(1)](#ref-1). Its documentation also emphasizes accounting for read depth through normalization or offsets [(2)](#ref-2).
+Real single-cell data have unequal cell counts, sequencing depths, states and count distributions. SAIGE-QTL uses a Poisson mixed model for the repeated structure ([1](#ref-1)). Its documentation also emphasizes accounting for read depth through normalization or offsets ([2](#ref-2)).
 
 The relevant comparison is therefore not simply raw cells versus discarded information. It is what a summary retains and which distributional assumptions it makes. An appropriately weighted donor-level analysis and an aggregation ignoring imbalance do not become equivalent comparisons merely because both are called pseudobulk.
 

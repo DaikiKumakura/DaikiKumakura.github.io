@@ -1,4 +1,4 @@
-Predicting activity from a small set of experimental measurements could help narrow the compounds tested in drug discovery. The November 6, 2026 MIT News article about CheMeleon foregrounded prediction from scant data [(1)](#ref-1). But that description alone does not tell us whether the advantage is large enough to replace a classical method.
+Predicting activity from a small set of experimental measurements could help narrow the compounds tested in drug discovery. The November 6, 2026 MIT News article about CheMeleon foregrounded prediction from scant data ([1](#ref-1)). But that description alone does not tell us whether the advantage is large enough to replace a classical method.
 
 I reanalyzed the authors' released results for 30 MoleculeACE tasks. CheMeleon had, on average, 5.0% lower error than the published random forest (RF). Among the 15 tasks with at most 1,000 compounds in the training pool, the reduction was 1.9%, with a 95% interval including no improvement. Its improvement on activity cliffs was also smaller than on noncliff compounds.
 
@@ -6,9 +6,9 @@ This does not refute CheMeleon. It shows how the size and interpretation of its 
 
 ## Scope and sources
 
-CheMeleon learns molecular representations by pretraining to predict computed molecular descriptors, then fine-tunes them on experimental properties. The formal paper appeared in the Journal of Chemical Information and Modeling in 2026 [(2)](#ref-2). I verified its bibliographic information but could not access the publisher's full text. The methodological assessment therefore uses arXiv v2, dated February 9, 2026, and the code and results at a pinned repository commit. I have not established that every method is identical to the version of record [(3)](#ref-3) [(4)](#ref-4).
+CheMeleon learns molecular representations by pretraining to predict computed molecular descriptors, then fine-tunes them on experimental properties. The formal paper appeared in the Journal of Chemical Information and Modeling in 2026 ([2](#ref-2)). I verified its bibliographic information but could not access the publisher's full text. The methodological assessment therefore uses arXiv v2, dated February 9, 2026, and the code and results at a pinned repository commit. I have not established that every method is identical to the version of record ([3](#ref-3)) ([4](#ref-4)).
 
-The reported win rate needs care. In arXiv v2, both the model with the best mean performance and models for which a Tukey multiple comparison detects no difference from that best model receive a win. The Polaris result is 21/28, or 75%; the MoleculeACE result is 29/30, about 97%, under this definition. These are neither exclusive first-place rates nor probabilities of beating RF. Failure to detect a difference does not establish equivalence [(3)](#ref-3).
+The reported win rate needs care. In arXiv v2, both the model with the best mean performance and models for which a Tukey multiple comparison detects no difference from that best model receive a win. The Polaris result is 21/28, or 75%; the MoleculeACE result is 29/30, about 97%, under this definition. These are neither exclusive first-place rates nor probabilities of beating RF. Failure to detect a difference does not establish equivalence ([3](#ref-3)).
 
 My question is not whether that win count can be reproduced. It is how much error differs from RF on the same tasks, and how that comparison changes for cliffs and training-pool sizes. Because Polaris mixes endpoints and evaluation metrics, I chose the 30 activity-regression tasks in MoleculeACE for the primary analysis.
 
@@ -16,11 +16,11 @@ My question is not whether that win count can be reproduced. It is how much erro
 
 ### Read five repetitions on fixed test sets
 
-Inputs were the released CheMeleon.md, RF.md and Chemprop.md results and the cliff-subgroup CSV. Each task has five seeds: 42, 117, 709, 1701 and 9001. The three primary models contribute 450 runs. I checked model–task–seed keys for duplicates and missing values. I did not retrain models or rerun molecule-level inference [(4)](#ref-4).
+Inputs were the released CheMeleon.md, RF.md and Chemprop.md results and the cliff-subgroup CSV. Each task has five seeds: 42, 117, 709, 1701 and 9001. The three primary models contribute 450 runs. I checked model–task–seed keys for duplicates and missing values. I did not retrain models or rerun molecule-level inference ([4](#ref-4)).
 
 The inspected code retains fixed test membership. Seeds change training randomness, early-stopping splits or related procedures; they do not independently sample five new sets of unseen compounds. The 150 runs per model are therefore not 150 independent tasks. Where the figure caption's five-fold wording conflicts with the fixed-split implementation, this analysis is defined by the inspected code and released result files.
 
-Activity cliffs are regions where small structural differences accompany large activity changes. I reused the cliff_mol labels and train/test columns in the pinned MoleculeACE CSVs, without regenerating cliff labels or creating new splits [(5)](#ref-5). Training size in Table 1 is the released training pool before its division into fitting and early-stopping subsets during fine-tuning.
+Activity cliffs are regions where small structural differences accompany large activity changes. I reused the cliff_mol labels and train/test columns in the pinned MoleculeACE CSVs, without regenerating cliff labels or creating new splits ([5](#ref-5)). Training size in Table 1 is the released training pool before its division into fitting and early-stopping subsets during fine-tuning.
 
 Table 1. Analysis population. Repetitions are not added to the task count.
 
@@ -73,7 +73,7 @@ CheMeleon had lower overall mean error on 23 tasks and higher error on seven. Th
 
 ![Task-level RMSE ratios against the published RF baseline](shared/chemeleon-low-data/task-ratios.png)
 
-Figure 1. Task-level error ratios computed from released results. RMSE denotes root mean squared error and RF the published RF label. Values left of one favor CheMeleon; each point is a ratio of five-run means. The CHEMBL prefix is omitted from task labels. The original cliff comparison is in [Figure 3 of arXiv v2](https://arxiv.org/html/2506.15792v2#S1.F3). This is a new aggregation with a different metric, not a reproduced figure [(3)](#ref-3) [(4)](#ref-4).
+Figure 1. Task-level error ratios computed from released results. RMSE denotes root mean squared error and RF the published RF label. Values left of one favor CheMeleon; each point is a ratio of five-run means. The CHEMBL prefix is omitted from task labels. The original cliff comparison is in [Figure 3 of arXiv v2](https://arxiv.org/html/2506.15792v2#S1.F3). This is a new aggregation with a different metric, not a reproduced figure ([3](#ref-3)) ([4](#ref-4)).
 
 Against the released Chemprop, the overall ratio was 0.800, with a 95% interval of 0.779–0.822, and mean error was lower on all 30 tasks. The gain from the nonpretrained comparator is substantial. Treating that number as the gain over RF, however, would exaggerate the latter advantage. The comparator changes what “stronger” means.
 

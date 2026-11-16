@@ -1,6 +1,6 @@
 What is diverse when we describe T cells as diverse: their receptors, their transcriptional states, or the states occupied by cells with the same receptor? Without this distinction, apparently opposing response associations can be forced into one diversity narrative.
 
-Published on November 5, 2026, TCRi uses a hierarchical Bayesian model for the joint distribution of T cell receptor, or TCR, clonotype and phenotype inferred from ribonucleic acid (RNA) expression. The authors report an association between lower pretreatment normalized mutual information and response to immune checkpoint blockade [(1)](#ref-1). Rephrasing this as “more diversity means better response” would merge the quantities the method separates.
+Published on November 5, 2026, TCRi uses a hierarchical Bayesian model for the joint distribution of T cell receptor, or TCR, clonotype and phenotype inferred from ribonucleic acid (RNA) expression. The authors report an association between lower pretreatment normalized mutual information and response to immune checkpoint blockade ([1](#ref-1)). Rephrasing this as “more diversity means better response” would merge the quantities the method separates.
 
 ## Scope and sources
 
@@ -38,13 +38,13 @@ Both populations have \(H(C)=H(S)=1\) bit, but mutual information is zero in Ind
 
 Identical clonotype diversity can therefore conceal different within-clone state heterogeneity. Even this 100-cell calculation shows why diversity alone cannot describe the entire response question.
 
-These are not TCRi estimates. They are count-based calculations with fixed clone and state definitions. In real data, phenotype boundaries are ambiguous and sparsely sampled clones have uncertain distributions. TCRi explicitly treats assignments probabilistically [(2)](#ref-2).
+These are not TCRi estimates. They are count-based calculations with fixed clone and state definitions. In real data, phenotype boundaries are ambiguous and sparsely sampled clones have uncertain distributions. TCRi explicitly treats assignments probabilistically ([2](#ref-2)).
 
 ## Low information does not automatically mean effective immunity
 
 Zero bits in the artificial example means only that state variation is unrelated to clonotype. The table does not reveal tumor killing, tumor-antigen recognition or treatment-driven expansion. High information likewise means only that states differ by clone.
 
-Interpreting the reported response association requires tissue, time point and treatment context. An indicator estimated using post-treatment information cannot automatically be used for pretreatment selection. The original study does, however, include retraining on pretreatment data alone [(1)](#ref-1). The issue is not an absence of temporal checks, but the distinction between those checks and pretreatment prediction in independent patients.
+Interpreting the reported response association requires tissue, time point and treatment context. An indicator estimated using post-treatment information cannot automatically be used for pretreatment selection. The original study does, however, include retraining on pretreatment data alone ([1](#ref-1)). The issue is not an absence of temporal checks, but the distinction between those checks and pretreatment prediction in independent patients.
 
 Mutual information also has several normalization conventions. A normalized value is not on the same numerical scale as this bit-based example. Refining phenotype categories or changing priors can alter estimated dependence. Comparisons across studies require matching distribution weights and estimation methods.
 
@@ -54,17 +54,17 @@ Additional cells can improve estimation of one patient's clone–state distribut
 
 Pooling cells without respecting patients gives greater influence to heavily sampled patients. It can also mix between-patient state differences with within-patient clone–state dependence. Equalizing cell counts does not itself remove differences in tissue or sampling time.
 
-The original study includes clonotype-permutation null models and cell-subsampling analyses [(1)](#ref-1). It would be inaccurate to claim that sampling effects were never examined. Nevertheless, within-cohort robustness and prospective prediction in independent patients remain different questions.
+The original study includes clonotype-permutation null models and cell-subsampling analyses ([1](#ref-1)). It would be inaccurate to claim that sampling effects were never examined. Nevertheless, within-cohort robustness and prospective prediction in independent patients remain different questions.
 
 ## Conclusion
 
 TCRi decomposes the question of T cell diversity into the distributions involved. The marginal distributions of clonotype and state do not establish how they are connected.
 
-The association between low mutual information and response concerns that connection. It is neither a general law that greater diversity improves treatment response nor an established patient-selection threshold. Biological interpretation requires keeping the patients, time points and conditioning information attached to the estimated distribution.
+The association between lower pretreatment normalized mutual information and response concerns that connection. It is neither a general law that greater diversity improves treatment response nor an established patient-selection threshold. Biological interpretation requires keeping the patients, time points and conditioning information attached to the estimated distribution.
 
 ## Data and code availability
 
-The counts and information measures are in `TCR` in the [calculation script](shared/tcri-clone-phenotype/reproduce.py) and [output](shared/tcri-clone-phenotype/illustration.json). This is not a TCRi implementation. The original processed data and acceptance-time code are available through [Zenodo](https://doi.org/10.5281/zenodo.21723747), with software in the [official repository](https://github.com/nceglia/tcri) [(1)](#ref-1).
+The counts and information measures are in `TCR` in the [calculation script](shared/tcri-clone-phenotype/reproduce.py) and [output](shared/tcri-clone-phenotype/illustration.json). This is not a TCRi implementation. The original processed data and acceptance-time code are available through [Zenodo](https://doi.org/10.5281/zenodo.21723747), with software in the [official repository](https://github.com/nceglia/tcri) ([1](#ref-1)).
 
 [Download code and results](shared/tcri-clone-phenotype/tcri-clone-phenotype.zip).
 

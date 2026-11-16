@@ -131,7 +131,7 @@ Figure 4. LOO calibration. Points are quartile groups of predicted probability (
 
 ### Simple threshold rules
 
-Table 4 gives the performance of rules that predict "more than once daily" when the half-life is below a threshold. At no threshold could accuracy be distinguished from the 68.8% (64/93) of the rule that predicts QD for every drug (the interval for the 6 h rule, 54.4–73.5%, contains 68.8%). Accuracy is a poor metric when "more than once daily" is 31% of the sample. With the 6 h threshold, specificity was 78.1% but sensitivity was 34.5%, missing 19 of the 29 drugs dosed more than once daily. The PPV was 41.7% (24.5–61.2%), somewhat above the base rate of 31.2%, and LR+ was 1.58. There is a weak signal above the base rate, but the interval is wide.
+Table 4 gives the performance of rules that predict "more than once daily" when the half-life is below a threshold. At no threshold could accuracy be distinguished from the 68.8% (64/93) of the rule that predicts fewer than two daily doses for every drug (the interval for the 6 h rule, 54.4–73.5%, contains 68.8%). Because only 31% of the sample is dosed more than once daily, predicting the majority class alone can yield high accuracy. With the 6 h threshold, specificity was 78.1% but sensitivity was 34.5%, missing 19 of the 29 drugs dosed more than once daily. The PPV was 41.7% (24.5–61.2%), somewhat above the base rate of 31.2%, and LR+ was 1.58. There is a weak signal above the base rate, but the interval is wide.
 
 Table 4. Performance of threshold rules (n = 93, `analysis/02_models.py`).
 
@@ -141,7 +141,7 @@ Table 4. Performance of threshold rules (n = 93, `analysis/02_models.py`).
 | 8 h | 48.3% (31.4–65.6%) | 75.0% (63.2–84.0%) | 66.7% (56.6–75.4%) | 46.7% (30.2–63.9%) | 1.93 |
 | 12 h | 62.1% (44.0–77.3%) | 62.5% (50.3–73.3%) | 62.4% (52.2–71.5%) | 42.9% (29.1–57.8%) | 1.66 |
 
-Note: The positive class is BID or TID. PPV, positive predictive value (the share of drugs predicted "more than once daily" that really were); LR+, positive likelihood ratio (sensitivity divided by 1 − specificity). The accuracy of the rule that predicts QD for every drug is 68.8% (64/93), and the base rate of "more than once daily" is 31.2% (29/93).
+Note: The positive class is BID or TID. PPV, positive predictive value (the share of drugs predicted "more than once daily" that really were); LR+, positive likelihood ratio (sensitivity divided by 1 − specificity). The accuracy of the rule that predicts fewer than two daily doses for every drug is 68.8% (64/93), and the base rate of "more than once daily" is 31.2% (29/93).
 
 ### Half-life and dosing interval
 

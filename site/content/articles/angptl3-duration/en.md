@@ -1,12 +1,12 @@
 Three years after one dose sounds like durable pharmacology. But three years of what: target-protein reduction, lipid lowering or prevention of cardiovascular events? These cannot be assigned the same duration without corresponding observations.
 
-A study released early on November 6, 2026 targets the gene encoding angiopoietin-like 3 (ANGPTL3) protein with base editing. The authors report sustained circulating ANGPTL3 protein reduction in nonhuman primates out to three years after one dose [(1)](#ref-1). Its interpretation requires separating persistence of the administered material from persistence of the biological state it changes.
+A study released early on November 6, 2026 targets the gene encoding angiopoietin-like 3 (ANGPTL3) protein with base editing. The authors report sustained circulating ANGPTL3 protein reduction in nonhuman primates out to three years after one dose ([1](#ref-1)). Its interpretation requires separating persistence of the administered material from persistence of the biological state it changes.
 
 ## Scope and sources
 
 This article uses the public abstract of the peer-reviewed, accepted early-release article and the sponsor's Pulse-1 description. Dose-specific figures, individual trajectories and detailed safety materials were not available within this review. No reduction rates were reestimated and no quantitative animal-to-human projection was made.
 
-The sponsor describes Pulse-1 as a phase 1b study of VERVE-201 [(2)](#ref-2). The existence of that trial does not establish long-term human benefit.
+The sponsor describes Pulse-1 as a phase 1b study of VERVE-201 ([2](#ref-2)). The existence of that trial does not establish long-term human benefit.
 
 ## Three different clocks
 
@@ -14,7 +14,7 @@ One clock concerns the components delivered to cause editing. Another concerns t
 
 One half-life cannot describe them all. If production remains altered after delivered components disappear, protein abundance need not recover. Conversely, persistent protein reduction does not establish equally persistent or proportionate lipid lowering. Linking the time courses requires observations of each relationship.
 
-The abbreviated phrase “works for three years” removes those links. In the abstract, the explicit long-term durability claim concerns circulating ANGPTL3 protein [(1)](#ref-1). It should not be silently extended to equally long lipid or event follow-up.
+The abbreviated phrase “works for three years” removes those links. In the abstract, the explicit long-term durability claim concerns circulating ANGPTL3 protein ([1](#ref-1)). It should not be silently extended to equally long lipid or event follow-up.
 
 ## Changing production changes the pharmacodynamic clock
 
@@ -56,7 +56,7 @@ Duration alone also does not establish the ability to detect rare adverse events
 
 The ANGPTL3 follow-up informs sustained target action that dose count alone cannot describe. Removing the measured endpoint and species, however, turns it into an unsupported claim of three years of clinical efficacy after one treatment.
 
-If altered production persists, the model can explain target action continuing beyond residence of the delivered components. The three-year figure in this study should likewise be read as the observed duration of target-protein reduction, not as the half-life of the administered components.
+If altered production persists, the model can explain target action continuing beyond residence of the delivered components. The three-year figure in this study should likewise be read as target-protein reduction observed through three years, not as the half-life of the administered components.
 
 ## Data and code availability
 

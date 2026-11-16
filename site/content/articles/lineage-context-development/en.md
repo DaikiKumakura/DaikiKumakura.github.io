@@ -1,12 +1,12 @@
 Did two cells with similar RNA (ribonucleic acid) expression arrive there along the same path? Expression distributions alone need not determine the answer. Different ancestors can converge on similar states, while similar states can diverge toward different futures.
 
-Gowri and colleagues introduce lineage inpainting, a generative approach conditioned on lineage context, including sister and cousin cells. Applied to lineage-traced mouse development, it addresses convergence not resolved by expression alone [(1)](#ref-1). The important change is the observation added to the prediction problem, rather than the generative-AI label.
+Gowri and colleagues introduce lineage inpainting, a generative approach conditioned on lineage context, including sister and cousin cells. Applied to lineage-traced mouse development, it addresses convergence not resolved by expression alone ([1](#ref-1)). The important change is the observation added to the prediction problem, rather than the generative-AI label.
 
 ## Scope and sources
 
 This article examines the October 29, 2026 preprint, version 1, together with the authors' explanation and public code. I checked the methods, evaluation and supplementary held-out-lineage analysis, without retraining the model or reanalyzing mouse data.
 
-The approach imputes unobserved internal states and generates conditional states on supplied lineage trees. It should be distinguished from freely generating tree topology and times [(2)](#ref-2). A small probability example below illustrates how context can reduce distributional ambiguity.
+The approach imputes unobserved internal states and generates conditional states on supplied lineage trees. It should be distinguished from freely generating tree topology and times ([2](#ref-2)). A small probability example below illustrates how context can reduce distributional ambiguity.
 
 ## The same distributions permit different connections
 
@@ -26,13 +26,13 @@ Suppose two paths reach the same endpoint without intermediate observations. A l
 
 Evaluation must therefore assess both agreement with expression marginals and plausible relationships within the tree. A model ignoring lineage can look good on the former. A model producing attractive trees can satisfy the latter while missing observed state distributions.
 
-The preprint includes training on 45 trees and evaluation on 11 held-out trees [(1)](#ref-1). It would be inaccurate to dismiss it as merely redrawing training lineages. Generalization to unused trees, however, is different from directly validating unobserved ancestral RNA. Separating these claims preserves the value of the evaluation without extending its reach.
+The preprint includes training on 45 trees and evaluation on 11 held-out trees ([1](#ref-1)). It would be inaccurate to dismiss it as merely redrawing training lineages. Generalization to unused trees, however, is different from directly validating unobserved ancestral RNA. Separating these claims preserves the value of the evaluation without extending its reach.
 
 ## Perturbation is a further inferential step
 
 Imputing a missing state from relatives predicts within observed relationships. Changing a gene can change those relationships themselves.
 
-The authors use the observational model to formulate perturbation hypotheses and compare predictions with a Tbx5 perturbation experiment [(1)](#ref-1). Such a comparison matters, but agreement in one intervention does not establish transportability to arbitrary interventions.
+The authors use the observational model to formulate perturbation hypotheses and compare predictions with a Tbx5 perturbation experiment ([1](#ref-1)). Such a comparison matters, but agreement in one intervention does not establish transportability to arbitrary interventions.
 
 If an intervention changes cellular expression while preserving subsequent transition rules, reconnecting that state to learned dynamics may be defensible. If it also changes proliferation, death or intercellular interactions, it can change the tree or environment. Applying the same conditional law then requires stronger assumptions. The crucial issue is what remains invariant after intervention, not simply whether the gene was absent from training perturbations.
 

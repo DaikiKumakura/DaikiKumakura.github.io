@@ -1,6 +1,6 @@
 Replace 300 mg every six weeks with 150 mg every three weeks. The dose administered over the long run is unchanged. Does that allow peak concentrations to fall while preserving the treatment’s effects?
 
-On November 8, 2026, Mark Wildgust posted about pasritamig plus JNJ-9401 for prostate cancer [(1)](#ref-1). According to the sponsor release, 11 of 15 patients at the recommended regimen achieved a reduction of at least 50% in prostate-specific antigen (PSA). Both agents were given every six weeks: pasritamig 300 mg intravenously and JNJ-9401 200 mg subcutaneously [(2)](#ref-2).
+On November 8, 2026, Mark Wildgust posted about pasritamig plus JNJ-9401 for prostate cancer ([1](#ref-1)). According to the sponsor release, 11 of 15 patients at the recommended regimen achieved a reduction of at least 50% in prostate-specific antigen (PSA). Both agents were given every six weeks: pasritamig 300 mg intravenously and JNJ-9401 200 mg subcutaneously ([2](#ref-2)).
 
 I examine this development through a different question: dose fractionation. A hypothetical comparison changes pasritamig alone to half the dose at half the interval and asks what must be held constant to call exposure equivalent. The calculations show that equal steady-state mean concentrations do not imply equal mean concentrations during the first eight weeks. That initial window is also the exposure window used in a public exposure–response analysis.
 
@@ -8,9 +8,9 @@ I examine this development through a different question: dose fractionation. A h
 
 The sponsor release was the source for clinical findings from combination trial NCT06095089. I could not examine the full SITC 2026 slides. The pharmacokinetic (PK) calculations below are not an analysis of combination-treated patients.
 
-The pasritamig monotherapy phase I paper selected 3.5 mg on Day 1, 18 mg on Day 8 and 300 mg on Day 15, followed by dosing every six weeks. It reported a mean terminal half-life of approximately 15.2 days after intravenous administration [(3)](#ref-3).
+The pasritamig monotherapy phase I paper selected 3.5 mg on Day 1, 18 mg on Day 8 and 300 mg on Day 15, followed by dosing every six weeks. It reported a mean terminal half-life of approximately 15.2 days after intravenous administration ([3](#ref-3)).
 
-A PAGE 2026 presentation subsequently described a population PK model with two compartments and linear and nonlinear elimination, together with an analysis relating mean exposure over the first eight weeks to confirmed PSA response. The authors concluded that their analyses supported 300 mg every six weeks [(4)](#ref-4). However, [Figures 1 and 3 of the public poster](https://www.page-meeting.org/wp-content/uploads/pdf_abstracts/2026/8ad6b057fde94ae2a2fa7c37f3925aac.pdf#page=1) do not provide a complete set of numerical PK parameters for reproducing the drug’s concentration profiles.
+A PAGE 2026 presentation subsequently described a population PK model with two compartments and linear and nonlinear elimination, together with an analysis relating mean exposure over the first eight weeks to confirmed PSA response. The authors concluded that their analyses supported 300 mg every six weeks ([4](#ref-4)). However, [Figures 1 and 3 of the public poster](https://www.page-meeting.org/wp-content/uploads/pdf_abstracts/2026/8ad6b057fde94ae2a2fa7c37f3925aac.pdf#page=1) do not provide a complete set of numerical PK parameters for reproducing the drug’s concentration profiles.
 
 I do not fill those gaps to reconstruct that model. Instead, an explicitly linear comparison model examines how dosing history and the observation window change the meaning of the comparison. This does not establish the clinical efficacy or safety of 150 mg every three weeks.
 
@@ -29,7 +29,7 @@ In a monoexponential model, let \(k=\ln 2/t_{1/2}\) have units of day\(^{-1}\) a
 
 Clearance and volume, which set absolute concentrations, are not used: they are held identical between regimens and cancel in the ratios. Concentrations in the figures are therefore dimensionless rather than µg/mL.
 
-The central example uses a half-life of 15.2 days. Sensitivity scenarios also use 13.8 and 16.5 days from [Table 2 of the ASCO GU 2026 poster](https://www.jnjmedicalconnect.com/media/attestation/congresses/oncology/2026/asco-gu/phase-1-safety-efficacy-pharmacokinetics-pk-and-pharmacodynamics-pd-of-pas.pdf#page=1) [(5)](#ref-5), and 18.3 days from PAGE [(4)](#ref-4). These are representative summaries from different sources and analyses, not a distribution of patient variability or a confidence interval.
+The central example uses a half-life of 15.2 days. Sensitivity scenarios also use 13.8 and 16.5 days from [Table 2 of the ASCO GU 2026 poster](https://www.jnjmedicalconnect.com/media/attestation/congresses/oncology/2026/asco-gu/phase-1-safety-efficacy-pharmacokinetics-pk-and-pharmacodynamics-pd-of-pas.pdf#page=1) ([5](#ref-5)), and 18.3 days from PAGE ([4](#ref-4)). These are representative summaries from different sources and analyses, not a distribution of patient variability or a confidence interval.
 
 ### Examining dependence on a distribution component
 
@@ -128,19 +128,19 @@ Within the linear model, any exposure between 21 and 42 days after a unit dose m
 
 ### The exposure window changes the comparison
 
-The PAGE exposure–response analysis uses individual mean exposure over the first eight treatment weeks [(4)](#ref-4). Explaining it with “half the dose at half the interval gives the same AUC” would substitute a steady-state mean for that initial mean. A comparison intended to isolate dosing frequency would also change exposure through the first target dose.
+The PAGE exposure–response analysis uses individual mean exposure over the first eight treatment weeks ([4](#ref-4)). Explaining it with “half the dose at half the interval gives the same AUC” would substitute a steady-state mean for that initial mean. A comparison intended to isolate dosing frequency would also change exposure through the first target dose.
 
 The useful distinction is between several conditions that can be held constant. Maintenance dose rate, steady-state mean concentration and initial eight-week mean concentration are not interchangeable. Even matching initial means does not match peaks, troughs or periods without activity.
 
-I also do not translate the published exposure–response relationship into response rates for this hypothetical split regimen. The PAGE abstract describes the exposure metric as free drug, and the actual population model includes nonlinear target-mediated elimination [(4)](#ref-4). It is not identical to this normalized linear concentration model. The authors’ assessment of limited gains from increasing exposure near 300 mg does not validate half-dose fractionation as equivalent.
+I also do not translate the published exposure–response relationship into response rates for this hypothetical split regimen. The PAGE abstract describes the exposure metric as free drug, and the actual population model includes nonlinear target-mediated elimination ([4](#ref-4)). It is not identical to this normalized linear concentration model. The authors’ assessment of limited gains from increasing exposure near 300 mg does not validate half-dose fractionation as equivalent.
 
 ### One agent’s trough cannot explain the combination
 
-Pasritamig targets KLK2×CD3, while JNJ-9401 targets PSMA×CD28. KLK2 denotes kallikrein-related peptidase 2, and PSMA denotes prostate-specific membrane antigen [(2)](#ref-2). Smoothing pasritamig concentrations does not establish that their temporal overlap with JNJ-9401 activity is preserved.
+Pasritamig targets KLK2×CD3, while JNJ-9401 targets PSMA×CD28. KLK2 denotes kallikrein-related peptidase 2, and PSMA denotes prostate-specific membrane antigen ([2](#ref-2)). Smoothing pasritamig concentrations does not establish that their temporal overlap with JNJ-9401 activity is preserved.
 
-The PAGE authors also invoke reduced T-cell exhaustion and activation-induced cell death when discussing six-week dosing [(4)](#ref-4). That hypothesis differs from assuming that more time above a concentration threshold is always beneficial. The present threshold calculations do not model immune-cell recovery, so increased coverage at a low threshold cannot be read as a clinical benefit.
+The PAGE authors also invoke reduced T-cell exhaustion and activation-induced cell death when discussing six-week dosing ([4](#ref-4)). That hypothesis differs from assuming that more time above a concentration threshold is always beneficial. The present threshold calculations do not model immune-cell recovery, so increased coverage at a low threshold cannot be read as a clinical benefit.
 
-Likewise, PSA reductions in 15 combination-treated patients do not identify the causal effect of adding JNJ-9401 or establish a survival benefit [(2)](#ref-2). This analysis lacks individual PK observations, exposure–response covariates and JNJ-9401 absorption and elimination parameters. It cannot replace a drug-specific immune-response model by declaring one hypothetical regimen the clinical winner.
+Likewise, PSA reductions in 15 combination-treated patients do not identify the causal effect of adding JNJ-9401 or establish a survival benefit ([2](#ref-2)). This analysis lacks individual PK observations, exposure–response covariates and JNJ-9401 absorption and elimination parameters. It cannot replace a drug-specific immune-response model by declaring one hypothetical regimen the clinical winner.
 
 In this linear model, equal-dose fractionation preserves the maintenance mean exposure. It does not preserve concentration shape, threshold coverage or exposure during the first eight weeks. The question for evaluating six-week dosing therefore shifts from whether the interval looks long relative to the half-life to which exposure and time course the comparison actually holds constant. Without that distinction, correct PK arithmetic can answer the wrong question about dosing frequency.
 

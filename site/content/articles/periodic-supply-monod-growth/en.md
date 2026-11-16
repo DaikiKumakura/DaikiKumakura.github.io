@@ -73,9 +73,9 @@ holds (an overline denotes the period average).
 
 ### A periodic supply is slower when $g$ is convex
 
-**Theorem 3.** If $g$ is convex, then $\lambda\le u_c$ for every periodic supply. Equality holds if and only if $g$ is affine on the range $[u_{\min},u_{\max}]$ of $u^*$. If $g$ is strictly convex, the inequality is strict unless $S$ is constant.
+**Theorem 3.** If $g$ is convex, then $\lambda\le u_c$ for every periodic supply. Equality holds if and only if $g$ is affine on the range $[u_{\min},u_{\max}]$ of $u^*$. If $g$ is strictly convex, $\lambda<u_c$ unless $S$ is constant almost everywhere.
 
-*Proof.* From Equation (3) and Jensen's inequality, $g(\lambda)=g(\bar u^*)\le\overline{g(u^*)}=a\bar S=g(u_c)$. Since $g$ is increasing, $\lambda\le u_c$. Equality in Jensen's inequality holds exactly when the convex function is affine on the range. If $g$ is strictly convex, equality requires $u^*$ to be constant; then $v^*$ is constant too, and Equation (2) gives $aS(t)=G(v^*)$ almost everywhere, so $S$ is constant. $\square$
+*Proof.* From Equation (3) and Jensen's inequality, $g(\lambda)=g(\bar u^*)\le\overline{g(u^*)}=a\bar S=g(u_c)$. Since $g$ is increasing, $\lambda\le u_c$. Equality in Jensen's inequality holds exactly when the convex function is affine on the range. If $g$ is strictly convex, equality requires $u^*$ to be constant; then $v^*$ is constant too, and Equation (2) gives $aS(t)=G(v^*)$ almost everywhere, so $S$ is constant almost everywhere. $\square$
 
 ### A counterexample when $g$ is not convex
 
@@ -93,13 +93,13 @@ $$\Bigl|\lambda-\tfrac12\bigl(\varphi(s_1)+\varphi(s_2)\bigr)\Bigr|\le\frac{2MV}
 
 ### Size of the loss
 
-Let $g\in C^2$, and suppose $\kappa_1\le g''\le\kappa_2$ and $\gamma_1\le g'\le\gamma_2$ on the range $[u_{\min},u_{\max}]$ of the periodic solution. Let $\mathrm{Var}(u^*)=\overline{(u^*-\bar u^*)^2}$ be the variance along the periodic solution.
+Let $g\in C^2$, and suppose $0\le\kappa_1\le g''\le\kappa_2$ and $0<\gamma_1\le g'\le\gamma_2$ on the range $[u_{\min},u_{\max}]$ of the periodic solution. Let $\mathrm{Var}(u^*)=\overline{(u^*-\bar u^*)^2}$ be the variance along the periodic solution.
 
 **Proposition 6.**
 
 $$\frac{\kappa_1}{2\gamma_2}\,\mathrm{Var}(u^*)\le u_c-\lambda\le\frac{\kappa_2}{2\gamma_1}\,\mathrm{Var}(u^*) \tag{5}$$
 
-*Proof.* By Taylor's theorem, $g(u)-g(\bar u^*)-g'(\bar u^*)(u-\bar u^*)\in[\tfrac{\kappa_1}{2},\tfrac{\kappa_2}{2}](u-\bar u^*)^2$. Taking the period average removes the linear term and gives $D:=\overline{g(u^*)}-g(\lambda)\in[\tfrac{\kappa_1}{2},\tfrac{\kappa_2}{2}]\mathrm{Var}(u^*)$. By Equation (3), $D=g(u_c)-g(\lambda)$. Because $g(u_{\min})\le\overline{g(u^*)}=g(u_c)\le g(u_{\max})$, $u_c$ also lies in the range, and the mean value theorem gives $D/\gamma_2\le u_c-\lambda\le D/\gamma_1$. $\square$
+*Proof.* By Taylor's theorem, $g(u)-g(\bar u^*)-g'(\bar u^*)(u-\bar u^*)\in[\tfrac{\kappa_1}{2},\tfrac{\kappa_2}{2}](u-\bar u^*)^2$. Taking the period average removes the linear term and gives $D:=\overline{g(u^*)}-g(\lambda)\in[\tfrac{\kappa_1}{2},\tfrac{\kappa_2}{2}]\mathrm{Var}(u^*)$. By Equation (3), $D=g(u_c)-g(\lambda)$, and $D\ge0$ because $\kappa_1\ge0$. Because $g(u_{\min})\le\overline{g(u^*)}=g(u_c)\le g(u_{\max})$, $u_c$ also lies in the range, and the mean value theorem gives $D/\gamma_2\le u_c-\lambda\le D/\gamma_1$. $\square$
 
 ### Exact expressions for the transporter model
 
@@ -259,7 +259,7 @@ To read the results: $\varphi$ is the steady-state growth rate as a function of 
 
 ## Conclusion
 
-Under a supply with the same mean, the long-run growth rate under a periodic supply does not exceed that under a constant supply if and only if the supply rate needed to hold the growth rate, $g$, is convex. This conclusion holds for $C^2$ functions $g$, a bounded periodic supply imposed from outside, and a deterministic model in which the cells neither consume the nutrient nor show density dependence. The direction is preserved for every period even though the growth rate follows the supply with a delay (Theorem 3), and in the slow-switching limit it agrees with the static Jensen prediction (Proposition 4). The numerics, for the transporter model with $b/M=0.5$ and an artificial non-convex example, show only that the derivation was not contradicted. The conclusion does not apply to systems with feedback from consumption, to comparisons at equal total nutrient supplied, or to real strains. The mean concentration alone is not enough to compare growth under a varying supply; the curvature of the response function is needed.
+The long-run growth rate under every periodic supply is at most that under a constant supply of the same mean concentration if and only if the supply rate needed to hold the growth rate, $g$, is convex. This conclusion holds for $C^2$ functions $g$, a bounded periodic supply imposed from outside, and a deterministic model in which the cells neither consume the nutrient nor show density dependence. The direction is preserved for every period even though the growth rate follows the supply with a delay (Theorem 3), and in the slow-switching limit it agrees with the static Jensen prediction (Proposition 4). The numerics, for the transporter model with $b/M=0.5$ and an artificial non-convex example, show only that the derivation was not contradicted. The conclusion does not apply to systems with feedback from consumption, to comparisons at equal total nutrient supplied, or to real strains. The mean concentration alone is not enough to compare growth under a varying supply; the curvature of the response function is needed.
 
 ## Data and code availability
 

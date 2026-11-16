@@ -1,12 +1,12 @@
 Predicting metabolic enzyme inhibition from molecular structure could help identify interaction liabilities early. But predicting inhibition and predicting how much a coadministered drug's area under the concentration–time curve (AUC) will increase are different tasks.
 
-On November 5, 2026, OpenADMET released final results from its cytochrome P450 (CYP) inhibition challenge. Direct inhibition, time-dependent inhibition and binding structure were evaluated separately, with experimental data released for further analysis [(1)](#ref-1). These divisions help identify which part of the interaction problem a model answers.
+On November 5, 2026, OpenADMET released final results from its cytochrome P450 (CYP) inhibition challenge. Direct inhibition, time-dependent inhibition and binding structure were evaluated separately, with experimental data released for further analysis ([1](#ref-1)). These divisions help identify which part of the interaction problem a model answers.
 
 ## Scope and sources
 
 This article uses the organizers' final report, public data documentation and the M12 guideline of the International Council for Harmonisation (ICH). It does not retrain individual submissions or validate patient-level interaction predictions. The calculation below is an artificial example showing why identical inhibition can have different exposure consequences.
 
-CYP enzymes participate in drug metabolism. ICH M12 distinguishes reversible from time-dependent inhibition and connects in vitro assessment with clinical studies and modeling [(2)](#ref-2). A high competition score does not complete that translation.
+CYP enzymes participate in drug metabolism. ICH M12 distinguishes reversible from time-dependent inhibition and connects in vitro assessment with clinical studies and modeling ([2](#ref-2)). A high competition score does not complete that translation.
 
 ## The same inhibition can produce different exposure increases
 
@@ -20,7 +20,7 @@ Clearance relative to baseline is the sum of the unaffected contribution, \(1-f_
 
 AUCR is the dimensionless ratio of exposure with and without the inhibitor. This explanatory hepatic-clearance approximation omits intestinal metabolism, induction, transporters, time variation and blood-flow effects.
 
-The challenge's direct-inhibition target is pIC50, the negative base-ten logarithm of the numerical IC50 in mol/L, where IC50 is the half-maximal inhibitory concentration [(1)](#ref-1). It cannot simply be substituted for the unbound inhibition constant in this equation. The relationship between IC50 and an inhibition constant depends on substrate concentration and inhibition mechanism; the following example therefore does not convert challenge predictions into clinical AUC ratios [(2)](#ref-2).
+The challenge's direct-inhibition target is pIC50, the negative base-ten logarithm of the numerical IC50 in mol/L, where IC50 is the half-maximal inhibitory concentration ([1](#ref-1)). It cannot simply be substituted for the unbound inhibition constant in this equation. The relationship between IC50 and an inhibition constant depends on substrate concentration and inhibition mechanism; the following example therefore does not convert challenge predictions into clinical AUC ratios ([2](#ref-2)).
 
 Table 1 holds \(I_u/K_{i,u}=1\) constant. The dependence on the affected pathway alone changes the exposure ratio.
 
@@ -65,7 +65,7 @@ The released challenge creates material for evaluating distinct inhibition tasks
 
 ## Data and code availability
 
-Table 1 is generated in the `DDI` section of the [script](shared/cyp-inhibition-ddi/reproduce.py) and [output](shared/cyp-inhibition-ddi/illustration.json). The [challenge data](https://huggingface.co/datasets/openadmet/cyp-challenge-train-test) are available from the organizers [(1)](#ref-1). No submission predictions were reevaluated and no patient-specific estimates were made.
+Table 1 is generated in the `DDI` section of the [script](shared/cyp-inhibition-ddi/reproduce.py) and [output](shared/cyp-inhibition-ddi/illustration.json). The [challenge data](https://huggingface.co/datasets/openadmet/cyp-challenge-train-test) are available from the organizers ([1](#ref-1)). No submission predictions were reevaluated and no patient-specific estimates were made.
 
 [Download code and results](shared/cyp-inhibition-ddi/cyp-inhibition-ddi.zip).
 

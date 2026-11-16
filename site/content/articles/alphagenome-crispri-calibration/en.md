@@ -6,9 +6,9 @@ Calling the prediction useless would also miss something. An affine calibration 
 
 ## Define the population before comparing models
 
-The starting point is a technical article by Murphy and Koo and its public code. The comparison, updated November 4, 2026, evaluates AlphaGenome, Borzoi, Enformer and NTv3 on two K562 CRISPRi datasets. It is an author technical blog comparison, which should be distinguished from a peer-reviewed comparative paper [(1)](#ref-1). This article is a statistical reanalysis of published predictions, not an independent rerun of genomic-model inference or cellular experiments [(2)](#ref-2).
+The starting point is a technical article by Murphy and Koo and its public code. The comparison, updated November 4, 2026, evaluates AlphaGenome, Borzoi, Enformer and NTv3 on two K562 CRISPRi datasets. It is an author technical blog comparison, which should be distinguished from a peer-reviewed comparative paper ([1](#ref-1)). This article is a statistical reanalysis of published predictions, not an independent rerun of genomic-model inference or cellular experiments ([2](#ref-2)).
 
-The original experiments measured gene expression after enhancer repression [(3)](#ref-3) [(4)](#ref-4). The exported benchmark tables are selected: Fulco contains validated pairs with decreased expression; Gasperini contains significant, high-confidence pairs. Every observed effect used here was a positive decrease. These data cannot answer what fraction of a model's proposed experimental candidates will validate.
+The original experiments measured gene expression after enhancer repression ([3](#ref-3)) ([4](#ref-4)). The exported benchmark tables are selected: Fulco contains validated pairs with decreased expression; Gasperini contains significant, high-confidence pairs. Every observed effect used here was a positive decrease. These data cannot answer what fraction of a model's proposed experimental candidates will validate.
 
 The unit is an enhancer–gene pair. I joined the four model tables one to one on gene_id and enh_loc, checking that observed effects and distances matched. Table 1 summarizes the common coverage.
 
@@ -19,7 +19,7 @@ Table 1. Pairs with matched predictions across models.
 | Fulco | 63 | 62 | 20 | 51 |
 | Gasperini | 438 | 352 | 256 | 340 |
 
-Using common pairs reduces differences in evaluation-set composition. It does not standardize the readouts or implementations. Enformer uses cap analysis of gene expression (CAGE), a transcription-initiation readout; the other selected files use RNA-seq, with different aggregation schemes. Borzoi uses a four-model ensemble, AlphaGenome a community implementation with an all-fold distilled checkpoint, and NTv3 the revised 1 Mb model. The analysis does not mix in test-time augmentation (TTA) prediction files, which average predictions across transformed inputs [(1)](#ref-1) [(2)](#ref-2).
+Using common pairs reduces differences in evaluation-set composition. It does not standardize the readouts or implementations. Enformer uses cap analysis of gene expression (CAGE), a transcription-initiation readout; the other selected files use RNA-seq, with different aggregation schemes. Borzoi uses a four-model ensemble, AlphaGenome a community implementation with an all-fold distilled checkpoint, and NTv3 the revised 1 Mb model. The analysis does not mix in test-time augmentation (TTA) prediction files, which average predictions across transformed inputs ([1](#ref-1)) ([2](#ref-2)).
 
 ## Correlation does not establish the effect scale
 
@@ -88,7 +88,7 @@ For experimental design, this is consequential. Reading a prediction of 0.2 as a
 
 Some enhancers connect to several genes. Holding out entire connected components of the gene–enhancer graph prevents those enhancers from appearing in both calibration training and evaluation. Calibrated AlphaGenome RMSE was then 14.86 points for Fulco and 15.40 for Gasperini, close to the primary estimates. Using all published AlphaGenome pairs instead of the common subset gave 14.78 and 15.55 points. The direction of the conclusion persisted, but those different-coverage numbers are not used for direct comparisons with other models.
 
-The predicted intervention also differs from the experiment. The benchmark shuffles a 2 kb DNA segment while preserving dinucleotide frequencies. CRISPRi induces repression with systems such as dCas9-KRAB; it does not replace the DNA in that way. The discrepancy includes this intervention mismatch and cannot all be attributed to genomic-model failure [(1)](#ref-1) [(2)](#ref-2).
+The predicted intervention also differs from the experiment. The benchmark shuffles a 2 kb DNA segment while preserving dinucleotide frequencies. CRISPRi induces repression with systems such as dCas9-KRAB; it does not replace the DNA in that way. The discrepancy includes this intervention mismatch and cannot all be attributed to genomic-model failure ([1](#ref-1)) ([2](#ref-2)).
 
 Both screens use K562. Generalization to other cells or patients was not tested. Aggregated experimental effects were treated as observations; measurement noise was not separated from latent true effects. Gene-cluster intervals do not fully describe that measurement uncertainty. Resampling assumes independence between genes and does not fully account for shared enhancers or screen-wide dependence. Component-held-out sensitivity analysis does not correct these intervals. The calibration and comparisons were selected exploratorily, not preregistered.
 

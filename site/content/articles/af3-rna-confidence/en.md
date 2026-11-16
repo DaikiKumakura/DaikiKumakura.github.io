@@ -1,6 +1,6 @@
 A protein looks convincingly folded, with a ribonucleic acid (RNA) molecule placed beside it. Does that picture establish the RNA-binding geometry?
 
-A new preprint by Tennie and colleagues reports a failure that makes this inference unsafe for structurally novel RNAs. The protein fold can remain accurate while the RNA fold and relative placement deteriorate, without a corresponding drop in predicted RNA confidence [(1)](#ref-1).
+A new preprint by Tennie and colleagues reports a failure that makes this inference unsafe for structurally novel RNAs. The protein fold can remain accurate while the RNA fold and relative placement deteriorate, without a corresponding drop in predicted RNA confidence ([1](#ref-1)).
 
 The useful question is more specific than whether AlphaFold 3 works. Which parts of a prediction remain informative, and which cannot support the next experimental inference?
 
@@ -8,7 +8,7 @@ The useful question is more specific than whether AlphaFold 3 works. Which parts
 
 This article examines version 1, posted on November 4, 2026. I checked the public abstract and the authors' code and data documentation, rather than independently examining all figures in the full manuscript. The numerical example below is an artificial calculation, not a measurement of AlphaFold 3 performance.
 
-The study evaluates over 1,300 protein–RNA complexes and approximately 270 RNA-only systems, including comparisons by structural novelty [(1)](#ref-1). The authors also provide evaluation code and instructions for obtaining data [(2)](#ref-2).
+The study evaluates over 1,300 protein–RNA complexes and approximately 270 RNA-only systems, including comparisons by structural novelty ([1](#ref-1)). The authors also provide evaluation code and instructions for obtaining data ([2](#ref-2)).
 
 ## Three different kinds of correctness
 
@@ -57,7 +57,7 @@ The acceptance criterion should follow the intended use. A prediction that narro
 
 ## Data and code availability
 
-The artificial calculation is in the [calculation script](shared/af3-rna-confidence/reproduce.py) and the `AF3_threshold_illustration` section of the [recorded output](shared/af3-rna-confidence/illustration.json). No empirical structure data were reaggregated. The authors' repository provides their analysis materials [(2)](#ref-2).
+The artificial calculation is in the [calculation script](shared/af3-rna-confidence/reproduce.py) and the `AF3_threshold_illustration` section of the [recorded output](shared/af3-rna-confidence/illustration.json). No empirical structure data were reaggregated. The authors' repository provides their analysis materials ([2](#ref-2)).
 
 [Download code and results](shared/af3-rna-confidence/af3-rna-confidence.zip).
 
