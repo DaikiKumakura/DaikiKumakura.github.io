@@ -68,7 +68,7 @@ Local grading helps isolate failures and track improvements. That benefit remain
 
 scBench-Long also proposes a separate evaluation of multi-step analysis leading to scientific conclusions. I checked the abstract and bibliography of its June 2026 preprint describing 21 evaluations; I did not re-evaluate its data or full grading scheme. The local tasks examined here cannot stand for the entire field of biology-agent evaluation ([7](#ref-7)).
 
-This check covers numeric conditions in two public examples. It does not establish the same limitation in withheld problems, trajectory evaluation or other grader families. Nor does the independent checker reproduce answer extraction, every malformed-value case or the full execution harness.
+This check covers numeric conditions in two public examples. It does not establish the same limitation in withheld problems, evaluation of the analysis process or other grader families. Nor does the independent checker reproduce answer extraction, every malformed-value case or the full execution harness.
 
 Within that scope, a DEG-count pass does not guarantee agreement about the gene set, and a QC-summary pass does not identify an analyst's rationale. Reading an AI analysis accuracy figure requires retaining the object that the evaluation actually observed alongside the percentage.
 

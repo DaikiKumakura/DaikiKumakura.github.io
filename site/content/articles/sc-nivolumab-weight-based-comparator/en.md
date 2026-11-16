@@ -1,6 +1,6 @@
 Reference date: the facts in this article are as of 1 November 2026.
 
-Subcutaneous nivolumab (Opdivo Qvantig, 1,200 mg every 4 weeks) was approved on the basis of the phase 3 trial CheckMate-67T (248 subcutaneous and 247 intravenous patients), which compared its exposure with intravenous nivolumab 3 mg/kg every 2 weeks. According to the prescribing information, the geometric mean ratio (90% CI) of the time-averaged concentration (Cavg) was 2.10 (2.00–2.20) over 28 days and 1.98 (1.87–2.11) at steady state, and that of the minimum concentration (Cmin) was 1.60 (1.49–1.72) at 28 days and 1.77 (1.63–1.93) at steady state ([1](#ref-1)). Subcutaneous exposure is about twice the intravenous exposure. The size of the ratio is not set by the formulation alone, because the intravenous comparator is dosed by body weight. Using the pharmacokinetic values in the label, this note calculates the comparator body weight to which each of the four ratios corresponds. Cavg is the average concentration over a period (the area under the concentration-time curve divided by the period) and Cmin is the minimum concentration.
+Subcutaneous nivolumab (Opdivo Qvantig, 1,200 mg every 4 weeks) was approved on the basis of the phase 3 trial CheckMate-67T (248 subcutaneous and 247 intravenous patients), which compared its exposure with intravenous nivolumab 3 mg/kg every 2 weeks. According to the prescribing information, the geometric mean ratio (90% CI) of the time-averaged concentration (Cavg) was 2.10 (2.00–2.20) over 28 days and 1.98 (1.87–2.11) at steady state, and that of the minimum concentration (Cmin) was 1.60 (1.49–1.72) at 28 days and 1.77 (1.63–1.93) at steady state ([1](#ref-1)). The time-averaged concentration in the subcutaneous arm was about twice that in the intravenous arm. The size of the ratio is not set by the formulation alone, because the intravenous comparator is dosed by body weight. Using the pharmacokinetic values in the label, this note calculates the comparator body weight to which each of the four ratios corresponds. Cavg is the average concentration over a period (the area under the concentration-time curve divided by the period) and Cmin is the minimum concentration.
 
 ## Methods
 
@@ -16,7 +16,7 @@ The calculation is in closed form, and the closed-form AUC was checked against n
 
 The weights corresponding to the four ratios at their point estimates were 84, 75, 79 and 71 kg, which do not coincide (Figure 1, Table 1).
 
-![Figure 1. Body weight of the intravenous comparator at which the subcutaneous 1,200 mg every 4 weeks / intravenous 3 mg/kg every 2 weeks ratio equals each reported value. Dots: point estimates of the reported ratios; bars: 90% confidence intervals. Bioavailability 0.74, typical-patient model.](shared/sc-nivolumab-weight-based-comparator/figures/01-implied-weight.png)
+![Figure 1. Body weight of the intravenous comparator at which the subcutaneous 1,200 mg every 4 weeks / intravenous 3 mg/kg every 2 weeks ratio equals each reported value. Dots mark the weights corresponding to the reported point estimates; bars span the weights corresponding to both endpoints of the 90% confidence intervals. Bioavailability 0.74, typical-patient model.](shared/sc-nivolumab-weight-based-comparator/figures/01-implied-weight.png)
 
 Table 1. Reported ratios and the model ratios at 75 kg (Cavg: time-averaged concentration; Cmin: minimum concentration; bioavailability 0.74, peak at 6 days). The last column gives the weight that reproduces the reported ratio and the weights at the two ends of its confidence interval.
 
@@ -29,7 +29,7 @@ Table 1. Reported ratios and the model ratios at 75 kg (Cavg: time-averaged conc
 
 The steady-state Cavg ratio is simply the dose ratio: 1,200 mg × 0.74 divided by the intravenous amount per 4 weeks (6 mg/kg × 75 kg = 450 mg) gives 1.97. At 75 kg, the two steady-state ratios and the 28-day Cmin ratio fell inside their reported intervals, but the model's 28-day Cavg ratio of 2.35 exceeded the reported upper limit of 2.20. Even a constant-clearance model gives different Cavg ratios at 28 days (2.35) and at steady state (1.97).
 
-Slower absorption did not reconcile all four. At 75 kg with a 12-day peak, the 28-day Cavg ratio was 2.11, matching the report, but the 28-day Cmin ratio became 1.85, above the reported upper limit of 1.72. In this model the 28-day and steady-state Cmin ratios are almost identical (1.85 and 1.86 at a 12-day peak), so the reported rise from 1.60 to 1.77 did not appear. This rise in Cmin is what was not reproduced. Changing bioavailability moves the corresponding weight in proportion (75 kg becomes about 61 kg at 0.60 and about 86 kg at 0.85).
+Slower absorption did not reconcile all four. At 75 kg with a 12-day peak, the 28-day Cavg ratio was 2.11, matching the report, but the 28-day Cmin ratio became 1.85, above the reported upper limit of 1.72. In this model the 28-day and steady-state Cmin ratios are almost identical (1.85 and 1.86 at a 12-day peak), so the reported rise from 1.60 to 1.77 did not appear. The model did not reproduce this rise in the subcutaneous-to-intravenous Cmin ratio. Changing bioavailability moves the corresponding weight in proportion (75 kg becomes about 61 kg at 0.60 and about 86 kg at 0.85).
 
 ## Discussion
 
@@ -49,7 +49,7 @@ With the label's bioavailability of 74% and the doses, the subcutaneous nivoluma
 
 ## Data and code availability
 
-The calculation code (`analysis.py`, `figures.py`), tests (`test_analysis.py`) and result tables are in the companion archive. Run with Python 3 (numpy, scipy, pandas, matplotlib): `python analysis.py`, `python figures.py`, then `python -m pytest test_analysis.py`. The inputs are published label values; no patient data were used. The note was checked by three reviews performed by AI used by the author; this is not confirmation by a human third party.
+The calculation code (`analysis.py`, `figures.py`), tests (`test_analysis.py`) and result tables are in the companion archive. Run with Python 3 (numpy, scipy, pandas, matplotlib): `python analysis.py`, `python figures.py`, then `python -m pytest test_analysis.py`. The inputs are published label values; no patient data were used.
 
 The full re-run materials are in the [companion archive](shared/sc-nivolumab-weight-based-comparator/sc-nivolumab-weight-based-comparator-companion.zip).
 

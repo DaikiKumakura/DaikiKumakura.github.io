@@ -6,13 +6,13 @@
 
 ## 問いと使用範囲
 
-QOIは「親薬物のAUCを合わせる用量変更で、M2の曝露も保てるか」とする。COUは、公開集計PKに基づいてDDI時に追跡する曝露指標を検討する研究目的の計算である。患者の処方変更、併用可否、抗腫瘍効果の予測には使用しない。
+解析の問い（question of interest、QOI）は「親薬物のAUCを合わせる用量変更で、M2の曝露も保てるか」とする。使用目的（context of use、COU）は、公開集計PKに基づいて薬物相互作用（drug–drug interaction、DDI）時に追跡する曝露指標を検討する研究目的の計算である。患者の処方変更、併用可否、抗腫瘍効果の予測には使用しない。
 
 新しいPopPK推定や仮想患者の生成は行わない。16人の集計値から、同一人の親薬物とM2の相関やDDI効果の分布は再構成できないためである。ここで必要なのは集団を増やすことではなく、AUCを合わせる操作が何を保ち、何を変えるかを明確にすることだ。
 
 ## 公開試験が観測したもの
 
-2026年の第I相試験では、健康成人男性16人にsavolitinib 300 mgを単回投与し、別期間にfluvoxamine 50 mg BID投与下で同じ300 mgを投与している。比較は固定順序の個人内比較であり、がん患者の反復投与試験ではない。M2は活性代謝物、M3は非活性代謝物として記載されている（[Miah et al., 2026](https://doi.org/10.1002/prp2.70321)）。
+2026年の第I相試験では、健康成人男性16人にsavolitinib 300 mgを単回投与し、別期間にfluvoxamine 50 mgを1日2回投与した条件下で同じ300 mgを投与している。比較は固定順序の個人内比較であり、がん患者の反復投与試験ではない。M2は活性代謝物、M3は非活性代謝物として記載されている ([1](#ref-1))。
 
 | Measure | Parent | M2 | M3 |
 | --- | ---: | ---: | ---: |
@@ -93,16 +93,16 @@ AUC比3.25を説明する組合せは一つではない。例えばFが変わら
 
 原著は添付文書に基づく用量低減にも言及している。本稿の算術計算はその推奨を置き換えず、妥当性を検証したものでもない。独立した研究上の結果は、用量低減の是非ではなく、**親薬物の曝露をそろえた比較でも代謝物の曝露差が残る**という点にある。
 
-## 再実行
+## データとコードの公開状況
 
 Python 3.12、NumPy、pandas、Matplotlibを使用した。`python analysis/run.py`で図2点、表3点と`outputs/results.json`を生成する。`python -m unittest discover -s tests -v`で4件の検査を実行できる。入力は引用した集計比であり、元論文全文や個人データを配布物へ含めない。
 
 [再実行コード・図表・集計値](shared/savolitinib-parent-metabolite-ddi/savolitinib-parent-metabolite-ddi-analysis.zip)をダウンロードできる。
 
-## References
+## 参照
 
-Miah K, Reddy J, Sharma P, et al. Evaluating the Impact of CYP1A2 Inhibition on the Pharmacokinetics of Savolitinib: A Phase 1 Open-Label Study. *Pharmacology Research & Perspectives*. 2026;14(5):e70321. [doi:10.1002/prp2.70321](https://doi.org/10.1002/prp2.70321). Table 2 and study methods; accessed October 30, 2026.
+<span id="ref-1"></span>1. Miah K, Reddy J, Sharma P, et al. Evaluating the Impact of CYP1A2 Inhibition on the Pharmacokinetics of Savolitinib: A Phase 1 Open-Label Study. *Pharmacology Research & Perspectives*. 2026;14(5):e70321. [doi:10.1002/prp2.70321](https://doi.org/10.1002/prp2.70321). Table 2 and study methods; accessed October 30, 2026.
 
-## Cite this article
+## この記事の引用
 
 Kumakura D. Matching savolitinib AUC does not restore metabolite exposure. Personal research article. 2026. [Canonical article](https://daikikumakura.github.io/writing/savolitinib-parent-metabolite-ddi.html). Calculations and limitations are independent of the source study.

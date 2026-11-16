@@ -31,7 +31,7 @@ Next, "up to 667 steps". The text says circuits span 212 to 667 single amino-aci
 
 ### The proportion of paths is 27% or 46% depending on the denominator
 
-Of the paths between two seeds followed step by step, 315 were densely sampled, 183 were completely evaluable after QC, and 85 retained viability at every measured step ([2](#ref-2)). 183 ÷ 315 = 58.1% (52.4 to 63.6%) is the QC pass rate, not a discovery rate of viability. The proportion of paths that stayed viable is 27.0% (22.2 to 32.3%) of those started and 46.4% (39.1 to 54.0%) of those completely evaluable (my calculation, Figure 2). The text uses 183 as the denominator. How many of the 132 paths dropped at QC contained non-viable steps cannot be known from what is published. Among random variants 20 or more mutations from wild type, 1,202 of 6,184 (19.4%, 18.5 to 20.4%) were viable ([2](#ref-2)).
+Of the paths between two seeds followed step by step, 315 were densely sampled, 183 were completely evaluable after QC, and 85 retained viability at every measured step ([2](#ref-2)). 183 ÷ 315 = 58.1% (52.4 to 63.6%) is the QC pass rate, not a discovery rate of viability. The fraction of paths confirmed to meet the viability criterion at every measured step is 27.0% (22.2 to 32.3%) of those started and 46.4% (39.1 to 54.0%) of those completely evaluable (my calculation, Figure 2). The text uses 183 as the denominator. How many of the 132 paths dropped at QC contained non-viable steps cannot be known from what is published. Among random variants 20 or more mutations from wild type, 1,202 of 6,184 (19.4%, 18.5 to 20.4%) were viable ([2](#ref-2)).
 
 ![Figure 2. Proportions of paths and variants under different denominators (exact 95% intervals, my calculation, numbers from the preprint). From the top: the QC pass rate, the share that stayed viable (two denominators), and the viable share of random variants (not paths).](shared/aav-landscape-trajectory-counting/figures/02-path-denominators.png)
 
@@ -43,7 +43,7 @@ Among random variants in the neighborhoods, the viable share falls steeply, from
 
 ### The positive predictive value of the exclusion rule depends on the viable share
 
-For a rule that excludes variants carrying "universally lethal" changes, the text says exclusion is reliable (NPV 0.995, sensitivity 0.985) but passing the rule does not guarantee viability (PPV 0.489) ([2](#ref-2)). If the three values come from the same 2×2 table (the text does not say which set), they fix the viable share and specificity of that set (my calculation). The viable share is about 19.9% and the specificity about 74.4% (false-positive rate 25.6%); the positive likelihood ratio is 0.985 ÷ 0.256 = 3.84, which turns the prior odds of 0.249 (= 19.9% ÷ 80.1%) into posterior odds of 0.957 (= 0.489 ÷ 0.511). The PPV is low not because the rule is weak but because the set has a viable share of only about 20%. This is an algebraic back-calculation, not a verification that the three values are consistent, and it depends on rounding. The 19.9% is close to the viable share of random variants, 19.4%.
+For a rule that excludes variants carrying "universally lethal" changes, the text says exclusion is reliable (NPV 0.995, sensitivity 0.985) but passing the rule does not guarantee viability (PPV 0.489) ([2](#ref-2)). If the three values come from the same 2×2 table (the text does not say which set), they fix the viable share and specificity of that set (my calculation). The viable share is about 19.9% and the specificity about 74.4% (false-positive rate 25.6%); the positive likelihood ratio is 0.985 ÷ 0.256 = 3.84, which turns the prior odds of 0.249 (= 19.9% ÷ 80.1%) into posterior odds of 0.957 (= 0.489 ÷ 0.511). The PPV of 0.489 reflects both the rule’s sensitivity and specificity and a viable share of about 20% in this set. This is an algebraic back-calculation, not a verification that the three values are consistent, and it depends on rounding. The 19.9% is close to the viable share of random variants, 19.4%.
 
 The text says that 51.3% of the 493,816 measured variants are viable and that 98.0% of the viable ones lie within the range this rule defines ([2](#ref-2)). The 51.3% is a value for a set that merges variants from several studies, with designed and sampled variants mixed; it is not the viable rate of random variants.
 
@@ -53,7 +53,7 @@ The preprint states the size of the explored sequence space as about 10^36 for s
 
 ## Overall assessment
 
-What could be confirmed as fact is as follows. The number of circuits is 6.2% (2.3% for the minimum over resamplings) of the orderings in which 15 seeds can be visited (87 billion, start fixed and direction distinguished), and all 15 seeds were connected in all 235 resamplings. The maximum of 667 steps is the longest of the reported circuits and corresponds to 14.1 to 44.5 steps per hop on average. The proportion of paths that stayed viable is 27.0% (of the 315 started) or 46.4% (of the 183 completely evaluable) depending on the denominator, and 58.1% is the QC pass rate. The decay of viability agrees with single-hit arithmetic (0.44 to the fifth power) at the point of five mutations. The low PPV of the exclusion rule can be back-calculated as the result of a viable share of about 20% in the set examined, and is not determined by the strength of the rule alone.
+What could be confirmed as fact is as follows. The number of circuits is 6.2% (2.3% for the minimum over resamplings) of the orderings in which 15 seeds can be visited (87 billion, start fixed and direction distinguished), and all 15 seeds were connected in all 235 resamplings. The maximum of 667 steps is the longest of the reported circuits and corresponds to 14.1 to 44.5 steps per hop on average. The fraction of paths confirmed to meet the viability criterion at every measured step is 27.0% (of the 315 started) or 46.4% (of the 183 completely evaluable) depending on the denominator, and 58.1% is the QC pass rate. The decay of viability agrees with single-hit arithmetic (0.44 to the fifth power) at the point of five mutations. The low PPV of the exclusion rule can be back-calculated as the result of a viable share of about 20% in the set examined, and is not determined by the strength of the rule alone.
 
 By interpretation: the information in this result lies in the connectivity, that all 15 seeds were connected in every resampling, more than in the figure of billions. Numbers are best read with their counting unit and denominator attached. The extrapolation of the size of the space is, as the authors say, a guide to coverage that does not claim generalization.
 
@@ -64,11 +64,11 @@ By interpretation: the information in this result lies in the connectivity, that
 - What the paths dropped at QC contained is not known. The unit of a sample (variant or not) is not stated in the text.
 - The back-calculation for the exclusion rule depends on the assumption that the three values refer to the same set, and it is algebraic.
 - This note does not treat sequences, the content of mutations, designs or experimental procedures.
-- The note was checked by three reviews performed by AI used by the author; this is not confirmation by a human third party.
+
 
 ## Conclusion
 
-"Billions of functional trajectories from a sample of a few thousand" is a count of circuits that is about 6% of the 87 billion orderings of 15 seeds (about 2% for the minimum over resamplings), and its information lies in the fact that all 15 seeds were connected in every resampling. The maximum of 667 steps is the longest of the reported circuits, and the proportion of paths that stayed viable is 27% or 46% depending on the denominator.
+"Billions of functional trajectories from a sample of a few thousand" corresponds to about 6% of the 87 billion orderings of 15 seeds (about 2% for the minimum over resamplings) if each circuit is counted as one ordering. The reported result also shows that all 15 seeds were connected in every resampling. The maximum of 667 steps is the longest of the reported circuits, and the proportion of paths that stayed viable is 27% or 46% depending on the denominator.
 
 ## Data and code availability
 

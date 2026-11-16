@@ -1,6 +1,6 @@
 Reference date: the facts in this article are as of 1 November 2026.
 
-The phase 3 trial MK-3475A-D77 compared subcutaneous pembrolizumab (790 mg every 6 weeks) with intravenous pembrolizumab (400 mg every 6 weeks), randomizing 251 and 126 patients 2:1. The geometric mean ratio was 1.14 (96% CI 1.06–1.22) for the area under the concentration–time curve (AUC) in the first dosing cycle and 1.67 (94% CI 1.52–1.84) for the cycle-3 trough concentration (Ctrough). The non-inferiority margin was 0.8, and both ratios met it ([1](#ref-1), [2](#ref-2)). The AUC is 14% higher, yet the trough is 67% higher. This note tests whether slower absorption alone can explain that gap, using typical-patient calculations with the pharmacokinetic values in the prescribing information.
+The phase 3 trial MK-3475A-D77 compared subcutaneous pembrolizumab (790 mg every 6 weeks) with intravenous pembrolizumab (400 mg every 6 weeks), randomizing 251 and 126 patients 2:1. The geometric mean ratio was 1.14 (96% CI 1.06–1.22) for the area under the concentration–time curve (AUC) in the first dosing cycle and 1.67 (94% CI 1.52–1.84) for the cycle-3 trough concentration (Ctrough). The non-inferiority margin was 0.8, and both ratios met it ([1](#ref-1), [2](#ref-2)). Relative to the intravenous regimen, first-cycle AUC was 14% higher and the end-of-cycle-3 trough was 67% higher. This note tests whether slower absorption alone can explain that gap, using typical-patient calculations with the pharmacokinetic values in the prescribing information.
 
 ## Methods
 
@@ -40,12 +40,12 @@ Results: absorption with a bioavailability of 0.60 and a peak by about 4 days gi
 Interpretation: slower absorption was not sufficient to explain 1.67 under assumptions consistent with the label. The remaining candidates were not tested here.
 
 - The reported ratio is a geometric mean ratio estimated from trial patients, not a typical-patient calculation. Between-patient variability, differences between the pharmacokinetic-evaluable populations of the two arms, and a lower-than-typical intravenous trough are possible; a high subcutaneous trough is not the only way to obtain the ratio.
-- The label's accumulation ratio (1.6) exceeds the 1.36 of a one-compartment model with a 22-day half-life. Slower late elimination, or absorption that is not first order, would raise the trough more than the AUC.
+- The label's accumulation ratio (1.6) exceeds the 1.36 of a one-compartment model with a 22-day half-life. Slower late elimination or departures from first-order absorption could raise the trough more than the AUC.
 - The inputs mix subcutaneous means (label) with intravenous typical values (Ahamadi), and the steady-state AUC differs by about 10% (2,798 versus 2,507).
 - Bioavailability was fixed at 0.60. At 0.70 the Model A ratio is 1.44.
 - A 2026 corrigendum to the paper exists ([4](#ref-4)); I could not check its content, so whether it concerns the numbers cited here is unknown.
 
-The main limit is that ka is not in the label and was back-calculated from the time to peak. The result is a consistency check on published summary values, not a reanalysis of trial data. The label values partly derive from the same trial, so they are not independent of the reported ratio. The note was checked by three reviews performed by AI used by the author; this is not confirmation by a human third party.
+The main limit is that ka is not in the label and was back-calculated from the time to peak. The result is a consistency check on published summary values, not a reanalysis of trial data. The label values partly derive from the same trial, so they are not independent of the reported ratio.
 
 ## Conclusion
 

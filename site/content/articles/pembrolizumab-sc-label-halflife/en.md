@@ -15,7 +15,7 @@ Table 1. Steady-state label values after subcutaneous dosing (means) ([1](#ref-1
 
 - Typical-patient model: one compartment with first-order absorption. The model half-life is the elimination half-life ln 2 / k from the elimination rate constant k, which is not necessarily defined as the label's terminal half-life. The absorption rate constant was set so that the time to peak is 4 days. The label says only "approximately 4 days"; this reading is an assumption. Clearance was constant.
 - The label text I read does not define the accumulation ratio. I took it as the steady-state AUC over one dosing interval divided by the AUC of the first dosing interval (computed exactly for a model with first-order absorption).
-- Model with variability (an analysis added after seeing the label values): clearance log-normally distributed (mean set by the 22-day half-life and 6 L, coefficient of variation 40%) and bioavailability log-normally distributed (mean 0.60, coefficient of variation 14%), for 20,000 simulated patients (random seed 20261101). I computed ratios of means, which correspond to the label's means. The coefficients of variation are the label's values and were not adjusted. The label does not say whether 22 days (clearance 195 mL/day) refers to the mean or the median of individual clearances. I took it as the mean in the main analysis and as the median (mean clearance about 1.08 times the median) in a sensitivity analysis.
+- Model with variability (an analysis added after seeing the label values): clearance log-normally distributed (mean set by the 22-day half-life and 6 L, coefficient of variation 40%) and bioavailability log-normally distributed (mean 0.60, coefficient of variation 14%), for 20,000 simulated patients (random seed 20261101). I computed ratios of means, which correspond to the label's means. The coefficients of variation are the label's values and were not adjusted. The prescribing information does not establish whether the clearance derived in this model from the 22-day half-life should correspond to the mean or median of individual clearances. I took it as the mean in the main analysis and as the median (mean clearance about 1.08 times the median) in a sensitivity analysis.
 - Outputs: for the typical-patient model, the half-life that reproduces the accumulation ratio and Ctrough / average separately; for the model with variability, the values at a half-life of 22 days.
 
 The calculation is in closed form, and the first-interval AUC and the steady-state average concentration were checked against numerical integration.
@@ -63,7 +63,7 @@ A substantial part of the apparent inconsistency may be explained by comparing t
 
 This also bears on how to read the cycle-3 trough ratio of 1.67 for subcutaneous (790 mg) versus intravenous (400 mg) dosing every 6 weeks reported in the label ([1](#ref-1)). In the same typical-patient model (bioavailability 0.60, peak at 4 days) with the same half-life in both arms, changing the half-life from 22 to 26–30 days only lowers this ratio from 1.23 to 1.22–1.21 (`results/cycle3-trough-ratio-by-half-life.csv`). The trial's report, however, is an estimated geometric mean ratio, and the effect of variability does not enter it in the same way as for the means here. How variability affects 1.67 was not examined in this note.
 
-The limits are that the coefficients of variation were assumed to be log-normal and bioavailability and clearance independent, and that the label's accumulation ratios (1.6 and 2.5) are rounded, so the back-calculated half-lives have a range. Beyond "means", the label does not say whether its values are arithmetic or geometric; I assumed arithmetic. The result is a consistency check on published summary values, not a reanalysis of trial data.
+The limits are that clearance and bioavailability were assumed to be independent and lognormally distributed with specified coefficients of variation, and that the label's accumulation ratios (1.6 and 2.5) are rounded, so the back-calculated half-lives have a range. Beyond "means", the label does not say whether its values are arithmetic or geometric; I assumed arithmetic. The result is a consistency check on published summary values, not a reanalysis of trial data.
 
 ## Conclusion
 
@@ -71,7 +71,7 @@ In a typical-patient one-compartment model, the 22-day half-life in the subcutan
 
 ## Data and code availability
 
-The calculation code (`analysis.py`, `figures.py`), tests (`test_analysis.py`) and result tables are in the companion archive. Run with Python 3 (numpy, scipy, pandas, matplotlib): `python analysis.py`, `python figures.py`, then `python -m pytest test_analysis.py`. The inputs are published label values; no patient data were used. The note was checked by three reviews performed by AI used by the author; this is not confirmation by a human third party.
+The calculation code (`analysis.py`, `figures.py`), tests (`test_analysis.py`) and result tables are in the companion archive. Run with Python 3 (numpy, scipy, pandas, matplotlib): `python analysis.py`, `python figures.py`, then `python -m pytest test_analysis.py`. The inputs are published label values; no patient data were used.
 
 The full re-run materials are in the [companion archive](shared/pembrolizumab-sc-label-halflife/pembrolizumab-sc-label-halflife-companion.zip).
 

@@ -70,7 +70,7 @@ When comparing cancer cell states, it is tempting to call a high-scoring group u
 
 For example, if both detected RNA counts and the score decline after a drug treatment, differentiation induction and changes in cell size or RNA recovery are different explanations. The hypothetical calculation cannot diagnose either, but shows why the declining score alone cannot select one of them.
 
-Matching depth is not sufficient either. Downsampling can match observed molecule counts without restoring gene-specific capture biases or biological RNA abundance. An association with cell state does not validate the future fate of an individual cell.
+Matching depth is not sufficient either. Downsampling can match observed molecule counts without correcting gene-specific capture biases or recovering the cell's true RNA abundance. An association with cell state does not validate the future fate of an individual cell.
 
 Agreement with known cell-type orders or markers is informative. However, a score constructed from that information is not independently validated by agreeing with the same information. A claim about functional potency turns on its relationship to fate information obtained separately from the input expression measurements.
 

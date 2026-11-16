@@ -1,12 +1,12 @@
-A peptide contains an amino acid that was not predicted. Does that establish that the cell changed how it reads the genetic code? Counting more unexpected sequences is only part of the problem. Their origin and the reason they persist must also be distinguished.
+A peptide contains an amino acid that was not predicted. Does that establish that the cell changed how it reads the genetic code? Counting more unexpected sequences is only part of the problem. Their origin and the processes that allow them to accumulate must also be distinguished.
 
 A thread by Nikolai Slavov leads from a book discussion to research on peptides that depart from standard translation predictions ([1](#ref-1)). The Nature study by Tsour et al. reports many amino acid substitutions in existing data that include more than 1,000 human samples ([2](#ref-2)). Here I examine that claim through the published supplementary tables. Recounting them reproduced the numbers 8,746 and 1,955. However, dividing those two numbers did not give a valid fraction surviving stricter validation.
 
 ## Scope and sources
 
-On November 1, 2026, I examined methods, validation descriptions and figure legends accessible through the final article's search index, the authors' public code and data documentation, and publisher-hosted Supplementary Data 2, 3 and 8. I did not read every page of the publisher's full text or reanalyse mass spectra, patient-level DNA and RNA, or functional experiments.
+On November 1, 2026, I examined methods, validation descriptions and figure legends accessible through the final article's search index, the authors' public code and data documentation, and publisher-hosted [Supplementary Data 2, 3 and 8](https://www.nature.com/articles/s41586-026-10678-2). I did not read every page of the publisher's full text or reanalyse mass spectra, patient-level DNA and RNA, or functional experiments.
 
-Below, I call those supplementary datasets Table 2, Table 3 and Table 8, following the authors' numbering. Only the three required files were retrieved from the 633 MB public ZIP, with their sizes and CRCs checked against the archive. The original Excel files were left unchanged. Column definitions were examined before aggregation ([3](#ref-3)). The original analysis here audits rows, sequence pairs and correspondence between tables. It does not independently validate the substitutions.
+Below, I call those supplementary datasets Table 2, Table 3 and Table 8, following the authors' numbering. Only the three required files were retrieved from the 633 MB public ZIP, with their sizes and CRCs checked against the archive. The original Excel files were left unchanged. Column definitions were examined before aggregation ([3](#ref-3)). My analysis audits rows, sequence pairs and correspondence between tables. It does not independently validate the substitutions.
 
 ## From a mass difference to a sequence
 

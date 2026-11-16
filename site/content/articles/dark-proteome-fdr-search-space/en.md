@@ -8,7 +8,7 @@ There are two questions. (1) When the overall FDR is set to 1%, what fraction of
 
 ## Assumptions and definitions
 
-Terms: a peptide-spectrum match (PSM) is one pairing of a spectrum with a candidate peptide in the database. A canonical candidate is a sequence from a known protein; a noncanonical candidate is a sequence from, for example, an open reading frame (ORF) whose translation is unconfirmed. In this note, the noncanonical candidates added by enlarging the search space are called novel candidates. In the target-decoy method, fake sequences (decoys) of the same size as the real ones (targets) are included in the same database; for PSMs above a score threshold, the number of decoys divided by the number of targets is the FDR estimate ([2](#ref-2)). The true false discovery proportion (FDP) is the proportion of accepted PSMs that are actually wrong; in a simulation, the truth is known, so it can be computed.
+Terms: a peptide-spectrum match (PSM) is one pairing of a spectrum with a candidate peptide in the database. A canonical candidate is a sequence from a known protein; a noncanonical candidate is a sequence from, for example, an open reading frame (ORF) whose translation is unconfirmed. In this note, the noncanonical candidates added by enlarging the search space are called novel candidates. In the target-decoy method, an equally sized set of artificial sequences (decoys) and the candidate sequences (targets) are included in the same database; for PSMs above a score threshold, the number of decoys divided by the number of targets is the FDR estimate ([2](#ref-2)). The true false discovery proportion (FDP) is the proportion of accepted PSMs that are actually wrong; in a simulation, the truth is known, so it can be computed.
 
 ## Known points
 
@@ -69,7 +69,7 @@ Comparing the spectrum of a synthetic peptide with the observed spectrum support
 - The simulation is at the PSM level and does not include aggregation of PSMs into peptides or proteins, precursor mass or enzyme constraints, or correlation between scores.
 - Scores were taken as independent and normally distributed. Actual search-engine score distributions and biases from how decoys are built (for example reversal) are not included.
 - The results do not estimate the error rate of any actual study. The numbers from the literature are as described in each paper and were not recalculated here.
-- The note was checked by three reviews performed by AI used by the author; this is not confirmation by a human third party.
+
 
 ## Conclusion
 

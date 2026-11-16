@@ -6,13 +6,13 @@ Here AUC means exposure from dosing to infinite time (AUCinf), distinguished fro
 
 ## Question and scope
 
-The QOI is whether a dose change matching parent AUC also preserves M2 exposure. The COU is a research calculation to examine which exposure measures need attention during a DDI, using public aggregate PK. It is not intended for prescribing, decisions about coadministration, or prediction of antitumor efficacy.
+The question of interest (QOI) is whether a dose change matching parent AUC also preserves M2 exposure. The context of use (COU) is a research calculation to examine which exposure measures need attention during a drug–drug interaction (DDI), using public aggregate PK. It is not intended for prescribing, decisions about coadministration, or prediction of antitumor efficacy.
 
 No new PopPK model or virtual-patient population is fitted. Aggregate results from 16 participants cannot recover the within-person parent–M2 correlations or the distribution of individual DDI effects. The useful calculation here is what exposure matching changes, rather than manufacturing a larger population from unavailable information.
 
 ## What the public study measured
 
-The 2026 phase 1 study administered a single 300-mg savolitinib dose to 16 healthy male volunteers, followed in another period by the same dose during fluvoxamine 50 mg BID dosing. This was a fixed-sequence, within-person comparison, not a repeated-dose study in patients with cancer. M2 was described as active and M3 as inactive ([Miah et al., 2026](https://doi.org/10.1002/prp2.70321)).
+The 2026 phase 1 study administered a single 300-mg savolitinib dose to 16 healthy male volunteers, followed in another period by the same dose during fluvoxamine 50 mg BID dosing. This was a fixed-sequence, within-person comparison, not a repeated-dose study in patients with cancer. M2 was described as active and M3 as inactive ([1](#ref-1)).
 
 | Measure | Parent | M2 | M3 |
 | --- | ---: | ---: | ---: |
@@ -93,7 +93,7 @@ Matching parent AUC is not equivalent to matching M2 AUC. Public DDI ratios quan
 
 The original article also discusses label-based dose reductions. This arithmetic analysis neither replaces those recommendations nor validates them. Its independent research result concerns the **remaining metabolite-exposure difference even when parent exposure is matched**, rather than whether dose reduction should be prescribed.
 
-## Reproduction
+## Data and code availability
 
 The analysis uses Python 3.12, NumPy, pandas and Matplotlib. `python analysis/run.py` generates two figures, three tables and `outputs/results.json`. Run four checks with `python -m unittest discover -s tests -v`. Inputs are the cited aggregate ratios; the full source article and individual data are excluded from the distribution archive.
 
@@ -101,7 +101,7 @@ Download the [reproduction code, figures and aggregate results](shared/savolitin
 
 ## References
 
-Miah K, Reddy J, Sharma P, et al. Evaluating the Impact of CYP1A2 Inhibition on the Pharmacokinetics of Savolitinib: A Phase 1 Open-Label Study. *Pharmacology Research & Perspectives*. 2026;14(5):e70321. [doi:10.1002/prp2.70321](https://doi.org/10.1002/prp2.70321). Table 2 and study methods; accessed October 30, 2026.
+<span id="ref-1"></span>1. Miah K, Reddy J, Sharma P, et al. Evaluating the Impact of CYP1A2 Inhibition on the Pharmacokinetics of Savolitinib: A Phase 1 Open-Label Study. *Pharmacology Research & Perspectives*. 2026;14(5):e70321. [doi:10.1002/prp2.70321](https://doi.org/10.1002/prp2.70321). Table 2 and study methods; accessed October 30, 2026.
 
 ## Cite this article
 

@@ -1,6 +1,6 @@
 Reference date: the facts in this article are as of 3 November 2026.
 
-A preprint posted on 29 October 2026 reports that the genome language model Evo 2 can computationally design CRISPR-Cas loci, bacteriophage genomes, antibodies and more from examples placed in the prompt, without additional training (in-context learning, ICL) ([1](#ref-1)). The report includes compute comparisons such as "about 900 H100 hours with fine-tuning versus 81 hours with ICL for a CRISPR-Cas locus" and "about 200 GPU hours with fine-tuning (162 with the evo2-flash engine) versus 2.1 GPU hours with ICL for a phage genome" (H100 is the name of the GPU product used for computation, and an H100 hour is one such unit used for one hour). These numbers compare libraries of 64 passing designs, and this note does not contradict them. It decomposes what the comparisons compare, using pass rate and amortization (spreading a fixed cost), and shows how to read them when the conditions are widened. It deals only with compute accounting and does not touch sequences, how prompts are constructed, or procedures. All results are computational (in silico) metrics, not experimental confirmation of function.
+A preprint posted on 29 October 2026 reports that the genome language model Evo 2 can computationally design CRISPR-Cas loci, bacteriophage genomes, antibodies and more from examples placed in the prompt, without additional training (in-context learning, ICL) ([1](#ref-1)). The report includes compute comparisons such as "about 900 H100 hours with fine-tuning versus 81 hours with ICL for a CRISPR-Cas locus" and "about 200 GPU hours with fine-tuning (162 with the evo2-flash engine) versus 2.1 GPU hours with ICL for a phage genome" (H100 is the name of the GPU product used for computation, and an H100 hour is one such unit used for one hour). Each comparison refers to obtaining 64 designs that pass computational filters. It decomposes what the comparisons compare, using pass rate and amortization (spreading a fixed cost), and shows how to read them when the conditions are widened. It deals only with compute accounting and does not touch sequences, how prompts are constructed, or procedures. All results are computational (in silico) metrics, not experimental confirmation of function.
 
 ## Scope and sources
 
@@ -24,7 +24,7 @@ Consider the compute needed to obtain \(N\) passing designs in a library. Let \(
 
 The per-sample pass rate is lower for ICL (0.14%) than for fine-tuning (0.39%) ([1](#ref-1)). To obtain 64 passing designs, about 45,700 samples are needed with ICL and about 16,400 with fine-tuning at these rates (the rates pool settings and are not the pass rates of the best settings used for the time comparison, so these counts are not converted to hours). Even so, the total is 81 hours for ICL and about 900 hours for fine-tuning, of which 881 hours are fine-tuning itself, a difference of about 11-fold (900 ÷ 81).
 
-The preprint writes the fine-tuning total as "about 900 hours" and does not show the sampling time within it. I took the roughly 19 hours left after subtracting 881 from 900 to be sampling. This is my own subtraction, not an estimate by the preprint. The total to obtain \(N\) passing designs is \(81N/64\) for ICL (1.27 hours per design) and \(881 + 19N/64\) for fine-tuning (a marginal cost of 0.30 hours per design). The two are equal at \(N\) of about 909. This value, however, is very sensitive to the rounding of "about 900". If the sampling time is 0–40 hours, it is 696–1,375; if the total were 950 hours (69 hours of sampling), about 4,700; and if the sampling time were 81 hours or more, there is no \(N\) at which fine-tuning is cheaper (Figure 1, Table 2). The break-even lies somewhere between several hundred and several thousand, and about 900 is only a guide.
+The preprint writes the fine-tuning total as "about 900 hours" and does not show the sampling time within it. I took the roughly 19 hours left after subtracting 881 from 900 to be sampling. This is my own subtraction, not an estimate by the preprint. The total to obtain \(N\) passing designs is \(81N/64\) for ICL (1.27 hours per design) and \(881 + 19N/64\) for fine-tuning (a marginal cost of 0.30 hours per design). The two are equal at \(N\) of about 909. This value, however, is very sensitive to the rounding of "about 900". If the sampling time is 0–40 hours, it is 696–1,375; if the total were 950 hours (69 hours of sampling), about 4,700; and if the sampling time were 81 hours or more, there is no \(N\) at which fine-tuning is cheaper (Figure 1, Table 2). Around 900 is an estimate conditional on 19 sampling hours. Under some assumptions there is no break-even point.
 
 Table 2. Break-even for CRISPR-Cas loci by assumed sampling time within the fine-tuned total (my calculation).
 
@@ -50,7 +50,7 @@ The remaining difference is in the fixed cost of fine-tuning or in the time per 
 
 ![Figure 2. Reported compute time to obtain 64 phage genomes and an assumed breakdown. Blue: ICL (2.1 hours). Orange: fine-tuning (162 or 200 hours) divided into fixed hours such as fine-tuning (light) and sampling (dark). The breakdown assumes that the fine-tuned model takes the same time per sample as ICL; it is not in the preprint.](shared/evo2-icl-compute-accounting/figures/02-phage-hours-decomposition.png)
 
-### Antibodies: the cost of obtaining examples lies outside the fixed budget
+### Antibodies: does the fixed budget include the cost of obtaining examples?
 
 In antibody design, the ICL examples are chosen from candidates that met the acceptance criteria and were obtained beforehand with another design method (Germinal). The comparison uses a fixed budget of 1 GPU-hour for design and 1 GPU-hour for scoring, and ICL was the only method to yield at least one candidate for every antigen tested ([1](#ref-1)). The preprint states that Germinal takes a median of 23.5 GPU hours to design 8 candidates for one target ([1](#ref-1)). Whether the cost of obtaining the examples is included in the fixed budget is not stated in the text I read. Of the comparators, the methods that use the same examples as ICL (AbMPNN and PSSM) share this cost, and it matters as an extra cost of ICL mainly in comparison with the method that continues designing with Germinal without using the examples.
 
@@ -60,7 +60,7 @@ The pass criteria are computational filters on sequence validity, gene compositi
 
 ## Overall assessment
 
-The preprint's compute comparison is correct as reported, for a library of 64 passing designs. Widening the conditions changes how it reads. For CRISPR-Cas, the roughly 11-fold difference is a value at 64 designs, and once passing designs number from several hundred to several thousand, fine-tuning may become cheaper (depending on the assumed sampling time). For phage, most of the difference at 64 designs is avoided fixed cost, and the advantage that remains as the library grows comes from a 16.7-fold higher pass rate. Whether the antibody hour includes the cost of obtaining examples is unclear. ICL avoids a fixed cost and is especially advantageous when the library is small, but compute ratios should be read by library size and by how the fixed cost is treated.
+The preprint's compute comparison applies to obtaining 64 designs that pass the specified filters. Widening the conditions changes how it reads. For CRISPR-Cas, the roughly 11-fold difference is a value at 64 designs, and once passing designs number from several hundred to several thousand, fine-tuning may become cheaper (depending on the assumed sampling time). For phage, most of the difference at 64 designs is avoided fixed cost, and the advantage that remains as the library grows comes from a 16.7-fold higher pass rate. Whether the antibody hour includes the cost of obtaining examples is unclear. ICL avoids a fixed cost and is especially advantageous when the library is small, but compute ratios should be read by library size and by how the fixed cost is treated.
 
 ## Limitations
 
@@ -69,7 +69,7 @@ The preprint's compute comparison is correct as reported, for a library of 64 pa
 - The compared models differ (Evo 1 and Evo 2), and pass rates that pool settings are mixed with times of the best setting.
 - The compute for evaluating the filters is not included on either side. Reuse across tasks and sharing of the fixed cost are not modelled.
 - The metrics are computational, and experimental function is not addressed. Sequences, prompts and generation procedures are not discussed.
-- The note was checked by three reviews performed by AI used by the author; this is not confirmation by a human third party.
+
 
 ## Conclusion
 

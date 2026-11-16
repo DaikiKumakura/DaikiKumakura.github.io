@@ -1,6 +1,6 @@
 Reference date: the facts in this article are as of 3 November 2026.
 
-If transcription were a Poisson process with a constant probability of firing, the variance of mRNA counts across single cells would equal the mean. Golding et al. counted mRNA one molecule at a time in living *Escherichia coli* and reported a variance about four times the mean ([1](#ref-1)). This note compares that observation with a transcriptional bursting model, derives the model's formulas, and checks them numerically against the measurements in the original paper. It then examines how much of the burst frequency, burst size and speed of mRNA loss can be identified from snapshots of a cell population, such as the mean and the variance.
+If transcripts were produced by a constant-rate Poisson process and each molecule were lost independently with the same rate constant, the steady-state variance of mRNA counts across single cells would equal the mean. Golding et al. counted mRNA one molecule at a time in living *Escherichia coli* and reported a variance about four times the mean ([1](#ref-1)). This note compares that observation with a transcriptional bursting model, derives the model's formulas, and checks them numerically against the measurements in the original paper. It then examines how much of the burst frequency, burst size and speed of mRNA loss can be identified from snapshots of a cell population, such as the mean and the variance.
 
 ## Problem formulation
 
@@ -55,7 +55,7 @@ Table 1. Burst size \(b\) implied by the three measurements of the original pape
 
 The two 37 °C measurements agreed that \(b\) is about 4. In the model, for \(b\)=4.1 the early decay rate of P0(t) equals \(k_b\) = 0.034 per minute, close to the observed 0.032 ± 0.005 per minute. In contrast, \(b\)=2.2 obtained directly from the 22 °C time series did not agree with them. The paper notes that the four-fold effect in the 37 °C statistics is not identical to the 2–3-fold effect predicted from the 22 °C burst measurements and attributes the difference to the microscopy conditions ([1](#ref-1)). That explanation was not tested in the paper. The small number of observed cells (20) and events (more than 77), and the difference in temperature, also remain candidates. This note's calculation cannot close the gap.
 
-With the same mean of 10, the distributions differ greatly with \(b\) (Figure 1, Table 2). For \(b\)=4.1, 1.1% of cells have no mRNA and 8.4% have 20 or more; for the Poisson distribution the figures are 0.0% and 0.35%.
+With the same mean of 10, the distributions differ greatly with \(b\) (Figure 1, Table 2). For \(b\)=4.1, 1.1% of cells have no mRNA and 8.4% have 20 or more; for the Poisson distribution the figures are less than 0.01% and 0.35%.
 
 ![Figure 1. Steady-state distributions of mRNA counts at a fixed mean of 10 per cell: Poisson (b = 1), b = 2.2 from the time series, and b = 4.1 from variance / mean. Parameters are from the paper's measurements (k1 = 0.14 per minute, k2 = 0.014 per minute) ([1](#ref-1)).](shared/transcriptional-bursting-fano/figures/01-stationary-distributions.png)
 
@@ -75,7 +75,7 @@ The time course in a single cell differs greatly between the models (Figure 2).
 
 The mean alone cannot distinguish the three models, because all have a mean of 10 (Table 2). Measuring the mean and variance / mean determines, within the model, \(b\) (variance / mean) and \(k_b/d\) (the mean divided by \(b\)). However, \(k_b\) and \(d\) are not determined separately. Multiplying \((k_b, d)\) by 3 leaves the stationary distribution unchanged (the maximum difference between the two distributions is \(1.4\times10^{-13}\)); even the whole stationary distribution cannot separate the two. Only the time course changes: the rate at which the first burst occurs goes from 0.034 to 0.102 per minute. The paper avoids this ambiguity by obtaining k2 from the approach of the mean to its steady value and checking it against the independently measured generation time, and by using the time course of P0(t) ([1](#ref-1)).
 
-As interpretation, two cells of the same gene with different mRNA counts are not, on that evidence alone, in different states, because the moment at which cells are taken for a snapshot cuts through burst histories that differ from cell to cell (Figure 2).
+As interpretation, two cells with different mRNA counts for the same gene are not, on that evidence alone, in different states, because the moment at which cells are taken for a snapshot cuts through burst histories that differ from cell to cell (Figure 2).
 
 ## Scope
 
@@ -83,7 +83,6 @@ As interpretation, two cells of the same gene with different mRNA counts are not
 - Burst sizes were assumed to follow a geometric distribution. For another distribution, variance / mean is not \(b\) but \((E[B^2]+E[B])/(2E[B])\), as the formula shows.
 - This note's calculation checks consistency using the paper's reported values as inputs; it is not a reanalysis of the original data.
 - The model does not include gene copy number changes over the cell cycle or cell size (the paper normalizes its measurements by cell size).
-- The note was checked by three reviews performed by AI used by the author; this is not confirmation by a human third party.
 
 ## Conclusion
 

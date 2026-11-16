@@ -53,7 +53,7 @@ The control-arm response rates of the three trials differ widely: 13.2% (docetax
 
 ![Figure 1. Response rates (ORR) of the arms printed in the figure, with exact 95% intervals from reconstructed counts (blue: experimental, grey: control, orange: single arm). The Krascendo 1 values are proportions in the evaluable set (open circles). The plot is the author's own; the original figure's image is not reproduced.](shared/ras-inhibitor-cross-trial-readability/figures/01-orr-intervals.png)
 
-Through a shared drug, whether trials can be compared can be checked to some extent. Sotorasib is in the experimental arm of CodeBreaK 200 and in the control arm of Krascendo 1 (sotorasib or adagrasib, split not given in the text I read). The response rate was 28.1% (21.5–35.4) and 32% (24.8–39.4), a difference of 3.7 percentage points (−6.1 to 13.3), and the median progression-free survival was 5.6 months (4.3–7.8) and 5.7 months ([2](#ref-2), [4](#ref-4)). No difference between the two trials is visible. However, the intervals are wide, so this is not evidence of no difference. The control arm includes adagrasib, and the trials differ in period and in assessment method (whether independent or investigator assessment was used was not stated in the text I read). All this comparison supports is that sotorasib's results did not differ greatly between the two trials.
+I examined the reported values from two arms that included sotorasib. Sotorasib is in the experimental arm of CodeBreaK 200 and in the control arm of Krascendo 1 (sotorasib or adagrasib, split not given in the text I read). The response rate was 28.1% (21.5–35.4) and 32% (24.8–39.4), a difference of 3.7 percentage points (−6.1 to 13.3), and the median progression-free survival was 5.6 months (4.3–7.8) and 5.7 months ([2](#ref-2), [4](#ref-4)). The interval for the response-rate difference was wide and crossed zero. The control arm includes adagrasib, and the trials differ in period and in assessment method (whether independent or investigator assessment was used was not stated in the text I read). This comparison describes the difference between a sotorasib-only arm and a control arm mixing sotorasib and adagrasib.
 
 ### Single-arm phase 1 response rates have wide intervals and cannot be ranked
 
@@ -77,7 +77,7 @@ For the five drugs checked, a figure that lines up RAS inhibitor results can be 
 
 ## Data and code availability
 
-The calculation code (`analysis.py`, `figures.py`), tests (`test_analysis.py`), the input table (`inputs/arms.csv`, with source levels) and result tables are in the companion archive. Run with Python 3 (numpy, scipy, pandas, matplotlib): `python analysis.py`, `python figures.py`, then `python -m pytest test_analysis.py`. The inputs are values from published reports; no patient data were used. The note was checked by three reviews performed by AI used by the author; this is not confirmation by a human third party.
+The calculation code (`analysis.py`, `figures.py`), tests (`test_analysis.py`), the input table (`inputs/arms.csv`, with source levels) and result tables are in the companion archive. Run with Python 3 (numpy, scipy, pandas, matplotlib): `python analysis.py`, `python figures.py`, then `python -m pytest test_analysis.py`. The inputs are values from published reports; no patient data were used.
 
 The full re-run materials are in the [companion archive](shared/ras-inhibitor-cross-trial-readability/ras-inhibitor-cross-trial-readability-companion.zip).
 

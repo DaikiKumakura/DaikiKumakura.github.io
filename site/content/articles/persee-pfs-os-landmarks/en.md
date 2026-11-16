@@ -26,9 +26,9 @@ Table 1 notes: PFS is progression-free survival, OS overall survival, HR hazard 
 
 ### The difference in medians looks larger than the hazard ratio
 
-The difference in median PFS is 9.2 months and in OS 20.3 months. Only if survival times are exponential (constant hazard) does the ratio of medians fix the hazard ratio. In that case it would be 6.9 ÷ 16.1 = 0.43 for PFS and 29.9 ÷ 50.2 = 0.60 for OS (my calculation). The reported hazard ratios (0.56 and 0.77) are both closer to 1. This shows that the survival curves are not exponential in shape, but not that hazards are non-proportional: indeed, the PFS hazard ratios back-calculated below from the survival rates at fixed times are nearly constant. Also, the median OS of the combination arm (50.2 months) is longer than the median follow-up (38.7 months), so it is an unstable estimate, and no interval is given. The reported hazard ratio (an average effect over the whole trial) and the difference in medians are different quantities.
+The difference in median PFS is 9.2 months and in OS 20.3 months. Only if survival times are exponential (constant hazard) does the ratio of medians fix the hazard ratio. In that case it would be 6.9 ÷ 16.1 = 0.43 for PFS and 29.9 ÷ 50.2 = 0.60 for OS (my calculation). The reported hazard ratios (0.56 and 0.77) are both closer to 1. This shows that the survival curves are not exponential in shape, but not that hazards are non-proportional: indeed, the PFS hazard ratios back-calculated below from the survival rates at fixed times are nearly constant. Also, the median OS of the combination arm (50.2 months) is longer than the median follow-up (38.7 months), and the sources checked give no interval for the median, leaving its precision unclear. The reported hazard ratio (an average effect over the whole trial) and the difference in medians are different quantities.
 
-A hazard ratio can also be back-calculated from the survival rates at fixed times (under proportional hazards, from two survival probabilities as \(\ln S_1 / \ln S_0\), where \(S_1\) and \(S_0\) are the survival rates of the combination and the single-drug arms). For PFS it is 0.56 at 12 months, 0.57 at 24 months and 0.60 at 36 months, close to the reported 0.56 and nearly constant. For OS it is 0.77 at 12 months, 0.76 at 24, 0.74 at 36 and 0.72 at 48 (my calculation, Figure 1). The small decrease in the OS values is within rounding and the sampling error of the estimates at each time (no confidence intervals are reported), and cannot be called a trend.
+A hazard ratio can also be back-calculated from the survival rates at fixed times (under proportional hazards, from two survival probabilities as \(\ln S_1 / \ln S_0\), where \(S_1\) and \(S_0\) are the survival rates of the combination and the single-drug arms). For PFS it is 0.56 at 12 months, 0.57 at 24 months and 0.60 at 36 months, close to the reported 0.56 and nearly constant. For OS it is 0.77 at 12 months, 0.76 at 24, 0.74 at 36 and 0.72 at 48 (my calculation, Figure 1). The small decrease in the OS values could reflect rounding or sampling error. Without intervals for the individual estimates, a temporal trend cannot be established.
 
 ![Figure 1. Reported survival rates at fixed times in PERSEE (Kaplan–Meier estimates counted from randomization). Left: PFS; right: OS. Points are the published values only; the shape of the curves is not estimated (my figure, published numbers).](shared/persee-pfs-os-landmarks/figures/01-landmark-rates.png)
 
@@ -40,7 +40,7 @@ At 12 months the OS difference (5.5) is small against the PFS difference (20.7).
 
 ### The OS difference is not significant but cannot be called small
 
-From the width of the 95% confidence interval of the OS hazard ratio of 0.77 (0.56 to 1.05), the standard error of the log hazard ratio is about 0.16, the test statistic z = −1.63 and the two-sided p value about 0.10 (my calculation, assuming the reported interval is symmetric on the log scale). The interval spans from a risk reduction of about 44% to an increase of about 5%. The coverage states that the trial was not powered to detect an OS difference (it was not designed around OS) ([2](#ref-2), [3](#ref-3)). It is therefore best read not as "no difference in OS" but as "a difference in OS was not established in this trial".
+From the width of the 95% confidence interval of the OS hazard ratio of 0.77 (0.56 to 1.05), the standard error of the log hazard ratio is about 0.16, the test statistic z = −1.63 and the two-sided p value about 0.10 (my calculation, assuming the reported interval is symmetric on the log scale). The interval spans from a death hazard about 44% lower to about 5% higher. The coverage states that the trial was not powered to detect an OS difference (it was not designed around OS) ([2](#ref-2), [3](#ref-3)). It is therefore best read not as "no difference in OS" but as "a difference in OS was not established in this trial".
 
 ### Grade 3 or higher treatment-related adverse events are about 35 per 100 patients higher
 
@@ -69,7 +69,7 @@ By interpretation: differences in medians look like larger effects than the haza
 - The approximate p value for OS is an estimate from the reported confidence interval, not the result of a test.
 - Placing adverse events beside PFS and OS differences is a descriptive pairing of quantities of different kinds, not a comparison of benefit and harm.
 - This note makes no treatment recommendation.
-- The note was checked by three reviews performed by AI used by the author; this is not confirmation by a human third party.
+
 
 ## Conclusion
 
