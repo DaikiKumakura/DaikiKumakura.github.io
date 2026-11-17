@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2026-12-19",
+  "publish_at": "2026-12-19T13:00:00+09:00",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "曝露を繰り返し測っても曝露反応の傾きが戻らない理由",
+      "summary": "患者内で共通の測定誤差があると、測定回数を増やしても曝露反応の傾きの過小評価は残る。線形モデルで補正の限界を計算する。",
+      "seo_title": "曝露反応の回帰希釈と共通誤差",
+      "seo_description": "患者内で共通の測定誤差があると、測定回数を増やしても曝露反応の傾きの過小評価は残る。線形モデルで補正の限界を計算する。"
+    },
+    "en": {
+      "title": "When repeated exposure measurements fail to recover the slope",
+      "summary": "A linear model shows how shared measurement error limits the recovery of an exposure–response slope.",
+      "seo_title": "Exposure–response and shared measurement error",
+      "seo_description": "A linear model shows how shared measurement error limits the recovery of an exposure–response slope."
+    }
+  },
+  "reviewed": {
+    "en": "f15e3039ba930a9c8e86310dcc2dd300e383bac8b314e232deafcbb36a2444dd"
+  }
+}

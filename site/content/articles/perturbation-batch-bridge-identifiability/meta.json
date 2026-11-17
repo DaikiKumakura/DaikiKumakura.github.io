@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2026-12-20",
+  "publish_at": "2026-12-20T13:00:00+09:00",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "単一細胞摂動実験で共通対照を置くと何が分かるか",
+      "summary": "処置とバッチが重なった単一細胞実験を例に、共通対照で識別できる処置効果と、両バッチで処置が必要な場合を区別する。",
+      "seo_title": "単一細胞摂動実験の共通対照",
+      "seo_description": "処置とバッチが重なった単一細胞実験を例に、共通対照で識別できる処置効果と、両バッチで処置が必要な場合を区別する。"
+    },
+    "en": {
+      "title": "What a shared control identifies in a single-cell perturbation experiment",
+      "summary": "A design-matrix calculation shows which treatment effects a shared control identifies across single-cell batches.",
+      "seo_title": "Shared controls in single-cell perturbation",
+      "seo_description": "A design-matrix calculation shows which treatment effects a shared control identifies across single-cell batches."
+    }
+  },
+  "reviewed": {
+    "en": "35c5f4a516a0cc349a66a6d035de6e4532feb1b86678547ef3c0662716d69ba2"
+  }
+}

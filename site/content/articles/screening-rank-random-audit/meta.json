@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2026-12-20",
+  "publish_at": "2026-12-20T18:00:00+09:00",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "AI創薬で上位候補だけ測るとヒットの見落としは分かるか",
+      "summary": "AI創薬の候補リストで上位のみを実験したとき、全体のヒット数がどこまで分かるかを、下位の無作為抽出で計算する。",
+      "seo_title": "AI創薬の回収率と無作為抽出",
+      "seo_description": "AI創薬の候補リストで上位のみを実験したとき、全体のヒット数がどこまで分かるかを、下位の無作為抽出で計算する。"
+    },
+    "en": {
+      "title": "Can top-ranked assays reveal how many AI drug hits were missed?",
+      "summary": "A finite-population calculation shows what random assays below the cutoff can tell us about screening recall.",
+      "seo_title": "AI drug screening recall and random sampling",
+      "seo_description": "A finite-population calculation shows what random assays below the cutoff can tell us about screening recall."
+    }
+  },
+  "reviewed": {
+    "en": "f793129d751753441bfee3a0e02eda507336880d5c8d4c3670aa769a789361e7"
+  }
+}

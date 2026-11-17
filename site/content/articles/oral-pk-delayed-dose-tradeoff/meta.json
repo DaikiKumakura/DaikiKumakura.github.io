@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2026-12-20",
+  "publish_at": "2026-12-20T09:00:00+09:00",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "経口薬の服用が遅れた日に谷と山はどう変わるか",
+      "summary": "一次吸収の経口薬モデルで、予定から9時間遅れた場合の最低濃度とその後の最高濃度を、次回の時刻別に比較する。",
+      "seo_title": "経口薬の服用遅れと濃度ピーク",
+      "seo_description": "一次吸収の経口薬モデルで、予定から9時間遅れた場合の最低濃度とその後の最高濃度を、次回の時刻別に比較する。"
+    },
+    "en": {
+      "title": "How a late oral dose changes the trough and peak",
+      "summary": "An oral PK model compares the lowest and highest concentrations when a scheduled dose is nine hours late.",
+      "seo_title": "Late oral doses and PK peaks",
+      "seo_description": "An oral PK model compares the lowest and highest concentrations when a scheduled dose is nine hours late."
+    }
+  },
+  "reviewed": {
+    "en": "f09c2cf799d79a3428e4738c832e949a3396faccb610bfcc8468c2cbbbf3f2e6"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2026-12-19",
+  "publish_at": "2026-12-19T18:00:00+09:00",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "死亡を打ち切ると有害事象の順位が逆転する",
+      "summary": "死亡が初回の有害事象に先行すると、死亡を打ち切った推定値と実際に観察される累積発生率で群の順位が変わり得る。",
+      "seo_title": "有害事象と死亡の競合リスク",
+      "seo_description": "死亡が初回の有害事象に先行すると、死亡を打ち切った推定値と実際に観察される累積発生率で群の順位が変わり得る。"
+    },
+    "en": {
+      "title": "When censoring deaths reverses an adverse event ranking",
+      "summary": "A worked example shows why the first adverse event risk can rank treatments differently when deaths are censored.",
+      "seo_title": "Adverse events and competing risks",
+      "seo_description": "A worked example shows why the first adverse event risk can rank treatments differently when deaths are censored."
+    }
+  },
+  "reviewed": {
+    "en": "d61da7813a0dcfbdae14418fe929cb395084ccedfed208ad6bb8148b3df6052c"
+  }
+}
