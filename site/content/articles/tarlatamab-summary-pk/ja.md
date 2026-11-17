@@ -272,6 +272,22 @@ DeLLphi-301の10 mgコホートでは、初回・8日目・15日目の投与後�
 
 本稿では、3つの投与回別集計を独立な患者データとして扱うCRSモデルを新たに当てはめていない。集計点から仮説を提示することと、患者ごとの曝露・発現時間に基づいてリスクを予測することを区別した。E–RやCRSへの接続は、公開情報の解釈と必要データの整理にとどめる。
 
+### DeLLphi-309の実測との照合
+
+2026年11月18日追記。無作為化第II相試験DeLLphi-309では、小細胞肺がんの252人を10 mg Q2W、20 mg Q3W、30 mg Q4Wに割り付けた。学会主催者が公表した2026年5月7日カットオフの結果では、盲検独立中央判定による確認奏効率は順に40%、31%、27%。定常状態のトラフは3群でおおむね同程度と報告された。比較は記述的で、正式な統計仮説は事前に設定されていない ([7](#ref-7))。
+
+試験の2つの延長間隔では、投与頻度と1回量が同時に変わる。そこで、等用量強度の15 mg Q3Wと20 mg Q4Wで本稿が出した維持期の比を、線形PKのもとでそれぞれ20/15倍と30/20倍し、試験の投与量に合わせた。
+
+**表S1.** 10 mg Q2Wを基準とした定常状態の濃度比とDeLLphi-309の公表奏効率。
+
+| DeLLphi-309 maintenance regimen | Model peak ratio | Model mean ratio | Model trough ratio | Reported response rate |
+| --- | ---: | ---: | ---: | ---: |
+| 10 mg Q2W | 1.00 | 1.00 | 1.00 | 40% |
+| 20 mg Q3W | 1.88 | 1.33 | 1.15 | 31% |
+| 30 mg Q4W | 2.75 | 1.50 | 1.11 | 27% |
+
+表S1では、投与間隔を延ばしても増量によりモデルのトラフは低下しない。学会発表の「おおむね同程度」という記述と方向は両立するが、群別の数値やばらつきはこの発表資料から確認できず、モデルの外部検証には使えない。ピークと平均濃度はモデルでは上昇する。維持期のトラフが近いことから、奏効の同等性や初回投与時のCRSのリスクまでは判断できない。
+
 ## 結論 {#7-qoi}
 
 表9に解析の問いと支持される範囲を示す。
@@ -305,3 +321,4 @@ python analysis.py
 4. <span id="ref-4"></span>US Food and Drug Administration. Tarlatamab multidisciplinary review [Internet]. 2024. Tables 66–67, printed pp. 294–295; Table 71, pp. 310–311. [Review document](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2024/761344Orig1s000MultidisciplineR.pdf).
 5. <span id="ref-5"></span>Chen PW, Minocha M, Kong S, Jiang T, Anderson ES, Parkes A, et al. Tarlatamab exposure–efficacy and exposure–safety relationships to inform dose selection in patients with small cell lung cancer. Clin Cancer Res. 2025;31(22):4688–4697. [doi:10.1158/1078-0432.CCR-25-2134](https://doi.org/10.1158/1078-0432.CCR-25-2134). [Full text and supplementary materials](https://pmc.ncbi.nlm.nih.gov/articles/PMC12616239/).
 6. <span id="ref-6"></span>Sands JM, Champiat S, Hummel HD, Paulson KG, Borghaei H, Bustamante Alvarez J, et al. Practical management of adverse events in patients receiving tarlatamab, a delta-like ligand 3–targeted bispecific T-cell engager immunotherapy, for previously treated small cell lung cancer. Cancer. 2025;131(3):e35738. [doi:10.1002/cncr.35738](https://doi.org/10.1002/cncr.35738). [Full text, Figure 2](https://pmc.ncbi.nlm.nih.gov/articles/PMC11775405/).
+7. <a id="ref-7"></a> International Association for the Study of Lung Cancer. Extended-interval tarlatamab dosing shows consistent activity and safety in previously treated small cell lung cancer [press release reporting WCLC 2026]. 2026 Sep 12. [IASLC](https://www.iaslc.org/iaslc-news/press-release/extended-interval-tarlatamab-dosing-shows-consistent-activity-and-safety).

@@ -1,4 +1,4 @@
-基準日：本記事の事実関係は2026年11月5日時点の公開情報による。
+解析に用いた公開情報の基準日は2026年11月5日。米国申請に関する11月15日の公表は考察に追記した。
 
 ## 要旨
 
@@ -12,7 +12,7 @@ PD-1（programmed cell death-1）とVEGF-A（vascular endothelial growth factor 
 
 ヒトでは、中国の第I相（AK112-102）が3–30 mg/kgのQ2Wと10・20 mg/kgのQ3Wを評価し ([2](#ref-2))、オーストラリアの第Ia相（AK112-101）が0.3–30 mg/kgのQ2Wを評価した ([3](#ref-3))。第Ib/II相（AK112-202、HARMONi-5の名称で報告）は、免疫療法未治療の非小細胞肺がん（NSCLC）で10 mg/kg Q3W、20 mg/kg Q2W、20 mg/kg Q3W、30 mg/kg Q3Wを非ランダム化で比べた ([4](#ref-4))。化学療法併用の第II相（AK112-201）は10と20 mg/kg Q3Wを逐次割付した ([5](#ref-5))。第III相のHARMONi-2は20 mg/kg Q3W単剤とペムブロリズマブを比較した ([6](#ref-6))。HARMONi-6は扁平上皮がんで、イボネスチマブ20 mg/kg Q3Wとパクリタキセル・カルボプラチンの併用を、チスレリズマブの同併用と比較した。無増悪生存期間は2025年に ([7](#ref-7))、全生存期間は2026年に報告された ([8](#ref-8), [9](#ref-9))。
 
-2026年11月5日時点の規制状況は、会社の一次資料によると次のとおりである。Akesoの製品ページは中国での承認を2024年5月（EGFR［上皮成長因子受容体］変異陽性の非扁平上皮がん、EGFRチロシンキナーゼ阻害薬［TKI］後の化学療法併用）と2025年4月（PD-L1［programmed death-ligand 1］陽性の一次治療単剤）と記載し ([10](#ref-10))、扁平上皮がんの一次治療（化学療法併用）の承認を2026年8月12日に発表した ([11](#ref-11))。HARMONi-6の無増悪生存期間が欧州臨床腫瘍学会（ESMO）2025で発表されたことは、Akesoの発表に記載されている ([11](#ref-11))。全生存期間は米国臨床腫瘍学会（ASCO）2026で報告された ([9](#ref-9))。米国ではSummit Therapeuticsが、HARMONi（EGFR変異・第三世代TKI後・非扁平上皮がん）の生物学的製剤承認申請（BLA）が2026年1月に受理され、審査目標日（PDUFA日）が2026年11月14日で、2026年11月5日時点で承認はないと述べている ([12](#ref-12))。この審査目標日は本記事の公開予定日より前で、公開時点では決定がなされている可能性がある。中国の国家薬品監督管理局（NMPA）のデータベースと米国食品医薬品局（FDA）の文書は確認しておらず、会社の記述である。
+2026年11月5日時点の規制状況は、会社の一次資料によると次のとおりである。Akesoの製品ページは中国での承認を2024年5月（EGFR［上皮成長因子受容体］変異陽性の非扁平上皮がん、EGFRチロシンキナーゼ阻害薬［TKI］後の化学療法併用）と2025年4月（PD-L1［programmed death-ligand 1］陽性の一次治療単剤）と記載し ([10](#ref-10))、扁平上皮がんの一次治療（化学療法併用）の承認を2026年8月12日に発表した ([11](#ref-11))。HARMONi-6の無増悪生存期間が欧州臨床腫瘍学会（ESMO）2025で発表されたことは、Akesoの発表に記載されている ([11](#ref-11))。全生存期間は米国臨床腫瘍学会（ASCO）2026で報告された ([9](#ref-9))。米国ではSummit Therapeuticsが、HARMONi（EGFR変異・第三世代TKI後・非扁平上皮がん）の生物学的製剤承認申請（BLA）が2026年1月に受理され、審査目標日（PDUFA日）が2026年11月14日で、2026年11月5日時点で承認はないと述べている ([12](#ref-12))。中国の国家薬品監督管理局（NMPA）のデータベースと米国食品医薬品局（FDA）の文書は確認しておらず、会社の記述である。
 
 承認された用量は主に20 mg/kg Q3Wである。問いは、公開された集計値が、検討されたレジメン間の用量と投与間隔の定量的な比較をどこまで支えるか、である。次の5つの下位の問いを立てた。Q1：PD-1占有率は用量の飽和を判別できるか。Q2：VEGFの変化は投与間隔に依存するか。Q3：奏効の用量反応はレジメン別に同定できるか。Q4：曝露と毒性の関係は同定できるか。Q5：20 mg/kg Q3Wについて、支持される点・支持されない点・決められない点は何か。用量の推奨は目的としない。
 
@@ -173,6 +173,8 @@ Q1（占有率）：3 mg/kg以上でほぼ頭打ち（90%超）で、用量を�
 
 Q5（20 mg/kg Q3W）：支持されるのは、この用量の谷濃度でも占有率が頭打ちの範囲にあること、HARMONi-2とHARMONi-6でこの用量が薬剤の比較として評価されていることである。線形性から導かれる帰結として、定常状態のCavgは10 mg/kg Q3Wの2倍、15 mg/kg Q3Wの約1.3倍である。支持されないのは、20 mg/kg Q3Wが他の用量・間隔より有効または安全だという用量の比較で、公開データにその比較はない。決められないのは、より高い用量（30 mg/kg Q3Wなど）や、同じ強度で間隔を変えた場合（20 mg/kg Q2W）の有効性と安全性の差である。等しい用量強度の30 mg/kg Q3Wと20 mg/kg Q2Wを比べたときの濃度推移の違い（Q3Wで最高濃度が約1.34倍、最低濃度が0.58–0.78倍）は予測できるが、臨床の差になるかは推定できない。最低濃度の比は、末梢コンパートメントの有無という構造に依存し、順位は動かさないが大きさを動かす。
 
+2026年11月15日、Summit Therapeuticsは米国の生物製剤承認申請に対してFDAがComplete Response Letter（現状の申請内容では承認できない旨の通知）を発行したと公表した。対象は、EGFRチロシンキナーゼ阻害薬による治療歴がある進行非小細胞肺がんに対する、ivonescimabと白金製剤を含む化学療法の併用である。発表によれば、国際第III相HARMONi試験では無増悪生存期間が改善した一方、全生存期間の主解析は統計学的有意差に達しなかった ([17](#ref-17))。HARMONiは中国のHARMONi-2・HARMONi-6とは別試験であり、ivonescimabの用量や投与間隔を無作為に比較していない。今回の通知から本稿の用量間比較は更新できない。
+
 ## 限界
 
 公開された値は用量群の平均（SD）と件数だけで、個体間の共分散も個体レベルの曝露と応答の組も作れない。\(\sigma_m\) は4–7点から推定した最尤値で、群内の相関を無視した尤度の過信は緩和にとどまる。用量比例性は5群の平均（自由度3）からの推定である。Table S7の標準誤差は、時点ごとの例数が不明なため下限である。変動シナリオは仮定である。第I相のCL×体重と原著のCLの比は0.75–1.23（幾何平均0.91）で、単位の誤りはないが、平均と中央値の違いやNCAの偏りによる±25%の差が残る。Dは非ランダム化の逐次割付で、有害事象はコホートを横断して統合されている。第III相の一部は抄録・学会スライド・会社発表に基づき、HARMONi-2の全生存期間の更新は査読済みの論文を確認していない。第I相の対象は多腫瘍型で、NSCLCは1例（A）と2例（B）である。規制の記述は会社の一次資料によるもので、NMPAのデータベースは確認していない。図11に、得られなかったデータをまとめる。
@@ -211,6 +213,8 @@ Q5（20 mg/kg Q3W）：支持されるのは、この用量の谷濃度でも占
 <span id="ref-14"></span>14. Summit Therapeutics Inc. Ivonescimab monotherapy demonstrates a statistically significant & clinically meaningful benefit compared to pembrolizumab monotherapy in PD-L1-positive advanced NSCLC in Akeso's HARMONi-2 study conducted in China [Press release] [Internet]. Summit Therapeutics; 2026 Sep 13 [cited 2026 Nov 5]. Available from: [https://s206.q4cdn.com/652410165/files/doc_news/Ivonescimab-Monotherapy-Demonstrates-a-Statistically-Significant--Clinically-Meaningful-Benefit-Compared-to-Pembrolizumab-Monotherapy-O38XG.pdf](https://s206.q4cdn.com/652410165/files/doc_news/Ivonescimab-Monotherapy-Demonstrates-a-Statistically-Significant--Clinically-Meaningful-Benefit-Compared-to-Pembrolizumab-Monotherapy-O38XG.pdf)
 <span id="ref-15"></span>15. The ASCO Post. Ivonescimab significantly improves overall survival vs pembrolizumab in PD-L1-positive advanced NSCLC [News article; title taken from the URL; page content read through a summarising tool] [Internet]. The ASCO Post; 2026 Sep 15 [cited 2026 Nov 5]. Available from: [https://ascopost.com/news/september-2026/ivonescimab-significantly-improves-overall-survival-vs-pembrolizumab-in-pd-l1-positive-advanced-nsclc/](https://ascopost.com/news/september-2026/ivonescimab-significantly-improves-overall-survival-vs-pembrolizumab-in-pd-l1-positive-advanced-nsclc/)
 <span id="ref-16"></span>16. ecancer. WCLC 2026: analysis shows ivonescimab significantly improves overall survival versus pembrolizumab in PD-L1-positive advanced NSCLC [News article; title taken from the URL; page content read through a summarising tool] [Internet]. ecancer; [date not recorded] [cited 2026 Nov 5]. Available from: [https://ecancer.org/en/news/28884-wclc-2026-analysis-shows-ivonescimab-significantly-improves-overall-survival-versus-pembrolizumab-in-pd-l1-positive-advanced-nsclc](https://ecancer.org/en/news/28884-wclc-2026-analysis-shows-ivonescimab-significantly-improves-overall-survival-versus-pembrolizumab-in-pd-l1-positive-advanced-nsclc)
+
+17. <a id="ref-17"></a> Summit Therapeutics Inc. Summit Therapeutics provides update regarding ivonescimab biologics license application [press release, Form 8-K exhibit 99.1]. 2026 Nov 15. [SEC EDGAR](https://www.sec.gov/Archives/edgar/data/1599298/000159929826000092/ivonescimabcrlscenariopr.htm).
 
 ## この記事の引用
 

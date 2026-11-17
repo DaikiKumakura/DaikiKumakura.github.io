@@ -156,7 +156,7 @@ The [calculation code](shared/pasritamig-dose-fractionation/regimen_model.py), u
 1. Wildgust M [@MAWildgust]. [Post describing pasritamig plus JNJ-9401 at SITC 2026; editorial description] [X post]. 2026 Nov 8 [cited 2026 Nov 9]. Available from: [original post](https://x.com/MAWildgust/status/2119408231529275687).
 
 <a id="ref-2"></a>
-2. Johnson & Johnson. Johnson & Johnson reports 73% PSA response rate with investigational pasritamig-based immunotherapy combination in advanced prostate cancer [press release]. PR Newswire. 2026 Nov 8 [cited 2026 Nov 9]. Available from: [sponsor release](https://www.prnewswire.com/news-releases/johnson--johnson-reports-73-psa-response-rate-with-investigational-pasritamig-based-immunotherapy-combination-in-advanced-prostate-cancer-302932750.html). Reporting SITC 2026 abstract 1175.
+2. Johnson & Johnson. Johnson & Johnson reports 73% PSA response rate with investigational pasritamig-based immunotherapy combination in advanced prostate cancer [press release]. Johnson & Johnson; 2026 Nov 9 [cited 2026 Nov 18]. Available from: [sponsor release](https://www.jnj.com/media-center/press-releases/johnson-johnson-reports-73-psa-response-rate-with-investigational-pasritamig-based-immunotherapy-combination-in-advanced-prostate-cancer). Reporting SITC 2026 abstract 1175.
 
 <a id="ref-3"></a>
 3. Stein MN, Vinceneux A, Robbrecht D, Doger B, Autio KA, Schweizer MT, et al. Pasritamig, a first-in-class, bispecific T-cell engager targeting human kallikrein 2, in metastatic castration-resistant prostate cancer: a phase I study. J Clin Oncol. 2025;43(22):2515–2526. doi: [10.1200/JCO-25-00678](https://doi.org/10.1200/JCO-25-00678). [Open-access full text](https://pmc.ncbi.nlm.nih.gov/articles/PMC12288886/).

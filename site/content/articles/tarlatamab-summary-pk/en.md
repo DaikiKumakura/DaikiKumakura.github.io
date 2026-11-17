@@ -272,6 +272,22 @@ From this summary, it is hard to explain the differences between doses with a si
 
 This article does not fit a new CRS model that treats the three per-dose summaries as independent patient data. Presenting a hypothesis from summary points was kept distinct from predicting risk based on each patient's exposure and onset time. Links to E–R and CRS are limited to interpreting public information and organizing the data needed.
 
+### Comparing the model with DeLLphi-309
+
+Added November 18, 2026. The randomized phase II DeLLphi-309 trial assigned 252 patients with small-cell lung cancer to 10 mg Q2W, 20 mg Q3W, or 30 mg Q4W. At the May 7, 2026 cutoff, the conference organizer reported confirmed response rates of 40%, 31%, and 27% by blinded independent central review and described the steady-state troughs as broadly comparable. The comparisons were descriptive, with no formal statistical hypotheses prespecified ([7](#ref-7)).
+
+Both extended schedules change dose and frequency. Under the linear PK model, I multiplied the equal-dose-intensity maintenance predictions for 15 mg Q3W and 20 mg Q4W by 20/15 and 30/20, respectively, to match the trial doses.
+
+**Table S1.** Steady-state concentration ratios relative to 10 mg Q2W and the reported DeLLphi-309 response rates.
+
+| DeLLphi-309 maintenance regimen | Model peak ratio | Model mean ratio | Model trough ratio | Reported response rate |
+| --- | ---: | ---: | ---: | ---: |
+| 10 mg Q2W | 1.00 | 1.00 | 1.00 | 40% |
+| 20 mg Q3W | 1.88 | 1.33 | 1.15 | 31% |
+| 30 mg Q4W | 2.75 | 1.50 | 1.11 | 27% |
+
+In Table S1, increasing the dose as the interval lengthens keeps the modeled trough from falling. This is consistent with the characterization of broadly comparable troughs in the conference report. The report does not provide arm-level estimates or variability for testing the predictions. The model predicts higher peaks and mean concentrations. Similar maintenance troughs alone cannot establish equivalent response or determine the risk of CRS at treatment initiation.
+
 ## Conclusion {#7-answers-to-the-qoi-and-the-data-needed-next}
 
 Table 9 summarizes what the analysis can establish.
@@ -305,3 +321,4 @@ python analysis.py
 4. <span id="ref-4"></span>US Food and Drug Administration. Tarlatamab multidisciplinary review [Internet]. 2024. Tables 66–67, printed pp. 294–295; Table 71, pp. 310–311. [Review document](https://www.accessdata.fda.gov/drugsatfda_docs/nda/2024/761344Orig1s000MultidisciplineR.pdf).
 5. <span id="ref-5"></span>Chen PW, Minocha M, Kong S, Jiang T, Anderson ES, Parkes A, et al. Tarlatamab exposure–efficacy and exposure–safety relationships to inform dose selection in patients with small cell lung cancer. Clin Cancer Res. 2025;31(22):4688–4697. [doi:10.1158/1078-0432.CCR-25-2134](https://doi.org/10.1158/1078-0432.CCR-25-2134). [Full text and supplementary materials](https://pmc.ncbi.nlm.nih.gov/articles/PMC12616239/).
 6. <span id="ref-6"></span>Sands JM, Champiat S, Hummel HD, Paulson KG, Borghaei H, Bustamante Alvarez J, et al. Practical management of adverse events in patients receiving tarlatamab, a delta-like ligand 3–targeted bispecific T-cell engager immunotherapy, for previously treated small cell lung cancer. Cancer. 2025;131(3):e35738. [doi:10.1002/cncr.35738](https://doi.org/10.1002/cncr.35738). [Full text, Figure 2](https://pmc.ncbi.nlm.nih.gov/articles/PMC11775405/).
+7. <a id="ref-7"></a> International Association for the Study of Lung Cancer. Extended-interval tarlatamab dosing shows consistent activity and safety in previously treated small cell lung cancer [press release reporting WCLC 2026]. 2026 Sep 12. [IASLC](https://www.iaslc.org/iaslc-news/press-release/extended-interval-tarlatamab-dosing-shows-consistent-activity-and-safety).
