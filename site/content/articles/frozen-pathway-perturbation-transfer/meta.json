@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2026-12-17",
+  "publish_at": "2026-12-17T13:00:00+09:00",
+  "draft": false,
+  "author": "Daiki Kumakura",
+  "math": false,
+  "version": "1.0",
+  "locales": {
+    "ja": {
+      "title": "IFNとMAPKの固定スコアは別の細胞実験でも刺激を区別できるか",
+      "summary": "開発に使っていない2細胞実験で、固定IFN・MAPKスコアの符号を無処置と比較処置に対して検証した。",
+      "seo_title": "別実験でのIFN・MAPKスコア検証",
+      "seo_description": "開発に使っていない2細胞実験で、固定IFN・MAPKスコアの符号を無処置と比較処置に対して検証した。"
+    },
+    "en": {
+      "title": "Can fixed IFN and MAPK scores distinguish treatments in other cell experiments?",
+      "summary": "Fixed IFN and MAPK scores are evaluated against control and comparison treatments in two experiments outside development.",
+      "seo_title": "Can fixed IFN and MAPK scores transfer?",
+      "seo_description": "Fixed IFN and MAPK scores are evaluated against control and comparison treatments in two experiments outside development."
+    }
+  },
+  "reviewed": {
+    "en": "b5b9b10ecded8c00245e68f9420aa2c3f07f19f38d39aa32ca7afed9ca071655"
+  }
+}

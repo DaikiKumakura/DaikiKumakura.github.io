@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2026-12-17",
+  "publish_at": "2026-12-17T09:00:00+09:00",
+  "draft": false,
+  "author": "Daiki Kumakura",
+  "math": true,
+  "version": "1.0",
+  "locales": {
+    "ja": {
+      "title": "がんの2用量比較で選択を保留する価値",
+      "summary": "仮想の無作為化2用量試験で、曝露–反応と、奏効差・毒性を使う保留可能な規則を比較した。",
+      "seo_title": "がんの2用量比較で選択を保留する価値",
+      "seo_description": "仮想の無作為化2用量試験で、曝露–反応と、奏効差・毒性を使う保留可能な規則を比較した。"
+    },
+    "en": {
+      "title": "When is it worth deferring dose selection in a randomized two-dose study?",
+      "summary": "Simulated randomized trials compare arm rates, exposure–response and an option to defer dose selection.",
+      "seo_title": "When to defer oncology dose selection",
+      "seo_description": "Simulated randomized trials compare arm rates, exposure–response and an option to defer dose selection."
+    }
+  },
+  "reviewed": {
+    "en": "a0367ecd36a4385d3a2a44dc8c3eb4ae6f356750740602bc61269738c550e018"
+  }
+}

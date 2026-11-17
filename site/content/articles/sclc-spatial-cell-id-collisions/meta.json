@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2026-12-17",
+  "publish_at": "2026-12-17T18:00:00+09:00",
+  "draft": false,
+  "author": "Daiki Kumakura",
+  "math": false,
+  "version": "1.0",
+  "locales": {
+    "ja": {
+      "title": "小細胞肺がんの空間データで細胞IDが衝突するとき",
+      "summary": "公開CosMx座標と細胞型注釈の監査で、スライドを除くと同じ細胞IDに別のラベルが結びうることを示した。",
+      "seo_title": "SCLC空間データの細胞ID衝突",
+      "seo_description": "公開CosMx座標と細胞型注釈の監査で、スライドを除くと同じ細胞IDに別のラベルが結びうることを示した。"
+    },
+    "en": {
+      "title": "When cell identifiers collide in small cell lung cancer spatial data",
+      "summary": "An audit of public CosMx coordinates and cell annotations shows how dropping slide identifiers can join different cell labels.",
+      "seo_title": "Cell ID collisions in SCLC spatial data",
+      "seo_description": "An audit of public CosMx coordinates and cell annotations shows how dropping slide identifiers can join different cell labels."
+    }
+  },
+  "reviewed": {
+    "en": "d24ed92fe6aca91be31607192963857d0ef8c021951da0e6f3f457408ff6f019"
+  }
+}
