@@ -97,6 +97,8 @@ def enrich(page, name, site, site_url, article=None, og_image=None, topics=None,
   schema={'@context':'https://schema.org','@type':'WebSite','@id':site_url+'#website','url':site_url,'name':site['name'],'alternateName':site['alternate_name'],'inLanguage':'en','about':person}
  elif key=='profile':
   schema={'@context':'https://schema.org','@type':'ProfilePage','url':canonical,'inLanguage':'en','mainEntity':person}
+ elif key=='privacy':
+  schema={'@context':'https://schema.org','@type':'WebPage','url':canonical,'name':headline,'description':description,'inLanguage':[lang,'ja'],'isPartOf':{'@id':site_url+'#website'}}
  elif key=='publication':
   works=[{'@type':'ListItem','position':i+1,'item':{'@type':'Thesis' if p['kind']=='thesis' else 'ScholarlyArticle','name':p.get('title_translation',p['title']),'url':'https://doi.org/'+p['doi'],'identifier':{'@type':'PropertyValue','propertyID':'DOI','value':p['doi']},'datePublished':str(p['year']),'isPartOf':{'@type':'Periodical' if p['kind']!='thesis' else 'CreativeWork','name':p['venue']},'author':[{'@type':'Person','name':a['name']} for a in p['author_list']]}} for i,p in enumerate(sorted(site['publications'],key=lambda p:p['year'],reverse=True))]
   schema={'@context':'https://schema.org','@type':'CollectionPage','url':canonical,'name':'Publication | '+site['name'],'mainEntity':{'@type':'ItemList','itemListElement':works}}

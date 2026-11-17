@@ -1,0 +1,39 @@
+{
+  "source_language": "en",
+  "category": "note",
+  "date": "2026-12-16",
+  "publish_at": "2026-12-16T09:00:00+09:00",
+  "draft": false,
+  "math": false,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "en": {
+      "title": "Does exposure information help a randomized two-dose trial select the better dose? Simulated trials with and without severity-driven clearance",
+      "summary": "In simulated randomized two-dose trials with 20 to 100 patients per arm, an exposure–response model chose the correct dose more often than arm-level response rates when exposure was not confounded, but chose the high dose wrongly in 75% of near-plateau trials at 40 per arm when severity drove clearance.",
+      "key_findings": [
+        "With exposure not confounded and the high dose better, an exposure–response (E–R) model picked the correct dose in 88.1% of 2,000 trials at 40 patients per arm, against 80.0% for the arm-level response-rate rule; with a nearly flat response the two did not differ clearly at 40 per arm (73.8% and 71.5%).",
+        "When severity raised clearance (49% per SD, assumed), the E–R model's advantage grew to 95.6% against 75.0% where the high dose was better, but with a nearly flat response it chose the correct low dose in only 25.4% of trials at 40 per arm and 11.9% at 100 per arm, while the arm-level rule reached 73.0% and 77.0%.",
+        "In diagnostic runs (1,000 trials), the pooled E–R model's fitted exposure slope averaged 0.87 against a true 0.2 near a plateau under confounding; adding the true severity brought it to 0.23, and a noisy severity marker (reliability 0.61) to 0.58 (52.2% correct at 40 per arm, below the arm-level rule).",
+        "The failure belongs to an E–R model that estimates its slope from exposure differences without the confounder. The severity effects, the two-dose design, the logistic E–R form, the 0.08 gain boundary and an error-free exposure are assumed; the arm-level rule is a simple boundary, not the calibrated ROSE design."
+      ],
+      "seo_title": "Dose selection: E–R model vs arm response rates",
+      "seo_description": "Simulated two-dose trials: an exposure–response model can pick the better dose more often, but severity-driven clearance biases it."
+    },
+    "ja": {
+      "title": "曝露情報は無作為化2用量試験で良い用量を選ぶ助けになるか 重症度とクリアランスの交絡がある場合とない場合の数値実験",
+      "summary": "1群20〜100例の無作為化2用量試験の数値実験で、曝露反応モデルは曝露が交絡しないとき群ごとの反応率より正しい用量を多く選んだが、重症度がクリアランスを左右するとき、反応がほぼ平坦な場面では75%の試験で誤って高用量を選んだ。",
+      "seo_title": "用量選択における曝露反応モデルと群ごとの反応率の比較",
+      "seo_description": "無作為化2用量試験の数値実験で、曝露反応モデルが群ごとの反応率より正しい用量を選ぶ場面と、重症度によるクリアランスの交絡で逆転する場面を比べる。",
+      "key_findings": [
+        "曝露が交絡せず高用量が優れる場面で、曝露反応（E–R）モデルは1群40例の2,000試験の88.1%で正しい用量を選び、群ごとの反応率の規則は80.0%だった。反応がほぼ平坦な場面では40例で明確な差はなかった（73.8%と71.5%）。",
+        "重症度がクリアランスを高める（SDあたり49%、仮定）と、高用量が優れる場面でのE–Rモデルの優位は95.6%対75.0%に広がったが、反応がほぼ平坦な場面では正しい低用量を選んだ割合が40例で25.4%、100例で11.9%にとどまり、群ごとの規則は73.0%と77.0%だった。",
+        "診断実行（1,000試験）では、交絡のあるほぼ平坦な場面で、全患者をまとめたE–Rモデルの当てはめた曝露の傾きは平均0.87（真値0.2）で、真の重症度を加えると0.23に、誤差のある重症度指標（信頼性0.61）では0.58になった（40例で正答52.2%、群ごとの規則を下回る）。",
+        "失敗するのは、交絡因子なしに曝露の差から傾きを推定するE–Rモデルである。重症度の効果、2用量のデザイン、ロジスティックなE–Rの形、0.08の増分境界、誤差のない曝露は仮定であり、群ごとの規則は単純な境界で、較正したROSEデザインではない。"
+      ]
+    }
+  },
+  "reviewed": {
+    "ja": "2ebb66b48037afce09dc3a710b4f3fafa3c5582026a7af7f198ef450d96cba9f"
+  }
+}
