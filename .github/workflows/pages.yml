@@ -28,8 +28,8 @@ jobs:
       - name: Warn if a live article URL would disappear
         run: python site/check_dropped_urls.py
         continue-on-error: true
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v4
+      - uses: actions/configure-pages@v6
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: site/dist
   deploy:
@@ -44,7 +44,7 @@ jobs:
     steps:
       - name: Deploy
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
   verify-publication:
     needs: deploy
     runs-on: ubuntu-latest
@@ -54,7 +54,7 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v7
         with:
           name: github-pages
           path: deployed-artifact
@@ -70,6 +70,23 @@ jobs:
       - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
+      - uses: actions/download-artifact@v7
+        with:
+          name: github-pages
+          path: deployed-artifact
+      - run: mkdir -p deployed-site && tar -xf deployed-artifact/artifact.tar -C deployed-site
+      - uses: actions/cache/restore@v5
+        with:
+          path: indexnow-state
+          key: indexnow-v1-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: indexnow-v1-
       - name: Notify IndexNow of canonical pages
-        run: python site/notify_indexnow.py
+        id: notify
+        timeout-minutes: 5
+        run: python site/notify_indexnow.py --dist deployed-site --state indexnow-state/accepted.json
+      - uses: actions/cache/save@v5
+        if: success() && steps.notify.outputs.state_changed == 'true'
+        with:
+          path: indexnow-state
+          key: indexnow-v1-${{ github.run_id }}-${{ github.run_attempt }}
 
