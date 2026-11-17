@@ -819,6 +819,59 @@
       "related_articles": []
     },
     {
+      "id": "bayespk",
+      "tech": "R",
+      "url": "https://github.com/DaikiKumakura/bayespk",
+      "status": "R package (v0.1.0)",
+      "description": "An R package for Bayesian population pharmacokinetics without writing Stan: describe a 1- or 2-compartment model in one line with pk_model(), pass a NONMEM-style data set as it is, and get posterior summaries, convergence diagnostics and predictions for new regimens from bpk_fit(), summary() and predict().",
+      "featured": true,
+      "links": [
+        {
+          "url": "https://daikikumakura.github.io/bayespk/",
+          "label": "Documentation"
+        },
+        {
+          "url": "https://daikikumakura.github.io/bayespk/articles/bayespk.html",
+          "label": "Getting started"
+        },
+        {
+          "url": "https://github.com/DaikiKumakura/bayespk/releases/tag/v0.1.0",
+          "label": "Release 0.1.0"
+        },
+        {
+          "url": "https://github.com/DaikiKumakura/bayespk/blob/main/inst/validation/README.md",
+          "label": "Validation"
+        },
+        {
+          "url": "https://daikikumakura.r-universe.dev/bayespk",
+          "label": "R-universe"
+        }
+      ],
+      "note": "Precompiled Stan programs with closed-form solutions, so nothing is compiled when a model is fitted. Simulation-based calibration (three scenarios, 100 to 200 replicates) shows no miscalibration; on the public theophylline and warfarin data, typical values are within 1 to 10% of nlmixr2 FOCEI estimates. Fits are slower than FOCEI, and variance parameters mix slowly in sparse two-compartment oral designs. R CMD check passes on Linux, macOS and Windows in CI. Not on CRAN.",
+      "ja": {
+        "status": "Rパッケージ（v0.1.0）",
+        "description": "Stanを書かずにベイズ母集団薬物動態解析を行うRパッケージ。1または2コンパートメントのモデルをpk_model()の1行で記述し、NONMEM形式のデータをそのまま渡すと、bpk_fit()、summary()、predict()で事後分布の要約、収束診断、新しい投与計画の予測が得られる。",
+        "note": "閉形式解を使うStanプログラムをあらかじめコンパイルしてあり、推定時のコンパイルは不要。シミュレーションに基づく較正（3シナリオ、各100〜200反復）で較正の崩れは見られず、公開データ（テオフィリン、ワルファリン）では典型値がnlmixr2のFOCEI推定値と1〜10%以内で一致した。推定はFOCEIより遅く、採血の少ない2コンパートメント経口モデルでは分散パラメータの混合が遅い。R CMD checkはCIのLinux・macOS・Windowsで通過。CRANには未登録。"
+      },
+      "doi": "10.5281/zenodo.24325846",
+      "slug": "bayespk",
+      "headline": "bayespk: Bayesian population PK in R",
+      "summary": "R package for Bayesian population pharmacokinetics: one-line 1- and 2-compartment models, NONMEM-style data, precompiled Stan, diagnostics and predictions.",
+      "details": [],
+      "install": [
+        {
+          "label": "R-universe",
+          "code": "install.packages(\"bayespk\", repos = c(\"https://daikikumakura.r-universe.dev\", \"https://cloud.r-project.org\"))"
+        },
+        {
+          "label": "GitHub",
+          "code": "install.packages(\"remotes\")\nremotes::install_github(\"DaikiKumakura/bayespk\")"
+        }
+      ],
+      "install_note": "Installing from GitHub compiles the Stan program once and needs a C++ toolchain.",
+      "related_articles": []
+    },
+    {
       "id": "retiaudit",
       "tech": "R",
       "url": "https://github.com/DaikiKumakura/retiaudit",
