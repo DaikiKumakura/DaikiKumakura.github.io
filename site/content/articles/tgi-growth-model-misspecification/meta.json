@@ -1,0 +1,39 @@
+{
+  "source_language": "en",
+  "category": "note",
+  "date": "2026-12-16",
+  "publish_at": "2026-12-16T18:00:00+09:00",
+  "draft": false,
+  "math": false,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "en": {
+      "title": "Does the growth model for vehicle tumours change what a xenograft study says about potency and efficacy? Simulated studies with Gompertz vehicle growth and an exponential-growth model",
+      "summary": "In simulated xenograft studies with Gompertz vehicle growth, an exponential-growth model recovered the half-maximal concentration but underestimated the maximal kill rate in all nine settings and predicted too small a treated-to-vehicle volume ratio for a tested-range concentration; AIC favoured the correct model in most settings.",
+      "key_findings": [
+        "The half-maximal concentration (true 3) was recovered by both the exponential and the Gompertz model: the median estimate was 2.99 to 3.01 in all 18 combinations of Gompertz rate (0.02, 0.05, 0.10 per day) and study duration (14, 21, 28 days), 2,000 studies each.",
+        "The exponential model underestimated the maximal kill rate (true 0.20 per day) in every combination, for example 0.153, 0.135 and 0.121 at 14, 21 and 28 days with a Gompertz rate of 0.05 and 0.082 at 28 days with a rate of 0.10, while the Gompertz model was centred on 0.20; a closed-form approximation based on the saturating treated-to-vehicle log difference reproduced the nine medians within 0.001.",
+        "In this design, for a concentration of 5 inside the tested range, the exponential model's predicted treated-to-vehicle volume ratio at day 28 was 0.459, 0.619 and 0.784 of the true ratio after 14, 21 and 28 days (Gompertz rate 0.05); at the last observation day it was 0.930, 0.863 and 0.784.",
+        "AIC preferred the Gompertz model in about 96% or more of the studies in 8 of 9 settings (at least 98.8% in 7) and in 46.0% for the nearly exponential vehicle (rate 0.02) at 14 days; the results hold for a constant-concentration kill-rate effect added to the log growth rate without delay, one set of assumed parameters and 8 animals per arm."
+      ],
+      "seo_title": "Tumour growth model misspecification: potency and efficacy",
+      "seo_description": "Simulated xenograft studies show how assuming exponential vehicle growth biases the maximal kill rate and projected tumour volume ratios."
+    },
+    "ja": {
+      "title": "対照腫瘍の増殖モデルは異種移植試験の効力と効果の推定を変えるか Gompertz型の増殖を指数増殖モデルで解析する数値実験",
+      "summary": "溶媒対照がGompertz型に増殖する異種移植試験の数値実験で、指数増殖モデルは半数最大濃度を回収したが、9設定すべてで最大殺傷率を過小に推定し、検討範囲内の濃度で処理群と溶媒群の体積比を小さく予測した。AICはほとんどの設定で正しいモデルを選んだ。",
+      "seo_title": "腫瘍増殖モデルの誤指定が効力と効果の推定に与える影響",
+      "seo_description": "溶媒対照の指数増殖を仮定すると最大殺傷率と予測体積比が偏ることを、異種移植試験の数値実験で示す。",
+      "key_findings": [
+        "半数最大濃度（真値3）は、指数モデルとGompertzモデルの両方で回収された。Gompertz速度（0.02、0.05、0.10/日）と試験期間（14、21、28日）の18の組合せ（各2,000試験）すべてで、推定値の中央値は2.99〜3.01だった。",
+        "指数モデルは、すべての組合せで最大殺傷率（真値0.20/日）を過小に推定した。例えばGompertz速度0.05で14・21・28日に0.153、0.135、0.121、速度0.10の28日で0.082であり、Gompertzモデルは0.20を中心としていた。処理群と溶媒群の飽和する対数差に基づく閉形式の近似が、9つの中央値を0.001以内で再現した。",
+        "このデザインでは、検討範囲内の濃度5について、指数モデルが予測した28日目の処理群と溶媒群の体積比は、真の比の、14・21・28日試験で0.459、0.619、0.784倍だった（Gompertz速度0.05）。最終観測日では0.930、0.863、0.784倍だった。",
+        "AICは、9設定のうち8設定で約96%以上（7設定で98.8%以上）の試験でGompertzモデルを選び、ほぼ指数的な溶媒対照（速度0.02）の14日では46.0%だった。結果は、対数増殖速度に遅れなく加わる一定濃度の殺傷率型の薬効、仮定した1組のパラメータ、1群8匹に限られる。"
+      ]
+    }
+  },
+  "reviewed": {
+    "ja": "134ae639ca17971486fdb5af7b5c02949983649de35e0281cbcb198e4867d66e"
+  }
+}
