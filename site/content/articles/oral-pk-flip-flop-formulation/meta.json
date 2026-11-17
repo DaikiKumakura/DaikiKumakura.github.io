@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2026-12-18",
+  "publish_at": "2026-12-18T13:00:00+09:00",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "経口PKで吸収と消失を入れ替えると何が変わるか",
+      "summary": "同じ経口濃度曲線を返す1区画モデルが、吸収速度を変えたときに異なるピークを予測する。",
+      "seo_title": "経口PKのflip-flopと製剤変更",
+      "seo_description": "同じ経口濃度曲線を返す1区画モデルが、吸収速度を変えたときに異なるピークを予測する。"
+    },
+    "en": {
+      "title": "When oral PK cannot tell absorption from elimination",
+      "summary": "Two one-compartment models give identical oral PK curves and different peak predictions when absorption changes.",
+      "seo_title": "Flip-flop kinetics in oral pharmacokinetics",
+      "seo_description": "Two one-compartment models give identical oral PK curves and different peak predictions when absorption changes."
+    }
+  },
+  "reviewed": {
+    "en": "fb910b1b386e8b4ae2b2b06db045dc86ac314fa4ccfcb66a4c3634adf6f1fed2"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2026-12-18",
+  "publish_at": "2026-12-18T18:00:00+09:00",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "単一細胞解析でドナーを増やすと何が変わるか",
+      "summary": "ドナー内の処置差を使い、両側p値の刻みと、総細胞数を変えない配分での標準誤差を計算した。",
+      "seo_title": "単一細胞解析で必要なドナー数",
+      "seo_description": "ドナー内の処置差を使い、両側p値の刻みと、総細胞数を変えない配分での標準誤差を計算した。"
+    },
+    "en": {
+      "title": "What more donors buy in a paired single-cell study",
+      "summary": "Exact sign enumeration and a variance model show how donor count affects resolution and precision at a fixed cell budget.",
+      "seo_title": "Donor count in paired single-cell studies",
+      "seo_description": "Exact sign enumeration and a variance model show how donor count affects resolution and precision at a fixed cell budget."
+    }
+  },
+  "reviewed": {
+    "en": "b8660398dadf1bd67ad1f6a90b41687764c0a2508cd905a5f1062acf508d842c"
+  }
+}

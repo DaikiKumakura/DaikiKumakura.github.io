@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2026-12-19",
+  "publish_at": "2026-12-19T09:00:00+09:00",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "生存期間中央値とランドマークでRMSTはどこまで決まるか",
+      "summary": "同じ中央値と生存割合を持つ曲線から、18か月RMSTの上下限を計算した。",
+      "seo_title": "生存期間中央値から求めるRMSTの範囲",
+      "seo_description": "生存期間中央値と6・18か月の生存割合が同じでも、18か月までの制限平均生存時間（RMST）には最大4.2か月の幅が残る。"
+    },
+    "en": {
+      "title": "How tightly do survival landmarks bound RMST?",
+      "summary": "Two curves with the same median and survival landmarks demonstrate sharp bounds for 18-month restricted mean survival time.",
+      "seo_title": "Bounding RMST with survival landmarks",
+      "seo_description": "Two curves with the same median and survival landmarks demonstrate sharp bounds for 18-month restricted mean survival time."
+    }
+  },
+  "reviewed": {
+    "en": "8daafbdfa24980ad3010ed2616d3a3010a4614cc6390a7d075d55f8ac2a35699"
+  }
+}
