@@ -1,0 +1,39 @@
+{
+  "source_language": "en",
+  "category": "note",
+  "date": "2026-12-16",
+  "publish_at": "2026-12-16T13:00:00+09:00",
+  "draft": false,
+  "math": false,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "en": {
+      "title": "How often does a power-model dose-proportionality study detect saturable elimination? Simulated studies with 4-sample and 11-sample designs",
+      "summary": "In simulated parallel-group studies of an intravenous drug with saturable elimination, a power-model assessment over 10 to 80 mg almost never declared proportionality under moderate or strong saturation, but over 20 to 40 mg it did in 29.2% of studies at 24 subjects per dose under moderate saturation; 4-sample AUC overestimated the slope under strong saturation with a last sample at 24 h.",
+      "key_findings": [
+        "With linear elimination over 10 to 80 mg, the 90% CI of the power-model slope fell inside the 0.893–1.107 window in 0.6%, 17.3%, 67.7% and 95.6% of 2,000 studies at 6, 12, 24 and 48 subjects per dose (4-sample AUC).",
+        "Moderate saturation (true slope 1.166) was declared proportional in at most 0.2% of studies over 10 to 80 mg, but over 20 to 40 mg, where the true slope 1.154 lies inside the 0.678–1.322 window, in 29.2% at 24 per dose and 50.8% at 48.",
+        "Under strong saturation (true slope 1.421) the 4-sample AUC gave a mean slope of 1.558 at 24 per dose against 1.420 for the true AUC and 1.458 for 11 samples; in a diagnostic run the bias came from the extrapolated tail beyond a last sample at 24 h (still about twice Km at 80 mg), and 9 samples to 24 h gave the same bias as 4 (ratio 1.241 against 1.249 to the true AUC), whereas a 48 h window reduced it to 1.060.",
+        "One-compartment intravenous bolus, one assumed set of parameters, parallel doses and one fixed noncompartmental rule; the bias was measured in the diagnostic run, and the reason for the low terminal rate constant is stated as consistent with, not proven by, the saturating concentrations."
+      ],
+      "seo_title": "Dose proportionality: power model, saturation and sampling",
+      "seo_description": "Simulated studies show how saturable elimination, dose range and sparse AUC sampling change a power-model dose-proportionality verdict."
+    },
+    "ja": {
+      "title": "べき乗モデルによる用量比例性の評価は飽和性消失を検出できるか 4点採血と11点採血の数値実験",
+      "summary": "飽和性消失を持つ静脈内投与薬の並行群試験の数値実験で、べき乗モデルによる評価は、10〜80 mgでは中等度・強度の飽和をほとんど比例と判定しなかったが、20〜40 mgでは中等度の飽和を1用量24例の29.2%で比例と判定し、4点採血のAUCは最終採血が24 hの場合に強度の飽和で傾きを過大に推定した。",
+      "seo_title": "用量比例性の評価 べき乗モデル・飽和・採血点数",
+      "seo_description": "飽和性消失・用量範囲・疎なAUC採血が、べき乗モデルによる用量比例性の判定をどう変えるかを数値実験で示す。",
+      "key_findings": [
+        "線形消失で10〜80 mgのとき、べき乗モデルの傾きの90% CIが許容域0.893〜1.107に入った割合は、1用量6・12・24・48例で0.6%、17.3%、67.7%、95.6%だった（4点採血のAUC、2,000試験）。",
+        "中等度の飽和（真の傾き1.166）は、10〜80 mgでは最大0.2%でしか比例と判定されなかったが、20〜40 mg（真の傾き1.154が許容域0.678〜1.322内）では、1用量24例で29.2%、48例で50.8%が比例と判定した。",
+        "強度の飽和（真の傾き1.421）では、1用量24例で、傾きの平均が4点採血のAUCで1.558、真のAUCで1.420、11点採血で1.458だった。診断実行では、偏りは24 h（80 mgでまだKmの約2倍）の最終採血より後の外挿部分にあり、24 hまでの9点でも4点と同じ偏り（真のAUCに対する比1.241と1.249）が出て、48 hまで延ばすと1.060に減った。",
+        "1コンパートメントの静脈内ボーラス、仮定した1組のパラメータ、並行用量群、固定の非コンパートメント解析の規則に限られ、偏りは診断実行で測定したが、終末速度定数が低くなった理由は、飽和する濃度と整合するという記述にとどめ、証明はしていない。"
+      ]
+    }
+  },
+  "reviewed": {
+    "ja": "34e76c1cacb1184b3c0ca5203bb2225d1d7efda4cbd99c137ac070329967b0a9"
+  }
+}
