@@ -1,26 +1,28 @@
-When two survival curves share a median, their areas can still differ. How closely can we pin down restricted mean survival time (RMST) through month 18 if we also know survival at months 6 and 18? RMST is the area under the survival curve up to a specified time ([1](#ref-1)). I used hypothetical summaries to calculate what monotonicity alone permits.
+At extended follow-up in DeLLphi-304, median overall survival (OS) was 13.6 months with tarlatamab and 8.4 months with chemotherapy, a difference of 5.2 months. If the quantity of interest is average survival through month 24, how much can that difference and the two survival probabilities in the Annals of Oncology abstract tell us? The randomized trial assigned 254 patients with small-cell lung cancer progressing on or after platinum-based chemotherapy to tarlatamab and 255 to chemotherapy. The data cutoff was February 18, 2026 ([1](#ref-1)).
 
-## Bounding the area between landmarks
+## Bounding the area from the published summary
 
-Set baseline survival to one, six-month survival to 0.70, and 18-month survival to 0.30. The median is month 12, the first time survival reaches 0.50 or below. Between months 6 and 12, survival is above 0.50 and at most 0.70. Between months 12 and 18, it is at most 0.50 and at least 0.30. A jump past 0.50 at month 12 is allowed. Multiplying by the six-month widths gives a lower limit of $6(0.70+0.50+0.30)=9.0$ months and an upper limit of $6(1+0.70+0.50)=13.2$ months. If survival at month 12 is additionally fixed at exactly 0.50, linear interpolation gives 11.1 months.
+Restricted mean survival time (RMST) through month 24 is the area under the survival curve from randomization to that time ([2](#ref-2)). Reported survival at months 12 and 24 was 55.9% and 30.3% with tarlatamab and 39.0% and 14.9% with chemotherapy ([1](#ref-1)). I treat those reported values as fixed and assume survival starts at 1 and is nonincreasing. The median is the first time survival reaches or falls below 0.5. A drop past 0.5 at the median is allowed.
 
-## Two curves with the same median
+Split follow-up at the median and the available landmarks. A lower bound for survival in each interval is the largest known survival probability to its right, with a floor of 0.5 before the median. The upper bound is the smallest known probability to its left, with a ceiling of 0.5 after the median. Multiply each bound by the interval width and sum the areas. For tarlatamab, for example, the lower bound is $12(0.559)+1.6(0.5)+10.4(0.303)=10.6592$ months.
 
-Both examples set survival at month 12 to exactly 0.50. The upper curve retains the left value until the next landmark and drops there. It first reaches 0.50 or below at month 12, with an area of 13.2 months. A curve close to the lower limit drops to 0.70 at month 0.001, to 0.501 at month 6.001, to 0.50 at month 12 and to 0.30 at month 12.001. Its median is still 12 months and its area is 9.0067 months. Moving the early drops towards the left endpoints and 0.501 down towards 0.50 preserves the median while approaching 9.0. Because survival is above 0.50 between months 6 and 12, the area never reaches 9.0. Table 1 shows the two cases.
+**Table 1.** Bounds for RMST through month 24 as published summary values are added. The difference subtracts chemotherapy from tarlatamab.
 
-**Table 1.** Two possible curves with the same hypothetical summaries.
+| Information used | Tarlatamab (months) | Chemotherapy (months) | Difference (months) |
+| --- | ---: | ---: | ---: |
+| Median only | 6.80 to 18.80 | 4.20 to 16.20 | −9.40 to 14.60 |
+| Median and 12-month OS | 7.51 to 18.09 | 5.60 to 14.88 | −7.37 to 12.49 |
+| Median and 12- and 24-month OS | 10.66 to 18.09 | 7.39 to 14.88 | −4.22 to 10.70 |
 
-| Curve | S(6) | S(12) | S(18) | Median (months) | RMST to 18 months (months) |
-| --- | ---: | ---: | ---: | ---: | ---: |
-| Late drops | 0.70 | 0.50 | 0.30 | 12 | 13.2000 |
-| Early drops | 0.70 | 0.50 | 0.30 | 12 | 9.0067 |
+In Table 1, adding survival at months 12 and 24 narrows the range for the difference from 24.0 to 14.9 months. The range still includes zero. The lower limit subtracts the upper bound for chemotherapy from the lower bound for tarlatamab. The upper limit uses the other pair. Step functions with drops near the interval endpoints approach the limits. When a premedian interval has a lower bound of 0.5, approach it with survival just above 0.5. Further landmarks or information about the curve could narrow the range.
 
-Two arms sharing these summaries can have an RMST difference of either sign, depending on which curve belongs to which arm. The interval from 9.0 to 13.2 months describes what the summaries permit, conditional on exact landmark values. Rounding or sampling error changes those constraints. This calculation does not recover censoring, event counts or hazard ratios.
+These bounds are conditional on the rounded published values and do not constitute a confidence interval. It measures information lost by replacing the curve with a few summaries. The inclusion of zero describes the limits of those summaries and addresses a different question from the trial’s reported OS result. [Figure 1A in the original paper](https://pmc.ncbi.nlm.nih.gov/articles/PMC13718749/#F1) shows the Kaplan–Meier curves, which are outside this calculation ([1](#ref-1)). A 24-month RMST contrast calls for integrating the curves or consulting a trial-based estimate and its uncertainty. The 5.2-month difference between medians answers a different question.
 
 ## Data and code availability
 
-The survival probabilities are hypothetical. The [companion ZIP](shared/survival-landmark-rmst-bounds/companion.zip) contains the rectangle sums and step-curve checks.
+The inputs are median and landmark survival values from the paper. I used no individual patient data. [The reproducibility ZIP](shared/survival-landmark-rmst-bounds/companion.zip) contains the Python code and output.
 
 ## References
 
-1. <a id="ref-1"></a> Zhao L, Claggett B, Tian L, Uno H, Pfeffer MA, Solomon SD, et al. On the restricted mean survival time curve in survival analysis. Biometrics. 2016;72(1):215–221. [doi:10.1111/biom.12384](https://doi.org/10.1111/biom.12384).
+1. <a id="ref-1"></a> Rudin CM, Ahn MJ, Schuler M, Blackhall FH, Mountzios G, Yoshida T, et al. Extended follow-up of tarlatamab in patients with small-cell lung cancer after platinum-based chemotherapy in the randomized phase III DeLLphi-304 study. Ann Oncol. 2026. [doi:10.1016/j.annonc.2026.10.095](https://doi.org/10.1016/j.annonc.2026.10.095).
+2. <a id="ref-2"></a> Zhao L, Claggett B, Tian L, Uno H, Pfeffer MA, Solomon SD, et al. On the restricted mean survival time curve in survival analysis. Biometrics. 2016;72(1):215–221. [doi:10.1111/biom.12384](https://doi.org/10.1111/biom.12384).

@@ -9,19 +9,19 @@
   "author": "Daiki Kumakura",
   "locales": {
     "ja": {
-      "title": "経口薬の服用が遅れた日に谷と山はどう変わるか",
-      "summary": "一次吸収の経口薬モデルで、予定から9時間遅れた場合の最低濃度とその後の最高濃度を、次回の時刻別に比較する。",
-      "seo_title": "経口薬の服用遅れと濃度ピーク",
-      "seo_description": "一次吸収の経口薬モデルで、予定から9時間遅れた場合の最低濃度とその後の最高濃度を、次回の時刻別に比較する。"
+      "title": "Daraxonrasibの服用が4時間遅れると濃度はどう変わるか",
+      "summary": "Daraxonrasibの米国添付文書から経口PKモデルを組み、服用が4時間遅れた日の最低濃度と翌日のピークを推定する。",
+      "seo_title": "Daraxonrasibの服用遅れとPK",
+      "seo_description": "Daraxonrasibの米国添付文書から経口PKモデルを組み、服用が4時間遅れた日の最低濃度と翌日のピークを推定する。"
     },
     "en": {
-      "title": "How a late oral dose changes the trough and peak",
-      "summary": "An oral PK model compares the lowest and highest concentrations when a scheduled dose is nine hours late.",
-      "seo_title": "Late oral doses and PK peaks",
-      "seo_description": "An oral PK model compares the lowest and highest concentrations when a scheduled dose is nine hours late."
+      "title": "How a four-hour delay changes daraxonrasib concentrations",
+      "summary": "A model based on the US label compares the concentration minimum and next-day peak after a four-hour delay.",
+      "seo_title": "Daraxonrasib PK after a delayed dose",
+      "seo_description": "A model based on the US label compares the concentration minimum and next-day peak after a four-hour delay."
     }
   },
   "reviewed": {
-    "en": "f09c2cf799d79a3428e4738c832e949a3396faccb610bfcc8468c2cbbbf3f2e6"
+    "en": "e0d7298d5d4a7f66aa0f35860fd808e78e830565f85ecd2d00d20da25c8859b8"
   }
 }

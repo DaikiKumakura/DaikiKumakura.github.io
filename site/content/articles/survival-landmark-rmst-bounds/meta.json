@@ -9,19 +9,19 @@
   "author": "Daiki Kumakura",
   "locales": {
     "ja": {
-      "title": "生存期間中央値とランドマークでRMSTはどこまで決まるか",
-      "summary": "同じ中央値と生存割合を持つ曲線から、18か月RMSTの上下限を計算した。",
-      "seo_title": "生存期間中央値から求めるRMSTの範囲",
-      "seo_description": "生存期間中央値と6・18か月の生存割合が同じでも、18か月までの制限平均生存時間（RMST）には最大4.2か月の幅が残る。"
+      "title": "DeLLphi-304の抄録から24か月RMSTはどこまで分かるか",
+      "summary": "DeLLphi-304抄録のOS中央値と12・24か月の生存割合から、tarlatamabの24か月RMST差をどこまで絞れるかを計算する。",
+      "seo_title": "DeLLphi-304抄録と24か月RMST",
+      "seo_description": "DeLLphi-304抄録のOS中央値と12・24か月の生存割合から、tarlatamabの24か月RMST差をどこまで絞れるかを計算する。"
     },
     "en": {
-      "title": "How tightly do survival landmarks bound RMST?",
-      "summary": "Two curves with the same median and survival landmarks demonstrate sharp bounds for 18-month restricted mean survival time.",
-      "seo_title": "Bounding RMST with survival landmarks",
-      "seo_description": "Two curves with the same median and survival landmarks demonstrate sharp bounds for 18-month restricted mean survival time."
+      "title": "What the DeLLphi-304 abstract tells us about 24-month RMST",
+      "summary": "Bounds for the 24-month RMST difference from median survival and two overall survival landmarks in the DeLLphi-304 abstract.",
+      "seo_title": "DeLLphi-304 survival and 24-month RMST",
+      "seo_description": "Bounds for the 24-month RMST difference from median survival and two overall survival landmarks in the DeLLphi-304 abstract."
     }
   },
   "reviewed": {
-    "en": "8daafbdfa24980ad3010ed2616d3a3010a4614cc6390a7d075d55f8ac2a35699"
+    "en": "da99cdd2e43b4afc59cf4926a9275edcfb76336e03c610bd94b24a468d8ba59a"
   }
 }
