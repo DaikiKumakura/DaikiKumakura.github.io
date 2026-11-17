@@ -1,0 +1,25 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2026-12-16",
+  "publish_at": "2026-12-16T18:00:00+09:00",
+  "draft": false,
+  "author": "Daiki Kumakura",
+  "version": "1.0",
+  "locales": {
+    "ja": {
+      "title": "ctDNAの連続陽性を待つと偽陽性はどこまで減るか",
+      "summary": "術後ctDNAの単回偽陽性率を1%にそろえ、1回の陽性と2回連続陽性を判定規則として比較した。偽陽性が同じ患者に続くと、確認採血で減らせる偽陽性患者数が変わる。",
+      "seo_title": "術後ctDNAの連続陽性と偽陽性"
+    },
+    "en": {
+      "title": "How far can two consecutive ctDNA positives reduce false positives?",
+      "summary": "A probability model compares one positive with two consecutive positives in postoperative ctDNA testing at the same single-draw false-positive rate. Persistent false positives can erase the benefit of a confirmation draw.",
+      "seo_title": "Serial ctDNA testing and persistent false positives",
+      "seo_description": "A probability model compares one positive with two consecutive positives in postoperative ctDNA testing at a fixed single-draw false-positive rate."
+    }
+  },
+  "reviewed": {
+    "en": "e89475b7b06be84ff3fb172443d22248e5809ce457dabf257c2b23f9e8367315"
+  }
+}
