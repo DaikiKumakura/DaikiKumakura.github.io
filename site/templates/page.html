@@ -12,6 +12,17 @@
 {% elif active == 'profile' %}
 <p class="meta">{{ site.name }} · {{ site.alternate_name }}</p><p>{{ site.profile }}</p>{{ profile_links(site) }}<h2>{{ ui.expertise }}</h2><p>{{ site.expertise }}</p>
 {% for r in site.research_background %}<section class="record"><h3>{{ r.title }}</h3><p>{{ r.body }}</p></section>{% endfor %}
+{% if selected_analyses %}
+<section aria-labelledby="selected-analyses">
+<h2 id="selected-analyses">Selected analyses</h2>
+{% for a in selected_analyses %}
+<article class="record">
+<h3 class="record-title"><a href="{{ a.href }}" lang="{{ a.lang }}">{{ a.title }}</a></h3>
+<p>{{ a.description }}</p>
+</article>
+{% endfor %}
+</section>
+{% endif %}
 <h2>{{ ui.background }}</h2>
 {% for c in site.career %}<div class="record timeline"><span class="meta">{{ c.date }}</span><span>{{ c.text }}</span></div>{% endfor %}
 <h2>{{ ui.education }}</h2>

@@ -10,6 +10,12 @@
   "scholar": "https://scholar.google.com/citations?user=K9cxOc4AAAAJ",
   "profile": "I am a mathematical biologist and a bioinformatics researcher in the pharmaceutical industry. I received my Ph.D. in Life Science from Hokkaido University in March 2025.",
   "expertise": "My expertise is in mathematical modeling and quantitative data analysis. I work on how dynamic systems can be represented, what can be learned from observations, and how assumptions affect the conclusions. My current interests include pharmacometrics and model-informed drug development. In personal technical notes, I apply population PK, PK/PD, exposure–response and tumor-dynamics models to public data and simulations to examine dose and regimen questions.",
+  "selected_analyses": {
+    "nimotuzumab-poppk": "Population PK: how convergence and identifiability limit comparisons of exposure across regimens.",
+    "warfarin-pkpd": "PK/PD: whether limited concentration measurements improve prediction for held-out participants.",
+    "immune-outcome-validation": "Cancer immunology: how fixed RNA scores for response prediction perform in a second cohort.",
+    "sotorasib-dose-comparison": "Dose selection: how different definitions of harm change the interpretation of a randomized comparison."
+  },
   "career": [
     {
       "date": "2025-04–",
