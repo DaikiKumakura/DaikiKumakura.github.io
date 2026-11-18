@@ -1,0 +1,39 @@
+{
+  "source_language": "en",
+  "category": "note",
+  "date": "2026-12-29",
+  "publish_at": "2026-12-29T09:00:00+09:00",
+  "draft": false,
+  "math": false,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "en": {
+      "title": "What does nlme recover from sparse sampling in a population pharmacokinetic analysis? Simulated studies with 20 to 80 subjects and 2 to 6 samples per subject",
+      "summary": "In simulated one-compartment oral studies analysed by nlme, fits that converged without a warning were uncommon with 2 samples per subject, the bias of typical values depended on samples per subject and not on subjects, and omitting the random effect on the absorption rate constant inflated the residual SD by 24% to 31%.",
+      "key_findings": [
+        "nlme returned a fit in 96.3% to 99.8% of studies with 2 samples per subject (random effects on CL, V and ka, 20 to 80 subjects, 400 studies per cell), but a fit without any convergence warning in only 42.2% to 46.3%; with 4 or 6 samples the clean share was 82.3% to 93.0%.",
+        "At 40 subjects the median error of typical CL was 6.4% with 2 samples and 1.6% with 6, of typical V −11.3% and −2.0%, and of typical ka −29.4% and −6.9%; at 20 and 80 subjects the medians were nearly the same, and neither an absorption-phase sample for every subject nor starting values at the truth removed the bias.",
+        "The SD of the random effect on V was estimated at zero in 41.0%, 19.2%, 5.5% and 1.8% of studies with 2, 3, 4 and 6 samples at 40 subjects, and the share with 2 samples was 23.0% when the optimiser started from the true values.",
+        "Omitting the random effect on ka, which the data-generating model contained, did not worsen the typical values but overestimated the residual SD by 23.5% to 31.0% and the SD of the random effect on V by 18.8% to 29.0% at 40 subjects; the results hold for one set of assumed parameters, one sampling scheme and the nlme implementation."
+      ],
+      "seo_title": "Sparse sampling in population PK: what nlme recovers",
+      "seo_description": "Simulated studies show how samples per subject and omitted random effects change nlme estimates in a one-compartment oral PK model."
+    },
+    "ja": {
+      "title": "疎な採血の母集団薬物動態解析でnlmeは何を回収できるか 被験者20〜80例・1人2〜6点の数値実験",
+      "summary": "1コンパートメント経口モデルをnlmeで解析する数値実験で、1人2点では警告なしに収束した当てはめは少なく、典型値の偏りは被験者数ではなく1人あたりの採血数に依存し、吸収速度定数のランダム効果を外すと残差SDが24%〜31%過大になった。",
+      "seo_title": "疎な採血の母集団PK解析でnlmeが回収できるもの",
+      "seo_description": "採血数とランダム効果の省略がnlmeの推定値をどう変えるかを、1コンパートメント経口PKモデルの数値実験で示す。",
+      "key_findings": [
+        "nlmeは、1人2点で96.3%〜99.8%の試験で当てはめを返した（CL・V・kaにランダム効果、20〜80例、1セル400試験）が、収束の警告のない当てはめは42.2%〜46.3%にとどまった。4点または6点では、クリーンな割合は82.3%〜93.0%だった。",
+        "40例で、典型的なCLの誤差の中央値は、2点で6.4%、6点で1.6%、Vは−11.3%と−2.0%、kaは−29.4%と−6.9%だった。20例と80例でも中央値はほぼ同じで、全被験者への吸収相の採血も、真値からの初期値も、偏りを除かなかった。",
+        "Vのランダム効果のSDは、40例で、2・3・4・6点の41.0%、19.2%、5.5%、1.8%の試験でゼロと推定され、2点での割合は、最適化を真値から始めると23.0%だった。",
+        "データ生成モデルが含んでいたkaのランダム効果を外すと、典型値は悪化せず、40例で、残差SDが23.5%〜31.0%、VのランダムSDが18.8%〜29.0%過大になった。結果は、仮定した1組のパラメータ、1つの採血方式、nlmeの実装に限られる。"
+      ]
+    }
+  },
+  "reviewed": {
+    "ja": "0d97f8bc764ddd3b6f460285d382215b5f24fa57a83f35989e6755118934f8c1"
+  }
+}
