@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2026-12-28",
+  "publish_at": "2026-12-28T13:00:00+09:00",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "微生物の増殖曲線から基質と代謝物の濃度を決められるか",
+      "summary": "菌体だけを観測する三状態モデルで、基質と代謝物の濃度を同時に変えても、同じ増殖曲線になる条件を示す。",
+      "seo_title": "増殖曲線と濃度スケールの識別性",
+      "seo_description": "菌体だけを観測する三状態モデルで、基質と代謝物の濃度を同時に変えても、同じ増殖曲線になる条件を示す。"
+    },
+    "en": {
+      "title": "Can a microbial growth curve determine the concentration scale?",
+      "summary": "An exact scaling symmetry shows which concentration parameters remain unidentified when only biomass is measured.",
+      "seo_title": "Biomass and concentration-scale identifiability",
+      "seo_description": "An exact scaling symmetry shows which concentration parameters remain unidentified when only biomass is measured."
+    }
+  },
+  "reviewed": {
+    "en": "ebae4a48bc58fcbd7d914eed5418fc3320c438c5ec5489ad3b7c80f0f7b234ea"
+  }
+}

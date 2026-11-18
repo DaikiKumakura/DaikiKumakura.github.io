@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2026-12-21",
+  "publish_at": "2026-12-21T18:00:00+09:00",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "栄養条件にいる時間が同じでも切替順で増殖は変わるか",
+      "summary": "二つの栄養条件への滞在時間を固定して、表現型が切り替わる細菌の増殖率が順序だけで変わる条件を行列から導く。",
+      "seo_title": "栄養切替の順序と長期増殖",
+      "seo_description": "二つの栄養条件への滞在時間を固定して、表現型が切り替わる細菌の増殖率が順序だけで変わる条件を行列から導く。"
+    },
+    "en": {
+      "title": "Can the order of nutrient exposure change growth at fixed durations?",
+      "summary": "A two-state model isolates how ordering and switching change long-run growth at fixed time in each condition.",
+      "seo_title": "Nutrient order and long-run growth",
+      "seo_description": "A two-state model isolates how ordering and switching change long-run growth at fixed time in each condition."
+    }
+  },
+  "reviewed": {
+    "en": "e514542b5b5893f1b4b0da5dfd76c9f9a05c628621b853ab829ed425e2dd86c6"
+  }
+}

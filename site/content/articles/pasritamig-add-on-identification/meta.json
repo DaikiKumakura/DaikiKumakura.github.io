@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2026-12-22",
+  "publish_at": "2026-12-22T09:00:00+09:00",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "パスリタミグ併用のPSA50から追加薬の寄与は分かるか",
+      "summary": "第I相のパスリタミグ併用で15人中11人に見られたPSA低下から、追加薬の寄与を推定するために必要な比較を考える。",
+      "seo_title": "パスリタミグ併用のPSA50と追加効果",
+      "seo_description": "第I相のパスリタミグ併用で15人中11人に見られたPSA低下から、追加薬の寄与を推定するために必要な比較を考える。"
+    },
+    "en": {
+      "title": "Can PSA50 identify the add-on effect in the pasritamig combination?",
+      "summary": "The phase 1 PSA50 count shows combination activity and leaves the CD28 add-on contrast unidentified.",
+      "seo_title": "Pasritamig PSA50 and the CD28 add-on",
+      "seo_description": "The phase 1 PSA50 count shows combination activity and leaves the CD28 add-on contrast unidentified."
+    }
+  },
+  "reviewed": {
+    "en": "3e824d0bb95207c7111daf1a6f61171b09436eac00624890b6988da582a6ffe5"
+  }
+}

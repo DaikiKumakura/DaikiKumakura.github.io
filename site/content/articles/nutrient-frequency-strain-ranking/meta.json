@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2026-12-22",
+  "publish_at": "2026-12-22T18:00:00+09:00",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "栄養変動の速さだけで菌株の増殖順位は逆転するか",
+      "summary": "栄養の振幅と平均を固定し、応答の遅れと不一致のコストが異なる二つの菌株の増殖順位が入れ替わる条件を導く。",
+      "seo_title": "栄養変動の周波数と増殖順位",
+      "seo_description": "栄養の振幅と平均を固定し、応答の遅れと不一致のコストが異なる二つの菌株の増殖順位が入れ替わる条件を導く。"
+    },
+    "en": {
+      "title": "Can nutrient fluctuation frequency reverse strain growth rankings?",
+      "summary": "An exact calculation locates a growth-rate reversal when nutrient fluctuations change speed at fixed amplitude and mean.",
+      "seo_title": "Nutrient frequency and strain growth rankings",
+      "seo_description": "An exact calculation locates a growth-rate reversal when nutrient fluctuations change speed at fixed amplitude and mean."
+    }
+  },
+  "reviewed": {
+    "en": "6f1a9691d511a02653fc413b36de4bc72eeece606383f154c461fb11613c2f09"
+  }
+}

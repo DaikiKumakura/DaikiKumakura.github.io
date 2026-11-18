@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2026-12-21",
+  "publish_at": "2026-12-21T09:00:00+09:00",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "KRAS増幅はなぜDaraxonrasib投与後の44人中16人なのか",
+      "summary": "進行時のペア血漿を解析した44人の結果を使い、採血・評価可能性の偏りがKRAS増幅の割合をどれだけ動かすかを計算する。",
+      "seo_title": "Daraxonrasib投与後のKRAS増幅",
+      "seo_description": "進行時のペア血漿を解析した44人の結果を使い、採血・評価可能性の偏りがKRAS増幅の割合をどれだけ動かすかを計算する。"
+    },
+    "en": {
+      "title": "Who is counted in the 36% KRAS amplification figure?",
+      "summary": "A selection sensitivity analysis for KRAS amplification in daraxonrasib-treated patients profiled at progression.",
+      "seo_title": "KRAS amplification after daraxonrasib",
+      "seo_description": "A selection sensitivity analysis for KRAS amplification in daraxonrasib-treated patients profiled at progression."
+    }
+  },
+  "reviewed": {
+    "en": "a82a10d908d47ab1224dc30d6e13065c34ca6392077d7cf9e6606b0e9d7e35c4"
+  }
+}

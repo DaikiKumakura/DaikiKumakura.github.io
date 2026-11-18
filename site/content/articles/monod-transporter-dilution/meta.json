@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2026-12-28",
+  "publish_at": "2026-12-28T18:00:00+09:00",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "輸送体が増殖で希釈されるとMonod近似はどこでずれるか",
+      "summary": "結合型輸送体と菌体の物質収支から、一定基質での増殖率とMonod近似の差を導き、近似が許容範囲に入る条件を求める。",
+      "seo_title": "輸送体の増殖希釈とMonod近似",
+      "seo_description": "結合型輸送体と菌体の物質収支から、一定基質での増殖率とMonod近似の差を導き、近似が許容範囲に入る条件を求める。"
+    },
+    "en": {
+      "title": "When growth dilution makes the Monod approximation inaccurate",
+      "summary": "Mass balance gives an exact stationary growth rate and a criterion for using the Monod approximation.",
+      "seo_title": "Growth dilution and the Monod approximation",
+      "seo_description": "Mass balance gives an exact stationary growth rate and a criterion for using the Monod approximation."
+    }
+  },
+  "reviewed": {
+    "en": "ac643f38b31689bd0992564f717b01ef24704a825b3ed59012e90516ca45157b"
+  }
+}

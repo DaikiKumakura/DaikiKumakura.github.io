@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2026-12-22",
+  "publish_at": "2026-12-22T13:00:00+09:00",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "原発巣のNECTIN-4陽性は転移巣でも保たれるか",
+      "summary": "同じ患者の原発巣と転移巣を調べた137組の公表値から、検体部位が変わると分類が食い違う割合の上下限を求める。",
+      "seo_title": "原発巣と転移巣のNECTIN-4分類",
+      "seo_description": "同じ患者の原発巣と転移巣を調べた137組の公表値から、検体部位が変わると分類が食い違う割合の上下限を求める。"
+    },
+    "en": {
+      "title": "How often can a NECTIN-4-positive primary have a negative metastasis?",
+      "summary": "Published NECTIN-4 marginal counts bound discordance between paired primary and metastatic specimens.",
+      "seo_title": "NECTIN-4 in primary and metastatic specimens",
+      "seo_description": "Published NECTIN-4 marginal counts bound discordance between paired primary and metastatic specimens."
+    }
+  },
+  "reviewed": {
+    "en": "6d007885a7ded9228315a60dd8805b837f34013f5e16b9379ac6b183c52c2699"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2026-12-21",
+  "publish_at": "2026-12-21T13:00:00+09:00",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "HARMONiの無増悪生存期間の差は全生存期間をどこまで説明できるか",
+      "summary": "HARMONiの公表中央値から進行と死亡の二段階モデルを組み、進行後の生存を共通とした場合に全生存期間がどう変わるかを検証する。",
+      "seo_title": "HARMONiのPFSとOSを二段階で読む",
+      "seo_description": "HARMONiの公表中央値から進行と死亡の二段階モデルを組み、進行後の生存を共通とした場合に全生存期間がどう変わるかを検証する。"
+    },
+    "en": {
+      "title": "Can HARMONi’s progression delay account for its overall survival result?",
+      "summary": "A two-transition model tests what HARMONi’s published medians imply under a shared post-progression survival distribution.",
+      "seo_title": "HARMONi PFS and OS in a transition model",
+      "seo_description": "A two-transition model tests what HARMONi’s published medians imply under a shared post-progression survival distribution."
+    }
+  },
+  "reviewed": {
+    "en": "af9eee55818630556c79e205cb5c3fb58d91c7fb2501bdeaad1069fdfb27c7d7"
+  }
+}
