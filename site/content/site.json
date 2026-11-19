@@ -976,6 +976,46 @@
       "related_articles": []
     },
     {
+      "id": "superslim",
+      "tech": "Python",
+      "url": "https://github.com/DaikiKumakura/superslim",
+      "status": "Prototype (v0.1.0)",
+      "description": "A NumPy-only Python package that loads a compact SuperSLIM model file (about 4.6 MB) and predicts the mean transcriptome response to knocking down a gene in learned cell systems: five cell lines, three CD4+ T-cell states, a second-lab H1 line and A549. It starts from SLIM and adds catalog features and the responses of the same gene in the other systems. The package has a Python API and a command-line interface.",
+      "featured": false,
+      "links": [
+        {
+          "url": "https://github.com/DaikiKumakura/superslim#readme",
+          "label": "Usage"
+        },
+        {
+          "url": "https://github.com/DaikiKumakura/superslim/blob/main/docs/MODEL_CARD.md",
+          "label": "Model card"
+        },
+        {
+          "url": "https://github.com/DaikiKumakura/superslim/blob/main/docs/DATA_LICENSES.md",
+          "label": "Data terms"
+        }
+      ],
+      "note": "Six tests on a synthetic model pass in Linux CI on Python 3.9, 3.11 and 3.12 (November 19, 2026). In a local check the package reproduced the research implementation exactly for all ten systems (maximum difference 0). Model files are not distributed because the terms of some source data are unverified. Predictions for genes not seen in training did not agree with an independent platform (LINCS L1000 knockout signatures) beyond chance, and that check has a low ceiling; use them as hypotheses.",
+      "ja": {
+        "status": "試作（v0.1.0）",
+        "description": "コンパクトなSuperSLIMのモデルファイル（約4.6 MB）を読み込み、学習済みの細胞系での遺伝子ノックダウン後の平均転写応答を予測する、NumPyだけのPythonパッケージ。対象は5つの細胞株、3つのCD4+ T細胞の状態、別研究室のH1、A549。SLIMから出発し、カタログ特徴と、同じ遺伝子の他の系での応答を加えている。PythonのAPIとコマンドラインを備える。",
+        "note": "合成モデルによる6件のテストが、Python 3.9・3.11・3.12のLinux CIで通過している（2026年11月19日）。手元の確認では、全10系で研究用の実装と完全に一致した（最大差0）。元データの一部で利用条件が未確認のため、モデルファイルは配布していない。学習に含まれない遺伝子の予測は、独立した測定系（LINCS L1000のKOシグネチャー）と偶然を超えては一致しておらず、その検証の天井も低いため、仮説として使う。"
+      },
+      "slug": "superslim",
+      "headline": "SuperSLIM: perturbation-response predictor in NumPy",
+      "summary": "NumPy-only Python package that loads a compact model file and predicts mean transcriptome responses to gene knockdown in learned cell systems.",
+      "details": [],
+      "install": [
+        {
+          "label": "Python (from a clone)",
+          "code": "pip install -e ."
+        }
+      ],
+      "install_note": "Requires Python 3.9 or newer and NumPy. A PyPI release is not planned yet. Model files are not part of the repository; see the data terms before building or sharing one.",
+      "related_articles": []
+    },
+    {
       "id": "ShotgunMetagenomics",
       "tech": "Docker / Shell",
       "url": "https://github.com/DaikiKumakura/ShotgunMetagenomics",
