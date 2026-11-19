@@ -675,8 +675,8 @@
       "id": "rsemverse",
       "tech": "R",
       "url": "https://github.com/DaikiKumakura/rsemverse",
-      "status": "R package (v0.2.0)",
-      "description": "An R package that turns RSEM *.genes.results files into analysis-ready gene tables for human and mouse bulk RNA-seq: rsem_read() reads them into a gene symbol by sample table of counts or TPM, rsem_filter(), rsem_subset(), rsem_normalize() and rsem_transform() prepare that table, and rsem_long() returns it as a long table with the sample information for plotting.",
+      "status": "R package (v0.3.0)",
+      "description": "An R package that turns RSEM *.genes.results and *.isoforms.results files into analysis-ready gene tables for human and mouse bulk RNA-seq: rsem_read() reads them, listed in a sample table or found in a folder, into a gene symbol by sample table of counts, TPM or effective lengths; rsem_filter(), rsem_subset(), rsem_normalize() and rsem_transform() prepare that table; rsem_fit_reference() gives z-scores against a fixed control group; and rsem_long() and rsem_write() return it for plotting or for other tools.",
       "featured": false,
       "links": [
         {
@@ -684,24 +684,24 @@
           "label": "Documentation"
         },
         {
-          "url": "https://github.com/DaikiKumakura/rsemverse/releases/tag/v0.2.0",
-          "label": "Release 0.2.0"
+          "url": "https://github.com/DaikiKumakura/rsemverse/releases/tag/v0.3.0",
+          "label": "Release 0.3.0"
         },
         {
           "url": "https://daikikumakura.r-universe.dev/rsemverse",
           "label": "R-universe"
         }
       ],
-      "note": "Every function takes and returns the same table, and no gene list or sample grouping is needed: gene symbols and gene groups (protein-coding, mitochondrial, ribosomal, hemoglobin, sex, ERCC) come from org.Hs.eg.db or org.Mm.eg.db. Filtering follows the edgeR filterByExpr rule or detection thresholds; normalization offers CPM, TMM, upper quartile, DESeq2 median of ratios and quantile; transformations are log2, z-score and ranks. On six ENCODE K562 RSEM files (59,526 genes each), rsem_read() gave symbols to 36,385 genes and kept the column sums; the edgeR rule kept the same 12,808 genes as edgeR::filterByExpr(), and the normalized values were within 3e-16 (relative) of edgeR, DESeq2 and limma (November 14, 2026). R CMD check passes on Linux, macOS and Windows in CI. Not on CRAN or Bioconductor.",
+      "note": "Every function takes and returns the same table, and no gene list or sample grouping is needed: gene symbols and gene groups (protein-coding, mitochondrial, ribosomal, hemoglobin, sex, ERCC) come from org.Hs.eg.db or org.Mm.eg.db. Filtering follows the edgeR filterByExpr rule or detection thresholds; normalization offers CPM, TMM, upper quartile, DESeq2 median of ratios and quantile; transformations are log2, z-score and ranks. On six ENCODE K562 RSEM files (59,526 genes each), rsem_read() gave symbols to 36,385 genes and kept the column sums; the edgeR rule kept the same 12,808 genes as edgeR::filterByExpr(), and the normalized values were within 3e-16 (relative) of edgeR, DESeq2 and limma (November 14, 2026). Version 0.3.0 adds detection-threshold curves, gene types from a GTF file (rRNA, snoRNA, lncRNA and others, matched through the original gene IDs), TMMwsp normalization (within 2.6e-16 of edgeR), z-scores against a reference group, transcript selection and effective-length summaries, checked on the same ENCODE experiments with their transcript files and the GENCODE V29 annotation (November 20, 2026). R CMD check passes on Linux, macOS and Windows in CI. Not on CRAN or Bioconductor.",
       "ja": {
-        "status": "Rパッケージ（v0.2.0）",
-        "description": "RSEMの*.genes.resultsファイルを、ヒト・マウスのバルクRNA-seqの解析にそのまま使える遺伝子の表に仕上げるRパッケージ。rsem_read()で遺伝子シンボル×サンプルのカウントまたはTPMの表に読み込み、rsem_filter()・rsem_subset()・rsem_normalize()・rsem_transform()でその表を整え、rsem_long()でサンプル情報付きの作図用の長い表にする。",
-        "note": "どの関数も同じ形の表を受け取って返し、遺伝子リストやサンプルの群分けは要らない。遺伝子シンボルと遺伝子群（タンパク質コード、ミトコンドリア、リボソーム、ヘモグロビン、性染色体、ERCC）はorg.Hs.eg.dbまたはorg.Mm.eg.dbから判定する。フィルタはedgeRのfilterByExprの規則か検出のしきい値、正規化はCPM・TMM・上位四分位・DESeq2のmedian of ratios・分位点正規化、変換はlog2・zスコア・順位。ENCODEのK562のRSEMファイル6個（各59,526遺伝子）では、rsem_read()が36,385遺伝子にシンボルを付けて列の合計を保ち、edgeRの規則で残る12,808遺伝子はedgeR::filterByExpr()と同一で、正規化の値はedgeR・DESeq2・limmaと相対誤差3e-16以内で一致した（2026年11月14日）。R CMD checkはCIのLinux・macOS・Windowsで通過。CRANとBioconductorには未登録。"
+        "status": "Rパッケージ（v0.3.0）",
+        "description": "RSEMの*.genes.resultsと*.isoforms.resultsファイルを、ヒト・マウスのバルクRNA-seqの解析にそのまま使える遺伝子の表に仕上げるRパッケージ。rsem_read()でサンプル表に書いたファイル、またはフォルダから見つけたファイルを、遺伝子シンボル×サンプルのカウント・TPM・有効長の表に読み込み、rsem_filter()・rsem_subset()・rsem_normalize()・rsem_transform()でその表を整え、rsem_fit_reference()で固定した対照群に対するzスコアを求め、rsem_long()とrsem_write()で作図用の長い表や他のツール向けのファイルにする。",
+        "note": "どの関数も同じ形の表を受け取って返し、遺伝子リストやサンプルの群分けは要らない。遺伝子シンボルと遺伝子群（タンパク質コード、ミトコンドリア、リボソーム、ヘモグロビン、性染色体、ERCC）はorg.Hs.eg.dbまたはorg.Mm.eg.dbから判定する。フィルタはedgeRのfilterByExprの規則か検出のしきい値、正規化はCPM・TMM・上位四分位・DESeq2のmedian of ratios・分位点正規化、変換はlog2・zスコア・順位。ENCODEのK562のRSEMファイル6個（各59,526遺伝子）では、rsem_read()が36,385遺伝子にシンボルを付けて列の合計を保ち、edgeRの規則で残る12,808遺伝子はedgeR::filterByExpr()と同一で、正規化の値はedgeR・DESeq2・limmaと相対誤差3e-16以内で一致した（2026年11月14日）。版0.3.0では、検出しきい値ごとの遺伝子数、GTFファイルの遺伝子型（rRNA、snoRNA、lncRNAなど。元の遺伝子IDで照合）、TMMwsp正規化（edgeRと2.6e-16以内で一致）、対照群に対するzスコア、転写産物の選別、有効長の要約を加え、同じENCODEの実験の転写産物ファイルとGENCODE V29の注釈で確かめた（2026年11月20日）。R CMD checkはCIのLinux・macOS・Windowsで通過。CRANとBioconductorには未登録。"
       },
-      "doi": "10.5281/zenodo.24210460",
+      "doi": "10.5281/zenodo.24382507",
       "slug": "rsemverse",
       "headline": "rsemverse: RSEM to analysis-ready gene tables in R",
-      "summary": "R package that turns RSEM gene results into analysis-ready gene tables: read, filter, select genes, normalize, transform and reshape for plotting.",
+      "summary": "R package that turns RSEM gene and transcript results into analysis-ready gene tables: read, filter, select genes, normalize, transform, score against controls and write.",
       "details": [],
       "install": [
         {
