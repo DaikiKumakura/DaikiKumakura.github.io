@@ -1,0 +1,39 @@
+{
+  "source_language": "en",
+  "category": "note",
+  "date": "2026-12-29",
+  "publish_at": "2026-12-29T18:00:00+09:00",
+  "draft": false,
+  "math": false,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "en": {
+      "title": "How much evaluation does model risk call for? Applying the ICH M15 assessment elements to three simulated dose-selection analyses with known truth",
+      "summary": "Applying the ICH M15 assessment elements to three simulated dose-selection analyses with known truth, the checks that flagged each failure were those that compared the model with independent or richer information, with sensitivities from 10.5% to 100% of studies, while convergence, in-sample significance and in-window fit did not flag the costliest failures.",
+      "key_findings": [
+        "With severity driving clearance, the pooled exposure–response model chose the correct dose in 25.4% of 2,000 near-plateau trials at 40 patients per arm (11.9% at 100); the exposure slope was significant in 55.2% and 89.9% of 1,000 trials, and the comparison of the model-based gain with the randomized arm contrast flagged 10.5% and 26.5%, against 0.2% and 0.5% without confounding.",
+        "For tumour growth, AIC preferred the correct Gompertz model in about 96% or more of studies in 8 of 9 settings, but in 46.0% for the nearly exponential vehicle at 14 days, where the day-28 projection was still 0.641 of the true volume ratio; the same exponential fit had a low model risk for ranking potency and a higher risk for projection.",
+        "For the sparse population PK model with 40 subjects, a likelihood comparison of the full and the reduced random-effects model preferred the full model in 30.6%, 82.0%, 99.5% and 100% of 200 studies with 2, 3, 4 and 6 samples per subject, while fits without a convergence warning had the same typical-ka bias as all returned fits (−29.3% against −29.4% with 2 samples).",
+        "In these simulations the ratings did not determine how sensitive a check was; the sensitivities are conditional on the single failure mode and effect size set in each case, and the ratings are the author's, assigned after the results were known, for assumed settings, and not a regulatory assessment."
+      ],
+      "seo_title": "ICH M15 model risk and dose-selection model checks",
+      "seo_description": "Three simulated dose-selection analyses show which model checks flag failures when ICH M15 assessment elements are applied."
+    },
+    "ja": {
+      "title": "モデルリスクはどの程度の評価を求めるか ICH M15の評価要素を真値が分かる3つの用量選択の数値解析へ当てはめる",
+      "summary": "ICH M15の評価要素を、真値が分かる3つの用量選択の数値解析に当てはめると、失敗を警告した確認は、モデルを独立した情報やより豊かな構造と比べるもので、感度は10.5%から100%の試験に及び、収束、標本内の有意性、窓内の当てはめは、最も大きな失敗を警告しなかった。",
+      "seo_title": "ICH M15のモデルリスクと用量選択モデルの確認",
+      "seo_description": "ICH M15の評価要素を3つの用量選択の数値解析に当てはめ、モデルの失敗を警告する確認を調べる。",
+      "key_findings": [
+        "重症度がクリアランスを左右するとき、プールした曝露反応モデルが正しい用量を選んだのは、ほぼ平坦な2,000試験のうち1群40例で25.4%（100例で11.9%）だった。曝露の傾きが有意だったのは1,000試験の55.2%と89.9%で、モデルによる増分と無作為化した群間の差の比較が警告したのは、10.5%と26.5%（交絡がないときは0.2%と0.5%）だった。",
+        "腫瘍増殖では、AICが正しいGompertzモデルを選んだのは、9設定のうち8設定で約96%以上の試験だったが、ほぼ指数的な溶媒対照の14日では46.0%で、その設定でも28日目の予測は真の体積比の0.641倍だった。同じ指数モデルの当てはめは、効力の順位づけではモデルリスクが低く、予測では高かった。",
+        "40例の疎な母集団PKモデルでは、完全なランダム効果モデルと簡略モデルの尤度比較が完全モデルを選んだのは、1人2・3・4・6点の200試験のうち30.6%、82.0%、99.5%、100%で、収束警告のない当てはめでも、典型的なkaの偏りは、返却した当てはめすべてと同じだった（2点で−29.3%対−29.4%）。",
+        "これらの数値実験では、評価が確認の感度を決めたわけではなく、感度は各ケースで設定した単一の失敗の型と効果の大きさに条件付きである。評価は、結果が分かった後に付けた、仮定した設定に対する著者の判断で、規制上の評価ではない。"
+      ]
+    }
+  },
+  "reviewed": {
+    "ja": "ffc3133a8da25eab8b1f2023fd0634654e8c122e6e3edc735d50644b5c05ad91"
+  }
+}
