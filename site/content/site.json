@@ -701,7 +701,7 @@
       "doi": "10.5281/zenodo.24382507",
       "slug": "rsemverse",
       "headline": "rsemverse: RSEM to analysis-ready gene tables in R",
-      "summary": "R package that turns RSEM gene and transcript results into analysis-ready gene tables: read, filter, select genes, normalize, transform, score against controls and write.",
+      "summary": "R package turning RSEM gene and transcript results into analysis-ready gene tables: read, filter, select, normalize, transform, score against controls, write.",
       "details": [],
       "install": [
         {
