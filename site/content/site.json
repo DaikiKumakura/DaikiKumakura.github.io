@@ -979,8 +979,8 @@
       "id": "superslim",
       "tech": "Python",
       "url": "https://github.com/DaikiKumakura/superslim",
-      "status": "Prototype (v0.2.0)",
-      "description": "A NumPy-only Python package that loads a compact SuperSLIM model file (about 4.6 MB) and predicts the mean transcriptome response to knocking down a gene in learned cell systems: five cell lines, three CD4+ T-cell states, a second-lab H1 line and A549. It is a compact descendant of SLIM (not affiliated with the SLIM authors) that adds catalog features and the responses of the same gene in the other systems. The package has a Python API and a command-line interface.",
+      "status": "Prototype (v0.3.1)",
+      "description": "A NumPy-only Python package that loads a compact SuperSLIM model file (about 4 MB) and predicts the mean transcriptome response to knocking down a gene in learned cell systems: five cell lines, three CD4+ T-cell states, a second-lab H1 line and A549. It is a compact descendant of SLIM (not affiliated with the SLIM authors) that adds catalog features and the responses of the same gene in the other systems. The package has a Python API and a command-line interface.",
       "featured": false,
       "links": [
         {
@@ -992,23 +992,27 @@
           "label": "Benchmarks"
         },
         {
-          "url": "https://github.com/DaikiKumakura/superslim/blob/main/docs/MODEL_CARD.md",
-          "label": "Model card"
+          "url": "https://github.com/DaikiKumakura/superslim-models",
+          "label": "Model files (CC BY-NC-SA)"
+        },
+        {
+          "url": "https://doi.org/10.5281/zenodo.24395561",
+          "label": "Model archive (Zenodo)"
+        },
+        {
+          "url": "https://doi.org/10.5281/zenodo.24393778",
+          "label": "Software archive (Zenodo)"
         },
         {
           "url": "https://github.com/DaikiKumakura/superslim/blob/main/docs/DATA_LICENSES.md",
           "label": "Data terms"
-        },
-        {
-          "url": "https://doi.org/10.5281/zenodo.24393778",
-          "label": "Zenodo archive"
         }
       ],
-      "note": "Nine tests on a synthetic model pass in Linux, Windows and macOS CI on Python 3.9 to 3.13 (November 20, 2026). In a local check the package reproduced the research implementation exactly for all ten systems (maximum difference 0). Benchmarks cover accuracy provenance, ablation, learning curve, coverage strata, a same-split SLIM-style baseline and runtime. Model files are not distributed because the terms of some source data are unverified. Predictions for genes not seen in training did not agree with an independent platform (LINCS L1000 knockout signatures) beyond chance, and that check has a low ceiling; use them as hypotheses.",
+      "note": "Fifteen tests pass in Linux, Windows and macOS CI on Python 3.9 to 3.13 (November 20, 2026). A released model file built only from data with verified terms covers K562, HCT116, HEK293T and three primary CD4+ T-cell states (target-specific signal on held-out genes 0.09 to 0.56). Benchmarks cover accuracy provenance, ablation, learning curve, coverage strata, a same-split SLIM-style baseline and runtime. Predictions for genes not seen in training did not agree with an independent platform (LINCS L1000 knockout signatures) beyond chance, and that check has a low ceiling; use them as hypotheses.",
       "ja": {
-        "status": "試作（v0.2.0）",
-        "description": "コンパクトなSuperSLIMのモデルファイル（約4.6 MB）を読み込み、学習済みの細胞系での遺伝子ノックダウン後の平均転写応答を予測する、NumPyだけのPythonパッケージ。対象は5つの細胞株、3つのCD4+ T細胞の状態、別研究室のH1、A549。SLIMから出発した軽量版（SLIMの作者とは無関係）で、カタログ特徴と、同じ遺伝子の他の系での応答を加えている。PythonのAPIとコマンドラインを備える。",
-        "note": "合成モデルによる9件のテストが、Python 3.9〜3.13のLinux・Windows・macOSのCIで通過している（2026年11月20日）。手元の確認では、全10系で研究用の実装と完全に一致した（最大差0）。性能評価（精度の出典、アブレーション、学習曲線、被覆別の精度、同一分割でのSLIM型との比較、実行時間）を文書にした。元データの一部で利用条件が未確認のため、モデルファイルは配布していない。学習に含まれない遺伝子の予測は、独立した測定系（LINCS L1000のKOシグネチャー）と偶然を超えては一致しておらず、その検証の天井も低いため、仮説として使う。"
+        "status": "試作（v0.3.1）",
+        "description": "コンパクトなSuperSLIMのモデルファイル（約4 MB）を読み込み、学習済みの細胞系での遺伝子ノックダウン後の平均転写応答を予測する、NumPyだけのPythonパッケージ。対象は5つの細胞株、3つのCD4+ T細胞の状態、別研究室のH1、A549。SLIMから出発した軽量版（SLIMの作者とは無関係）で、カタログ特徴と、同じ遺伝子の他の系での応答を加えている。PythonのAPIとコマンドラインを備える。",
+        "note": "Python 3.9〜3.13のLinux・Windows・macOSのCIで15件のテストが通過している（2026年11月20日）。利用条件を確認したデータだけで作ったモデルのファイルを公開しており、K562、HCT116、HEK293T、初代CD4+ T細胞の3状態を予測する（保留した遺伝子での標的特異的な信号は0.09〜0.56）。性能評価（精度の出典、アブレーション、学習曲線、被覆別の精度、同一分割でのSLIM型との比較、実行時間）を文書にした。学習に含まれない遺伝子の予測は、独立した測定系（LINCS L1000のKOシグネチャー）と偶然を超えては一致しておらず、その検証の天井も低いため、仮説として使う。"
       },
       "slug": "superslim",
       "headline": "SuperSLIM: compact perturbation-response predictor",
@@ -1018,9 +1022,13 @@
         {
           "label": "Python (from GitHub)",
           "code": "pip install git+https://github.com/DaikiKumakura/superslim.git"
+        },
+        {
+          "label": "Python (download the open model)",
+          "code": "superslim download"
         }
       ],
-      "install_note": "Requires Python 3.9 or newer and NumPy. A PyPI release is not available yet. Model files are not part of the repository; see the data terms before building or sharing one.",
+      "install_note": "Requires Python 3.9 or newer and NumPy. A PyPI release is not available yet. The open model (CC BY-NC-SA 4.0, non-commercial) is downloaded on request and checked against its SHA-256.",
       "related_articles": [],
       "doi": "10.5281/zenodo.24393778"
     },
