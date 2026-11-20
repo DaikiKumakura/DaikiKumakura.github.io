@@ -998,6 +998,10 @@
         {
           "url": "https://github.com/DaikiKumakura/superslim/blob/main/docs/DATA_LICENSES.md",
           "label": "Data terms"
+        },
+        {
+          "url": "https://doi.org/10.5281/zenodo.24393778",
+          "label": "Zenodo archive"
         }
       ],
       "note": "Nine tests on a synthetic model pass in Linux, Windows and macOS CI on Python 3.9 to 3.13 (November 20, 2026). In a local check the package reproduced the research implementation exactly for all ten systems (maximum difference 0). Benchmarks cover accuracy provenance, ablation, learning curve, coverage strata, a same-split SLIM-style baseline and runtime. Model files are not distributed because the terms of some source data are unverified. Predictions for genes not seen in training did not agree with an independent platform (LINCS L1000 knockout signatures) beyond chance, and that check has a low ceiling; use them as hypotheses.",
@@ -1017,7 +1021,8 @@
         }
       ],
       "install_note": "Requires Python 3.9 or newer and NumPy. A PyPI release is not available yet. Model files are not part of the repository; see the data terms before building or sharing one.",
-      "related_articles": []
+      "related_articles": [],
+      "doi": "10.5281/zenodo.24393778"
     },
     {
       "id": "ShotgunMetagenomics",
