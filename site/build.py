@@ -18,7 +18,6 @@ LEGACY_PAGES = {'index':'index.html', 'about':'profile.html', 'publications':'pu
 LEGACY_REDIRECTS = {'japanese.html':'index.html', 'publication_jpn.html':'publication.html', 'cv.html':'profile.html', 'research.html':'profile.html', 'education.html':'activity.html#teaching', 'gallery.html':'writing.html', 'link.html':'writing.html', 'about.html':'profile.html', 'publications.html':'publication.html', 'activities.html':'activity.html'}
 LEGACY_REDIRECTS.update({f'{language}/{old}.html':new for language in ('ja','en') for old,new in LEGACY_PAGES.items()})
 LEGACY_REDIRECTS['writing/warfarin-pkpd-en.html'] = 'writing/warfarin-pkpd.html'
-LEGACY_REDIRECTS['software/superslim.html'] = 'software/superslim.html'  # renamed from SuperSLIM on 2026-11-20
 # Documentation sites published under this domain by other repositories (pkgdown) with their own sitemaps.
 EXTRA_SITEMAPS = ('rsemflow/sitemap.xml', 'pkident/sitemap.xml', 'retiaudit/sitemap.xml', 'rsemverse/sitemap.xml', 'bulkdeconv/sitemap.xml')
 # Reference pages (tools, glossary terms, catalogs): one folder per page in content/reference,
