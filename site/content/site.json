@@ -777,8 +777,8 @@
       "id": "bulkdeconv",
       "tech": "R",
       "url": "https://github.com/DaikiKumakura/bulkdeconv",
-      "status": "R package (v0.2.0)",
-      "description": "An R package that runs 24 published cell-type deconvolution and cell-abundance methods for human and mouse tumor bulk RNA-seq through one function, bulkdeconv(), and returns the same kind of result for all of them: scores per sample and cell type, what the numbers are and what may be compared, and input and signature-coverage checks.",
+      "status": "R package (v0.3.0)",
+      "description": "An R package that runs 25 published cell-type deconvolution and cell-abundance methods for human and mouse tumor bulk RNA-seq through one function, bulkdeconv(), and returns the same kind of result for all of them: scores per sample and cell type, what the numbers are and what may be compared, and input and signature-coverage checks.",
       "featured": true,
       "links": [
         {
@@ -786,8 +786,8 @@
           "label": "Documentation"
         },
         {
-          "url": "https://github.com/DaikiKumakura/bulkdeconv/releases/tag/v0.2.0",
-          "label": "Release 0.2.0"
+          "url": "https://github.com/DaikiKumakura/bulkdeconv/releases/tag/v0.3.0",
+          "label": "Release 0.3.0"
         },
         {
           "url": "https://github.com/DaikiKumakura/bulkdeconv#readme",
@@ -798,16 +798,16 @@
           "label": "R-universe"
         }
       ],
-      "note": "Nineteen methods (including quanTIseq, MCP-counter, xCell, xCell2, ESTIMATE, TIMER, GEDIT, mMCP-counter, seq-ImmuCC and BASE) are implemented in the package and run after installation, with their reference data included; the first fifteen reproduce the output of the original implementations in the tests. EPIC, DCQ, SSMD and mySORT run after bulkdeconv_install(), and PUREE (tumor purity) after it downloads the model. Methods that need registration (CIBERSORT, CIBERSORTx, EcoTyper, ImmuCC) are not included. Some methods return fractions, others abundance or enrichment scores, which compare one cell type across samples. R CMD check passes on Linux, macOS and Windows in CI. Not on CRAN or Bioconductor.",
+      "note": "Nineteen methods (including quanTIseq, MCP-counter, xCell, xCell2, ESTIMATE, TIMER, GEDIT, mMCP-counter, seq-ImmuCC and BASE) are implemented in the package and run after installation, with their reference data included; the first fifteen reproduce the output of the original implementations in the tests. EPIC, DCQ, SSMD, mySORT and DualSimplex (reference-free: it returns unlabelled components, not cell types) run after bulkdeconv_install(), and PUREE (tumor purity) after it downloads the model. Methods that need registration (CIBERSORT, CIBERSORTx, EcoTyper, ImmuCC) are not included. Some methods return fractions, others abundance or enrichment scores, which compare one cell type across samples. R CMD check passes on Linux, macOS and Windows in CI. Not on CRAN or Bioconductor.",
       "ja": {
-        "status": "Rパッケージ（v0.2.0）",
-        "description": "ヒトとマウスの腫瘍バルクRNA-seqについて、公表された24の細胞型デコンボリューション・細胞存在量推定の手法を、1つの関数bulkdeconv()で実行するRパッケージ。どの手法でも、サンプル×細胞型のスコア、数値の意味と比較してよい範囲、入力とシグネチャー遺伝子の被覆の検査を、同じ形で返す。",
-        "note": "19手法（quanTIseq、MCP-counter、xCell、xCell2、ESTIMATE、TIMER、GEDIT、mMCP-counter、seq-ImmuCC、BASEなど）はパッケージ内に実装し、最初の15手法はテストで元の実装の出力を再現する。参照データも同梱しており、インストールするだけで動く。EPIC・DCQ・SSMD・mySORTはbulkdeconv_install()のあとで実行でき、PUREE（腫瘍純度）はbulkdeconv_install()でモデルを取得して実行する。登録が必要な手法（CIBERSORT、CIBERSORTx、EcoTyper、ImmuCC）は含まない。割合を返す手法と、存在量やエンリッチメントのスコアを返す手法があり、スコアは同じ細胞型をサンプル間で比べるためのもの。R CMD checkはCIのLinux・macOS・Windowsで通過。CRANとBioconductorには未登録。"
+        "status": "Rパッケージ（v0.3.0）",
+        "description": "ヒトとマウスの腫瘍バルクRNA-seqについて、公表された25の細胞型デコンボリューション・細胞存在量推定の手法を、1つの関数bulkdeconv()で実行するRパッケージ。どの手法でも、サンプル×細胞型のスコア、数値の意味と比較してよい範囲、入力とシグネチャー遺伝子の被覆の検査を、同じ形で返す。",
+        "note": "19手法（quanTIseq、MCP-counter、xCell、xCell2、ESTIMATE、TIMER、GEDIT、mMCP-counter、seq-ImmuCC、BASEなど）はパッケージ内に実装し、最初の15手法はテストで元の実装の出力を再現する。参照データも同梱しており、インストールするだけで動く。EPIC・DCQ・SSMD・mySORT・DualSimplex（参照を使わない手法で、細胞型ではなくラベルのない成分を返す）はbulkdeconv_install()のあとで実行でき、PUREE（腫瘍純度）はbulkdeconv_install()でモデルを取得して実行する。登録が必要な手法（CIBERSORT、CIBERSORTx、EcoTyper、ImmuCC）は含まない。割合を返す手法と、存在量やエンリッチメントのスコアを返す手法があり、スコアは同じ細胞型をサンプル間で比べるためのもの。R CMD checkはCIのLinux・macOS・Windowsで通過。CRANとBioconductorには未登録。"
       },
-      "doi": "10.5281/zenodo.24271490",
+      "doi": "10.5281/zenodo.24430482",
       "slug": "bulkdeconv",
       "headline": "bulkdeconv: cell-type deconvolution in R",
-      "summary": "R package running 24 published cell-type deconvolution methods for human and mouse tumor bulk RNA-seq through one function, 19 of them built in.",
+      "summary": "R package running 25 published cell-type deconvolution methods for human and mouse tumor bulk RNA-seq through one function, 19 of them built in.",
       "details": [],
       "install": [
         {
