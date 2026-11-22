@@ -11,6 +11,22 @@
 <nav class="crumbs meta" aria-label="Breadcrumb"><a href="{{ root or './' }}">Home</a> › Tools and reference</nav>
 <h1>{{ title }}</h1>
 <p class="lead">{{ description }}</p>
+{% set featured = namespace(items=[]) %}
+{% for g in groups %}
+  {% for i in g['items'] if i.en_href in ['glossary/fixed-vs-weight-based-dosing.html', 'glossary/exposure-response.html'] %}
+    {% set featured.items = featured.items + [i] %}
+  {% endfor %}
+{% endfor %}
+{% if featured.items %}
+<section aria-labelledby="dose-questions">
+  <h2 id="dose-questions">Dose selection <span lang="ja">（用量選択）</span></h2>
+  <ul>
+    {% for i in featured.items %}
+    <li><a href="{{ i.en_href }}">{{ i.en.title }}</a> · <a href="{{ i.ja_href }}" lang="ja">{{ i.ja.title }}</a></li>
+    {% endfor %}
+  </ul>
+</section>
+{% endif %}
 {% for g in groups if g.get('topics') %}
 <nav aria-label="Glossary topics">
   <ul>{% for t in g.topics %}<li><a href="#{{ t.id }}">{{ t.en }} <span lang="ja">（{{ t.ja }}）</span></a></li>{% endfor %}</ul>

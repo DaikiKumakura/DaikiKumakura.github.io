@@ -1,18 +1,18 @@
 {
   "kind": "term",
-  "updated": "2026-11-12",
+  "updated": "2026-11-22",
   "math": false,
   "related_articles": [
-    "fixed-vs-weight-dosing",
     "sotorasib-dose-comparison",
+    "fixed-vs-weight-dosing",
     "ras-inhibitor-target-coverage"
   ],
   "locales": {
     "en": {
       "title": "Exposure–response analysis",
       "summary": "Exposure–response analysis relates an exposure measure such as AUC or Ctrough to an efficacy or safety endpoint. It is used to justify a dose, but confounding can make the relationship look steeper than it is.",
-      "seo_title": "Exposure–response (E–R) analysis: meaning and pitfalls",
-      "seo_description": "What exposure–response (E–R) analysis is, how it supports dose selection, and why confounding by disease severity can bias the relationship for antibodies.",
+      "seo_title": "Exposure–response analysis for dose selection",
+      "seo_description": "How AUC and trough concentration relate to efficacy and safety, when confounding can distort a curve, and what a flat curve tells us about lowering a dose.",
       "faq": [
         {
           "q": "Why can an exposure–response relationship be misleading?",
@@ -31,8 +31,8 @@
     "ja": {
       "title": "曝露反応解析（Exposure–Response）とは",
       "summary": "曝露反応解析は、AUCやCtroughなどの曝露の指標を、有効性や安全性の転帰と結びつける。用量の根拠に使うが、交絡によって、関係が実際より急に見えることがある。",
-      "seo_title": "曝露反応（E–R）解析とは：意味と落とし穴",
-      "seo_description": "曝露反応（E–R）解析の意味、用量選択をどう支えるか、抗体で疾患の重さによる交絡が関係を偏らせうる理由を説明する。",
+      "seo_title": "曝露反応解析とは？ 用量選択と平坦な曲線の読み方",
+      "seo_description": "AUCやトラフ濃度と有効性・安全性の関係、疾患の重さによる交絡、平坦な曝露反応曲線から減量を検討できる条件を解説。",
       "faq": [
         {
           "q": "曝露反応の関係が、誤解を招くことがあるのはなぜですか。",
