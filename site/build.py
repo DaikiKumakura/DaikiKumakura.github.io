@@ -509,7 +509,7 @@ def build(project=BASE, preview=False, strict_translations=False):
         glossary['topics'].append(dict(id='other', en='Other terms', ja='その他の用語',
                                        items=[item for slug, item in terms.items() if slug not in assigned]))
         glossary['topics'] = [topic for topic in glossary['topics'] if topic['items']]
-    output('reference.html',env.get_template('reference-index.html').render(site=site,lang='en',ui=ui,preview=preview,active='writing',root='',alternatives={},title='Tools and reference',description='Interactive tools, a glossary of pharmacometrics terms and catalogs that accompany the analyses by Daiki Kumakura, in Japanese and English.',math=False,groups=groups))
+    output('reference.html',env.get_template('reference-index.html').render(site=site,lang='en',ui=ui,preview=preview,active='writing',root='',alternatives={},title='Tools and reference',description='Interactive tools, a glossary of pharmacometrics terms and catalogs that accompany the analyses by Daiki Kumakura, in Japanese and English.',math=False,groups=groups,selected_analyses=selected_analyses))
     output('privacy.html',env.get_template('privacy.html').render(site=site,lang='en',ui=ui,preview=preview,active='',root='',alternatives={},title='Privacy and analytics',description='Optional Google Analytics, cookies and privacy choices on the Daiki Kumakura website.',math=False))
     canonical_pages=['index.html','privacy.html']+[key+'.html' for key in NAV if key!='home']+['writing-ja.html','software-ja.html']+[name for name in outputs if name.startswith(('writing/','topics/','software/','about/','tools/','glossary/','catalog/','reference.html')) and name.endswith('.html')]
     if not preview:

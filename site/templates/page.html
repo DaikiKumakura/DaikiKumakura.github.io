@@ -51,6 +51,13 @@
 {% if lead %}<p class="lead" lang="{{ lang }}">{{ lead }}</p>{% endif %}
 {% if not articles %}<p>{{ ui.empty }}</p>{% endif %}
 <p><a href="reference.html">{{ 'ツール、用語集、モデル一覧（英語・日本語）' if lang == 'ja' else 'Tools, glossary and model catalog' }}</a></p>
+{% set selected = articles | selectattr('slug', 'in', site.get('selected_analyses', {})) | list %}
+{% if selected %}
+<section class="related" aria-labelledby="quantitative-analyses">
+<h2 id="quantitative-analyses">{{ '定量薬理と腫瘍バイオマーカーの代表解析' if lang == 'ja' else 'Selected pharmacometrics and oncology biomarker analyses' }}</h2>
+<ul>{% for a in selected %}<li><a href="{{ a.href }}" lang="{{ a.lang }}">{{ a.title }}</a></li>{% endfor %}</ul>
+</section>
+{% endif %}
 {% for a in articles %}<article class="record" data-article="{{ a.slug }}">
 <p class="meta"><time datetime="{{ a.date }}">{{ a.date }}</time>{% if a.draft %} · Draft{% endif %}{% if a.note %} · {{ a.note }}{% endif %}</p>
 <h2 class="record-title"><a href="{{ a.href }}" lang="{{ a.lang }}">{{ a.title }}</a></h2>
