@@ -453,8 +453,8 @@ def build(project=BASE, preview=False, strict_translations=False):
         outputs[name]=page.encode('utf-8')
     for key,title in NAV.items():
         page=env.get_template('page.html').render(site=site,lang='en',ui=ui,preview=preview,active=key,root='',title=site['name'] if key=='home' else title,description=site['profile'],math=False,articles=listings_en if key in ('home','writing') else listings,recent=listings_en[:RECENT_ON_HOME],selected_analyses=selected_analyses,working_papers=[a for a in listings if a['category']=='paper'],alternatives=WRITING_ALTERNATIVES if key=='writing' else SOFTWARE_ALTERNATIVES if key=='software' else {},lead=WRITING_LEAD['en'] if key=='writing' else '')
-        output(key+'.html',page)
-        if key=='home':outputs['index.html']=outputs['home.html']
+        output('index.html' if key=='home' else key+'.html',page)
+    outputs['home.html']=env.get_template('redirect.html').render(target=SITE_URL,source='home.html').encode('utf-8')
     page=env.get_template('page.html').render(site=site,lang='ja',ui=ui,preview=preview,active='writing',root='',title=WRITING_TITLE_JA,description=WRITING_DESCRIPTION_JA,math=False,articles=listings_ja,recent=[],working_papers=[],alternatives=WRITING_ALTERNATIVES,lead=WRITING_LEAD['ja'])
     output('writing-ja.html',page,'ja')
     page=env.get_template('page.html').render(site=site,lang='ja',ui=ui,preview=preview,active='software',root='',title=SOFTWARE_TITLE_JA,description=SOFTWARE_DESCRIPTION_JA,math=False,articles=[],recent=[],working_papers=[],alternatives=SOFTWARE_ALTERNATIVES,lead='')

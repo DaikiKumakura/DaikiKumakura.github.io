@@ -55,7 +55,8 @@ class BuildTests(unittest.TestCase):
   for p in site['publications']:self.assertIn(p['doi'],self.text('publication.html'))
  def test_home_profile_and_navigation(self):
   build.build(self.root);home=self.text('index.html')
-  self.assertEqual(home,self.text('home.html'))
+  self.assertIn(f'content="0;url={build.SITE_URL}"',self.text('home.html'))
+  self.assertIn(f'rel="canonical" href="{build.SITE_URL}"',self.text('home.html'))
   self.assertNotIn('id="growth-2023"',home);self.assertNotIn('software-RLR',home)
   self.assertIn('favicon.svg',home);self.assertIn('msvalidate.01',home)
   self.assertNotIn('isometric',home)
