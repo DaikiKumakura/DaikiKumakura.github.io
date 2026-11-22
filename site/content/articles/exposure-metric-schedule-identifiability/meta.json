@@ -1,0 +1,39 @@
+{
+  "source_language": "en",
+  "category": "note",
+  "date": "2026-12-29",
+  "publish_at": "2026-12-29T13:00:00+09:00",
+  "draft": false,
+  "math": false,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "en": {
+      "title": "Can an exposure–response analysis distinguish AUC, Cmax and Cmin? Simulated dose-finding studies with one, two or three dosing schedules",
+      "summary": "In simulated dose-finding studies, an exposure–response analysis using QD alone, or BID with QD, could not reliably distinguish AUC, Cmax and Cmin as the driver of toxicity because the metrics were nearly collinear; adding an extreme weekly schedule distinguished them, and the cost of a wrong metric for the regimen chosen depended on extrapolation to unallocated schedules and on how ties between schedules of equal AUC were resolved.",
+      "key_findings": [
+        "With QD alone or BID with QD, the log metrics were nearly collinear (correlations 0.955 to 0.994) and AIC selected the true driver in 14.6% to 75.7% of 2,000 studies per setting (48 to 384 patients); the best and second-best AIC were within 2 in up to 98.4% of studies.",
+        "Adding weekly dosing (QW; mean Cmax 3.4 times and mean Cmin 0.105 times those of QD at the same weekly dose) lowered the correlations to 0.483 to 0.772 and raised the probability of selecting the true driver to at least 97.3% at 192 patients (slope 1.5); a weaker signal needed, in the designs with QW, about four times as many patients for the AUC and Cmax drivers and about twice as many for Cmin.",
+        "When Cmax was the driver, the share of studies in which the AUC model chose a regimen whose true toxicity exceeded the cap plus 0.05 (30% for the main cap of 0.25) ranged from 0.0% to 100% over the designs, toxicity caps and tie rules tried, because AUC cannot rank schedules at one weekly dose and the one-schedule design never allocated QW.",
+        "One pharmacokinetic model, a logistic form on the log of one metric, exact exposure, no confounding, a binary toxicity, an extreme QW contrast and assumed decision and tie rules; the schedules were randomized for operating characteristics, not as a design recommendation."
+      ],
+      "seo_title": "Exposure metric choice: AUC, Cmax or Cmin by schedule",
+      "seo_description": "Simulated dose-finding studies show when exposure-response analysis can tell AUC, Cmax and Cmin apart and how a wrong metric changes the regimen."
+    },
+    "ja": {
+      "title": "曝露反応解析はAUC・Cmax・Cminを区別できるか 1・2・3種類の投与スケジュールを持つ用量探索試験の数値実験",
+      "summary": "用量探索試験の数値実験で、QDのみ、またはBIDとQDの曝露反応解析は、指標がほぼ共線なため、AUC・Cmax・Cminのどれが毒性を駆動するかを確実に区別できなかったが、極端な週1回のスケジュールを加えると区別でき、間違った指標でレジメンを選ぶ代償は、割り付けていないスケジュールへの外挿と、AUCが同じスケジュール間のタイの解決に依存した。",
+      "seo_title": "曝露指標の選択 スケジュール別のAUC・Cmax・Cmin",
+      "seo_description": "曝露反応解析がAUC・Cmax・Cminを見分けられる条件と、間違った指標が選ばれるレジメンを変える様子を、用量探索試験の数値実験で示す。",
+      "key_findings": [
+        "QDのみ、またはBIDとQDでは、指標の対数がほぼ共線で（相関0.955〜0.994）、AICが真の駆動因子を選んだ割合は、設定あたり2,000試験のうち14.6%〜75.7%だった（48〜384例）。最良と2番目のAICの差が2以内だった試験は最大98.4%だった。",
+        "週1回（QW。同じ週用量で、平均CmaxはQDの3.4倍、平均CminはQDの0.105倍）を加えると、相関は0.483〜0.772に下がり、傾き1.5の192例で、真の駆動因子が選ばれる確率は97.3%以上になった。シグナルが弱いと、QWを含むデザインで、AUCとCmaxの駆動因子で約4倍、Cminで約2倍の例数が必要だった。",
+        "Cmaxが駆動するとき、AUCのモデルが、真の毒性が上限に0.05を加えた値（主解析の上限0.25では30%）を超えるレジメンを選んだ試験の割合は、試したデザイン・毒性の上限・タイ規則にわたって0.0%から100%までだった。AUCは同じ週用量のスケジュールを順位づけられず、1種類のスケジュールのデザインはQWを割り付けないためである。",
+        "結果は、1つの薬物動態モデル、1つの指標の対数のロジスティックの形、正確な曝露、交絡なし、二値の毒性、極端なQWのコントラスト、仮定した決定規則とタイ規則に限られ、スケジュールの無作為化は動作特性を調べるためで、デザインの推奨ではない。"
+      ]
+    }
+  },
+  "reviewed": {
+    "ja": "1c10a9e4cc2793c7897242ac301dfc6ae2ea4748d3dc0a9ec715e73fdb87363d"
+  }
+}

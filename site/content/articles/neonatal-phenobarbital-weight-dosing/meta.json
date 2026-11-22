@@ -1,0 +1,39 @@
+{
+  "source_language": "en",
+  "category": "note",
+  "date": "2026-12-30",
+  "publish_at": "2026-12-30T09:00:00+09:00",
+  "draft": false,
+  "math": false,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "en": {
+      "title": "Does a weight-based phenobarbital dose bring more neonates into the target range than a flat dose? A model-based comparison with the 1985 routine-care cohort of 59 preterm infants",
+      "summary": "In a model-based comparison fitted to 155 phenobarbital concentrations of 59 preterm infants, a mg/kg maintenance dose put a median of 85.3% of virtual infants in 15 to 40 mg/L at 24 h and 99.9% or more at one week, against 63.1% and 77.5% for a flat dose; the advantage follows from the weight-proportional model that generates the infants, reversed at 24 h for a 20 to 40 mg/L target, and is not a dose recommendation.",
+      "key_findings": [
+        "The dose column of the nlmixr2data dataset (59 infants, 155 concentrations) is documented as µg/kg but is not consistent with that unit: the first concentration after the loading dose fell with weight with a log–log slope of −0.94 (95% CI −1.13 to −0.74, 35 infants), as expected for a total dose in mg, and the infants were already dosed close to 2.5 mg/kg every 12 h.",
+        "The chosen one-compartment model (CL and V proportional to weight; lowest AIC; the model without weight did not converge) gave 0.0047 L/h/kg and 1.00 L/kg, close to the original report's abstract; 272 of 300 bootstrap fits succeeded (27 of the failures hit the iteration limit) and the SD of the random effect on CL was not identified precisely (0.0002–0.269).",
+        "With a 20 mg/kg loading dose and 4 mg/kg daily against an assumed 15–40 mg/L target, the mg/kg rule had a median of 85.3% (76.0–94.6) of virtual infants in range at 24 h and 99.9% or more at 168 h, the weight-band rule 81.4% and 99.4%, and a flat dose at the median weight 63.1% and 77.5%; the advantage of the mg/kg rule follows from the weight-proportional model that generates and evaluates the infants and is not an independent test.",
+        "The ranking held at 168 h and at 24 h in all scenarios except a lower target limit of 20 mg/L (mg/kg 22.8%, band 30.2%, flat 33.0% at 24 h), and the advantage at 168 h was not monotone in the assumed variability (22.6, 25.1, 23.4 and 19.1 points); the target range is an assumption, the data are a 1985 observational cohort, and no dose is recommended."
+      ],
+      "seo_title": "Weight-based vs flat phenobarbital dosing in neonates",
+      "seo_description": "A model-based comparison of mg/kg, weight-band and flat phenobarbital doses on target attainment, using a 1985 cohort of 59 preterm infants."
+    },
+    "ja": {
+      "title": "フェノバルビタールの体重換算投与は一律投与より多くの新生児を目標範囲に入れるか 早産児59人の1985年の日常診療データによるモデルに基づく比較",
+      "summary": "早産児59人のフェノバルビタール濃度155点に当てはめたモデルに基づく比較で、mg/kgの維持用量は、仮想の児の85.3%（中央値）を24時間後に、99.9%以上を1週間後に15〜40 mg/Lに入れ、一律の用量の63.1%と77.5%を上回ったが、この優位は児を生成する体重比例モデルの帰結で、目標20〜40 mg/Lでは24時間後に逆転し、用量の推奨ではない。",
+      "seo_title": "新生児フェノバルビタールの体重換算投与と一律投与の比較",
+      "seo_description": "1985年の早産児59人のデータから、フェノバルビタールのmg/kg・体重区分・一律の用量が目標濃度に入る割合を、モデルに基づいて比べる。",
+      "key_findings": [
+        "nlmixr2dataのデータセット（児59人、濃度155点）の用量列は文書ではµg/kgとされているが、その単位とは整合せず、負荷投与後の最初の濃度は体重に対して両対数で傾き−0.94（95% CI −1.13〜−0.74、35人）で下がり、総用量（mg）のときの予想に合った。児は、すでに12時間ごとに約2.5 mg/kgで投与されていた。",
+        "選んだ1コンパートメントモデル（CLとVが体重に比例、AICが最小、体重なしのモデルは収束せず）は、0.0047 L/h/kgと1.00 L/kgで、原報告の抄録に近かった。ブートストラップ300回のうち272回が成功し（失敗のうち27回は反復上限）、クリアランスのランダム効果のSDは精度よく特定されなかった（0.0002〜0.269）。",
+        "負荷用量20 mg/kgと1日4 mg/kgを仮定した目標15〜40 mg/Lに対して模擬すると、mg/kgの規則は、仮想の児の85.3%（76.0〜94.6、中央値）を24 hで、99.9%以上を168 hで範囲内にし、体重区分の規則は81.4%と99.4%、中央値体重の一律の用量は63.1%と77.5%だった。mg/kgの規則の優位は、児を生成し評価する体重比例モデルの帰結で、独立した検証ではない。",
+        "順序は、168 hのすべてのシナリオと、24 hの下限を20 mg/Lにしたシナリオ以外のすべてで保たれた（24 hで目標20〜40 mg/Lのとき、mg/kgが22.8%、体重区分が30.2%、一律が33.0%）。168 hの優位は、仮定した変動に対して単調ではなかった（22.6、25.1、23.4、19.1ポイント）。目標範囲は仮定、データは1985年の観察コホートで、用量の推奨はしない。"
+      ]
+    }
+  },
+  "reviewed": {
+    "ja": "5cbc1743f15cf3393762e8b471065e289cd1e62fed27735b094d6a291de97fcd"
+  }
+}

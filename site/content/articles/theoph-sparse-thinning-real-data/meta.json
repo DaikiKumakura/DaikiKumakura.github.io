@@ -1,0 +1,39 @@
+{
+  "source_language": "en",
+  "category": "note",
+  "date": "2026-12-30",
+  "publish_at": "2026-12-30T13:00:00+09:00",
+  "draft": false,
+  "math": false,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "en": {
+      "title": "How far does a population pharmacokinetic fit of real theophylline data move when the samples are thinned? Resampling the Theoph dataset to 2 to 6 samples per subject",
+      "summary": "Thinning the 12 subjects of the Theoph dataset to 2 to 6 samples per subject kept the typical clearance and volume of an nlme one-compartment oral fit within 20% of the dense fit with 3 or more samples, left typical ka unstable, and exposed a second parameter set with ka and ke exchanged whose mode depended on the starting values.",
+      "key_findings": [
+        "From a dense reference fit (CL 0.0400 L/h/kg, V 0.451 L/kg, ka 1.27 per hour; 12 subjects, 120 observations), the median typical CL and V of 500 resamples per scheme were within 4.1% of the reference at 2, 3, 4 and 6 samples per subject, and within 20% in all fits with 3 or more samples; typical ka had a 5th to 95th percentile of −48.0% to 81.9% with 2 samples and −14.7% to 13.4% with 6.",
+        "nlme returned a fit in 85.4% of the 2-sample resamples and at least 99.6% of the 4- and 6-sample resamples, but 69.8% to 84.3% of the returned fits carried a convergence warning; the SD of the random effect on V (reference 0.116) was estimated at less than 1% of the reference in 63.0% to 81.1% of fits, a boundary estimate that occurred in most fits and did not consistently separate warned from clean fits.",
+        "Two disjoint subsets of the same size agreed within 20% for CL in 85.3% to 100.0% of pairs and for ka in 29.5% to 58.1% (2 to 5 samples), so part of the agreement at 6 samples may come from the overlap with the reference.",
+        "The model has a second parameter set with ka and ke exchanged (ka 0.0895, ke 1.27 per hour, V 0.032 L/kg, same CL) that the dense data also reach, (approximate log-likelihood difference 0.28); from one start at most 3.0% of resamples reached it, and 15.8% to 64.4% did when a second start was added and the higher log-likelihood kept, so the mode depends on the start. The reference is a 12-subject estimate and not the truth, and the results are limited to the Theoph dataset and the nlme implementation."
+      ],
+      "seo_title": "Thinning real PK data: Theoph resampled with nlme",
+      "seo_description": "Resampling the Theoph dataset to 2 to 6 samples per subject shows how nlme estimates and a ka–ke exchange change with sparse sampling."
+    },
+    "ja": {
+      "title": "実データの母集団薬物動態の当てはめは採血を間引くとどこまで動くか Theophデータセットを1人2〜6点に再抽出する",
+      "summary": "Theophデータセットの12被験者を1人2〜6点に間引くと、nlmeの1コンパートメント経口モデルの典型的なクリアランスと容積は、3点以上で密な当てはめの20%以内にとどまり、典型的なkaは不安定になり、kaとkeを入れ替えた第2のパラメータの組が現れ、そのモードは初期値に依存した。",
+      "seo_title": "実データPKの間引き Theophをnlmeで再抽出",
+      "seo_description": "Theophデータセットを1人2〜6点に再抽出し、nlmeの推定値とkaとkeの入れ替えが疎な採血でどう変わるかを示す。",
+      "key_findings": [
+        "密な参照の当てはめ（CL 0.0400 L/h/kg、V 0.451 L/kg、ka 1.27/h。12被験者、120観測）に対して、方式ごと500回の再抽出での典型的なCLとVの中央値は、1人2・3・4・6点のどれでも参照の4.1%以内で、3点以上のすべての当てはめで20%以内だった。典型的なkaの5〜95パーセンタイルは、2点で−48.0%〜81.9%、6点で−14.7%〜13.4%だった。",
+        "nlmeが当てはめを返したのは、2点の再抽出の85.4%と、4点・6点の99.6%以上だったが、返却した当てはめの69.8%〜84.3%に収束の警告が付いていた。VのランダムSD（参照0.116）は、63.0%〜81.1%の当てはめで参照の1%未満と推定され、この境界の推定は大多数の当てはめで起き、警告のある当てはめとクリーンな当てはめを一貫して分けなかった。",
+        "同じ大きさの重ならない2つの部分集合は、2〜5点で、CLの85.3%〜100.0%、kaの29.5%〜58.1%の組で20%以内に一致し、6点での一致の一部は参照との重なりによる可能性がある。",
+        "モデルには、kaとkeを入れ替えた第2のパラメータの組（ka 0.0895、ke 1.27/h、V 0.032 L/kg、CLは同じ）があり、密なデータもそれに到達し、近似的な対数尤度の差は0.28だった。1つの初期値では再抽出の最大3.0%が到達し、第2の初期値を加えて対数尤度の高い方を採ると15.8%〜64.4%が到達したため、モードは初期値に依存する。参照は12被験者の推定値で真値ではなく、結果は、Theophデータセットとnlmeの実装に限られる。"
+      ]
+    }
+  },
+  "reviewed": {
+    "ja": "c3976bfbd6b4ef3289841b86bd8d529680a901b2339726828273660ea257ad70"
+  }
+}
