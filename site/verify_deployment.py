@@ -1,5 +1,6 @@
-"""Check deployed article URLs against the exact built artifact, with CDN retries."""
+"""Check deployed search entry points against the built artifact, with CDN retries."""
 import argparse
+import re
 import time
 import xml.etree.ElementTree as ET
 from pathlib import Path
@@ -22,17 +23,43 @@ def fetch(url):
 
 
 def check(dist, base_url):
-    expected = {url for url in locations((dist / 'sitemap.xml').read_bytes())
-                if urlsplit(url).path.startswith('/writing/')}
+    expected = locations((dist / 'sitemap.xml').read_bytes())
     live = locations(fetch(base_url + '/sitemap.xml'))
     missing = expected - live
     if missing:
-        raise RuntimeError('Articles missing from live sitemap: ' + ', '.join(sorted(missing)))
+        raise RuntimeError('Pages missing from live sitemap: ' + ', '.join(sorted(missing)))
+    unexpected = live - expected
+    if unexpected:
+        raise RuntimeError('Unexpected URLs in live sitemap: ' + ', '.join(sorted(unexpected)))
+
+    priority_paths = {
+        '/', '/profile.html', '/writing.html', '/writing-ja.html', '/reference.html',
+        '/glossary/fixed-vs-weight-based-dosing-ja.html', '/glossary/exposure-response-ja.html',
+    }
     for url in sorted(expected):
-        body = fetch(base_url + urlsplit(url).path)
+        path = urlsplit(url).path or '/'
+        if not (path in priority_paths or path.startswith('/writing/')):
+            continue
+        body = fetch(base_url + path)
         if b'<h1' not in body:
-            raise RuntimeError('Article page has no heading: ' + url)
-    print(f'PASS: {len(expected)} built article URLs are live and listed in the sitemap')
+            raise RuntimeError('Page has no heading: ' + url)
+        canonicals = re.findall(rb'<link rel="canonical" href="([^"]+)">', body)
+        if canonicals != [url.encode('utf-8')]:
+            raise RuntimeError('Unexpected canonical URL: ' + url)
+        built = (dist / (path.lstrip('/') or 'index.html')).read_bytes()
+        alternates = rb'<link rel="alternate" hreflang="[^"]+" href="[^"]+">'
+        if set(re.findall(alternates, built)) != set(re.findall(alternates, body)):
+            raise RuntimeError('Language alternates differ from build: ' + url)
+
+    for path, markers in {
+        '/home.html': (rb'<meta http-equiv="refresh"[^>]*>', rb'<link rel="canonical"[^>]*>'),
+        '/robots.txt': (rb'(?m)^(?:User-agent|Allow|Disallow|Sitemap): [^\r\n]*',),
+    }.items():
+        built = (dist / path[1:]).read_bytes()
+        deployed = fetch(base_url + path)
+        if any(re.findall(pattern, built) != re.findall(pattern, deployed) for pattern in markers):
+            raise RuntimeError('Search directives differ from build: ' + path)
+    print(f'PASS: {len(expected)} sitemap URLs match the build; checked canonical URLs, legacy home and robots directives')
 
 
 def main():
