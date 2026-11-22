@@ -73,7 +73,10 @@ def enrich(page, name, site, site_url, article=None, og_image=None, topics=None,
   if og_image:images.insert(0,site_url+og_image)
   if images:schema['image']=images
   if article:
-   schema['datePublished']=article['date'];schema['dateModified']=article.get('updated') or article['date']
+   published_at=article.get('publish_at') or article['date']
+   updated_on=article.get('updated')
+   schema['datePublished']=published_at
+   schema['dateModified']=updated_on or published_at
    if article.get('english'):schema['alternativeHeadline']=article['english']['title'];schema['abstract']=article['english']['summary']
   hreflangs=dict(re.findall(r'<link rel="alternate" hreflang="([^"]+)" href="([^"]+)"',page))
   if article:
