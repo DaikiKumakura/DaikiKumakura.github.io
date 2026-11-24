@@ -323,7 +323,7 @@ class BuildTests(unittest.TestCase):
   en=self.text('software.html');ja=self.text('software-ja.html')
   self.assertIn('<html lang="en">',en);self.assertIn('<html lang="ja">',ja)
   for sw in site['software']:
-   for key in ('status','description','note'):
+   for key in ('status','list_description'):
     self.assertIn(str(escape(sw[key])),en,sw['id']);self.assertNotIn(str(escape(sw[key])),ja,sw['id'])
     self.assertIn(str(escape(sw['ja'][key])),ja,sw['id']);self.assertNotIn(str(escape(sw['ja'][key])),en,sw['id'])
    self.assertIn(sw['url'],ja);self.assertIn('software/'+sw['slug']+'.html',ja)

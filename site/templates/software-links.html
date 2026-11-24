@@ -1,0 +1,17 @@
+{% macro software_links(sw, lang='en', detail='') %}
+{% set labels = {'Documentation': 'ドキュメント', 'Function reference': '関数リファレンス', 'Get started': 'はじめに', 'Install': 'インストール', 'Tutorial': 'チュートリアル', 'Tutorial (Japanese)': 'チュートリアル（日本語）', 'Release': 'リリース', 'Validation': '検証', 'Benchmarks': 'ベンチマーク', 'Model files (CC BY-NC-SA)': 'モデルファイル（CC BY-NC-SA）', 'Model archive (Zenodo)': 'モデルのアーカイブ（Zenodo）', 'Data terms': 'データ利用条件'} %}
+{% set has_install = sw.get('install') or sw.get('install_note') %}
+{% set intro_links = ['Documentation', 'Get started'] %}
+<nav class="section-links software-links" aria-label="{{ sw.id }} {{ 'のリンク' if lang == 'ja' else 'resources' }}">
+<a href="{{ sw.url }}">GitHub</a>
+{% if detail %}<a href="{{ detail }}"{% if lang == 'ja' %} hreflang="en"{% endif %}>{{ '詳細（英語）' if lang == 'ja' else 'Details' }}</a>{% endif %}
+{% for link in sw.links if link.label in intro_links %}
+<a href="{{ link.url }}">{{ labels.get(link.label, link.label) if lang == 'ja' else link.label }}</a>
+{% endfor %}
+{% if has_install %}<a href="{{ detail }}#install">{{ labels['Install'] if lang == 'ja' else 'Install' }}</a>{% endif %}
+{% for link in sw.links if link.label not in intro_links and (link.label != 'Install' or not has_install) %}
+<a href="{{ link.url }}">{{ labels.get(link.label, link.label) if lang == 'ja' else link.label }}</a>
+{% endfor %}
+{% if sw.get('doi') %}<a href="https://doi.org/{{ sw.doi }}">Zenodo</a>{% endif %}
+</nav>
+{% endmacro %}

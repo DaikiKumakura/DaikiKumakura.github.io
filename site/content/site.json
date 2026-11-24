@@ -609,6 +609,73 @@
   ],
   "software": [
     {
+      "id": "bayespk",
+      "tech": "R",
+      "url": "https://github.com/DaikiKumakura/bayespk",
+      "status": "R package (v0.2.0)",
+      "description": "An R package for Bayesian population pharmacokinetics without writing Stan: describe a 1- or 2-compartment model in one line with pk_model(), pass a NONMEM-style data set as it is (including steady-state doses and values below the quantification limit), and get posterior summaries, convergence diagnostics, plots of individual fits and predictions for new regimens from bpk_fit(), summary(), plot() and predict().",
+      "featured": true,
+      "links": [
+        {
+          "url": "https://daikikumakura.github.io/bayespk/",
+          "label": "Documentation"
+        },
+        {
+          "url": "https://daikikumakura.github.io/bayespk/articles/bayespk.html",
+          "label": "Get started"
+        },
+        {
+          "url": "https://github.com/DaikiKumakura/bayespk/releases/tag/v0.2.0",
+          "label": "Release"
+        },
+        {
+          "url": "https://daikikumakura.r-universe.dev/bayespk",
+          "label": "R-universe"
+        },
+        {
+          "url": "https://daikikumakura.github.io/bayespk/articles/covariates-priors.html",
+          "label": "Covariates and informative priors"
+        },
+        {
+          "url": "https://daikikumakura.github.io/bayespk/articles/two-compartment.html",
+          "label": "Two-compartment models and regimen comparison"
+        },
+        {
+          "url": "https://daikikumakura.github.io/bayespk/articles/data-features.html",
+          "label": "Steady state and data below the quantification limit"
+        },
+        {
+          "url": "https://github.com/DaikiKumakura/bayespk/blob/main/inst/validation/README.md",
+          "label": "Validation"
+        }
+      ],
+      "note": "Precompiled Stan programs with closed-form solutions, so nothing is compiled when a model is fitted. Simulation-based calibration in four scenarios (100 to 400 replicates) shows no test below the multiplicity-corrected threshold, with two of 29 tests at p < 0.05 and a slight low bias for the log-scale residual SD under censoring that is unexplained; on the public theophylline and warfarin data, typical values are within 1 to 10% of nlmixr2 FOCEI estimates. Fits are slower than FOCEI, and variance parameters mix slowly in sparse two-compartment oral designs. R CMD check passes on Linux, macOS and Windows in CI. Not on CRAN.",
+      "ja": {
+        "status": "Rパッケージ（v0.2.0）",
+        "description": "Stanを書かずにベイズ母集団薬物動態解析を行うRパッケージ。1または2コンパートメントのモデルをpk_model()の1行で記述し、NONMEM形式のデータ（定常状態の投与と定量下限未満の値を含む）をそのまま渡すと、bpk_fit()、summary()、plot()、predict()で事後分布の要約、収束診断、個体ごとの当てはまりの図、新しい投与計画の予測が得られる。",
+        "note": "閉形式解を使うStanプログラムをあらかじめコンパイルしてあり、推定時のコンパイルは不要。シミュレーションに基づく較正（4シナリオ、100〜400反復）では、多重性を補正した閾値を下回る検定はなく、29検定のうち2つがp < 0.05だった。打ち切りを伴う対数誤差の残差SDにわずかな低い偏りがあるが、原因は未解明。公開データ（テオフィリン、ワルファリン）では典型値がnlmixr2のFOCEI推定値と1〜10%以内で一致した。推定はFOCEIより遅く、採血の少ない2コンパートメント経口モデルでは分散パラメータの混合が遅い。R CMD checkはCIのLinux・macOS・Windowsで通過。CRANには未登録。",
+        "list_description": "NONMEM形式のデータからベイズ母集団PKモデルをRで推定する。"
+      },
+      "doi": "10.5281/zenodo.24395746",
+      "slug": "bayespk",
+      "headline": "bayespk: Bayesian population PK in R",
+      "summary": "R package for Bayesian population pharmacokinetics: one-line 1- and 2-compartment models, NONMEM-style data, precompiled Stan, diagnostics and predictions.",
+      "details": [],
+      "install": [
+        {
+          "label": "R-universe",
+          "code": "install.packages(\"bayespk\", repos = c(\"https://daikikumakura.r-universe.dev\", \"https://cloud.r-project.org\"))"
+        },
+        {
+          "label": "GitHub",
+          "code": "install.packages(\"remotes\")\nremotes::install_github(\"DaikiKumakura/bayespk\")"
+        }
+      ],
+      "install_note": "Installing from GitHub compiles the Stan program once and needs a C++ toolchain.",
+      "related_articles": [],
+      "list_description": "Fit Bayesian population PK models in R using NONMEM-style data."
+    },
+    {
       "id": "pkident",
       "tech": "R",
       "url": "https://github.com/DaikiKumakura/pkident",
@@ -621,16 +688,16 @@
           "label": "Documentation"
         },
         {
+          "url": "https://github.com/DaikiKumakura/pkident#quick-start-structure",
+          "label": "Get started"
+        },
+        {
           "url": "https://daikikumakura.github.io/pkident/reference/",
           "label": "Function reference"
         },
         {
-          "url": "https://github.com/DaikiKumakura/pkident#readme",
-          "label": "Usage"
-        },
-        {
           "url": "https://github.com/DaikiKumakura/pkident/releases/tag/v0.1.0",
-          "label": "Release 0.1.0"
+          "label": "Release"
         },
         {
           "url": "https://daikikumakura.r-universe.dev/pkident",
@@ -641,7 +708,8 @@
       "ja": {
         "status": "Rパッケージ（v0.1.0）",
         "description": "rxode2で書いたPK/PDの常微分方程式モデルについて、構造的識別可能性と実用的識別可能性を調べるRパッケージ。与えた出力と投与からどのパラメータが決まるか、採血計画でどの程度の精度で推定できるか、nlmixr2の当てはめの尤度プロファイルが有界か平坦かを調べる。",
-        "note": "文献または導出で期待結果を固定した10個の参照モデルを再現し、独立した2つの構造的手法がすべての点で一致した。期待標準誤差は、シミュレーションデータでの反復推定のばらつきと一致した。R CMD checkはCIのLinuxとWindowsで通過（2026年10月5日）。判定は局所的で、母集団デザインは対象外。"
+        "note": "文献または導出で期待結果を固定した10個の参照モデルを再現し、独立した2つの構造的手法がすべての点で一致した。期待標準誤差は、シミュレーションデータでの反復推定のばらつきと一致した。R CMD checkはCIのLinuxとWindowsで通過（2026年10月5日）。判定は局所的で、母集団デザインは対象外。",
+        "list_description": "採血設計から識別・推定できるPK/PDモデルのパラメータを調べる。"
       },
       "doi": "10.5281/zenodo.24210472",
       "slug": "pkident",
@@ -669,7 +737,55 @@
         "nimotuzumab-poppk",
         "warfarin-pkpd",
         "psa-early-observation"
-      ]
+      ],
+      "list_description": "Check which PK/PD model parameters a sampling design can estimate."
+    },
+    {
+      "id": "bulkdeconv",
+      "tech": "R",
+      "url": "https://github.com/DaikiKumakura/bulkdeconv",
+      "status": "R package (v0.3.0)",
+      "description": "An R package that runs 25 published cell-type deconvolution and cell-abundance methods for human and mouse tumor bulk RNA-seq through one function, bulkdeconv(), and returns the same kind of result for all of them: scores per sample and cell type, what the numbers are and what may be compared, and input and signature-coverage checks.",
+      "featured": true,
+      "links": [
+        {
+          "url": "https://daikikumakura.github.io/bulkdeconv/",
+          "label": "Documentation"
+        },
+        {
+          "url": "https://github.com/DaikiKumakura/bulkdeconv#quick-start",
+          "label": "Get started"
+        },
+        {
+          "url": "https://github.com/DaikiKumakura/bulkdeconv/releases/tag/v0.3.0",
+          "label": "Release"
+        },
+        {
+          "url": "https://daikikumakura.r-universe.dev/bulkdeconv",
+          "label": "R-universe"
+        }
+      ],
+      "note": "Nineteen methods (including quanTIseq, MCP-counter, xCell, xCell2, ESTIMATE, TIMER, GEDIT, mMCP-counter, seq-ImmuCC and BASE) are implemented in the package and run after installation, with their reference data included; the first fifteen reproduce the output of the original implementations in the tests. EPIC, DCQ, SSMD, mySORT and DualSimplex (reference-free: it returns unlabelled components, not cell types) run after bulkdeconv_install(), and PUREE (tumor purity) after it downloads the model. Methods that need registration (CIBERSORT, CIBERSORTx, EcoTyper, ImmuCC) are not included. Some methods return fractions, others abundance or enrichment scores, which compare one cell type across samples. R CMD check passes on Linux, macOS and Windows in CI. Not on CRAN or Bioconductor.",
+      "ja": {
+        "status": "Rパッケージ（v0.3.0）",
+        "description": "ヒトとマウスの腫瘍バルクRNA-seqについて、公表された25の細胞型デコンボリューション・細胞存在量推定の手法を、1つの関数bulkdeconv()で実行するRパッケージ。どの手法でも、サンプル×細胞型のスコア、数値の意味と比較してよい範囲、入力とシグネチャー遺伝子の被覆の検査を、同じ形で返す。",
+        "note": "19手法（quanTIseq、MCP-counter、xCell、xCell2、ESTIMATE、TIMER、GEDIT、mMCP-counter、seq-ImmuCC、BASEなど）はパッケージ内に実装し、最初の15手法はテストで元の実装の出力を再現する。参照データも同梱しており、インストールするだけで動く。EPIC・DCQ・SSMD・mySORT・DualSimplex（参照を使わない手法で、細胞型ではなくラベルのない成分を返す）はbulkdeconv_install()のあとで実行でき、PUREE（腫瘍純度）はbulkdeconv_install()でモデルを取得して実行する。登録が必要な手法（CIBERSORT、CIBERSORTx、EcoTyper、ImmuCC）は含まない。割合を返す手法と、存在量やエンリッチメントのスコアを返す手法があり、スコアは同じ細胞型をサンプル間で比べるためのもの。R CMD checkはCIのLinux・macOS・Windowsで通過。CRANとBioconductorには未登録。",
+        "list_description": "腫瘍のバルクRNA-seqから細胞型の構成比や存在量を推定する。"
+      },
+      "doi": "10.5281/zenodo.24430482",
+      "slug": "bulkdeconv",
+      "headline": "bulkdeconv: cell-type deconvolution in R",
+      "summary": "R package running 25 published cell-type deconvolution methods for human and mouse tumor bulk RNA-seq through one function, 19 of them built in.",
+      "details": [],
+      "install": [
+        {
+          "label": "GitHub",
+          "code": "install.packages(c(\"remotes\", \"BiocManager\"))\nremotes::install_github(\"DaikiKumakura/bulkdeconv\", repos = BiocManager::repositories())"
+        }
+      ],
+      "install_note": "See the package README for supported input scales and any method-specific dependencies.",
+      "related_articles": [],
+      "list_description": "Estimate cell-type composition and abundance from tumor bulk RNA-seq."
     },
     {
       "id": "rsemverse",
@@ -684,8 +800,12 @@
           "label": "Documentation"
         },
         {
+          "label": "Get started",
+          "url": "https://github.com/DaikiKumakura/rsemverse#quick-start"
+        },
+        {
           "url": "https://github.com/DaikiKumakura/rsemverse/releases/tag/v0.7.2",
-          "label": "Release 0.7.2"
+          "label": "Release"
         },
         {
           "url": "https://daikikumakura.r-universe.dev/rsemverse",
@@ -696,7 +816,8 @@
       "ja": {
         "status": "Rパッケージ（v0.7.2）",
         "description": "RSEMの*.genes.resultsと*.isoforms.resultsファイルを、ヒト・マウスのバルクRNA-seqの解析にそのまま使える遺伝子の表に仕上げるRパッケージ。rsem_read()でサンプル表に書いたファイル、またはフォルダから見つけたファイルを、遺伝子シンボル×サンプルのカウント・TPM・有効長の表に読み込み、rsem_filter()・rsem_subset()・rsem_normalize()・rsem_transform()でその表を整え、rsem_fit_reference()で固定した対照群に対するzスコアを求め、rsem_long()とrsem_write()で作図用の長い表や他のツール向けのファイルにする。",
-        "note": "どの関数も同じ形の表を受け取って返し、遺伝子リストやサンプルの群分けは要らない。遺伝子シンボルと遺伝子群（タンパク質コード、ミトコンドリア、リボソーム、ヘモグロビン、性染色体、ERCC）はorg.Hs.eg.dbまたはorg.Mm.eg.dbから判定する。フィルタはedgeRのfilterByExprの規則か検出のしきい値、正規化はCPM・TMM・上位四分位・DESeq2のmedian of ratios・分位点正規化、変換はlog2・zスコア・順位。ENCODEのK562のRSEMファイル6個（各59,526遺伝子）では、rsem_read()が36,385遺伝子にシンボルを付けて列の合計を保ち、edgeRの規則で残る12,808遺伝子はedgeR::filterByExpr()と同一で、正規化の値はedgeR・DESeq2・limmaと相対誤差3e-16以内で一致した（2026年11月14日）。版0.3.0では、検出しきい値ごとの遺伝子数、GTFファイルの遺伝子型（rRNA、snoRNA、lncRNAなど。元の遺伝子IDで照合）、TMMwsp正規化（edgeRと2.6e-16以内で一致）、対照群に対するzスコア、転写産物の選別、有効長の要約を加え、同じENCODEの実験の転写産物ファイルとGENCODE V29の注釈で確かめた（2026年11月20日）。版0.4.0では、遺伝子IDを表の関数を通しても保ち、--append-namesのIDとgzipファイルを読み、edgeRのフィルタでサンプルの群を使えるようにし（edgeR 4.8.2と一致）、サンプルQC（PCAと相関。prcompとcorに一致。同じENCODEの実験で確認）とRSEMの.cntの読み取り統計を加えた（2026年11月21日）。版0.5.0では、異なる参照で定量した遺伝子レベルのファイルを拒否し、注釈ファイルから遺伝子名を付け（RefSeq形式のID）、RSEMの事後推定値を読み、読み込み前にファイルの問題を報告するrsem_check()を加えた。同じENCODEの実験で、転写産物の一覧を変えた遺伝子と行を並べ替えたファイルも含めて確認した（2026年11月21日）。版0.5.1では、注釈から遺伝子名を付けるとき、アンダースコアの後ろがその遺伝子の名前と完全に一致する場合だけ受け入れ（gene1_2のようなIDをgene1と取り違えない）、rsem_check()の境界条件のテストを加えた。同じENCODEの実験での結果は変わらなかった（2026年11月22日）。版0.6.0では、遺伝子の期待カウント・TPM・FPKMが所属する転写産物の和とRSEMの小数点以下2桁の出力の丸めの範囲で一致するかを調べるrsem_reconcile()と、複数の遺伝子IDを1行にまとめた行を一覧するrsem_id_report()を加えた。同じENCODEの実験では丸めを超える遺伝子はなく（最大の差0.05）、別サンプルの転写産物ファイルを混ぜると59,526遺伝子中20,405個が超え、89行が複数の遺伝子IDをまとめていた（2026年11月22日）。版0.6.1では、遺伝子ファイルが各遺伝子に挙げる転写産物と転写産物ファイルのそれも比較し（転写産物の名前が変わっても合計は変わらない）、読み込み時の無限大・負の値と、照合での有限でない値で止め、参照とのzスコアでlog2を二重に適用しないようにした。同じENCODEの実験では転写産物の不一致のある遺伝子はなかった（2026年11月22日）。版0.6.2では、参照とのzスコアの欠損値を縦長の表やファイルへの書き出しでも保ち、照合では負の値・空のID・IDの列がないファイルで止めるようにした（2026年11月23日）。版0.7.0では、FPKMとRSEMの事後FPKM・区間・四分位変動係数の列を読み、複数の値を一度に読んでDESeq2が受け取るリストにし（ENCODEのファイルでtximportと一致）、.cntファイルの読みごとのアライメント数のヒストグラムを読み、転写産物の長さが全ファイルで同じことを調べ、サンプルQCに相対対数発現を加え、GSEA用のGCTファイルを書くようにした。FPKMは文書の式と一致し（比の中央値1.0000）、DESeq2への入力はtximportと一致した（差0。同じENCODEの実験）（2026年11月23日）。版0.7.1では、.modelファイル（断片長の分布と読みの開始位置）を読む関数を加え、gene行のないGTFではexon行から遺伝子名を取るようにした。RSEM 1.3.3をビルドして小さなデータで--calc-pme・--calc-ci・--append-names・--estimate-rspdを付けて実行し、事後推定の全列、.cntのヒストグラム、.modelファイル、--append-names後の名前を、その出力から読んで確かめた（2026年11月23日）。版0.7.2では、.thetaファイルの背景ノイズの割合を読み（未アラインのリード600本を足した2,750リードのRSEM実行で確認。RSEMの補正前は600/2750、補正後は600/2700）、GTFでgene行のない遺伝子の名前と型をtranscript行などから補い（GENCODE V29では同じ58,721遺伝子を24秒で読む）、.modelファイルの確率をより厳密に検査するようにした（2026年11月23日）。R CMD checkはCIのLinux・macOS・Windowsで通過。CRANとBioconductorには未登録。"
+        "note": "どの関数も同じ形の表を受け取って返し、遺伝子リストやサンプルの群分けは要らない。遺伝子シンボルと遺伝子群（タンパク質コード、ミトコンドリア、リボソーム、ヘモグロビン、性染色体、ERCC）はorg.Hs.eg.dbまたはorg.Mm.eg.dbから判定する。フィルタはedgeRのfilterByExprの規則か検出のしきい値、正規化はCPM・TMM・上位四分位・DESeq2のmedian of ratios・分位点正規化、変換はlog2・zスコア・順位。ENCODEのK562のRSEMファイル6個（各59,526遺伝子）では、rsem_read()が36,385遺伝子にシンボルを付けて列の合計を保ち、edgeRの規則で残る12,808遺伝子はedgeR::filterByExpr()と同一で、正規化の値はedgeR・DESeq2・limmaと相対誤差3e-16以内で一致した（2026年11月14日）。版0.3.0では、検出しきい値ごとの遺伝子数、GTFファイルの遺伝子型（rRNA、snoRNA、lncRNAなど。元の遺伝子IDで照合）、TMMwsp正規化（edgeRと2.6e-16以内で一致）、対照群に対するzスコア、転写産物の選別、有効長の要約を加え、同じENCODEの実験の転写産物ファイルとGENCODE V29の注釈で確かめた（2026年11月20日）。版0.4.0では、遺伝子IDを表の関数を通しても保ち、--append-namesのIDとgzipファイルを読み、edgeRのフィルタでサンプルの群を使えるようにし（edgeR 4.8.2と一致）、サンプルQC（PCAと相関。prcompとcorに一致。同じENCODEの実験で確認）とRSEMの.cntの読み取り統計を加えた（2026年11月21日）。版0.5.0では、異なる参照で定量した遺伝子レベルのファイルを拒否し、注釈ファイルから遺伝子名を付け（RefSeq形式のID）、RSEMの事後推定値を読み、読み込み前にファイルの問題を報告するrsem_check()を加えた。同じENCODEの実験で、転写産物の一覧を変えた遺伝子と行を並べ替えたファイルも含めて確認した（2026年11月21日）。版0.5.1では、注釈から遺伝子名を付けるとき、アンダースコアの後ろがその遺伝子の名前と完全に一致する場合だけ受け入れ（gene1_2のようなIDをgene1と取り違えない）、rsem_check()の境界条件のテストを加えた。同じENCODEの実験での結果は変わらなかった（2026年11月22日）。版0.6.0では、遺伝子の期待カウント・TPM・FPKMが所属する転写産物の和とRSEMの小数点以下2桁の出力の丸めの範囲で一致するかを調べるrsem_reconcile()と、複数の遺伝子IDを1行にまとめた行を一覧するrsem_id_report()を加えた。同じENCODEの実験では丸めを超える遺伝子はなく（最大の差0.05）、別サンプルの転写産物ファイルを混ぜると59,526遺伝子中20,405個が超え、89行が複数の遺伝子IDをまとめていた（2026年11月22日）。版0.6.1では、遺伝子ファイルが各遺伝子に挙げる転写産物と転写産物ファイルのそれも比較し（転写産物の名前が変わっても合計は変わらない）、読み込み時の無限大・負の値と、照合での有限でない値で止め、参照とのzスコアでlog2を二重に適用しないようにした。同じENCODEの実験では転写産物の不一致のある遺伝子はなかった（2026年11月22日）。版0.6.2では、参照とのzスコアの欠損値を縦長の表やファイルへの書き出しでも保ち、照合では負の値・空のID・IDの列がないファイルで止めるようにした（2026年11月23日）。版0.7.0では、FPKMとRSEMの事後FPKM・区間・四分位変動係数の列を読み、複数の値を一度に読んでDESeq2が受け取るリストにし（ENCODEのファイルでtximportと一致）、.cntファイルの読みごとのアライメント数のヒストグラムを読み、転写産物の長さが全ファイルで同じことを調べ、サンプルQCに相対対数発現を加え、GSEA用のGCTファイルを書くようにした。FPKMは文書の式と一致し（比の中央値1.0000）、DESeq2への入力はtximportと一致した（差0。同じENCODEの実験）（2026年11月23日）。版0.7.1では、.modelファイル（断片長の分布と読みの開始位置）を読む関数を加え、gene行のないGTFではexon行から遺伝子名を取るようにした。RSEM 1.3.3をビルドして小さなデータで--calc-pme・--calc-ci・--append-names・--estimate-rspdを付けて実行し、事後推定の全列、.cntのヒストグラム、.modelファイル、--append-names後の名前を、その出力から読んで確かめた（2026年11月23日）。版0.7.2では、.thetaファイルの背景ノイズの割合を読み（未アラインのリード600本を足した2,750リードのRSEM実行で確認。RSEMの補正前は600/2750、補正後は600/2700）、GTFでgene行のない遺伝子の名前と型をtranscript行などから補い（GENCODE V29では同じ58,721遺伝子を24秒で読む）、.modelファイルの確率をより厳密に検査するようにした（2026年11月23日）。R CMD checkはCIのLinux・macOS・Windowsで通過。CRANとBioconductorには未登録。",
+        "list_description": "RSEMの遺伝子別カウントとTPMを下流解析用に整える。"
       },
       "doi": "10.5281/zenodo.24451939",
       "slug": "rsemverse",
@@ -710,7 +831,8 @@
         }
       ],
       "install_note": "rsemverse needs R 4.1 or later; install the OrgDb package of the species you use (org.Hs.eg.db for human, org.Mm.eg.db for mouse).",
-      "related_articles": []
+      "related_articles": [],
+      "list_description": "Prepare RSEM gene counts and TPM for downstream RNA-seq analysis."
     },
     {
       "id": "rsemflow",
@@ -730,7 +852,7 @@
         },
         {
           "url": "https://daikikumakura.github.io/rsemflow/articles/installation.html",
-          "label": "Installation"
+          "label": "Install"
         },
         {
           "url": "https://daikikumakura.github.io/rsemflow/articles/tutorial.html",
@@ -738,7 +860,7 @@
         },
         {
           "url": "https://github.com/DaikiKumakura/rsemflow/releases/tag/v0.1.1",
-          "label": "Release 0.1.1"
+          "label": "Release"
         },
         {
           "url": "https://daikikumakura.r-universe.dev/rsemflow",
@@ -749,7 +871,8 @@
       "ja": {
         "status": "Rパッケージ・CLI（v0.1.1）",
         "description": "RSEMの*.genes.resultsファイルと通常のサンプルメタデータ表から、バルクRNA-seqの標準的な結果をTSVの表で出力するRパッケージ兼コマンドラインツール。発現の要約、正規化、PCA、サンプル間相関、明示した計画でのDESeq2による発現変動解析、順位付きGSEA、GSVA/ssGSEAスコア、遺伝子アノテーションを扱う。",
-        "note": "ヒトとマウスのデータに対応。サンプルの不一致、遺伝子表の不整合、モデル変数の欠損、交絡した計画では、結果を出さずに停止する。交互作用モデルの単純効果は、再パラメータ化したモデルと照合して検査している。ENCODEのK562ノックダウンデータでは、各標的遺伝子がそのノックダウンで最も有意に減少した遺伝子群に入る。R CMD checkはCIのLinux・macOS・Windowsで通過（2026年10月6日）。CRANとBioconductorには未登録。図は出力しない。"
+        "note": "ヒトとマウスのデータに対応。サンプルの不一致、遺伝子表の不整合、モデル変数の欠損、交絡した計画では、結果を出さずに停止する。交互作用モデルの単純効果は、再パラメータ化したモデルと照合して検査している。ENCODEのK562ノックダウンデータでは、各標的遺伝子がそのノックダウンで最も有意に減少した遺伝子群に入る。R CMD checkはCIのLinux・macOS・Windowsで通過（2026年10月6日）。CRANとBioconductorには未登録。図は出力しない。",
+        "list_description": "RSEM出力とサンプル情報からバルクRNA-seqの下流解析を実行する。"
       },
       "doi": "10.5281/zenodo.24210478",
       "slug": "rsemflow",
@@ -771,213 +894,8 @@
         }
       ],
       "install_note": "rsemflow needs R 4.3 or later and several Bioconductor packages; human and mouse data are supported.",
-      "related_articles": []
-    },
-    {
-      "id": "bulkdeconv",
-      "tech": "R",
-      "url": "https://github.com/DaikiKumakura/bulkdeconv",
-      "status": "R package (v0.3.0)",
-      "description": "An R package that runs 25 published cell-type deconvolution and cell-abundance methods for human and mouse tumor bulk RNA-seq through one function, bulkdeconv(), and returns the same kind of result for all of them: scores per sample and cell type, what the numbers are and what may be compared, and input and signature-coverage checks.",
-      "featured": true,
-      "links": [
-        {
-          "url": "https://daikikumakura.github.io/bulkdeconv/",
-          "label": "Documentation"
-        },
-        {
-          "url": "https://github.com/DaikiKumakura/bulkdeconv/releases/tag/v0.3.0",
-          "label": "Release 0.3.0"
-        },
-        {
-          "url": "https://github.com/DaikiKumakura/bulkdeconv#readme",
-          "label": "Examples and method requirements"
-        },
-        {
-          "url": "https://daikikumakura.r-universe.dev/bulkdeconv",
-          "label": "R-universe"
-        }
-      ],
-      "note": "Nineteen methods (including quanTIseq, MCP-counter, xCell, xCell2, ESTIMATE, TIMER, GEDIT, mMCP-counter, seq-ImmuCC and BASE) are implemented in the package and run after installation, with their reference data included; the first fifteen reproduce the output of the original implementations in the tests. EPIC, DCQ, SSMD, mySORT and DualSimplex (reference-free: it returns unlabelled components, not cell types) run after bulkdeconv_install(), and PUREE (tumor purity) after it downloads the model. Methods that need registration (CIBERSORT, CIBERSORTx, EcoTyper, ImmuCC) are not included. Some methods return fractions, others abundance or enrichment scores, which compare one cell type across samples. R CMD check passes on Linux, macOS and Windows in CI. Not on CRAN or Bioconductor.",
-      "ja": {
-        "status": "Rパッケージ（v0.3.0）",
-        "description": "ヒトとマウスの腫瘍バルクRNA-seqについて、公表された25の細胞型デコンボリューション・細胞存在量推定の手法を、1つの関数bulkdeconv()で実行するRパッケージ。どの手法でも、サンプル×細胞型のスコア、数値の意味と比較してよい範囲、入力とシグネチャー遺伝子の被覆の検査を、同じ形で返す。",
-        "note": "19手法（quanTIseq、MCP-counter、xCell、xCell2、ESTIMATE、TIMER、GEDIT、mMCP-counter、seq-ImmuCC、BASEなど）はパッケージ内に実装し、最初の15手法はテストで元の実装の出力を再現する。参照データも同梱しており、インストールするだけで動く。EPIC・DCQ・SSMD・mySORT・DualSimplex（参照を使わない手法で、細胞型ではなくラベルのない成分を返す）はbulkdeconv_install()のあとで実行でき、PUREE（腫瘍純度）はbulkdeconv_install()でモデルを取得して実行する。登録が必要な手法（CIBERSORT、CIBERSORTx、EcoTyper、ImmuCC）は含まない。割合を返す手法と、存在量やエンリッチメントのスコアを返す手法があり、スコアは同じ細胞型をサンプル間で比べるためのもの。R CMD checkはCIのLinux・macOS・Windowsで通過。CRANとBioconductorには未登録。"
-      },
-      "doi": "10.5281/zenodo.24430482",
-      "slug": "bulkdeconv",
-      "headline": "bulkdeconv: cell-type deconvolution in R",
-      "summary": "R package running 25 published cell-type deconvolution methods for human and mouse tumor bulk RNA-seq through one function, 19 of them built in.",
-      "details": [],
-      "install": [
-        {
-          "label": "GitHub",
-          "code": "install.packages(c(\"remotes\", \"BiocManager\"))\nremotes::install_github(\"DaikiKumakura/bulkdeconv\", repos = BiocManager::repositories())"
-        }
-      ],
-      "install_note": "See the package README for supported input scales and any method-specific dependencies.",
-      "related_articles": []
-    },
-    {
-      "id": "bayespk",
-      "tech": "R",
-      "url": "https://github.com/DaikiKumakura/bayespk",
-      "status": "R package (v0.2.0)",
-      "description": "An R package for Bayesian population pharmacokinetics without writing Stan: describe a 1- or 2-compartment model in one line with pk_model(), pass a NONMEM-style data set as it is (including steady-state doses and values below the quantification limit), and get posterior summaries, convergence diagnostics, plots of individual fits and predictions for new regimens from bpk_fit(), summary(), plot() and predict().",
-      "featured": true,
-      "links": [
-        {
-          "url": "https://daikikumakura.github.io/bayespk/",
-          "label": "Documentation"
-        },
-        {
-          "url": "https://daikikumakura.github.io/bayespk/articles/bayespk.html",
-          "label": "Getting started"
-        },
-        {
-          "url": "https://daikikumakura.github.io/bayespk/articles/covariates-priors.html",
-          "label": "Covariates and informative priors"
-        },
-        {
-          "url": "https://daikikumakura.github.io/bayespk/articles/two-compartment.html",
-          "label": "Two-compartment models and regimen comparison"
-        },
-        {
-          "url": "https://daikikumakura.github.io/bayespk/articles/data-features.html",
-          "label": "Steady state and data below the quantification limit"
-        },
-        {
-          "url": "https://github.com/DaikiKumakura/bayespk/releases/tag/v0.2.0",
-          "label": "Release 0.2.0"
-        },
-        {
-          "url": "https://github.com/DaikiKumakura/bayespk/blob/main/inst/validation/README.md",
-          "label": "Validation"
-        },
-        {
-          "url": "https://daikikumakura.r-universe.dev/bayespk",
-          "label": "R-universe"
-        }
-      ],
-      "note": "Precompiled Stan programs with closed-form solutions, so nothing is compiled when a model is fitted. Simulation-based calibration in four scenarios (100 to 400 replicates) shows no test below the multiplicity-corrected threshold, with two of 29 tests at p < 0.05 and a slight low bias for the log-scale residual SD under censoring that is unexplained; on the public theophylline and warfarin data, typical values are within 1 to 10% of nlmixr2 FOCEI estimates. Fits are slower than FOCEI, and variance parameters mix slowly in sparse two-compartment oral designs. R CMD check passes on Linux, macOS and Windows in CI. Not on CRAN.",
-      "ja": {
-        "status": "Rパッケージ（v0.2.0）",
-        "description": "Stanを書かずにベイズ母集団薬物動態解析を行うRパッケージ。1または2コンパートメントのモデルをpk_model()の1行で記述し、NONMEM形式のデータ（定常状態の投与と定量下限未満の値を含む）をそのまま渡すと、bpk_fit()、summary()、plot()、predict()で事後分布の要約、収束診断、個体ごとの当てはまりの図、新しい投与計画の予測が得られる。",
-        "note": "閉形式解を使うStanプログラムをあらかじめコンパイルしてあり、推定時のコンパイルは不要。シミュレーションに基づく較正（4シナリオ、100〜400反復）では、多重性を補正した閾値を下回る検定はなく、29検定のうち2つがp < 0.05だった。打ち切りを伴う対数誤差の残差SDにわずかな低い偏りがあるが、原因は未解明。公開データ（テオフィリン、ワルファリン）では典型値がnlmixr2のFOCEI推定値と1〜10%以内で一致した。推定はFOCEIより遅く、採血の少ない2コンパートメント経口モデルでは分散パラメータの混合が遅い。R CMD checkはCIのLinux・macOS・Windowsで通過。CRANには未登録。"
-      },
-      "doi": "10.5281/zenodo.24395746",
-      "slug": "bayespk",
-      "headline": "bayespk: Bayesian population PK in R",
-      "summary": "R package for Bayesian population pharmacokinetics: one-line 1- and 2-compartment models, NONMEM-style data, precompiled Stan, diagnostics and predictions.",
-      "details": [],
-      "install": [
-        {
-          "label": "R-universe",
-          "code": "install.packages(\"bayespk\", repos = c(\"https://daikikumakura.r-universe.dev\", \"https://cloud.r-project.org\"))"
-        },
-        {
-          "label": "GitHub",
-          "code": "install.packages(\"remotes\")\nremotes::install_github(\"DaikiKumakura/bayespk\")"
-        }
-      ],
-      "install_note": "Installing from GitHub compiles the Stan program once and needs a C++ toolchain.",
-      "related_articles": []
-    },
-    {
-      "id": "retiaudit",
-      "tech": "R",
-      "url": "https://github.com/DaikiKumakura/retiaudit",
-      "status": "R package (v0.1.0)",
-      "description": "A small, dependency-free R package for when reticulate ignores managed Python requirements: before Python starts, it lists the settings that steer Python selection (explicit overrides, managed-environment flags, active environments, project markers) and checks them against the intended managed or existing environment.",
-      "featured": false,
-      "links": [
-        {
-          "url": "https://daikikumakura.github.io/retiaudit/",
-          "label": "Documentation"
-        },
-        {
-          "url": "https://github.com/DaikiKumakura/retiaudit#readme",
-          "label": "Usage"
-        },
-        {
-          "url": "https://daikikumakura.r-universe.dev/retiaudit",
-          "label": "R-universe"
-        }
-      ],
-      "note": "Initial version, not on CRAN. R package checks pass in CI on Linux, Windows and macOS (October 5, 2026). It reports visible hints and does not reproduce reticulate's own discovery; use reticulate's diagnostics for actual configuration.",
-      "ja": {
-        "status": "Rパッケージ（v0.1.0）",
-        "description": "reticulateがpy_require()で管理したPythonの要件を使わないときのための、依存パッケージのない小さなRパッケージ。Pythonの起動前に、Pythonの選択を左右する設定（明示的な上書き、管理環境の有効・無効、有効化された環境、プロジェクトの目印）を列挙し、意図した管理環境または既存環境と食い違いがないかを調べる。",
-        "note": "初版で、CRANには未登録。RパッケージのチェックはCIのLinux・Windows・macOSで通過（2026年10月5日）。見えている手がかりを報告するもので、reticulate自身の探索は再現しない。実際の構成はreticulateの診断機能で確認すること。"
-      },
-      "doi": "10.5281/zenodo.24210476",
-      "slug": "retiaudit",
-      "headline": "retiaudit: reticulate Python audit",
-      "summary": "Dependency-free R preflight for reticulate: why py_require() is ignored, from the Python selection hints, checked before Python starts.",
-      "details": [],
-      "install": [
-        {
-          "label": "R (binary from R-universe)",
-          "code": "install.packages(\"retiaudit\", repos = c(\"https://daikikumakura.r-universe.dev\", \"https://cloud.r-project.org\"))"
-        },
-        {
-          "label": "R",
-          "code": "remotes::install_github(\"DaikiKumakura/retiaudit\")\nlibrary(retiaudit)\naudit_python(intent = \"managed\")"
-        }
-      ],
-      "install_note": "Not on CRAN; initial version.",
-      "related_articles": []
-    },
-    {
-      "id": "RLR_transform",
-      "tech": "R",
-      "url": "https://github.com/DaikiKumakura/RLR_transform",
-      "status": "Research code",
-      "description": "R scripts exploring transformations of compositional time series and dynamic interaction inference using CCM (Convergent Cross Mapping), including simulations and figure-generation code.",
-      "featured": true,
-      "links": [],
-      "note": "All six figure scripts parsed, and a small CCM example using original functions ran with legacy rEDM 0.7.3 on October 3, 2026. A reproduction README and automated smoke check are provided. Complete figure analyses have not been rerun.",
-      "ja": {
-        "status": "研究用コード",
-        "description": "組成時系列データの変換と、CCM（Convergent Cross Mapping）による動的な相互作用の推定を調べるRスクリプト。シミュレーションと図の作成コードを含む。",
-        "note": "2026年10月3日に、図の作成スクリプト6本すべてが構文解析を通り、元の関数を使った小さなCCMの例が旧版のrEDM 0.7.3で動いた。再現用のREADMEと自動の簡易チェックがある。図の解析全体は再実行していない。"
-      },
-      "slug": "rlr-transform",
-      "headline": "RLR_transform: compositional CCM scripts",
-      "summary": "R scripts for transformations of compositional time series and dynamic interaction inference with Convergent Cross Mapping (CCM).",
-      "details": [],
-      "install": [],
-      "install_note": "",
-      "related_articles": [
-        "hidden-mediator-networks"
-      ]
-    },
-    {
-      "id": "CRiSM",
-      "tech": "Python",
-      "url": "https://github.com/DaikiKumakura/CRiSM",
-      "status": "Prototype",
-      "description": "A Python command-line tool that builds a phylogenetic tree from genome FASTA files with one command: it finds marker genes with Prodigal and HMMER, keeps the genomes that have every marker, aligns and trims each marker, concatenates them and runs IQ-TREE 2. Marker sets for 16 and 15 ribosomal proteins, RpS3, 16S rRNA, GyrA and RecA are included.",
-      "featured": true,
-      "links": [
-        {
-          "url": "https://github.com/DaikiKumakura/CRiSM#readme",
-          "label": "Usage"
-        }
-      ],
-      "note": "Invocation, failure handling and marker-alignment validation are implemented. Eleven tests (name cleaning, concatenation rules, failure handling, installed command) pass in Linux CI (November 15, 2026). Installed CLI execution was checked; the complete phylogenetic workflow with external tools remains unvalidated.",
-      "ja": {
-        "status": "試作",
-        "description": "ゲノムのFASTAファイルから、1つのコマンドで系統樹を作るPythonのコマンドラインツール。ProdigalとHMMERでマーカー遺伝子を探し、すべてのマーカーを持つゲノムを選び、マーカーごとにアラインメントとトリミングを行って連結し、IQ-TREE 2で系統推定する。16個・15個のリボソームタンパク質、RpS3、16S rRNA、GyrA、RecAのマーカーセットを同梱する。",
-        "note": "起動、失敗時の処理、マーカーのアラインメントの検証を実装済み。名前の整形、連結の規則、失敗時の処理、インストールしたコマンドを確かめる11件のテストが、LinuxのCIで通過している（2026年11月15日）。インストールしたCLIの実行は確認済み。外部ツールを使う系統解析の全工程は未検証。"
-      },
-      "slug": "crism",
-      "headline": "CRiSM: ribosomal marker phylogenomics CLI",
-      "summary": "Python CLI connecting ribosomal marker-gene discovery and extraction with alignment, concatenation and phylogenetic inference.",
-      "details": [],
-      "install": [],
-      "install_note": "The source installation in the README (Conda environment) is the documented route; a stable PyPI release is not assumed.",
-      "related_articles": []
+      "related_articles": [],
+      "list_description": "Run bulk RNA-seq analyses from RSEM outputs and sample metadata."
     },
     {
       "id": "superslim",
@@ -989,7 +907,7 @@
       "links": [
         {
           "url": "https://github.com/DaikiKumakura/superslim#readme",
-          "label": "Usage"
+          "label": "Get started"
         },
         {
           "url": "https://github.com/DaikiKumakura/superslim/blob/main/docs/BENCHMARKS.md",
@@ -1004,10 +922,6 @@
           "label": "Model archive (Zenodo)"
         },
         {
-          "url": "https://doi.org/10.5281/zenodo.24393778",
-          "label": "Software archive (Zenodo)"
-        },
-        {
           "url": "https://github.com/DaikiKumakura/superslim/blob/main/docs/DATA_LICENSES.md",
           "label": "Data terms"
         }
@@ -1016,7 +930,8 @@
       "ja": {
         "status": "試作（v0.5.0）",
         "description": "コンパクトなSuperSLIMのモデルファイル（約4 MB）を読み込み、学習済みの細胞系での遺伝子ノックダウン後の平均転写応答を予測する、NumPyだけのPythonパッケージ。公開しているモデルのファイルは、K562、HCT116、HEK293T、初代CD4+ T細胞の3状態を対象とする。SLIMから出発した軽量版（SLIMの作者とは無関係）で、カタログ特徴と、同じ遺伝子の他の系での応答を加えている。PythonのAPIとコマンドラインを備える。",
-        "note": "合成モデルによる9件のテストが、Python 3.9〜3.13のLinux・Windows・macOSのCIで通過している。利用条件を確認したデータだけで作ったモデルのファイルを公開しており、K562、HCT116、HEK293T、初代CD4+ T細胞の3状態を予測する（保留した遺伝子での標的特異的な信号は0.09〜0.56。CD4の値は同じ実験の他の状態に依存する）。性能評価（保留した遺伝子での精度、同一分割でのSLIM型との比較、アブレーション、被覆別の精度、学習曲線、実行時間）を文書にした。系が一度も測定していない遺伝子の予測は、独立した測定系では検証していないため、仮説として使う。"
+        "note": "合成モデルによる9件のテストが、Python 3.9〜3.13のLinux・Windows・macOSのCIで通過している。利用条件を確認したデータだけで作ったモデルのファイルを公開しており、K562、HCT116、HEK293T、初代CD4+ T細胞の3状態を予測する（保留した遺伝子での標的特異的な信号は0.09〜0.56。CD4の値は同じ実験の他の状態に依存する）。性能評価（保留した遺伝子での精度、同一分割でのSLIM型との比較、アブレーション、被覆別の精度、学習曲線、実行時間）を文書にした。系が一度も測定していない遺伝子の予測は、独立した測定系では検証していないため、仮説として使う。",
+        "list_description": "小型モデルで遺伝子摂動後の転写応答を予測する。"
       },
       "slug": "superslim",
       "headline": "SuperSLIM: compact perturbation-response predictor",
@@ -1034,7 +949,110 @@
       ],
       "install_note": "Requires Python 3.9 or newer and NumPy. A PyPI release is not available yet. The open model (CC BY-NC-SA 4.0, non-commercial) is downloaded on request and checked against its SHA-256.",
       "related_articles": [],
-      "doi": "10.5281/zenodo.24393778"
+      "doi": "10.5281/zenodo.24393778",
+      "list_description": "Predict transcriptional responses to gene perturbations with a compact model."
+    },
+    {
+      "id": "retiaudit",
+      "tech": "R",
+      "url": "https://github.com/DaikiKumakura/retiaudit",
+      "status": "R package (v0.1.0)",
+      "description": "A small, dependency-free R package for when reticulate ignores managed Python requirements: before Python starts, it lists the settings that steer Python selection (explicit overrides, managed-environment flags, active environments, project markers) and checks them against the intended managed or existing environment.",
+      "featured": false,
+      "links": [
+        {
+          "url": "https://daikikumakura.github.io/retiaudit/",
+          "label": "Documentation"
+        },
+        {
+          "url": "https://github.com/DaikiKumakura/retiaudit#quick-start",
+          "label": "Get started"
+        },
+        {
+          "url": "https://daikikumakura.r-universe.dev/retiaudit",
+          "label": "R-universe"
+        }
+      ],
+      "note": "Initial version, not on CRAN. R package checks pass in CI on Linux, Windows and macOS (October 5, 2026). It reports visible hints and does not reproduce reticulate's own discovery; use reticulate's diagnostics for actual configuration.",
+      "ja": {
+        "status": "Rパッケージ（v0.1.0）",
+        "description": "reticulateがpy_require()で管理したPythonの要件を使わないときのための、依存パッケージのない小さなRパッケージ。Pythonの起動前に、Pythonの選択を左右する設定（明示的な上書き、管理環境の有効・無効、有効化された環境、プロジェクトの目印）を列挙し、意図した管理環境または既存環境と食い違いがないかを調べる。",
+        "note": "初版で、CRANには未登録。RパッケージのチェックはCIのLinux・Windows・macOSで通過（2026年10月5日）。見えている手がかりを報告するもので、reticulate自身の探索は再現しない。実際の構成はreticulateの診断機能で確認すること。",
+        "list_description": "reticulateがPythonを起動する前に環境の選択設定を診断する。"
+      },
+      "doi": "10.5281/zenodo.24210476",
+      "slug": "retiaudit",
+      "headline": "retiaudit: reticulate Python audit",
+      "summary": "Dependency-free R preflight for reticulate: why py_require() is ignored, from the Python selection hints, checked before Python starts.",
+      "details": [],
+      "install": [
+        {
+          "label": "R (binary from R-universe)",
+          "code": "install.packages(\"retiaudit\", repos = c(\"https://daikikumakura.r-universe.dev\", \"https://cloud.r-project.org\"))"
+        },
+        {
+          "label": "R",
+          "code": "remotes::install_github(\"DaikiKumakura/retiaudit\")\nlibrary(retiaudit)\naudit_python(intent = \"managed\")"
+        }
+      ],
+      "install_note": "Not on CRAN; initial version.",
+      "related_articles": [],
+      "list_description": "Diagnose how reticulate selects Python before it starts."
+    },
+    {
+      "id": "CRiSM",
+      "tech": "Python",
+      "url": "https://github.com/DaikiKumakura/CRiSM",
+      "status": "Prototype",
+      "description": "A Python command-line tool that builds a phylogenetic tree from genome FASTA files with one command: it finds marker genes with Prodigal and HMMER, keeps the genomes that have every marker, aligns and trims each marker, concatenates them and runs IQ-TREE 2. Marker sets for 16 and 15 ribosomal proteins, RpS3, 16S rRNA, GyrA and RecA are included.",
+      "featured": true,
+      "links": [
+        {
+          "url": "https://github.com/DaikiKumakura/CRiSM#readme",
+          "label": "Get started"
+        }
+      ],
+      "note": "Invocation, failure handling and marker-alignment validation are implemented. Eleven tests (name cleaning, concatenation rules, failure handling, installed command) pass in Linux CI (November 15, 2026). Installed CLI execution was checked; the complete phylogenetic workflow with external tools remains unvalidated.",
+      "ja": {
+        "status": "試作",
+        "description": "ゲノムのFASTAファイルから、1つのコマンドで系統樹を作るPythonのコマンドラインツール。ProdigalとHMMERでマーカー遺伝子を探し、すべてのマーカーを持つゲノムを選び、マーカーごとにアラインメントとトリミングを行って連結し、IQ-TREE 2で系統推定する。16個・15個のリボソームタンパク質、RpS3、16S rRNA、GyrA、RecAのマーカーセットを同梱する。",
+        "note": "起動、失敗時の処理、マーカーのアラインメントの検証を実装済み。名前の整形、連結の規則、失敗時の処理、インストールしたコマンドを確かめる11件のテストが、LinuxのCIで通過している（2026年11月15日）。インストールしたCLIの実行は確認済み。外部ツールを使う系統解析の全工程は未検証。",
+        "list_description": "ゲノムFASTAからマーカー遺伝子を抽出し、系統樹を構築する。"
+      },
+      "slug": "crism",
+      "headline": "CRiSM: ribosomal marker phylogenomics CLI",
+      "summary": "Python CLI connecting ribosomal marker-gene discovery and extraction with alignment, concatenation and phylogenetic inference.",
+      "details": [],
+      "install": [],
+      "install_note": "The source installation in the README (Conda environment) is the documented route; a stable PyPI release is not assumed.",
+      "related_articles": [],
+      "list_description": "Build a marker-gene phylogenetic tree from genome FASTA files."
+    },
+    {
+      "id": "RLR_transform",
+      "tech": "R",
+      "url": "https://github.com/DaikiKumakura/RLR_transform",
+      "status": "Research code",
+      "description": "R scripts exploring transformations of compositional time series and dynamic interaction inference using CCM (Convergent Cross Mapping), including simulations and figure-generation code.",
+      "featured": true,
+      "links": [],
+      "note": "All six figure scripts parsed, and a small CCM example using original functions ran with legacy rEDM 0.7.3 on October 3, 2026. A reproduction README and automated smoke check are provided. Complete figure analyses have not been rerun.",
+      "ja": {
+        "status": "研究用コード",
+        "description": "組成時系列データの変換と、CCM（Convergent Cross Mapping）による動的な相互作用の推定を調べるRスクリプト。シミュレーションと図の作成コードを含む。",
+        "note": "2026年10月3日に、図の作成スクリプト6本すべてが構文解析を通り、元の関数を使った小さなCCMの例が旧版のrEDM 0.7.3で動いた。再現用のREADMEと自動の簡易チェックがある。図の解析全体は再実行していない。",
+        "list_description": "相対対数比変換を用いた相対量時系列の解析を再現する。"
+      },
+      "slug": "rlr-transform",
+      "headline": "RLR_transform: compositional CCM scripts",
+      "summary": "R scripts for transformations of compositional time series and dynamic interaction inference with Convergent Cross Mapping (CCM).",
+      "details": [],
+      "install": [],
+      "install_note": "",
+      "related_articles": [
+        "hidden-mediator-networks"
+      ],
+      "list_description": "Reproduce analyses of relative time series based on the relative log-ratio transform."
     },
     {
       "id": "ShotgunMetagenomics",
@@ -1053,7 +1071,8 @@
       "ja": {
         "status": "チュートリアル（日本語）",
         "description": "Dockerを使うショットガンメタゲノム解析の日本語チュートリアルとシェルスクリプト。品質管理と機能プロファイリングを扱う。",
-        "note": "スクリプトは、入力、参照データ、既存の出力を確認し、ツールが失敗すると停止し、診断用のファイルを残す。2026年10月3日に、制御の流れを確かめるローカルのテスト8件が通過した。Linuxでの自動チェックを設定済み。実データを使うDockerでの解析全体は未検証。"
+        "note": "スクリプトは、入力、参照データ、既存の出力を確認し、ツールが失敗すると停止し、診断用のファイルを残す。2026年10月3日に、制御の流れを確かめるローカルのテスト8件が通過した。Linuxでの自動チェックを設定済み。実データを使うDockerでの解析全体は未検証。",
+        "list_description": "ショットガンメタゲノム解析を実例に沿って進める。"
       },
       "slug": "shotgunmetagenomics",
       "headline": "ShotgunMetagenomics: Docker tutorial",
@@ -1061,7 +1080,8 @@
       "details": [],
       "install": [],
       "install_note": "",
-      "related_articles": []
+      "related_articles": [],
+      "list_description": "Follow a worked example of shotgun metagenomics analysis."
     },
     {
       "id": "Dockerfiles",
@@ -1074,7 +1094,8 @@
       "ja": {
         "status": "解析環境",
         "description": "バイオインフォマティクスの54のツール・環境（アセンブリ、アノテーション、リード処理、アラインメント、RNA-seq、メタゲノム）のDockerfile集。Docker Hubにkumalpha/<名前>として公開している。保守しているのはseqkitとMAFFTの2つ。",
-        "note": "MAFFTとSeqKitの環境を更新し、2026年10月3日にLinuxのCIで、Dockerのビルドと小さなFASTAでの実行確認が通過した。他の環境定義は過去のもので、未検証。"
+        "note": "MAFFTとSeqKitの環境を更新し、2026年10月3日にLinuxのCIで、Dockerのビルドと小さなFASTAでの実行確認が通過した。他の環境定義は過去のもので、未検証。",
+        "list_description": "バイオインフォマティクスとデータ解析のDocker環境を構築する。"
       },
       "links": [],
       "slug": "dockerfiles",
@@ -1083,7 +1104,8 @@
       "details": [],
       "install": [],
       "install_note": "",
-      "related_articles": []
+      "related_articles": [],
+      "list_description": "Build Docker environments for bioinformatics and data analysis."
     }
   ],
   "activities": [
