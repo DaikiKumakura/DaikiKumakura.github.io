@@ -969,6 +969,10 @@
           "label": "Get started"
         },
         {
+          "url": "https://github.com/DaikiKumakura/retiaudit/releases/tag/v0.1.0",
+          "label": "Release"
+        },
+        {
           "url": "https://daikikumakura.r-universe.dev/retiaudit",
           "label": "R-universe"
         }
