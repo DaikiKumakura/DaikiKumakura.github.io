@@ -711,6 +711,7 @@
         "note": "ベンチマークはKarimらのデータ（CC BY 4.0）の加工スナップショット。基準の確認は公開データ1組（IL23Rとクローン病）で、支持群に到達して過去の上市割合20/36が返る。個別候補の上市の予測精度は評価していない。R CMD checkはローカルで通過。CRANには未登録。",
         "list_description": "cis-pQTLのMR・colocの結果を、遺伝的支持の過去の上市割合に照らす。"
       },
+      "doi": "10.5281/zenodo.24549535",
       "slug": "geneticpos",
       "headline": "geneticPoS: genetic evidence against a launch benchmark",
       "summary": "R package that checks cis-pQTL MR and coloc results against the launch benchmark of Karim et al. and lists the gaps.",
