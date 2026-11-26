@@ -1,0 +1,29 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2026-12-31",
+  "publish_at": "2026-12-31T18:00:00+09:00",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "PK/PDシミュレーションの代理モデルはいつ使う価値があるか",
+      "seo_title": "PK/PDシミュレーションの代理モデルの採否 | Daiki Kumakura",
+      "summary": "ブースティング木と2次回帰を、2つのPD機構の仮想薬で比べ、事前に決めた規則で採否を判定する。精度・速度・範囲外の検出の限界を示す。"
+    },
+    "en": {
+      "title": "When is a surrogate for PK/PD simulation outputs worth using?",
+      "seo_title": "Adopting a surrogate for PK/PD simulation",
+      "summary": "Boosted trees against a quadratic regression on virtual drugs for two PD mechanisms, judged by a pre-set rule: accuracy, speed and the limits of the range check."
+    }
+  },
+  "english": {
+    "title": "When is a surrogate for PK/PD simulation outputs worth using?",
+    "summary": "Boosted trees against a quadratic regression on virtual drugs for two PD mechanisms, judged by a pre-set rule: accuracy, speed and the limits of the range check."
+  },
+  "reviewed": {
+    "en": "3e1a7566fc3b99bcd5c4ad73156f45c7ad1a950ec74d90ce76a426ffadd37edd"
+  }
+}

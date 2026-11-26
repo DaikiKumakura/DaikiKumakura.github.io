@@ -1,0 +1,29 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2026-12-31",
+  "publish_at": "2026-12-31T13:00:00+09:00",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "実薬のPK要約値をラベルなしの仮想ライブラリに置けるか",
+      "seo_title": "実薬PK要約値のラベルなし対応付け | Daiki Kumakura",
+      "summary": "FRDBの3,079薬の単回投与PK要約値を、ラベルなしの仮想候補に重み付けして置く。保留したCmaxの予測、個人時系列、合成薬での較正を示す。"
+    },
+    "en": {
+      "title": "Can real-drug PK summaries be placed on a label-free virtual library?",
+      "seo_title": "Label-free mapping of real-drug PK summaries",
+      "summary": "Weighting label-free one-compartment candidates by the PK summaries of 3,079 real drugs: withheld-Cmax prediction, abstention, time courses and calibration."
+    }
+  },
+  "english": {
+    "title": "Can real-drug PK summaries be placed on a label-free virtual library?",
+    "summary": "Weighting label-free one-compartment candidates by the PK summaries of 3,079 real drugs: withheld-Cmax prediction, abstention, time courses and calibration."
+  },
+  "reviewed": {
+    "en": "bd84b14ef27dd73704710361fce655f846fb88c31bdfa6ee42a746f875b45186"
+  }
+}
