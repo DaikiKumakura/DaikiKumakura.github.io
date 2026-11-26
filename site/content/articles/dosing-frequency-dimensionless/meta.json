@@ -1,0 +1,29 @@
+{
+  "source_language": "ja",
+  "category": "note",
+  "date": "2026-12-31",
+  "publish_at": "2026-12-31T09:00:00+09:00",
+  "draft": false,
+  "math": true,
+  "version": "1.0",
+  "author": "Daiki Kumakura",
+  "locales": {
+    "ja": {
+      "title": "投与頻度はいつ効くのか 無次元化によるPK/PD動態の解析",
+      "seo_title": "qdとbidの差が出る条件 | Daiki Kumakura",
+      "summary": "総投与量を同じにしたqdとbidの差が、消失と投与間隔の比、効力に対する用量、PD機構でどう変わるかを、仮想薬の計算で調べる。"
+    },
+    "en": {
+      "title": "When does dosing frequency matter? A dimensionless analysis of PK/PD dynamics",
+      "summary": "Equal-dose qd and bid schedules differ mainly when elimination is fast relative to the interval; a virtual-drug analysis across four PD mechanisms.",
+      "seo_title": "When dosing frequency matters: qd versus bid"
+    }
+  },
+  "english": {
+    "title": "When does dosing frequency matter? A dimensionless analysis of PK/PD dynamics",
+    "summary": "Equal-dose qd and bid schedules differ mainly when elimination is fast relative to the interval; a virtual-drug analysis across four PD mechanisms."
+  },
+  "reviewed": {
+    "en": "7a37ab54251698fc119498aeb32033f8027902af0d69a4fd20021558a74fb6a0"
+  }
+}
