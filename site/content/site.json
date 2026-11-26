@@ -676,6 +676,60 @@
       "list_description": "Fit Bayesian population PK models in R using NONMEM-style data."
     },
     {
+      "id": "geneticPoS",
+      "tech": "R",
+      "url": "https://github.com/DaikiKumakura/geneticPoS",
+      "status": "R package (v0.5.0)",
+      "description": "An R package that relates a user's own cis-pQTL Mendelian randomization and colocalization results to the historical launch proportions reported by Karim et al. (2026). karim_pos() matches MR and coloc rows, checks the support criteria (MR p, colocalization H4, L2G share, MeSH similarity, measured target) and returns, per candidate, the verdict, the reference benchmark and what is missing.",
+      "featured": false,
+      "links": [
+        {
+          "url": "https://daikikumakura.github.io/geneticPoS/",
+          "label": "Documentation"
+        },
+        {
+          "url": "https://github.com/DaikiKumakura/geneticPoS/releases/tag/v0.5.0",
+          "label": "Release"
+        },
+        {
+          "url": "https://daikikumakura.r-universe.dev/geneticPoS",
+          "label": "R-universe"
+        },
+        {
+          "url": "https://github.com/DaikiKumakura/geneticPoS/blob/main/reproducibility/INDEPENDENT_PQTL.md",
+          "label": "Validation"
+        },
+        {
+          "url": "https://github.com/DaikiKumakura/geneticPoS/blob/main/DATA_SOURCES.md",
+          "label": "Data sources"
+        }
+      ],
+      "note": "The benchmark is a processed snapshot of the data of Karim et al. (CC BY 4.0). The criteria were checked on one public example (IL23R and Crohn's disease), which reaches the support group and returns the historical launch proportion of 20/36; the accuracy of predicting a single candidate's launch has not been evaluated. R CMD check passes locally; not on CRAN.",
+      "ja": {
+        "status": "Rパッケージ（v0.5.0）",
+        "description": "自分のcis-pQTLメンデルランダム化・共局在の結果を、Karimら（2026）が報告した過去の上市割合に照らすRパッケージ。karim_pos()がMRとcolocの行を対応づけ、支持基準（MRのp値、H4、L2G share、MeSH類似度、測定対象）を確認し、候補ごとに判定、参照ベンチマーク、不足項目を返す。",
+        "note": "ベンチマークはKarimらのデータ（CC BY 4.0）の加工スナップショット。基準の確認は公開データ1組（IL23Rとクローン病）で、支持群に到達して過去の上市割合20/36が返る。個別候補の上市の予測精度は評価していない。R CMD checkはローカルで通過。CRANには未登録。",
+        "list_description": "cis-pQTLのMR・colocの結果を、遺伝的支持の過去の上市割合に照らす。"
+      },
+      "slug": "geneticpos",
+      "headline": "geneticPoS: genetic evidence against a launch benchmark",
+      "summary": "R package that checks cis-pQTL MR and coloc results against the launch benchmark of Karim et al. and lists the gaps.",
+      "details": [],
+      "install": [
+        {
+          "label": "R-universe",
+          "code": "install.packages(\"geneticPoS\", repos = c(\"https://daikikumakura.r-universe.dev\", \"https://cloud.r-project.org\"))"
+        },
+        {
+          "label": "GitHub",
+          "code": "install.packages(\"remotes\")\nremotes::install_github(\"DaikiKumakura/geneticPoS\")"
+        }
+      ],
+      "install_note": "",
+      "related_articles": [],
+      "list_description": "Relate cis-pQTL MR and colocalization results to the historical launch proportions of drug targets."
+    },
+    {
       "id": "pkident",
       "tech": "R",
       "url": "https://github.com/DaikiKumakura/pkident",
