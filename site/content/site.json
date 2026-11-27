@@ -957,7 +957,7 @@
       "tech": "Python",
       "url": "https://github.com/DaikiKumakura/superslim",
       "status": "Prototype (v0.8.0)",
-      "description": "A NumPy-only Python package that loads a compact SuperSLIM model file (about 4 MB) and predicts the mean transcriptome response to knocking down a gene in learned cell systems. A released model file covers K562, HCT116, HEK293T, three primary CD4+ T-cell states and KOLF2.1J iPSC. It is a compact descendant of SLIM (not affiliated with the SLIM authors) that adds catalog features and the responses of the same gene in the other systems. The package has a Python API and a command-line interface.",
+      "description": "A NumPy-only Python package that loads a compact SuperSLIM model file (about 6 MB) and predicts the mean transcriptome response to knocking down a gene in learned cell systems. A released model file covers K562, HCT116, HEK293T, three primary CD4+ T-cell states, KOLF2.1J iPSC, and the essential genes of RPE1, Jurkat and HepG2. It is a compact descendant of SLIM (not affiliated with the SLIM authors) that adds catalog features and the responses of the same gene in the other systems. The package has a Python API and a command-line interface.",
       "featured": false,
       "links": [
         {
@@ -985,11 +985,11 @@
           "label": "R package"
         }
       ],
-      "note": "Nine tests on a synthetic model pass in Linux, Windows and macOS CI on Python 3.9 to 3.13. A released model file built only from data with verified terms covers K562, HCT116, HEK293T, three primary CD4+ T-cell states and KOLF2.1J iPSC (strong-effect targets only) (target-specific signal on held-out genes 0.09 to 0.56; the CD4 values depend on the sibling states of the same experiment). Benchmarks cover held-out accuracy, a SLIM-style baseline on the same split, ablation, coverage, learning curve and runtime. Predictions for genes a system never measured were not validated against an independent platform; use them as hypotheses.",
+      "note": "Nine tests on a synthetic model pass in Linux, Windows and macOS CI on Python 3.9 to 3.13. A released model file built only from data with verified terms covers K562, HCT116, HEK293T, three primary CD4+ T-cell states and KOLF2.1J iPSC (strong-effect targets only), and RPE1, Jurkat and HepG2 (essential genes only) (target-specific signal on held-out genes 0.09 to 0.56; the CD4 values depend on the sibling states of the same experiment). Benchmarks cover held-out accuracy, a SLIM-style baseline on the same split, ablation, coverage, learning curve and runtime. Predictions for genes a system never measured were not validated against an independent platform; use them as hypotheses.",
       "ja": {
         "status": "試作（v0.8.0）",
-        "description": "コンパクトなSuperSLIMのモデルファイル（約4 MB）を読み込み、学習済みの細胞系での遺伝子ノックダウン後の平均転写応答を予測する、NumPyだけのPythonパッケージ。公開しているモデルのファイルは、K562、HCT116、HEK293T、初代CD4+ T細胞の3状態、KOLF2.1J iPSCを対象とする。SLIMから出発した軽量版（SLIMの作者とは無関係）で、カタログ特徴と、同じ遺伝子の他の系での応答を加えている。PythonのAPIとコマンドラインを備える。",
-        "note": "合成モデルによる9件のテストが、Python 3.9〜3.13のLinux・Windows・macOSのCIで通過している。利用条件を確認したデータだけで作ったモデルのファイルを公開しており、K562、HCT116、HEK293T、初代CD4+ T細胞の3状態、KOLF2.1J iPSC（強い応答の標的のみ）を予測する（保留した遺伝子での標的特異的な信号は0.09〜0.56。CD4の値は同じ実験の他の状態に依存する）。性能評価（保留した遺伝子での精度、同一分割でのSLIM型との比較、アブレーション、被覆別の精度、学習曲線、実行時間）を文書にした。系が一度も測定していない遺伝子の予測は、独立した測定系では検証していないため、仮説として使う。",
+        "description": "コンパクトなSuperSLIMのモデルファイル（約6 MB）を読み込み、学習済みの細胞系での遺伝子ノックダウン後の平均転写応答を予測する、NumPyだけのPythonパッケージ。公開しているモデルのファイルは、K562、HCT116、HEK293T、初代CD4+ T細胞の3状態、KOLF2.1J iPSC、RPE1・Jurkat・HepG2（必須遺伝子のみ）を対象とする。SLIMから出発した軽量版（SLIMの作者とは無関係）で、カタログ特徴と、同じ遺伝子の他の系での応答を加えている。PythonのAPIとコマンドラインを備える。",
+        "note": "合成モデルによる9件のテストが、Python 3.9〜3.13のLinux・Windows・macOSのCIで通過している。利用条件を確認したデータだけで作ったモデルのファイルを公開しており、K562、HCT116、HEK293T、初代CD4+ T細胞の3状態、KOLF2.1J iPSC（強い応答の標的のみ）、RPE1・Jurkat・HepG2（必須遺伝子のみ）を予測する（保留した遺伝子での標的特異的な信号は0.09〜0.56。CD4の値は同じ実験の他の状態に依存する）。性能評価（保留した遺伝子での精度、同一分割でのSLIM型との比較、アブレーション、被覆別の精度、学習曲線、実行時間）を文書にした。系が一度も測定していない遺伝子の予測は、独立した測定系では検証していないため、仮説として使う。",
         "list_description": "小型モデルで遺伝子摂動後の転写応答を予測する。"
       },
       "slug": "superslim",
