@@ -1012,61 +1012,6 @@
       "list_description": "Predict transcriptional responses to gene perturbations with a compact model."
     },
     {
-      "id": "superslim-r",
-      "tech": "R",
-      "url": "https://github.com/DaikiKumakura/superslim/tree/main/r",
-      "status": "R package (v0.7.0)",
-      "description": "An R package that loads a compact SuperSLIM model file and predicts the mean transcriptome response to knocking down a gene in the learned cell systems. The inference is written in base R and gives the same values as the Python package (maximum difference 4e-7 on the released model). The only dependency is the archive package, which reads the compressed model file.",
-      "featured": false,
-      "links": [
-        {
-          "url": "https://github.com/DaikiKumakura/superslim/blob/main/r/README.md",
-          "label": "Get started"
-        },
-        {
-          "url": "https://daikikumakura.r-universe.dev/superslim",
-          "label": "R-universe"
-        },
-        {
-          "url": "https://github.com/DaikiKumakura/superslim",
-          "label": "Python package"
-        },
-        {
-          "url": "https://github.com/DaikiKumakura/superslim-models",
-          "label": "Model files (CC BY-NC-SA)"
-        },
-        {
-          "url": "https://doi.org/10.5281/zenodo.24393778",
-          "label": "Archive (Zenodo)"
-        }
-      ],
-      "note": "Initial version, not on CRAN. The R package lives in the r/ folder of the superslim repository (same version number as the Python package). R package checks pass in CI on Linux, Windows and macOS. The tests compare predictions of a synthetic model with golden values from the Python package, and the released model agrees with the Python package to 4e-7. Only the systems in a model file are predicted; predictions for genes a system never measured are hypotheses.",
-      "ja": {
-        "status": "Rパッケージ（v0.7.0）",
-        "description": "コンパクトなSuperSLIMのモデルファイルを読み込み、学習済みの細胞系での遺伝子ノックダウン後の平均転写応答を予測するRパッケージ。推論は基本のRだけで書かれ、Pythonパッケージと同じ値を返す（公開モデルで最大差4e-7）。依存は、圧縮されたモデルファイルを読むarchiveパッケージだけ。",
-        "note": "初版で、CRANには未登録。パッケージはsuperslimリポジトリの r/ フォルダにあり、版番号はPython版と同じ。Rパッケージのチェックは、CIのLinux・Windows・macOSで通過。テストは、合成モデルの予測をPythonパッケージの値と照合し、公開モデルでもPythonパッケージと4e-7で一致する。予測できるのはモデルファイルにある系だけで、系が一度も測定していない遺伝子の予測は仮説として扱う。",
-        "list_description": "コンパクトなモデルで遺伝子ノックダウン後の応答をRで予測する。"
-      },
-      "slug": "superslim-r",
-      "headline": "superslim (R): SuperSLIM predictions in base R",
-      "summary": "R package that loads a compact SuperSLIM model file and predicts mean transcriptome responses to gene knockdown, matching the Python package.",
-      "details": [],
-      "install": [
-        {
-          "label": "R (binary from R-universe)",
-          "code": "install.packages(\"superslim\", repos = c(\"https://daikikumakura.r-universe.dev\", \"https://cloud.r-project.org\"))"
-        },
-        {
-          "label": "R",
-          "code": "pak::pak(\"DaikiKumakura/superslim/r\")\nlibrary(superslim)\nm <- ss_load(ss_download(\"open-v3\"))\nss_predict(m, c(\"TP53\", \"EGFR\"), \"cd4_rest\")"
-        }
-      ],
-      "install_note": "Not on CRAN; initial version. The open model (CC BY-NC-SA 4.0, non-commercial) is downloaded on request and checked against its SHA-256.",
-      "related_articles": [],
-      "list_description": "Predict transcriptional responses to gene knockdown in R with a compact model.",
-      "doi": "10.5281/zenodo.24393778"
-    },
-    {
       "id": "retiaudit",
       "tech": "R",
       "url": "https://github.com/DaikiKumakura/retiaudit",
